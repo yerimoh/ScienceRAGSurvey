@@ -1,0 +1,160 @@
+---
+notion_id: 355f2dcd-4912-81dc-9b5b-ea1a837f8fd1
+title: "SCIFACT-OPEN: Towards open-domain scientific claim verification"
+bib_key: DBLP:conf/emnlp/WaddenLKCBWH22
+year: 2022
+domain: medical, bio
+type: benchmark
+venue: EMNLP (Findings)
+paper_link: https://arxiv.org/abs/2210.13777
+originSessionId: e17a6512-257b-4eac-96cc-808523cf24a8
+---
+# SCIFACT-OPEN: Towards open-domain scientific claim verification
+
+> arXiv | 2022 | benchmark | medical, bio
+## 📌 한 줄 요약
+50만 개의 연구 초록 코퍼스에 대해 과학적 주장 검증 시스템을 평가하기 위한 대규모 오픈 도메인 테스트 콜렉션.
+## 🎯 제작 배경
+**기존 벤치마크의 한계**
+- 기존 과학적 주장 검증 시스템들은 소규모의 인위적인 문서 집합(약 5K 규모)이나 단일 문서 환경에서만 평가되어, 실제 오픈 도메인 환경에서의 확장성 검증이 불가능함.
+- 대규모 코퍼스를 사용할 경우 모든 증거 문서에 대해 철저한 수동 주석(exhaustive annotation)을 진행하는 것이 물리적으로 불가능하므로 이를 해결할 수 있는 새로운 벤치마크가 필요.
+## 🔨 어떻게 만들었나 (Construction Methodology)
+[image]
+- **Step 1 (코퍼스 출처 선정 및 샘플링)**: S2ORC 데이터셋에서 의학 또는 생물학 필드를 포함하며, 최소 1개의 수신 및 발신 인용이 존재하는 고품질 논문들을 필터링. 650만 개의 후보 중 50만 개를 무작위 샘플링하여 오픈 도메인 코퍼스 구성.
+- **Step 2 (예측 모델을 통한 풀링(Pooling))**: TREC 대회 방식에서 영감을 받아 풀링 전략 도입. BM25와 VerT5erini 신경망 리랜커를 이용해 클레임당 k=50개의 초록 검색. 이후 VerT5erini, ParagraphJoint, MultiVerS, MultiVerS10 등 최신 4개 시스템의 신뢰도(Confidence) 점수를 기반으로 랜킹 산정.
+- **Step 3 (주석 풀(Annotation Pool) 생성)**: 각 모델별로 상위 250개(d=250)의 클레임-초록 쌍(CAP) 예측값을 수집하고, 이들의 합집합(Union)으로 최종 주석 풀 생성.
+- **Step 4 (전문가 품질 검증 및 라벨링)**: 생물학 관련 학위를 가진 3명의 전문 주석자가 풀에 포함된 문서를 검토하여 최종적으로 SUPPORTS, REFUTES, NEI(Not Enough Info) 라벨을 부여.
+## 📥 Input (입력)
+<table header-row="true">
+<tr>
+<td>항목</td>
+<td>내용</td>
+</tr>
+<tr>
+<td>입력 쿼리</td>
+<td>과학적 주장(Claim) 문장</td>
+</tr>
+<tr>
+<td>코퍼스</td>
+<td>50만 개 S2ORC 초록</td>
+</tr>
+<tr>
+<td>도메인</td>
+<td>의학 및 생물학</td>
+</tr>
+<tr>
+<td>클레임 수</td>
+<td>279개</td>
+</tr>
+<tr>
+<td>출처</td>
+<td>SCIFACT-ORIG에서 추출한 클레임으로부터 확장</td>
+</tr>
+</table>
+**제공 필드**
+<table header-row="true">
+<tr>
+<td>필드명</td>
+<td>설명</td>
+</tr>
+<tr>
+<td>Claim</td>
+<td>검증할 과학적 주장 문장</td>
+</tr>
+<tr>
+<td>Corpus</td>
+<td>주장을 검증하기 위해 검색해야 할 50만 개의 전체 초록 문서 세트</td>
+</tr>
+</table>
+## 📤 Output (출력 / 정답 형식)
+<table header-row="true">
+<tr>
+<td>항목</td>
+<td>내용</td>
+</tr>
+<tr>
+<td>출력 형태</td>
+<td>클레임을 지지(SUPPORTS)하거나 반박(REFUTES)하는 증거 초록 + 라벨</td>
+</tr>
+<tr>
+<td>평가 지표</td>
+<td>Precision, Recall, F1, Average Precision</td>
+</tr>
+</table>
+**벤치마크된 모델 목록**
+<table header-row="true">
+<tr>
+<td>모델명</td>
+<td>기반</td>
+<td>설명</td>
+</tr>
+<tr>
+<td>VerT5erini</td>
+<td>T5-3B</td>
+<td>문장 단위 추출 후 T5 모델로 팩트 체크 파이프라인</td>
+</tr>
+<tr>
+<td>ParagraphJoint</td>
+<td>RoBERTa</td>
+<td>512 토큰 성성, 전체 단락 동시 인코딩 Multi-task 학습</td>
+</tr>
+<tr>
+<td>MultiVerS</td>
+<td>Longformer</td>
+<td>긴 문서 문맥 파악을 위해 Longformer 사용</td>
+</tr>
+<tr>
+<td>ARSJoint</td>
+<td>RoBERTa</td>
+<td>Abstract, Rationale, Stance를 Joint로 예측</td>
+</tr>
+</table>
+## 💡 예시 문항
+**Supports 예시**
+- **Claim**: 알콘올 소비 이력이 있는 개인은 암 위험이 더 낙다. (Cancer risk is lower in individuals with a history of alcohol consumption)
+- **Supporting Evidence**: 알콘올 소비는 갑상선암 위험 감소와 관련이 있었다. (Alcohol consumption was associated with a decreased risk of thyroid cancer)
+**Refutes 예시**
+- **Claim**: (Above same claim)
+- **Refuting Evidence**: 알콘올 소비 수준이 증가함에 따라 암 위험이 상승하는 것을 발견했다. (We found that the risk of cancer rises with increasing levels of alcohol consumption)
+## 📊 주요 평가 결과
+**SCIFACT-OPEN 환경 (F1 Score)**
+<table header-row="true">
+<tr>
+<td>모델</td>
+<td>F1</td>
+<td>Average Precision</td>
+</tr>
+<tr>
+<td>VerT5erini</td>
+<td>36.4</td>
+<td>27.5</td>
+</tr>
+<tr>
+<td>ParagraphJoint</td>
+<td>46.5</td>
+<td>40.5</td>
+</tr>
+<tr>
+<td>MultiVerS</td>
+<td>**52.4**</td>
+<td>**44.9**</td>
+</tr>
+<tr>
+<td>MultiVerS 10</td>
+<td>51.3</td>
+<td>43.4</td>
+</tr>
+<tr>
+<td>ARSJoint</td>
+<td>41.4</td>
+<td>-</td>
+</tr>
+</table>
+- SCIFACT-ORIG에서 뛰어난 성능을 보였던 모델들이 오픈 도메인 환경에 적용되자 **F1 점수가 15~30점 하락** — 대규모 코퍼스에 대한 일반화 능력이 매우 부족함을 입증.
+## ⚠️ 한계점
+- 데이터 수집 과정에서 초기 검색(Retrieval) 시 단일 정보 검색 시스템(BM25 + VerT5erini)에만 의존.
+- 전통적인 TREC 대회에 비해 적은 수(4개)의 시스템만을 풀링(Pooling) 과정에 사용하여 미발견된 증거 문서가 코퍼스 내에 남아있을 불확실성 존재.
+## 🔗 관련 정보
+- 논문: [https://arxiv.org/abs/2210.13777](https://arxiv.org/abs/2210.13777)
+- GitHub: [https://github.com/dwadden/scifact-open](https://github.com/dwadden/scifact-open)
+- 이 벤치마크를 사용한 논문: SCIFACT-OPEN 제안 원 논문 (arXiv 2022)

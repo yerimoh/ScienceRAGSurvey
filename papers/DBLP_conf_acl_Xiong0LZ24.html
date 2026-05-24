@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Benchmarking Retrieval-Augmented Generation for Medicine — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">[K1.O1] <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">[K1.O2] <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">[K1.O3] <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">[K2.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">[K2.O2] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">[K2.O3] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">[K3.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">[K3.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">[K3.O3] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">[K4.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">[K4.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">[K4.O3] <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">[K1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.html" class="sb-sub">[K2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.html" class="sb-sub">[K3] <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">[K4] <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">[O1] <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">[O2] <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">[O3] <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">16</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">9</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">14</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">3</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">6</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">3</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">2</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Benchmarking Retrieval-Augmented Generation for Medicine</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">ACL (Findings)</span>
+      <span class="meta-year">2024</span>
+      
+    </div>
+    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell">K1.O1</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>Benchmarking Retrieval-Augmented Generation for Medicine</h1>
+<blockquote>
+<p>ACL (Findings) | 2024 | dataset | medical · bio</p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>의료 도메인 맞춤형 RAG 평가 벤치마크(MIRAGE)와 툴킷(MEDRAG)을 제안. PubMed, StatPearls, Textbooks, Wikipedia를 통합한 MedCorp와 다중 검색기 융합(RRF)이 가장 효과적임을 체계적으로 실증.</p>
+<h2>연구 배경 및 동기</h2>
+<ul>
+<li><strong>기존 방법의 한계</strong>: LLM은 의료 전문 영역에서 환각(Hallucination)과 노후화된 지식 문제를 겪고 있음</li>
+<li><strong>이 연구가 필요한 이유</strong>: 의학 RAG에서 코퍼스·검색기·LLM의 유연한 구성 요소들을 최적으로 조합하는 Best Practice에 대한 체계적 평가와 가이드라인이 부재</li>
+</ul>
+<h2>시스템 아키텍처</h2>
+<pre><code>[질문(Question) 입력]
+      │  (Options 숨김, Question-Only Retrieval)
+      ▼
+[Retrieval: BM25 / Contriever / SPECTER / MedCPT]
+      │
+      ▼
+[MedCorp 코퍼스 검색]
+PubMed (23.9M) + StatPearls (9.3k) + Textbooks (18)
++ Wikipedia (6.5M) → 상위 32개 Snippet 추출
+      │
+      ▼
+[RRF (Reciprocal Rank Fusion)]
+다중 검색기 결과 융합 (RRF-2: BM25+MedCPT, RRF-4: 전체)
+      │
+      ▼
+[Generation: GPT-4 / GPT-3.5 / Mixtral / Llama2 등]
+검색된 Context + Question + Options 입력
+→ Chain-of-Thought 프롬프팅 후 최종 답변
+</code></pre>
+<h2>핵심 모듈 상세 설명</h2>
+<h3>1. MIRAGE (평가 벤치마크)</h3>
+<ul>
+<li>Zero-shot + Question-Only Retrieval(QOR) 설정 강제</li>
+<li>5개 데이터셋 통합 7,663개 의료 QA 문항</li>
+</ul>
+<h3>2. MedCorp (통합 코퍼스)</h3>
+<table>
+<thead>
+<tr>
+  <th>코퍼스</th>
+  <th>문서 수</th>
+  <th>특성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>PubMed</td>
+  <td>23.9M</td>
+  <td>생의학 논문</td>
+</tr>
+<tr>
+  <td>StatPearls</td>
+  <td>9.3k</td>
+  <td>임상 가이드</td>
+</tr>
+<tr>
+  <td>Textbooks</td>
+  <td>18</td>
+  <td>의학 전공 서적</td>
+</tr>
+<tr>
+  <td>Wikipedia</td>
+  <td>6.5M</td>
+  <td>일반 지식</td>
+</tr>
+<tr>
+  <td><strong>MedCorp 합계</strong></td>
+  <td><strong>30.4M</strong></td>
+  <td><strong>54.2M snippets</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>청크: LangChain RecursiveCharacterTextSplitter, 최대 1000자, 평균 221 토큰</li>
+</ul>
+<h3>3. 다중 검색기 융합 (RRF)</h3>
+<ul>
+<li><strong>Lexical(BM25)</strong> + <strong>Semantic(MedCPT, Contriever, SPECTER)</strong> 장점 결합</li>
+<li>RRF-2: BM25 + MedCPT (Biomed 특화 조합)</li>
+<li>RRF-4: BM25 + Contriever + SPECTER + MedCPT (전체)</li>
+</ul>
+<h2>실험 및 평가</h2>
+<p><strong>평가 태스크</strong>: MIRAGE (MMLU-Med, MedQA-US, MedMCQA, PubMedQA*, BioASQ-Y/N)</p>
+<p><strong>주요 결과 (MIRAGE 전체 Accuracy)</strong></p>
+<table>
+<thead>
+<tr>
+  <th>LLM 모델</th>
+  <th>CoT 단독</th>
+  <th>MEDRAG (MedCorp+RRF-4)</th>
+  <th>향상</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPT-4</td>
+  <td>73.44%</td>
+  <td><strong>79.97%</strong></td>
+  <td>+6.53%p</td>
+</tr>
+<tr>
+  <td>GPT-3.5</td>
+  <td>60.69%</td>
+  <td>71.57%</td>
+  <td>+10.88%p</td>
+</tr>
+<tr>
+  <td>Mixtral 8x7B</td>
+  <td>61.42%</td>
+  <td>69.48%</td>
+  <td>+8.06%p</td>
+</tr>
+<tr>
+  <td>MEDITRON-70B</td>
+  <td>57.04%</td>
+  <td>60.18%</td>
+  <td>+3.14%p</td>
+</tr>
+<tr>
+  <td>PMC-LLaMA-13B</td>
+  <td>36.82%</td>
+  <td>46.52%</td>
+  <td>+9.70%p</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>GPT-3.5 + MEDRAG가 CoT GPT-4에 근접하는 향상 달성</li>
+<li>Lost-in-the-middle 현상 평가 포함 (정답 문맥 위치에 따른 성능 변화)</li>
+</ul>
+<h2>핵심 기여</h2>
+<ol>
+<li>의료 영역 RAG 시스템을 위한 최초의 체계적 대규모 벤치마크(MIRAGE)와 툴킷(MEDRAG) 오픈소스 제공</li>
+<li>태스크 유형에 따라 최적 코퍼스와 검색기(MedCPT + BM25 조합 등)가 다름을 실험적으로 증명하고 Best Practice 가이드라인 제시</li>
+</ol>
+<h2>한계점</h2>
+<ul>
+<li>가장 기본적인 Vanilla RAG 아키텍처에만 초점 → Active RAG 등 최신 다이나믹 RAG 구조 평가 부족</li>
+<li>PubMed Central 전체 텍스트, 신뢰할 수 있는 FAQ 등 더 다양한 외부 자원이 코퍼스에 제외됨</li>
+</ul>
+<h2>관련 연구 및 관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: (확인 후 추가 필요)</li>
+<li><strong>GitHub (MEDRAG)</strong>: <a href="https://github.com/Teddy-XiongGZ/MedRAG">https://github.com/Teddy-XiongGZ/MedRAG</a></li>
+<li><strong>GitHub (MIRAGE)</strong>: <a href="https://github.com/Teddy-XiongGZ/MIRAGE">https://github.com/Teddy-XiongGZ/MIRAGE</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

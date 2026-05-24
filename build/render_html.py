@@ -226,6 +226,9 @@ def paper_card(p, base=''):
     domains = p.get('domain', [])
     typ = p.get('type', '')
     modality = p.get('modality', [])
+    bib_key = p.get('bib_key', '')
+    paper_fn = bib_key.replace(':', '_').replace('/', '_') + '.html'
+    has_summary = bib_key and (ROOT / 'papers' / paper_fn).exists()
 
     title_html = f'<a href="{esc(url)}" target="_blank" rel="noopener">{title} ↗</a>' if url else title
     meta_parts = []
@@ -250,11 +253,15 @@ def paper_card(p, base=''):
     if p.get('cross_source'):
         tag_html.append('<span class="tag tag-xs">★ cross-source</span>')
 
+    summary_link = (f'<a href="{base}papers/{paper_fn}" class="card-summary-link">Summary →</a>'
+                    if has_summary else '')
+
     return f'''<article class="card">
   <h3 class="card-title">{title_html}</h3>
   {f'<div class="card-meta">{meta}</div>' if meta else ''}
   {f'<p class="card-note">{note}</p>' if note else ''}
   <div class="card-tags">{''.join(tag_html)}</div>
+  {summary_link}
 </article>
 '''
 
@@ -1018,7 +1025,68 @@ def render_insights():
     (ROOT / 'insights.html').write_text(page_head('Insights', base='', desc='The five requirements of scientific RAG, K×Domain coverage map, paper growth timeline, cross-source bridges, and frontier opportunities.', current='insights') + body + PAGE_FOOT)
 
 
+def render_paper_pages():
+    """Render papers/<bib_key>.html from papers/<bib_key>.md (Notion summaries)."""
+    import mistune
+    md_renderer = mistune.create_markdown(plugins=['table','strikethrough','footnotes','url'])
+    papers_by_key = {p['bib_key']: p for p in papers if p.get('bib_key')}
+    papers_dir = ROOT / 'papers'
+    if not papers_dir.exists():
+        print('  papers/ dir missing — skipping summary pages')
+        return
+    count = 0
+    for md_file in sorted(papers_dir.glob('*.md')):
+        bib_key_fn = md_file.stem  # filename without .md, with _ instead of :/
+        # Find matching paper entry
+        # Try direct match (bib_key as filename)
+        matching = None
+        for bk, p in papers_by_key.items():
+            if bk.replace(':','_').replace('/','_') == bib_key_fn:
+                matching = p; break
+        if not matching:
+            continue
+        title = matching.get('title') or bib_key_fn
+        md_content = md_file.read_text()
+        # Strip YAML frontmatter if present
+        if md_content.startswith('---'):
+            end = md_content.find('---', 3)
+            if end > 0:
+                md_content = md_content[end+3:].lstrip()
+        body_html = md_renderer(md_content)
+        bk_actual = matching['bib_key']
+        url = matching.get('paper_link') or ''
+        url_link = f'<a href="{esc(url)}" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>' if url else ''
+        cells = matching.get('ko_cells', [])
+        cell_tags = ''.join(f'<a href="../cell/{c}.html" class="tag tag-cell">{c}</a>' for c in cells)
+        body = f'''
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>{esc(title)}</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">{esc(matching.get('venue',''))}</span>
+      <span class="meta-year">{esc(matching.get('year',''))}</span>
+      {url_link}
+    </div>
+    <div class="paper-tags">{cell_tags}</div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      {body_html}
+    </article>
+  </div>
+</section>
+'''
+        out_fn = bib_key_fn + '.html'
+        (papers_dir / out_fn).write_text(page_head(esc(title), base='../', current=f'papers/{bib_key_fn}') + body + PAGE_FOOT)
+        count += 1
+    print(f'  papers/*.html ({count} summaries)')
+
+
 if __name__ == '__main__':
+    render_paper_pages()   # First, so paper_card() can detect summary pages
     render_index()
     render_about()
     render_browse()

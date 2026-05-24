@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SCIFACT-OPEN: Towards open-domain scientific claim verification — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">[K1.O1] <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">[K1.O2] <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">[K1.O3] <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">[K2.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">[K2.O2] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">[K2.O3] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">[K3.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">[K3.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">[K3.O3] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">[K4.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">[K4.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">[K4.O3] <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">[K1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.html" class="sb-sub">[K2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.html" class="sb-sub">[K3] <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">[K4] <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">[O1] <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">[O2] <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">[O3] <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">16</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">9</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">14</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">3</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">6</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">3</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">2</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>SCIFACT-OPEN: Towards open-domain scientific claim verification</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">EMNLP (Findings)</span>
+      <span class="meta-year">2022</span>
+      <a href="https://arxiv.org/abs/2210.13777" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell">K1.O2</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>SCIFACT-OPEN: Towards open-domain scientific claim verification</h1>
+<ul>
+<li>기존 과학적 주장 검증 시스템들은 소규모의 인위적인 문서 집합(약 5K 규모)이나 단일 문서 환경에서만 평가되어, 실제 오픈 도메인 환경에서의 확장성 검증이 불가능함.</li>
+<li>대규모 코퍼스를 사용할 경우 모든 증거 문서에 대해 철저한 수동 주석(exhaustive annotation)을 진행하는 것이 물리적으로 불가능하므로 이를 해결할 수 있는 새로운 벤치마크가 필요.</li>
+</ul>
+<blockquote>
+<p>arXiv | 2022 | benchmark | medical, bio</p>
+<h2>📌 한 줄 요약</h2>
+<p>50만 개의 연구 초록 코퍼스에 대해 과학적 주장 검증 시스템을 평가하기 위한 대규모 오픈 도메인 테스트 콜렉션.</p>
+<h2>🎯 제작 배경</h2>
+<p><strong>기존 벤치마크의 한계</strong></p>
+</blockquote>
+<h2>🔨 어떻게 만들었나 (Construction Methodology)</h2>
+<p>[image]</p>
+<ul>
+<li><strong>Step 1 (코퍼스 출처 선정 및 샘플링)</strong>: S2ORC 데이터셋에서 의학 또는 생물학 필드를 포함하며, 최소 1개의 수신 및 발신 인용이 존재하는 고품질 논문들을 필터링. 650만 개의 후보 중 50만 개를 무작위 샘플링하여 오픈 도메인 코퍼스 구성.</li>
+<li><strong>Step 2 (예측 모델을 통한 풀링(Pooling))</strong>: TREC 대회 방식에서 영감을 받아 풀링 전략 도입. BM25와 VerT5erini 신경망 리랜커를 이용해 클레임당 k=50개의 초록 검색. 이후 VerT5erini, ParagraphJoint, MultiVerS, MultiVerS10 등 최신 4개 시스템의 신뢰도(Confidence) 점수를 기반으로 랜킹 산정.</li>
+<li><strong>Step 3 (주석 풀(Annotation Pool) 생성)</strong>: 각 모델별로 상위 250개(d=250)의 클레임-초록 쌍(CAP) 예측값을 수집하고, 이들의 합집합(Union)으로 최종 주석 풀 생성.</li>
+<li><strong>Step 4 (전문가 품질 검증 및 라벨링)</strong>: 생물학 관련 학위를 가진 3명의 전문 주석자가 풀에 포함된 문서를 검토하여 최종적으로 SUPPORTS, REFUTES, NEI(Not Enough Info) 라벨을 부여.</li>
+</ul>
+<h2>📥 Input (입력)</h2>
+<p>&lt;table header-row=&quot;true&quot;&gt;
+&lt;tr&gt;
+&lt;td&gt;항목&lt;/td&gt;
+&lt;td&gt;내용&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;입력 쿼리&lt;/td&gt;
+&lt;td&gt;과학적 주장(Claim) 문장&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;코퍼스&lt;/td&gt;
+&lt;td&gt;50만 개 S2ORC 초록&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;도메인&lt;/td&gt;
+&lt;td&gt;의학 및 생물학&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;클레임 수&lt;/td&gt;
+&lt;td&gt;279개&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;출처&lt;/td&gt;
+&lt;td&gt;SCIFACT-ORIG에서 추출한 클레임으로부터 확장&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+**제공 필드**
+&lt;table header-row=&quot;true&quot;&gt;
+&lt;tr&gt;
+&lt;td&gt;필드명&lt;/td&gt;
+&lt;td&gt;설명&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Claim&lt;/td&gt;
+&lt;td&gt;검증할 과학적 주장 문장&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Corpus&lt;/td&gt;
+&lt;td&gt;주장을 검증하기 위해 검색해야 할 50만 개의 전체 초록 문서 세트&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+## 📤 Output (출력 / 정답 형식)
+&lt;table header-row=&quot;true&quot;&gt;
+&lt;tr&gt;
+&lt;td&gt;항목&lt;/td&gt;
+&lt;td&gt;내용&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;출력 형태&lt;/td&gt;
+&lt;td&gt;클레임을 지지(SUPPORTS)하거나 반박(REFUTES)하는 증거 초록 + 라벨&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;평가 지표&lt;/td&gt;
+&lt;td&gt;Precision, Recall, F1, Average Precision&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+**벤치마크된 모델 목록**
+&lt;table header-row=&quot;true&quot;&gt;
+&lt;tr&gt;
+&lt;td&gt;모델명&lt;/td&gt;
+&lt;td&gt;기반&lt;/td&gt;
+&lt;td&gt;설명&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VerT5erini&lt;/td&gt;
+&lt;td&gt;T5-3B&lt;/td&gt;
+&lt;td&gt;문장 단위 추출 후 T5 모델로 팩트 체크 파이프라인&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ParagraphJoint&lt;/td&gt;
+&lt;td&gt;RoBERTa&lt;/td&gt;
+&lt;td&gt;512 토큰 성성, 전체 단락 동시 인코딩 Multi-task 학습&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MultiVerS&lt;/td&gt;
+&lt;td&gt;Longformer&lt;/td&gt;
+&lt;td&gt;긴 문서 문맥 파악을 위해 Longformer 사용&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ARSJoint&lt;/td&gt;
+&lt;td&gt;RoBERTa&lt;/td&gt;
+&lt;td&gt;Abstract, Rationale, Stance를 Joint로 예측&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+## 💡 예시 문항
+**Supports 예시**
+- **Claim**: 알콘올 소비 이력이 있는 개인은 암 위험이 더 낙다. (Cancer risk is lower in individuals with a history of alcohol consumption)
+- **Supporting Evidence**: 알콘올 소비는 갑상선암 위험 감소와 관련이 있었다. (Alcohol consumption was associated with a decreased risk of thyroid cancer)
+**Refutes 예시**
+- **Claim**: (Above same claim)
+- **Refuting Evidence**: 알콘올 소비 수준이 증가함에 따라 암 위험이 상승하는 것을 발견했다. (We found that the risk of cancer rises with increasing levels of alcohol consumption)
+## 📊 주요 평가 결과
+**SCIFACT-OPEN 환경 (F1 Score)**
+&lt;table header-row=&quot;true&quot;&gt;
+&lt;tr&gt;
+&lt;td&gt;모델&lt;/td&gt;
+&lt;td&gt;F1&lt;/td&gt;
+&lt;td&gt;Average Precision&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VerT5erini&lt;/td&gt;
+&lt;td&gt;36.4&lt;/td&gt;
+&lt;td&gt;27.5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ParagraphJoint&lt;/td&gt;
+&lt;td&gt;46.5&lt;/td&gt;
+&lt;td&gt;40.5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MultiVerS&lt;/td&gt;
+&lt;td&gt;**52.4**&lt;/td&gt;
+&lt;td&gt;**44.9**&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MultiVerS 10&lt;/td&gt;
+&lt;td&gt;51.3&lt;/td&gt;
+&lt;td&gt;43.4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ARSJoint&lt;/td&gt;
+&lt;td&gt;41.4&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+- SCIFACT-ORIG에서 뛰어난 성능을 보였던 모델들이 오픈 도메인 환경에 적용되자 **F1 점수가 15~30점 하락** — 대규모 코퍼스에 대한 일반화 능력이 매우 부족함을 입증.
+## ⚠️ 한계점
+- 데이터 수집 과정에서 초기 검색(Retrieval) 시 단일 정보 검색 시스템(BM25 + VerT5erini)에만 의존.
+- 전통적인 TREC 대회에 비해 적은 수(4개)의 시스템만을 풀링(Pooling) 과정에 사용하여 미발견된 증거 문서가 코퍼스 내에 남아있을 불확실성 존재.
+## 🔗 관련 정보
+- 논문: [https://arxiv.org/abs/2210.13777](https://arxiv.org/abs/2210.13777)
+- GitHub: [https://github.com/dwadden/scifact-open](https://github.com/dwadden/scifact-open)
+- 이 벤치마크를 사용한 논문: SCIFACT-OPEN 제안 원 논문 (arXiv 2022)</p>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

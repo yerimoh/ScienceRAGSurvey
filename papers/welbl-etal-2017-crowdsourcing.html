@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Crowdsourcing Multiple Choice Science Questions — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">[K1.O1] <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">[K1.O2] <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">[K1.O3] <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">[K2.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">[K2.O2] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">[K2.O3] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">[K3.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">[K3.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">[K3.O3] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">[K4.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">[K4.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">[K4.O3] <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">[K1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.html" class="sb-sub">[K2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.html" class="sb-sub">[K3] <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">[K4] <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">[O1] <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">[O2] <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">[O3] <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">16</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">9</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">14</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">3</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">6</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">3</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">2</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Crowdsourcing Multiple Choice Science Questions</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Workshop on Noisy User-generated Text (WNUT)</span>
+      <span class="meta-year">2017</span>
+      <a href="https://aclanthology.org/W17-4413/" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/O1.html" class="tag tag-cell">O1</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>Crowdsourcing Multiple Choice Science Questions</h1>
+<blockquote>
+<p>WNUT @ EMNLP | 2017 | Benchmark | Domain: physics, chem, bio</p>
+</blockquote>
+<hr />
+<h2>📌 한 줄 요약</h2>
+<h2>물리·화학·생물 분야의 <strong>13,679개 4지 선다형 과학 문제</strong>를 크라우드소싱으로 구축한 데이터셋. 대다수 문항에 정답 근거 단락(supporting evidence)이 함께 제공된다.</h2>
+<h2>🎯 제작 배경</h2>
+<h2>기존 과학 QA 데이터셋은 규모가 작거나 단일 도메인에 편향되는 문제가 있었다. Welbl et al. (2017)은 크라우드워커를 활용한 <strong>대규모 도메인 특화 MCQ 생성 방법론</strong>을 제안하고, 이를 통해 SciQ를 구축했다. 핵심 아이디어는 도메인 특화 코퍼스에서 문서를 자동 추천하고, 오답 선택지를 AI가 제안해 사람이 최종 검수하는 방식이다.</h2>
+<h2>🔨 어떻게 만들었나 (Construction Methodology)</h2>
+<h3>Step 1 — 도메인 코퍼스 구축</h3>
+<ul>
+<li>물리, 화학, 생물 분야의 <strong>교과서·학습 자료 텍스트 코퍼스</strong>를 수집</li>
+<li>각 문서에서 문제를 만들 수 있는 <strong>핵심 문장(seed sentence)</strong> 을 자동으로 추출</li>
+<li>문서 선택 기준: 정보 밀도, 도메인 적합성</li>
+</ul>
+<h3>Step 2 — 크라우드워커 문제 생성 파이프라인</h3>
+<pre><code class="language-javascript">[도메인 코퍼스]
+      ↓
+[문서 자동 추천 (AI)] → 워커에게 관련 단락 제시
+      ↓
+[크라우드워커] → 질문 + 정답 작성
+      ↓
+[오답 선택지 자동 생성 (AI)] → 의미적으로 유사하지만 틀린 distractor 추천
+      ↓
+[크라우드워커] → distractor 검수 및 수정
+      ↓
+[최종 문항 완성]
+</code></pre>
+<p><strong>오답(distractor) 생성 방법:</strong></p>
+<ul>
+<li>코퍼스에서 정답과 <strong>의미적으로 유사한 단어/개념</strong>을 자동으로 추출</li>
+<li>단순 무작위 선택이 아닌, <strong>혼동 가능한 오답</strong>을 만들어 난이도 유지</li>
+</ul>
+<h3>Step 3 — 품질 검증</h3>
+<ul>
+<li><strong>Human validation:</strong> 크라우드워커가 만든 문항을 다른 워커가 검수</li>
+<li><strong>Distinguishability test:</strong> 사람이 크라우드소싱 문항과 원본 시험 문항을 구별할 수 없음을 실험으로 검증 → 품질이 실제 시험 수준임을 입증</li>
+<li><strong>Supporting evidence 제공:</strong> 대부분 문항에 정답 근거 단락을 함께 제공하여 RAG 연구에 활용 가능하도록 설계</li>
+</ul>
+<h3>Step 4 — 데이터셋 구성 및 공개</h3>
+<p>| 분할 | 수 |
+| Train | 11,679 |
+| Validation | 1,000 |
+| Test | 1,000 |
+| <strong>합계</strong> | <strong>13,679</strong> |</p>
+<ul>
+<li>AllenAI를 통해 오픈소스로 공개</li>
+<li>HuggingFace Datasets에서 <code>allenai/sciq</code>로 바로 사용 가능</li>
+</ul>
+<hr />
+<h2>📥 Input (입력)</h2>
+<p>| 항목 | 내용 |
+| <strong>출처</strong> | 크라우드소싱 (Amazon Mechanical Turk) + 도메인 코퍼스 자동 추천 |
+| <strong>문항 형식</strong> | 자연어 질문 + 4개 선택지 + (선택적) supporting evidence 단락 |
+| <strong>도메인</strong> | 물리(Physics), 화학(Chemistry), 생물(Biology) |
+| <strong>총 문항 수</strong> | 13,679개 |
+| <strong>분할</strong> | Train 11,679 / Validation 1,000 / Test 1,000 |</p>
+<h3>제공 필드</h3>
+<p>| 필드 | 설명 |
+| <code>question</code> | 과학 문제 텍스트 |
+| <code>correct_answer</code> | 정답 선택지 텍스트 |
+| <code>distractor1~3</code> | 오답 선택지 3개 |
+| <code>support</code> | 정답 근거 단락 (대부분 문항에 포함) |</p>
+<hr />
+<h2>📤 Output (출력 / 정답 형식)</h2>
+<p>| 항목 | 내용 |
+| <strong>출력 형태</strong> | 4개 선택지 중 정답 텍스트 선택 |
+| <strong>평가 지표</strong> | Accuracy (정답률) |
+| <strong>특이사항</strong> | <code>support</code> 단락을 컨텍스트로 제공하는 설정 vs. 제공하지 않는 설정 모두 가능 |</p>
+<hr />
+<h2>💡 예시 문항</h2>
+<h3>예시 1 — 생물 (Biology)</h3>
+<blockquote>
+<p><strong>Q.</strong> What is the powerhouse of the cell?
+(A) Nucleus  (B) Ribosome  (C) Mitochondria  (D) Golgi apparatus</p>
+<p><strong>A.</strong> (C) Mitochondria</p>
+<p><strong>Support:</strong> <em>&quot;The mitochondria are often referred to as the powerhouses of the cell because they generate most of the cell's supply of ATP, used as a source of chemical energy.&quot;</em></p>
+</blockquote>
+<h3>예시 2 — 화학 (Chemistry)</h3>
+<blockquote>
+<p><strong>Q.</strong> What type of bond holds the two strands of DNA together?
+(A) Ionic bond  (B) Covalent bond  (C) Hydrogen bond  (D) Metallic bond</p>
+<p><strong>A.</strong> (C) Hydrogen bond</p>
+</blockquote>
+<h3>예시 3 — 물리 (Physics)</h3>
+<blockquote>
+<p><strong>Q.</strong> Which law states that the pressure of a gas is inversely proportional to its volume at constant temperature?
+(A) Charles's Law  (B) Boyle's Law  (C) Avogadro's Law  (D) Gay-Lussac's Law</p>
+<p><strong>A.</strong> (B) Boyle's Law</p>
+</blockquote>
+<hr />
+<h2>📊 주요 평가 결과 (HoneyComb 논문 기준)</h2>
+<p>| 모델 | Accuracy |
+| HoneyBee (7B, 재료과학 특화) | 33.96% |
+| GPT-3.5 | 90.69% |
+| GPT-4 (baseline) | 90.84% |
+| HoneyComb (GPT-4 기반) | <strong>96.54%</strong> |</p>
+<blockquote>
+<p>SciQ는 MaScQA 대비 난이도가 낮아 GPT-4 baseline도 ~91% 달성</p>
+</blockquote>
+<hr />
+<h2>⚠️ 한계점</h2>
+<ul>
+<li>크라우드소싱 특성상 문항 품질이 불균일할 수 있음</li>
+<li>고등학교~학부 초반 수준의 난이도 (전문 연구 수준 아님)</li>
+<li>재료과학 문항은 거의 없어 재료 분야 평가에 한계</li>
+<li>텍스트 기반만 (이미지, 수식 없음)</li>
+</ul>
+<hr />
+<h2>🔗 관련 정보</h2>
+<ul>
+<li><strong>논문:</strong> <a href="https://aclanthology.org/W17-4413/">ACL Anthology, WNUT@EMNLP 2017</a></li>
+<li><strong>Hugging Face Dataset:</strong> <a href="https://huggingface.co/datasets/allenai/sciq">https://huggingface.co/datasets/allenai/sciq</a></li>
+<li><strong>이 벤치마크를 사용한 논문:</strong> HoneyComb (EMNLP Findings 2024), HiPerRAG (PASC 2025)</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

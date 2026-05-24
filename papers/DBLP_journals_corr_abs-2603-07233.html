@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Retrieval-Augmented Generation for Predicting Cellular Responses to Gene Perturbation — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">[K1.O1] <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">[K1.O2] <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">[K1.O3] <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">[K2.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">[K2.O2] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">[K2.O3] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">[K3.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">[K3.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">[K3.O3] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">[K4.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">[K4.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">[K4.O3] <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">[K1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.html" class="sb-sub">[K2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.html" class="sb-sub">[K3] <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">[K4] <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">[O1] <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">[O2] <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">[O3] <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">16</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">9</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">14</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">3</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">6</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">3</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">2</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Retrieval-Augmented Generation for Predicting Cellular Responses to Gene Perturbation</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Gen2 @ ICLR</span>
+      <span class="meta-year">2026</span>
+      <a href="https://arxiv.org/abs/2603.07233" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K1.O3.html" class="tag tag-cell">K1.O3</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>Retrieval-Augmented Generation for Predicting Cellular Responses to Gene Perturbation</h1>
+<blockquote>
+<p>Gen2 @ ICLR | 2026 | Method | bio</p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>RAG를 유전자 perturbation 세포 반응 예측에 최초로 적용한 프레임워크 PT-RAG. Naive RAG가 오히려 성능을 저하시킨다는 핵심 발견과 함께, GenePT 임베딩 + Gumbel-Softmax 기반 2단계 미분 가능 검색으로 STATE 대비 분포 유사도 지표 개선을 달성.</p>
+<p>&lt;details&gt;
+&lt;summary&gt;사전 지식&lt;/summary&gt;
+**Perturbation**은 &quot;교란&quot; 또는 &quot;섭동&quot;이라는 뜻으로, 맥락에 따라 쓰임이 다릅니다.
+**일반적인 의미**로는 어떤 시스템을 원래 상태에서 *의도적으로 건드려서 변화를 관찰하는 것*입니다.
+---
+**생물학에서 (방금 논문의 맥락)**
+유전자를 꺼버리거나(knockdown/knockout) 과발현시키는 등 세포에 가하는 *유전적 조작*을 말합니다.
+예를 들어, &quot;BRCA1 유전자를 perturbation한다&quot; → BRCA1을 억제해서 세포가 어떻게 반응하는지(유전자 발현이 어떻게 바뀌는지) 관찰하는 것.
+방금 논문에서는 **Perturb-seq**이라는 기술을 사용하는데, 이건 CRISPR로 수천 개 유전자를 하나씩 꺼보면서 각 세포의 전체 유전자 발현 변화를 한꺼번에 측정하는 방법입니다. 그 결과 데이터를 보고 &quot;이 유전자를 건드렸더니 저 유전자들이 이렇게 반응했네&quot;를 학습하는 게 PT-RAG의 목적이고요.
+---
+**다른 분야에서는**
+- 물리학: 시스템에 작은 외부 자극을 주는 것 (섭동 이론)
+- 머신러닝: 입력 데이터를 약간 변형해서 모델 반응을 보는 것 (adversarial perturbation 등)
+한마디로 **&quot;건드려서 어떻게 반응하는지 본다&quot;** 는 개념입니다.
+&lt;/details&gt;</p>
+<h2>연구 배경 및 동기</h2>
+<h3>기존 방법의 한계점</h3>
+<ul>
+<li>GEARS, scGPT, STATE 등 기존 perturbation 예측 모델들은 cell state와 perturbation identity만을 기반으로 발현 프로파일을 생성하며, <strong>관련 perturbation 간 지식을 활용하지 않음</strong></li>
+<li>언어 도메인의 RAG를 단순 적용(vanilla RAG)할 경우, perturbation 도메인에서는 <strong>유사성 기준이 사전 정의되지 않아</strong> 오히려 성능 저하가 발생함</li>
+<li>perturbation 검색에서 관련성은 <strong>세포 유형(cell type)에 크게 의존</strong>하나, 기존 방법은 이를 고려하지 않음</li>
+</ul>
+<h3>이 연구가 필요한 이유</h3>
+<ul>
+<li>유전자 perturbation 효과는 같은 유전자라도 세포 유형에 따라 크게 달라지므로, <strong>cell-type-aware 맥락 검색</strong>이 필수적</li>
+<li>이미 관측된 수천 개의 perturbation 실험 데이터를 RAG 방식으로 활용하면 미지 perturbation 예측 일반화 성능 향상 가능</li>
+<li><strong>미분 가능한 검색 메커니즘</strong>을 통해 생성 목표와 검색 목표를 end-to-end로 공동 최적화</li>
+</ul>
+<h2>시스템 아키텍처</h2>
+<p>[image: PT-RAG architecture diagram]</p>
+<pre><code>입력: (perturbation gene g, cell state c)
+       │
+       ▼
+[Stage 1: GenePT 임베딩 기반 후보 검색]
+  - 입력 perturbation을 GenePT 임베딩으로 인코딩
+  - 학습 DB 내 K개 유사 perturbation 후보 검색 (코사인 유사도)
+       │
+       ▼
+[Stage 2: Gumbel-Softmax 기반 적응적 선택]
+  - cell state + perturbation embedding 조건부
+  - Straight-Through Gumbel-Softmax로 이산 선택 미분 가능화
+  - 최적 subset 선택 (sparsity loss로 mode collapse 방지)
+       │
+       ▼
+[Context Aggregation]
+  - 선택된 perturbation의 관측 발현 프로파일 집계
+       │
+       ▼
+[Generator (STATE 기반)]
+  - Context + 입력 조건으로 perturbation 후 발현 분포 예측
+       │
+       ▼
+출력: 예측 gene expression profile (2,000 HVGs)
+</code></pre>
+<h2>핵심 모듈 상세 설명</h2>
+<h3>1단계: GenePT 임베딩 후보 검색</h3>
+<ul>
+<li><strong>GenePT</strong>: ChatGPT 기반 유전자 기능 설명 텍스트로 학습된 유전자 임베딩 모델</li>
+<li>입력 perturbation gene을 GenePT 공간에서 인코딩 후 학습 데이터 내 상위 K개 후보 perturbation 검색</li>
+<li>의미 유사도(functional similarity) 기반 — 학습 파라미터 없음</li>
+</ul>
+<h3>2단계: Gumbel-Softmax 적응적 선택</h3>
+<ul>
+<li><strong>Straight-Through Gumbel-Softmax estimator</strong> (Jang et al. 2017) 적용</li>
+<li>입력: [cell state embedding; perturbation embedding]</li>
+<li>출력: K개 후보 중 이산적으로 최적 subset 선택</li>
+<li><strong>Sparsity loss</strong> 추가: 모든 후보 선택하는 mode collapse 방지, 진짜 관련 context만 선택 유도</li>
+<li>세포 유형별 선택된 perturbation 중복률 <strong>19%</strong> → cell-type-aware 특성 정량 검증</li>
+</ul>
+<h3>Context Aggregation</h3>
+<ul>
+<li>선택된 perturbation들의 관측 scRNA-seq 발현 벡터를 집계</li>
+<li>Generator(STATE)의 입력 context로 제공</li>
+</ul>
+<h3>Generator (STATE backbone)</h3>
+<ul>
+<li>Arc Institute의 STATE: Transformer 기반 다중 세포 유형 perturbation 예측 모델</li>
+<li>Energy distance(MMD 기반 분포 손실)로 학습</li>
+<li>PT-RAG context가 추가된 상태에서 end-to-end 공동 최적화</li>
+</ul>
+<h2>실험 및 평가</h2>
+<h3>평가 데이터셋</h3>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>데이터셋</strong></td>
+  <td>Replogle-Nadig Perturb-seq (Replogle et al. 2022; Nadig et al. 2024)</td>
+</tr>
+<tr>
+  <td><strong>세포주</strong></td>
+  <td>K562, RPE1, Jurkat, HepG2 (4개 인간 세포주)</td>
+</tr>
+<tr>
+  <td><strong>총 세포 수</strong></td>
+  <td>~0.6M</td>
+</tr>
+<tr>
+  <td><strong>perturbation 수</strong></td>
+  <td>2,023개 (테스트: 1,635개)</td>
+</tr>
+<tr>
+  <td><strong>특징 수</strong></td>
+  <td>2,000 HVGs</td>
+</tr>
+<tr>
+  <td><strong>실험 방법</strong></td>
+  <td>CRISPRi (CRISPR interference) 단일 유전자 knockdown</td>
+</tr>
+</tbody>
+</table>
+<h3>주요 결과</h3>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>W2 (↓)</th>
+  <th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>PT-RAG (제안)</strong></td>
+  <td>STATE 대비 개선</td>
+  <td>최우수</td>
+</tr>
+<tr>
+  <td>STATE (baseline)</td>
+  <td>646.1</td>
+  <td>기존 SOTA</td>
+</tr>
+<tr>
+  <td>Vanilla RAG</td>
+  <td><strong>1189.5</strong></td>
+  <td>오히려 최악</td>
+</tr>
+<tr>
+  <td>GEARS</td>
+  <td>—</td>
+  <td>baseline</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>핵심 발견</strong>: Vanilla RAG는 STATE baseline 대비 W2에서 약 2배 성능 저하 → 도메인 특화 미분 가능 검색의 절대적 필요성 실증</li>
+<li>PT-RAG는 W1, W2 distributional similarity metrics에서 STATE 대비 유의미한 개선 달성</li>
+</ul>
+<h2>핵심 기여</h2>
+<ol>
+<li><strong>최초의 생물학적 perturbation 예측 RAG 프레임워크</strong>: 언어 RAG를 단일 세포 생물학으로 확장</li>
+<li><strong>Naive RAG의 실패 자체가 핵심 발견</strong>: perturbation 도메인에서는 사전 정의된 유사도 기준이 없어 naive retrieval이 성능을 심각하게 저하시킴을 정량적으로 실증</li>
+<li><strong>Cell-type-aware 미분 가능 검색</strong>: Gumbel-Softmax 기반 2단계 파이프라인으로 세포 유형별로 다른 최적 context를 학습 가능하게 설계</li>
+<li><strong>분포 수준 성능 향상</strong>: W1, W2 등 distributional metrics에서 기존 SOTA 개선</li>
+</ol>
+<h2>한계점</h2>
+<ul>
+<li><strong>단일 데이터셋 평가</strong>: Replogle-Nadig 데이터셋 하나에만 실험 — 다른 Perturb-seq 데이터셋으로의 일반화 불확실</li>
+<li><strong>단일 유전자 perturbation만 지원</strong>: 조합(combination) perturbation 미검증</li>
+<li><strong>End-to-end 학습 비용</strong>: 미분 가능 검색의 공동 최적화는 상당한 컴퓨팅 자원 필요</li>
+<li><strong>텍스트 기반 GenePT 의존성</strong>: 기능 설명이 없는 유전자는 Stage 1 검색 품질 저하 가능</li>
+</ul>
+<h2>관련 연구 및 관련 정보</h2>
+<ul>
+<li><strong>논문 링크</strong>: <a href="https://arxiv.org/abs/2603.07233">https://arxiv.org/abs/2603.07233</a></li>
+<li><strong>코드</strong>: <a href="https://github.com/difra100/PT-RAG_ICLR">https://github.com/difra100/PT-RAG_ICLR</a></li>
+<li><strong>Venue</strong>: ICLR 2026 Workshop — Generative AI in Genomics (Gen2)</li>
+<li><strong>베이스라인 모델</strong>: STATE (Adduri et al. 2025), GEARS (Roohani et al. 2024), scGPT</li>
+<li><strong>사용 데이터셋</strong>: Replogle et al. 2022 (Cell), Nadig et al. 2024</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

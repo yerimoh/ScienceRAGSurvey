@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Three-Dimensional Convolutional Neural Networks and a Cross-Docked Data Set for Structure-Based Drug Design — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">[K1.O1] <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">[K1.O2] <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">[K1.O3] <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">[K2.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">[K2.O2] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">[K2.O3] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">[K3.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">[K3.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">[K3.O3] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">[K4.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">[K4.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">[K4.O3] <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">[K1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.html" class="sb-sub">[K2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.html" class="sb-sub">[K3] <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">[K4] <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">[O1] <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">[O2] <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">[O3] <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">16</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">9</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">14</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">3</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">6</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">3</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">2</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Three-Dimensional Convolutional Neural Networks and a Cross-Docked Data Set for Structure-Based Drug Design</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">J. Chem. Inf. Model.</span>
+      <span class="meta-year">2020</span>
+      <a href="https://doi.org/10.1021/acs.jcim.0c00411" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>Three-Dimensional Convolutional Neural Networks and a Cross-Docked Data Set for Structure-Based Drug Design</h1>
+<blockquote>
+<p>J. Chem. Inf. Model. (ACS) | 2020 | Benchmark | bio, medical, chem</p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>CrossDocked2020은 PDB의 단백질-리간드 복합체를 cross-docking한 22.5백만 개 포즈로 구성된 구조 기반 신약 설계(SBDD) ML 벤치마크로, 단백질-리간드 결합 친화도 예측 및 SBDD 생성 모델 평가의 실질적 표준으로 자리잡았다.</p>
+<h2>제작 배경</h2>
+<p><strong>기존 벤치마크의 한계</strong></p>
+<ul>
+<li>PDBbind 기반 접근이 주류: 동일 리간드를 동일 구조에 다시 도킹(re-docking)하는 방식에 중점 → 실제 drug discovery의 확장성에 대한 평가가 과도하게 낙관적</li>
+<li>ML 모델 비교가 방법론에 따른 개별 데이터셋 사용으로 알고리즘 품질 파악 불가</li>
+<li>주어진 표적에 대해 새로운 리간드를 예측하는 일반화 능력(non-cognate) 평가가 부재</li>
+</ul>
+<p><strong>이 벤치마크가 필요한 이유</strong></p>
+<ul>
+<li>Cross-docking (비공유 리간드-포켓 쌍) 포즈 데이터를 대규모로 제공하여 실제 drug discovery 조건에 가까운 평가 가능</li>
+<li>클러스터 기반 분할로 더 엄격하고 공정한 일반화 평가 지원</li>
+<li>표준화된 train/val/test 분할 + 여러 스플릿 방법 제공으로 방법론 간 공정 비교 가능</li>
+<li>SBDD 생성 모델 (Pocket2Mol, TargetDiff, ResGen 등)의 사실상 표준 학습·평가 데이터셋으로 정착</li>
+</ul>
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<p><strong>Step 1 — 데이터 출처 선정</strong></p>
+<ul>
+<li>PDB(Protein Data Bank)에서 실험적으로 결정된 단백질-리간드 복합체 구조 수집</li>
+<li>Pocketome DB의 유사 포켓 클러스터 정보 활용</li>
+<li>전처리: 각 포켓을 ProBiS z-score 3.5 기준으로 클러스터링</li>
+</ul>
+<p><strong>Step 2 — 구축 파이프라인 (Cross-docking)</strong></p>
+<pre><code>PDB 단백질-리간드 복합체 수집
+    ↓
+유사 포켓 클러스터링 (ProBiS 알고리즘, z-score 3.5)
+    ↓
+동일 클러스터 내 리간드 ↔ 비공유 포켓 cross-docking
+(AutoDock Vina / Gnina)
+    ↓
+포즈 필터링 (RMSD, 결합 에너지 기준)
+    ↓
+Counter-example 생성 (반례: 잘못된 포즈 추가)
+    ↓
+22.5M 포즈 데이터셋 완성
+</code></pre>
+<ul>
+<li>리간드가 자신의 원래 포켓(cognate)이 아닌 유사 포켓(non-cognate)에도 도킹 → 더 현실적인 virtual screening 시나리오</li>
+<li>Counter-example(반례) 포즈를 반복적 학습 세트 구성으로 추가 → 모델 강건성 향상</li>
+</ul>
+<p><strong>Step 3 — 품질 검증</strong></p>
+<ul>
+<li>알려진 CNN 모델(Def2018 등)로 결합 친화도 예측 및 포즈 선택 성능 평가</li>
+<li>PDBbind Core/General 세트 대비 교차 검증으로 데이터 품질 확인</li>
+<li>리간드 전용(단백질 구조 제외) 모델 평가로 인위적 bias 정량화</li>
+</ul>
+<p><strong>Step 4 — 데이터셋 구성 및 공개</strong></p>
+<ul>
+<li>전체: 22.5M 포즈 (13,780 유일 리간드, 2,922 포켓, 18,450 복합체)</li>
+<li>결합 친화도 데이터 포함 비율: 41.9%</li>
+<li>분할: 클러스터 기반 교차 검증 분할 제공</li>
+<li>Pocket2Mol 등 후속 논문에서 사용하는 전처리 서브셋: 훈련 ~100,000 복합체, 테스트 100 포켓</li>
+<li>GitHub (gnina/models)에 데이터, 모델 가중치, 코드 공개</li>
+</ul>
+<h2>Input (입력)</h2>
+<p>입력 형식: 단백질 3D 구조 (PDB 좌표) + 리간드 SMILES/3D 좌표</p>
+<table>
+<thead>
+<tr>
+  <th>구성요소</th>
+  <th>내용</th>
+  <th>규모</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>총 포즈</td>
+  <td>Cross-docked 단백질-리간드 포즈</td>
+  <td>22,584,102개</td>
+</tr>
+<tr>
+  <td>유일 리간드</td>
+  <td>유일 소분자 리간드</td>
+  <td>13,780개</td>
+</tr>
+<tr>
+  <td>포켓</td>
+  <td>단백질 결합 포켓</td>
+  <td>2,922개</td>
+</tr>
+<tr>
+  <td>복합체</td>
+  <td>포켓-리간드 쌍</td>
+  <td>18,450개</td>
+</tr>
+<tr>
+  <td>결합 친화도 데이터</td>
+  <td>실험 친화도 포함 복합체 비율</td>
+  <td>41.9%</td>
+</tr>
+<tr>
+  <td>반례(counter-examples)</td>
+  <td>잘못된 포즈 (이터레이티브 학습용)</td>
+  <td>11,892,173개</td>
+</tr>
+</tbody>
+</table>
+<p><strong>제공 필드</strong></p>
+<table>
+<thead>
+<tr>
+  <th>필드명</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>단백질 PDB 파일</td>
+  <td>수용체 3D 좌표</td>
+</tr>
+<tr>
+  <td>리간드 SDF/mol2</td>
+  <td>리간드 3D 포즈 좌표</td>
+</tr>
+<tr>
+  <td>Vina 점수</td>
+  <td>도킹 결합 에너지 (kcal/mol)</td>
+</tr>
+<tr>
+  <td>RMSD</td>
+  <td>결정 구조 대비 포즈 편차</td>
+</tr>
+<tr>
+  <td>결합 친화도 (pKi/pKd)</td>
+  <td>실험값 (포함 시)</td>
+</tr>
+<tr>
+  <td>클러스터 ID</td>
+  <td>유사 포켓 클러스터 소속</td>
+</tr>
+</tbody>
+</table>
+<h2>Output (평가 형식)</h2>
+<p><strong>원 논문 평가 태스크 (CNN 모델 평가)</strong></p>
+<ul>
+<li>결합 친화도 예측: RMSE, Pearson R</li>
+<li>결합 포즈 분류 (맞는 포즈 vs. 반례): AUC</li>
+<li>포즈 선택 정확도: 최저 RMSD 포즈 선택 정확도</li>
+</ul>
+<p><strong>SBDD 생성 모델 평가 (후속 논문 기준)</strong></p>
+<ul>
+<li>Vina Dock / Vina Score: 결합 에너지 (낮을수록 좋음)</li>
+<li>%↑ Vina: 네이티브 리간드 대비 우월 비율</li>
+<li>QED: 약물 유사성</li>
+<li>SA: 합성 접근성</li>
+<li>Lipinski 규칙 5 준수</li>
+<li>LogP: 지질 친화성</li>
+<li>PB-Valid (PoseBusters): 물리적 유효성</li>
+<li>CNN Affinity (GNINA): CNN 기반 결합 친화도</li>
+</ul>
+<h2>예시 문항 (SBDD 태스크 유형별)</h2>
+<p><strong>결합 친화도 예측 예시</strong></p>
+<ul>
+<li>Q: 단백질 포켓 3D 좌표 + 도킹된 리간드 3D 포즈가 주어졌을 때, 이 복합체의 결합 친화도(pKd)를 예측하라.</li>
+<li>A: pKd ≈ 7.2 (IC50 ≈ 63 nM 수준) | 근거: 실험 측정값</li>
+</ul>
+<p><strong>포즈 선택 예시</strong></p>
+<ul>
+<li>Q: 동일 리간드의 5개 도킹 포즈 중 결정 구조에 가장 가까운 포즈를 선택하라 (RMSD &lt; 2Å).</li>
+<li>A: 포즈 3번 (RMSD = 1.43Å) | 근거: CNN affinity score 기반</li>
+</ul>
+<p><strong>SBDD 생성 평가 예시 (Pocket2Mol, Rag2Mol 등)</strong></p>
+<ul>
+<li>Q: 단백질 포켓 3D 구조가 주어졌을 때, 결합 친화도 높고 drug-likeness 우수한 소분자를 생성하라.</li>
+<li>A: 평가: Vina Dock &lt; -8.0 kcal/mol, QED &gt; 0.5, SA &gt; 0.5, Lipinski 준수 여부 확인</li>
+</ul>
+<h2>주요 평가 결과 (원 논문)</h2>
+<p><strong>CNN 모델 성능 (CrossDocked2020 test)</strong></p>
+<table>
+<thead>
+<tr>
+  <th>모델</th>
+  <th>과제</th>
+  <th>성능</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Dense CNN (5개 앙상블)</td>
+  <td>친화도 예측 (RMSE)</td>
+  <td>1.42</td>
+</tr>
+<tr>
+  <td>Dense CNN (5개 앙상블)</td>
+  <td>친화도 예측 (Pearson R)</td>
+  <td>0.612</td>
+</tr>
+<tr>
+  <td>Dense CNN (5개 앙상블)</td>
+  <td>포즈 분류 (AUC)</td>
+  <td>0.956</td>
+</tr>
+<tr>
+  <td>Dense CNN (5개 앙상블)</td>
+  <td>포즈 선택 정확도</td>
+  <td>68.4%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>SBDD 생성 모델 성능 (Rag2Mol 논문 기준)</strong></p>
+<table>
+<thead>
+<tr>
+  <th>모델</th>
+  <th>Vina Dock</th>
+  <th>QED</th>
+  <th>SA</th>
+  <th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>AR</td>
+  <td>기준선</td>
+  <td>기준선</td>
+  <td>기준선</td>
+  <td>자기회귀</td>
+</tr>
+<tr>
+  <td>Pocket2Mol</td>
+  <td>개선</td>
+  <td>개선</td>
+  <td>개선</td>
+  <td>자기회귀 + 그래프</td>
+</tr>
+<tr>
+  <td>TargetDiff</td>
+  <td>개선</td>
+  <td>참고</td>
+  <td>참고</td>
+  <td>확산 기반</td>
+</tr>
+<tr>
+  <td><strong>Rag2Mol</strong></td>
+  <td><strong>최고 수준</strong></td>
+  <td><strong>최고 수준</strong></td>
+  <td><strong>개선</strong></td>
+  <td>RAG 기반</td>
+</tr>
+</tbody>
+</table>
+<h2>한계점</h2>
+<ul>
+<li>PDB 데이터 편향 내재: 이미 알려진 리간드-포켓 쌍 중심 → 화학 공간 전체 미커버</li>
+<li>Cross-docking 포즈의 실험 구조 대비 낮은 정확도</li>
+<li>결합 친화도 데이터가 전체의 41.9%에만 포함 (나머지는 레이블 없음)</li>
+<li>단백질 유연성 미고려 (rigid receptor docking)</li>
+<li>도킹 소프트웨어(Vina/Gnina)의 scoring function bias 내재</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문 링크</strong>: <a href="https://doi.org/10.1021/acs.jcim.0c00411">https://doi.org/10.1021/acs.jcim.0c00411</a></li>
+<li><strong>GitHub (gnina/models)</strong>: <a href="https://github.com/gnina/models">https://github.com/gnina/models</a></li>
+<li><strong>이 벤치마크를 사용한 논문</strong>: Pocket2Mol (ICML 2022), TargetDiff (ICLR 2023), ResGen (Nature MI 2023), FLAG (ICLR 2023), Rag2Mol (Briefings in Bioinformatics 2025)</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

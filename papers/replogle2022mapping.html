@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mapping information-rich genotype-phenotype landscapes with genome-scale Perturb-seq — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">[K1.O1] <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">[K1.O2] <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">[K1.O3] <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">[K2.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">[K2.O2] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">[K2.O3] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">[K3.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">[K3.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">[K3.O3] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">[K4.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">[K4.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">[K4.O3] <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">[K1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.html" class="sb-sub">[K2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.html" class="sb-sub">[K3] <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">[K4] <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">[O1] <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">[O2] <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">[O3] <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">16</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">9</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">14</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">3</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">6</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">3</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">2</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Mapping information-rich genotype-phenotype landscapes with genome-scale Perturb-seq</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Cell</span>
+      <span class="meta-year">2022</span>
+      <a href="https://doi.org/10.1016/j.cell.2022.05.013" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/O3.html" class="tag tag-cell">O3</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>Mapping information-rich genotype-phenotype landscapes with genome-scale Perturb-seq</h1>
+<ul>
+<li>이전 perturbation 예측 데이터셋들(Norman, Adamson 등)은 수화된 센 단일 세포주와 적은 perturbation 수로 제한됨</li>
+<li>세포 유형 간 일반화(cross-cell-type generalization) 평가가 불가능했던 데이터셋이 없었음</li>
+<li>조합 perturbation만을 다루는 데이터셋(GEARS)vs 다중 세포주 평가 불가</li>
+</ul>
+<blockquote>
+<p>Cell (2022) + bioRxiv (2024) | benchmark | bio</p>
+<h2>📌 한 줄 요약</h2>
+<p>CRISPRi 기반 대규모 단일 세포 Perturb-seq 데이터셋. 4개 인간 세포주, 2,023개 유전자 억제 조건, ~0.6M 세포로 구성된 in silico perturbation 예측 벤치마크 데이터셋.</p>
+<h2>🎯 제작 배경</h2>
+<h3>기존 벤치마크의 한계</h3>
+</blockquote>
+<h3>왜 이 데이터셋이 필요했는지</h3>
+<ul>
+<li>Genome-scale CRISPRi로 <strong>수체의 필수 유전자(essential genes)</strong> 대부분을 커버하는 대규모 시도 가능</li>
+<li><strong>4개 이상의 세포주</strong> 포함으로 cell-type-aware 모델 평가 가능</li>
+<li>통일된 전처리 스킬(HVG 2,000개, CRISPRi)로 일관된 비교 환경 제공</li>
+</ul>
+<h2>🔨 어떻게 만들었나 (Construction Methodology)</h2>
+<p><strong>Step 1: 데이터 출처 선정</strong></p>
+<ul>
+<li>Replogle et al. (2022, Cell): Genome-scale Perturb-seq 실험. Weissman 연구실(UCSF)에서 CRISPRi를 사용하여 K562 및 RPE1 세포주에서 ~10,000개 필수 유전자 knockdown</li>
+<li>Nadig et al. (2024, bioRxiv): 추가 세포주(Jurkat, HepG2) 포함으로 확장</li>
+</ul>
+<p><strong>Step 2: 구축 파이프라인</strong></p>
+<ul>
+<li>CRISPRi 바이러스 라이브러리 설계 → 세포 케집 (pooled CRISPR screen)</li>
+<li>10x Genomics Chromium 플랫폼으로 단일 세포 RNA 시퀀싱</li>
+<li>코드(바코드) 기반 유전자 억제 확인, 세포 할당</li>
+<li>제어 세포(non-targeting)vs 억제 세포 환경 구분</li>
+</ul>
+<p><strong>Step 3: 품질 검증</strong></p>
+<ul>
+<li>세포 품질 QC: 미토콘드리얼 유전자 마커, 검주율(doublet) 필터링</li>
+<li>바코드 QC: 액세스 1개만 혹은 활성 2개 이상 필터링</li>
+<li>억제 효율 검증: DE gene 수 및 억제 강도 확인</li>
+</ul>
+<p><strong>Step 4: 데이터셋 구성 및 공개</strong></p>
+<ul>
+<li>구링 방식: STATE (Adduri et al. 2025) 전처리 방식 준수 — 학습/테스트 분할</li>
+<li>테스트용 perturbation: 1,635개</li>
+<li>CellxGene 등을 통해 공개 배포 (h5ad 포맷)</li>
+</ul>
+<h2>📥 Input (입력)</h2>
+<p>| 항목 | 내용 |
+| 출처 | Replogle et al. 2022 (Cell) + Nadig et al. 2024 (bioRxiv) |
+| 데이터 유형 | single-cell RNA-seq (Perturb-seq) |
+| 알고리즘 | CRISPRi (CRISPR interference, 유전자 발현 억제) |
+| 총 세포 수 | ~0.6M |
+| 커버 유전자 | ~2,023개 (아미노산 tRNA 합성 등 필수 유전자 중심) |
+| 세포주 | K562 (CML), RPE1 (망막 상피), Jurkat (T세포), HepG2 (간암) |
+| 특징 차원 | 2,000 HVGs (Highly Variable Genes) |
+| 형식 | h5ad (AnnData) |</p>
+<h2>📤 Output (출력 / 정답 형식)</h2>
+<ul>
+<li><strong>출력 형태</strong>: perturbation 후 세포의 전사체 발현 프로파일 (실수 수치 미덕 [float])</li>
+<li><strong>평가 지표</strong>: W1, W2 (Wasserstein distance), DE-Spearman, Pearson Δ, MSE, MAE, PDS</li>
+<li><strong>특이사항</strong>: 질병(distribution-level) 정확도와 개별 유전자 수준 정확도를 모두 요구; 세포 유형별 일반화 능력 평가 가능</li>
+</ul>
+<h2>📊 주요 평가 결과 (PT-RAG 논문 기준)</h2>
+<p>| 모델 | W2 (↓) | 비고 |
+| PT-RAG (제안) | STATE 대비 개선 | 최우수 |
+| STATE | 646.1 | 이전 SOTA |
+| Vanilla RAG | 1189.5 | 검색이 오히려 해로운 경우 |
+| GEARS | — | GNN 기반 baseline |</p>
+<h2>⚠️ 한계점</h2>
+<ul>
+<li>필수 유전자(essential genes)에 집중됨 — 으시적 으로 높은 폈두리 업전사 내 유전자에만 편향됨</li>
+<li>CRISPRi 억제만 평가됨 (증폭 기반 시도 미포함)</li>
+<li>조합 perturbation 없음</li>
+</ul>
+<h2>🔗 관련 정보</h2>
+<ul>
+<li><strong>원 논문 (Replogle 2022)</strong>: <a href="https://doi.org/10.1016/j.cell.2022.05.013">https://doi.org/10.1016/j.cell.2022.05.013</a></li>
+<li><strong>Nadig 2024</strong>: <a href="https://doi.org/10.1101/2024.11.22.624843">https://doi.org/10.1101/2024.11.22.624843</a></li>
+<li><strong>이 데이터셋을 사용한 논문</strong>:<ul>
+<li>PT-RAG (Di Francesco et al., Gen2 @ ICLR 2026)</li>
+<li>STATE (Adduri et al. 2025)</li>
+<li>PerturbDiff (2026)</li>
+</ul>
+</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

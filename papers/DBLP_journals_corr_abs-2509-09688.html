@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI-Powered Assistant for Long-Term Access to RHIC Knowledge — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">[K1.O1] <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">[K1.O2] <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">[K1.O3] <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">[K2.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">[K2.O2] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">[K2.O3] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">[K3.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">[K3.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">[K3.O3] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">[K4.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">[K4.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">[K4.O3] <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">[K1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.html" class="sb-sub">[K2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.html" class="sb-sub">[K3] <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">[K4] <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">[O1] <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">[O2] <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">[O3] <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">16</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">9</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">14</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">3</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">6</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">3</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">2</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>AI-Powered Assistant for Long-Term Access to RHIC Knowledge</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">New York Scientific Data Summit</span>
+      <span class="meta-year">2025</span>
+      
+    </div>
+    <div class="paper-tags"><a href="../cell/K4.O1.html" class="tag tag-cell">K4.O1</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>AI-Powered Assistant for Long-Term Access to RHIC Knowledge</h1>
+<ul>
+<li><strong>기존 방법의 한계점</strong>: 대형 입자 물리 실험실에서는 기술 노트, 실험 노하우, 검출기 관련 심층 지식 등 방대한 &quot;암묵적 지식(Tacit Knowledge)&quot;이 내부 메일링 리스트와 분산된 레거시 문서 형태로 흩어져 있어 유실 위험이 높음. 상용 LLM(ChatGPT 등)은 이러한 비공개 내부망 데이터에 접근할 수 없음.</li>
+<li><strong>이 연구가 필요한 이유</strong>: RHIC 가속기가 2025년 운영을 종료함에 따라, 약 1 ExaByte에 달하는 데이터와 25년간 누적된 실험적 지식을 향후 세대(EIC 실험 등)가 원활하게 검색하고 재현할 수 있는 차세대 지식 보존 프레임워크(DAPP)가 절실히 요구됨.</li>
+</ul>
+<blockquote>
+<p>arXiv | 2025 | Method | physics</p>
+<h2>📌 한 줄 요약</h2>
+<p>25년간 운영된 브룩헤이븐 국립 연구소 RHIC 가속기의 방대한 실험 지식과 비공개 내부 문서를 영구 보존하고 쿼리할 수 있도록 설계된 MCP(Model Context Protocol) 기반 RAG 어시스턴트 시스템.</p>
+<h2>🎯 연구 배경 및 동기</h2>
+</blockquote>
+<h2>🏗️ 시스템 아키텍처</h2>
+<ol>
+<li><strong>Data Harvesting</strong>: Custom Web Scraper가 내부 웹사이트, 아카이브, 메일링 리스트를 순회하며 다양한 확장자(HTML, PDF, DOCX, PS 등) 다운로드.</li>
+<li><strong>Data Extraction &amp; Cleaning</strong>: Marker(ML 기반 PDF 파싱), LibreOffice 등을 사용해 구조 보존형 Markdown으로 변환.</li>
+<li><strong>Indexing</strong>: ChromaDB를 이용해 추출된 텍스트를 임베딩 벡터로 변환하여 저장.</li>
+<li><strong>MCP Orchestration</strong>: 사용자 쿼리가 인입되면 Model Context Protocol 래퍼가 쿼리를 분석하고 검색 백엔드로 라우팅.</li>
+<li><strong>Generation</strong>: 검색된 컨텍스트를 융합(fusion)하여 Llama3.3 또는 Mistral 기반 엔진이 최종 답변 및 출처 인용 내역 생성.</li>
+</ol>
+<h2>🔑 핵심 모듈 상세 설명</h2>
+<ul>
+<li><strong>Recursive Multi-Format Web-Content Extraction Framework</strong>: ML 모델인 Marker를 도입해 수식 및 레이아웃 유지율을 기존 파서 대비 획기적으로 개선. PDF뿐 아니라 구형 PostScript 파일까지 처리.</li>
+</ul>
+<p>| 모듈/도구명 | 연동 방식 및 목적 |
+| Marker Library | ML을 통해 복잡한 표/수식 포함 PDF 문서를 시맨틱 손실 없이 Markdown으로 변환 |
+| ChromaDB | 정제된 내부 기술 문서 및 메일링 리스트 아카이브를 벡터화하여 Semantic Search 제공 |
+| MCP (Model Context Protocol) | 검색, 요약, 추론 단계를 독립된 컨텍스트로 분리하여 실행 로직과 배포 환경 디커플링 |</p>
+<h2>🧪 실험 및 평가</h2>
+<ul>
+<li><strong>평가 데이터</strong>: 다년간 경험을 갖춘 STAR 실험 도메인 전문가들이 직접 작성한 내부 질문 세트.</li>
+<li><strong>비교 모델 결과</strong>:
+| LLM | 구동 환경 | 질적 평가 결과 |
+| Llama3.3-70B (RAG) | 로컬 vLLM | 정확하고 간결. 내부 메일링 리스트(비공개 자료) 성공적으로 인용. |
+| Mistral-Large-2411 (RAG) | 로컬 | 정확하나 약간 장황한 텍스트 톤. |
+| ChatGPT o3 (Baseline) | 상용 서비스 | 퍼블릭 데이터에만 의존하여 내부 심층 컨텍스트(디버깅 기록 등) 확보 실패. |</li>
+</ul>
+<h2>💡 핵심 기여</h2>
+<ol>
+<li>퍼블릭 AI 챗봇이 도달할 수 없는 <strong>조직 내부의 암묵적 학술 지식과 문제 해결 과정(메일링 리스트 등)을 LLM 지식 베이스로 통합</strong>함.</li>
+<li>Model Context Protocol(MCP)을 선도적으로 채택하여 RAG 파이프라인 각 단계의 모니터링 및 설명 가능성을 극대화함.</li>
+<li>vLLM, LlamaCpp, Ollama 등 다양한 추론 엔진의 병렬 처리 확장성을 실증적으로 비교 분석함.</li>
+</ol>
+<h2>⚠️ 한계점</h2>
+<ul>
+<li>Public / Collaboration-restricted / Controlled 데이터의 권한이 복잡하여 역할 기반 접근 제어(RBAC) 및 보안 통합(SSO, AES-256) 모듈 고도화가 추가로 필요함.</li>
+<li>외부 최신 출판물(API, RSS 피드 등)과 로컬 DB 간의 자동 동기화 기능은 아직 구현 전 단계임.</li>
+</ul>
+<h2>🔗 관련 연구 및 관련 정보</h2>
+<ul>
+<li>논문 링크: <a href="https://arxiv.org/abs/2509.09688">https://arxiv.org/abs/2509.09688</a></li>
+<li>오픈 벤치마크 미활용. 향후 고차원 도메인 특화 성능 평가 프레임워크 공개 예정.</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

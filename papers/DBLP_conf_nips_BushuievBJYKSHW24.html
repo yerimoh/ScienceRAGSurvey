@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MassSpecGym: A benchmark for the discovery and identification of molecules — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">[K1.O1] <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">[K1.O2] <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">[K1.O3] <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">[K2.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">[K2.O2] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">[K2.O3] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">[K3.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">[K3.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">[K3.O3] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">[K4.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">[K4.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">[K4.O3] <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">[K1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.html" class="sb-sub">[K2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.html" class="sb-sub">[K3] <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">[K4] <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">[O1] <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">[O2] <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">[O3] <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">16</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">9</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">14</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">3</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">6</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">3</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">2</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>MassSpecGym: A benchmark for the discovery and identification of molecules</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">NeurIPS</span>
+      <span class="meta-year">2024</span>
+      <a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/c6c31413d5c53b7d1c343c1498734b0f-Abstract-Datasets_and_Benchmarks_Track.html" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell">K3.O3</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>MassSpecGym: A benchmark for the discovery and identification of molecules</h1>
+<blockquote>
+<p>NeurIPS | 2024 | Benchmark | chem</p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>MS/MS 탠덤 질량 분석 데이터로부터 분자를 발견·식별하는 최초의 포괄적 벤치마크. 231k 스펙트럼·29k 분자를 포함하며, 세 가지 챌린지(de novo 생성, 분자 검색, 스펙트럼 시뮬레이션)와 일반화 요구 분할(MCES-based split)을 제공.</p>
+<h2>제작 배경</h2>
+<h3>기존 벤치마크의 한계</h3>
+<ul>
+<li><strong>표준 데이터셋 부재</strong>: 기존 연구들이 각기 다른 이질적·비표준화 데이터셋 사용 → 결과 비교 불가</li>
+<li><strong>데이터 누출 문제</strong>: 기존 Random split은 Tanimoto 유사도 &gt; 0.85인 거의 동일한 분자를 train/test에 동시 포함 → 모델 성능 과대 평가</li>
+<li><strong>평가 프로토콜 불일치</strong>: 연구마다 다른 메트릭·분할·캔디데이트 세트 사용</li>
+<li><strong>접근성 문제</strong>: 전처리에 MS 전문 지식 필요 → ML 커뮤니티 진입 장벽 높음</li>
+<li><strong>상업용 데이터 의존</strong>: NIST처럼 라이센스 필요한 데이터셋만 존재, 공개 재현 불가</li>
+</ul>
+<h3>왜 이 벤치마크가 필요했는가</h3>
+<ul>
+<li>생물·환경 샘플의 분자 발견·식별은 바이오메디컬·화학 과학의 핵심이나, 탠덤 질량 스펙트럼을 분자 구조로 디코딩하는 것은 전문가도 어려운 난제</li>
+<li>수집된 MS/MS 스펙트럼의 대다수가 미해석 상태로 방치 → 화학 과정 이해 제한</li>
+<li>ML 방법 개발을 위한 표준 데이터셋·평가 기준 부재가 지속적인 병목</li>
+</ul>
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<p><strong>Step 1: 데이터 출처 선정</strong>
+세 개의 대형 공개 스펙트럼 라이브러리를 통합:</p>
+<ul>
+<li><strong>MoNA (MassBank of North America)</strong>: 크라우드소싱 MS/MS 라이브러리</li>
+<li><strong>MassBank</strong>: 유럽 중심 공개 스펙트럼 라이브러리</li>
+<li><strong>GNPS (Global Natural Products Social Molecular Networking)</strong>: 자연물 중심 공개 DB</li>
+<li><strong>In-house 측정 스펙트럼</strong>: 자체 측정 신규 스펙트럼 (10,000 분자 규모)</li>
+</ul>
+<p>선정 이유: 가장 크고 다양한 공개 데이터 통합 + 자체 측정으로 커버리지 확장, 상업용 의존 없음.</p>
+<p><strong>Step 2: 구축 파이프라인</strong></p>
+<pre><code>원시 스펙트럼 수집 (MoNA + MassBank + GNPS + in-house)
+    ↓
+[메타데이터 정규화]
+  - 필드명 통일, 잘못된 필드 수정
+  - 누락 SMILES/InChI/InChIKey 보완
+  - 누락 parent mass → SMILES 질량으로 도출
+  - 누락 adduct → precursor m/z와 parent mass로 도출
+    ↓
+[품질 필터링]
+  - adduct + precursor m/z로 계산한 parent mass ≠ SMILES mass 제거
+  - 모노아이소토픽 질량 불일치 제거
+  - 하전된 분자 어노테이션 제거
+  - Brungs et al. MS/MS 라이브러리 병합 스펙트럼 제거
+    ↓
+[SMILES 표준화]
+  - 표준화 실패 화합물 제거
+  - 이성체 정보 포함 InChIKey로 통일
+    ↓
+[강도 정규화]
+  - 모든 스펙트럼: 상대 강도값으로 정규화
+  - 기기 유형·충돌 에너지 표준화
+</code></pre>
+<p><strong>Step 3: 품질 검증</strong></p>
+<ul>
+<li>각 fold의 메타데이터 속성 분포 시각화로 균형 확인</li>
+<li>Spectrum simulation challenge: 모든 메타데이터가 있는 서브셋만 사용</li>
+<li>공개 저장소에서 코드·데이터 완전 공개로 재현성 보장</li>
+<li>MS 전문성 없이도 사용 가능한 전처리 자동화</li>
+</ul>
+<p><strong>Step 4: 데이터셋 구성 및 공개</strong></p>
+<ul>
+<li><strong>MCES(Maximum Common Edge Subgraph) 기반 분할</strong>: 분자 그래프 간 편집 거리를 기준으로 클러스터링 → Tanimoto &gt; 0.85 근사 중복 누출 차단</li>
+<li>StratifiedGroupKFold로 Train / Validation / Test 3-fold 분할</li>
+<li>스펙트럼 수: Train &gt;&gt; Validation &gt; Test (불균형 방지)</li>
+<li>GitHub: <a href="https://github.com/pluskal-lab/MassSpecGym">https://github.com/pluskal-lab/MassSpecGym</a></li>
+<li>HuggingFace: <a href="https://huggingface.co/datasets/roman-bushuiev/MassSpecGym">https://huggingface.co/datasets/roman-bushuiev/MassSpecGym</a></li>
+</ul>
+<h2>Input (입력)</h2>
+<h3>데이터 구성 현황</h3>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>규모</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>전체 MS/MS 스펙트럼 수</td>
+  <td><strong>231,000+</strong></td>
+</tr>
+<tr>
+  <td>고유 분자 구조 수</td>
+  <td><strong>29,000+</strong></td>
+</tr>
+<tr>
+  <td>출처</td>
+  <td>MoNA, MassBank, GNPS + in-house</td>
+</tr>
+<tr>
+  <td>분자 크기</td>
+  <td>소분자 (&lt; ~1,000 Da)</td>
+</tr>
+</tbody>
+</table>
+<h3>세 가지 챌린지</h3>
+<table>
+<thead>
+<tr>
+  <th>챌린지</th>
+  <th>입력</th>
+  <th>출력</th>
+  <th>추가 변형</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>De novo 분자 생성</strong></td>
+  <td>MS/MS 스펙트럼</td>
+  <td>분자 구조 (SMILES)</td>
+  <td>화학식 제공 버전(보너스)</td>
+</tr>
+<tr>
+  <td><strong>분자 검색</strong></td>
+  <td>MS/MS 스펙트럼</td>
+  <td>후보 DB에서 순위 목록</td>
+  <td>화학식 제공 버전(보너스)</td>
+</tr>
+<tr>
+  <td><strong>스펙트럼 시뮬레이션</strong></td>
+  <td>분자 구조 (SMILES)</td>
+  <td>MS/MS 스펙트럼</td>
+  <td>화학식 제공 버전(보너스)</td>
+</tr>
+</tbody>
+</table>
+<h3>제공 필드</h3>
+<table>
+<thead>
+<tr>
+  <th>필드명</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>mzs</code></td>
+  <td>m/z 값 배열 (MS/MS 피크)</td>
+</tr>
+<tr>
+  <td><code>intensities</code></td>
+  <td>각 피크 강도 (정규화)</td>
+</tr>
+<tr>
+  <td><code>smiles</code></td>
+  <td>분자 구조 (SMILES 형식)</td>
+</tr>
+<tr>
+  <td><code>inchi</code></td>
+  <td>InChI 식별자</td>
+</tr>
+<tr>
+  <td><code>inchikey</code></td>
+  <td>InChIKey (이성체 포함)</td>
+</tr>
+<tr>
+  <td><code>precursor_mz</code></td>
+  <td>전구체 m/z</td>
+</tr>
+<tr>
+  <td><code>adduct</code></td>
+  <td>이온화 adduct 유형</td>
+</tr>
+<tr>
+  <td><code>collision_energy</code></td>
+  <td>충돌 에너지</td>
+</tr>
+<tr>
+  <td><code>instrument_type</code></td>
+  <td>기기 유형</td>
+</tr>
+</tbody>
+</table>
+<h3>피처화 방법 (ML 벤치마크 전용)</h3>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>원리</th>
+  <th>적용 챌린지</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Morgan fingerprint</strong></td>
+  <td>분자 서브구조를 비트 벡터(2048-bit, radius=2)로 표현</td>
+  <td>분자 검색, 유사도 계산</td>
+</tr>
+<tr>
+  <td><strong>Tanimoto 유사도</strong></td>
+  <td>두 분자 간 공유 비트 비율 (0~1). 1=동일 분자</td>
+  <td>검색 정확도 평가, 구조 유사도</td>
+</tr>
+<tr>
+  <td><strong>MCES 거리</strong></td>
+  <td>최대 공통 엣지 서브그래프 편집 거리</td>
+  <td>데이터 분할, de novo 생성 평가</td>
+</tr>
+<tr>
+  <td><strong>Cosine 유사도 (스펙트럼)</strong></td>
+  <td>두 MS/MS 스펙트럼의 코사인 유사도</td>
+  <td>스펙트럼 시뮬레이션 평가</td>
+</tr>
+</tbody>
+</table>
+<h3>분할 방법</h3>
+<p><strong>MCES 기반 분할 (Random 분할이 아님)</strong>:</p>
+<ul>
+<li>MCES 거리를 기준으로 분자를 클러스터링 (distance_threshold=10)</li>
+<li>StratifiedGroupKFold: 동일 클러스터 내 분자는 같은 fold에 배치</li>
+<li>→ Tanimoto &gt; 0.85인 유사 분자가 train/test 동시 출현하는 데이터 누출 방지</li>
+<li>기존 2D InChIKey 기반 분할의 누출 문제를 해결한 핵심 기여</li>
+</ul>
+<h2>Output (출력 / 정답 형식)</h2>
+<table>
+<thead>
+<tr>
+  <th>챌린지</th>
+  <th>출력 형태</th>
+  <th>주요 평가 지표</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>De novo 생성</td>
+  <td>SMILES 문자열</td>
+  <td>Top-k accuracy, MCES 거리, Tanimoto 유사도</td>
+</tr>
+<tr>
+  <td>분자 검색</td>
+  <td>순위 목록</td>
+  <td>Hit rate @ rank k (HR@k), Top-1 Tanimoto 유사도</td>
+</tr>
+<tr>
+  <td>스펙트럼 시뮬레이션</td>
+  <td>m/z + intensity 배열</td>
+  <td>Cosine 유사도, Top-1 retrieval accuracy</td>
+</tr>
+</tbody>
+</table>
+<h3>벤치마크된 모델 목록</h3>
+<table>
+<thead>
+<tr>
+  <th>모델</th>
+  <th>유형</th>
+  <th>간략 설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>FraGNNet</strong></td>
+  <td>GNN (fragmentation DAG)</td>
+  <td>ICEBERG 기반 fragmentation graph 신경망, spectrum simulation SOTA (31.93%)</td>
+</tr>
+<tr>
+  <td><strong>ICEBERG</strong></td>
+  <td>GNN (fragmentation DAG)</td>
+  <td>Goldman et al., 57.8% cosine similarity, forward spectrum simulation SOTA</td>
+</tr>
+<tr>
+  <td><strong>MIST</strong></td>
+  <td>Transformer</td>
+  <td>분자 fingerprint 예측으로 검색; 화학식 어노테이션 활용 시 추가 성능 향상</td>
+</tr>
+<tr>
+  <td><strong>CSI:FingerID</strong></td>
+  <td>SVM / fingerprint</td>
+  <td>전통적 MS/MS 검색 방법, fingerprint 기반</td>
+</tr>
+<tr>
+  <td><strong>DiffMS</strong></td>
+  <td>Diffusion + MIST</td>
+  <td>fingerprint 예측 후 그래프 diffusion으로 구조 생성; de novo top-1 2.30%</td>
+</tr>
+<tr>
+  <td><strong>MARASON</strong></td>
+  <td>GNN + Neural Graph Matching</td>
+  <td>Wang et al. 2025, spectrum simulation 34.03% (+6%)</td>
+</tr>
+<tr>
+  <td><strong>MassSpecGym baseline</strong></td>
+  <td>Transformer</td>
+  <td>논문 자체 제공 baseline, de novo 생성에서 0% top-1 accuracy</td>
+</tr>
+</tbody>
+</table>
+<h2>예시 문항 (챌린지별)</h2>
+<p><strong>[Type 1: 스펙트럼 시뮬레이션]</strong></p>
+<ul>
+<li>Input: 분자 구조 C₉H₁₁NO₂ (예: 도파민 유도체의 SMILES)</li>
+<li>Task: MS/MS 스펙트럼 (m/z, intensity 배열) 예측</li>
+<li>평가: 예측 스펙트럼 vs. 실측 스펙트럼의 코사인 유사도</li>
+</ul>
+<p><strong>[Type 2: 분자 검색]</strong></p>
+<ul>
+<li>Input: 측정 MS/MS 스펙트럼 (m/z=178.0, intensity 패턴)</li>
+<li>Task: 29k 후보 분자 DB에서 올바른 분자 구조 순위 매기기</li>
+<li>평가: HR@1, HR@5, HR@10</li>
+</ul>
+<p><strong>[Type 3: De novo 분자 생성]</strong></p>
+<ul>
+<li>Input: 측정 MS/MS 스펙트럼 + (보너스: 화학식 C₁₀H₁₃NO)</li>
+<li>Task: 스펙트럼만으로 분자 SMILES 생성</li>
+<li>평가: 예측 SMILES의 2D InChIKey == 정답 InChIKey</li>
+</ul>
+<h2>주요 평가 결과</h2>
+<h3>스펙트럼 시뮬레이션 (Top-1 retrieval accuracy)</h3>
+<table>
+<thead>
+<tr>
+  <th>모델</th>
+  <th>Top-1 acc</th>
+  <th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>MassSpecGym baseline</td>
+  <td>~0%</td>
+  <td>Transformer baseline</td>
+</tr>
+<tr>
+  <td>FraGNNet</td>
+  <td>31.93%</td>
+  <td>이전 SOTA</td>
+</tr>
+<tr>
+  <td><strong>MARASON</strong> (Wang et al. 2025)</td>
+  <td><strong>34.03%</strong></td>
+  <td>+6% 상대 향상</td>
+</tr>
+<tr>
+  <td>ICEBERG</td>
+  <td>57.8% cosine sim</td>
+  <td>화학식 정보 활용 버전</td>
+</tr>
+</tbody>
+</table>
+<h3>De novo 분자 생성 (Top-1 accuracy)</h3>
+<table>
+<thead>
+<tr>
+  <th>모델</th>
+  <th>Top-1 acc</th>
+  <th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Baseline Transformer</td>
+  <td>0%</td>
+  <td>논문 기본 baseline</td>
+</tr>
+<tr>
+  <td>DiffMS (Bohde et al. 2025)</td>
+  <td>2.30%</td>
+  <td>Diffusion 기반 현재 SOTA</td>
+</tr>
+</tbody>
+</table>
+<h2>한계점</h2>
+<ul>
+<li><strong>소분자 편향</strong>: 공개 MS 라이브러리 특성상 소분자(&lt; ~1,000 Da) 중심</li>
+<li><strong>양성 이온 모드 편향</strong>: [M+H]⁺ 등 양성 이온화 adduct 과다 대표</li>
+<li><strong>기기 이질성</strong>: 다양한 기기·충돌 에너지 설정이 스펙트럼 패턴에 영향</li>
+<li><strong>De novo 생성 난이도</strong>: 현재 최고 성능 모델도 2.30% → 실용화 요원</li>
+<li><strong>이성체 구분 한계</strong>: 동일 2D 구조의 입체이성체 구분이 MS/MS로 불가능한 경우 존재</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>원 논문 링크 (NeurIPS 2024 공식)</strong>: <a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/c6c31413d5c53b7d1c343c1498734b0f-Abstract-Datasets_and_Benchmarks_Track.html">https://proceedings.neurips.cc/paper_files/paper/2024/hash/c6c31413d5c53b7d1c343c1498734b0f-Abstract-Datasets_and_Benchmarks_Track.html</a></li>
+<li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2410.23326">https://arxiv.org/abs/2410.23326</a></li>
+<li><strong>GitHub</strong>: <a href="https://github.com/pluskal-lab/MassSpecGym">https://github.com/pluskal-lab/MassSpecGym</a></li>
+<li><strong>HuggingFace</strong>: <a href="https://huggingface.co/datasets/roman-bushuiev/MassSpecGym">https://huggingface.co/datasets/roman-bushuiev/MassSpecGym</a></li>
+<li><strong>이 벤치마크를 사용한 RAG 논문</strong>: Wang, Wang, Manjrekar, Coley (2025) — MARASON, ICML 2025</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

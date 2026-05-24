@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SQuAI: Scientific Question-Answering with Multi-Agent Retrieval-Augmented Generation — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">[K1.O1] <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">[K1.O2] <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">[K1.O3] <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">[K2.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">[K2.O2] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">[K2.O3] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">[K3.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">[K3.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">[K3.O3] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">[K4.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">[K4.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">[K4.O3] <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">[K1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.html" class="sb-sub">[K2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.html" class="sb-sub">[K3] <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">[K4] <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">[O1] <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">[O2] <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">[O3] <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">16</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">9</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">14</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">3</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">6</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">3</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">2</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>SQuAI: Scientific Question-Answering with Multi-Agent Retrieval-Augmented Generation</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">CIKM</span>
+      <span class="meta-year">2025</span>
+      <a href="https://doi.org/10.1145/3746252.3761471" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell">K1.O2</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>unarXive (SQuAI Benchmark)</h1>
+<blockquote>
+<p>CIKM | 2025 | Benchmark | physics, bio, chem</p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>unarXive 2024의 방대한 arXiv 코퍼스를 바탕으로, LLaMA 3.3 70B를 활용해 합성 생성된 장문 형태(long-form)의 개방형 과학 QA 벤치마크. 총 1,000문항 (Simple 500개 + Expert 500개).</p>
+<h2>제작 배경</h2>
+<p><strong>기존 벤치마크의 한계</strong></p>
+<ul>
+<li>기존 과학 QA 벤치마크(ScienceQA, PubMedQA 등)는 대부분 다중 선택형이거나 예/아니오, 짧은 단답형(factoid) 질문에 국한되어 있어 실제 연구 맥락과 괴리가 있음.</li>
+<li>과학 도메인에서 자유 텍스트 형식의 설명적이고 긴 답변을 요구하는 개방형 질문(open-domain long-form scientific QA)을 평가할 수 있는 데이터셋 부족.</li>
+</ul>
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<ul>
+<li><strong>Step 1: 데이터 출처 선정</strong>: 광범위한 과학 분야(컴퓨터 과학, 수학, 물리학 등)를 포괄하는 unarXive 2024 코퍼스(1991년~2024년 arXiv 전체 텍스트 230만 건)를 출처로 활용.</li>
+<li><strong>Step 2: Simple 서브셋 구축</strong>: DeepEval 프레임워크 + LLaMA 3.3 70B Instruct를 사용하여 덜 복잡하고 일반적이며 비전문가에게 적합한 장문형 질문 500개를 합성 생성.</li>
+<li><strong>Step 3: Expert 서브셋 구축</strong>: 동일한 모델과 프레임워크를 사용하여 출처 논문에서 도출해야 하는 상세한 증거와 기술적 지식을 요구하는 전문가용 질문 500개를 합성 생성.</li>
+<li><strong>Step 4: 데이터셋 구성 및 공개</strong>: Q-A-E(Question-Answer-Evidence) 트리플렛 형태의 1,000문항을 구축하여 SQuAI 논문과 함께 공개.</li>
+</ul>
+<h2>Input (입력)</h2>
+<table>
+<thead>
+<tr>
+  <th>서브셋</th>
+  <th>문항 수</th>
+  <th>특징</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>unarXive Simple</td>
+  <td>500개</td>
+  <td>덜 복잡하고 일반적. 비전문가를 위한 광범위한 질문.</td>
+</tr>
+<tr>
+  <td>unarXive Expert</td>
+  <td>500개</td>
+  <td>구체적이고 기술적. 논문의 상세한 증거를 요구하는 질문.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>출처: unarXive 2024 내 개별 arXiv 논문</li>
+<li>문항 형식: 개방형 장문 질문 (Long-form, open-domain)</li>
+<li>도메인: 과학 전 분야 (컴퓨터 과학, 물리학, 수학 등)</li>
+</ul>
+<h2>Output (출력 / 정답 형식)</h2>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>출력 형태</td>
+  <td>인라인 인용([X]) 포함된 자유 텍스트 형태의 긴 답변</td>
+</tr>
+<tr>
+  <td>평가 지표</td>
+  <td>Answer Relevancy, Contextual Relevancy, Faithfulness (각 0~1)</td>
+</tr>
+<tr>
+  <td>특이사항</td>
+  <td>합성 참조 정답과의 직접 비교 지양 — 인용 증거와 생성 답변 간의 관계성을 직접 평가</td>
+</tr>
+</tbody>
+</table>
+<p><strong>평가 지표 상세</strong></p>
+<ol>
+<li><strong>Answer Relevancy</strong>: 질문과 생성된 답변 간의 의미적 일치도.</li>
+<li><strong>Contextual Relevancy</strong>: 제공된 증거 구절이 답변에 얼마나 효과적으로 통합되었는지.</li>
+<li><strong>Faithfulness</strong>: 답변이 증거에 비추어 정확한지, 뒷받침되지 않는 주장이 없는지.</li>
+</ol>
+<h2>예시 문항</h2>
+<ul>
+<li><strong>Q</strong>: &quot;What is quantum computing and how is it used in cryptography?&quot;</li>
+<li><strong>A</strong>: &quot;Quantum computing uses qubits to perform computations based on quantum mechanics [1]. It has potential applications in cryptography, particularly for breaking classical encryption schemes [2].&quot;</li>
+<li>각 인용 번호([1], [2])에 대응하는 원본 논문의 citation context가 함께 매핑됨.</li>
+</ul>
+<h2>주요 평가 결과</h2>
+<table>
+<thead>
+<tr>
+  <th>접근법</th>
+  <th>unarXive Simple</th>
+  <th>unarXive Expert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Standard RAG</td>
+  <td>0.759</td>
+  <td>0.796</td>
+</tr>
+<tr>
+  <td>SQuAI (Abstract)</td>
+  <td>0.828</td>
+  <td>0.812</td>
+</tr>
+<tr>
+  <td>SQuAI (Full Text)</td>
+  <td><strong>0.847</strong></td>
+  <td><strong>0.864</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>한계점</h2>
+<ul>
+<li>두 서브셋 모두 LLM(LLaMA 3.3 70B)으로 합성 생성되어 실제 인간 사용자의 복잡한 의도나 다양한 표현 방식을 완벽하게 반영하지 못할 가능성이 있음.</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li>원 논문: <a href="https://doi.org/10.1145/3746252.3761471">https://doi.org/10.1145/3746252.3761471</a></li>
+<li>HuggingFace 데이터셋: <a href="https://huggingface.co/datasets/ines-besrour/unarxive_2024">https://huggingface.co/datasets/ines-besrour/unarxive_2024</a></li>
+<li>GitHub: <a href="https://github.com/faerber-lab/SQuAI">https://github.com/faerber-lab/SQuAI</a></li>
+<li>이 벤치마크를 사용한 논문: SQuAI (CIKM 2025)</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

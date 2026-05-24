@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GeoGPT-RAG Technical Report — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">[K1.O1] <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">[K1.O2] <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">[K1.O3] <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">[K2.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">[K2.O2] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">[K2.O3] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">[K3.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">[K3.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">[K3.O3] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">[K4.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">[K4.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">[K4.O3] <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">[K1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.html" class="sb-sub">[K2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.html" class="sb-sub">[K3] <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">[K4] <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">[O1] <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">[O2] <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">[O3] <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">16</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">9</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">14</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">3</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">6</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">3</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">2</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>GeoGPT-RAG Technical Report</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">arXiv</span>
+      <span class="meta-year">2025</span>
+      <a href="https://arxiv.org/abs/2509.09686v2" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/O1.html" class="tag tag-cell">O1</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>GeoGPT-RAG Technical Report</h1>
+<ul>
+<li><strong>기존 벤치마크의 한계</strong>: MTEB이나 BEIR와 같은 범용 정보 검색 벤치마크는 지질학, 석유 탐사 등 극도로 전문화된 어휘와 구조를 다루는 지구과학 분야의 언어 모델 정보 탐색 능력을 측정하기에는 부적합함.</li>
+<li><strong>필요성</strong>: 고품질 레이블이 부족한 환경을 극복하고, RAG 시스템 개발에서 지구과학 검색 및 응답 성능을 객관적으로 계량화하기 위한 표준화된 측정 도구가 절실하게 필요했음.</li>
+</ul>
+<blockquote>
+<p>arXiv | 2025 | benchmark | earth</p>
+<h2>📌 한 줄 요약</h2>
+<p>오픈 액세스 지구과학 학술 논문 1,000건을 바탕으로 GPT-4o 및 RAGAS 프레임워크를 활용해 자동 및 수동 검수로 구축된 938개 문항의 지구과학 RAG 검색 전문 벤치마크 데이터셋.</p>
+<h2>🎯 제작 배경</h2>
+</blockquote>
+<h2>🔨 Construction Methodology</h2>
+<p><strong>Step 1 — 데이터 출처 선정</strong>
+GeoGPT 라이브러리 코퍼스 중에서 1,000개의 오픈 액세스 지구과학 논문을 무작위 샘플링하여 초기 컨텍스트로 활용함.
+<strong>Step 2 — 구축 파이프라인</strong>
+RAGAS Test Set Generation 모듈 활용. 기저 LLM으로 gpt-4o를 사용하여 논문 텍스트 기반으로 질문-정답(QA) 쌍을 자동 생성함. 임베딩 기반 유사성 검색에는 text-embedding-3-small 모델을 병행 사용함.
+<strong>Step 3 — 품질 검증</strong>
+불완전하거나 손상된 항목을 수동으로 평가(Manual Review)하여 치명적 결함이 있는 62개의 예제를 제거함. &quot;답이 문맥에 존재하지 않음&quot; 식의 잘못 연결된 레퍼런스 정답에 대해서는 gpt-4o를 사용해 정답을 재생성(Regenerate)하여 평가 일관성을 보강함.
+<strong>Step 4 — 데이터셋 구성 및 공개</strong>
+총 938개의 최종 QA 쌍 완성 후 HuggingFace Dataset으로 공개함.</p>
+<h2>📥 Input (입력)</h2>
+<p>지구과학 전문 논문 텍스트 조각(Chunk)을 바탕으로 한 자연어 질의(Question).</p>
+<p>&lt;table header-row=&quot;true&quot;&gt;
+&lt;tr&gt;
+&lt;td&gt;질문 유형&lt;/td&gt;
+&lt;td&gt;문항 수&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Single-document, fact-based QA&lt;/td&gt;
+&lt;td&gt;250&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Single-document inference QA&lt;/td&gt;
+&lt;td&gt;250&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Multi-document QA&lt;/td&gt;
+&lt;td&gt;188&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Conditional QA&lt;/td&gt;
+&lt;td&gt;250&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+## 📤 Output (출력 / 정답 형식)
+모델이 생성한 텍스트 형태의 정답. 평가 지표: Answer Recall (RAGAS 기반), Top-K Recall (검색기 성능 측정용).
+## 📊 주요 평가 결과
+GeoGPT-RAG (GeoEmbedding) Top-K Recall: Top-1 0.908 / Top-3 0.945 / Top-5 0.950 / Top-8 0.959.
+## ⚠️ 한계점
+- GPT-4o가 기계적으로 역산하여 질문을 만들었으므로, 실제 연구 현장의 도메인 전문가가 백지에서 물어보는 직관적/모호한 형태의 질문 분포와는 다를 수 있음.
+- 오픈 액세스 논문 1,000건만 샘플링하여 접근이 제한적인 고급 학술지 정보는 커버리지에서 누락될 가능성이 있음.
+## 🔗 관련 정보
+- 논문 링크: [https://arxiv.org/abs/2509.09686v2](https://arxiv.org/abs/2509.09686v2)
+- HuggingFace Dataset: [https://huggingface.co/datasets/GeoGPT-Research-Project/GeoRAG-QA](https://huggingface.co/datasets/GeoGPT-Research-Project/GeoRAG-QA)
+- **이 벤치마크를 사용한 논문:** GeoGPT-RAG Technical Report (arXiv 2025)</p>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

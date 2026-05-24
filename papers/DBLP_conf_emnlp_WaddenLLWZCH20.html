@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fact or Fiction: Verifying Scientific Claims — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">[K1.O1] <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">[K1.O2] <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">[K1.O3] <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">[K2.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">[K2.O2] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">[K2.O3] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">[K3.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">[K3.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">[K3.O3] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">[K4.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">[K4.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">[K4.O3] <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">[K1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.html" class="sb-sub">[K2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.html" class="sb-sub">[K3] <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">[K4] <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">[O1] <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">[O2] <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">[O3] <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">16</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">9</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">14</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">3</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">6</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">3</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">2</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Fact or Fiction: Verifying Scientific Claims</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">EMNLP</span>
+      <span class="meta-year">2020</span>
+      <a href="https://aclanthology.org/2020.emnlp-main.609/" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell">K1.O2</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>Fact or Fiction: Verifying Scientific Claims</h1>
+<ul>
+<li><strong>기존 방법의 한계</strong>: FEVER 등 기존 팩트체킹 데이터셋은 위키피디아 기반이거나 인위적으로 조작된 클레임을 사용하여 과학 분야 특유의 배경지식과 복잡한 언어 구조 미반영</li>
+<li><strong>이 연구가 필요한 이유</strong>: 코로나19같은 보건 위기 상황에서 연구 문헌을 바탕으로 과학적 주장의 진위를 검증하고 근거를 신속하게 찾는 자동화 시스템이 필수적임</li>
+</ul>
+<blockquote>
+<p>EMNLP | 2020 | Method | bio · medical</p>
+<h2>📌 한 줄 요약</h2>
+<p>과학적 문헌에서 주어진 클레임의 사실 여부(SUPPORTS/REFUTES)를 판별하고 근거 문장을 찾는 3단계 파이프라인 시스템(VERISCI) 개발 및 전문가 주석 데이터셋(SCIFACT) 구축.</p>
+<h2>🎯 연구 배경 및 동기</h2>
+</blockquote>
+<h2>🏗️ 시스템 아키텍처</h2>
+<pre><code class="language-javascript">[입력 Claim]
+      │
+      ▼
+[ABSTRACTRETRIEVAL]
+TF-IDF (unigram + bigram) 기반
+상위 k=3개 관련 초록 검색
+      │
+      ▼
+[RATIONALSELECTION]
+각 초록 내 문장 단위 검사
+클레임 지지/반박 근거 문장(선택)
+      │
+      ▼
+[LABELPREDICTION]
+RoBERTa-large 기반 분류기
+SUPPORTS / REFUTES / NOINFO
+</code></pre>
+<h2>🔑 핵심 모듈 상세 설명</h2>
+<h3>1. ABSTRACTRETRIEVAL</h3>
+<ul>
+<li>TF-IDF(unigram + bigram)를 사용하여 클레임과 가장 유사한 상위 k=3개 관련 문헌 초록을 검색</li>
+<li>파인튜닝 없는 비파라미터 검색기</li>
+</ul>
+<h3>2. RATIONALSELECTION</h3>
+<ul>
+<li>RoBERTa-large 모델로 각 문장이 클레임의 근거가 될 수 있는지 이진 분류</li>
+<li>근거 문장(Rationale)을 필터링하여 다음 단계로 전달</li>
+</ul>
+<h3>3. LABELPREDICTION</h3>
+<ul>
+<li>추출된 근거 문장들 + 클레임을 RoBERTa-large 분류기에 입력</li>
+<li><strong>FEVER 데이터셋</strong>으로 사전학습 후 SCIFACT로 파인튜닝 시 성능 크게 향상</li>
+<li>Oracle(정답 초록 제공) 환경에서 Abstract Label+Rationale F1 약 72.6%</li>
+</ul>
+<h2>🧪 실험 및 평가</h2>
+<p><strong>평가 환경 및 결과 (SCIFACT)</strong></p>
+<p>&lt;table header-row=&quot;true&quot;&gt;
+&lt;tr&gt;
+&lt;td&gt;조건&lt;/td&gt;
+&lt;td&gt;Abstract Label-Only F1&lt;/td&gt;
+&lt;td&gt;Abstract Label+Rationale F1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Oracle Abstract&lt;/td&gt;
+&lt;td&gt;~89.7%&lt;/td&gt;
+&lt;td&gt;~72.6%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Oracle Rationale&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;~72.0%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Open (TF-IDF 검색)&lt;/td&gt;
+&lt;td&gt;~64.1%&lt;/td&gt;
+&lt;td&gt;~46.4%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+**CORD-19 케이스 스터디**
+- 코로나19 관련 클레임에 대해 의대생 평가 포함
+- Lopinavir/ritonavir 등 실제 임상 코맨트에서 가능한 근거 잘 추출
+## 💡 핵심 기여
+1. 과학적 클레임 검증(Scientific Claim Verification)이라는 새로운 태스크 공식화
+2. 논문 인용구(Citance) 기반의 자연스러운 1.4K개 전문가 주석 데이터셋(SCIFACT) 구축 및 공개
+3. 도메인 특화 데이터 및 사전학습을 활용한 강력한 베이스라인(VERISCI) 구축
+## ⚠️ 한계점
+- 인과관계 추론, 통계적 수치(p-value, 신뢰구간) 해석, 상호참조(Coreference) 해결, 감역 특화 배경지식 요구되는 부분에서 여전히 오류 발생
+## 🔗 관련 연구 및 관련 정보
+- **논문**: [https://aclanthology.org/2020.emnlp-main.609/](https://aclanthology.org/2020.emnlp-main.609/)
+- **GitHub (SCIFACT)**: [https://github.com/allenai/scifact](https://github.com/allenai/scifact)
+- **참조**: CORD-19 (Wang et al., 2020), FEVER (Thorne et al., 2018)</p>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MedRAGChecker: Claim-Level Verification for Biomedical Retrieval-Augmented Generation — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">[K1.O1] <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">[K1.O2] <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">[K1.O3] <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">[K2.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">[K2.O2] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">[K2.O3] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">[K3.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">[K3.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">[K3.O3] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">[K4.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">[K4.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">[K4.O3] <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">[K1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.html" class="sb-sub">[K2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.html" class="sb-sub">[K3] <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">[K4] <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">[O1] <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">[O2] <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">[O3] <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">16</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">9</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">14</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">3</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">6</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">3</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">2</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>MedRAGChecker: Claim-Level Verification for Biomedical Retrieval-Augmented Generation</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">arXiv</span>
+      <span class="meta-year">2026</span>
+      <a href="https://arxiv.org/abs/2601.06519v1" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.O2.html" class="tag tag-cell">K2.O2</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>MedRAGChecker: Claim-Level Verification for Biomedical Retrieval-Augmented Generation</h1>
+<blockquote>
+<p>arXiv | 2026 | Method | medical · bio</p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>의학 도메인 RAG 시스템이 생성한 긴 답변을 원자적 단위(Atomic Claim)로 쪼개고, 텍스트 기반 NLI과 지식 그래프(DRKG)를 융합하여 사실성과 안전성을 진단하는 검증 프레임워크.</p>
+<h2>연구 배경 및 동기</h2>
+<ul>
+<li><strong>기존 방법의 한계점</strong>: 의학 분야 RAG에서 문단 수준이나 전체 답변(Answer-level) 수준의 평가는 긴 텍스트 속 깊이 숨겨진 치명적인 단일 사실 오류를 잡아내기 힘듦. LLM은 텍스트상으로 그럴듯한 상관관계를 보이면 인과관계나 의학적 금기 사항을 위반하더라도 옳다고 판단하는 경향이 있음.</li>
+<li><strong>이 연구가 필요한 이유</strong>: 약물-질환 처방이나 부작용 같은 안전과 직결된 문제(Safety-critical errors)를 방지하기 위해서는, 텍스트 문맥뿐만 아니라 구조화된 외부 의학 지식(KG)을 이용한 교차 검증이 필수적임.</li>
+</ul>
+<h2>시스템 아키텍처</h2>
+<p>[image: MedRAGChecker pipeline diagram]</p>
+<pre><code>[LLM 생성 답변 (Raw Answer)]
+      ↓
+[Claim Extractor]
+LLM 답변을 SPO(Subject, Relation, Object)
+트리플 형태의 Atomic Claim 리스트로 분해
+      ↓
+    ┌────────┴───────┐
+[Textual NLI Checker]    [KG-Based Verifier]
+증류된 학생 모델 앙상블      DRKG 엔티티 링크
+ Entail/Contradict 판별   TransE 트리플 타당성 점수
+    └────────┬───────┘
+      ↓
+[Signal Fusion (Logit 공간)]
+Faithfulness, Hallucination, SafetyErr 점수 출력
+</code></pre>
+<h2>핵심 모듈 상세 설명</h2>
+<h3>Teacher-Student Distillation</h3>
+<ul>
+<li>GPT-4.1을 매번 호출하는 대신, GPT-4.1이 생성한 Claim 및 NLI 라벨들을 이용해 7B~13B 오픈소스 의료 LLM(Meditron3-8B, Med42-Llama3-8B 등)을 SFT</li>
+<li>학습 데이터: Cross-entropy over NLI labels (Entail/Neutral/Contradict)</li>
+</ul>
+<h3>F1-Weighted Ensemble</h3>
+<ul>
+<li>증류된 학생 모델들이 특정 클래스(예: 중립, 모순)에서 서로 다른 강점을 보이므로 Dev 세트에서 측정한 클래스별 F1 점수를 가중치로 삼아 예측값을 앙상블</li>
+</ul>
+<h3>KG 융합 (TransE 적용)</h3>
+<ul>
+<li>추출된 Claim의 엔티티를 DRKG에 매핑한 후, TransE 임베딩 모델을 사용해 (h, r, t) 트리플의 타당성 점수 $p_{KGE}$를 계산하고 이를 텍스트 신호와 결합</li>
+</ul>
+<table>
+<thead>
+<tr>
+  <th>모듈</th>
+  <th>사용 도구/모델</th>
+  <th>역할 및 특징</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Claim Extractor</td>
+  <td>Meditron3-8B 등 (SFT)</td>
+  <td>텍스트 답변을 SPO 구조 배열(JSON)로 분할</td>
+</tr>
+<tr>
+  <td>NLI Checker</td>
+  <td>학생 모델 앙상블</td>
+  <td>Context를 전제로 Claim의 Entail/Contradict 판별</td>
+</tr>
+<tr>
+  <td>KG Verifier</td>
+  <td>DRKG, TransE</td>
+  <td>구조적 의학 금기/관계 위반 필터링</td>
+</tr>
+</tbody>
+</table>
+<h2>실험 및 평가</h2>
+<p><strong>평가 데이터셋</strong>: PubMedQA, MedQuAD, LiveQA, MedRedQA</p>
+<p><strong>주요 결과 (생성 모델별)</strong></p>
+<table>
+<thead>
+<tr>
+  <th>Generator Model</th>
+  <th>Faithfulness</th>
+  <th>Hallucination</th>
+  <th>SafetyErr</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Med-Qwen2-7B</td>
+  <td>81.4%</td>
+  <td>8.0%</td>
+  <td>7.7%</td>
+</tr>
+<tr>
+  <td>Med42-Llama3-8B</td>
+  <td>85.3%</td>
+  <td>6.3%</td>
+  <td>6.8%</td>
+</tr>
+<tr>
+  <td>Meditron3-8B</td>
+  <td>71.5%</td>
+  <td>7.6%</td>
+  <td>8.2%</td>
+</tr>
+<tr>
+  <td>PMC-LLaMA-13B</td>
+  <td>60.1%</td>
+  <td>10.7%</td>
+  <td>11.3%</td>
+</tr>
+</tbody>
+</table>
+<p>→ 단순 텍스트 NLI만 사용했을 때보다 지식 그래프(KG)를 융합했을 때, 안전에 민감한 Claim에 대한 검증 일치도(인간 전문가 기준)가 유의미하게 향상됨.</p>
+<h2>핵심 기여</h2>
+<ol>
+<li>RAG 결과를 개별 문장도 아닌 더 세밀한 <strong>Atomic Claim 수준</strong>으로 분해하여 세밀하게 진단하는 파이프라인 구축</li>
+<li>환각(Hallucination) 검증을 텍스트 추론에만 맡기지 않고, <strong>비정형 텍스트 검증과 정형 지식 그래프(KG)를 결합</strong>하여 Safety-critical 오류를 잡아내는 방법론 제시</li>
+<li>고비용 API(GPT-4) 의존도를 낮추기 위해 <strong>F1-가중치 앙상블 소형 체커 모델링</strong> 구현</li>
+</ol>
+<h2>한계점</h2>
+<ul>
+<li>지식 그래프(DRKG)에 포함되지 않은 희귀 질환이나 엔티티의 경우 융합 신호 효과를 받지 못하고 텍스트 검증에만 의존해야 함.</li>
+<li>엔티티 링크 과정이 표면적 텍스트 매칭에 의존하고 있어, 다중 홉(Multi-hop) 추론이나 복잡한 문맥에서는 KG 매핑이 실패할 수 있음.</li>
+</ul>
+<h2>관련 연구 및 관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://arxiv.org/abs/2601.06519v1">https://arxiv.org/abs/2601.06519v1</a></li>
+<li><strong>DRKG</strong>: Drug Repurposing Knowledge Graph 연동</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

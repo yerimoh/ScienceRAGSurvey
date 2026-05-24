@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MMed-RAG: Versatile Multimodal RAG System for Medical VLMs — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">[K1.O1] <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">[K1.O2] <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">[K1.O3] <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">[K2.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">[K2.O2] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">[K2.O3] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">[K3.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">[K3.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">[K3.O3] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">[K4.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">[K4.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">[K4.O3] <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">[K1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.html" class="sb-sub">[K2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.html" class="sb-sub">[K3] <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">[K4] <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">[O1] <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">[O2] <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">[O3] <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">16</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">9</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">14</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">3</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">6</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">3</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">2</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>MMed-RAG: Versatile Multimodal RAG System for Medical VLMs</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">ICLR</span>
+      <span class="meta-year">2025</span>
+      
+    </div>
+    <div class="paper-tags"><a href="../cell/K3.O1.html" class="tag tag-cell">K3.O1</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>MMed-RAG: Versatile Multimodal RAG System for Medical VLMs</h1>
+<ul>
+<li><strong>기존 방법의 한계점</strong>: 기존 Med-LVLM 모델들은 시각 정보와 맞지 않는 사실적 환각(Factual Hallucination) 현상을 빈번히 겪음. RAG를 도입하여 이 문제를 해결하려 했으나, 기존의 RAG 기법은 특정 데이터셋에 국한되어 다양한 의료 도메인에 일반화되지 않으며, 검색된 텍스트 정보가 주어지면 시각(이미지) 정보를 무시해 버리는 '교차 모달리티 오정렬(Cross-Modality Misalignment)' 및 외부 노이즈 정보에 그대로 의존해 버리는 전체 정렬 오류가 발생함.</li>
+<li><strong>이 연구가 필요한 이유</strong>: 다양한 영상 소스(방사선, 병리, 안과)를 포괄적으로 지원하면서도, RAG의 도입이 기존 모델의 시각 지능을 해치지 않도록 신뢰성과 사실성을 보장하는 고도화된 RAG 튜닝 기법이 필요함.</li>
+</ul>
+<blockquote>
+<p>ICLR | 2025 | Method | medical</p>
+<h2>📌 한 줄 요약</h2>
+<p>의료 대형 시각-언어 모델(Med-LVLM)에 RAG를 결합할 때 발생하는 모달리티 간 오정렬 및 정보 과의존성(환각) 문제를 해결하기 위해 고안된 다목적 멀티모달 RAG 시스템.</p>
+<h2>🎯 연구 배경 및 동기</h2>
+</blockquote>
+<h2>🏗️ 시스템 아키텍처</h2>
+<p>[image]</p>
+<ol>
+<li><strong>Domain-Aware Retrieval</strong>: 입력된 의료 이미지를 Domain Identification 모듈(BiomedCLIP)에 통과시켜 도메인을 예측한 뒤, 해당 도메인에 맞는 특화 검색기(Radiology, Pathology 등)를 선별적으로 호출.</li>
+<li><strong>Adaptive Retrieved Context Selection</strong>: 검색된 top-k 문서의 유사도 점수 하락률을 분석하여 쓸모없는 정보(Noise)가 포함되기 직전에 k값을 잘라내는 동적 필터링 수행.</li>
+<li><strong>RAG-Based Preference Fine-Tuning (RAG-PT)</strong>: DPO(Direct Preference Optimization) 기반의 선호도 파인튜닝을 진행. 시각 정보를 무시한 채 텍스트 검색 결과만 베끼는 습관을 교정하고, 내부 지식과 검색 지식의 균형을 맞춤.</li>
+</ol>
+<h2>🔑 핵심 모듈 상세 설명</h2>
+<ul>
+<li><strong>Domain-Aware Mechanism</strong>: 일반 범용 검색기를 훈련하는 대신, ResNet-50과 bio-BioClinicalBERT를 대조 학습(Contrastive Learning, InfoNCE Loss) 시킨 도메인별 검색기(전문가)를 모듈화하여 배치.</li>
+<li><strong>Adaptive Truncation (적응형 절삭)</strong>: Gap Statistic 기법에서 영감을 받아, <code>log(S_i / S_{i+1})</code> (S는 유사도 점수)가 특정 임계치를 초과하면 그 이후의 검색 결과를 버림으로써 노이즈 삽입을 차단.</li>
+<li><strong>RAG-PT Preference Pairs 설계 원리</strong>:<ul>
+<li><em>교차 모달리티 정렬</em>: 고도로 왜곡된 가짜 이미지를 넣고 검색된 정답 텍스트를 함께 주었을 때 모델이 정답을 출력하는 것을 '비선호(Dispreferred)'로 지정. 원본 이미지로 제대로 답을 추론한 것을 '선호(Preferred)'로 설정해 시각 지표를 우선시하도록 훈련.</li>
+<li><em>전체 정렬</em>: 검색 정보의 방해를 피하기 위해, 잘못된 검색 결과가 있더라도 원본 이미지로 정확히 진단한 사례를 긍정 강화.</li>
+</ul>
+</li>
+</ul>
+<h2>🧪 실험 및 평가</h2>
+<ul>
+<li><strong>평가 태스크</strong>: Medical VQA (MIMIC-CXR, IU-Xray, Harvard-FairVLMed, PMC-OA, Quilt-1M), Report Generation (병리 제외 3개 데이터셋)</li>
+<li><strong>주요 결과 (VQA Accuracy)</strong>:
+| 모델 | IU-Xray | MIMIC-CXR | Harvard-FairVLMed | PMC-OA | Quilt-1M |
+| LLaVA-Med-1.5 | 75.47 | 75.79 | 63.03 | 59.28 | 62.80 |
+| MedDr (Baseline) | 83.33 | 55.16 | 80.72 | 57.01 | 68.15 |
+| RULE (Baseline) | 84.51 | 81.86 | 87.49 | 70.36 | 68.97 |
+| <strong>MMed-RAG (Ours)</strong> | <strong>89.54</strong> | <strong>88.49</strong> | <strong>87.94</strong> | <strong>64.54</strong> | <strong>72.95</strong> |</li>
+</ul>
+<h2>💡 핵심 기여</h2>
+<ul>
+<li>검색을 위해 다양한 모달리티를 강제로 하나의 범용 검색기에 구겨 넣는 대신, 가벼운 도메인 식별기를 앞단에 배치하여 유연하고 확장 가능한 멀티모달 검색 구조 제시.</li>
+<li>RAG 도입으로 인해 오히려 발생할 수 있는 '검색 결과 맹신(Copy-Reference)'과 '오답 의존(Over-Reliance)' 부작용을 수학적으로 증명하고 DPO로 실질적 개선 달성.</li>
+</ul>
+<h2>⚠️ 한계점</h2>
+<ul>
+<li>여러 도메인이 혼합될수록 모든 것을 커버하는 '단일 범용 검색기' 훈련은 사실상 매우 어려움(MoE 방식 한계 확인).</li>
+<li>Base LLM(LLaVA-Med)이 Pre-training 단계에서 few-shot 학습 능력을 제대로 갖추지 못한 경우, RAG를 결합하더라도 Few-shot 환경에서 성능 하락이 두드러짐.</li>
+</ul>
+<h2>🔗 관련 연구 및 관련 정보</h2>
+<ul>
+<li>GitHub: <a href="https://github.com/richard-peng-xia/MMed-RAG">https://github.com/richard-peng-xia/MMed-RAG</a></li>
+<li>평가 벤치마크: MIMIC-CXR, IU-Xray, Harvard-FairVLMed, PMC-OA, Quilt-1M</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

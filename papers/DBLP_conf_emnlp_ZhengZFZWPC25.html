@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Benchmarking Foundation Models with Retrieval-Augmented Generation in Olympic-Level Physics Problem Solving — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">[K1.O1] <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">[K1.O2] <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">[K1.O3] <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">[K2.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">[K2.O2] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">[K2.O3] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">[K3.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">[K3.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">[K3.O3] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">[K4.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">[K4.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">[K4.O3] <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">[K1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.html" class="sb-sub">[K2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.html" class="sb-sub">[K3] <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">[K4] <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">[O1] <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">[O2] <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">[O3] <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">16</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">9</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">14</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">3</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">6</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">3</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">2</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Benchmarking Foundation Models with Retrieval-Augmented Generation in Olympic-Level Physics Problem Solving</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">EMNLP (Findings)</span>
+      <span class="meta-year">2025</span>
+      <a href="https://aclanthology.org/2025.findings-emnlp.1196/" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell">K1.O1</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>Benchmarking Foundation Models with Retrieval-Augmented Generation in Olympic-Level Physics Problem Solving</h1>
+<ul>
+<li>기존 자연과학 데이터셋(SciQ, ScienceQA 등)은 초중고 수준의 단순 문제로 구성되어 전문가 수준의 물리 추론 벤치마킹에 부적합</li>
+<li>Foundation model들은 도메인 특화 전문 지식 부족, 잦은 환각(hallucination), 물리 법칙 적용의 일관성 부재 문제를 가짐</li>
+<li>Olympiad 수준 물리 문제는 다이어그램·그래프·수식을 필수적으로 포함하는 멀티모달 특성이 있으나, 기존 RAG 연구는 텍스트 위주</li>
+</ul>
+<blockquote>
+<p>EMNLP (Findings) | 2025 | Method | physics</p>
+<h2>📌 한 줄 요약</h2>
+<p>Physics Olympiad 문제 풀이를 위한 최초의 멀티모달 RAG 벤치마크 <strong>PhoPile</strong>을 구축하고, 8개 foundation model × 7종 retriever 조합으로 RAG의 물리 추론 향상 가능성을 종합 평가한 연구.</p>
+<h2>🎯 연구 배경 및 동기</h2>
+<h3>기존 방법의 한계점</h3>
+</blockquote>
+<h3>이 연구가 필요한 이유</h3>
+<ul>
+<li>수험생이 과거 유사 문제를 참고하여 새 문제를 푸는 방식(few-shot retrieval)을 AI에 적용하면 물리 추론 능력을 향상시킬 수 있다는 가설 검증 필요</li>
+<li>Olympiad 문제는 연도 간 유사 개념이 반복되므로 RAG의 효용이 기대됨</li>
+</ul>
+<h2>🏗️ 시스템 아키텍처</h2>
+<p>[image]</p>
+<pre><code class="language-javascript">[Physics Olympiad 문제 입력 (쿼리)]
+        ↓
+[Retriever] → PhoPile Corpus (2,662문제, 과거 연도)
+        ↓ Top-k 유사 문제+해설 반환
+[Generator (LLM/LMM)] ← k-shot 예시로 활용
+        ↓
+[생성된 풀이]
+        ↓ (선택적)
+[Reflection: GPT-4가 답안 재검토·수정]
+        ↓
+[GPT-4 Judge: 0/5/10점 step-wise + solution-level 채점]
+</code></pre>
+<h2>🔑 핵심 모듈 상세 설명</h2>
+<h3>PhoPile 데이터셋</h3>
+<p>&lt;table header-row=&quot;true&quot;&gt;
+&lt;tr&gt;
+&lt;td&gt;구성 요소&lt;/td&gt;
+&lt;td&gt;내용&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;총 문제 수&lt;/td&gt;
+&lt;td&gt;3,052문제&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Retrieval Corpus&lt;/td&gt;
+&lt;td&gt;2,662문제 (2018년 이전 출제분)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Test Set&lt;/td&gt;
+&lt;td&gt;390문제 (2019~2021년 출제분)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;대회 출처&lt;/td&gt;
+&lt;td&gt;IPhO, APhO, EuPhO, NBPhO, RMPhO, AAPT, BPhO (7개)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;모달리티&lt;/td&gt;
+&lt;td&gt;텍스트 + 이미지(다이어그램, 그래프, 수식)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+### Retriever 목록
+&lt;table header-row=&quot;true&quot;&gt;
+&lt;tr&gt;
+&lt;td&gt;유형&lt;/td&gt;
+&lt;td&gt;Retriever&lt;/td&gt;
+&lt;td&gt;특징&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Text-only&lt;/td&gt;
+&lt;td&gt;BM25&lt;/td&gt;
+&lt;td&gt;어휘 기반 검색&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Text-only&lt;/td&gt;
+&lt;td&gt;Contriever&lt;/td&gt;
+&lt;td&gt;비지도 학습 dense retriever&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Text-only&lt;/td&gt;
+&lt;td&gt;DPR&lt;/td&gt;
+&lt;td&gt;Dense Passage Retriever&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Text-only&lt;/td&gt;
+&lt;td&gt;DRAGON&lt;/td&gt;
+&lt;td&gt;다양한 증강 기반 dense retriever&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Multimodal&lt;/td&gt;
+&lt;td&gt;VisualBERT 기반&lt;/td&gt;
+&lt;td&gt;이미지+텍스트 결합 임베딩&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Multimodal&lt;/td&gt;
+&lt;td&gt;CLIP 기반&lt;/td&gt;
+&lt;td&gt;OpenAI 멀티모달 임베딩&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Multimodal&lt;/td&gt;
+&lt;td&gt;BLIP 기반&lt;/td&gt;
+&lt;td&gt;부트스트래핑 언어-이미지 사전학습&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+### Generator 목록
+&lt;table header-row=&quot;true&quot;&gt;
+&lt;tr&gt;
+&lt;td&gt;모델&lt;/td&gt;
+&lt;td&gt;유형&lt;/td&gt;
+&lt;td&gt;참고&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GPT-3.5-turbo&lt;/td&gt;
+&lt;td&gt;LLM&lt;/td&gt;
+&lt;td&gt;OpenAI API&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GPT-4&lt;/td&gt;
+&lt;td&gt;LLM&lt;/td&gt;
+&lt;td&gt;OpenAI API&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GPT-4V&lt;/td&gt;
+&lt;td&gt;LMM&lt;/td&gt;
+&lt;td&gt;OpenAI API (Vision)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Gemini-Pro&lt;/td&gt;
+&lt;td&gt;LLM&lt;/td&gt;
+&lt;td&gt;Google API&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Gemini-Pro-Vision&lt;/td&gt;
+&lt;td&gt;LMM&lt;/td&gt;
+&lt;td&gt;Google API (Vision)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ChatGLM&lt;/td&gt;
+&lt;td&gt;LLM&lt;/td&gt;
+&lt;td&gt;오픈소스&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;(기타 LLM 포함)&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;총 8개 모델&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+### GPT-4 Judge 평가 프레임워크
+- **Step-wise 평가**: 풀이 과정 단계별 정확성 확인
+- **Solution-level 평가**: 최종 답안 정확성 확인
+- **점수 체계**: 0점(완전 오답) / 5점(부분 정답) / 10점(완전 정답)
+- 참조 해설(reference solution)을 함께 제공하여 채점 근거로 활용
+## 🧪 실험 및 평가
+### 평가 태스크
+- **PhoPile-Test**: 텍스트 전용 문제 390개
+- **PhoPile(V)-Test**: 이미지 포함 문제 서브셋 (멀티모달 모델 평가용)
+### 주요 결과
+- RAG 통합 시 일부 모델에서 성능 향상 확인 (Gemini-Pro: RAG로 17.95%까지 향상)
+- Text retriever 중 Contriever가 전반적으로 안정적 성능
+- Multimodal retriever는 텍스트 위주 문제에서 오히려 노이즈 유발 가능
+- Shot 수 증가(1→2→3-shot)가 항상 성능 향상을 보장하지 않음
+- Reflection 메커니즘이 일부 모델에서 노이즈 완화에 효과적
+## 💡 핵심 기여
+1. Physics Olympiad 7개 대회 기반 **최초의 멀티모달 RAG 물리 벤치마크 PhoPile** 구축
+2. LLM 4종 + LMM 4종, text retriever 4종 + multimodal retriever 3종 **종합 비교 실험**
+3. 단계별(step-wise) + 최종 답안(solution-level) 이중 채점 **GPT-4 judge 프레임워크** 설계
+4. 물리 추론에서 RAG의 효용과 한계에 대한 최초의 체계적 분석 제공
+## ⚠️ 한계점
+- 검색된 문제가 노이즈로 작용하여 성능을 오히려 낮추는 경우 존재
+- 도메인 특화 파인튜닝 없이 범용 retriever만 사용 → 물리 특화 임베딩 부재
+- GPT-4 judge 의존적 평가 → judge의 물리 전문성에 의존
+- 영어 문제 중심 (일부 다국어 대회 문제 포함되나 주로 영어 번역본)
+## 🔗 관련 연구 및 관련 정보
+- **논문 링크**: [https://aclanthology.org/2025.findings-emnlp.1196/](https://aclanthology.org/2025.findings-emnlp.1196/)
+- **arXiv**: [https://arxiv.org/abs/2510.00919](https://arxiv.org/abs/2510.00919)
+- **관련 벤치마크**: SciQ (Welbl et al., 2017), ScienceQA (Lu et al., 2022), TheoremQA (Chen et al., 2023)
+- **이 벤치마크(PhoPile)를 사용한 논문**: 본 논문 자체</p>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>
