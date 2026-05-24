@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Benchmarking Foundation Models with Retrieval-Augmented Generation in Olympic-Level Physics Problem Solving — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1779611461">
+<link rel="stylesheet" href="../static/style.css?v=1779611737">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -133,14 +133,18 @@
 </ul>
 <h2>🏗️ 시스템 아키텍처</h2>
 <p>[image]</p>
-<ol class="flow-diagram">
-<li class="flow-step"><div class="flow-step-title">[Physics Olympiad 문제 입력 (쿼리)]</div></li>
-<li class="flow-step"><div class="flow-step-title">[Retriever] → PhoPile Corpus (2,662문제, 과거 연도)</div><ul class="flow-notes"><li>Top-k 유사 문제+해설 반환</li></ul></li>
-<li class="flow-step"><div class="flow-step-title">[Generator (LLM/LMM)] ← k-shot 예시로 활용</div></li>
-<li class="flow-step"><div class="flow-step-title">[생성된 풀이]</div><ul class="flow-notes"><li>(선택적)</li></ul></li>
-<li class="flow-step"><div class="flow-step-title">[Reflection: GPT-4가 답안 재검토·수정]</div></li>
-<li class="flow-step"><div class="flow-step-title">[GPT-4 Judge: 0/5/10점 step-wise + solution-level 채점]</div></li>
-</ol>
+<pre><code class="language-javascript">[Physics Olympiad 문제 입력 (쿼리)]
+        ↓
+[Retriever] → PhoPile Corpus (2,662문제, 과거 연도)
+        ↓ Top-k 유사 문제+해설 반환
+[Generator (LLM/LMM)] ← k-shot 예시로 활용
+        ↓
+[생성된 풀이]
+        ↓ (선택적)
+[Reflection: GPT-4가 답안 재검토·수정]
+        ↓
+[GPT-4 Judge: 0/5/10점 step-wise + solution-level 채점]
+</code></pre>
 <h2>🔑 핵심 모듈 상세 설명</h2>
 <h3>PhoPile 데이터셋</h3>
 <p>&lt;table header-row=&quot;true&quot;&gt;

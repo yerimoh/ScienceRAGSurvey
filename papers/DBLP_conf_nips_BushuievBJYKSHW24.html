@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MassSpecGym: A benchmark for the discovery and identification of molecules — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1779611461">
+<link rel="stylesheet" href="../static/style.css?v=1779611737">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -145,25 +145,28 @@
 </ul>
 <p>선정 이유: 가장 크고 다양한 공개 데이터 통합 + 자체 측정으로 커버리지 확장, 상업용 의존 없음.</p>
 <p><strong>Step 2: 구축 파이프라인</strong></p>
-<ol class="flow-diagram">
-<li class="flow-step"><div class="flow-step-title">원시 스펙트럼 수집 (MoNA + MassBank + GNPS + in-house)</div></li>
-<li class="flow-step"><div class="flow-step-title">[메타데이터 정규화]</div></li>
-<li class="flow-step"><div class="flow-step-title">- 필드명 통일, 잘못된 필드 수정</div></li>
-<li class="flow-step"><div class="flow-step-title">- 누락 SMILES/InChI/InChIKey 보완</div></li>
-<li class="flow-step"><div class="flow-step-title">- 누락 parent mass → SMILES 질량으로 도출</div></li>
-<li class="flow-step"><div class="flow-step-title">- 누락 adduct → precursor m/z와 parent mass로 도출</div></li>
-<li class="flow-step"><div class="flow-step-title">[품질 필터링]</div></li>
-<li class="flow-step"><div class="flow-step-title">- adduct + precursor m/z로 계산한 parent mass ≠ SMILES mass 제거</div></li>
-<li class="flow-step"><div class="flow-step-title">- 모노아이소토픽 질량 불일치 제거</div></li>
-<li class="flow-step"><div class="flow-step-title">- 하전된 분자 어노테이션 제거</div></li>
-<li class="flow-step"><div class="flow-step-title">- Brungs et al. MS/MS 라이브러리 병합 스펙트럼 제거</div></li>
-<li class="flow-step"><div class="flow-step-title">[SMILES 표준화]</div></li>
-<li class="flow-step"><div class="flow-step-title">- 표준화 실패 화합물 제거</div></li>
-<li class="flow-step"><div class="flow-step-title">- 이성체 정보 포함 InChIKey로 통일</div></li>
-<li class="flow-step"><div class="flow-step-title">[강도 정규화]</div></li>
-<li class="flow-step"><div class="flow-step-title">- 모든 스펙트럼: 상대 강도값으로 정규화</div></li>
-<li class="flow-step"><div class="flow-step-title">- 기기 유형·충돌 에너지 표준화</div></li>
-</ol>
+<pre><code>원시 스펙트럼 수집 (MoNA + MassBank + GNPS + in-house)
+    ↓
+[메타데이터 정규화]
+  - 필드명 통일, 잘못된 필드 수정
+  - 누락 SMILES/InChI/InChIKey 보완
+  - 누락 parent mass → SMILES 질량으로 도출
+  - 누락 adduct → precursor m/z와 parent mass로 도출
+    ↓
+[품질 필터링]
+  - adduct + precursor m/z로 계산한 parent mass ≠ SMILES mass 제거
+  - 모노아이소토픽 질량 불일치 제거
+  - 하전된 분자 어노테이션 제거
+  - Brungs et al. MS/MS 라이브러리 병합 스펙트럼 제거
+    ↓
+[SMILES 표준화]
+  - 표준화 실패 화합물 제거
+  - 이성체 정보 포함 InChIKey로 통일
+    ↓
+[강도 정규화]
+  - 모든 스펙트럼: 상대 강도값으로 정규화
+  - 기기 유형·충돌 에너지 표준화
+</code></pre>
 <p><strong>Step 3: 품질 검증</strong></p>
 <ul>
 <li>각 fold의 메타데이터 속성 분포 시각화로 균형 확인</li>

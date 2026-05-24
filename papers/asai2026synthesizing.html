@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Synthesizing Scientific Literature with Retrieval-Augmented Language Models — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1779611461">
+<link rel="stylesheet" href="../static/style.css?v=1779611737">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -144,11 +144,19 @@
 <li>IRB 면제 연구, 2024년 4월~10월 수집</li>
 </ul>
 <p><strong>Step 2: Scholar-CS 구축 (Rubric 기반)</strong></p>
-<ol class="flow-diagram">
-<li class="flow-step"><div class="flow-step-title">CS 전문가 100개 질문 작성</div><ul class="flow-notes"><li>(여러 논문이 필요한 문헌 리뷰 질문)</li></ul></li>
-<li class="flow-step"><div class="flow-step-title">별도 어노테이터 2명이 웹 검색으로 Rubric 작성</div><ul class="flow-notes"><li>&quot;Must have&quot; 항목 + &quot;Nice to have&quot; 항목</li><li>각 항목마다 지지 인용문 4.4개</li><li>LLM 서비스 미사용 (초기 웹검색 단계)</li><li>Claude 3.5 Sonnet 등 4개 LLM 응답을 참조하여 Rubric 수정 가능</li></ul></li>
-<li class="flow-step"><div class="flow-step-title">Rubric 합의율: Pearson 상관계수 79.3 (general 포함) / 59.5 (전용 항목)</div><ul class="flow-notes"><li>31개 전문가 장문 답변 (별도 어노테이터 풀)</li></ul></li>
-</ol>
+<pre><code>CS 전문가 100개 질문 작성
+       │  (여러 논문이 필요한 문헌 리뷰 질문)
+       ▼
+별도 어노테이터 2명이 웹 검색으로 Rubric 작성
+       │  - &quot;Must have&quot; 항목 + &quot;Nice to have&quot; 항목
+       │  - 각 항목마다 지지 인용문 4.4개
+       │  - LLM 서비스 미사용 (초기 웹검색 단계)
+       │  - Claude 3.5 Sonnet 등 4개 LLM 응답을 참조하여 Rubric 수정 가능
+       ▼
+Rubric 합의율: Pearson 상관계수 79.3 (general 포함) / 59.5 (전용 항목)
+       │
+       └─ 31개 전문가 장문 답변 (별도 어노테이터 풀)
+</code></pre>
 <p><strong>Step 3: Scholar-Bio/Neuro 구축</strong></p>
 <ul>
 <li>bioimaging, genetics, microbiology, neuromodulation 등 세부 분야 질문 수집</li>

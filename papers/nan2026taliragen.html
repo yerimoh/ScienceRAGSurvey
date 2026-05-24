@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TaLiRAGen: target-aware ligand generation via RAG LLMs — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1779611461">
+<link rel="stylesheet" href="../static/style.css?v=1779611737">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -132,15 +132,20 @@
 <li>학습 없이도 LLM의 일반 화학 지식과 외부 데이터베이스 검색을 결합하면, 다양한 타겟에 유연하게 적용 가능한 리간드 생성이 가능함.</li>
 </ul>
 <h2>🏗️ 시스템 아키텍처</h2>
-<ol class="flow-diagram">
-<li class="flow-step"><div class="flow-step-title">[Input: 단백질 타겟 구조 / 서열]</div></li>
-<li class="flow-step"><div class="flow-step-title">[Retriever] protein-ligand context를 diverse repositories에서 검색</div></li>
-<li class="flow-step"><div class="flow-step-title">[CoT-augmented Multi-turn Prompting] — 검색된 context를 LLM에 통합</div></li>
-<li class="flow-step"><div class="flow-step-title">[LLM Generator] — SMILES 형식 리간드 후보 생성</div></li>
-<li class="flow-step"><div class="flow-step-title">[Docking Feedback (AutoDock Vina)] — 결합 친화도 계산, 낮은 후보 필터링</div></li>
-<li class="flow-step"><div class="flow-step-title">[Evidence-Theoretic Normalization 통합 평가] — QED + SA + Vina score 통합</div></li>
-<li class="flow-step"><div class="flow-step-title">[Output: 구조적 제약 조건을 만족하는 최적 리간드 후보]</div></li>
-</ol>
+<pre><code class="language-javascript">[Input: 단백질 타겟 구조 / 서열]
+        ↓
+[Retriever] protein-ligand context를 diverse repositories에서 검색
+        ↓
+[CoT-augmented Multi-turn Prompting] — 검색된 context를 LLM에 통합
+        ↓
+[LLM Generator] — SMILES 형식 리간드 후보 생성
+        ↓
+[Docking Feedback (AutoDock Vina)] — 결합 친화도 계산, 낮은 후보 필터링
+        ↓
+[Evidence-Theoretic Normalization 통합 평가] — QED + SA + Vina score 통합
+        ↓
+[Output: 구조적 제약 조건을 만족하는 최적 리간드 후보]
+</code></pre>
 <p>[image]</p>
 <h2>🔑 핵심 모듈 상세 설명</h2>
 <p><strong>① RAG 기반 Retrieval</strong></p>

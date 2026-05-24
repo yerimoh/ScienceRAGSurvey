@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>S2ORC: The Semantic Scholar Open Research Corpus — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1779611461">
+<link rel="stylesheet" href="../static/style.css?v=1779611737">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -131,21 +131,30 @@
 <li>인라인 인용구, 표/그림 참조, 서지 정보까지 구조화하여 NLP 연구 지원</li>
 </ul>
 <h2>데이터 파이프라인</h2>
-<ol class="flow-diagram">
-<li class="flow-step"><div class="flow-step-title">[MAG, arXiv, PubMed, Unpaywall 등 다양한 출처 수집]</div></li>
-<li class="flow-step"><div class="flow-step-title">[PDF/LaTeX 처리]</div></li>
-<li class="flow-step"><div class="flow-step-title">ScienceParse (PDF → 메타데이터·본문)</div></li>
-<li class="flow-step"><div class="flow-step-title">GROBID (PDF → XML: 초록, 섹션, 캡션, 인라인 인용구, 서지 정보)</div></li>
-<li class="flow-step"><div class="flow-step-title">[메타데이터 정규화]</div></li>
-<li class="flow-step"><div class="flow-step-title">가장 신뢰할 수 있는 출처 선정 → Canonical 데이터 구축</div></li>
-<li class="flow-step"><div class="flow-step-title">[필터링]</div></li>
-<li class="flow-step"><div class="flow-step-title">저자 없음, 100자 이하 텍스트 등 저품질 제거</div></li>
-<li class="flow-step"><div class="flow-step-title">[서지 링크 연결 (Bibliography Linking)]</div></li>
-<li class="flow-step"><div class="flow-step-title">자카드 지수(Jaccard) + Containment metric 조화 평균</div></li>
-<li class="flow-step"><div class="flow-step-title">→ 서지 항목 ↔ Paper cluster 고정밀 매핑</div></li>
-<li class="flow-step"><div class="flow-step-title">[Output: S2ORC]</div></li>
-<li class="flow-step"><div class="flow-step-title">81.1M 논문 / 380.5M 인용 링크</div></li>
-</ol>
+<pre><code>[MAG, arXiv, PubMed, Unpaywall 등 다양한 출처 수집]
+      │
+      ▼
+[PDF/LaTeX 처리]
+ScienceParse (PDF → 메타데이터·본문)
+GROBID (PDF → XML: 초록, 섹션, 캡션, 인라인 인용구, 서지 정보)
+      │
+      ▼
+[메타데이터 정규화]
+가장 신뢰할 수 있는 출처 선정 → Canonical 데이터 구축
+      │
+      ▼
+[필터링]
+저자 없음, 100자 이하 텍스트 등 저품질 제거
+      │
+      ▼
+[서지 링크 연결 (Bibliography Linking)]
+자카드 지수(Jaccard) + Containment metric 조화 평균
+→ 서지 항목 ↔ Paper cluster 고정밀 매핑
+      │
+      ▼
+[Output: S2ORC]
+81.1M 논문 / 380.5M 인용 링크
+</code></pre>
 <h2>핵심 모듈 상세 설명</h2>
 <h3>1. GROBID 파싱 및 후처리</h3>
 <ul>
