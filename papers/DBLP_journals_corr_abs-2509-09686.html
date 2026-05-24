@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GeoGPT-RAG Technical Report — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1779611737">
+<link rel="stylesheet" href="../static/style.css?v=1779612102">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -135,39 +135,44 @@ RAGAS Test Set Generation 모듈 활용. 기저 LLM으로 gpt-4o를 사용하여
 총 938개의 최종 QA 쌍 완성 후 HuggingFace Dataset으로 공개함.</p>
 <h2>📥 Input (입력)</h2>
 <p>지구과학 전문 논문 텍스트 조각(Chunk)을 바탕으로 한 자연어 질의(Question).</p>
-<p>&lt;table header-row=&quot;true&quot;&gt;
-&lt;tr&gt;
-&lt;td&gt;질문 유형&lt;/td&gt;
-&lt;td&gt;문항 수&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Single-document, fact-based QA&lt;/td&gt;
-&lt;td&gt;250&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Single-document inference QA&lt;/td&gt;
-&lt;td&gt;250&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Multi-document QA&lt;/td&gt;
-&lt;td&gt;188&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Conditional QA&lt;/td&gt;
-&lt;td&gt;250&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-## 📤 Output (출력 / 정답 형식)
-모델이 생성한 텍스트 형태의 정답. 평가 지표: Answer Recall (RAGAS 기반), Top-K Recall (검색기 성능 측정용).
-## 📊 주요 평가 결과
-GeoGPT-RAG (GeoEmbedding) Top-K Recall: Top-1 0.908 / Top-3 0.945 / Top-5 0.950 / Top-8 0.959.
-## ⚠️ 한계점
-- GPT-4o가 기계적으로 역산하여 질문을 만들었으므로, 실제 연구 현장의 도메인 전문가가 백지에서 물어보는 직관적/모호한 형태의 질문 분포와는 다를 수 있음.
-- 오픈 액세스 논문 1,000건만 샘플링하여 접근이 제한적인 고급 학술지 정보는 커버리지에서 누락될 가능성이 있음.
-## 🔗 관련 정보
-- 논문 링크: [https://arxiv.org/abs/2509.09686v2](https://arxiv.org/abs/2509.09686v2)
-- HuggingFace Dataset: [https://huggingface.co/datasets/GeoGPT-Research-Project/GeoRAG-QA](https://huggingface.co/datasets/GeoGPT-Research-Project/GeoRAG-QA)
-- **이 벤치마크를 사용한 논문:** GeoGPT-RAG Technical Report (arXiv 2025)</p>
+<table header-row="true">
+<tr>
+<td>질문 유형</td>
+<td>문항 수</td>
+</tr>
+<tr>
+<td>Single-document, fact-based QA</td>
+<td>250</td>
+</tr>
+<tr>
+<td>Single-document inference QA</td>
+<td>250</td>
+</tr>
+<tr>
+<td>Multi-document QA</td>
+<td>188</td>
+</tr>
+<tr>
+<td>Conditional QA</td>
+<td>250</td>
+</tr>
+</table>
+
+<h2>📤 Output (출력 / 정답 형식)</h2>
+<p>모델이 생성한 텍스트 형태의 정답. 평가 지표: Answer Recall (RAGAS 기반), Top-K Recall (검색기 성능 측정용).</p>
+<h2>📊 주요 평가 결과</h2>
+<p>GeoGPT-RAG (GeoEmbedding) Top-K Recall: Top-1 0.908 / Top-3 0.945 / Top-5 0.950 / Top-8 0.959.</p>
+<h2>⚠️ 한계점</h2>
+<ul>
+<li>GPT-4o가 기계적으로 역산하여 질문을 만들었으므로, 실제 연구 현장의 도메인 전문가가 백지에서 물어보는 직관적/모호한 형태의 질문 분포와는 다를 수 있음.</li>
+<li>오픈 액세스 논문 1,000건만 샘플링하여 접근이 제한적인 고급 학술지 정보는 커버리지에서 누락될 가능성이 있음.</li>
+</ul>
+<h2>🔗 관련 정보</h2>
+<ul>
+<li>논문 링크: <a href="https://arxiv.org/abs/2509.09686v2">https://arxiv.org/abs/2509.09686v2</a></li>
+<li>HuggingFace Dataset: <a href="https://huggingface.co/datasets/GeoGPT-Research-Project/GeoRAG-QA">https://huggingface.co/datasets/GeoGPT-Research-Project/GeoRAG-QA</a></li>
+<li><strong>이 벤치마크를 사용한 논문:</strong> GeoGPT-RAG Technical Report (arXiv 2025)</li>
+</ul>
 
     </article>
   </div>

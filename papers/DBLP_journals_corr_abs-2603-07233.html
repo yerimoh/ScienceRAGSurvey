@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Retrieval-Augmented Generation for Predicting Cellular Responses to Gene Perturbation — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1779611737">
+<link rel="stylesheet" href="../static/style.css?v=1779612102">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -119,21 +119,22 @@
 </blockquote>
 <h2>한 줄 요약</h2>
 <p>RAG를 유전자 perturbation 세포 반응 예측에 최초로 적용한 프레임워크 PT-RAG. Naive RAG가 오히려 성능을 저하시킨다는 핵심 발견과 함께, GenePT 임베딩 + Gumbel-Softmax 기반 2단계 미분 가능 검색으로 STATE 대비 분포 유사도 지표 개선을 달성.</p>
-<p>&lt;details&gt;
-&lt;summary&gt;사전 지식&lt;/summary&gt;
-**Perturbation**은 &quot;교란&quot; 또는 &quot;섭동&quot;이라는 뜻으로, 맥락에 따라 쓰임이 다릅니다.
+<details>
+<summary>사전 지식</summary>
+**Perturbation**은 "교란" 또는 "섭동"이라는 뜻으로, 맥락에 따라 쓰임이 다릅니다.
 **일반적인 의미**로는 어떤 시스템을 원래 상태에서 *의도적으로 건드려서 변화를 관찰하는 것*입니다.
 ---
 **생물학에서 (방금 논문의 맥락)**
 유전자를 꺼버리거나(knockdown/knockout) 과발현시키는 등 세포에 가하는 *유전적 조작*을 말합니다.
-예를 들어, &quot;BRCA1 유전자를 perturbation한다&quot; → BRCA1을 억제해서 세포가 어떻게 반응하는지(유전자 발현이 어떻게 바뀌는지) 관찰하는 것.
-방금 논문에서는 **Perturb-seq**이라는 기술을 사용하는데, 이건 CRISPR로 수천 개 유전자를 하나씩 꺼보면서 각 세포의 전체 유전자 발현 변화를 한꺼번에 측정하는 방법입니다. 그 결과 데이터를 보고 &quot;이 유전자를 건드렸더니 저 유전자들이 이렇게 반응했네&quot;를 학습하는 게 PT-RAG의 목적이고요.
+예를 들어, "BRCA1 유전자를 perturbation한다" → BRCA1을 억제해서 세포가 어떻게 반응하는지(유전자 발현이 어떻게 바뀌는지) 관찰하는 것.
+방금 논문에서는 **Perturb-seq**이라는 기술을 사용하는데, 이건 CRISPR로 수천 개 유전자를 하나씩 꺼보면서 각 세포의 전체 유전자 발현 변화를 한꺼번에 측정하는 방법입니다. 그 결과 데이터를 보고 "이 유전자를 건드렸더니 저 유전자들이 이렇게 반응했네"를 학습하는 게 PT-RAG의 목적이고요.
 ---
 **다른 분야에서는**
 - 물리학: 시스템에 작은 외부 자극을 주는 것 (섭동 이론)
 - 머신러닝: 입력 데이터를 약간 변형해서 모델 반응을 보는 것 (adversarial perturbation 등)
-한마디로 **&quot;건드려서 어떻게 반응하는지 본다&quot;** 는 개념입니다.
-&lt;/details&gt;</p>
+한마디로 **"건드려서 어떻게 반응하는지 본다"** 는 개념입니다.
+</details>
+
 <h2>연구 배경 및 동기</h2>
 <h3>기존 방법의 한계점</h3>
 <ul>

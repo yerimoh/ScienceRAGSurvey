@@ -1122,3 +1122,14 @@ main.with-sidebar {
   color: #666;
   margin-left: 0;
 }
+
+/* Notion-style tables: first row treated as header */
+.paper-markdown table[header-row="true"] tr:first-child td {
+  background: #f3f4f7;
+  font-weight: 600;
+  color: #333;
+}
+.paper-markdown table {
+  width: auto;
+  max-width: 100%;
+}

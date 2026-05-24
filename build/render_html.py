@@ -1029,7 +1029,7 @@ def render_insights():
 def render_paper_pages():
     """Render papers/<bib_key>.html from papers/<bib_key>.md (Notion summaries)."""
     import mistune
-    md_renderer = mistune.create_markdown(plugins=['table','strikethrough','footnotes','url'])
+    md_renderer = mistune.create_markdown(escape=False, plugins=['table','strikethrough','footnotes','url'])
     papers_by_key = {p['bib_key']: p for p in papers if p.get('bib_key')}
     papers_dir = ROOT / 'papers'
     if not papers_dir.exists():
@@ -1053,6 +1053,11 @@ def render_paper_pages():
             end = md_content.find('---', 3)
             if end > 0:
                 md_content = md_content[end+3:].lstrip()
+        # Ensure blank lines around HTML block boundaries and Markdown headings
+        # (Notion exports often abut <table>...</table> directly against the next ### heading)
+        md_content = re.sub(r'(</table>)\s*\n(#)', r'\1\n\n\2', md_content)
+        md_content = re.sub(r'(\n#{1,6} [^\n]+)\n(<table)', r'\1\n\n\2', md_content)
+        md_content = re.sub(r'(</table>)\s*\n([^\n#<\s-])', r'\1\n\n\2', md_content)
         body_html = md_renderer(md_content)
         bk_actual = matching['bib_key']
         url = matching.get('paper_link') or ''
