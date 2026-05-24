@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Benchmarks — Scientific RAG Hub</title>
+<title>[O1] Ground — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
 <link rel="stylesheet" href="../static/style.css?v=1779608020">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
@@ -23,7 +23,7 @@
     <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
     <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
 
-    <details class="sb-group">
+    <details class="sb-group" open>
       <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
@@ -43,7 +43,7 @@
       </div>
     </details>
 
-    <details class="sb-group">
+    <details class="sb-group" open>
       <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">[K1] <span class="sb-count">1</span></a>
@@ -54,10 +54,10 @@
       </div>
     </details>
 
-    <details class="sb-group">
+    <details class="sb-group" open>
       <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
-        <a href="../cell/O1.html" class="sb-sub">[O1] <span class="sb-count">4</span></a>
+        <a href="../cell/O1.html" class="sb-sub active">[O1] <span class="sb-count">4</span></a>
 <a href="../cell/O2.html" class="sb-sub">[O2] <span class="sb-count">1</span></a>
 <a href="../cell/O3.html" class="sb-sub">[O3] <span class="sb-count">1</span></a>
 
@@ -79,7 +79,7 @@
     </details>
 
     <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
-    <a href="../topics/benchmark.html" class="sb-item active"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
     <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">2</span></a>
     <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
 
@@ -98,56 +98,28 @@
 <div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
 <main class="with-sidebar">
 
-<section class="domain-hero">
+<section class="cell-hero">
   <div class="wrap">
-    <p class="eyebrow"><a href="../index.html">← Home</a></p>
-    <h1>Benchmarks</h1>
-    <p class="lede"><strong>12</strong> entries of type <code>benchmark</code>.</p>
+    <p class="eyebrow"><a href="../index.html#grid">← K×O Grid</a></p>
+    <h1><span class="cell-id-big">[O1]</span> Ground</h1>
+    <p class="lede"><strong>4</strong> O-axis-only entries (benchmarks without paired K).</p>
+    <div class="cell-axis-pair">
+      <div class="axis-card axis-o">
+        <span class="axis-tag">O 1</span>
+        <h3>Ground</h3>
+        <p>Single-source grounding: retrieve, cite, answer over one corpus.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="domain-list">
+<section class="cell-list">
   <div class="wrap">
     <div class="card-grid"><article class="card">
-  <h3 class="card-title"><a href="https://doi.org/10.1038/s41586-025-10072-4" target="_blank" rel="noopener">Synthesizing Scientific Literature with Retrieval-Augmented Language Models ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">ScholarQABench</span> · <span class="meta-venue">Nature</span> · <span class="meta-year">2026</span></div>
-  <p class="card-note">OpenScholar의 다학제 장문 합성 벤치마크.</p>
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell">K1.O1</a><a href="../cell/K1.O2.html" class="tag tag-cell">K1.O2</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-</article>
-
-<article class="card">
-  <h3 class="card-title"><a href="https://doi.org/10.1145/3746252.3761471" target="_blank" rel="noopener">SQuAI: Scientific Question-Answering with Multi-Agent Retrieval-Augmented Generation ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">unarXive (Simple, Expert)</span> · <span class="meta-venue">CIKM</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">main.tex: K=-; O=O2</p>
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell">K1.O2</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-</article>
-
-<article class="card">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2401.17244" target="_blank" rel="noopener">LLaMP: Large Language Model Made Powerful for High-fidelity Materials Knowledge Retrieval ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">LLaMP MP Property Benchmark</span> · <span class="meta-venue">EMNLP</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">main.tex: K=-; O=O1</p>
-  <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell">K2.O1</a><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">Structured Table</span><span class="tag tag-mod">3D Structure</span></div>
-</article>
-
-<article class="card">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2509.09686v2" target="_blank" rel="noopener">GeoGPT-RAG Technical Report ↗</a></h3>
   <div class="card-meta"><span class="meta-method">GeoRAG-QA</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2025</span></div>
   <p class="card-note">main.tex: K=-; O=O1</p>
   <div class="card-tags"><a href="../cell/O1.html" class="tag tag-cell">O1</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-xs">★ cross-source</span></div>
-</article>
-
-<article class="card">
-  <h3 class="card-title"><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/c6c31413d5c53b7d1c343c1498734b0f-Abstract-Datasets_and_Benchmarks_Track.html" target="_blank" rel="noopener">MassSpecGym: A benchmark for the discovery and identification of molecules ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MassSpecGym</span> · <span class="meta-venue">NeurIPS</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">main.tex: K=-; O=O3</p>
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell">K3.O3</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">SMILES</span><span class="tag tag-mod">Structured Table</span></div>
-</article>
-
-<article class="card">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2310.16146" target="_blank" rel="noopener">CLINFO.AI: AN OPEN-SOURCE RETRIEVAL-AUGMENTED LARGE LANGUAGE MODEL SYSTEM FOR ANSWERING MEDICAL QUESTIONS USING SCIENTIFIC LITERATURE ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">PubMedRS-200</span> · <span class="meta-venue">PSB</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">PubMed SR 의료 QA 벤치마크. Clinfo.ai PSB 2024.</p>
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell">K1.O1</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
 </article>
 
 <article class="card">
@@ -162,27 +134,6 @@
   <div class="card-meta"><span class="meta-method">SciQA</span> · <span class="meta-venue">Scientific Reports</span> · <span class="meta-year">2023</span></div>
   <p class="card-note">ORKG 기반 학술 지식 QA. ChatGPT 100개 중 14개만 정답.</p>
   <div class="card-tags"><a href="../cell/O1.html" class="tag tag-cell">O1</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">KG</span></div>
-</article>
-
-<article class="card">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2210.13777" target="_blank" rel="noopener">SCIFACT-OPEN: Towards open-domain scientific claim verification ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">SCIFACT-OPEN</span> · <span class="meta-venue">EMNLP (Findings)</span> · <span class="meta-year">2022</span></div>
-  <p class="card-note">50만 문서 오픈 도메인. SOTA F1 15-30 하락 일반화 한계.</p>
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell">K1.O2</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-</article>
-
-<article class="card">
-  <h3 class="card-title"><a href="https://doi.org/10.1016/j.cell.2022.05.013" target="_blank" rel="noopener">Mapping information-rich genotype-phenotype landscapes with genome-scale Perturb-seq ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">Replogle-Nadig</span> · <span class="meta-venue">Cell</span> · <span class="meta-year">2022</span></div>
-  <p class="card-note">main.tex: K=-; O=O3</p>
-  <div class="card-tags"><a href="../cell/O3.html" class="tag tag-cell">O3</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">Structured Table</span></div>
-</article>
-
-<article class="card">
-  <h3 class="card-title"><a href="https://doi.org/10.1021/acs.jcim.0c00411" target="_blank" rel="noopener">Three-Dimensional Convolutional Neural Networks and a Cross-Docked Data Set for Structure-Based Drug Design ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">CrossDocked2020</span> · <span class="meta-venue">J. Chem. Inf. Model.</span> · <span class="meta-year">2020</span></div>
-  
-  <div class="card-tags"><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">3D Structure</span></div>
 </article>
 
 <article class="card">

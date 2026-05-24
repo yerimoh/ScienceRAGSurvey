@@ -85,6 +85,18 @@ def sidebar(base='', current=''):
             n = len(by_cell.get(c, []))
             cell_items += f'<a href="{base}cell/{c}.html" class="sb-sub{cls(f"cell/{c}")}">[{c}] <span class="sb-count">{n}</span></a>\n'
 
+    # K-only axis pages (K1-K4)
+    k_axis_items = ''
+    for K in ['K1', 'K2', 'K3', 'K4']:
+        n = len(by_cell.get(K, []))
+        k_axis_items += f'<a href="{base}cell/{K}.html" class="sb-sub{cls(f"cell/{K}")}">[{K}] <span class="sb-count">{n}</span></a>\n'
+
+    # O-only axis pages (O1-O3)
+    o_axis_items = ''
+    for O in ['O1', 'O2', 'O3']:
+        n = len(by_cell.get(O, []))
+        o_axis_items += f'<a href="{base}cell/{O}.html" class="sb-sub{cls(f"cell/{O}")}">[{O}] <span class="sb-count">{n}</span></a>\n'
+
     # Domain items
     dom_items = ''
     for d in DOMAIN_LABELS:
@@ -114,6 +126,20 @@ def sidebar(base='', current=''):
       <div class="sb-subs">
         <a href="{base}index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
         {cell_items}
+      </div>
+    </details>
+
+    <details class="sb-group"{cell_open}>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        {k_axis_items}
+      </div>
+    </details>
+
+    <details class="sb-group"{cell_open}>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        {o_axis_items}
       </div>
     </details>
 
@@ -579,6 +605,64 @@ def render_cell_pages():
 </section>
 '''
             (ROOT / 'cell' / f'{cell}.html').write_text(page_head(f'[{cell}] {kn} × {on}', base='../', current=f'cell/{cell}') + body + PAGE_FOOT)
+
+    # ---------- K-only axis pages (cell/K1.html etc.) ----------
+    for K in ['K1', 'K2', 'K3', 'K4']:
+        ps = sorted(by_cell.get(K, []), key=year_sort)
+        kn, kd = K_LABELS[K]
+        cards = '\n'.join(paper_card(p, base='../') for p in ps) or '<p class="empty">No K-only entries yet.</p>'
+        body = f'''
+<section class="cell-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../index.html#grid">← K×O Grid</a></p>
+    <h1><span class="cell-id-big">[{K}]</span> {esc(kn)}</h1>
+    <p class="lede"><strong>{len(ps)}</strong> K-axis-only entries (datasets / knowledge sources without paired O).</p>
+    <div class="cell-axis-pair">
+      <div class="axis-card axis-k">
+        <span class="axis-tag">K {K[1]}</span>
+        <h3>{esc(kn)}</h3>
+        <p>{esc(kd)}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cell-list">
+  <div class="wrap">
+    <div class="card-grid">{cards}</div>
+  </div>
+</section>
+'''
+        (ROOT / 'cell' / f'{K}.html').write_text(page_head(f'[{K}] {kn}', base='../', current=f'cell/{K}') + body + PAGE_FOOT)
+
+    # ---------- O-only axis pages (cell/O1.html etc.) ----------
+    for O in ['O1', 'O2', 'O3']:
+        ps = sorted(by_cell.get(O, []), key=year_sort)
+        on, od = O_LABELS[O]
+        cards = '\n'.join(paper_card(p, base='../') for p in ps) or '<p class="empty">No O-only entries yet.</p>'
+        body = f'''
+<section class="cell-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../index.html#grid">← K×O Grid</a></p>
+    <h1><span class="cell-id-big">[{O}]</span> {esc(on)}</h1>
+    <p class="lede"><strong>{len(ps)}</strong> O-axis-only entries (benchmarks without paired K).</p>
+    <div class="cell-axis-pair">
+      <div class="axis-card axis-o">
+        <span class="axis-tag">O {O[1]}</span>
+        <h3>{esc(on)}</h3>
+        <p>{esc(od)}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cell-list">
+  <div class="wrap">
+    <div class="card-grid">{cards}</div>
+  </div>
+</section>
+'''
+        (ROOT / 'cell' / f'{O}.html').write_text(page_head(f'[{O}] {on}', base='../', current=f'cell/{O}') + body + PAGE_FOOT)
 
 
 # ---------- domain/<d>.html ----------

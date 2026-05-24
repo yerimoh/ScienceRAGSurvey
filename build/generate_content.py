@@ -215,7 +215,7 @@ if unassigned:
 print(f'Wrote llms-full.txt ({len(full)} lines)')
 
 
-# --- Per-cell markdown pages ---
+# --- Per-cell markdown pages: K×O full cells ---
 for K in ['K1', 'K2', 'K3', 'K4']:
     for O in ['O1', 'O2', 'O3']:
         cell = f'{K}.{O}'
@@ -238,6 +238,44 @@ for K in ['K1', 'K2', 'K3', 'K4']:
             lines.append(entry_md(p, show_tags=False))
         lines.append('')
         (ROOT / 'cell' / f'{cell}.md').write_text('\n'.join(lines))
+
+# --- K-only axis pages (K1-K4): papers on knowledge-source axis without O ---
+for K in ['K1', 'K2', 'K3', 'K4']:
+    kn, kd = K_LABELS[K]
+    ps = by_cell.get(K, [])
+    lines = [
+        f'# [{K}]  {kn}',
+        '',
+        f'**K {K[1]}:** {kd}',
+        '',
+        f'_{len(ps)} entries on the K-axis only (datasets / knowledge sources without a paired O assignment in main.tex)_',
+        '',
+        '---',
+        '',
+    ]
+    for p in sorted(ps, key=lambda x: -int(x.get('year') or 0) if str(x.get('year', '')).isdigit() else 0):
+        lines.append(entry_md(p, show_tags=False))
+    lines.append('')
+    (ROOT / 'cell' / f'{K}.md').write_text('\n'.join(lines))
+
+# --- O-only axis pages (O1-O3): papers on objective axis without K ---
+for O in ['O1', 'O2', 'O3']:
+    on, od = O_LABELS[O]
+    ps = by_cell.get(O, [])
+    lines = [
+        f'# [{O}]  {on}',
+        '',
+        f'**O {O[1]}:** {od}',
+        '',
+        f'_{len(ps)} entries on the O-axis only (benchmarks without a paired K assignment in main.tex)_',
+        '',
+        '---',
+        '',
+    ]
+    for p in sorted(ps, key=lambda x: -int(x.get('year') or 0) if str(x.get('year', '')).isdigit() else 0):
+        lines.append(entry_md(p, show_tags=False))
+    lines.append('')
+    (ROOT / 'cell' / f'{O}.md').write_text('\n'.join(lines))
 
 # --- Per-domain markdown pages ---
 for d, label in DOMAIN_LABELS.items():
@@ -275,4 +313,6 @@ for t, label in TYPE_LABELS.items():
     lines.append('')
     (ROOT / 'topics' / f'{t.lower()}.md').write_text('\n'.join(lines))
 
-print(f'Wrote {len(by_cell)} cell/*.md, {len(by_dom)} domain/*.md, {len(by_type)} topics/*.md')
+k_only_count = sum(1 for k in ['K1','K2','K3','K4'] if (ROOT/'cell'/f'{k}.md').exists())
+o_only_count = sum(1 for o in ['O1','O2','O3'] if (ROOT/'cell'/f'{o}.md').exists())
+print(f'Wrote {len(by_cell)} cell entries (12 K×O + {k_only_count} K-only + {o_only_count} O-only), {len(by_dom)} domain/*.md, {len(by_type)} topics/*.md')
