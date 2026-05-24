@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Responsible Retrieval Augmented Generation for Climate Decision Making from Documents — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="stylesheet" href="../static/style.css?v=1779611461">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -132,22 +132,18 @@
 <p><strong>기존 방법의 한계점</strong></p>
 </blockquote>
 <h2>🏗️ 시스템 아키텍처</h2>
-<pre><code class="language-javascript">[사용자 입력]
-    ↓
-[Input Guardrails] → 악의적·문제적 쿼리 필터링 (NeMo Guardrails, red-teaming)
-    ↓
-[Information Retrieval] → BM25 + Dense Retrieval 하이브리드
-    ↓
-[Answer Synthesis] → GPT-4/GPT-4o/Llama 3.1/Gemini-1.5-pro
-    ↓
-[Output Guardrails + Auto-Evaluators]
-    - CPR 정책 준수 평가 (Gemini-1.5-pro)
-    - 충실도 평가 앙상블 (Patronus Lynx + Gemini G-Eval + Vectara)
-    - 포매팅 규칙 체크
-    - 응답 여부 확인
-    ↓
-[UX 노출] → 사용자에게 각 평가 결과 투명하게 제공
-</code></pre>
+<ol class="flow-diagram">
+<li class="flow-step"><div class="flow-step-title">[사용자 입력]</div></li>
+<li class="flow-step"><div class="flow-step-title">[Input Guardrails] → 악의적·문제적 쿼리 필터링 (NeMo Guardrails, red-teaming)</div></li>
+<li class="flow-step"><div class="flow-step-title">[Information Retrieval] → BM25 + Dense Retrieval 하이브리드</div></li>
+<li class="flow-step"><div class="flow-step-title">[Answer Synthesis] → GPT-4/GPT-4o/Llama 3.1/Gemini-1.5-pro</div></li>
+<li class="flow-step"><div class="flow-step-title">[Output Guardrails + Auto-Evaluators]</div></li>
+<li class="flow-step"><div class="flow-step-title">- CPR 정책 준수 평가 (Gemini-1.5-pro)</div></li>
+<li class="flow-step"><div class="flow-step-title">- 충실도 평가 앙상블 (Patronus Lynx + Gemini G-Eval + Vectara)</div></li>
+<li class="flow-step"><div class="flow-step-title">- 포매팅 규칙 체크</div></li>
+<li class="flow-step"><div class="flow-step-title">- 응답 여부 확인</div></li>
+<li class="flow-step"><div class="flow-step-title">[UX 노출] → 사용자에게 각 평가 결과 투명하게 제공</div></li>
+</ol>
 <h2>🔑 핵심 모듈 상세 설명</h2>
 <p><strong>1. 데이터베이스</strong></p>
 <ul>

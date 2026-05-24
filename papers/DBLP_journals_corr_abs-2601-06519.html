@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MedRAGChecker: Claim-Level Verification for Biomedical Retrieval-Augmented Generation — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="stylesheet" href="../static/style.css?v=1779611461">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -126,21 +126,17 @@
 </ul>
 <h2>시스템 아키텍처</h2>
 <p>[image: MedRAGChecker pipeline diagram]</p>
-<pre><code>[LLM 생성 답변 (Raw Answer)]
-      ↓
-[Claim Extractor]
-LLM 답변을 SPO(Subject, Relation, Object)
-트리플 형태의 Atomic Claim 리스트로 분해
-      ↓
-    ┌────────┴───────┐
-[Textual NLI Checker]    [KG-Based Verifier]
-증류된 학생 모델 앙상블      DRKG 엔티티 링크
- Entail/Contradict 판별   TransE 트리플 타당성 점수
-    └────────┬───────┘
-      ↓
-[Signal Fusion (Logit 공간)]
-Faithfulness, Hallucination, SafetyErr 점수 출력
-</code></pre>
+<ol class="flow-diagram">
+<li class="flow-step"><div class="flow-step-title">[LLM 생성 답변 (Raw Answer)]</div></li>
+<li class="flow-step"><div class="flow-step-title">[Claim Extractor]</div></li>
+<li class="flow-step"><div class="flow-step-title">LLM 답변을 SPO(Subject, Relation, Object)</div></li>
+<li class="flow-step"><div class="flow-step-title">트리플 형태의 Atomic Claim 리스트로 분해</div></li>
+<li class="flow-step"><div class="flow-step-title">[Textual NLI Checker]    [KG-Based Verifier]</div></li>
+<li class="flow-step"><div class="flow-step-title">증류된 학생 모델 앙상블      DRKG 엔티티 링크</div></li>
+<li class="flow-step"><div class="flow-step-title">Entail/Contradict 판별   TransE 트리플 타당성 점수</div></li>
+<li class="flow-step"><div class="flow-step-title">[Signal Fusion (Logit 공간)]</div></li>
+<li class="flow-step"><div class="flow-step-title">Faithfulness, Hallucination, SafetyErr 점수 출력</div></li>
+</ol>
 <h2>핵심 모듈 상세 설명</h2>
 <h3>Teacher-Student Distillation</h3>
 <ul>

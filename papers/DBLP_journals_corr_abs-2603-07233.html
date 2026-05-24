@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Retrieval-Augmented Generation for Predicting Cellular Responses to Gene Perturbation — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="stylesheet" href="../static/style.css?v=1779611461">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -149,30 +149,21 @@
 </ul>
 <h2>시스템 아키텍처</h2>
 <p>[image: PT-RAG architecture diagram]</p>
-<pre><code>입력: (perturbation gene g, cell state c)
-       │
-       ▼
-[Stage 1: GenePT 임베딩 기반 후보 검색]
-  - 입력 perturbation을 GenePT 임베딩으로 인코딩
-  - 학습 DB 내 K개 유사 perturbation 후보 검색 (코사인 유사도)
-       │
-       ▼
-[Stage 2: Gumbel-Softmax 기반 적응적 선택]
-  - cell state + perturbation embedding 조건부
-  - Straight-Through Gumbel-Softmax로 이산 선택 미분 가능화
-  - 최적 subset 선택 (sparsity loss로 mode collapse 방지)
-       │
-       ▼
-[Context Aggregation]
-  - 선택된 perturbation의 관측 발현 프로파일 집계
-       │
-       ▼
-[Generator (STATE 기반)]
-  - Context + 입력 조건으로 perturbation 후 발현 분포 예측
-       │
-       ▼
-출력: 예측 gene expression profile (2,000 HVGs)
-</code></pre>
+<ol class="flow-diagram">
+<li class="flow-step"><div class="flow-step-title">입력: (perturbation gene g, cell state c)</div></li>
+<li class="flow-step"><div class="flow-step-title">[Stage 1: GenePT 임베딩 기반 후보 검색]</div></li>
+<li class="flow-step"><div class="flow-step-title">- 입력 perturbation을 GenePT 임베딩으로 인코딩</div></li>
+<li class="flow-step"><div class="flow-step-title">- 학습 DB 내 K개 유사 perturbation 후보 검색 (코사인 유사도)</div></li>
+<li class="flow-step"><div class="flow-step-title">[Stage 2: Gumbel-Softmax 기반 적응적 선택]</div></li>
+<li class="flow-step"><div class="flow-step-title">- cell state + perturbation embedding 조건부</div></li>
+<li class="flow-step"><div class="flow-step-title">- Straight-Through Gumbel-Softmax로 이산 선택 미분 가능화</div></li>
+<li class="flow-step"><div class="flow-step-title">- 최적 subset 선택 (sparsity loss로 mode collapse 방지)</div></li>
+<li class="flow-step"><div class="flow-step-title">[Context Aggregation]</div></li>
+<li class="flow-step"><div class="flow-step-title">- 선택된 perturbation의 관측 발현 프로파일 집계</div></li>
+<li class="flow-step"><div class="flow-step-title">[Generator (STATE 기반)]</div></li>
+<li class="flow-step"><div class="flow-step-title">- Context + 입력 조건으로 perturbation 후 발현 분포 예측</div></li>
+<li class="flow-step"><div class="flow-step-title">출력: 예측 gene expression profile (2,000 HVGs)</div></li>
+</ol>
 <h2>핵심 모듈 상세 설명</h2>
 <h3>1단계: GenePT 임베딩 후보 검색</h3>
 <ul>

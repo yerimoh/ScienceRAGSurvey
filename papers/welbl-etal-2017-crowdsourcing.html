@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Crowdsourcing Multiple Choice Science Questions — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="stylesheet" href="../static/style.css?v=1779611461">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -130,18 +130,14 @@
 <li>문서 선택 기준: 정보 밀도, 도메인 적합성</li>
 </ul>
 <h3>Step 2 — 크라우드워커 문제 생성 파이프라인</h3>
-<pre><code class="language-javascript">[도메인 코퍼스]
-      ↓
-[문서 자동 추천 (AI)] → 워커에게 관련 단락 제시
-      ↓
-[크라우드워커] → 질문 + 정답 작성
-      ↓
-[오답 선택지 자동 생성 (AI)] → 의미적으로 유사하지만 틀린 distractor 추천
-      ↓
-[크라우드워커] → distractor 검수 및 수정
-      ↓
-[최종 문항 완성]
-</code></pre>
+<ol class="flow-diagram">
+<li class="flow-step"><div class="flow-step-title">[도메인 코퍼스]</div></li>
+<li class="flow-step"><div class="flow-step-title">[문서 자동 추천 (AI)] → 워커에게 관련 단락 제시</div></li>
+<li class="flow-step"><div class="flow-step-title">[크라우드워커] → 질문 + 정답 작성</div></li>
+<li class="flow-step"><div class="flow-step-title">[오답 선택지 자동 생성 (AI)] → 의미적으로 유사하지만 틀린 distractor 추천</div></li>
+<li class="flow-step"><div class="flow-step-title">[크라우드워커] → distractor 검수 및 수정</div></li>
+<li class="flow-step"><div class="flow-step-title">[최종 문항 완성]</div></li>
+</ol>
 <p><strong>오답(distractor) 생성 방법:</strong></p>
 <ul>
 <li>코퍼스에서 정답과 <strong>의미적으로 유사한 단어/개념</strong>을 자동으로 추출</li>

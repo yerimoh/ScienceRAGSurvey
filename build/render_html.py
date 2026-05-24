@@ -11,6 +11,7 @@ Outputs:
 """
 import html
 import json
+import re
 from pathlib import Path
 from collections import defaultdict, Counter
 
@@ -1025,6 +1026,52 @@ def render_insights():
     (ROOT / 'insights.html').write_text(page_head('Insights', base='', desc='The five requirements of scientific RAG, K×Domain coverage map, paper growth timeline, cross-source bridges, and frontier opportunities.', current='insights') + body + PAGE_FOOT)
 
 
+def convert_ascii_flow(html_text):
+    """Detect ASCII flow diagrams in <pre><code> blocks and convert to styled <ol> step list."""
+    import html as htmllib
+    flow_chars = set('│▼└├─►↓↑┬┴┌┐┘')
+
+    def replace_block(m):
+        raw = m.group(1)
+        # Decode HTML entities mistune may have escaped
+        block = (raw.replace('&amp;', '&').replace('&lt;', '<')
+                    .replace('&gt;', '>').replace('&quot;', '"'))
+        if not any(c in block for c in flow_chars):
+            return m.group(0)
+        steps = []
+        current = None
+        for line in block.split('\n'):
+            stripped = line.strip()
+            if not stripped:
+                continue
+            # If line starts with a flow char or whitespace-then-flow-char → note for current step
+            first_non_ws = next((c for c in line if c != ' '), '')
+            if first_non_ws in flow_chars:
+                note = stripped.lstrip('│└├─▼►↓↑┬┴┌┐┘ ').strip()
+                # Strip leading markdown bullet markers and parens
+                note = re.sub(r'^[-•·*]\s*', '', note)
+                if note and current is not None:
+                    current['notes'].append(note)
+            else:
+                current = {'title': stripped, 'notes': []}
+                steps.append(current)
+        if not steps:
+            return m.group(0)
+        out = ['<ol class="flow-diagram">']
+        for s in steps:
+            title = htmllib.escape(s['title'])
+            notes_html = ''
+            if s['notes']:
+                notes_html = ('<ul class="flow-notes">' +
+                              ''.join(f'<li>{htmllib.escape(n)}</li>' for n in s['notes']) +
+                              '</ul>')
+            out.append(f'<li class="flow-step"><div class="flow-step-title">{title}</div>{notes_html}</li>')
+        out.append('</ol>')
+        return '\n'.join(out)
+
+    return re.sub(r'<pre><code[^>]*>(.*?)</code></pre>', replace_block, html_text, flags=re.DOTALL)
+
+
 def render_paper_pages():
     """Render papers/<bib_key>.html from papers/<bib_key>.md (Notion summaries)."""
     import mistune
@@ -1053,6 +1100,7 @@ def render_paper_pages():
             if end > 0:
                 md_content = md_content[end+3:].lstrip()
         body_html = md_renderer(md_content)
+        body_html = convert_ascii_flow(body_html)
         bk_actual = matching['bib_key']
         url = matching.get('paper_link') or ''
         url_link = f'<a href="{esc(url)}" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>' if url else ''

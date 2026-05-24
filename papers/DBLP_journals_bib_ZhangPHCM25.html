@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Rag2Mol: structure-based drug design based on RAG — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="stylesheet" href="../static/style.css?v=1779611461">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -134,37 +134,14 @@
 <li>두 워크플로우(G: 신규 생성, R: 유사 분자 검색)로 다양한 실세계 신약 개발 시나리오 대응 가능</li>
 </ul>
 <h2>🏗️ 시스템 아키텍처</h2>
-<pre><code class="language-javascript">[입력: 단백질 포켓 3D 구조]
-        ↓
-┌─────────────────────────────────────┐
-│  Step 1: Global Retriever            │
-│  ZINC → 가상 스크리닝 + Vina 도킹   │
-│  → 포켓 특이적 소분자 DB 구축        │
-└─────────────────┬───────────────────┘
-                  ↓
-┌─────────────────────────────────────┐
-│  Step 2: 자기회귀 분자 생성 (반복)  │
-│  Molecular Retriever:               │
-│    포켓별 DB → 참조 분자 선택       │
-│  cross-KNN 메시지 패싱 →            │
-│    참조 분자 정보 → fragment에 융합  │
-│  GVP 기반 모델: 다음 원자 예측      │
-└─────────────────┬───────────────────┘
-                  ↓
-    ┌─────────────┴─────────────┐
-    ↓                           ↓
-[Rag2Mol-G]              [Rag2Mol-R]
-생성 분자 직접 사용       생성 분자 클러스터링
-                          scaffold 선택
-                          ZINC 유사도 검색
-                          → 구매 가능 분자 출력
-                  ↓
-┌─────────────────────────────────────┐
-│  Step 3: 필터링 + 검증              │
-│  Vina/QED/SA/Lipinski/LogP 기준     │
-│  → Vina 도킹 재계산 → 웻랩 실험    │
-└─────────────────────────────────────┘
-</code></pre>
+<ol class="flow-diagram">
+<li class="flow-step"><div class="flow-step-title">[입력: 단백질 포켓 3D 구조]</div><ul class="flow-notes"><li>Step 1: Global Retriever            │</li><li>ZINC → 가상 스크리닝 + Vina 도킹   │</li><li>→ 포켓 특이적 소분자 DB 구축        │</li><li>Step 2: 자기회귀 분자 생성 (반복)  │</li><li>Molecular Retriever:               │</li><li>포켓별 DB → 참조 분자 선택       │</li><li>cross-KNN 메시지 패싱 →            │</li><li>참조 분자 정보 → fragment에 융합  │</li><li>GVP 기반 모델: 다음 원자 예측      │</li></ul></li>
+<li class="flow-step"><div class="flow-step-title">[Rag2Mol-G]              [Rag2Mol-R]</div></li>
+<li class="flow-step"><div class="flow-step-title">생성 분자 직접 사용       생성 분자 클러스터링</div></li>
+<li class="flow-step"><div class="flow-step-title">scaffold 선택</div></li>
+<li class="flow-step"><div class="flow-step-title">ZINC 유사도 검색</div></li>
+<li class="flow-step"><div class="flow-step-title">→ 구매 가능 분자 출력</div><ul class="flow-notes"><li>Step 3: 필터링 + 검증              │</li><li>Vina/QED/SA/Lipinski/LogP 기준     │</li><li>→ Vina 도킹 재계산 → 웻랩 실험    │</li></ul></li>
+</ol>
 <h2>🔑 핵심 모듈 상세 설명</h2>
 <h3>1. Global Retriever (포켓 특이적 DB 구축)</h3>
 <ul>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Fact or Fiction: Verifying Scientific Claims — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="stylesheet" href="../static/style.css?v=1779611461">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -125,23 +125,18 @@
 <h2>🎯 연구 배경 및 동기</h2>
 </blockquote>
 <h2>🏗️ 시스템 아키텍처</h2>
-<pre><code class="language-javascript">[입력 Claim]
-      │
-      ▼
-[ABSTRACTRETRIEVAL]
-TF-IDF (unigram + bigram) 기반
-상위 k=3개 관련 초록 검색
-      │
-      ▼
-[RATIONALSELECTION]
-각 초록 내 문장 단위 검사
-클레임 지지/반박 근거 문장(선택)
-      │
-      ▼
-[LABELPREDICTION]
-RoBERTa-large 기반 분류기
-SUPPORTS / REFUTES / NOINFO
-</code></pre>
+<ol class="flow-diagram">
+<li class="flow-step"><div class="flow-step-title">[입력 Claim]</div></li>
+<li class="flow-step"><div class="flow-step-title">[ABSTRACTRETRIEVAL]</div></li>
+<li class="flow-step"><div class="flow-step-title">TF-IDF (unigram + bigram) 기반</div></li>
+<li class="flow-step"><div class="flow-step-title">상위 k=3개 관련 초록 검색</div></li>
+<li class="flow-step"><div class="flow-step-title">[RATIONALSELECTION]</div></li>
+<li class="flow-step"><div class="flow-step-title">각 초록 내 문장 단위 검사</div></li>
+<li class="flow-step"><div class="flow-step-title">클레임 지지/반박 근거 문장(선택)</div></li>
+<li class="flow-step"><div class="flow-step-title">[LABELPREDICTION]</div></li>
+<li class="flow-step"><div class="flow-step-title">RoBERTa-large 기반 분류기</div></li>
+<li class="flow-step"><div class="flow-step-title">SUPPORTS / REFUTES / NOINFO</div></li>
+</ol>
 <h2>🔑 핵심 모듈 상세 설명</h2>
 <h3>1. ABSTRACTRETRIEVAL</h3>
 <ul>

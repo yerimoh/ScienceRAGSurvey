@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Three-Dimensional Convolutional Neural Networks and a Cross-Docked Data Set for Structure-Based Drug Design — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="stylesheet" href="../static/style.css?v=1779611461">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -141,19 +141,15 @@
 <li>전처리: 각 포켓을 ProBiS z-score 3.5 기준으로 클러스터링</li>
 </ul>
 <p><strong>Step 2 — 구축 파이프라인 (Cross-docking)</strong></p>
-<pre><code>PDB 단백질-리간드 복합체 수집
-    ↓
-유사 포켓 클러스터링 (ProBiS 알고리즘, z-score 3.5)
-    ↓
-동일 클러스터 내 리간드 ↔ 비공유 포켓 cross-docking
-(AutoDock Vina / Gnina)
-    ↓
-포즈 필터링 (RMSD, 결합 에너지 기준)
-    ↓
-Counter-example 생성 (반례: 잘못된 포즈 추가)
-    ↓
-22.5M 포즈 데이터셋 완성
-</code></pre>
+<ol class="flow-diagram">
+<li class="flow-step"><div class="flow-step-title">PDB 단백질-리간드 복합체 수집</div></li>
+<li class="flow-step"><div class="flow-step-title">유사 포켓 클러스터링 (ProBiS 알고리즘, z-score 3.5)</div></li>
+<li class="flow-step"><div class="flow-step-title">동일 클러스터 내 리간드 ↔ 비공유 포켓 cross-docking</div></li>
+<li class="flow-step"><div class="flow-step-title">(AutoDock Vina / Gnina)</div></li>
+<li class="flow-step"><div class="flow-step-title">포즈 필터링 (RMSD, 결합 에너지 기준)</div></li>
+<li class="flow-step"><div class="flow-step-title">Counter-example 생성 (반례: 잘못된 포즈 추가)</div></li>
+<li class="flow-step"><div class="flow-step-title">22.5M 포즈 데이터셋 완성</div></li>
+</ol>
 <ul>
 <li>리간드가 자신의 원래 포켓(cognate)이 아닌 유사 포켓(non-cognate)에도 도킹 → 더 현실적인 virtual screening 시나리오</li>
 <li>Counter-example(반례) 포즈를 반복적 학습 세트 구성으로 추가 → 모델 강건성 향상</li>

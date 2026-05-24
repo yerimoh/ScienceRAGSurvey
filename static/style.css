@@ -1122,3 +1122,60 @@ main.with-sidebar {
   color: #666;
   margin-left: 0;
 }
+
+/* ASCII flow diagram → styled step list */
+.flow-diagram {
+  list-style: none;
+  padding: 0;
+  margin: 1.5em 0;
+  counter-reset: flow-step;
+}
+.flow-step {
+  position: relative;
+  padding: 0.85em 1.1em 0.85em 3em;
+  margin: 0 0 1.5em;
+  background: #f9fafc;
+  border-left: 4px solid #4a90e2;
+  border-radius: 6px;
+  counter-increment: flow-step;
+}
+.flow-step::before {
+  content: counter(flow-step);
+  position: absolute;
+  left: 0.7em;
+  top: 0.85em;
+  width: 1.6em;
+  height: 1.6em;
+  background: #4a90e2;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.85em;
+}
+.flow-step:not(:last-child)::after {
+  content: '↓';
+  position: absolute;
+  left: 1.3em;
+  bottom: -1.3em;
+  color: #4a90e2;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.flow-step-title {
+  font-weight: 600;
+  color: #222;
+  line-height: 1.4;
+}
+.flow-notes {
+  margin: 0.5em 0 0;
+  padding-left: 1.2em;
+  font-size: 0.88em;
+  color: #555;
+  line-height: 1.55;
+}
+.flow-notes li {
+  margin-bottom: 0.2em;
+}

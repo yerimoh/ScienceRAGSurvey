@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Language Agents Achieve Superhuman Synthesis of Scientific Knowledge — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1779608020">
+<link rel="stylesheet" href="../static/style.css?v=1779611461">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -137,28 +137,12 @@
 <hr />
 <h2>시스템 아키텍처</h2>
 <p>[image: PaperQA2 architecture]</p>
-<pre><code>[사용자 쿼리]
-     ↓
-[PaperQA2 Agent (GPT-4-Turbo, ReAct 패턴)]
-     ├── Paper Search Tool
-     │     키워드+연도범위 생성 → Semantic Scholar API 검색
-     │     → Grobid/PyMuPDF 파싱 → Hybrid 임베딩 (dense+sparse)
-     │     → 청크 저장 (agent state)
-     │
-     ├── Citation Traversal Tool  ← NEW
-     │     RCS 점수 ≥ 8인 논문의 인용/피인용 1hop 탐색
-     │     → overlap fraction 필터링 → 최대 12편 추가
-     │
-     ├── Gather Evidence Tool
-     │     top-k (기본 30) cosine 유사도 검색
-     │     → RCS: 각 청크에 LLM completion
-     │         → 요약(200~400토큰) + 관련성점수(0~10)
-     │     → 점수 기반 재순위화 → 상위 summaries 저장
-     │
-     └── Generate Answer Tool
-           상위 N개(기본 15) summaries → LLM 최종 답변 생성
-           → cited Wikipedia-style 답변 출력
-</code></pre>
+<ol class="flow-diagram">
+<li class="flow-step"><div class="flow-step-title">[사용자 쿼리]</div></li>
+<li class="flow-step"><div class="flow-step-title">[PaperQA2 Agent (GPT-4-Turbo, ReAct 패턴)]</div><ul class="flow-notes"><li>Paper Search Tool</li><li>키워드+연도범위 생성 → Semantic Scholar API 검색</li><li>→ Grobid/PyMuPDF 파싱 → Hybrid 임베딩 (dense+sparse)</li><li>→ 청크 저장 (agent state)</li><li>Citation Traversal Tool  ← NEW</li><li>RCS 점수 ≥ 8인 논문의 인용/피인용 1hop 탐색</li><li>→ overlap fraction 필터링 → 최대 12편 추가</li><li>Gather Evidence Tool</li><li>top-k (기본 30) cosine 유사도 검색</li><li>→ RCS: 각 청크에 LLM completion</li><li>→ 요약(200~400토큰) + 관련성점수(0~10)</li><li>→ 점수 기반 재순위화 → 상위 summaries 저장</li><li>Generate Answer Tool</li></ul></li>
+<li class="flow-step"><div class="flow-step-title">상위 N개(기본 15) summaries → LLM 최종 답변 생성</div></li>
+<li class="flow-step"><div class="flow-step-title">→ cited Wikipedia-style 답변 출력</div></li>
+</ol>
 <p><strong>WikiCrow</strong> (요약 특화): 유전자명 → 구조/기능/상호작용/임상의의 각 섹션별 PaperQA2 호출 4회 + overview LLM 1회 → Python으로 합성</p>
 <p><strong>ContraCrow</strong> (모순탐지 특화): 논문 청크 분할 → LLM 클레임 추출 → 품질 필터링(≥8/10) → PaperQA2로 각 클레임에 모순탐지 쿼리 → 11점 Likert 스코어 출력</p>
 <hr />
