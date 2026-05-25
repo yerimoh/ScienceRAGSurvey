@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Earth Science — Scientific RAG Hub</title>
+<title>bioRxiv: the preprint server for biology — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
 <link rel="stylesheet" href="../static/style.css?v=1779699531">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
@@ -64,7 +64,7 @@
       </div>
     </details>
 
-    <details class="sb-group" open>
+    <details class="sb-group">
       <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
@@ -73,7 +73,7 @@
 <a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">16</span></a>
 <a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">3</span></a>
 <a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">8</span></a>
-<a href="../domain/earth.html" class="sb-sub active">🌍 Earth Science <span class="sb-count">5</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">5</span></a>
 <a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">1</span></a>
 <a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">2</span></a>
 
@@ -100,57 +100,133 @@
 <div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
 <main class="with-sidebar">
 
-<section class="domain-hero">
+<section class="paper-hero">
   <div class="wrap">
-    <p class="eyebrow"><a href="../index.html#domains">← Domains</a></p>
-    <h1>🌍 Earth Science</h1>
-    <p class="lede"><strong>5</strong> entries in the earth science domain.</p>
-    <div class="cell-breakdown"><span class="muted">K×O distribution:</span> <a href="../cell/O1.html" class="pill" title="O1">Ground 2</a><a href="../cell/K1.html" class="pill" title="K1">Primary Literature 2</a><a href="../cell/O2.html" class="pill" title="O2">Synthesis 1</a></div>
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>bioRxiv: the preprint server for biology</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">bioRxiv (Cold Spring Harbor Laboratory)</span>
+      <span class="meta-year">2019</span>
+      <a href="https://doi.org/10.1101/833400" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Primary Literature</a><span class="tag tag-sub">Preprint literature</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a></div>
   </div>
 </section>
-
-<section class="domain-list">
+<section class="paper-body">
   <div class="wrap">
-    <div class="card-grid"><article class="card" data-sub="Closed-form QA Grounding">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2509.09686v2" target="_blank" rel="noopener">GeoGPT-RAG Technical Report ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">GeoRAG-QA</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">main.tex: K=-; O=O1</p>
-  <div class="card-tags"><a href="../cell/O1.html" class="tag tag-cell" title="O1">Ground</a><span class="tag tag-sub">Closed-form QA Grounding</span><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-xs">★ cross-source</span></div>
-  <a href="../papers/DBLP_journals_corr_abs-2509-09686.html" class="card-summary-link">Summary →</a>
-</article>
+    <article class="paper-markdown">
+      <h1>bioRxiv: the preprint server for biology</h1>
+<p>sever2019biorxiv | 2019 | bioRxiv (Cold Spring Harbor Laboratory) | dataset | [bio] | <a href="https://doi.org/10.1101/833400">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">bioRxiv preprint server</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">310,000+ manuscripts (논문 기재 시점)</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">bioRxiv OAI-PMH / REST API</td></tr>
+</table>
 
-<article class="card" data-sub="Aggregative Synthesis">
-  <h3 class="card-title">Responsible Retrieval Augmented Generation for Climate Decision Making from Documents</h3>
-  <div class="card-meta"><span class="meta-method">R2AG (Responsible RAG)</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">UNECE 16-expert annotated dataset. Defense-in-depth UX. K4 partial: governmental policy = institutional knowledge.</p>
-  <div class="card-tags"><a href="../cell/O2.html" class="tag tag-cell" title="O2">Synthesis</a><span class="tag tag-sub">Aggregative Synthesis</span><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2410-23902.html" class="card-summary-link">Summary →</a>
-</article>
+<blockquote>
+<p>bioRxiv (Cold Spring Harbor Laboratory) | 2019 | dataset | bio</p>
+<h4>📌 한 줄 요약</h4>
+<p>Cold Spring Harbor Laboratory가 2013년 시작한 생명과학 분야 프리프린트 서버로, 논문 작성 시점 기준 31만 편 이상을 수록하며 피어리뷰 전에 연구를 즉시 공개함으로써 과학 커뮤니케이션을 가속화한다.</p>
+</blockquote>
+<h4>🎯 개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>전통적인 학술 출판 과정은 수개월~수년의 동료 심사 기간으로 인해 연구 성과 공유가 지연됨</li>
+<li>연구자들은 초고 단계에서 광범위한 피드백을 받을 창구가 없었음</li>
+<li>연구비 생산성 증빙을 위한 조기 공개 필요성 증가</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>논문 저널 제출·심사와 독립적으로 즉시 공개하여 광범위한 독자로부터 피드백 수집</li>
+<li>연구 우선권을 공식 출판 이전에 확립 가능</li>
+<li>저널 정책과의 통합(Easy Journal Transfer)으로 저자 부담 최소화</li>
+</ul>
+<h4>🔨 시스템 구성</h4>
+<p>Cold Spring Harbor Laboratory(CSHL)가 운영하는 비영리 오픈 프리프린트 저장소. 저자가 제출하면 스크리닝(비과학적 내용·표절 등) 후 OAI-PMH 인터페이스를 통해 전문 공개. 생물학 전 분야(진화생물학, 유전체학, 전산생물학, 신경과학, 세포·발생생물학 등) 수록. 자매 서버 medRxiv(임상의학)와 함께 Cold Spring Harbor Laboratory 운영. 분야별 Subject Category는 저자가 직접 지정.</p>
+<h4>📥 데이터 접근 방법</h4>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>OAI-PMH API</td>
+  <td>메타데이터 및 전문 배치 수집 지원</td>
+</tr>
+<tr>
+  <td>개별 DOI</td>
+  <td>각 프리프린트는 10.1101/XXXXXX 형식 DOI 부여</td>
+</tr>
+<tr>
+  <td>RSS/Atom 피드</td>
+  <td>분야별 신규 프리프린트 구독 가능</td>
+</tr>
+<tr>
+  <td>전문 PDF/HTML</td>
+  <td>직접 다운로드 가능 (오픈 액세스)</td>
+</tr>
+</tbody>
+</table>
+<h4>📤 제공 데이터 형식</h4>
+<ul>
+<li>논문 전문 (PDF 및 HTML)</li>
+<li>구조화된 메타데이터: 제목, 저자, 초록, 날짜, DOI, subject category</li>
+<li>버전 이력: 동일 프리프린트의 여러 버전 추적 가능</li>
+<li>저널 연동 링크: 최종 게재 저널 정보 (가능한 경우)</li>
+</ul>
+<h4>📊 주요 통계 (논문 기준)</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>총 수록 프리프린트</td>
+  <td><strong>310,000+</strong> (2019년 11월 시점)</td>
+</tr>
+<tr>
+  <td>월간 페이지뷰</td>
+  <td><strong>약 10,000,000</strong></td>
+</tr>
+<tr>
+  <td>서비스 시작</td>
+  <td><strong>2013년</strong></td>
+</tr>
+<tr>
+  <td>운영 기관</td>
+  <td>Cold Spring Harbor Laboratory (비영리)</td>
+</tr>
+<tr>
+  <td>조기 제출 비율 (저널 제출 전)</td>
+  <td><strong>30%</strong></td>
+</tr>
+<tr>
+  <td>저널 제출 시점 제출 비율</td>
+  <td><strong>55%</strong></td>
+</tr>
+</tbody>
+</table>
+<h4>⚠️ 한계점</h4>
+<ul>
+<li><strong>피어리뷰 미완료</strong>: 수록 논문은 정식 동료 심사를 거치지 않아 과학적 신뢰성 보장 없음</li>
+<li><strong>품질 편차</strong>: 스크리닝은 기초적 수준(비과학적 내용 필터링)이며 방법론·결과 검증 없음</li>
+<li><strong>버전 다수</strong>: 동일 연구가 여러 버전으로 존재하여 최신 버전 추적 필요</li>
+<li><strong>생명과학 한정</strong>: 물리·화학·지구과학 등 타 분야는 별도 서버(arXiv, ChemRxiv, EarthArXiv) 이용 필요</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://doi.org/10.1101/833400">https://doi.org/10.1101/833400</a></li>
+</ul>
 
-<article class="card" data-sub="Domain-specific literature">
-  <h3 class="card-title"><a href="https://www.americangeosciences.org/information/georef" target="_blank" rel="noopener">GeoRef: Comprehensive Geoscience Bibliography ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">GeoRef Search</span> · <span class="meta-venue">American Geosciences Institute</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">Most comprehensive geoscience bibliography; field-curated by AGI.</p>
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Primary Literature</a><span class="tag tag-sub">Domain-specific literature</span><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
-  <a href="../papers/georef.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Closed-form QA Grounding">
-  <h3 class="card-title"><a href="https://doi.org/10.1038/s41598-023-33607-z" target="_blank" rel="noopener">The SciQA Scientific Question Answering Benchmark for Scholarly Knowledge ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">SciQA</span> · <span class="meta-venue">Scientific Reports</span> · <span class="meta-year">2023</span></div>
-  <p class="card-note">ORKG 기반 학술 지식 QA. ChatGPT 100개 중 14개만 정답.</p>
-  <div class="card-tags"><a href="../cell/O1.html" class="tag tag-cell" title="O1">Ground</a><span class="tag tag-sub">Closed-form QA Grounding</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">KG</span></div>
-  <a href="../papers/auer2023sciqa.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Domain-specific literature">
-  <h3 class="card-title"><a href="https://www.ipcc.ch/report/ar6/syr/" target="_blank" rel="noopener">Climate Change 2023: Synthesis Report. Contribution of Working Groups I, II and III to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">IPCC AR6 Synthesis Report</span> · <span class="meta-venue">IPCC</span> · <span class="meta-year">2023</span></div>
-  <p class="card-note">Authoritative synthesis of climate science; canonical reference document used by climate science RAG systems.</p>
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Primary Literature</a><span class="tag tag-sub">Domain-specific literature</span><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
-  <a href="../papers/lee2023climate.html" class="card-summary-link">Summary →</a>
-</article>
-</div>
+    </article>
   </div>
 </section>
 </main>
