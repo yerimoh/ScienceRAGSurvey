@@ -2539,5 +2539,1018 @@
     "modality": [
       "Text"
     ]
+  },
+  {
+    "bib_key": "johnson2016mimic",
+    "title": "MIMIC-III, a freely accessible critical care database",
+    "year": "2016",
+    "venue": "Scientific Data",
+    "type": "dataset",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1038/sdata.2016.35",
+    "method": "MIMIC-III",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "ICU EHR dataset — Beth Israel Deaconess Medical Center; 53,423 adult ICU admissions 2001-2012; primary clinical RAG retrieval target",
+    "subsection": "Medical imaging and clinical EHR",
+    "modality": [
+      "Text",
+      "Structured Table"
+    ]
+  },
+  {
+    "bib_key": "johnson2023mimic",
+    "title": "MIMIC-IV, a freely accessible electronic health record dataset",
+    "year": "2023",
+    "venue": "Scientific Data",
+    "type": "dataset",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1038/s41597-022-01899-x",
+    "method": "MIMIC-IV",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Contemporary EHR dataset — BIDMC 2008-2019; 431,231 hospital admissions; 180,733 unique patients; successor to MIMIC-III",
+    "subsection": "Medical imaging and clinical EHR",
+    "modality": [
+      "Text",
+      "Structured Table"
+    ]
+  },
+  {
+    "bib_key": "petersen2010alzheimer",
+    "title": "Alzheimer's Disease Neuroimaging Initiative (ADNI): clinical characterization",
+    "year": "2010",
+    "venue": "Neurology",
+    "type": "dataset",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1212/WNL.0b013e3181cb3e25",
+    "method": "ADNI",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Multi-site Alzheimer's disease neuroimaging cohort; 819 subjects (229 normal, 398 MCI, 192 AD); MRI+PET+CSF biomarkers",
+    "subsection": "Medical imaging and clinical EHR",
+    "modality": [
+      "Image",
+      "Structured Table"
+    ]
+  },
+  {
+    "bib_key": "DBLP:journals/jocn/MarcusWPCMB07",
+    "title": "Open Access Series of Imaging Studies (OASIS): Cross-sectional MRI Data in Young, Middle Aged, Nondemented, and Demented Older Adults",
+    "year": "2007",
+    "venue": "Journal of Cognitive Neuroscience",
+    "type": "dataset",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1162/jocn.2007.19.9.1498",
+    "method": "OASIS",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Canonical MRI dataset for normal aging and Alzheimer's disease; 416 subjects aged 18-96; cross-sectional T1-weighted MRI",
+    "subsection": "Medical imaging and clinical EHR",
+    "modality": [
+      "Image",
+      "Structured Table"
+    ]
+  },
+  {
+    "bib_key": "di2014autism",
+    "title": "The autism brain imaging data exchange: towards a large-scale evaluation of the intrinsic brain architecture in autism",
+    "year": "2014",
+    "venue": "Molecular Psychiatry",
+    "type": "dataset",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1038/mp.2013.78",
+    "method": "ABIDE",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Multi-site ASD neuroimaging dataset; 1,112 resting-state fMRI (539 ASD + 573 controls); ages 7-64",
+    "subsection": "Medical imaging and clinical EHR",
+    "modality": [
+      "Image",
+      "Structured Table"
+    ]
+  },
+  {
+    "bib_key": "liu2018integrated",
+    "title": "An integrated TCGA pan-cancer clinical data resource to drive high-quality survival outcome analytics",
+    "year": "2018",
+    "venue": "Cell",
+    "type": "dataset",
+    "domain": [
+      "medical",
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1016/j.cell.2018.02.052",
+    "method": "TCGA-CDR",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Pan-cancer atlas; >11,000 tumors across 33 cancer types; standardized clinical outcome endpoints (OS/PFI/DFI/DSS)",
+    "subsection": "Medical imaging and clinical EHR",
+    "modality": [
+      "Genomic",
+      "Structured Table"
+    ]
+  },
+  {
+    "bib_key": "uhlen2015tissue",
+    "title": "Tissue-based map of the human proteome",
+    "year": "2015",
+    "venue": "Science",
+    "type": "dataset",
+    "domain": [
+      "medical",
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1126/science.1260419",
+    "method": "Human Protein Atlas",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Spatial protein expression maps across 32 normal and cancer tissues; >90% of protein-coding genes detected; IHC + transcriptomics integration",
+    "subsection": "Medical imaging and clinical EHR",
+    "modality": [
+      "Image",
+      "Genomic",
+      "Structured Table"
+    ]
+  },
+  {
+    "bib_key": "osanlouy2021sparc",
+    "title": "The SPARC DRC: building a resource for the autonomic nervous system community",
+    "year": "2021",
+    "venue": "Frontiers in Physiology",
+    "type": "dataset",
+    "domain": [
+      "medical",
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.3389/fphys.2021.693735",
+    "method": "SPARC DRC",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "NIH-funded autonomic nervous system data and resource center; 2D flatmaps + 3D organ scaffolds; curated experimental data and mathematical models",
+    "subsection": "Medical imaging and clinical EHR",
+    "modality": [
+      "Image",
+      "Structured Table"
+    ]
+  },
+  {
+    "bib_key": "DBLP:journals/nar/BermanWFGBWSB00",
+    "title": "The Protein Data Bank",
+    "year": "2000",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/28.1.235",
+    "method": "PDB",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Single worldwide archive of 3D structures of biological macromolecules; experimental ground truth for structural biology",
+    "subsection": "Structural biology",
+    "modality": [
+      "Structured Table"
+    ]
+  },
+  {
+    "bib_key": "DBLP:journals/nar/VaradiADNNYYSWL22",
+    "title": "AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models",
+    "year": "2022",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkab1061",
+    "method": "AlphaFold DB",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Initial release: >360,000 predicted structures across 21 model organism proteomes; predicted complement to PDB experimental structures",
+    "subsection": "Structural biology",
+    "modality": [
+      "Structured Table"
+    ]
+  },
+  {
+    "bib_key": "varadi2024alphafold",
+    "title": "AlphaFold Protein Structure Database in 2024: providing structure coverage for over 214 million protein sequences",
+    "year": "2024",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkad1011",
+    "method": "AlphaFold DB 2024",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": ">214 million predicted structures; ~500x expansion from initial 2021 release; integrated with PDB, UniProt, Ensembl, InterPro, MobiDB",
+    "subsection": "Structural biology",
+    "modality": [
+      "Structured Table"
+    ]
+  },
+  {
+    "bib_key": "ahdritz2024openfold",
+    "title": "OpenFold: retraining AlphaFold2 yields new insights into its learning mechanisms and capacity for generalization",
+    "year": "2024",
+    "venue": "Nature Methods",
+    "type": "dataset",
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1038/s41592-024-02272-z",
+    "method": "OpenFold",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Open-source trainable AlphaFold2 reimplementation; OpenProteinSet MSA data backbone; enables new tasks (protein-ligand) and open re-implementations",
+    "subsection": "Structural biology",
+    "modality": [
+      "Structured Table"
+    ]
+  },
+  {
+    "bib_key": "york2000sloan",
+    "title": "The Sloan Digital Sky Survey: Technical Summary",
+    "year": "2000",
+    "venue": "The Astronomical Journal",
+    "type": "dataset",
+    "domain": [
+      "astronomy"
+    ],
+    "paper_link": "https://arxiv.org/abs/astro-ph/0006396",
+    "method": "SDSS (2.5m telescope, Apache Point Observatory)",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "SDSS founding technical summary; survey goal pi steradians, hundreds of millions of objects by DR17",
+    "subsection": "Astronomy, earth, and climate",
+    "modality": [
+      "Image",
+      "Spectrum",
+      "Tabular"
+    ]
+  },
+  {
+    "bib_key": "abdurro2022seventeenth",
+    "title": "The Seventeenth Data Release of the Sloan Digital Sky Surveys: Complete Release of MaNGA, MaStar, and APOGEE-2 Data",
+    "year": "2022",
+    "venue": "The Astrophysical Journal Supplement Series",
+    "type": "dataset",
+    "domain": [
+      "astronomy"
+    ],
+    "paper_link": "https://arxiv.org/abs/2112.02026",
+    "method": "SDSS DR17",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "SDSS DR17 final release; 10,010 MaNGA galaxies, ~4.9M cumulative spectra",
+    "subsection": "Astronomy, earth, and climate",
+    "modality": [
+      "Image",
+      "Spectrum",
+      "Tabular"
+    ]
+  },
+  {
+    "bib_key": "vallenari2023gaia",
+    "title": "Gaia Data Release 3: Summary of the Content and Survey Properties",
+    "year": "2023",
+    "venue": "Astronomy & Astrophysics",
+    "type": "dataset",
+    "domain": [
+      "astronomy"
+    ],
+    "paper_link": "https://arxiv.org/abs/2208.00211",
+    "method": "Gaia DR3 (ESA Gaia mission)",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Gaia DR3; 1.5B sources, positions/parallaxes/spectrophotometry for nearly 2 billion stars",
+    "subsection": "Astronomy, earth, and climate",
+    "modality": [
+      "Tabular",
+      "Spectrum"
+    ]
+  },
+  {
+    "bib_key": "mast",
+    "title": "Mikulski Archive for Space Telescopes (MAST)",
+    "year": "1997",
+    "venue": "Space Telescope Science Institute",
+    "type": "dataset",
+    "domain": [
+      "astronomy"
+    ],
+    "paper_link": "https://archive.stsci.edu",
+    "method": "MAST portal (archive.stsci.edu)",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Hosts Hubble, JWST, TESS, Kepler, Pan-STARRS, GALEX in unified portal",
+    "subsection": "Astronomy, earth, and climate",
+    "modality": [
+      "Image",
+      "Spectrum",
+      "Tabular"
+    ]
+  },
+  {
+    "bib_key": "DBLP:conf/mss/KoblerBCH95",
+    "title": "Architecture and Design of Storage and Data Management for the NASA Earth Observing System Data and Information System (EOSDIS)",
+    "year": "1995",
+    "venue": "IEEE Symposium on Mass Storage Systems (MSS 1995)",
+    "type": "dataset",
+    "domain": [
+      "earth"
+    ],
+    "paper_link": "https://doi.org/10.1109/MASS.1995.528217",
+    "method": "NASA Earthdata / EOSDIS (earthdata.nasa.gov)",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "NASA EOSDIS founding architecture paper; covers land, atmosphere, ocean Earth-observation data",
+    "subsection": "Astronomy, earth, and climate",
+    "modality": [
+      "Satellite image",
+      "Gridded data",
+      "Time series"
+    ]
+  },
+  {
+    "bib_key": "noaa_ncei",
+    "title": "NOAA National Centers for Environmental Information (NCEI)",
+    "year": "2015",
+    "venue": "National Oceanic and Atmospheric Administration",
+    "type": "dataset",
+    "domain": [
+      "earth"
+    ],
+    "paper_link": "https://www.ncei.noaa.gov",
+    "method": "NOAA NCEI / CDO (Climate Data Online) API",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "World's largest weather and climate archive; ~100 PB, 140+ years of records",
+    "subsection": "Astronomy, earth, and climate",
+    "modality": [
+      "Time series",
+      "Satellite image",
+      "Gridded data"
+    ]
+  },
+  {
+    "bib_key": "eyring2016overview",
+    "title": "Overview of the Coupled Model Intercomparison Project Phase 6 (CMIP6) Experimental Design and Organization",
+    "year": "2016",
+    "venue": "Geoscientific Model Development",
+    "type": "dataset",
+    "domain": [
+      "earth"
+    ],
+    "paper_link": "https://doi.org/10.5194/gmd-9-1937-2016",
+    "method": "CMIP6 data portal (esgf-node.llnl.gov)",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "CMIP6 design paper; petabyte-scale (~20 PB realized) climate model simulations from 49 groups",
+    "subsection": "Astronomy, earth, and climate",
+    "modality": [
+      "Gridded data",
+      "Time series"
+    ]
+  },
+  {
+    "bib_key": "usgs_eros",
+    "title": "USGS Earth Resources Observation and Science (EROS) Center",
+    "year": "1973",
+    "venue": "U.S. Geological Survey",
+    "type": "dataset",
+    "domain": [
+      "earth"
+    ],
+    "paper_link": "https://www.usgs.gov/centers/eros",
+    "method": "EarthExplorer (earthexplorer.usgs.gov)",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Archives entire Landsat record (50+ years, ~9M scenes); land remote sensing since 1972",
+    "subsection": "Astronomy, earth, and climate",
+    "modality": [
+      "Satellite image",
+      "Tabular"
+    ]
+  },
+  {
+    "bib_key": "climatepolicyradar",
+    "title": "Climate Policy Radar: A database of climate change laws and policies",
+    "year": "2024",
+    "venue": "Climate Policy Radar",
+    "type": "dataset",
+    "domain": [
+      "earth"
+    ],
+    "paper_link": "https://www.climatepolicyradar.org/",
+    "method": "Climate Policy Radar portal / API",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "200+ country climate laws, NDCs, LTS documents; text corpus complementing scientific archives",
+    "subsection": "Astronomy, earth, and climate",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "DBLP:journals/corr/MaguireHW17",
+    "title": "HEPData: A Repository for High Energy Physics Data",
+    "year": "2017",
+    "venue": "Journal of Physics: Conference Series",
+    "type": "dataset",
+    "domain": [
+      "physics"
+    ],
+    "paper_link": "https://arxiv.org/abs/1704.05473",
+    "method": "HEPData (hepdata.net)",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Preserves published HEP numerical results: scattering cross-sections, distributions, correlation matrices",
+    "subsection": "Particle and nuclear physics",
+    "modality": [
+      "Tabular"
+    ]
+  },
+  {
+    "bib_key": "cernopendata",
+    "title": "CERN Open Data Portal",
+    "year": "2014",
+    "venue": "CERN",
+    "type": "dataset",
+    "domain": [
+      "physics"
+    ],
+    "paper_link": "https://opendata.cern.ch",
+    "method": "CERN Open Data Portal (opendata.cern.ch)",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Full collision datasets from ATLAS, CMS, LHCb, ALICE under public access terms",
+    "subsection": "Particle and nuclear physics",
+    "modality": [
+      "Tabular",
+      "Event data"
+    ]
+  },
+  {
+    "bib_key": "aspenplus",
+    "title": "Aspen Plus: Process simulation software",
+    "year": "1981",
+    "venue": "AspenTech (Commercial Software)",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://www.aspentech.com",
+    "method": "Aspen Plus",
+    "ko_cells": [
+      "K4"
+    ],
+    "ko_primary": "K4",
+    "ko_note": "Dominant chemical process simulator; thermodynamic/kinetic/unit-operation databases embedded",
+    "subsection": "Embedded in software",
+    "modality": [
+      "Tabular"
+    ]
+  },
+  {
+    "bib_key": "proii",
+    "title": "Pro/II: Process engineering simulation software",
+    "year": "1967",
+    "venue": "AVEVA (formerly SimSci) (Commercial Software)",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://www.aveva.com",
+    "method": "Pro/II",
+    "ko_cells": [
+      "K4"
+    ],
+    "ko_primary": "K4",
+    "ko_note": "Dominant chemical process simulator; refinery/gas processing tacit knowledge embedded",
+    "subsection": "Embedded in software",
+    "modality": [
+      "Tabular"
+    ]
+  },
+  {
+    "bib_key": "gproms",
+    "title": "gPROMS: Advanced process modeling software",
+    "year": "1990",
+    "venue": "PSE (Process Systems Enterprise) / Siemens (Commercial Software)",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://www.siemens.com/global/en/products/automation/industry-software/gproms.html",
+    "method": "gPROMS",
+    "ko_cells": [
+      "K4"
+    ],
+    "ko_primary": "K4",
+    "ko_note": "Advanced process modeling (DAE-based, CAPE-OPEN); battery/pharma/LNG tacit knowledge embedded. BIB MISSING in references.bib",
+    "subsection": "Embedded in software",
+    "modality": [
+      "Tabular"
+    ],
+    "bib_status": "MISSING — not in references.bib"
+  },
+  {
+    "bib_key": "ansys",
+    "title": "ANSYS multiphysics simulation",
+    "year": "1970",
+    "venue": "Ansys, Inc. (Commercial Software)",
+    "type": "dataset",
+    "domain": [
+      "general"
+    ],
+    "paper_link": "https://www.ansys.com",
+    "method": "ANSYS",
+    "ko_cells": [
+      "K4"
+    ],
+    "ko_primary": "K4",
+    "ko_note": "Multiphysics simulation (structural/fluid/electromagnetic); material property databases embedded",
+    "subsection": "Embedded in software",
+    "modality": [
+      "Tabular"
+    ]
+  },
+  {
+    "bib_key": "matlabsimulink",
+    "title": "MATLAB and Simulink",
+    "year": "1984",
+    "venue": "MathWorks (Commercial Software)",
+    "type": "dataset",
+    "domain": [
+      "general"
+    ],
+    "paper_link": "https://www.mathworks.com",
+    "method": "MATLAB/Simulink",
+    "ko_cells": [
+      "K4"
+    ],
+    "ko_primary": "K4",
+    "ko_note": "Numerical computing and dynamic systems simulation; control/signal/aerospace Toolbox knowledge embedded",
+    "subsection": "Embedded in software",
+    "modality": [
+      "Tabular",
+      "Code"
+    ]
+  },
+  {
+    "bib_key": "hsc",
+    "title": "HSC Chemistry: thermodynamic and metallurgical calculation software",
+    "year": "1974",
+    "venue": "Metso Outotec (Commercial Software)",
+    "type": "dataset",
+    "domain": [
+      "material"
+    ],
+    "paper_link": "https://www.mogroup.com/portfolio/hsc-chemistry/",
+    "method": "HSC Chemistry",
+    "ko_cells": [
+      "K4"
+    ],
+    "ko_primary": "K4",
+    "ko_note": "Metallurgical/pyrometallurgical thermodynamic knowledge; ~30,000 species database embedded. BIB MISSING in references.bib",
+    "subsection": "Embedded in software",
+    "modality": [
+      "Tabular"
+    ],
+    "bib_status": "MISSING — not in references.bib"
+  },
+  {
+    "bib_key": "factsage",
+    "title": "FactSage: thermochemical software suite",
+    "year": "1976",
+    "venue": "GTT-Technologies / CRCT (Commercial Software)",
+    "type": "dataset",
+    "domain": [
+      "material"
+    ],
+    "paper_link": "https://www.factsage.com",
+    "method": "FactSage",
+    "ko_cells": [
+      "K4"
+    ],
+    "ko_primary": "K4",
+    "ko_note": "CALPHAD-based thermochemical suite; ~60,000 compounds + 20+ solution DBs (FToxid, FTstel, FTsalt). BIB MISSING in references.bib",
+    "subsection": "Embedded in software",
+    "modality": [
+      "Tabular"
+    ],
+    "bib_status": "MISSING — not in references.bib"
+  },
+  {
+    "bib_key": "DBLP:journals/corr/abs-2603-09800",
+    "title": "MITRA: An AI Assistant for Knowledge Retrieval in Physics Collaborations",
+    "year": "2026",
+    "venue": "arXiv (NeurIPS 2025 ML4PS Workshop / Lepton Photon 2025)",
+    "type": "Method",
+    "domain": [
+      "physics"
+    ],
+    "paper_link": "https://arxiv.org/abs/2603.09800",
+    "method": "MITRA",
+    "ko_cells": [
+      "K4.O1"
+    ],
+    "ko_primary": "K4.O1",
+    "ko_note": "RAG over CMS internal documents; DPR + cross-encoder reranker + 4-bit Mistral-7B; P@1 ~5.8x over BM25 on paraphrased queries (Set 2: 0.75 vs 0.13)",
+    "subsection": "Held by institutions",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "rafique2025large",
+    "title": "Large Language Model Integration for Knowledge Retrieval and Interaction for the DUNE Experiment",
+    "year": "2025",
+    "venue": "arXiv (Lepton Photon 2025)",
+    "type": "Method",
+    "domain": [
+      "physics"
+    ],
+    "paper_link": "https://arxiv.org/abs/2601.05278",
+    "method": "DUNE-GPT",
+    "ko_cells": [
+      "K4.O1"
+    ],
+    "ko_primary": "K4.O1",
+    "ko_note": "RAG over DUNE DocDB + Indico + internal wikis; multi-qa-mpnet + FAISS; ~70% retrieval accuracy (preliminary); Fermilab on-premise",
+    "subsection": "Held by institutions",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "DBLP:conf/acl/ChenLJWG0025",
+    "title": "Towards Omni-RAG: Comprehensive Retrieval-Augmented Generation for Large Language Models in Medical Applications",
+    "year": "2025",
+    "venue": "ACL 2025, Vienna, pp. 15285-15309",
+    "type": "Method",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://aclanthology.org/2025.acl-long.742/",
+    "method": "Omni-RAG (SPO)",
+    "ko_cells": [
+      "K1.O1",
+      "K2.O1"
+    ],
+    "ko_primary": "K1.O1",
+    "ko_note": "Multi-source medical RAG unifying 5 sources: textbooks, clinical guidelines, PubMed abstracts, Wikipedia, UMLS+DrugBank KG; Source Planning Optimisation (SPO)",
+    "subsection": "Held by individuals and communities",
+    "modality": [
+      "Text",
+      "Graph"
+    ]
+  },
+  {
+    "bib_key": "DBLP:journals/make/LahiriH25",
+    "title": "AlzheimerRAG: Multimodal Retrieval-Augmented Generation for Clinical Use Cases",
+    "year": "2025",
+    "venue": "Mach. Learn. Knowl. Extr.",
+    "type": "Method",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.3390/make7030089",
+    "method": "AlzheimerRAG",
+    "ko_cells": [
+      "K1.O2"
+    ],
+    "ko_primary": "K1.O2",
+    "ko_note": "Multimodal RAG fusing PubMed text+figures via cross-modal attention; evaluated on BioASQ and PubMedQA; low hallucination rate; non-inferior to human accuracy",
+    "subsection": "Aggregative Synthesis",
+    "modality": [
+      "Text",
+      "Image"
+    ],
+    "arxiv": "2412.16701"
+  },
+  {
+    "bib_key": "krithara2023bioasq",
+    "title": "BioASQ-QA: A manually curated corpus for Biomedical Question Answering",
+    "year": "2023",
+    "venue": "Scientific Data",
+    "type": "benchmark",
+    "domain": [
+      "medical",
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1038/s41597-023-02068-4",
+    "method": "BioASQ Challenge (Task B)",
+    "ko_cells": [
+      "K1.O1"
+    ],
+    "ko_primary": "K1.O1",
+    "ko_note": "4,721 expert-annotated biomedical QA pairs; running since 2012; combines exact answer + ideal summary; used for evaluation in cross-modal grounding section",
+    "subsection": "Cross-modal Grounding",
+    "modality": [
+      "Text"
+    ],
+    "db_size": "4721 QA pairs (Task B)"
+  },
+  {
+    "bib_key": "jin-etal-2019-pubmedqa",
+    "title": "PubMedQA: A Dataset for Biomedical Research Question Answering",
+    "year": "2019",
+    "venue": "EMNLP-IJCNLP 2019",
+    "type": "benchmark",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://aclanthology.org/D19-1259/",
+    "method": "PubMedQA",
+    "ko_cells": [
+      "K1.O1"
+    ],
+    "ko_primary": "K1.O1",
+    "ko_note": "1k expert-annotated + 61.2k unlabeled + 211.3k artificially generated QA; Yes/No/Maybe from PubMed abstracts; first QA dataset requiring quantitative reasoning over biomedical texts",
+    "subsection": "Closed-form QA Grounding",
+    "modality": [
+      "Text"
+    ],
+    "db_size": "1k + 61.2k + 211.3k instances"
+  },
+  {
+    "bib_key": "DBLP:conf/nips/LeeKV0RPVN24",
+    "title": "Molecule Generation with Fragment Retrieval Augmentation",
+    "year": "2024",
+    "venue": "NeurIPS 2024",
+    "type": "Method",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://arxiv.org/abs/2411.12078",
+    "method": "f-RAG (Fragment Retrieval-Augmented Generation)",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "Fragment-based drug discovery with retrieval augmentation; hard/soft fragment retrieval; iterative refinement + genetic fragment modification; evaluated on PMO benchmark 23 tasks; AUC top-10 metric",
+    "subsection": "Docking-verified Molecule Generation",
+    "modality": [
+      "Molecular structures (SMILES/fragments)"
+    ],
+    "arxiv": "2411.12078"
+  },
+  {
+    "bib_key": "DBLP:conf/aaai/LeeBHBPS26",
+    "title": "RAG-Enhanced Collaborative LLM Agents for Drug Discovery",
+    "year": "2026",
+    "venue": "AAAI 2026",
+    "type": "Method",
+    "domain": [
+      "chem",
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1609/aaai.v40i1.37020",
+    "method": "CLADD",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "RAG-empowered agentic system; Drug Repurposing Hub + DrugBank + STITCH for DTI (13,688 molecules); BBBP/Sider/ClinTox/BACE for toxicity; no domain fine-tuning; outperforms GNNs and LLMs",
+    "subsection": "Database-verified Prediction",
+    "modality": [
+      "Text",
+      "Molecular structures (SMILES)"
+    ],
+    "arxiv": "2502.17506"
+  },
+  {
+    "bib_key": "DBLP:journals/corr/abs-2603-15712",
+    "title": "LLM-Driven Discovery of High-Entropy Catalysts via Retrieval-Augmented Generation",
+    "year": "2026",
+    "venue": "arXiv 2026",
+    "type": "Method",
+    "domain": [
+      "material"
+    ],
+    "paper_link": "https://arxiv.org/abs/2603.15712",
+    "method": "HEA-RAG (LLM-RAG for High-Entropy Catalyst Discovery)",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "GPT-4 + RAG over 50,000 materials (Materials Project, NOMAD, OC20); 250+ HEA CO2 reduction catalysts; 82% thermodynamic stability; best alloy Fe0.2Co0.2Ni0.2Ir0.1Ru0.3 at 0.285V limiting potential (25% vs IrO2); 200x HTS efficiency",
+    "subsection": "Simulation-verified Materials Discovery",
+    "modality": [
+      "Text",
+      "Structured materials data"
+    ]
+  },
+  {
+    "bib_key": "zhang2026matclaw",
+    "title": "MatClaw: An Autonomous Code-First LLM Agent for End-to-End Materials Exploration",
+    "year": "2026",
+    "venue": "arXiv 2026",
+    "type": "Method",
+    "domain": [
+      "material"
+    ],
+    "paper_link": "https://arxiv.org/abs/2604.02688",
+    "method": "MatClaw",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "Code-first LLM agent; RAG over domain source code (pymatgen, atomate2, jobflow, dpdata, DeePMD-kit); ~99% API-call accuracy; 4-layer memory; 3 end-to-end demonstrations on CuInP2S6 (force field, Curie temp, parameter search)",
+    "subsection": "Simulation-verified Materials Discovery",
+    "modality": [
+      "Code",
+      "Text",
+      "Computational materials data"
+    ]
+  },
+  {
+    "bib_key": "xiao2024repurposing",
+    "title": "Repurposing non-pharmacological interventions for Alzheimer's disease through link prediction on biomedical literature",
+    "year": "2024",
+    "venue": "Scientific Reports",
+    "type": "Method",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1038/s41598-024-59537-6",
+    "method": "Literature-based link prediction for AD repurposing",
+    "ko_cells": [
+      "K1.O3"
+    ],
+    "ko_primary": "K1.O3",
+    "ko_note": "Link prediction on biomedical literature knowledge graph for Alzheimer's non-pharmacological intervention repurposing; weakly-verified hypothesis (no strong external verifier); evaluation by downstream task accuracy and expert validation",
+    "subsection": "Weakly-verified Hypothesis Generation",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "bicerano2024polymer",
+    "title": "Polymer expert — A software tool for de novo polymer design",
+    "year": "2024",
+    "venue": "Computational Materials Science",
+    "type": "Method",
+    "domain": [
+      "material"
+    ],
+    "paper_link": "https://doi.org/10.1016/j.commatsci.2024.112810",
+    "method": "Polymer Expert",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "Expert system for de novo polymer design via QSPR over PEARL (Polymer Expert Analog Repeat-unit Library); weakly-verified hypothesis — QSPR predictions without experimental validation loop; non-obvious candidates discovered",
+    "subsection": "Weakly-verified Hypothesis Generation",
+    "modality": [
+      "Structured data (repeat unit structures, QSPR properties)"
+    ]
+  },
+  {
+    "bib_key": "DBLP:journals/corr/abs-2408-01107",
+    "title": "BioRAG: A RAG-LLM Framework for Biological Question Reasoning",
+    "year": "2024",
+    "venue": "arXiv 2024",
+    "type": "Method",
+    "domain": [
+      "bio",
+      "medical"
+    ],
+    "paper_link": "https://arxiv.org/abs/2408.01107",
+    "method": "BioRAG",
+    "ko_cells": [
+      "K1.O1"
+    ],
+    "ko_primary": "K1.O1",
+    "ko_note": "22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, College Biology/Medicine; outperforms BioLLMs, GPT-3.5, NewBing",
+    "subsection": "Closed-form QA Grounding",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "DBLP:conf/pasc/GokdemirSBWHHSA25",
+    "title": "HiPerRAG: High-Performance Retrieval Augmented Generation for Scientific Insights",
+    "year": "2025",
+    "venue": "PASC 2025",
+    "type": "Method",
+    "domain": [
+      "general"
+    ],
+    "paper_link": "https://doi.org/10.1145/3732775.3733586",
+    "method": "HiPerRAG",
+    "ko_cells": [
+      "K1.O2"
+    ],
+    "ko_primary": "K1.O2",
+    "ko_note": "HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 76%; outperforms PubMedGPT and GPT-4; scales to thousands of GPUs",
+    "subsection": "Aggregative Synthesis",
+    "modality": [
+      "Text",
+      "Multimodal documents"
+    ],
+    "arxiv": "2505.04846"
+  },
+  {
+    "bib_key": "DBLP:journals/corr/abs-2403-15729",
+    "title": "Towards a RAG-based Summarization Agent for the Electron-Ion Collider",
+    "year": "2024",
+    "venue": "arXiv 2024",
+    "type": "Method",
+    "domain": [
+      "physics"
+    ],
+    "paper_link": "https://arxiv.org/abs/2403.15729",
+    "method": "RAGS4EIC",
+    "ko_cells": [
+      "K4.O1"
+    ],
+    "ko_primary": "K4.O1",
+    "ko_note": "RAG-based summarization AI for EIC institutional documents; LangChain + vector DB; RAGAs evaluation; prompt template instruction-tuning; Streamlit web app; serves 1,400+ physicists in 38 countries",
+    "subsection": "Retrieval-quality Grounding",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "jat2026retrieval",
+    "title": "Retrieval-Augmented Question Answering over Scientific Literature for the Electron-Ion Collider",
+    "year": "2026",
+    "venue": "arXiv 2026",
+    "type": "Method",
+    "domain": [
+      "physics"
+    ],
+    "paper_link": "https://arxiv.org/abs/2604.02259",
+    "method": "EIC-RAG QA (local LLaMA-based)",
+    "ko_cells": [
+      "K4.O1"
+    ],
+    "ko_primary": "K4.O1",
+    "ko_note": "Local RAG QA over arXiv EIC papers; open-source LLaMA for answer generation; cost-effective, data-privacy preserving alternative to cloud-hosted RAGS4EIC; extension of RAGS4EIC proceeding application",
+    "subsection": "Retrieval-quality Grounding",
+    "modality": [
+      "Text"
+    ]
   }
 ]

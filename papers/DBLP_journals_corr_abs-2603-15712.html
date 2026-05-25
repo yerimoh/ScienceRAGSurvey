@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LLM-Driven Discovery of High-Entropy Catalysts via Retrieval-Augmented Generation — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">10</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">7</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">5</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">5</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">23</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">9</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">40</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">38</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">42</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">15</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">15</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">10</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">5</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">5</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">27</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">14</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">95</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>LLM-Driven Discovery of High-Entropy Catalysts via Retrieval-Augmented Generation</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">arXiv 2026</span>
+      <span class="meta-year">2026</span>
+      <a href="https://arxiv.org/abs/2603.15712" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Curated Knowledge Base × Hypothesis</a><span class="tag tag-sub">Simulation-verified Materials Discovery</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>LLM-Driven Discovery of High-Entropy Catalysts via Retrieval-Augmented Generation</h1>
+<p>DBLP:journals/corr/abs-2603-15712 | 2026 | arXiv 2026 | Method | [material] | <a href="https://arxiv.org/abs/2603.15712">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">Retriever</td><td class="prop-val">RAG over 50,000+ materials database (Materials Project, NOMAD, OC20)</td></tr>
+<tr><td class="prop-key">Eval Task</td><td class="prop-val">CO2 reduction catalyst discovery (thermodynamic stability, cost, band gap, mechanical stability, limiting potential)</td></tr>
+<tr><td class="prop-key">Eval Metric</td><td class="prop-val">Thermodynamic stability rate (%), limiting potential (V), cost ($/kg), volcano plot proximity</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">HEA-RAG (LLM-RAG for High-Entropy Catalyst Discovery)</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text, Structured materials data</td></tr>
+</table>
+
+<blockquote>
+<p>arXiv 2026 | 2026 | Method | material</p>
+<h4>📌 한 줄 요약</h4>
+<p>50,000개 이상의 기지(known) 재료 데이터베이스에 RAG로 접지된 GPT-4 기반 프레임워크로 250개 이상의 고엔트로피 합금(HEA) CO2 환원 촉매 후보를 생성하여 82% 열역학적 안정성과 IrO2 대비 25% 향상된 0.285V 제한 전위를 달성하였다.</p>
+</blockquote>
+<h4>🎯 개발/구축 배경</h4>
+<p><strong>기존 접근법의 한계</strong></p>
+<ul>
+<li>재료 발견은 10-20년의 개발 주기를 요구하며 깊은 도메인 전문 지식이 필요함</li>
+<li>기존 고처리량 스크리닝(HTS)은 넓은 화학 공간 탐색에 계산 비용이 과도함</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>CO2 환원 효율 촉매 개발을 위한 화학 공간 탐색 가속화가 필요</li>
+<li>LLM이 재료 데이터베이스를 실시간으로 참조하며 다목적 제약(비용, 전도성, 안정성) 하에 후보를 생성하는 시스템 필요</li>
+</ul>
+<h4>🔨 시스템 구성</h4>
+<p>Materials Project, NOMAD, Open Catalyst 2020 (OC20) 데이터셋을 통합한 50,000개 이상의 기지 재료 벡터 데이터베이스를 구축한다. GPT-4가 이 데이터베이스에서 RAG를 통해 화학 공간을 탐색하고, DFT(밀도범함수이론) 계산으로 후보 안정성을 검증한다. Volcano plot 분석으로 이론적 활성 최적점 근접 여부를 평가한다.</p>
+<h4>📊 주요 결과</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>재료 데이터베이스 규모</td>
+  <td>50,000개 이상 기지 재료</td>
+</tr>
+<tr>
+  <td>생성된 촉매 후보 수</td>
+  <td>250개 이상</td>
+</tr>
+<tr>
+  <td>열역학적 안정성 비율</td>
+  <td>82%</td>
+</tr>
+<tr>
+  <td>비용·전도성·기계 안정성 달성</td>
+  <td>68% (&lt;$100/kg, band gap&lt;0.1eV, B/G&gt;1.75)</td>
+</tr>
+<tr>
+  <td>최고 성능 합금</td>
+  <td>Fe0.2Co0.2Ni0.2Ir0.1Ru0.3, 제한 전위 0.285V</td>
+</tr>
+<tr>
+  <td>IrO2 대비 개선</td>
+  <td>25% 향상</td>
+</tr>
+<tr>
+  <td>비용-성능 최적 합금</td>
+  <td>Cr0.2Fe0.2Co0.3Ni0.2Mo0.1, $18/kg</td>
+</tr>
+<tr>
+  <td>Volcano plot 근접 비율</td>
+  <td>78% LLM 생성 촉매</td>
+</tr>
+<tr>
+  <td>계산 효율</td>
+  <td>기존 HTS 대비 200배 향상</td>
+</tr>
+</tbody>
+</table>
+<h4>⚠️ 한계점</h4>
+<ul>
+<li>DFT 검증 단계가 여전히 계산 집약적</li>
+<li>고엔트로피 합금의 실제 합성 가능성은 검증되지 않은 경우 포함</li>
+<li>CO2 환원에 특화되어 다른 촉매 응용 분야로의 직접 전이 제한</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문 (arXiv)</strong>: <a href="https://arxiv.org/abs/2603.15712">https://arxiv.org/abs/2603.15712</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

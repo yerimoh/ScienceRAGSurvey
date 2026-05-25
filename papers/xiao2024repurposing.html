@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Repurposing non-pharmacological interventions for Alzheimer&amp;#x27;s disease through link prediction on biomedical literature — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">10</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">7</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">5</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">5</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">23</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">9</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">40</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">38</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">42</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">15</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">15</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">10</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">5</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">5</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">27</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">14</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">95</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Repurposing non-pharmacological interventions for Alzheimer&#x27;s disease through link prediction on biomedical literature</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Scientific Reports</span>
+      <span class="meta-year">2024</span>
+      <a href="https://doi.org/10.1038/s41598-024-59537-6" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K1.O3.html" class="tag tag-cell" title="K1.O3">Primary Literature × Hypothesis</a><span class="tag tag-sub">Weakly-verified Hypothesis Generation</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>Repurposing non-pharmacological interventions for Alzheimer's disease through link prediction on biomedical literature</h1>
+<p>xiao2024repurposing | 2024 | Scientific Reports | Method | [medical] | <a href="https://doi.org/10.1038/s41598-024-59537-6">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">Retriever</td><td class="prop-val">Literature-based knowledge graph construction (biomedical literature retrieval)</td></tr>
+<tr><td class="prop-key">Eval Task</td><td class="prop-val">Link prediction-based drug/intervention repurposing for Alzheimer's disease</td></tr>
+<tr><td class="prop-key">Eval Metric</td><td class="prop-val">Downstream task accuracy (repurposing candidate validation)</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">Literature-based link prediction for AD repurposing</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text (biomedical literature)</td></tr>
+</table>
+
+<blockquote>
+<p>Scientific Reports | 2024 | Method | medical</p>
+<h4>📌 한 줄 요약</h4>
+<p>생물의학 문헌에서 구축한 지식 그래프의 링크 예측을 통해 알츠하이머병에 대한 비약리학적 중재법(non-pharmacological interventions) 후보를 재목적화(repurposing)하는 시스템으로, 문헌 검색 기반의 약한 검증(weakly-verified) 가설 생성 사례를 제시한다.</p>
+</blockquote>
+<h4>🎯 개발/구축 배경</h4>
+<p><strong>기존 접근법의 한계</strong></p>
+<ul>
+<li>알츠하이머 약물 발굴은 높은 실패율과 긴 개발 기간으로 비약리학적 중재법 탐색이 부각</li>
+<li>대규모 생물의학 문헌에 분산된 지식을 체계적으로 연결하는 시스템이 부재</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>기존 약물 재목적화 방법은 주로 약리학적 화합물에 집중; 비약리학적 중재(운동, 인지 훈련 등)에 대한 체계적 평가 필요</li>
+<li>강한 외부 검증자(docking, 데이터베이스 직접 조회) 없이 문헌 유도 가설을 생성하는 평가 프레임워크 필요</li>
+</ul>
+<h4>🔨 시스템 구성</h4>
+<p>생물의학 문헌에서 엔티티(질병, 중재법, 유전자, 생물학적 과정)와 관계를 추출하여 지식 그래프를 구축한다. 그래프 기반 링크 예측 모델을 통해 알츠하이머와 비약리학적 중재법 간의 잠재적 연결(후보 가설)을 생성한다. 평가는 기존 문헌 기반 근거와의 비교로 수행된다.</p>
+<h4>📊 주요 결과</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>출판 저널</td>
+  <td>Scientific Reports, vol.14, p.8693, 2024</td>
+</tr>
+<tr>
+  <td>평가 방식</td>
+  <td>다운스트림 태스크 정확도, 전문가 검증</td>
+</tr>
+<tr>
+  <td>검증 유형</td>
+  <td>약한 검증 (weak verification — 문헌 기반)</td>
+</tr>
+<tr>
+  <td>적용 도메인</td>
+  <td>알츠하이머 비약리학적 중재법 재목적화</td>
+</tr>
+</tbody>
+</table>
+<h4>⚠️ 한계점</h4>
+<ul>
+<li>강력한 외부 검증자(실험, DFT, 데이터베이스 직접 조회)가 없어 신규성과 타당성이 주요 평가 부담을 짐</li>
+<li>문헌 품질 및 편향에 평가 결과가 민감</li>
+<li>예측된 연결의 실험적 검증이 별도로 필요</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://doi.org/10.1038/s41598-024-59537-6">https://doi.org/10.1038/s41598-024-59537-6</a></li>
+<li><strong>PubMed</strong>: <a href="https://pubmed.ncbi.nlm.nih.gov/38615044/">https://pubmed.ncbi.nlm.nih.gov/38615044/</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

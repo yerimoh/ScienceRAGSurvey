@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Sloan Digital Sky Survey: Technical Summary — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">10</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">7</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">5</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">5</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">23</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">9</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">40</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">38</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">42</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">15</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">15</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">10</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">5</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">5</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">27</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">14</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">95</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>The Sloan Digital Sky Survey: Technical Summary</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">The Astronomical Journal</span>
+      <span class="meta-year">2000</span>
+      <a href="https://arxiv.org/abs/astro-ph/0006396" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Astronomy, earth, and climate</span><a href="../domain/astronomy.html" class="tag tag-domain">🔭Astronomy</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>The Sloan Digital Sky Survey: Technical Summary</h1>
+<p>york2000sloan | 2000 | The Astronomical Journal | dataset | [astronomy] | <a href="https://arxiv.org/abs/astro-ph/0006396">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">Sloan Digital Sky Survey (SDSS) — imaging and spectroscopic sky survey</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">Survey goal: pi steradians (northern sky), ~1 million galaxy spectra, ~100,000 quasar spectra (York 2000 design spec; actual DR17 cumulative: hundreds of millions of objects)</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Image, Spectrum, Catalog</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">SDSS (2.5m telescope, Apache Point Observatory)</td></tr>
+</table>
+
+<blockquote>
+<p>The Astronomical Journal | 2000 | dataset | astronomy</p>
+<h4>한 줄 요약</h4>
+<p>2000년 기준 설계 사양을 기술한 SDSS 기술 요약 논문. 5개 광학 필터(ugriz)로 북반구 약 pi 스테라디안을 촬영하고, 약 100만 개 은하와 10만 개 퀘이사의 분광 관측을 목표로 함. 수십 년에 걸친 SDSS 데이터 릴리스(DR1–DR17)를 통해 수억 개의 천체가 카탈로그화되었으며, 현대 천문학 K3 관측 데이터의 핵심 자원이다.</p>
+</blockquote>
+<h4>개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>기존 하늘 탐사는 필름 기반 사진 건판에 의존하여 균일한 측광 보정과 대규모 분광 관측이 불가</li>
+<li>은하 적색편이 분포, 대규모 구조, 퀘이사 분포에 대한 체계적 데이터 부재</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>측광과 분광 데이터를 동일 망원경으로 통합하여 광도와 거리를 동시 측정</li>
+<li>5-band CCD 이미저(2048×2048 배열)와 다중 광섬유 분광기(640개 동시)로 대규모 자동화 관측</li>
+<li>보정된 디지털 카탈로그를 공개하여 은하 진화, 퀘이사 연구, 은하수 구조 연구에 활용</li>
+</ul>
+<h4>시스템 구성</h4>
+<p>2.5m 전용 망원경(Apache Point Observatory, 뉴멕시코). 5개 필터(u, g, r, i, z): g' ~23등급 심도. 두 광섬유 분광기(각 320개 광섬유): 3800–9200Å, R~2000. 데이터 파이프라인: 실시간 천체 추출, 측광 보정, 분광 추출 자동화. Photo 파이프라인(이미지 처리·별–은하 분리)과 Spectro 파이프라인(적색편이 자동 측정) 포함.</p>
+<h4>데이터 접근 방법</h4>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>SkyServer</td>
+  <td>skyserver.sdss.org — 웹 SQL 쿼리 인터페이스</td>
+</tr>
+<tr>
+  <td>CasJobs</td>
+  <td>대용량 배치 쿼리</td>
+</tr>
+<tr>
+  <td>SciServer</td>
+  <td>클라우드 분석 환경</td>
+</tr>
+<tr>
+  <td>FITS 파일</td>
+  <td>das.sdss.org — 원본 이미지·스펙트럼 직접 다운로드</td>
+</tr>
+</tbody>
+</table>
+<h4>제공 데이터 형식</h4>
+<ul>
+<li>5-band 측광 카탈로그: 위치·등급·형태 파라미터</li>
+<li>분광 카탈로그: 적색편이, 분류(별/은하/퀘이사), 스펙트럼</li>
+<li>이미지 타일 (FITS 형식)</li>
+<li>CasJobs SQL 쿼리 가능 스키마</li>
+</ul>
+<h4>주요 통계</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>측광 목표 면적</td>
+  <td>~10,000 deg² (pi sr)</td>
+</tr>
+<tr>
+  <td>분광 목표 은하</td>
+  <td>~1,000,000 개</td>
+</tr>
+<tr>
+  <td>분광 목표 퀘이사</td>
+  <td>~100,000 개</td>
+</tr>
+<tr>
+  <td>DR17 누적 분광</td>
+  <td>~4.9M 스펙트럼</td>
+</tr>
+<tr>
+  <td>측광 심도</td>
+  <td>g' ~ 23 등급</td>
+</tr>
+<tr>
+  <td>파장 범위 (분광)</td>
+  <td>3800–9200 Å</td>
+</tr>
+</tbody>
+</table>
+<h4>한계점</h4>
+<ul>
+<li>2000년 논문은 완성 이전 설계 사양이므로 실제 달성값은 후속 DR 논문 참조 필요</li>
+<li>북반구 고위도 영역 중심이므로 은하면 및 남반구 미커버</li>
+<li>5개 광학 밴드만 제공 (적외선·UV 제외); 후속 WISE·GALEX 데이터와 결합 필요</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://arxiv.org/abs/astro-ph/0006396">https://arxiv.org/abs/astro-ph/0006396</a></li>
+<li><strong>데이터 포털</strong>: <a href="https://www.sdss.org">https://www.sdss.org</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

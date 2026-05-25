@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gaia Data Release 3: Summary of the Content and Survey Properties — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">10</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">7</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">5</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">5</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">23</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">9</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">40</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">38</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">42</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">15</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">15</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">10</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">5</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">5</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">27</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">14</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">95</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Gaia Data Release 3: Summary of the Content and Survey Properties</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Astronomy &amp; Astrophysics</span>
+      <span class="meta-year">2023</span>
+      <a href="https://arxiv.org/abs/2208.00211" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Astronomy, earth, and climate</span><a href="../domain/astronomy.html" class="tag tag-domain">🔭Astronomy</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>Gaia Data Release 3: Summary of the Content and Survey Properties</h1>
+<p>vallenari2023gaia | 2023 | Astronomy &amp; Astrophysics | dataset | [astronomy] | <a href="https://arxiv.org/abs/2208.00211">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">Gaia Data Release 3 (GDR3) — ESA Gaia astrometric/photometric/spectroscopic all-sky survey</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">~1,500 million (1.5 billion) sources with positions, parallaxes, proper motions; ~470 million with astrophysical parameters; ~220 million BP/RP spectra</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Astrometry, Photometry, Spectrum, Catalog</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">Gaia DR3 (ESA Gaia satellite, L2 orbit, launched 2013)</td></tr>
+</table>
+
+<blockquote>
+<p>Astronomy &amp; Astrophysics | 2023 | dataset | astronomy</p>
+<h4>한 줄 요약</h4>
+<p>유럽우주국(ESA) Gaia 위성의 세 번째 데이터 공개로, 임무 초기 34개월 관측 데이터를 처리한 카탈로그. <strong>약 15억 개 광원</strong>에 대한 천체위치, 시차, 고유운동 및 광도 데이터 제공. 3,300만 개 광원의 시선속도, 2.2억 개 BP/RP 저해상도 스펙트럼, 4.7억 개 광원의 천체물리 파라미터를 포함하는 천문학 역사상 최대 규모 전천 목록 중 하나.</p>
+</blockquote>
+<h4>개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>Hipparcos(1997) 카탈로그: 118,218개 항성의 시차 측정으로 당시 혁신적이었으나 규모와 정밀도 한계</li>
+<li>지상 측성 카탈로그: 대기 굴절·온도 변화로 정밀도 제한, 전천 균일 관측 불가</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>마이크로초각(μas) 정밀도 시차로 은하계 3D 구조 지도 작성</li>
+<li>단일 위성으로 전천을 반복 스캔하여 균일한 천체측성 기준 틀(ICRF 연결) 제공</li>
+<li>시선속도·스펙트럼 포함으로 6D 위상공간(위치+속도) 완성</li>
+</ul>
+<h4>시스템 구성</h4>
+<p>Gaia 위성: L2 리사쥬 궤도, 두 망원경(각도 106.5° 고정), SiC 경면. 주 카메라: 106 CCD (0.7 Giga-pixel). 스캐닝 법칙: 5~6시간마다 자전, 63.3일마다 세차. 데이터 처리: Gaia Data Processing and Analysis Consortium (DPAC, 유럽 9개국 450명+).</p>
+<ul>
+<li><strong>천체측성</strong>: 위치·시차·고유운동 (G &lt; 21 등급)</li>
+<li><strong>측광</strong>: G, G_BP, G_RP 3-밴드</li>
+<li><strong>분광</strong>: RVS (시선속도), BP/RP (저해상도 광학 스펙트럼)</li>
+</ul>
+<h4>데이터 접근 방법</h4>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Gaia Archive</td>
+  <td>gea.esac.esa.int — ADQL 쿼리</td>
+</tr>
+<tr>
+  <td>CDS VizieR</td>
+  <td>vizier.cds.unistra.fr — 카탈로그 조회</td>
+</tr>
+<tr>
+  <td>Gaia DR3 직접 다운로드</td>
+  <td>ESA Science Data Centre</td>
+</tr>
+<tr>
+  <td>TAP 서비스</td>
+  <td>표준 IVOA TAP 프로토콜</td>
+</tr>
+</tbody>
+</table>
+<h4>제공 데이터 형식</h4>
+<ul>
+<li>주 소스 카탈로그 (위치, 시차, 고유운동, G/GBP/GRP 측광)</li>
+<li>시선속도 카탈로그 (RVS, ~33M 광원)</li>
+<li>BP/RP 평균 스펙트럼 (~220M 광원)</li>
+<li>RVS 평균 스펙트럼 (~1M 광원)</li>
+<li>천체물리 파라미터 (Teff, logg, [Fe/H] 등, ~470M 광원)</li>
+<li>변광성 카탈로그 (~10M, 24가지 유형)</li>
+<li>태양계 천체 (~150,000개)</li>
+<li>쌍성 궤도 요소 (~800,000쌍)</li>
+</ul>
+<h4>주요 통계</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>전체 광원 수</td>
+  <td><strong>~1,500,000,000</strong> (15억)</td>
+</tr>
+<tr>
+  <td>시선속도 광원</td>
+  <td><strong>~33,000,000</strong></td>
+</tr>
+<tr>
+  <td>BP/RP 스펙트럼</td>
+  <td><strong>~220,000,000</strong></td>
+</tr>
+<tr>
+  <td>천체물리 파라미터</td>
+  <td><strong>~470,000,000</strong> 광원</td>
+</tr>
+<tr>
+  <td>변광성</td>
+  <td><strong>~10,000,000</strong> 개, 24유형</td>
+</tr>
+<tr>
+  <td>태양계 천체</td>
+  <td><strong>~150,000</strong> 개</td>
+</tr>
+<tr>
+  <td>소행성 반사 스펙트럼</td>
+  <td><strong>~60,000</strong> 개</td>
+</tr>
+<tr>
+  <td>쌍성</td>
+  <td><strong>~800,000</strong> 쌍</td>
+</tr>
+<tr>
+  <td>관측 기간 (GDR3)</td>
+  <td>34개월 (임무 초기)</td>
+</tr>
+</tbody>
+</table>
+<h4>한계점</h4>
+<ul>
+<li>GDR3는 임무 초기 34개월 데이터로 최종 Gaia DR4/DR5 대비 정밀도와 완전성 낮음</li>
+<li>밝은 별(G &lt; 6) 및 빽빽한 성단 영역에서 포화·혼잡도 문제로 정밀도 저하</li>
+<li>BP/RP 스펙트럼의 해상도 매우 낮음(R~50–100): 세부 원소 풍요도 측정 불가</li>
+<li>시선속도 완전성은 G_RVS &lt; 14 등급에 한정</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://arxiv.org/abs/2208.00211">https://arxiv.org/abs/2208.00211</a></li>
+<li><strong>Gaia Archive</strong>: <a href="https://gea.esac.esa.int/archive/">https://gea.esac.esa.int/archive/</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

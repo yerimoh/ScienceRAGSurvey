@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MITRA: An AI Assistant for Knowledge Retrieval in Physics Collaborations — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">10</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">7</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">5</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">5</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">23</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">9</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">40</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">38</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">42</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">15</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">15</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">10</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">5</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">5</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">27</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">14</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">95</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>MITRA: An AI Assistant for Knowledge Retrieval in Physics Collaborations</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">arXiv (NeurIPS 2025 ML4PS Workshop / Lepton Photon 2025)</span>
+      <span class="meta-year">2026</span>
+      <a href="https://arxiv.org/abs/2603.09800" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Tacit Knowledge × Ground</a><span class="tag tag-sub">Held by institutions</span><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>MITRA: An AI Assistant for Knowledge Retrieval in Physics Collaborations</h1>
+<p>DBLP:journals/corr/abs-2603-09800 | 2026 | arXiv | Method | [physics] | <a href="https://arxiv.org/abs/2603.09800">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">Retriever</td><td class="prop-val">Dense Passage Retrieval (facebook/dpr-question_encoder-multiset-base) + Cross-encoder Reranker (cross-encoder/ms-marco-MiniLM-L-6-v2)</td></tr>
+<tr><td class="prop-key">Eval Task</td><td class="prop-val">CMS internal document retrieval (physics analysis QA)</td></tr>
+<tr><td class="prop-key">Eval Metric</td><td class="prop-val">Precision@k, Recall@k, MRR, NDCG@5</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">MITRA</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
+</table>
+
+<blockquote>
+<p>arXiv | 2026 | Method | physics</p>
+<h4>📌 한 줄 요약</h4>
+<p>CERN Compact Muon Solenoid(CMS) 실험 협업의 방대한 내부 문서(분석 노트, 위키, 가이드라인)를 대상으로 개인 정보 보호 on-premise RAG를 구현한 시스템으로, 의미론적 검색(DPR)과 재랭킹(cross-encoder)을 결합하여 BM25 대비 P@1 기준 약 5.8× 향상을 달성했다.</p>
+</blockquote>
+<h4>🎯 개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>CMS 협업은 수천 명의 연구자가 생성하는 방대한 내부 문서를 보유하지만, 전통적 키워드 검색(BM25)은 사용자 질의와 문서 표현 간의 의미론적 불일치에 취약</li>
+<li>상업적 LLM API 사용은 비공개 연구 데이터를 외부 서버로 전송하는 문제 발생</li>
+</ul>
+<p><strong>MITRA가 필요한 이유</strong></p>
+<ul>
+<li>새로운 PhD 학생이나 다른 분석 그룹의 전문가가 특정 측정의 세부 내용을 파악하는 데 많은 시간 소모</li>
+<li>&quot;transverse momentum requirement&quot; 같은 일상적 표현으로 질의했을 때 &quot;pT cut&quot;이라고 명시된 문서를 정확히 찾아야 함</li>
+</ul>
+<h4>🔨 시스템 구성</h4>
+<p><strong>오프라인 파이프라인 (데이터베이스 구축)</strong></p>
+<ol>
+<li>Selenium 기반 자동화 스크레이퍼: CMS 내부 DB에서 문서 수집</li>
+<li>OCR + layout parsing: 고충실도 텍스트 추출</li>
+<li>문단 단위 청킹 후 DPR 인코더로 768차원 벡터 생성</li>
+<li>Chroma DB에 임베딩 저장</li>
+</ol>
+<p><strong>온라인 파이프라인 (추론)</strong></p>
+<ol>
+<li>사용자 질의 → 동일 DPR 인코더로 인코딩</li>
+<li>2단계 벡터 DB: 추상(Abstract) DB에서 관련 분석 식별 후 전문(Full-Doc) DB에서 세부 검색</li>
+<li>Cross-encoder 재랭킹 (ms-marco-MiniLM-L-6-v2)</li>
+<li>4-bit 양자화 Mistral-7B LLM (Ollama/LangChain)으로 응답 생성</li>
+</ol>
+<p><strong>인프라</strong></p>
+<ul>
+<li>모든 컴포넌트 on-premise (NVIDIA Tesla T4, 15GB 메모리)</li>
+<li>Streamlit 기반 웹 인터페이스</li>
+</ul>
+<h4>📊 주요 결과</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Set 1 P@1 (정확 키워드 매칭) — MITRA</td>
+  <td>1.00</td>
+</tr>
+<tr>
+  <td>Set 1 P@1 — BM25</td>
+  <td>1.00</td>
+</tr>
+<tr>
+  <td>Set 2 P@1 (의미론적 질의) — MITRA</td>
+  <td>0.75</td>
+</tr>
+<tr>
+  <td>Set 2 P@1 — BM25</td>
+  <td>0.13</td>
+</tr>
+<tr>
+  <td>P@1 향상 비율 (Set 2)</td>
+  <td>~5.8×</td>
+</tr>
+<tr>
+  <td>Set 2 MRR — MITRA</td>
+  <td>0.81</td>
+</tr>
+<tr>
+  <td>Set 2 MRR — BM25</td>
+  <td>0.35</td>
+</tr>
+<tr>
+  <td>Set 2 NDCG@5 — MITRA</td>
+  <td>0.88</td>
+</tr>
+<tr>
+  <td>Set 2 NDCG@5 — BM25</td>
+  <td>0.59</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>주의</strong>: main.tex에서 &quot;6× improvement over BM25&quot;로 서술되어 있으나, 논문의 Table 1/2 원본 수치로부터 계산된 P@1 향상은 약 5.8×(=0.75/0.13)이다. &quot;6×&quot;는 반올림된 서술로 추정되며, main.tex의 서술이 사실과 크게 다르지 않으나 정밀 수치는 원 논문 Table 확인 필요.</p>
+</blockquote>
+<h4>⚠️ 한계점</h4>
+<ul>
+<li>프로토타입 단계 (현재 전체 협업 배포 전)</li>
+<li>평가 쿼리 집합이 소규모 (전문가 설계 쿼리 2세트)</li>
+<li>P@k/R@k 메트릭은 검색 품질을 평가하나 하위 언어 모델의 답변 정확도(QA hallucination)는 별도 평가 미수행</li>
+<li>다른 physics collaboration 외부로의 일반화 가능성 미검증</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://arxiv.org/abs/2603.09800">arXiv:2603.09800</a></li>
+<li><strong>수락</strong>: NeurIPS 2025 Machine Learning for Physical Sciences Workshop + Lepton Photon 2025</li>
+<li><strong>저자 소속</strong>: University of Wisconsin-Madison</li>
+<li><strong>K4 분류</strong>: K4.O1 — 기관 내부 문서(CMS 내부 코퍼스)에 대한 RAG 시스템</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

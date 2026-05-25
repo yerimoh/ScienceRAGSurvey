@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Towards a RAG-based Summarization Agent for the Electron-Ion Collider — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">10</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">7</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">5</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">5</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">23</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">9</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">40</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">38</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">42</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">15</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">15</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">10</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">5</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">5</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">27</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">14</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">95</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Towards a RAG-based Summarization Agent for the Electron-Ion Collider</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">arXiv 2024</span>
+      <span class="meta-year">2024</span>
+      <a href="https://arxiv.org/abs/2403.15729" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Tacit Knowledge × Ground</a><span class="tag tag-sub">Retrieval-quality Grounding</span><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>Towards a RAG-based Summarization Agent for the Electron-Ion Collider (RAGS4EIC)</h1>
+<p>DBLP:journals/corr/abs-2403-15729 | 2024 | arXiv 2024 | Method | [physics] | <a href="https://arxiv.org/abs/2403.15729">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">Retriever</td><td class="prop-val">Dense vector retrieval (LangChain-based, EIC institutional documents)</td></tr>
+<tr><td class="prop-key">Eval Task</td><td class="prop-val">EIC experiment information summarization and citation</td></tr>
+<tr><td class="prop-key">Eval Metric</td><td class="prop-val">RAGAs (Retrieval-Augmented Generation Assessment) scoring</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">RAGS4EIC (RAG-based Summarization AI for EIC)</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text (EIC documents, papers, data, institutional resources)</td></tr>
+</table>
+
+<blockquote>
+<p>arXiv 2024 | 2024 | Method | physics</p>
+<h4>📌 한 줄 요약</h4>
+<p>전자-이온 충돌기(EIC) 실험 관련 문서·논문·데이터를 포괄한 벡터 데이터베이스를 구축하고, LLM으로 인용이 풍부한 요약을 생성하여 신규 협력자와 초기 경력 과학자의 대규모 EIC 기관 지식 접근을 지원하는 RAG 기반 요약 AI 에이전트이다.</p>
+</blockquote>
+<h4>🎯 개발/구축 배경</h4>
+<p><strong>기존 접근법의 한계</strong></p>
+<ul>
+<li>38개국 1,400명 이상 물리학자가 참여하는 EIC 협력체에서 방대한 기관 문서 탐색이 시간·노력 집약적</li>
+<li>대규모 실험 협력에서 다수 워킹 그룹 간 정보 큐레이션 조율이 어려움</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>신규 협력자 및 초기 경력 과학자가 방대한 EIC 데이터셋·문서를 이해하는 데 드는 부담 경감 필요</li>
+<li>협업적 참여를 장려하고 연구자 역량 강화를 위한 AI 기반 접근 도구 필요</li>
+</ul>
+<h4>🔨 시스템 구성</h4>
+<p>2단계 접근법: (1) EIC 실험 정보 전체를 담은 포괄적 벡터 데이터베이스 쿼리, (2) LLM을 통해 사용자 쿼리와 검색된 데이터 기반으로 인용이 포함된 간결한 요약 생성. LangChain을 워크플로 기반으로 사용. 프롬프트 템플릿 기반 instruction-tuning으로 유연성·정확도 제공. Streamlit 웹 애플리케이션으로 배포.</p>
+<h4>📊 주요 결과</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>평가 방법</td>
+  <td>RAGAs (RAG Assessment) 점수</td>
+</tr>
+<tr>
+  <td>지식 베이스</td>
+  <td>EIC 실험 문서, 논문, 데이터 전체</td>
+</tr>
+<tr>
+  <td>배포</td>
+  <td>Streamlit 웹 앱 (rags4eic-ai4eic.streamlit.app)</td>
+</tr>
+<tr>
+  <td>EIC 협력체 규모</td>
+  <td>1,400명+ 물리학자, 38개국</td>
+</tr>
+</tbody>
+</table>
+<h4>⚠️ 한계점</h4>
+<ul>
+<li>EIC 기관 문서에 특화되어 다른 실험 도메인으로의 직접 이전 제한</li>
+<li>클라우드 호스팅 외부 지식 베이스 사용 → 데이터 프라이버시 우려 (후속 jat2026retrieval에서 로컬 배포로 해결)</li>
+<li>미출판 사전 공개 데이터의 외부 전송 위험</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문 (arXiv)</strong>: <a href="https://arxiv.org/abs/2403.15729">https://arxiv.org/abs/2403.15729</a></li>
+<li><strong>웹 앱</strong>: <a href="https://rags4eic-ai4eic.streamlit.app">https://rags4eic-ai4eic.streamlit.app</a></li>
+<li><strong>소스코드</strong>: <a href="https://github.com/ai4eic/EIC-RAG-Project">https://github.com/ai4eic/EIC-RAG-Project</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

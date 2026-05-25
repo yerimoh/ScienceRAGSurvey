@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Overview of the Coupled Model Intercomparison Project Phase 6 (CMIP6) Experimental Design and Organization — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">10</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">7</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">5</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">5</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">23</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">9</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">40</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">38</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">42</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">15</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">15</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">10</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">5</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">5</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">27</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">14</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">95</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Overview of the Coupled Model Intercomparison Project Phase 6 (CMIP6) Experimental Design and Organization</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Geoscientific Model Development</span>
+      <span class="meta-year">2016</span>
+      <a href="https://doi.org/10.5194/gmd-9-1937-2016" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Astronomy, earth, and climate</span><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>Overview of the Coupled Model Intercomparison Project Phase 6 (CMIP6) Experimental Design and Organization</h1>
+<p>eyring2016overview | 2016 | Geoscientific Model Development | dataset | [earth, climate] | <a href="https://doi.org/10.5194/gmd-9-1937-2016">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">CMIP6 — Coupled Model Intercomparison Project Phase 6</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">Petabyte-scale; ~20 PB 이상 (전 세계 49개 모델링 그룹, 100여 개 기후 모델)</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (ESGF 통해 공개 배포)</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">NetCDF, Simulation output, Time series</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">CMIP6 / ESGF (Earth System Grid Federation)</td></tr>
+</table>
+
+<blockquote>
+<p>Geoscientific Model Development | 2016 | dataset | earth, climate</p>
+<h4>한 줄 요약</h4>
+<p>전 세계 기후 모델링 그룹의 지구 시스템 모델(ESM) 시뮬레이션을 조율·통합하는 CMIP6 설계 및 조직 논문. IPCC 제6차 평가 보고서(AR6)의 과학적 기반이 되는 <strong>페타바이트 규모</strong> 기후 시뮬레이션 데이터를 ESGF를 통해 공개 배포. 과거·현재·미래 기후 시나리오 시뮬레이션의 표준 프로토콜을 정의.</p>
+</blockquote>
+<h4>개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>CMIP1–5는 개별 실험 설계로 모델 간 비교가 어렵고 커버리지 불균일</li>
+<li>CMIP5 이후 지구 시스템 모델 복잡성 증가 (탄소 순환, 에어로졸, 해양 생지화학 결합)</li>
+<li>단일 모델 앙상블로는 내부 변동성과 모델 불확도 구분 불가</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>IPCC AR6 과학적 근거 확보를 위한 다중 모델 앙상블 표준 필요</li>
+<li>기후 변화 원인 규명(Detection &amp; Attribution), 지역 영향 평가, 탄소 예산 추정 등 정책 관련 질문에 답하기 위한 체계적 실험 설계</li>
+<li>ScenarioMIP(SSP 경로), HighResMIP, AerChemMIP 등 18개 상호 비교 프로젝트(MIP) 통합 조율</li>
+</ul>
+<h4>시스템 구성</h4>
+<p>CMIP6는 WCRP(세계기후연구프로그램)가 주관하며 3단계로 구성:</p>
+<ol>
+<li><strong>DECK(Diagnostic, Evaluation and Characterization of Klima)</strong>: 4가지 표준 실험 (piControl, historical, AMIP, abrupt4×CO₂) — 모든 참여 모델 의무</li>
+<li><strong>Historical 시뮬레이션</strong>: 1850–2014 관측 기반 강제력</li>
+<li><strong>선택적 MIPs</strong>: 18개 주제별 MIP (ScenarioMIP, HighResMIP, PMIP, AerChemMIP 등)</li>
+</ol>
+<p>데이터 배포: ESGF (Earth System Grid Federation) — 분산 페더레이션 아카이브, 전 세계 노드 운영.</p>
+<h4>데이터 접근 방법</h4>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>ESGF 포털</td>
+  <td>esgf-node.llnl.gov 등 — 웹 탐색·다운로드</td>
+</tr>
+<tr>
+  <td>ESMValTool</td>
+  <td>Python 기반 진단·분석 도구</td>
+</tr>
+<tr>
+  <td>Pangeo</td>
+  <td>클라우드 기반 Zarr 포맷 접근 (Google Cloud, AWS)</td>
+</tr>
+<tr>
+  <td>intake-esm</td>
+  <td>Python 카탈로그 기반 검색</td>
+</tr>
+</tbody>
+</table>
+<h4>제공 데이터 형식</h4>
+<ul>
+<li>NetCDF-4 (CF Conventions)</li>
+<li>변수: 대기(300+), 해양, 해빙, 육지, 에어로졸, 탄소 순환</li>
+<li>시간 해상도: 서브일~월~연 평균</li>
+<li>공간 해상도: 25km~200km (모델별 상이)</li>
+</ul>
+<h4>주요 통계</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>참여 모델링 그룹</td>
+  <td><strong>~49</strong> 개 (전 세계)</td>
+</tr>
+<tr>
+  <td>모델 수</td>
+  <td><strong>100+</strong> 개 ESM/GCM</td>
+</tr>
+<tr>
+  <td>총 데이터 볼륨</td>
+  <td><strong>~20 PB</strong> 이상 (추산)</td>
+</tr>
+<tr>
+  <td>MIP 수</td>
+  <td><strong>18</strong> 개</td>
+</tr>
+<tr>
+  <td>DECK 실험</td>
+  <td><strong>4</strong> 개 (의무)</td>
+</tr>
+<tr>
+  <td>지원 IPCC 보고서</td>
+  <td>AR6 (2021)</td>
+</tr>
+</tbody>
+</table>
+<h4>한계점</h4>
+<ul>
+<li>모델 해상도 한계: 대부분 100km 수준으로 극단 기상 사건·지역 기후 시뮬레이션 부족 (HighResMIP에서 일부 해결)</li>
+<li>데이터 볼륨이 매우 커 일반 연구자의 로컬 다운로드 비현실적 → 클라우드 분석 필요</li>
+<li>NetCDF/CF 규약에 대한 도메인 지식 없이 RAG 파이프라인에서 직접 활용 어려움</li>
+<li>모델 간 변수명·그리드 불균일 → 표준화 처리 필요</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://doi.org/10.5194/gmd-9-1937-2016">https://doi.org/10.5194/gmd-9-1937-2016</a></li>
+<li><strong>ESGF 포털</strong>: <a href="https://esgf-node.llnl.gov/projects/cmip6/">https://esgf-node.llnl.gov/projects/cmip6/</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

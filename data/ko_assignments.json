@@ -721,5 +721,374 @@
     "K": "K2",
     "O": "",
     "note": "Materials science and physics — PDG Review, curated particle properties reference; most-cited in HEP"
+  },
+  "johnson2016mimic": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "ICU EHR dataset — Beth Israel Deaconess Medical Center; 53,423 adult ICU admissions 2001-2012; primary clinical RAG retrieval target"
+  },
+  "johnson2023mimic": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "Contemporary EHR dataset — BIDMC 2008-2019; 431,231 hospital admissions; 180,733 unique patients; successor to MIMIC-III"
+  },
+  "petersen2010alzheimer": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "Multi-site Alzheimer's disease neuroimaging cohort; 819 subjects (229 normal, 398 MCI, 192 AD); MRI+PET+CSF biomarkers"
+  },
+  "DBLP:journals/jocn/MarcusWPCMB07": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "Canonical MRI dataset for normal aging and Alzheimer's disease; 416 subjects aged 18-96; cross-sectional T1-weighted MRI"
+  },
+  "di2014autism": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "Multi-site ASD neuroimaging dataset; 1,112 resting-state fMRI (539 ASD + 573 controls); ages 7-64"
+  },
+  "liu2018integrated": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "Pan-cancer atlas; >11,000 tumors across 33 cancer types; standardized clinical outcome endpoints (OS/PFI/DFI/DSS)"
+  },
+  "uhlen2015tissue": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "Spatial protein expression maps across 32 normal and cancer tissues; >90% of protein-coding genes detected; IHC + transcriptomics integration"
+  },
+  "osanlouy2021sparc": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "NIH-funded autonomic nervous system data and resource center; 2D flatmaps + 3D organ scaffolds; curated experimental data and mathematical models"
+  },
+  "DBLP:journals/nar/BermanWFGBWSB00": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "Single worldwide archive of 3D structures of biological macromolecules; experimental ground truth for structural biology"
+  },
+  "DBLP:journals/nar/VaradiADNNYYSWL22": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "Initial release: >360,000 predicted structures across 21 model organism proteomes; predicted complement to PDB experimental structures"
+  },
+  "varadi2024alphafold": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": ">214 million predicted structures; ~500x expansion from initial 2021 release; integrated with PDB, UniProt, Ensembl, InterPro, MobiDB"
+  },
+  "ahdritz2024openfold": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "Open-source trainable AlphaFold2 reimplementation; OpenProteinSet MSA data backbone; enables new tasks (protein-ligand) and open re-implementations"
+  },
+  "york2000sloan": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "SDSS founding technical summary; survey goal pi steradians, hundreds of millions of objects by DR17"
+  },
+  "abdurro2022seventeenth": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "SDSS DR17 final release; 10,010 MaNGA galaxies, ~4.9M cumulative spectra"
+  },
+  "vallenari2023gaia": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "Gaia DR3; 1.5B sources, positions/parallaxes/spectrophotometry for nearly 2 billion stars"
+  },
+  "mast": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "Hosts Hubble, JWST, TESS, Kepler, Pan-STARRS, GALEX in unified portal"
+  },
+  "DBLP:conf/mss/KoblerBCH95": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "NASA EOSDIS founding architecture paper; covers land, atmosphere, ocean Earth-observation data"
+  },
+  "noaa_ncei": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "World's largest weather and climate archive; ~100 PB, 140+ years of records"
+  },
+  "eyring2016overview": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "CMIP6 design paper; petabyte-scale (~20 PB realized) climate model simulations from 49 groups"
+  },
+  "usgs_eros": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "Archives entire Landsat record (50+ years, ~9M scenes); land remote sensing since 1972"
+  },
+  "climatepolicyradar": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "200+ country climate laws, NDCs, LTS documents; text corpus complementing scientific archives"
+  },
+  "DBLP:journals/corr/MaguireHW17": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "Preserves published HEP numerical results: scattering cross-sections, distributions, correlation matrices"
+  },
+  "cernopendata": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "Full collision datasets from ATLAS, CMS, LHCb, ALICE under public access terms"
+  },
+  "aspenplus": {
+    "cells": [
+      "K4"
+    ],
+    "K": "K4",
+    "O": "",
+    "note": "Dominant chemical process simulator; thermodynamic/kinetic/unit-operation databases embedded"
+  },
+  "proii": {
+    "cells": [
+      "K4"
+    ],
+    "K": "K4",
+    "O": "",
+    "note": "Dominant chemical process simulator; refinery/gas processing tacit knowledge embedded"
+  },
+  "gproms": {
+    "cells": [
+      "K4"
+    ],
+    "K": "K4",
+    "O": "",
+    "note": "Advanced process modeling (DAE-based, CAPE-OPEN); battery/pharma/LNG tacit knowledge embedded. BIB MISSING in references.bib"
+  },
+  "ansys": {
+    "cells": [
+      "K4"
+    ],
+    "K": "K4",
+    "O": "",
+    "note": "Multiphysics simulation (structural/fluid/electromagnetic); material property databases embedded"
+  },
+  "matlabsimulink": {
+    "cells": [
+      "K4"
+    ],
+    "K": "K4",
+    "O": "",
+    "note": "Numerical computing and dynamic systems simulation; control/signal/aerospace Toolbox knowledge embedded"
+  },
+  "hsc": {
+    "cells": [
+      "K4"
+    ],
+    "K": "K4",
+    "O": "",
+    "note": "Metallurgical/pyrometallurgical thermodynamic knowledge; ~30,000 species database embedded. BIB MISSING in references.bib"
+  },
+  "factsage": {
+    "cells": [
+      "K4"
+    ],
+    "K": "K4",
+    "O": "",
+    "note": "CALPHAD-based thermochemical suite; ~60,000 compounds + 20+ solution DBs (FToxid, FTstel, FTsalt). BIB MISSING in references.bib"
+  },
+  "DBLP:journals/corr/abs-2603-09800": {
+    "cells": [
+      "K4.O1"
+    ],
+    "K": "K4",
+    "O": "O1",
+    "note": "RAG over CMS internal documents; DPR + cross-encoder reranker + 4-bit Mistral-7B; P@1 ~5.8x over BM25 on paraphrased queries (Set 2: 0.75 vs 0.13)"
+  },
+  "rafique2025large": {
+    "cells": [
+      "K4.O1"
+    ],
+    "K": "K4",
+    "O": "O1",
+    "note": "RAG over DUNE DocDB + Indico + internal wikis; multi-qa-mpnet + FAISS; ~70% retrieval accuracy (preliminary); Fermilab on-premise"
+  },
+  "DBLP:conf/acl/ChenLJWG0025": {
+    "cells": [
+      "K1.O1",
+      "K2.O1"
+    ],
+    "K": "K1",
+    "O": "O1",
+    "note": "Multi-source medical RAG unifying 5 sources: textbooks, clinical guidelines, PubMed abstracts, Wikipedia, UMLS+DrugBank KG; Source Planning Optimisation (SPO)"
+  },
+  "DBLP:journals/make/LahiriH25": {
+    "cells": [
+      "K1.O2"
+    ],
+    "K": "K1",
+    "O": "O2",
+    "note": "Multimodal RAG fusing PubMed text+figures via cross-modal attention; evaluated on BioASQ and PubMedQA; low hallucination rate; non-inferior to human accuracy"
+  },
+  "krithara2023bioasq": {
+    "cells": [
+      "K1.O1"
+    ],
+    "K": "K1",
+    "O": "O1",
+    "note": "4,721 expert-annotated biomedical QA pairs; running since 2012; combines exact answer + ideal summary; used for evaluation in cross-modal grounding section"
+  },
+  "jin-etal-2019-pubmedqa": {
+    "cells": [
+      "K1.O1"
+    ],
+    "K": "K1",
+    "O": "O1",
+    "note": "1k expert-annotated + 61.2k unlabeled + 211.3k artificially generated QA; Yes/No/Maybe from PubMed abstracts; first QA dataset requiring quantitative reasoning over biomedical texts"
+  },
+  "DBLP:conf/nips/LeeKV0RPVN24": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "Fragment-based drug discovery with retrieval augmentation; hard/soft fragment retrieval; iterative refinement + genetic fragment modification; evaluated on PMO benchmark 23 tasks; AUC top-10 metric"
+  },
+  "DBLP:conf/aaai/LeeBHBPS26": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "RAG-empowered agentic system; Drug Repurposing Hub + DrugBank + STITCH for DTI (13,688 molecules); BBBP/Sider/ClinTox/BACE for toxicity; no domain fine-tuning; outperforms GNNs and LLMs"
+  },
+  "DBLP:journals/corr/abs-2603-15712": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "GPT-4 + RAG over 50,000 materials (Materials Project, NOMAD, OC20); 250+ HEA CO2 reduction catalysts; 82% thermodynamic stability; best alloy Fe0.2Co0.2Ni0.2Ir0.1Ru0.3 at 0.285V limiting potential (25% vs IrO2); 200x HTS efficiency"
+  },
+  "zhang2026matclaw": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "Code-first LLM agent; RAG over domain source code (pymatgen, atomate2, jobflow, dpdata, DeePMD-kit); ~99% API-call accuracy; 4-layer memory; 3 end-to-end demonstrations on CuInP2S6 (force field, Curie temp, parameter search)"
+  },
+  "xiao2024repurposing": {
+    "cells": [
+      "K1.O3"
+    ],
+    "K": "K1",
+    "O": "O3",
+    "note": "Link prediction on biomedical literature knowledge graph for Alzheimer's non-pharmacological intervention repurposing; weakly-verified hypothesis (no strong external verifier); evaluation by downstream task accuracy and expert validation"
+  },
+  "bicerano2024polymer": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "Expert system for de novo polymer design via QSPR over PEARL (Polymer Expert Analog Repeat-unit Library); weakly-verified hypothesis — QSPR predictions without experimental validation loop; non-obvious candidates discovered"
+  },
+  "DBLP:journals/corr/abs-2408-01107": {
+    "cells": [
+      "K1.O1"
+    ],
+    "K": "K1",
+    "O": "O1",
+    "note": "22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, College Biology/Medicine; outperforms BioLLMs, GPT-3.5, NewBing"
+  },
+  "DBLP:conf/pasc/GokdemirSBWHHSA25": {
+    "cells": [
+      "K1.O2"
+    ],
+    "K": "K1",
+    "O": "O2",
+    "note": "HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 76%; outperforms PubMedGPT and GPT-4; scales to thousands of GPUs"
+  },
+  "DBLP:journals/corr/abs-2403-15729": {
+    "cells": [
+      "K4.O1"
+    ],
+    "K": "K4",
+    "O": "O1",
+    "note": "RAG-based summarization AI for EIC institutional documents; LangChain + vector DB; RAGAs evaluation; prompt template instruction-tuning; Streamlit web app; serves 1,400+ physicists in 38 countries"
+  },
+  "jat2026retrieval": {
+    "cells": [
+      "K4.O1"
+    ],
+    "K": "K4",
+    "O": "O1",
+    "note": "Local RAG QA over arXiv EIC papers; open-source LLaMA for answer generation; cost-effective, data-privacy preserving alternative to cloud-hosted RAGS4EIC; extension of RAGS4EIC proceeding application"
   }
 }

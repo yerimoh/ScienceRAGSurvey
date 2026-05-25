@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Large Language Model Integration for Knowledge Retrieval and Interaction for the DUNE Experiment — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">10</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">7</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">5</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">5</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">23</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">9</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">40</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">38</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">42</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">15</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">15</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">10</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">5</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">5</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">27</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">14</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">95</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Large Language Model Integration for Knowledge Retrieval and Interaction for the DUNE Experiment</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">arXiv (Lepton Photon 2025)</span>
+      <span class="meta-year">2025</span>
+      <a href="https://arxiv.org/abs/2601.05278" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Tacit Knowledge × Ground</a><span class="tag tag-sub">Held by institutions</span><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>DUNE-GPT: LLM Integration for Knowledge Retrieval in the DUNE Experiment</h1>
+<p>rafique2025large | 2025 | arXiv | Method | [physics] | <a href="https://arxiv.org/abs/2601.05278">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">Retriever</td><td class="prop-val">Dense embedding (multi-qa-mpnet-base-dot-v1) + FAISS 벡터 DB, cosine similarity</td></tr>
+<tr><td class="prop-key">Eval Task</td><td class="prop-val">DUNE 내부 문서 질의응답 (detector, reconstruction, physics analysis)</td></tr>
+<tr><td class="prop-key">Eval Metric</td><td class="prop-val">Retrieval accuracy (~70% across diverse query types, preliminary)</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">DUNE-GPT</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
+</table>
+
+<blockquote>
+<p>arXiv | 2025 | Method | physics</p>
+<h4>📌 한 줄 요약</h4>
+<p>Deep Underground Neutrino Experiment(DUNE) 협업의 DocDB, Indico, 내부 위키에 산재된 방대한 실험 문서를 대상으로 Fermilab 인프라에서 on-premise RAG를 구현한 프로토타입 시스템으로, 협업 구성원이 자연어로 실험 특화 지식을 조회할 수 있게 한다.</p>
+</blockquote>
+<h4>🎯 개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>DUNE 협업은 기술 설계 보고서(TDR), 분석 노트, 발표 자료, 회의록을 DocDB, Indico, 내부 위키에 분산 보관</li>
+<li>신입 공동연구자나 다른 워킹 그룹 전문가가 재구성 알고리즘이나 검출기 운영 세부사항을 검색하는 데 많은 시간 소모</li>
+<li>상업 LLM API 사용은 Fermilab의 데이터 보안 및 재현성 요구를 충족하지 못함</li>
+</ul>
+<p><strong>DUNE-GPT가 필요한 이유</strong></p>
+<ul>
+<li>협업 전체 생산성 및 신규 참여자 온보딩 효율화</li>
+<li>분산된 DUNE 문서 생태계를 단일 자연어 인터페이스로 통합</li>
+</ul>
+<h4>🔨 시스템 구성</h4>
+<p><strong>데이터 소스</strong></p>
+<ul>
+<li>DocDB: DUNE 내부 문서, 기술 노트, TDR</li>
+<li>Indico: 회의 발표 자료, 미팅 노트</li>
+<li>내부 위키 문서</li>
+<li>공개 접근 가능한 DUNE 문서 (협업 정책에 따라 민감 문서 제외)</li>
+</ul>
+<p><strong>임베딩 및 검색 레이어</strong></p>
+<ul>
+<li>다양한 형식(PDF, DOCX, TXT, PNG 등) 처리 + 메타데이터 추출 + 토큰 분할</li>
+<li>임베딩 모델: multi-qa-mpnet-base-dot-v1 (과학 텍스트 최적화)</li>
+<li>벡터 DB: FAISS (Facebook AI Similarity Search)</li>
+<li>검색: cosine similarity 기반</li>
+</ul>
+<p><strong>LLM 통합</strong></p>
+<ul>
+<li>Argonne 슈퍼컴퓨터(Aurora/Argo) 및 Fermilab(Ollama) 내부 호스팅 LLM</li>
+<li>RAG 방식으로 검색된 컨텍스트를 LLM에 조건화하여 응답 생성</li>
+<li>인증된 DUNE 공동연구자만 접근 가능</li>
+</ul>
+<p><strong>인터페이스</strong></p>
+<ul>
+<li>경량 웹 인터페이스: 자연어 질의 → 포맷된 응답 + 문서 출처 인용</li>
+<li>Aurora (Argonne Leadership Computing Facility)에서 초기 개발 후 Fermilab 인프라로 이전 예정</li>
+</ul>
+<h4>📊 주요 결과</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>예비 검색 정확도</td>
+  <td>~70% (다양한 질의 유형에서)</td>
+</tr>
+<tr>
+  <td>처리 문서 형식</td>
+  <td>PDF, DOCX, TXT, PNG 등</td>
+</tr>
+<tr>
+  <td>임베딩 모델</td>
+  <td>multi-qa-mpnet-base-dot-v1</td>
+</tr>
+<tr>
+  <td>벡터 DB</td>
+  <td>FAISS</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>주의</strong>: &quot;preliminary results&quot; 단계이며, P@k/MRR 등 정밀 메트릭 기반 체계적 평가는 향후 과제로 명시됨.</p>
+</blockquote>
+<h4>⚠️ 한계점</h4>
+<ul>
+<li>프로토타입 단계: 협업 전체 배포 전 단계이며 체계적 벤치마크 미수행</li>
+<li>민감/제한 문서는 협업 정책에 따라 인덱싱 제외 (지식 커버리지 불완전)</li>
+<li>ATLAS chATLAS 등 유사 시스템과 달리 BM25 대비 정량 비교 실험이 아직 미수행</li>
+<li>검출기 운영 로그, 코드 문서 등 다양한 형식 확장 계획 중</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://arxiv.org/abs/2601.05278">arXiv:2601.05278</a></li>
+<li><strong>수락</strong>: 32nd International Symposium on Lepton Photon Interactions at High Energies, Madison WI, Aug 2025</li>
+<li><strong>저자 소속</strong>: Argonne National Laboratory (DUNE Collaboration)</li>
+<li><strong>K4 분류</strong>: K4.O1 — 기관 내부 문서(DUNE DocDB + Indico)에 대한 RAG 시스템</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

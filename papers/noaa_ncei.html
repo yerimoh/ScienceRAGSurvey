@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NOAA National Centers for Environmental Information (NCEI) — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">10</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">7</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">5</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">5</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">23</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">9</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">40</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">38</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">42</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">15</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">15</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">10</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">5</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">5</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">27</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">14</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">95</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>NOAA National Centers for Environmental Information (NCEI)</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">National Oceanic and Atmospheric Administration</span>
+      <span class="meta-year">2015</span>
+      <a href="https://www.ncei.noaa.gov" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Astronomy, earth, and climate</span><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>NOAA National Centers for Environmental Information (NCEI)</h1>
+<p>noaa_ncei | 2015 | National Oceanic and Atmospheric Administration (system reference) | dataset | [earth, climate] | <a href="https://www.ncei.noaa.gov">portal</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">NOAA NCEI — world's largest archive for weather, climate, and geophysical data</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">~100 petabytes+ (기상·기후·해양·지구물리 데이터 통합); 매일 ~20 TB 신규 수집</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (대부분 공개)</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Time series, Satellite image, Gridded data, Station data</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">NOAA NCEI 포털 / CDO (Climate Data Online) API</td></tr>
+</table>
+
+<blockquote>
+<p>National Oceanic and Atmospheric Administration (system reference) | 2015 | dataset | earth, climate</p>
+<h4>한 줄 요약</h4>
+<p>2015년 NOAA의 세 개 데이터 센터(NCDC·NGDC·NODC) 통합으로 출범한 세계 최대 기상·기후 아카이브. 100 PB 이상의 기후 기록(지상 관측, 위성, 해양, 지구물리)을 보유하며 GHCN, GSOD, OISST 등 수십 개 핵심 기후 데이터셋을 공개 배포. <strong>정식 학술 논문이 아닌 기관 시스템 참고 항목(<code>@misc</code>)임에 유의.</strong></p>
+</blockquote>
+<h4>개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>NOAA 내 기상(NCDC)·지구물리(NGDC)·해양(NODC) 데이터가 분산 운영되어 통합 탐색 불가</li>
+<li>1970년대 디지털화 이전 기상 관측 기록의 장기 보존 필요</li>
+<li>기후 변화 모니터링을 위한 100년 이상 연속 균질 시계열 필요</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>기후 기준치(Climate Normals), 극단값 기록, 지구 온도 변화 추적의 단일 권위 출처</li>
+<li>IPCC, 미국 국가 기후 평가(NCA), 기상 예보 모델 검증의 기초 데이터</li>
+<li>보험·농업·에너지·도시 계획 등 기후 관련 의사결정 지원</li>
+</ul>
+<h4>시스템 구성</h4>
+<p>NCEI는 3개 전임 기관의 통합:</p>
+<ul>
+<li><strong>NCDC</strong> (National Climatic Data Center, 1951~): 기상·기후 기록</li>
+<li><strong>NGDC</strong> (National Geophysical Data Center, 1964~): 지자기·지진·해안 데이터</li>
+<li><strong>NODC</strong> (National Oceanographic Data Center, 1961~): 해양 온도·염분·해류</li>
+</ul>
+<p>주요 데이터셋: GHCN (Global Historical Climatology Network), GSOD (Global Surface Summary of Day), OISST (Optimum Interpolation SST), NSIDC 협력 빙하·적설, NEXRAD 레이더 아카이브.</p>
+<h4>데이터 접근 방법</h4>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CDO (Climate Data Online)</td>
+  <td>ncei.noaa.gov/cdo-web/ — 관측소별 데이터 다운로드</td>
+</tr>
+<tr>
+  <td>NCEI API</td>
+  <td>api.ncei.noaa.gov — RESTful JSON API</td>
+</tr>
+<tr>
+  <td>THREDDS/OPeNDAP</td>
+  <td>격자 데이터 원격 부분 다운로드</td>
+</tr>
+<tr>
+  <td>S3 클라우드</td>
+  <td>AWS Open Data — NOAA 위성·기상 데이터</td>
+</tr>
+</tbody>
+</table>
+<h4>제공 데이터 형식</h4>
+<ul>
+<li>지상 관측: CSV/JSON (GHCN-D, GSOD, ISD)</li>
+<li>격자 데이터: NetCDF (OISST, 재분석)</li>
+<li>위성 이미지: GOES, AVHRR, VIIRS</li>
+<li>지구물리: 지자기·지진·쓰나미 이벤트</li>
+<li>해양: CTD(수온·염분), 파도, 해수면 변화</li>
+</ul>
+<h4>주요 통계 (model knowledge)</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>총 보유 데이터</td>
+  <td><strong>~100 PB</strong> (2020년대 추정)</td>
+</tr>
+<tr>
+  <td>일일 신규 수집</td>
+  <td><strong>~20 TB</strong></td>
+</tr>
+<tr>
+  <td>GHCN-D 관측소 수</td>
+  <td><strong>~100,000</strong> 개+</td>
+</tr>
+<tr>
+  <td>기록 기간</td>
+  <td><strong>140+ 년</strong> (일부 1880년대 시작)</td>
+</tr>
+<tr>
+  <td>설립</td>
+  <td>2015년 (NCDC+NGDC+NODC 통합)</td>
+</tr>
+<tr>
+  <td>접근</td>
+  <td>공개 (무료)</td>
+</tr>
+</tbody>
+</table>
+<h4>한계점</h4>
+<ul>
+<li>데이터 형식과 API가 다양하여 일관된 RAG 파이프라인 구축 어려움</li>
+<li>역사 관측소 데이터의 품질 관리 불균일 (균질화 필요)</li>
+<li>일부 고해상도 실시간 데이터는 상업적 재배포 제한</li>
+<li>아카이브 규모가 방대하여 특정 데이터셋 탐색에 도메인 지식 필요</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>포털</strong>: <a href="https://www.ncei.noaa.gov">https://www.ncei.noaa.gov</a></li>
+<li><strong>CDO</strong>: <a href="https://www.ncei.noaa.gov/cdo-web/">https://www.ncei.noaa.gov/cdo-web/</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

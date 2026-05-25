@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MIMIC-IV, a freely accessible electronic health record dataset — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">10</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">7</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">5</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">5</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">23</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">9</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">40</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">38</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">42</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">15</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">15</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">10</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">5</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">5</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">27</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">14</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">95</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>MIMIC-IV, a freely accessible electronic health record dataset</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Scientific Data</span>
+      <span class="meta-year">2023</span>
+      <a href="https://doi.org/10.1038/s41597-022-01899-x" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Medical imaging and clinical EHR</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>MIMIC-IV, a freely accessible electronic health record dataset</h1>
+<p>johnson2023mimic | 2023 | Scientific Data | dataset | [medical] | <a href="https://doi.org/10.1038/s41597-022-01899-x">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">MIMIC-IV (Medical Information Mart for Intensive Care IV)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">431,231 병원 입원; 180,733 고유 환자; ICU 입원 73,181건; 기간 2008–2019</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (credentialed access via PhysioNet)</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text, Structured Table (EHR)</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">PhysioNet / MIMIC-IV portal</td></tr>
+</table>
+
+<blockquote>
+<p>Scientific Data | 2023 | dataset | medical</p>
+</blockquote>
+<h4>📌 한 줄 요약</h4>
+<p>Beth Israel Deaconess Medical Center의 전자의무기록에서 추출한 2008–2019년 데이터를 기반으로, 환자 측정값·처방·진단·처치·치료·비식별 임상 노트를 포함하는 공개 EHR 데이터베이스.</p>
+<h4>🎯 개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>MIMIC-III는 2001–2012년 데이터로 노후화; 현대 임상 관행 반영 불가</li>
+<li>기존 공개 데이터셋은 단일 모달리티(임상 관찰)에 한정</li>
+<li>연구자 접근성 장벽이 높아 임상 연구 속도 저하</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>현대 디지털 의료 환경(2008–2019)을 반영하는 최신 EHR 데이터 필요</li>
+<li>전자 의약품 투여 기록 등 새로운 정밀 디지털 정보원 통합</li>
+<li>광범위한 연구 및 교육 활용을 위한 개방형 플랫폼 필요</li>
+</ul>
+<h4>🔨 시스템 구성</h4>
+<p>BIDMC의 2008–2019년 EHR 데이터를 모듈화 구조로 제공. 병원 입원 431,231건(고유 환자 180,733명), ICU 입원 73,181건(고유 환자 50,920명)을 포함. 환자 측정값, 주문, 진단, 처치, 치료, 비식별 자유형식 임상 노트 제공. 병원 모듈과 ICU 모듈로 분리된 스키마 구조.</p>
+<h4>📥 데이터 접근 방법</h4>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>PhysioNet 포털</td>
+  <td><a href="https://physionet.org/content/mimiciv/">https://physionet.org/content/mimiciv/</a> — 자격 증명 후 무료 다운로드</td>
+</tr>
+<tr>
+  <td>DOI</td>
+  <td><a href="https://doi.org/10.1038/s41597-022-01899-x">https://doi.org/10.1038/s41597-022-01899-x</a></td>
+</tr>
+</tbody>
+</table>
+<h4>📤 제공 데이터 형식</h4>
+<ul>
+<li>정형 테이블 (CSV): 활력징후, 검사 결과, 의약품, 처치 코드</li>
+<li>비정형 텍스트: 비식별 임상 노트 (퇴원 요약, 방사선 보고서)</li>
+<li>ICD-10 진단/시술 코드 (MIMIC-III 대비 업그레이드)</li>
+</ul>
+<h4>📊 주요 통계 (논문 기준)</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>병원 입원 건수</td>
+  <td><strong>431,231</strong></td>
+</tr>
+<tr>
+  <td>고유 환자 수 (병원)</td>
+  <td><strong>180,733</strong></td>
+</tr>
+<tr>
+  <td>ICU 입원 건수</td>
+  <td><strong>73,181</strong></td>
+</tr>
+<tr>
+  <td>고유 환자 수 (ICU)</td>
+  <td><strong>50,920</strong></td>
+</tr>
+<tr>
+  <td>데이터 기간</td>
+  <td><strong>2008–2019</strong></td>
+</tr>
+<tr>
+  <td>평균 연령 (병원)</td>
+  <td><strong>58.8세 (SD 19.2)</strong></td>
+</tr>
+<tr>
+  <td>평균 연령 (ICU)</td>
+  <td><strong>64.7세 (SD 16.9)</strong></td>
+</tr>
+<tr>
+  <td>여성 비율 (병원)</td>
+  <td><strong>52.2%</strong></td>
+</tr>
+</tbody>
+</table>
+<h4>⚠️ 한계점</h4>
+<ul>
+<li>단일 기관(BIDMC) 데이터로 일반화 제한</li>
+<li>접근에 자격 증명 절차 필요</li>
+<li>임상 노트는 비식별화로 일부 정보 손실</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://doi.org/10.1038/s41597-022-01899-x">MIMIC-IV, a freely accessible electronic health record dataset</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>
