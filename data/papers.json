@@ -5544,10 +5544,13 @@
       "3D Structure"
     ],
     "type": "benchmark",
-    "ko_cells": [],
-    "ko_primary": null,
-    "ko_note": "",
-    "cross_source": false
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Structural biology — CrossDocked2020: millions of ligand poses across PDB targets for structure-based drug design",
+    "cross_source": false,
+    "subsection": "Structural biology"
   },
   {
     "bib_key": "kluwer2020uptodate",
@@ -7143,7 +7146,8 @@
     "ko_note": "NASA EOSDIS founding architecture paper; covers land, atmosphere, ocean Earth-observation data",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Astronomy, earth, and climate"
   },
   {
     "bib_key": "DBLP:conf/pasc/GokdemirSBWHHSA25",
@@ -7179,7 +7183,8 @@
     "ko_note": "Preserves published HEP numerical results: scattering cross-sections, distributions, correlation matrices",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Particle and nuclear physics"
   },
   {
     "bib_key": "DBLP:journals/corr/abs-2408-01107",
@@ -7233,7 +7238,8 @@
     "ko_note": "Canonical MRI dataset for normal aging and Alzheimer's disease; 416 subjects aged 18-96; cross-sectional T1-weighted MRI",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Medical imaging and clinical EHR"
   },
   {
     "bib_key": "DBLP:journals/make/LahiriH25",
@@ -7269,7 +7275,8 @@
     "ko_note": "Single worldwide archive of 3D structures of biological macromolecules; experimental ground truth for structural biology",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Structural biology"
   },
   {
     "bib_key": "DBLP:journals/nar/VaradiADNNYYSWL22",
@@ -7287,7 +7294,8 @@
     "ko_note": "Initial release: >360,000 predicted structures across 21 model organism proteomes; predicted complement to PDB experimental structures",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Structural biology"
   },
   {
     "title": "MTsamples (Web Dataset)",
@@ -7329,7 +7337,8 @@
     "ko_note": "SDSS DR17 final release; 10,010 MaNGA galaxies, ~4.9M cumulative spectra",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Astronomy, earth, and climate"
   },
   {
     "bib_key": "ahdritz2024openfold",
@@ -7347,7 +7356,8 @@
     "ko_note": "Open-source trainable AlphaFold2 reimplementation; OpenProteinSet MSA data backbone; enables new tasks (protein-ligand) and open re-implementations",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Structural biology"
   },
   {
     "bib_key": "ansys",
@@ -7419,7 +7429,8 @@
     "ko_note": "Full collision datasets from ATLAS, CMS, LHCb, ALICE under public access terms",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Particle and nuclear physics"
   },
   {
     "bib_key": "climatepolicyradar",
@@ -7437,7 +7448,8 @@
     "ko_note": "200+ country climate laws, NDCs, LTS documents; text corpus complementing scientific archives",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Astronomy, earth, and climate"
   },
   {
     "bib_key": "di2014autism",
@@ -7455,7 +7467,8 @@
     "ko_note": "Multi-site ASD neuroimaging dataset; 1,112 resting-state fMRI (539 ASD + 573 controls); ages 7-64",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Medical imaging and clinical EHR"
   },
   {
     "bib_key": "eyring2016overview",
@@ -7473,7 +7486,8 @@
     "ko_note": "CMIP6 design paper; petabyte-scale (~20 PB realized) climate model simulations from 49 groups",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Astronomy, earth, and climate"
   },
   {
     "bib_key": "factsage",
@@ -7563,7 +7577,8 @@
     "ko_note": "ICU EHR dataset — Beth Israel Deaconess Medical Center; 53,423 adult ICU admissions 2001-2012; primary clinical RAG retrieval target",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Medical imaging and clinical EHR"
   },
   {
     "bib_key": "johnson2023mimic",
@@ -7581,7 +7596,8 @@
     "ko_note": "Contemporary EHR dataset — BIDMC 2008-2019; 431,231 hospital admissions; 180,733 unique patients; successor to MIMIC-III",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Medical imaging and clinical EHR"
   },
   {
     "bib_key": "krithara2023bioasq",
@@ -7617,7 +7633,8 @@
     "ko_note": "Pan-cancer atlas; >11,000 tumors across 33 cancer types; standardized clinical outcome endpoints (OS/PFI/DFI/DSS)",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Medical imaging and clinical EHR"
   },
   {
     "bib_key": "mast",
@@ -7635,7 +7652,8 @@
     "ko_note": "Hosts Hubble, JWST, TESS, Kepler, Pan-STARRS, GALEX in unified portal",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Astronomy, earth, and climate"
   },
   {
     "bib_key": "matlabsimulink",
@@ -7671,7 +7689,8 @@
     "ko_note": "World's largest weather and climate archive; ~100 PB, 140+ years of records",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Astronomy, earth, and climate"
   },
   {
     "bib_key": "osanlouy2021sparc",
@@ -7689,7 +7708,8 @@
     "ko_note": "NIH-funded autonomic nervous system data and resource center; 2D flatmaps + 3D organ scaffolds; curated experimental data and mathematical models",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Medical imaging and clinical EHR"
   },
   {
     "bib_key": "petersen2010alzheimer",
@@ -7707,7 +7727,8 @@
     "ko_note": "Multi-site Alzheimer's disease neuroimaging cohort; 819 subjects (229 normal, 398 MCI, 192 AD); MRI+PET+CSF biomarkers",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Medical imaging and clinical EHR"
   },
   {
     "bib_key": "proii",
@@ -7743,7 +7764,8 @@
     "ko_note": "Spatial protein expression maps across 32 normal and cancer tissues; >90% of protein-coding genes detected; IHC + transcriptomics integration",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Medical imaging and clinical EHR"
   },
   {
     "bib_key": "usgs_eros",
@@ -7761,7 +7783,8 @@
     "ko_note": "Archives entire Landsat record (50+ years, ~9M scenes); land remote sensing since 1972",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Astronomy, earth, and climate"
   },
   {
     "bib_key": "vallenari2023gaia",
@@ -7779,7 +7802,8 @@
     "ko_note": "Gaia DR3; 1.5B sources, positions/parallaxes/spectrophotometry for nearly 2 billion stars",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Astronomy, earth, and climate"
   },
   {
     "bib_key": "varadi2024alphafold",
@@ -7797,7 +7821,8 @@
     "ko_note": ">214 million predicted structures; ~500x expansion from initial 2021 release; integrated with PDB, UniProt, Ensembl, InterPro, MobiDB",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Structural biology"
   },
   {
     "bib_key": "welbl-etal-2017-crowdsourcing",
@@ -7833,6 +7858,7 @@
     "ko_note": "SDSS founding technical summary; survey goal pi steradians, hundreds of millions of objects by DR17",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Astronomy, earth, and climate"
   }
 ]

@@ -847,7 +847,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "ICU EHR dataset — Beth Israel Deaconess Medical Center; 53,423 adult ICU admissions 2001-2012; primary clinical RAG retrieval target"
+    "note": "ICU EHR dataset — Beth Israel Deaconess Medical Center; 53,423 adult ICU admissions 2001-2012; primary clinical RAG retrieval target",
+    "subsection": "Medical imaging and clinical EHR"
   },
   "johnson2023mimic": {
     "cells": [
@@ -855,7 +856,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "Contemporary EHR dataset — BIDMC 2008-2019; 431,231 hospital admissions; 180,733 unique patients; successor to MIMIC-III"
+    "note": "Contemporary EHR dataset — BIDMC 2008-2019; 431,231 hospital admissions; 180,733 unique patients; successor to MIMIC-III",
+    "subsection": "Medical imaging and clinical EHR"
   },
   "petersen2010alzheimer": {
     "cells": [
@@ -863,7 +865,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "Multi-site Alzheimer's disease neuroimaging cohort; 819 subjects (229 normal, 398 MCI, 192 AD); MRI+PET+CSF biomarkers"
+    "note": "Multi-site Alzheimer's disease neuroimaging cohort; 819 subjects (229 normal, 398 MCI, 192 AD); MRI+PET+CSF biomarkers",
+    "subsection": "Medical imaging and clinical EHR"
   },
   "DBLP:journals/jocn/MarcusWPCMB07": {
     "cells": [
@@ -871,7 +874,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "Canonical MRI dataset for normal aging and Alzheimer's disease; 416 subjects aged 18-96; cross-sectional T1-weighted MRI"
+    "note": "Canonical MRI dataset for normal aging and Alzheimer's disease; 416 subjects aged 18-96; cross-sectional T1-weighted MRI",
+    "subsection": "Medical imaging and clinical EHR"
   },
   "di2014autism": {
     "cells": [
@@ -879,7 +883,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "Multi-site ASD neuroimaging dataset; 1,112 resting-state fMRI (539 ASD + 573 controls); ages 7-64"
+    "note": "Multi-site ASD neuroimaging dataset; 1,112 resting-state fMRI (539 ASD + 573 controls); ages 7-64",
+    "subsection": "Medical imaging and clinical EHR"
   },
   "liu2018integrated": {
     "cells": [
@@ -887,7 +892,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "Pan-cancer atlas; >11,000 tumors across 33 cancer types; standardized clinical outcome endpoints (OS/PFI/DFI/DSS)"
+    "note": "Pan-cancer atlas; >11,000 tumors across 33 cancer types; standardized clinical outcome endpoints (OS/PFI/DFI/DSS)",
+    "subsection": "Medical imaging and clinical EHR"
   },
   "uhlen2015tissue": {
     "cells": [
@@ -895,7 +901,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "Spatial protein expression maps across 32 normal and cancer tissues; >90% of protein-coding genes detected; IHC + transcriptomics integration"
+    "note": "Spatial protein expression maps across 32 normal and cancer tissues; >90% of protein-coding genes detected; IHC + transcriptomics integration",
+    "subsection": "Medical imaging and clinical EHR"
   },
   "osanlouy2021sparc": {
     "cells": [
@@ -903,7 +910,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "NIH-funded autonomic nervous system data and resource center; 2D flatmaps + 3D organ scaffolds; curated experimental data and mathematical models"
+    "note": "NIH-funded autonomic nervous system data and resource center; 2D flatmaps + 3D organ scaffolds; curated experimental data and mathematical models",
+    "subsection": "Medical imaging and clinical EHR"
   },
   "DBLP:journals/nar/BermanWFGBWSB00": {
     "cells": [
@@ -911,7 +919,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "Single worldwide archive of 3D structures of biological macromolecules; experimental ground truth for structural biology"
+    "note": "Single worldwide archive of 3D structures of biological macromolecules; experimental ground truth for structural biology",
+    "subsection": "Structural biology"
   },
   "DBLP:journals/nar/VaradiADNNYYSWL22": {
     "cells": [
@@ -919,7 +928,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "Initial release: >360,000 predicted structures across 21 model organism proteomes; predicted complement to PDB experimental structures"
+    "note": "Initial release: >360,000 predicted structures across 21 model organism proteomes; predicted complement to PDB experimental structures",
+    "subsection": "Structural biology"
   },
   "varadi2024alphafold": {
     "cells": [
@@ -927,7 +937,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": ">214 million predicted structures; ~500x expansion from initial 2021 release; integrated with PDB, UniProt, Ensembl, InterPro, MobiDB"
+    "note": ">214 million predicted structures; ~500x expansion from initial 2021 release; integrated with PDB, UniProt, Ensembl, InterPro, MobiDB",
+    "subsection": "Structural biology"
   },
   "ahdritz2024openfold": {
     "cells": [
@@ -935,7 +946,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "Open-source trainable AlphaFold2 reimplementation; OpenProteinSet MSA data backbone; enables new tasks (protein-ligand) and open re-implementations"
+    "note": "Open-source trainable AlphaFold2 reimplementation; OpenProteinSet MSA data backbone; enables new tasks (protein-ligand) and open re-implementations",
+    "subsection": "Structural biology"
   },
   "york2000sloan": {
     "cells": [
@@ -943,7 +955,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "SDSS founding technical summary; survey goal pi steradians, hundreds of millions of objects by DR17"
+    "note": "SDSS founding technical summary; survey goal pi steradians, hundreds of millions of objects by DR17",
+    "subsection": "Astronomy, earth, and climate"
   },
   "abdurro2022seventeenth": {
     "cells": [
@@ -951,7 +964,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "SDSS DR17 final release; 10,010 MaNGA galaxies, ~4.9M cumulative spectra"
+    "note": "SDSS DR17 final release; 10,010 MaNGA galaxies, ~4.9M cumulative spectra",
+    "subsection": "Astronomy, earth, and climate"
   },
   "vallenari2023gaia": {
     "cells": [
@@ -959,7 +973,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "Gaia DR3; 1.5B sources, positions/parallaxes/spectrophotometry for nearly 2 billion stars"
+    "note": "Gaia DR3; 1.5B sources, positions/parallaxes/spectrophotometry for nearly 2 billion stars",
+    "subsection": "Astronomy, earth, and climate"
   },
   "mast": {
     "cells": [
@@ -967,7 +982,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "Hosts Hubble, JWST, TESS, Kepler, Pan-STARRS, GALEX in unified portal"
+    "note": "Hosts Hubble, JWST, TESS, Kepler, Pan-STARRS, GALEX in unified portal",
+    "subsection": "Astronomy, earth, and climate"
   },
   "DBLP:conf/mss/KoblerBCH95": {
     "cells": [
@@ -975,7 +991,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "NASA EOSDIS founding architecture paper; covers land, atmosphere, ocean Earth-observation data"
+    "note": "NASA EOSDIS founding architecture paper; covers land, atmosphere, ocean Earth-observation data",
+    "subsection": "Astronomy, earth, and climate"
   },
   "noaa_ncei": {
     "cells": [
@@ -983,7 +1000,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "World's largest weather and climate archive; ~100 PB, 140+ years of records"
+    "note": "World's largest weather and climate archive; ~100 PB, 140+ years of records",
+    "subsection": "Astronomy, earth, and climate"
   },
   "eyring2016overview": {
     "cells": [
@@ -991,7 +1009,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "CMIP6 design paper; petabyte-scale (~20 PB realized) climate model simulations from 49 groups"
+    "note": "CMIP6 design paper; petabyte-scale (~20 PB realized) climate model simulations from 49 groups",
+    "subsection": "Astronomy, earth, and climate"
   },
   "usgs_eros": {
     "cells": [
@@ -999,7 +1018,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "Archives entire Landsat record (50+ years, ~9M scenes); land remote sensing since 1972"
+    "note": "Archives entire Landsat record (50+ years, ~9M scenes); land remote sensing since 1972",
+    "subsection": "Astronomy, earth, and climate"
   },
   "climatepolicyradar": {
     "cells": [
@@ -1007,7 +1027,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "200+ country climate laws, NDCs, LTS documents; text corpus complementing scientific archives"
+    "note": "200+ country climate laws, NDCs, LTS documents; text corpus complementing scientific archives",
+    "subsection": "Astronomy, earth, and climate"
   },
   "DBLP:journals/corr/MaguireHW17": {
     "cells": [
@@ -1015,7 +1036,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "Preserves published HEP numerical results: scattering cross-sections, distributions, correlation matrices"
+    "note": "Preserves published HEP numerical results: scattering cross-sections, distributions, correlation matrices",
+    "subsection": "Particle and nuclear physics"
   },
   "cernopendata": {
     "cells": [
@@ -1023,7 +1045,8 @@
     ],
     "K": "K3",
     "O": "",
-    "note": "Full collision datasets from ATLAS, CMS, LHCb, ALICE under public access terms"
+    "note": "Full collision datasets from ATLAS, CMS, LHCb, ALICE under public access terms",
+    "subsection": "Particle and nuclear physics"
   },
   "aspenplus": {
     "cells": [
@@ -1295,5 +1318,14 @@
     "O": "",
     "note": "Medicine and clinical knowledge — Almanac: Knowledge-Grounded Language Models for Clinical Medicine (Zakka et al. 2023). Retrieval from PubMed, UpToDate, and BMJ Best Practices.",
     "subsection": "Medicine and clinical knowledge"
+  },
+  "DBLP:journals/jcisd/FrancoeurMSJISK20": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "Structural biology — CrossDocked2020: millions of ligand poses across PDB targets for structure-based drug design",
+    "subsection": "Structural biology"
   }
 }

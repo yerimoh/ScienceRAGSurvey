@@ -48,7 +48,7 @@
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
 <a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
-<a href="../cell/K3.html" class="sb-sub active">Observational & Experimental <span class="sb-count">23</span></a>
+<a href="../cell/K3.html" class="sb-sub active">Observational & Experimental <span class="sb-count">24</span></a>
 <a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">9</span></a>
 
       </div>
@@ -105,7 +105,7 @@
   <div class="wrap">
     <p class="eyebrow"><a href="../index.html#grid">← K×O Grid</a></p>
     <h1><span class="cell-id-big">[K3]</span> Observational &amp; Experimental</h1>
-    <p class="lede"><strong>23</strong> K-axis-only entries (datasets / knowledge sources without paired O).</p>
+    <p class="lede"><strong>24</strong> K-axis-only entries (datasets / knowledge sources without paired O).</p>
     <div class="cell-axis-pair">
       <div class="axis-card axis-k">
         <span class="axis-tag">K 3</span>
@@ -118,188 +118,219 @@
 
 <section class="cell-list">
   <div class="wrap">
-    
-    <div class="card-grid"><article class="card">
+    <div class="subsec-filter" id="kaxisK3subf">
+<button class="subsec-btn active" data-sub="">All <span class="subsec-n">24</span></button>
+<button class="subsec-btn" data-sub="Astronomy, earth, and climate">Astronomy, earth, and climate <span class="subsec-n">9</span></button>
+<button class="subsec-btn" data-sub="Medical imaging and clinical EHR">Medical imaging and clinical EHR <span class="subsec-n">8</span></button>
+<button class="subsec-btn" data-sub="Structural biology">Structural biology <span class="subsec-n">5</span></button>
+<button class="subsec-btn" data-sub="Particle and nuclear physics">Particle and nuclear physics <span class="subsec-n">2</span></button>
+</div>
+<script>
+(function(){
+  var bar = document.getElementById('kaxisK3subf');
+  if (!bar) return;
+  bar.querySelectorAll('.subsec-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      bar.querySelectorAll('.subsec-btn').forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      var sub = btn.dataset.sub;
+      document.querySelectorAll('.card[data-sub]').forEach(function(card){
+        card.style.display = (sub === '' || card.dataset.sub === sub) ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+
+    <div class="card-grid"><article class="card" data-sub="Structural biology">
+  <h3 class="card-title"><a href="https://doi.org/10.1021/acs.jcim.0c00411" target="_blank" rel="noopener">Three-Dimensional Convolutional Neural Networks and a Cross-Docked Data Set for Structure-Based Drug Design ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">CrossDocked2020</span> · <span class="meta-venue">J. Chem. Inf. Model.</span> · <span class="meta-year">2020</span></div>
+  <p class="card-note">Structural biology — CrossDocked2020: millions of ligand poses across PDB targets for structure-based drug design</p>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Structural biology</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">3D Structure</span></div>
+  <a href="../papers/DBLP_journals_jcisd_FrancoeurMSJISK20.html" class="card-summary-link">Summary →</a>
+</article>
+
+<article class="card" data-sub="Astronomy, earth, and climate">
   <h3 class="card-title">DBLP:conf/mss/KoblerBCH95</h3>
   
   <p class="card-note">NASA EOSDIS founding architecture paper; covers land, atmosphere, ocean Earth-observation data</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Astronomy, earth, and climate</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_mss_KoblerBCH95.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Particle and nuclear physics">
   <h3 class="card-title">DBLP:journals/corr/MaguireHW17</h3>
   
   <p class="card-note">Preserves published HEP numerical results: scattering cross-sections, distributions, correlation matrices</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Particle and nuclear physics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_corr_MaguireHW17.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Medical imaging and clinical EHR">
   <h3 class="card-title">DBLP:journals/jocn/MarcusWPCMB07</h3>
   
   <p class="card-note">Canonical MRI dataset for normal aging and Alzheimer&#x27;s disease; 416 subjects aged 18-96; cross-sectional T1-weighted MRI</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Medical imaging and clinical EHR</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_jocn_MarcusWPCMB07.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Structural biology">
   <h3 class="card-title">DBLP:journals/nar/BermanWFGBWSB00</h3>
   
   <p class="card-note">Single worldwide archive of 3D structures of biological macromolecules; experimental ground truth for structural biology</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Structural biology</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_nar_BermanWFGBWSB00.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Structural biology">
   <h3 class="card-title">DBLP:journals/nar/VaradiADNNYYSWL22</h3>
   
   <p class="card-note">Initial release: &gt;360,000 predicted structures across 21 model organism proteomes; predicted complement to PDB experimental structures</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Structural biology</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_nar_VaradiADNNYYSWL22.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Astronomy, earth, and climate">
   <h3 class="card-title">abdurro2022seventeenth</h3>
   
   <p class="card-note">SDSS DR17 final release; 10,010 MaNGA galaxies, ~4.9M cumulative spectra</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Astronomy, earth, and climate</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/abdurro2022seventeenth.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Structural biology">
   <h3 class="card-title">ahdritz2024openfold</h3>
   
   <p class="card-note">Open-source trainable AlphaFold2 reimplementation; OpenProteinSet MSA data backbone; enables new tasks (protein-ligand) and open re-implementations</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Structural biology</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/ahdritz2024openfold.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Particle and nuclear physics">
   <h3 class="card-title">cernopendata</h3>
   
   <p class="card-note">Full collision datasets from ATLAS, CMS, LHCb, ALICE under public access terms</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Particle and nuclear physics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/cernopendata.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Astronomy, earth, and climate">
   <h3 class="card-title">climatepolicyradar</h3>
   
   <p class="card-note">200+ country climate laws, NDCs, LTS documents; text corpus complementing scientific archives</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Astronomy, earth, and climate</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/climatepolicyradar.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Medical imaging and clinical EHR">
   <h3 class="card-title">di2014autism</h3>
   
   <p class="card-note">Multi-site ASD neuroimaging dataset; 1,112 resting-state fMRI (539 ASD + 573 controls); ages 7-64</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Medical imaging and clinical EHR</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/di2014autism.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Astronomy, earth, and climate">
   <h3 class="card-title">eyring2016overview</h3>
   
   <p class="card-note">CMIP6 design paper; petabyte-scale (~20 PB realized) climate model simulations from 49 groups</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Astronomy, earth, and climate</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/eyring2016overview.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Medical imaging and clinical EHR">
   <h3 class="card-title">johnson2016mimic</h3>
   
   <p class="card-note">ICU EHR dataset — Beth Israel Deaconess Medical Center; 53,423 adult ICU admissions 2001-2012; primary clinical RAG retrieval target</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Medical imaging and clinical EHR</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/johnson2016mimic.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Medical imaging and clinical EHR">
   <h3 class="card-title">johnson2023mimic</h3>
   
   <p class="card-note">Contemporary EHR dataset — BIDMC 2008-2019; 431,231 hospital admissions; 180,733 unique patients; successor to MIMIC-III</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Medical imaging and clinical EHR</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/johnson2023mimic.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Medical imaging and clinical EHR">
   <h3 class="card-title">liu2018integrated</h3>
   
   <p class="card-note">Pan-cancer atlas; &gt;11,000 tumors across 33 cancer types; standardized clinical outcome endpoints (OS/PFI/DFI/DSS)</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Medical imaging and clinical EHR</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/liu2018integrated.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Astronomy, earth, and climate">
   <h3 class="card-title">mast</h3>
   
   <p class="card-note">Hosts Hubble, JWST, TESS, Kepler, Pan-STARRS, GALEX in unified portal</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Astronomy, earth, and climate</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/mast.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Astronomy, earth, and climate">
   <h3 class="card-title">noaa_ncei</h3>
   
   <p class="card-note">World&#x27;s largest weather and climate archive; ~100 PB, 140+ years of records</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Astronomy, earth, and climate</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/noaa_ncei.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Medical imaging and clinical EHR">
   <h3 class="card-title">osanlouy2021sparc</h3>
   
   <p class="card-note">NIH-funded autonomic nervous system data and resource center; 2D flatmaps + 3D organ scaffolds; curated experimental data and mathematical models</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Medical imaging and clinical EHR</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/osanlouy2021sparc.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Medical imaging and clinical EHR">
   <h3 class="card-title">petersen2010alzheimer</h3>
   
   <p class="card-note">Multi-site Alzheimer&#x27;s disease neuroimaging cohort; 819 subjects (229 normal, 398 MCI, 192 AD); MRI+PET+CSF biomarkers</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Medical imaging and clinical EHR</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/petersen2010alzheimer.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Medical imaging and clinical EHR">
   <h3 class="card-title">uhlen2015tissue</h3>
   
   <p class="card-note">Spatial protein expression maps across 32 normal and cancer tissues; &gt;90% of protein-coding genes detected; IHC + transcriptomics integration</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Medical imaging and clinical EHR</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/uhlen2015tissue.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Astronomy, earth, and climate">
   <h3 class="card-title">usgs_eros</h3>
   
   <p class="card-note">Archives entire Landsat record (50+ years, ~9M scenes); land remote sensing since 1972</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Astronomy, earth, and climate</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/usgs_eros.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Astronomy, earth, and climate">
   <h3 class="card-title">vallenari2023gaia</h3>
   
   <p class="card-note">Gaia DR3; 1.5B sources, positions/parallaxes/spectrophotometry for nearly 2 billion stars</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Astronomy, earth, and climate</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/vallenari2023gaia.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Structural biology">
   <h3 class="card-title">varadi2024alphafold</h3>
   
   <p class="card-note">&gt;214 million predicted structures; ~500x expansion from initial 2021 release; integrated with PDB, UniProt, Ensembl, InterPro, MobiDB</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Structural biology</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/varadi2024alphafold.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Astronomy, earth, and climate">
   <h3 class="card-title">york2000sloan</h3>
   
   <p class="card-note">SDSS founding technical summary; survey goal pi steradians, hundreds of millions of objects by DR17</p>
-  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Astronomy, earth, and climate</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/york2000sloan.html" class="card-summary-link">Summary →</a>
 </article>
 </div>

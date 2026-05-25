@@ -1197,6 +1197,15 @@
         "medical"
       ],
       "paper_link": "https://doi.org/10.48550/arXiv.2303.01229"
+    },
+    "DBLP:journals/jcisd/FrancoeurMSJISK20": {
+      "title": "Three-Dimensional Convolutional Neural Networks and a Cross-Docked Data Set for Structure-Based Drug Design",
+      "year": 2020,
+      "venue": "J. Chem. Inf. Model.",
+      "domain": [
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.1021/acs.jcim.0c00411"
     }
   }
 }
