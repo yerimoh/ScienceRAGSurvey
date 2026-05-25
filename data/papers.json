@@ -3910,6 +3910,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "lee2023climate",
+    "title": "Climate Change 2023: Synthesis Report (IPCC AR6)",
+    "year": 2023,
+    "venue": "IPCC",
+    "method": null,
+    "domain": [
+      "earth"
+    ],
+    "paper_link": "https://www.ipcc.ch/report/ar6/syr/",
+    "note": "K1 domain-specific (climate): IPCC AR6 Synthesis Report 2023. Authoritative multi-sector climate science reference used by ClimateRAG systems.",
+    "ko_cells": [
+      "K1"
+    ],
+    "ko_primary": "K1",
+    "ko_note": "K1 domain-specific (climate): IPCC AR6 Synthesis Report 2023. Authoritative multi-sector climate science reference used by ClimateRAG systems.",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Domain-specific literature"
+  },
+  {
     "title": "DS-1000: A Natural and Reliable Benchmark for Data Science Code Generation",
     "year": 2023,
     "venue": "ICML",
@@ -5121,6 +5142,28 @@
     "ko_primary": null,
     "ko_note": "",
     "cross_source": false
+  },
+  {
+    "bib_key": "sever2019biorxiv",
+    "title": "bioRxiv: the Preprint Server for Biology",
+    "year": 2019,
+    "venue": "Cold Spring Harb. Lab.",
+    "method": null,
+    "domain": [
+      "bio",
+      "medical"
+    ],
+    "paper_link": "https://www.biorxiv.org",
+    "note": "K1 preprint (biology): bioRxiv is the primary biology preprint server, used as retrieval corpus in bio/medical RAG systems before peer review.",
+    "ko_cells": [
+      "K1"
+    ],
+    "ko_primary": "K1",
+    "ko_note": "K1 preprint (biology): bioRxiv is the primary biology preprint server, used as retrieval corpus in bio/medical RAG systems before peer review.",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Preprint literature"
   },
   {
     "title": "A dataset of clinically generated visual questions and answers about radiology images",
@@ -7003,25 +7046,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "lee2023climate",
-    "title": "lee2023climate",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "main.tex: K=K1; O=-",
-    "ko_cells": [
-      "K1"
-    ],
-    "ko_primary": "K1",
-    "ko_note": "main.tex: K=K1; O=-",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Domain-specific literature"
-  },
-  {
     "bib_key": "linstrom2001nist",
     "title": "linstrom2001nist",
     "year": null,
@@ -7308,25 +7332,6 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true
-  },
-  {
-    "bib_key": "sever2019biorxiv",
-    "title": "sever2019biorxiv",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "main.tex: K=K1; O=- (Preprint literature / bioRxiv)",
-    "ko_cells": [
-      "K1"
-    ],
-    "ko_primary": "K1",
-    "ko_note": "main.tex: K=K1; O=- (Preprint literature / bioRxiv)",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Preprint literature"
   },
   {
     "bib_key": "uhlen2015tissue",

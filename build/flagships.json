@@ -605,6 +605,25 @@
         "earth"
       ],
       "paper_link": "https://orcid.org"
+    },
+    "lee2023climate": {
+      "title": "Climate Change 2023: Synthesis Report (IPCC AR6)",
+      "year": 2023,
+      "venue": "IPCC",
+      "domain": [
+        "earth"
+      ],
+      "paper_link": "https://www.ipcc.ch/report/ar6/syr/"
+    },
+    "sever2019biorxiv": {
+      "title": "bioRxiv: the Preprint Server for Biology",
+      "year": 2019,
+      "venue": "Cold Spring Harb. Lab.",
+      "domain": [
+        "bio",
+        "medical"
+      ],
+      "paper_link": "https://www.biorxiv.org"
     }
   }
 }

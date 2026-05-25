@@ -279,7 +279,7 @@
     ],
     "K": "K1",
     "O": "",
-    "note": "main.tex: K=K1; O=-",
+    "note": "K1 domain-specific (climate): IPCC AR6 Synthesis Report 2023. Authoritative multi-sector climate science reference used by ClimateRAG systems.",
     "subsection": "Domain-specific literature"
   },
   "sever2019biorxiv": {
@@ -288,7 +288,7 @@
     ],
     "K": "K1",
     "O": "",
-    "note": "main.tex: K=K1; O=- (Preprint literature / bioRxiv)",
+    "note": "K1 preprint (biology): bioRxiv is the primary biology preprint server, used as retrieval corpus in bio/medical RAG systems before peer review.",
     "subsection": "Preprint literature"
   },
   "DBLP:journals/nar/KimTBCFGHHHSWYZ16": {
