@@ -1270,5 +1270,13 @@
     "O": "",
     "note": "ORCID: author disambiguation identifier used by OpenAlex (K1 general literature)",
     "subsection": "General-purpose literature"
+  },
+  "DBLP:journals/nar/SayersBBCCCFFFFHKKKKLLLMMMMPPRSTWYT23": {
+    "cells": [
+      "K2"
+    ],
+    "primary": "K2",
+    "note": "Biology and genomics — NCBI comprehensive database resources (Gene, Genome, Protein) 2023",
+    "subsection": "Biology and genomics"
   }
 }

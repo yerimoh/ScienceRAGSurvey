@@ -4109,6 +4109,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "DBLP:journals/nar/SayersBBCCCFFFFHKKKKLLLMMMMPPRSTWYT23",
+    "title": "Database resources of the National Center for Biotechnology Information in 2023",
+    "year": 2023,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkac1032",
+    "note": "Biology and genomics — NCBI comprehensive database resources (Gene, Genome, Protein) 2023",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — NCBI comprehensive database resources (Gene, Genome, Protein) 2023",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Biology and genomics"
+  },
+  {
     "title": "Domain-specific chatbots for science using embeddings",
     "year": 2023,
     "venue": "Digital Discovery (RSC)",

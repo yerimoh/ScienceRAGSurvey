@@ -1170,6 +1170,15 @@
         "physics"
       ],
       "paper_link": "https://doi.org/10.1103/PhysRevD.110.030001"
+    },
+    "DBLP:journals/nar/SayersBBCCCFFFFHKKKKLLLMMMMPPRSTWYT23": {
+      "title": "Database resources of the National Center for Biotechnology Information in 2023",
+      "year": 2023,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gkac1032"
     }
   }
 }
