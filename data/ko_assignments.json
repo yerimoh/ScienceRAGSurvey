@@ -1106,5 +1106,21 @@
     "K": "K4",
     "O": "O1",
     "note": "cmbagent: multi-agent RAG over cobaya/classy_sz/cosmocnc software docs (K4 software-embedded knowledge)"
+  },
+  "scopus": {
+    "cells": [
+      "K1"
+    ],
+    "K": "K1",
+    "O": "",
+    "note": "Elsevier Scopus: subscription-based abstract and citation database (commercial K1 general literature)"
+  },
+  "webofscience": {
+    "cells": [
+      "K1"
+    ],
+    "K": "K1",
+    "O": "",
+    "note": "Clarivate Web of Science: subscription-based multidisciplinary citation index (commercial K1 general literature)"
   }
 }

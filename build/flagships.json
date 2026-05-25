@@ -538,6 +538,34 @@
         "medical"
       ],
       "paper_link": ""
+    },
+    "scopus": {
+      "title": "Scopus",
+      "year": 2004,
+      "venue": "Elsevier",
+      "domain": [
+        "bio",
+        "medical",
+        "chem",
+        "physics",
+        "earth"
+      ],
+      "paper_link": "https://www.scopus.com",
+      "note": "Subscription-based abstract and citation database covering science, technology, medicine, and social sciences."
+    },
+    "webofscience": {
+      "title": "Web of Science",
+      "year": 1997,
+      "venue": "Clarivate",
+      "domain": [
+        "bio",
+        "medical",
+        "chem",
+        "physics",
+        "earth"
+      ],
+      "paper_link": "https://www.webofscience.com",
+      "note": "Subscription-based multidisciplinary citation index spanning natural sciences, social sciences, and arts and humanities."
     }
   }
 }

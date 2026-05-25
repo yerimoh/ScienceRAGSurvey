@@ -5590,6 +5590,30 @@
     "cross_source": false
   },
   {
+    "bib_key": "scopus",
+    "title": "Scopus",
+    "year": 2004,
+    "venue": "Elsevier",
+    "method": null,
+    "domain": [
+      "bio",
+      "medical",
+      "chem",
+      "physics",
+      "earth"
+    ],
+    "paper_link": "https://www.scopus.com",
+    "note": "Elsevier Scopus: subscription-based abstract and citation database (commercial K1 general literature)",
+    "ko_cells": [
+      "K1"
+    ],
+    "ko_primary": "K1",
+    "ko_note": "Elsevier Scopus: subscription-based abstract and citation database (commercial K1 general literature)",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true
+  },
+  {
     "title": "The NASA Astrophysics Data System: Overview",
     "year": 2000,
     "venue": "Astronomy and Astrophysics Supplement Series",
@@ -5619,6 +5643,30 @@
     "ko_primary": "K1",
     "ko_note": "main.tex: K=K1; domain-specific astronomy (NASA ADS)",
     "cross_source": false
+  },
+  {
+    "bib_key": "webofscience",
+    "title": "Web of Science",
+    "year": 1997,
+    "venue": "Clarivate",
+    "method": null,
+    "domain": [
+      "bio",
+      "medical",
+      "chem",
+      "physics",
+      "earth"
+    ],
+    "paper_link": "https://www.webofscience.com",
+    "note": "Clarivate Web of Science: subscription-based multidisciplinary citation index (commercial K1 general literature)",
+    "ko_cells": [
+      "K1"
+    ],
+    "ko_primary": "K1",
+    "ko_note": "Clarivate Web of Science: subscription-based multidisciplinary citation index (commercial K1 general literature)",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true
   },
   {
     "bib_key": "DBLP:conf/emnlp/ZhangSHML24",
