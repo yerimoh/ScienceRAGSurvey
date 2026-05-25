@@ -1139,24 +1139,33 @@ main.with-sidebar {
 .prop-table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.1rem 0 1.6rem;
-  font-size: .9rem;
+  margin: 1.2rem 0 1.8rem;
+  font-size: .88rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
 }
 .prop-table tr { border-bottom: 1px solid var(--line); }
 .prop-table tr:last-child { border-bottom: none; }
+.prop-table tr:hover td, .prop-table tr:hover th { background: #f0f4ff; }
 .prop-key {
-  width: 8rem;
-  padding: .5rem .8rem .5rem 0;
+  width: 9.5rem;
+  padding: .55rem 1rem;
   font-weight: 600;
-  color: var(--fg-muted);
+  color: #5a6a8a;
+  background: #f4f6fb;
   white-space: nowrap;
-  vertical-align: top;
-  font-size: .82rem;
+  vertical-align: middle;
+  font-size: .78rem;
+  letter-spacing: .03em;
+  border-right: 1px solid var(--line);
 }
 .prop-val {
-  padding: .5rem 0;
+  padding: .55rem 1rem;
   color: var(--fg);
-  vertical-align: top;
+  vertical-align: middle;
+  line-height: 1.5;
 }
 
 /* ===== Pipeline diagram (About page) ===== */
