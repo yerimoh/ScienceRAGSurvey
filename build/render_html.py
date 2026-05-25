@@ -45,6 +45,40 @@ TYPE_LABELS = {
 }
 
 
+def subsec_filter_html(papers_list, prefix=''):
+    """Return filter-chip bar + inline JS for subsection filtering.
+    Only emitted when 2+ distinct subsections exist in papers_list.
+    prefix: CSS class prefix to avoid ID collisions between pages.
+    """
+    from collections import Counter
+    counts = Counter(p.get('subsection', '') for p in papers_list if p.get('subsection'))
+    if len(counts) < 2:
+        return ''
+    total = len(papers_list)
+    chips = f'<button class="subsec-btn active" data-sub="">All <span class="subsec-n">{total}</span></button>\n'
+    for sub, n in sorted(counts.items(), key=lambda x: -x[1]):
+        chips += f'<button class="subsec-btn" data-sub="{esc(sub)}">{esc(sub)} <span class="subsec-n">{n}</span></button>\n'
+    return f'''<div class="subsec-filter" id="{prefix}subf">
+{chips}</div>
+<script>
+(function(){{
+  var bar = document.getElementById('{prefix}subf');
+  if (!bar) return;
+  bar.querySelectorAll('.subsec-btn').forEach(function(btn){{
+    btn.addEventListener('click', function(){{
+      bar.querySelectorAll('.subsec-btn').forEach(function(b){{b.classList.remove('active');}});
+      btn.classList.add('active');
+      var sub = btn.dataset.sub;
+      document.querySelectorAll('.card[data-sub]').forEach(function(card){{
+        card.style.display = (sub === '' || card.dataset.sub === sub) ? '' : 'none';
+      }});
+    }});
+  }});
+}})();
+</script>
+'''
+
+
 def cell_label(code):
     """Convert K/O code to human-readable label, e.g. 'K1.O1' → 'Primary Literature × Ground'."""
     if '.' in code:
@@ -274,7 +308,8 @@ def paper_card(p, base=''):
     summary_link = (f'<a href="{base}papers/{paper_fn}" class="card-summary-link">Summary →</a>'
                     if has_summary else '')
 
-    return f'''<article class="card">
+    subsec_attr = f' data-sub="{esc(p.get("subsection",""))}"' if p.get('subsection') else ''
+    return f'''<article class="card"{subsec_attr}>
   <h3 class="card-title">{title_html}</h3>
   {f'<div class="card-meta">{meta}</div>' if meta else ''}
   {f'<p class="card-note">{note}</p>' if note else ''}
@@ -637,14 +672,18 @@ def render_browse():
     domain_opts = '\n'.join(f'<option value="{d}">{esc(DOMAIN_LABELS[d])} ({len(by_dom[d])})</option>' for d in DOMAIN_LABELS if d in by_dom)
     type_opts = '\n'.join(f'<option value="{t}">{esc(TYPE_LABELS[t])} ({len(by_type[t])})</option>' for t in TYPE_LABELS if t in by_type)
     cell_opts = '\n'.join(f'<option value="{K}.{O}">[{K}.{O}] {esc(K_LABELS[K][0])} × {esc(O_LABELS[O][0])} ({len(by_cell.get(K+"."+O, []))})</option>' for K in ['K1','K2','K3','K4'] for O in ['O1','O2','O3'])
+    from collections import Counter
+    sub_counts = Counter(p.get('subsection','') for p in papers if p.get('subsection'))
+    sub_opts = '\n'.join(f'<option value="{esc(s)}">{esc(s)} ({n})</option>' for s, n in sorted(sub_counts.items(), key=lambda x: -x[1]))
     body = f'''
 <section class="browse-hero">
   <div class="wrap">
     <h1>Browse all {len(papers)} entries</h1>
-    <p class="lede">Filter by K×O cell, domain, type, or year. Search hits title · method · note · tags.</p>
+    <p class="lede">Filter by K×O cell, subsection, domain, type, or year.</p>
     <div class="filters">
       <input id="q" type="search" placeholder="Search…" autofocus>
       <select id="f-cell"><option value="">All K×O cells</option>{cell_opts}</select>
+      <select id="f-sub"><option value="">All subsections</option>{sub_opts}</select>
       <select id="f-domain"><option value="">All domains</option>{domain_opts}</select>
       <select id="f-type"><option value="">All types</option>{type_opts}</select>
       <select id="f-year">
@@ -688,6 +727,7 @@ def render_cell_pages():
             )
 
             cards = '\n'.join(paper_card(p, base='../') for p in ps) or '<p class="empty">No verified entries in this cell yet — see <a href="../about.html#methodology">methodology</a> and the survey §11 frontier discussion.</p>'
+            sf = subsec_filter_html(ps, prefix=f'cell{cell}')
 
             body = f'''
 <section class="cell-hero">
@@ -713,6 +753,7 @@ def render_cell_pages():
 
 <section class="cell-list">
   <div class="wrap">
+    {sf}
     <div class="card-grid">{cards}</div>
   </div>
 </section>
@@ -724,6 +765,7 @@ def render_cell_pages():
         ps = sorted(by_cell.get(K, []), key=year_sort)
         kn, kd = K_LABELS[K]
         cards = '\n'.join(paper_card(p, base='../') for p in ps) or '<p class="empty">No K-only entries yet.</p>'
+        sf = subsec_filter_html(ps, prefix=f'kaxis{K}')
         body = f'''
 <section class="cell-hero">
   <div class="wrap">
@@ -742,6 +784,7 @@ def render_cell_pages():
 
 <section class="cell-list">
   <div class="wrap">
+    {sf}
     <div class="card-grid">{cards}</div>
   </div>
 </section>

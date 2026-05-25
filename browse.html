@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Browse — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="static/style.css?v=1779697262">
+<link rel="stylesheet" href="static/style.css?v=1779699531">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -103,7 +103,7 @@
 <section class="browse-hero">
   <div class="wrap">
     <h1>Browse all 34 entries</h1>
-    <p class="lede">Filter by K×O cell, domain, type, or year. Search hits title · method · note · tags.</p>
+    <p class="lede">Filter by K×O cell, subsection, domain, type, or year.</p>
     <div class="filters">
       <input id="q" type="search" placeholder="Search…" autofocus>
       <select id="f-cell"><option value="">All K×O cells</option><option value="K1.O1">[K1.O1] Primary Literature × Ground (6)</option>
@@ -118,6 +118,17 @@
 <option value="K4.O1">[K4.O1] Tacit Knowledge × Ground (1)</option>
 <option value="K4.O2">[K4.O2] Tacit Knowledge × Synthesis (0)</option>
 <option value="K4.O3">[K4.O3] Tacit Knowledge × Hypothesis (0)</option></select>
+      <select id="f-sub"><option value="">All subsections</option><option value="Conflict-aware Synthesis">Conflict-aware Synthesis (7)</option>
+<option value="General-purpose literature">General-purpose literature (4)</option>
+<option value="Closed-form QA Grounding">Closed-form QA Grounding (4)</option>
+<option value="Domain-specific literature">Domain-specific literature (4)</option>
+<option value="Aggregative Synthesis">Aggregative Synthesis (3)</option>
+<option value="Verificative Synthesis">Verificative Synthesis (3)</option>
+<option value="Long-form citation Grounding">Long-form citation Grounding (3)</option>
+<option value="KB-entry Grounding">KB-entry Grounding (2)</option>
+<option value="Held by institutions">Held by institutions (2)</option>
+<option value="Cross-modal Grounding">Cross-modal Grounding (1)</option>
+<option value="Structural biology">Structural biology (1)</option></select>
       <select id="f-domain"><option value="">All domains</option><option value="bio">Biology (18)</option>
 <option value="chem">Chemistry (9)</option>
 <option value="medical">Medicine (16)</option>

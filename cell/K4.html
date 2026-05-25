@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[K4] Tacit Knowledge — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1779697262">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -117,7 +117,29 @@
 
 <section class="cell-list">
   <div class="wrap">
-    <div class="card-grid"><article class="card">
+    <div class="subsec-filter" id="kaxisK4subf">
+<button class="subsec-btn active" data-sub="">All <span class="subsec-n">2</span></button>
+<button class="subsec-btn" data-sub="Held by institutions">Held by institutions <span class="subsec-n">1</span></button>
+<button class="subsec-btn" data-sub="General-purpose literature">General-purpose literature <span class="subsec-n">1</span></button>
+</div>
+<script>
+(function(){
+  var bar = document.getElementById('kaxisK4subf');
+  if (!bar) return;
+  bar.querySelectorAll('.subsec-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      bar.querySelectorAll('.subsec-btn').forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      var sub = btn.dataset.sub;
+      document.querySelectorAll('.card[data-sub]').forEach(function(card){
+        card.style.display = (sub === '' || card.dataset.sub === sub) ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+
+    <div class="card-grid"><article class="card" data-sub="Held by institutions">
   <h3 class="card-title"><a href="https://doi.org/10.1021/acs.jcim.5c01941" target="_blank" rel="noopener">Materials Dual-Source Knowledge Retrieval-Augmented Generation for Local Large Language Models in Photocatalysts ↗</a></h3>
   <div class="card-meta"><span class="meta-method">MDSK-RAG</span> · <span class="meta-venue">J. Chem. Inf. Model.</span> · <span class="meta-year">2025</span></div>
   <p class="card-note">CSV+PDF 이중 소스 오프라인 RAG. gemma-2-9b-it+RAG가 GPT-4o(no RAG)보다 우세 (0.71 vs 0.66).</p>
@@ -125,7 +147,7 @@
   <a href="../papers/DBLP_journals_jcisd_TakaharaYOKHTTKF25.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="General-purpose literature">
   <h3 class="card-title"><a href="https://arxiv.org/abs/1911.02782" target="_blank" rel="noopener">S2ORC: The Semantic Scholar Open Research Corpus ↗</a></h3>
   <div class="card-meta"><span class="meta-method">S2ORC</span> · <span class="meta-venue">ACL</span> · <span class="meta-year">2020</span></div>
   <p class="card-note">81M 학술 코퍼스. S2ORC-SCIBERT.</p>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[K1.O2] Primary Literature × Synthesis — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1779697262">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -134,7 +134,30 @@
 
 <section class="cell-list">
   <div class="wrap">
-    <div class="card-grid"><article class="card">
+    <div class="subsec-filter" id="cellK1.O2subf">
+<button class="subsec-btn active" data-sub="">All <span class="subsec-n">5</span></button>
+<button class="subsec-btn" data-sub="Aggregative Synthesis">Aggregative Synthesis <span class="subsec-n">2</span></button>
+<button class="subsec-btn" data-sub="Verificative Synthesis">Verificative Synthesis <span class="subsec-n">2</span></button>
+<button class="subsec-btn" data-sub="Long-form citation Grounding">Long-form citation Grounding <span class="subsec-n">1</span></button>
+</div>
+<script>
+(function(){
+  var bar = document.getElementById('cellK1.O2subf');
+  if (!bar) return;
+  bar.querySelectorAll('.subsec-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      bar.querySelectorAll('.subsec-btn').forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      var sub = btn.dataset.sub;
+      document.querySelectorAll('.card[data-sub]').forEach(function(card){
+        card.style.display = (sub === '' || card.dataset.sub === sub) ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+
+    <div class="card-grid"><article class="card" data-sub="Long-form citation Grounding">
   <h3 class="card-title"><a href="https://doi.org/10.1038/s41586-025-10072-4" target="_blank" rel="noopener">Synthesizing Scientific Literature with Retrieval-Augmented Language Models ↗</a></h3>
   <div class="card-meta"><span class="meta-method">ScholarQABench</span> · <span class="meta-venue">Nature</span> · <span class="meta-year">2026</span></div>
   <p class="card-note">OpenScholar의 다학제 장문 합성 벤치마크.</p>
@@ -142,7 +165,7 @@
   <a href="../papers/asai2026synthesizing.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Aggregative Synthesis">
   <h3 class="card-title"><a href="https://doi.org/10.1145/3746252.3761471" target="_blank" rel="noopener">SQuAI: Scientific Question-Answering with Multi-Agent Retrieval-Augmented Generation ↗</a></h3>
   <div class="card-meta"><span class="meta-method">unarXive (Simple, Expert)</span> · <span class="meta-venue">CIKM</span> · <span class="meta-year">2025</span></div>
   <p class="card-note">main.tex: K=-; O=O2</p>
@@ -150,7 +173,7 @@
   <a href="../papers/DBLP_conf_cikm_BesrourHS025.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Aggregative Synthesis">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2409.13740" target="_blank" rel="noopener">Language Agents Achieve Superhuman Synthesis of Scientific Knowledge ↗</a></h3>
   <div class="card-meta"><span class="meta-method">PaperQA2</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2024</span></div>
   <p class="card-note">인간 전문가 초과 RAG. PaperQA2 85.2% &gt; 인간 73.8%. RCS + Citation Traversal.</p>
@@ -158,7 +181,7 @@
   <a href="../papers/DBLP_journals_corr_abs-2409-13740.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Verificative Synthesis">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2210.13777" target="_blank" rel="noopener">SCIFACT-OPEN: Towards open-domain scientific claim verification ↗</a></h3>
   <div class="card-meta"><span class="meta-method">SCIFACT-OPEN</span> · <span class="meta-venue">EMNLP (Findings)</span> · <span class="meta-year">2022</span></div>
   <p class="card-note">50만 문서 오픈 도메인. SOTA F1 15-30 하락 일반화 한계.</p>
@@ -166,7 +189,7 @@
   <a href="../papers/DBLP_conf_emnlp_WaddenLKCBWH22.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Verificative Synthesis">
   <h3 class="card-title"><a href="https://aclanthology.org/2020.emnlp-main.609/" target="_blank" rel="noopener">Fact or Fiction: Verifying Scientific Claims ↗</a></h3>
   <div class="card-meta"><span class="meta-method">VERISCI</span> · <span class="meta-venue">EMNLP</span> · <span class="meta-year">2020</span></div>
   <p class="card-note">과학적 클레임 검증 첫 공식화. Citance 1.4K SCIFACT. TF-IDF + RoBERTa 3단계.</p>

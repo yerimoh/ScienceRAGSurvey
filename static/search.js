@@ -5,6 +5,7 @@
   const countEl = document.getElementById('result-count');
   const q = document.getElementById('q');
   const fCell = document.getElementById('f-cell');
+  const fSub  = document.getElementById('f-sub');
   const fDomain = document.getElementById('f-domain');
   const fType = document.getElementById('f-type');
   const fYear = document.getElementById('f-year');
@@ -76,12 +77,14 @@
   function applyFilters() {
     const query = (q.value || '').trim().toLowerCase();
     const cell = fCell.value;
+    const sub  = fSub ? fSub.value : '';
     const dom = fDomain.value;
     const typ = fType.value;
     const yr = fYear.value;
 
     const out = allPapers.filter(p => {
       if (cell && !(p.ko_cells || []).includes(cell)) return false;
+      if (sub  && p.subsection !== sub) return false;
       if (dom && !(p.domain || []).includes(dom)) return false;
       if (typ && p.type !== typ) return false;
       if (yr) {
@@ -121,6 +124,7 @@
     const params = new URLSearchParams();
     if (query) params.set('q', q.value);
     if (cell) params.set('cell', cell);
+    if (sub)  params.set('sub', sub);
     if (dom) params.set('domain', dom);
     if (typ) params.set('type', typ);
     if (yr) params.set('year', yr);
@@ -132,13 +136,15 @@
   const params = new URLSearchParams(window.location.search);
   if (params.get('q')) q.value = params.get('q');
   if (params.get('cell')) fCell.value = params.get('cell');
+  if (params.get('sub') && fSub) fSub.value = params.get('sub');
   if (params.get('domain')) fDomain.value = params.get('domain');
   if (params.get('type')) fType.value = params.get('type');
   if (params.get('year')) fYear.value = params.get('year');
 
-  [q, fCell, fDomain, fType, fYear].forEach(el => el.addEventListener('input', applyFilters));
+  [q, fCell, fSub, fDomain, fType, fYear].filter(Boolean).forEach(el => el.addEventListener('input', applyFilters));
   fReset.addEventListener('click', () => {
-    q.value = ''; fCell.value = ''; fDomain.value = ''; fType.value = ''; fYear.value = '';
+    q.value = ''; fCell.value = ''; if (fSub) fSub.value = '';
+    fDomain.value = ''; fType.value = ''; fYear.value = '';
     applyFilters();
   });
 
