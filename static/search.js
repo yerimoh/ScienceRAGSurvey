@@ -13,6 +13,15 @@
   const DOMAIN_LABELS = {bio:'Biology', chem:'Chemistry', medical:'Medicine', material:'Materials Science', physics:'Physics', earth:'Earth Science', astronomy:'Astronomy', Quantum:'Quantum', general:'General Science'};
   const DOMAIN_EMOJI  = {bio:'🧬', chem:'⚗️', medical:'🩺', material:'🪨', physics:'⚛️', earth:'🌍', astronomy:'🔭', Quantum:'🌀', general:'📚'};
   const TYPE_LABELS = {Method:'Methods', benchmark:'Benchmarks', dataset:'Datasets', summary:'Surveys'};
+  const K_LABELS = {'K1':'Primary Literature','K2':'Curated Knowledge Base','K3':'Observational & Experimental','K4':'Tacit Knowledge'};
+  const O_LABELS = {'O1':'Ground','O2':'Synthesis','O3':'Hypothesis'};
+  function cellLabel(code) {
+    if (code.includes('.')) {
+      const [k, o] = code.split('.');
+      return `${K_LABELS[k] || k} × ${O_LABELS[o] || o}`;
+    }
+    return K_LABELS[code] || O_LABELS[code] || code;
+  }
 
   const esc = s => (s == null ? '' : String(s).replace(/[&<>"']/g, c => ({
     '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
@@ -35,7 +44,8 @@
     if (note.length > 280) note = note.slice(0, 277) + '…';
 
     const tags = [];
-    (p.ko_cells || []).forEach(c => tags.push(`<a href="cell/${c}.html" class="tag tag-cell">${esc(c)}</a>`));
+    (p.ko_cells || []).forEach(c => tags.push(`<a href="cell/${c}.html" class="tag tag-cell" title="${esc(c)}">${esc(cellLabel(c))}</a>`));
+    if (p.subsection) tags.push(`<span class="tag tag-sub">${esc(p.subsection)}</span>`);
     (p.domain || []).forEach(d => tags.push(`<a href="domain/${d}.html" class="tag tag-domain">${DOMAIN_EMOJI[d] || ''}${esc(DOMAIN_LABELS[d] || d)}</a>`));
     if (p.type && p.type !== 'unknown') tags.push(`<a href="topics/${p.type.toLowerCase()}.html" class="tag tag-type">${esc(TYPE_LABELS[p.type] || p.type)}</a>`);
     (p.modality || []).forEach(m => { if (m && m !== 'Text') tags.push(`<span class="tag tag-mod">${esc(m)}</span>`); });
@@ -85,8 +95,8 @@
       if (query) {
         const hay = [
           p.title, p.method, p.note, p.ko_note, p.venue, p.bib_key,
-          p.db_name, p.retriever, p.generator,
-          (p.ko_cells || []).join(' '),
+          p.db_name, p.retriever, p.generator, p.subsection,
+          (p.ko_cells || []).map(cellLabel).join(' '),
           (p.domain || []).map(d => DOMAIN_LABELS[d] || d).join(' '),
           (p.modality || []).join(' '),
         ].filter(Boolean).join(' ').toLowerCase();

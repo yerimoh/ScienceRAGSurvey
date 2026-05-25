@@ -35,7 +35,8 @@
     "ko_primary": "K1",
     "ko_note": "main.tex: K=K1,K4; O=-",
     "cross_source": false,
-    "ko_secondary": "K4"
+    "ko_secondary": "K4",
+    "subsection": "General-purpose literature"
   },
   {
     "title": "Benchmarking Retrieval-Augmented Generation for Medicine",
@@ -81,7 +82,8 @@
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
-    "flagship": true
+    "flagship": true,
+    "subsection": "Closed-form QA Grounding"
   },
   {
     "title": "Crowdsourcing Multiple Choice Science Questions",
@@ -114,7 +116,8 @@
     ],
     "ko_primary": "O1",
     "ko_note": "main.tex: K=-; O=O1",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "KB-entry Grounding"
   },
   {
     "title": "SQuAI: Scientific Question-Answering with Multi-Agent Retrieval-Augmented Generation",
@@ -144,7 +147,8 @@
     ],
     "ko_primary": "K1.O2",
     "ko_note": "main.tex: K=-; O=O2",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Aggregative Synthesis"
   },
   {
     "title": "LLaMP: Large Language Model Made Powerful for High-fidelity Materials Knowledge Retrieval",
@@ -175,7 +179,8 @@
     "ko_primary": "K2.O1",
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
-    "flagship": true
+    "flagship": true,
+    "subsection": "KB-entry Grounding"
   },
   {
     "title": "SCIFACT-OPEN: Towards open-domain scientific claim verification",
@@ -209,7 +214,8 @@
     ],
     "ko_primary": "K1.O2",
     "ko_note": "main.tex: K=-; O=O2",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Verificative Synthesis"
   },
   {
     "title": "Fact or Fiction: Verifying Scientific Claims",
@@ -254,7 +260,8 @@
     ],
     "ko_primary": "K1.O2",
     "ko_note": "main.tex: K=-; O=O2",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Verificative Synthesis"
   },
   {
     "title": "Benchmarking Foundation Models with Retrieval-Augmented Generation in Olympic-Level Physics Problem Solving",
@@ -301,7 +308,8 @@
     ],
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=-",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Conflict-aware Synthesis"
   },
   {
     "title": "MMed-RAG: Versatile Multimodal RAG System for Medical VLMs",
@@ -340,7 +348,8 @@
     "ko_primary": "K3.O1",
     "ko_note": "main.tex: K=-; O=-",
     "cross_source": false,
-    "evaluated_on": []
+    "evaluated_on": [],
+    "subsection": "Cross-modal Grounding"
   },
   {
     "title": "Rationale-Guided Retrieval Augmented Generation for Medical Question Answering",
@@ -383,7 +392,8 @@
     ],
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=-",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Conflict-aware Synthesis"
   },
   {
     "title": "MassSpecGym: A benchmark for the discovery and identification of molecules",
@@ -414,7 +424,8 @@
     ],
     "ko_primary": "K3.O3",
     "ko_note": "main.tex: K=-; O=O3",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Conflict-aware Synthesis"
   },
   {
     "title": "Rag2Mol: structure-based drug design based on RAG",
@@ -459,7 +470,8 @@
     ],
     "ko_primary": "K1.O3",
     "ko_note": "main.tex: K=-; O=O3",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Conflict-aware Synthesis"
   },
   {
     "title": "CLINFO.AI: AN OPEN-SOURCE RETRIEVAL-AUGMENTED LARGE LANGUAGE MODEL SYSTEM FOR ANSWERING MEDICAL QUESTIONS USING SCIENTIFIC LITERATURE",
@@ -490,7 +502,8 @@
     ],
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=O1",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Long-form citation Grounding"
   },
   {
     "title": "PaperQA: Retrieval-Augmented Generative Agent for Scientific Research",
@@ -541,7 +554,8 @@
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
-    "flagship": true
+    "flagship": true,
+    "subsection": "Long-form citation Grounding"
   },
   {
     "title": "Language Agents Achieve Superhuman Synthesis of Scientific Knowledge",
@@ -586,7 +600,8 @@
     ],
     "ko_primary": "K1.O2",
     "ko_note": "main.tex: K=-; O=O2",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Aggregative Synthesis"
   },
   {
     "title": "Responsible Retrieval Augmented Generation for Climate Decision Making from Documents",
@@ -624,7 +639,8 @@
     "ko_primary": "O2",
     "ko_note": "main.tex: K=-; O=O2",
     "cross_source": false,
-    "evaluated_on": []
+    "evaluated_on": [],
+    "subsection": "Aggregative Synthesis"
   },
   {
     "title": "GeoGPT-RAG Technical Report",
@@ -653,7 +669,8 @@
     ],
     "ko_primary": "O1",
     "ko_note": "main.tex: K=-; O=O1",
-    "cross_source": true
+    "cross_source": true,
+    "subsection": "Closed-form QA Grounding"
   },
   {
     "title": "AI-Powered Assistant for Long-Term Access to RHIC Knowledge",
@@ -692,7 +709,8 @@
     "ko_primary": "K4.O1",
     "ko_note": "main.tex: K=K4; O=-",
     "cross_source": true,
-    "evaluated_on": []
+    "evaluated_on": [],
+    "subsection": "Held by institutions"
   },
   {
     "title": "MedRAGChecker: Claim-Level Verification for Biomedical Retrieval-Augmented Generation",
@@ -738,7 +756,8 @@
     ],
     "ko_primary": "K2.O2",
     "ko_note": "main.tex: K=-; O=O2",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Verificative Synthesis"
   },
   {
     "title": "Retrieval-Augmented Generation for Predicting Cellular Responses to Gene Perturbation",
@@ -785,7 +804,8 @@
     ],
     "ko_primary": "K1.O3",
     "ko_note": "main.tex: K=-; O=O3",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Conflict-aware Synthesis"
   },
   {
     "title": "Three-Dimensional Convolutional Neural Networks and a Cross-Docked Data Set for Structure-Based Drug Design",
@@ -812,7 +832,8 @@
       "3D Structure"
     ],
     "type": "benchmark",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Structural biology"
   },
   {
     "title": "Materials Dual-Source Knowledge Retrieval-Augmented Generation for Local Large Language Models in Photocatalysts",
@@ -860,7 +881,8 @@
     ],
     "ko_primary": "K4",
     "ko_note": "main.tex: K=K4; O=-",
-    "cross_source": true
+    "cross_source": true,
+    "subsection": "Held by institutions"
   },
   {
     "title": "Synthesizing Scientific Literature with Retrieval-Augmented Language Models",
@@ -895,7 +917,8 @@
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=O1,O2",
     "cross_source": false,
-    "ko_secondary": "K1.O2"
+    "ko_secondary": "K1.O2",
+    "subsection": "Long-form citation Grounding"
   },
   {
     "title": "The SciQA Scientific Question Answering Benchmark for Scholarly Knowledge",
@@ -930,7 +953,8 @@
     ],
     "ko_primary": "O1",
     "ko_note": "main.tex: K=-; O=O1",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Closed-form QA Grounding"
   },
   {
     "title": "TaLiRAGen: target-aware ligand generation via RAG LLMs",
@@ -974,7 +998,8 @@
     ],
     "ko_primary": "K1.O3",
     "ko_note": "main.tex: K=-; O=O3",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Conflict-aware Synthesis"
   },
   {
     "title": "Mapping information-rich genotype-phenotype landscapes with genome-scale Perturb-seq",
@@ -1003,7 +1028,8 @@
     ],
     "ko_primary": "O3",
     "ko_note": "main.tex: K=-; O=O3",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Conflict-aware Synthesis"
   },
   {
     "title": "MaScQA: Investigating Materials Science Knowledge of Large Language Models",
@@ -1034,7 +1060,8 @@
     ],
     "ko_primary": "O1",
     "ko_note": "main.tex: K=-; O=O1",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Closed-form QA Grounding"
   },
   {
     "title": "Crossref: The sustainable source of community-owned scholarly metadata",
@@ -1055,13 +1082,20 @@
     "note": "DOI registry and metadata infrastructure. K1 foundation.",
     "bib_key": "DBLP:journals/qss/HendricksTLF20",
     "bib_ver": "v2",
-    "domain": ["general"],
-    "modality": ["Text"],
+    "domain": [
+      "general"
+    ],
+    "modality": [
+      "Text"
+    ],
     "type": "dataset",
-    "ko_cells": ["K1"],
+    "ko_cells": [
+      "K1"
+    ],
     "ko_primary": "K1",
     "ko_note": "main.tex: K=K1; Knowledge Source infrastructure",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "General-purpose literature"
   },
   {
     "title": "OpenAlex: A fully-open index of scholarly works, authors, venues, institutions, and concepts",
@@ -1082,13 +1116,20 @@
     "note": "Fully-open scholarly graph: works, authors, venues, institutions, concepts.",
     "bib_key": "DBLP:journals/corr/abs-2205-01833",
     "bib_ver": "v2",
-    "domain": ["general"],
-    "modality": ["Text"],
+    "domain": [
+      "general"
+    ],
+    "modality": [
+      "Text"
+    ],
     "type": "dataset",
-    "ko_cells": ["K1"],
+    "ko_cells": [
+      "K1"
+    ],
     "ko_primary": "K1",
     "ko_note": "main.tex: K=K1; Knowledge Source infrastructure",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "General-purpose literature"
   },
   {
     "title": "PubMed: the bibliographic database",
@@ -1109,13 +1150,21 @@
     "note": "Biomedical literature index with MeSH. K1 domain-specific.",
     "bib_key": "canese2013pubmed",
     "bib_ver": "v2",
-    "domain": ["medical", "bio"],
-    "modality": ["Text"],
+    "domain": [
+      "medical",
+      "bio"
+    ],
+    "modality": [
+      "Text"
+    ],
     "type": "dataset",
-    "ko_cells": ["K1"],
+    "ko_cells": [
+      "K1"
+    ],
     "ko_primary": "K1",
     "ko_note": "main.tex: K=K1; domain-specific (biomedical)",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "General-purpose literature"
   },
   {
     "title": "Europe PMC in 2023",
@@ -1136,13 +1185,21 @@
     "note": "Biomedical open-access full-text corpus with preprint integration.",
     "bib_key": "europepmc2024",
     "bib_ver": "v2",
-    "domain": ["medical", "bio"],
-    "modality": ["Text"],
+    "domain": [
+      "medical",
+      "bio"
+    ],
+    "modality": [
+      "Text"
+    ],
     "type": "dataset",
-    "ko_cells": ["K1"],
+    "ko_cells": [
+      "K1"
+    ],
     "ko_primary": "K1",
     "ko_note": "main.tex: K=K1; domain-specific (biomedical, open full text)",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Domain-specific literature"
   },
   {
     "title": "The NASA Astrophysics Data System: Overview",
@@ -1163,13 +1220,21 @@
     "note": "Astronomy/physics literature index with bibcode and data archive links.",
     "bib_key": "kurtz2000nasa",
     "bib_ver": "v2",
-    "domain": ["astronomy", "physics"],
-    "modality": ["Text"],
+    "domain": [
+      "astronomy",
+      "physics"
+    ],
+    "modality": [
+      "Text"
+    ],
     "type": "dataset",
-    "ko_cells": ["K1"],
+    "ko_cells": [
+      "K1"
+    ],
     "ko_primary": "K1",
     "ko_note": "main.tex: K=K1; domain-specific (astronomy, planetary science, physics)",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Domain-specific literature"
   },
   {
     "title": "INSPIRE-HEP: The information system for high-energy physics",
@@ -1190,13 +1255,20 @@
     "note": "High-energy physics literature system. Successor to SPIRES (1974). Operated by CERN, DESY, Fermilab, IHEP, IN2P3.",
     "bib_key": "inspirehep",
     "bib_ver": "v2",
-    "domain": ["physics"],
-    "modality": ["Text"],
+    "domain": [
+      "physics"
+    ],
+    "modality": [
+      "Text"
+    ],
     "type": "dataset",
-    "ko_cells": ["K1"],
+    "ko_cells": [
+      "K1"
+    ],
     "ko_primary": "K1",
     "ko_note": "main.tex: K=K1; domain-specific (high-energy physics)",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Domain-specific literature"
   },
   {
     "title": "GeoRef: Comprehensive Geoscience Bibliography",
@@ -1217,12 +1289,19 @@
     "note": "Most comprehensive geoscience bibliography; field-curated by AGI.",
     "bib_key": "georef",
     "bib_ver": "v2",
-    "domain": ["earth"],
-    "modality": ["Text"],
+    "domain": [
+      "earth"
+    ],
+    "modality": [
+      "Text"
+    ],
     "type": "dataset",
-    "ko_cells": ["K1"],
+    "ko_cells": [
+      "K1"
+    ],
     "ko_primary": "K1",
     "ko_note": "main.tex: K=K1; domain-specific (geoscience)",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Domain-specific literature"
   }
 ]

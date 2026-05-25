@@ -663,6 +663,7 @@ main.with-sidebar {
 }
 .tag:hover { text-decoration: none; opacity: .85; }
 .tag-cell   { background: var(--o-50); color: var(--link); }
+.tag-sub    { background: #f0f7ff; color: #3b6ea5; border: 1px solid #c8dff5; font-style: italic; }
 .tag-k      { background: var(--k-50);  color: var(--k-700); font-family: var(--font-display); font-weight: 600; font-size: .74rem; letter-spacing: 0; }
 .tag-o      { background: var(--o-50);  color: var(--o-700); font-family: var(--font-display); font-weight: 600; font-size: .74rem; letter-spacing: 0; }
 .tag-domain { background: var(--bg-subtle); color: var(--fg-muted); }

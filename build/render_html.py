@@ -44,6 +44,20 @@ TYPE_LABELS = {
     'dataset': 'Datasets', 'summary': 'Surveys',
 }
 
+
+def cell_label(code):
+    """Convert K/O code to human-readable label, e.g. 'K1.O1' → 'Primary Literature × Ground'."""
+    if '.' in code:
+        k, o = code.split('.', 1)
+        kn = K_LABELS.get(k, (k,))[0]
+        on = O_LABELS.get(o, (o,))[0]
+        return f'{kn} × {on}'
+    if code in K_LABELS:
+        return K_LABELS[code][0]
+    if code in O_LABELS:
+        return O_LABELS[code][0]
+    return code
+
 # ---------- Group ----------
 by_cell = defaultdict(list)
 by_dom = defaultdict(list)
@@ -84,19 +98,19 @@ def sidebar(base='', current=''):
         for O in ['O1', 'O2', 'O3']:
             c = f'{K}.{O}'
             n = len(by_cell.get(c, []))
-            cell_items += f'<a href="{base}cell/{c}.html" class="sb-sub{cls(f"cell/{c}")}">[{c}] <span class="sb-count">{n}</span></a>\n'
+            cell_items += f'<a href="{base}cell/{c}.html" class="sb-sub{cls(f"cell/{c}")}">{cell_label(c)} <span class="sb-count">{n}</span></a>\n'
 
     # K-only axis pages (K1-K4)
     k_axis_items = ''
     for K in ['K1', 'K2', 'K3', 'K4']:
         n = len(by_cell.get(K, []))
-        k_axis_items += f'<a href="{base}cell/{K}.html" class="sb-sub{cls(f"cell/{K}")}">[{K}] <span class="sb-count">{n}</span></a>\n'
+        k_axis_items += f'<a href="{base}cell/{K}.html" class="sb-sub{cls(f"cell/{K}")}">{K_LABELS[K][0]} <span class="sb-count">{n}</span></a>\n'
 
     # O-only axis pages (O1-O3)
     o_axis_items = ''
     for O in ['O1', 'O2', 'O3']:
         n = len(by_cell.get(O, []))
-        o_axis_items += f'<a href="{base}cell/{O}.html" class="sb-sub{cls(f"cell/{O}")}">[{O}] <span class="sb-count">{n}</span></a>\n'
+        o_axis_items += f'<a href="{base}cell/{O}.html" class="sb-sub{cls(f"cell/{O}")}">{O_LABELS[O][0]} <span class="sb-count">{n}</span></a>\n'
 
     # Domain items
     dom_items = ''
@@ -243,7 +257,10 @@ def paper_card(p, base=''):
 
     tag_html = []
     for c in cells:
-        tag_html.append(f'<a href="{base}cell/{c}.html" class="tag tag-cell">{c}</a>')
+        tag_html.append(f'<a href="{base}cell/{c}.html" class="tag tag-cell" title="{c}">{cell_label(c)}</a>')
+    subsec = p.get('subsection')
+    if subsec:
+        tag_html.append(f'<span class="tag tag-sub">{esc(subsec)}</span>')
     for d in domains:
         tag_html.append(f'<a href="{base}domain/{d}.html" class="tag tag-domain">{DOMAIN_EMOJI.get(d, "")}{esc(DOMAIN_LABELS.get(d, d))}</a>')
     if typ and typ != 'unknown':
@@ -389,7 +406,7 @@ def render_index():
         <div class="fl-mini-big"><span class="fl-mini-num">{esc(big[0])}</span><span class="fl-mini-label">{esc(big[1])}</span></div>
         <h3 class="fl-mini-name">{esc(f['name'])}</h3>
         <p class="fl-mini-tag">{esc(f['tagline'])}</p>
-        <div class="fl-mini-meta"><a href="cell/{f['cell']}.html" class="tag tag-cell">{f['cell']}</a> <span class="muted">{esc(f['venue'])}</span></div>
+        <div class="fl-mini-meta"><a href="cell/{f['cell']}.html" class="tag tag-cell" title="{f['cell']}">{cell_label(f['cell'])}</a> <span class="muted">{esc(f['venue'])}</span></div>
         <p class="fl-mini-cite">{title_link}</p>
       </article>
 ''')
@@ -578,7 +595,7 @@ def render_cell_pages():
             on, od = O_LABELS[O]
 
             other_cells_nav = '\n'.join(
-                f'<a href="{c}.html" class="pill {"current" if c == cell else ""}">{c}</a>'
+                f'<a href="{c}.html" class="pill {"current" if c == cell else ""}" title="{c}">{cell_label(c)}</a>'
                 for c in [f'{kk}.{oo}' for kk in ['K1','K2','K3','K4'] for oo in ['O1','O2','O3']]
             )
 
@@ -685,7 +702,7 @@ def render_domain_pages():
             for c in p.get('ko_cells', []):
                 dom_cells[c] += 1
         breakdown = ''.join(
-            f'<a href="../cell/{c}.html" class="pill">[{c}] {dom_cells[c]}</a>'
+            f'<a href="../cell/{c}.html" class="pill" title="{c}">{cell_label(c)} {dom_cells[c]}</a>'
             for c in sorted(dom_cells, key=lambda x: -dom_cells[x])
         )
         cards = '\n'.join(paper_card(p, base='../') for p in ps)
