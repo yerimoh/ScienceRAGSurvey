@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CLINFO.AI: AN OPEN-SOURCE RETRIEVAL-AUGMENTED LARGE LANGUAGE MODEL SYSTEM FOR ANSWERING MEDICAL QUESTIONS USING SCIENTIFIC LITERATURE — Scientific RAG Hub</title>
+<title>Europe PMC in 2023 — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
 <link rel="stylesheet" href="../static/style.css?v=1779612102">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
@@ -103,143 +103,93 @@
 <section class="paper-hero">
   <div class="wrap">
     <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
-    <h1>CLINFO.AI: AN OPEN-SOURCE RETRIEVAL-AUGMENTED LARGE LANGUAGE MODEL SYSTEM FOR ANSWERING MEDICAL QUESTIONS USING SCIENTIFIC LITERATURE</h1>
+    <h1>Europe PMC in 2023</h1>
     <div class="paper-hero-meta">
-      <span class="meta-venue">PSB</span>
+      <span class="meta-venue">Nucleic Acids Research</span>
       <span class="meta-year">2024</span>
-      <a href="https://arxiv.org/abs/2310.16146" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+      <a href="https://doi.org/10.1093/nar/gkad1085" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell">K1.O1</a></div>
+    <div class="paper-tags"><a href="../cell/K1.html" class="tag tag-cell">K1</a></div>
   </div>
 </section>
 <section class="paper-body">
   <div class="wrap">
     <article class="paper-markdown">
-      <h1>CLINFO.AI: An Open-Source Retrieval-Augmented Large Language Model System for Answering Medical Questions Using Scientific Literature</h1>
+      <h1>Europe PMC in 2023</h1>
 <blockquote>
-<p>arXiv | 2023 | Benchmark | medical</p>
+<p>Nucleic Acids Research | 2024 | dataset | medical · bio</p>
 </blockquote>
 <h2>한 줄 요약</h2>
-<p>PubMed 체계적 문헌 고찰(Systematic Review, SR)에서 추출한 질문과 해당 SR의 결론을 정답(Gold Standard)으로 매핑하여 만들어진 200문항 규모의 의료분야 검색+요약 평가 벤치마크.</p>
-<h2>제작 배경</h2>
-<p><strong>기존 벤치마크의 한계</strong></p>
+<p><strong>900만 개 이상</strong>의 생의학 기사와 <strong>65만 개 이상</strong>의 프리프린트 오픈 전문을 제공하는 유럽 생의학 문헌 플랫폼. 31개 프리프린트 서버를 통합하고 RESTful API와 annotation API를 무료로 제공.</p>
+<h2>연구 배경 및 동기</h2>
+<p><strong>오픈 액세스 생의학 문헌의 필요성</strong></p>
 <ul>
-<li>기존 QA 데이터셋은 의학적 필요성을 반영하지 못하거나, RAG 모델의 '정보 검색 역량(IR)'과 '요약 역량(Summarization)'을 결합하여 평가하기 어려웠음.</li>
+<li>PubMed는 초록 중심; 전문(full text) 오픈 액세스 접근 제한</li>
+<li>프리프린트(bioRxiv, medRxiv 등)와 피어리뷰 논문의 통합 필요</li>
+<li>유럽 연구 펀딩 기관(Wellcome, BBSRC 등)의 OA 의무화 지원</li>
 </ul>
-<p><strong>필요성</strong></p>
+<p><strong>이 플랫폼이 중요한 이유</strong></p>
 <ul>
-<li>시스템이 수많은 논문 속에서 정말로 '적절한(관련성 높은)' 논문을 잘 찾아왔는지, 그리고 그걸 사람(의학 전문가)처럼 잘 통합했는지 검증할 Gold Standard이 필요.</li>
+<li><strong>오픈 전문</strong>을 RAG 파이프라인에 직접 활용 가능</li>
+<li>프리프린트 31개 서버 통합으로 최신 연구 실시간 반영</li>
 </ul>
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
-<p><strong>Step 1: 데이터 출처 선정</strong></p>
-<ul>
-<li>임상의들이 정책 결정 및 근거 중심 의학을 위해 사용하는 '체계적 문헌 고찰(SR)'을 기준으로 삼음</li>
-<li>인간 전문가가 이미 문헌을 싹 필터링하고 결론을 도출해 둔 자료이기 때문</li>
-</ul>
-<p><strong>Step 2: 구축 파이프라인</strong></p>
-<ol>
-<li>Entrez API로 PubMed에 접근하여 다양한 의학 하위 분야의 Systematic Review 검색</li>
-<li>제목(Title)에 명시적인 '질문(물음표)' 형태가 포함된 논문만 필터링</li>
-</ol>
-<p><strong>Step 3: 품질 검증</strong></p>
-<ul>
-<li>2명의 인간 평가자(저자)가 질문을 수동으로 검토하고, 질문과 직결되는 내용만 남도록 초록의 Results와 Conclusions 섹션 텍스트를 정제하여 '정답(Answer)'으로 구축</li>
-</ul>
-<p><strong>Step 4: 데이터셋 구성</strong></p>
-<ul>
-<li>최종적으로 200개의 (Question, Answer, Context, References, Date) 형태를 지닌 쌍 생성 완료</li>
-</ul>
-<h2>Input (입력)</h2>
-<ul>
-<li><strong>출처</strong>: PubMed 내 Systematic Review 문헌</li>
-<li><strong>문항 형식</strong>: Open QA Format (제목에 등장하는 질문)</li>
-</ul>
-<p><strong>제공 필드 테이블</strong></p>
+<h2>핵심 기능</h2>
 <table>
 <thead>
 <tr>
-  <th>필드명</th>
+  <th>기능</th>
   <th>설명</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>Question</td>
-  <td>SR 논문의 제목(질문 형태)</td>
+  <td>오픈 전문</td>
+  <td>9M+ 기사 전문 XML/PDF 제공</td>
 </tr>
 <tr>
-  <td>Answer</td>
-  <td>Results/Conclusion 단락 정제 텍스트</td>
+  <td>프리프린트 통합</td>
+  <td>31개 서버(bioRxiv, medRxiv, ChemRxiv 등) 650K+</td>
 </tr>
 <tr>
-  <td>Context</td>
-  <td>논문의 Introduction 기반 정보</td>
+  <td>Annotation API</td>
+  <td>유전자, 질환, 화합물 등 개체 주석</td>
 </tr>
 <tr>
-  <td>References</td>
-  <td>SR에서 참조한 논문들의 PubMed IDs</td>
+  <td>RESTful API</td>
+  <td>검색·조회·다운로드 무료</td>
 </tr>
 <tr>
-  <td>Topic / Subtopic</td>
-  <td>의료 전문과목 및 세부분야</td>
-</tr>
-<tr>
-  <td>Published Date</td>
-  <td>논문 출판일</td>
+  <td>데이터 링크</td>
+  <td>UniProt, PDB, ChEMBL 등 바이오 DB 연결</td>
 </tr>
 </tbody>
 </table>
-<h2>Output (평가 지표)</h2>
+<h2>데이터 규모</h2>
 <ul>
-<li><strong>출력 형태</strong>: 질문에 대한 직접적인 서술형 답변 (Abstractive Summary)</li>
-<li><strong>정답(Answer) 출처</strong>: 해당 SR의 'Results' 및 'Conclusion' 단락 텍스트</li>
-<li><strong>평가 지표</strong>:<ul>
-<li>IR: Precision, Recall</li>
-<li>Summarization: Source-Augmented 평가 (UniEval, COMET, CTC) 및 Source-Free 평가 (BERTScore, ROUGE-L, METEOR 등)</li>
+<li><strong>피어리뷰 기사</strong>: 9M+ (전문 오픈 액세스)</li>
+<li><strong>프리프린트</strong>: 650K+ (31개 서버)</li>
+<li><strong>주석 데이터</strong>: 수억 건 (유전자·질환·화합물·변이 등)</li>
+<li><strong>API</strong>: <code>https://www.ebi.ac.uk/europepmc/webservices/rest/</code> — 무료</li>
 </ul>
-</li>
-</ul>
-<h2>예시 문항</h2>
-<ul>
-<li><strong>Q (Input)</strong>: Does high-grade dysplasia/carcinoma in situ of the biliary duct margin affect the prognosis of extrahepatic cholangiocarcinoma? (담도 절제 연의 고등급 이형성증/상피내암이 간외 담관암의 예후에 영향을 미치는가?)</li>
-<li><strong>A (Answer 유사)</strong>: 문헌의 증거는 혼재되어 있으나, 일부 부정적인 예후 또는 국소 재발의 높은 빈도와 연관될 수 있음. 마진에 침윤성 암종이 있는 것이 더 강력한 나쁜 예후 인자임.</li>
-</ul>
-<h2>주요 평가 결과 (Unrestricted 기준)</h2>
-<table>
-<thead>
-<tr>
-  <th>시스템/모델</th>
-  <th>UniEval Overall</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>GPT-4 (Baseline)</td>
-  <td>0.860</td>
-</tr>
-<tr>
-  <td>Elicit</td>
-  <td>0.713</td>
-</tr>
-<tr>
-  <td>Statpearls SS</td>
-  <td>0.728</td>
-</tr>
-<tr>
-  <td><strong>Clinfo.ai Synthesis &amp; TL;DR</strong></td>
-  <td><strong>0.840</strong></td>
-</tr>
-</tbody>
-</table>
-<h2>한계점</h2>
-<ul>
-<li>의학이 계속 발전하므로, 해당 질문에 대한 &quot;정답(Systematic Review의 결론)&quot;이 최신 연구로 인해 바뀌었을 수 있다는 점 (이 때문에 Date 기준으로 Restricted, Source Dropped 등의 복잡한 평가 룰을 추가해야 했음).</li>
-<li>자동화된 LLM 평가 지표에 의존하여 구축됨.</li>
-</ul>
+<h2>활용 방법</h2>
+<pre><code>[전문 검색]
+  → REST API: /search?query=COVID+vaccine&amp;format=json
+  → 초록·전문 XML 반환
+
+[전문 다운로드]
+  → /article/{SOURCE}/{ID}/fullTextXML
+
+[Annotation API]
+  → 문서 내 생체의학 개체(유전자·질환·화합물) 태깅 조회
+
+[RAG 파이프라인]
+  → 오픈 전문 XML → 섹션 분리 → 청킹 → 벡터 인덱싱
+</code></pre>
 <h2>관련 정보</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://arxiv.org/abs/2310.16146">https://arxiv.org/abs/2310.16146</a></li>
-<li><strong>이 벤치마크를 사용한 논문</strong>: Clinfo.ai (PSB 2024)</li>
+<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/gkad1085">https://doi.org/10.1093/nar/gkad1085</a></li>
+<li><strong>공식 사이트</strong>: <a href="https://europepmc.org">https://europepmc.org</a></li>
+<li><strong>REST API 문서</strong>: <a href="https://europepmc.org/RestfulWebService">https://europepmc.org/RestfulWebService</a></li>
 </ul>
 
     </article>
