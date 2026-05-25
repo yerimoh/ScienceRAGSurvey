@@ -680,6 +680,226 @@
         "general"
       ],
       "paper_link": "https://osf.io/preprints"
+    },
+    "DBLP:journals/jcisd/SterlingI15": {
+      "title": "ZINC15: Ligand Discovery for Everyone",
+      "year": 2015,
+      "venue": "J. Chem. Inf. Model.",
+      "domain": [
+        "chemistry"
+      ],
+      "paper_link": "https://doi.org/10.1021/acs.jcim.5b00559"
+    },
+    "DBLP:journals/jcisd/TingleTCGKDMI23": {
+      "title": "ZINC-22: A Free Multi-Purpose Database of Novel Purchasable Chemistry",
+      "year": 2023,
+      "venue": "J. Chem. Inf. Model.",
+      "domain": [
+        "chemistry"
+      ],
+      "paper_link": "https://doi.org/10.1021/acs.jcim.2c01253"
+    },
+    "DBLP:journals/nar/GaultonBBCDHLMMAO12": {
+      "title": "ChEMBL: a large-scale bioactivity database for drug discovery",
+      "year": 2012,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "chemistry"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gkr777"
+    },
+    "DBLP:journals/nar/KimTBCFGHHHSWYZ16": {
+      "title": "PubChem Substance and Compound databases",
+      "year": 2016,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "chemistry"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gkv951"
+    },
+    "DBLP:journals/nar/LiuLWJG07": {
+      "title": "BindingDB: a web-accessible database of experimentally determined protein-ligand binding affinities",
+      "year": 2007,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "chemistry"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gkl999"
+    },
+    "DBLP:journals/nar/MendezGBCVFMMMN19": {
+      "title": "ChEMBL: towards direct deposition of bioassay data",
+      "year": 2019,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "chemistry"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gky1075"
+    },
+    "DBLP:journals/nar/SzklarczykSMJBK16": {
+      "title": "STITCH 5: augmenting protein-chemical interaction networks with new formats and technologies",
+      "year": 2016,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "chemistry"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gkv1277"
+    },
+    "chandak2023building": {
+      "title": "Building a knowledge graph to enable precision medicine",
+      "year": 2023,
+      "venue": "Scientific Data",
+      "domain": [
+        "chemistry",
+        "medical"
+      ],
+      "paper_link": "https://www.nature.com/articles/s41597-023-01960-3"
+    },
+    "gilson2016bindingdb": {
+      "title": "BindingDB in 2015: a public database for medicinal chemistry, computational chemistry and systems pharmacology",
+      "year": 2016,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "chemistry"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gkv1072"
+    },
+    "groom2016csd": {
+      "title": "The Cambridge Structural Database",
+      "year": 2016,
+      "venue": "Acta Crystallographica B",
+      "domain": [
+        "chemistry"
+      ],
+      "paper_link": "https://doi.org/10.1107/S2052520616003954"
+    },
+    "icsd": {
+      "title": "Inorganic Crystal Structure Database (ICSD)",
+      "year": 1978,
+      "venue": "FIZ Karlsruhe",
+      "domain": [
+        "chemistry",
+        "material"
+      ],
+      "paper_link": "https://icsd.fiz-karlsruhe.de"
+    },
+    "ioannidis2020drkg": {
+      "title": "DRKG: Drug Repurposing Knowledge Graph for COVID-19",
+      "year": 2020,
+      "venue": "arXiv",
+      "domain": [
+        "chemistry",
+        "medical"
+      ],
+      "paper_link": "https://arxiv.org/abs/2010.09600"
+    },
+    "irwin2012zinc": {
+      "title": "ZINC: a free tool to discover chemistry for biology",
+      "year": 2012,
+      "venue": "J. Chem. Inf. Model.",
+      "domain": [
+        "chemistry"
+      ],
+      "paper_link": "https://doi.org/10.1021/ci3001277"
+    },
+    "isert2022qmugs": {
+      "title": "QMugs: Quantum Mechanical Properties of Drug-like Molecules",
+      "year": 2022,
+      "venue": "Scientific Data",
+      "domain": [
+        "chemistry"
+      ],
+      "paper_link": "https://doi.org/10.1038/s41597-022-01390-7"
+    },
+    "kearnes2021open": {
+      "title": "The Open Reaction Database",
+      "year": 2021,
+      "venue": "J. Am. Chem. Soc.",
+      "domain": [
+        "chemistry"
+      ],
+      "paper_link": "https://doi.org/10.1021/jacs.1c09820"
+    },
+    "kim2023pubchem": {
+      "title": "PubChem 2023 update",
+      "year": 2023,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "chemistry"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gkac956"
+    },
+    "knox2024drugbank": {
+      "title": "DrugBank 6.0: the DrugBank knowledgebase for 2024",
+      "year": 2024,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "chemistry",
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gkad976"
+    },
+    "linstrom2001nist": {
+      "title": "The NIST Chemistry WebBook: A Chemical Data Resource on the Internet",
+      "year": 2001,
+      "venue": "J. Chem. Eng. Data",
+      "domain": [
+        "chemistry"
+      ],
+      "paper_link": "https://webbook.nist.gov"
+    },
+    "liu2025bindingdb": {
+      "title": "BindingDB in 2024: a FAIR knowledgebase of protein-small molecule binding data",
+      "year": 2025,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "chemistry"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gkae1008"
+    },
+    "lowe2017chemical": {
+      "title": "Chemical reactions from US patents (1976–Sep2016)",
+      "year": 2017,
+      "venue": "Figshare",
+      "domain": [
+        "chemistry"
+      ],
+      "paper_link": "https://doi.org/10.6084/m9.figshare.5104873"
+    },
+    "ramakrishnan2014quantum": {
+      "title": "Quantum chemistry structures and properties of 134 kilo molecules",
+      "year": 2014,
+      "venue": "Scientific Data",
+      "domain": [
+        "chemistry"
+      ],
+      "paper_link": "https://doi.org/10.1038/sdata.2014.22"
+    },
+    "reaxys": {
+      "title": "Reaxys",
+      "year": 2009,
+      "venue": "Elsevier",
+      "domain": [
+        "chemistry"
+      ],
+      "paper_link": "https://www.reaxys.com"
+    },
+    "scifinder": {
+      "title": "SciFinder-n",
+      "year": 1995,
+      "venue": "CAS / ACS",
+      "domain": [
+        "chemistry"
+      ],
+      "paper_link": "https://scifinder-n.cas.org"
+    },
+    "zdrazil2024chembl": {
+      "title": "The ChEMBL Database in 2023: a drug discovery platform spanning multiple bioactivity data types and time periods",
+      "year": 2024,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "chemistry"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gkad1004"
     }
   }
 }

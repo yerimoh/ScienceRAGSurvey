@@ -965,6 +965,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "liu2025bindingdb",
+    "title": "BindingDB in 2024: a FAIR knowledgebase of protein-small molecule binding data",
+    "year": 2025,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "chemistry"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkae1008",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
+  },
+  {
     "title": "BiomedRAG: A Retrieval Augmented Large Language Model for Biomedicine",
     "year": 2025,
     "venue": "Journal of Biomedical Informatics",
@@ -3227,6 +3248,28 @@
     "cross_source": false
   },
   {
+    "bib_key": "knox2024drugbank",
+    "title": "DrugBank 6.0: the DrugBank knowledgebase for 2024",
+    "year": 2024,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "chemistry",
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkad976",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
+  },
+  {
     "title": "Europe PMC in 2023",
     "year": 2024,
     "venue": "Nucleic Acids Research",
@@ -3787,6 +3830,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "zdrazil2024chembl",
+    "title": "The ChEMBL Database in 2023: a drug discovery platform spanning multiple bioactivity data types and time periods",
+    "year": 2024,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "chemistry"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkad1004",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
+  },
+  {
     "title": "Towards a RAG-based Summarization for the Electron Ion Collider",
     "year": 2024,
     "venue": "JINST",
@@ -3908,6 +3972,28 @@
     "ko_primary": null,
     "ko_note": "",
     "cross_source": false
+  },
+  {
+    "bib_key": "chandak2023building",
+    "title": "Building a knowledge graph to enable precision medicine",
+    "year": 2023,
+    "venue": "Scientific Data",
+    "method": null,
+    "domain": [
+      "chemistry",
+      "medical"
+    ],
+    "paper_link": "https://www.nature.com/articles/s41597-023-01960-3",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
   },
   {
     "bib_key": "lee2023climate",
@@ -4276,6 +4362,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "kim2023pubchem",
+    "title": "PubChem 2023 update",
+    "year": 2023,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "chemistry"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkac956",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
+  },
+  {
     "title": "Quilt-1M: One Million Image-Text Pairs for Histopathology",
     "year": 2023,
     "venue": "NeurIPS",
@@ -4451,6 +4558,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "DBLP:journals/jcisd/TingleTCGKDMI23",
+    "title": "ZINC-22: A Free Multi-Purpose Database of Novel Purchasable Chemistry",
+    "year": 2023,
+    "venue": "J. Chem. Inf. Model.",
+    "method": null,
+    "domain": [
+      "chemistry"
+    ],
+    "paper_link": "https://doi.org/10.1021/acs.jcim.2c01253",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
+  },
+  {
     "title": "DDXPlus: A New Dataset For Automatic Medical Diagnosis",
     "year": 2022,
     "venue": "NeurIPS",
@@ -4595,6 +4723,27 @@
     "subsection": "General-purpose literature"
   },
   {
+    "bib_key": "isert2022qmugs",
+    "title": "QMugs: Quantum Mechanical Properties of Drug-like Molecules",
+    "year": 2022,
+    "venue": "Scientific Data",
+    "method": null,
+    "domain": [
+      "chemistry"
+    ],
+    "paper_link": "https://doi.org/10.1038/s41597-022-01390-7",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
+  },
+  {
     "title": "SCIFACT-OPEN: Towards open-domain scientific claim verification",
     "year": 2022,
     "venue": "EMNLP (Findings)",
@@ -4719,6 +4868,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "kearnes2021open",
+    "title": "The Open Reaction Database",
+    "year": 2021,
+    "venue": "J. Am. Chem. Soc.",
+    "method": null,
+    "domain": [
+      "chemistry"
+    ],
+    "paper_link": "https://doi.org/10.1021/jacs.1c09820",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
+  },
+  {
     "title": "What Disease does this Patient Have? A Large-scale Open Domain Question Answering Dataset from Medical Exams",
     "year": 2021,
     "venue": "Applied Sciences",
@@ -4777,6 +4947,28 @@
     "ko_note": "main.tex: K=K1; Knowledge Source infrastructure (Crossref)",
     "cross_source": false,
     "subsection": "General-purpose literature"
+  },
+  {
+    "bib_key": "ioannidis2020drkg",
+    "title": "DRKG: Drug Repurposing Knowledge Graph for COVID-19",
+    "year": 2020,
+    "venue": "arXiv",
+    "method": null,
+    "domain": [
+      "chemistry",
+      "medical"
+    ],
+    "paper_link": "https://arxiv.org/abs/2010.09600",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
   },
   {
     "title": "Dataset of breast ultrasound images",
@@ -5083,6 +5275,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "DBLP:journals/nar/MendezGBCVFMMMN19",
+    "title": "ChEMBL: towards direct deposition of bioassay data",
+    "year": 2019,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "chemistry"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gky1075",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
+  },
+  {
     "title": "Detecting causal language use in science findings",
     "year": 2019,
     "venue": "EMNLP-IJCNLP",
@@ -5297,6 +5510,27 @@
     "subsection": "Preprint literature"
   },
   {
+    "bib_key": "lowe2017chemical",
+    "title": "Chemical reactions from US patents (1976–Sep2016)",
+    "year": 2017,
+    "venue": "Figshare",
+    "method": null,
+    "domain": [
+      "chemistry"
+    ],
+    "paper_link": "https://doi.org/10.6084/m9.figshare.5104873",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
+  },
+  {
     "title": "Crowdsourcing Multiple Choice Science Questions",
     "year": 2017,
     "venue": "Workshop on Noisy User-generated Text (WNUT)",
@@ -5462,6 +5696,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "gilson2016bindingdb",
+    "title": "BindingDB in 2015: a public database for medicinal chemistry, computational chemistry and systems pharmacology",
+    "year": 2016,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "chemistry"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkv1072",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
+  },
+  {
     "bib_key": "osf_preprints",
     "title": "OSF Preprints",
     "year": 2016,
@@ -5481,6 +5736,69 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "Preprint literature"
+  },
+  {
+    "bib_key": "DBLP:journals/nar/KimTBCFGHHHSWYZ16",
+    "title": "PubChem Substance and Compound databases",
+    "year": 2016,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "chemistry"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkv951",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
+  },
+  {
+    "bib_key": "DBLP:journals/nar/SzklarczykSMJBK16",
+    "title": "STITCH 5: augmenting protein-chemical interaction networks with new formats and technologies",
+    "year": 2016,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "chemistry"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkv1277",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
+  },
+  {
+    "bib_key": "groom2016csd",
+    "title": "The Cambridge Structural Database",
+    "year": 2016,
+    "venue": "Acta Crystallographica B",
+    "method": null,
+    "domain": [
+      "chemistry"
+    ],
+    "paper_link": "https://doi.org/10.1107/S2052520616003954",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
   },
   {
     "title": "Deep Learning for Drug-Induced Liver Injury",
@@ -5511,6 +5829,48 @@
     "ko_primary": null,
     "ko_note": "",
     "cross_source": false
+  },
+  {
+    "bib_key": "DBLP:journals/jcisd/SterlingI15",
+    "title": "ZINC15: Ligand Discovery for Everyone",
+    "year": 2015,
+    "venue": "J. Chem. Inf. Model.",
+    "method": null,
+    "domain": [
+      "chemistry"
+    ],
+    "paper_link": "https://doi.org/10.1021/acs.jcim.5b00559",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
+  },
+  {
+    "bib_key": "ramakrishnan2014quantum",
+    "title": "Quantum chemistry structures and properties of 134 kilo molecules",
+    "year": 2014,
+    "venue": "Scientific Data",
+    "method": null,
+    "domain": [
+      "chemistry"
+    ],
+    "paper_link": "https://doi.org/10.1038/sdata.2014.22",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
   },
   {
     "title": "PubMed: the bibliographic database",
@@ -5627,6 +5987,27 @@
     "subsection": "General-purpose literature"
   },
   {
+    "bib_key": "DBLP:journals/nar/GaultonBBCDHLMMAO12",
+    "title": "ChEMBL: a large-scale bioactivity database for drug discovery",
+    "year": 2012,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "chemistry"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkr777",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
+  },
+  {
     "title": "Development of a benchmark corpus to support the automatic extraction of drug-related adverse effects from medical case reports",
     "year": 2012,
     "venue": "J. Biomed. Informatics",
@@ -5712,6 +6093,27 @@
     "subsection": "General-purpose literature"
   },
   {
+    "bib_key": "irwin2012zinc",
+    "title": "ZINC: a free tool to discover chemistry for biology",
+    "year": 2012,
+    "venue": "J. Chem. Inf. Model.",
+    "method": null,
+    "domain": [
+      "chemistry"
+    ],
+    "paper_link": "https://doi.org/10.1021/ci3001277",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
+  },
+  {
     "title": "ChemProt: a disease chemical biology database",
     "year": 2011,
     "venue": "Nucleic Acids Research",
@@ -5763,6 +6165,27 @@
     "subsection": "Preprint literature"
   },
   {
+    "bib_key": "reaxys",
+    "title": "Reaxys",
+    "year": 2009,
+    "venue": "Elsevier",
+    "method": null,
+    "domain": [
+      "chemistry"
+    ],
+    "paper_link": "https://www.reaxys.com",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
+  },
+  {
     "title": "Overview of BioCreative II gene mention recognition",
     "year": 2008,
     "venue": "Genome biology",
@@ -5789,6 +6212,27 @@
     "ko_primary": null,
     "ko_note": "",
     "cross_source": false
+  },
+  {
+    "bib_key": "DBLP:journals/nar/LiuLWJG07",
+    "title": "BindingDB: a web-accessible database of experimentally determined protein-ligand binding affinities",
+    "year": 2007,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "chemistry"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkl999",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
   },
   {
     "title": "Statistical Predicate Invention",
@@ -5843,6 +6287,27 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "General-purpose literature"
+  },
+  {
+    "bib_key": "linstrom2001nist",
+    "title": "The NIST Chemistry WebBook: A Chemical Data Resource on the Internet",
+    "year": 2001,
+    "venue": "J. Chem. Eng. Data",
+    "method": null,
+    "domain": [
+      "chemistry"
+    ],
+    "paper_link": "https://webbook.nist.gov",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
   },
   {
     "title": "The NASA Astrophysics Data System: Overview",
@@ -5900,6 +6365,49 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "General-purpose literature"
+  },
+  {
+    "bib_key": "scifinder",
+    "title": "SciFinder-n",
+    "year": 1995,
+    "venue": "CAS / ACS",
+    "method": null,
+    "domain": [
+      "chemistry"
+    ],
+    "paper_link": "https://scifinder-n.cas.org",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
+  },
+  {
+    "bib_key": "icsd",
+    "title": "Inorganic Crystal Structure Database (ICSD)",
+    "year": 1978,
+    "venue": "FIZ Karlsruhe",
+    "method": null,
+    "domain": [
+      "chemistry",
+      "material"
+    ],
+    "paper_link": "https://icsd.fiz-karlsruhe.de",
+    "note": "Chemistry and drug discovery",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Chemistry and drug discovery"
   },
   {
     "bib_key": "embase",
@@ -6070,44 +6578,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "DBLP:journals/jcisd/SterlingI15",
-    "title": "DBLP:journals/jcisd/SterlingI15",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
-  },
-  {
-    "bib_key": "DBLP:journals/jcisd/TingleTCGKDMI23",
-    "title": "DBLP:journals/jcisd/TingleTCGKDMI23",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
-  },
-  {
     "bib_key": "DBLP:journals/jocn/MarcusWPCMB07",
     "title": "DBLP:journals/jocn/MarcusWPCMB07",
     "year": null,
@@ -6180,25 +6650,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "DBLP:journals/nar/GaultonBBCDHLMMAO12",
-    "title": "DBLP:journals/nar/GaultonBBCDHLMMAO12",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
-  },
-  {
     "bib_key": "DBLP:journals/nar/GonzalezRSRCSF20",
     "title": "DBLP:journals/nar/GonzalezRSRCSF20",
     "year": null,
@@ -6215,25 +6666,6 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true
-  },
-  {
-    "bib_key": "DBLP:journals/nar/KimTBCFGHHHSWYZ16",
-    "title": "DBLP:journals/nar/KimTBCFGHHHSWYZ16",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
   },
   {
     "bib_key": "DBLP:journals/nar/LandrumLBBCCGHH18",
@@ -6254,44 +6686,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "DBLP:journals/nar/LiuLWJG07",
-    "title": "DBLP:journals/nar/LiuLWJG07",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
-  },
-  {
-    "bib_key": "DBLP:journals/nar/MendezGBCVFMMMN19",
-    "title": "DBLP:journals/nar/MendezGBCVFMMMN19",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
-  },
-  {
     "bib_key": "DBLP:journals/nar/SherryWKBPSS01",
     "title": "DBLP:journals/nar/SherryWKBPSS01",
     "year": null,
@@ -6308,25 +6702,6 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true
-  },
-  {
-    "bib_key": "DBLP:journals/nar/SzklarczykSMJBK16",
-    "title": "DBLP:journals/nar/SzklarczykSMJBK16",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
   },
   {
     "bib_key": "DBLP:journals/nar/TateBJSBBBCCDFH19",
@@ -6569,25 +6944,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "chandak2023building",
-    "title": "chandak2023building",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
-  },
-  {
     "bib_key": "climatepolicyradar",
     "title": "climatepolicyradar",
     "year": null,
@@ -6804,25 +7160,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "gilson2016bindingdb",
-    "title": "gilson2016bindingdb",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
-  },
-  {
     "bib_key": "gproms",
     "title": "gproms",
     "year": null,
@@ -6859,25 +7196,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "groom2016csd",
-    "title": "groom2016csd",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
-  },
-  {
     "bib_key": "hamosh2005online",
     "title": "hamosh2005online",
     "year": null,
@@ -6912,82 +7230,6 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true
-  },
-  {
-    "bib_key": "icsd",
-    "title": "icsd",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
-  },
-  {
-    "bib_key": "ioannidis2020drkg",
-    "title": "ioannidis2020drkg",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
-  },
-  {
-    "bib_key": "irwin2012zinc",
-    "title": "irwin2012zinc",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
-  },
-  {
-    "bib_key": "isert2022qmugs",
-    "title": "isert2022qmugs",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
   },
   {
     "bib_key": "jain2013commentary",
@@ -7080,44 +7322,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "kearnes2021open",
-    "title": "kearnes2021open",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
-  },
-  {
-    "bib_key": "kim2023pubchem",
-    "title": "kim2023pubchem",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
-  },
-  {
     "bib_key": "kirklin2015open",
     "title": "kirklin2015open",
     "year": null,
@@ -7154,25 +7358,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "knox2024drugbank",
-    "title": "knox2024drugbank",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
-  },
-  {
     "bib_key": "krithara2023bioasq",
     "title": "krithara2023bioasq",
     "year": null,
@@ -7191,25 +7376,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "linstrom2001nist",
-    "title": "linstrom2001nist",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
-  },
-  {
     "bib_key": "liu2018integrated",
     "title": "liu2018integrated",
     "year": null,
@@ -7226,44 +7392,6 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true
-  },
-  {
-    "bib_key": "liu2025bindingdb",
-    "title": "liu2025bindingdb",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
-  },
-  {
-    "bib_key": "lowe2017chemical",
-    "title": "lowe2017chemical",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
   },
   {
     "bib_key": "mast",
@@ -7410,44 +7538,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "ramakrishnan2014quantum",
-    "title": "ramakrishnan2014quantum",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
-  },
-  {
-    "bib_key": "reaxys",
-    "title": "reaxys",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
-  },
-  {
     "bib_key": "saal2013materials",
     "title": "saal2013materials",
     "year": null,
@@ -7464,25 +7554,6 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true
-  },
-  {
-    "bib_key": "scifinder",
-    "title": "scifinder",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
   },
   {
     "bib_key": "uhlen2015tissue",
@@ -7609,24 +7680,5 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true
-  },
-  {
-    "bib_key": "zdrazil2024chembl",
-    "title": "zdrazil2024chembl",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Chemistry and drug discovery",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Chemistry and drug discovery",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Chemistry and drug discovery"
   }
 ]
