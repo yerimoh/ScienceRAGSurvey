@@ -1131,17 +1131,31 @@ def render_insights():
     (ROOT / 'insights.html').write_text(page_head('Insights', base='', desc='The five requirements of scientific RAG, K×Domain coverage map, paper growth timeline, cross-source bridges, and frontier opportunities.', current='insights') + body + PAGE_FOOT)
 
 
+def _clean_prop_val(val):
+    """Clean up property values: strip Python list brackets, skip trivial N/A."""
+    val = val.strip()
+    # Strip Python list notation: ['Text'] → Text, ['Image', 'Text'] → Image, Text
+    if val.startswith('[') and val.endswith(']'):
+        inner = val[1:-1]
+        items = [s.strip().strip("'\"") for s in inner.split(',')]
+        val = ', '.join(i for i in items if i)
+    return val
+
+
 def _prop_block_to_table(md_content):
     """Pre-process Notion-style property block into an HTML table.
 
     Detects consecutive ``**Key**: value`` lines (no blank lines between them)
-    and replaces that block with a ``<table class="prop-table">`` so they render
-    nicely instead of collapsing into one inline paragraph.
+    and replaces that block with a ``<div class="prop-table">`` so they render
+    nicely. Skips rows whose value is N/A or empty.
     """
     PROP_KEYS = {
         'DB', 'DB size', 'DB Open/Private', 'Modality',
         'Retriever', 'Eval Task', 'Eval Metric', 'Method Name',
     }
+    # Keys to skip when value is N/A (infrastructure-only fields)
+    SKIP_NA = {'Retriever', 'Eval Task', 'Eval Metric'}
+
     prop_re = re.compile(r'^\*\*([^*]+)\*\*:\s*(.*)')
     lines = md_content.split('\n')
     out = []
@@ -1153,13 +1167,23 @@ def _prop_block_to_table(md_content):
             while i < len(lines):
                 pm = prop_re.match(lines[i])
                 if pm and pm.group(1) in PROP_KEYS:
-                    key = html.escape(pm.group(1))
-                    val = pm.group(2).strip()
-                    rows.append(f'<tr><th class="prop-key">{key}</th><td class="prop-val">{val}</td></tr>')
+                    key_raw = pm.group(1)
+                    val = _clean_prop_val(pm.group(2))
+                    # Skip uninformative N/A rows
+                    if key_raw in SKIP_NA and val.lower().startswith('n/a'):
+                        i += 1
+                        continue
+                    if not val:
+                        i += 1
+                        continue
+                    key = html.escape(key_raw)
+                    rows.append(f'<div class="prop-row"><span class="prop-key">{key}</span><span class="prop-val">{val}</span></div>')
                     i += 1
                 else:
                     break
-            out.append('<table class="prop-table">\n' + '\n'.join(rows) + '\n</table>\n')
+            if rows:
+                out.append('<div class="prop-table">\n' + '\n'.join(rows) + '\n</div>\n')
+            # if all rows were skipped, emit nothing
         else:
             out.append(lines[i])
             i += 1

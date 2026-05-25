@@ -1135,34 +1135,38 @@ main.with-sidebar {
   max-width: 100%;
 }
 
-/* ===== Property table (Notion metadata block) ===== */
+/* ===== Property block (Notion metadata) ===== */
 .prop-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.2rem 0 1.6rem;
-  font-size: .9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem .8rem;
+  margin: 1.1rem 0 1.6rem;
+  padding: .9rem 1.1rem;
+  background: var(--bg-subtle);
+  border-radius: 8px;
   border: 1px solid var(--line);
-  border-radius: 6px;
-  overflow: hidden;
 }
-.prop-table tr { border-bottom: 1px solid var(--line); }
-.prop-table tr:last-child { border-bottom: none; }
-.prop-table tr:nth-child(even) { background: var(--bg-subtle); }
+.prop-row {
+  display: flex;
+  align-items: baseline;
+  gap: .4rem;
+  min-width: 180px;
+  flex: 1 1 auto;
+}
 .prop-key {
-  width: 9rem;
-  padding: .45rem .8rem;
-  font-weight: 600;
+  font-size: .75rem;
+  font-weight: 700;
   color: var(--fg-muted);
-  background: var(--bg-accent);
+  text-transform: uppercase;
+  letter-spacing: .04em;
   white-space: nowrap;
-  vertical-align: top;
-  font-size: .82rem;
-  letter-spacing: .01em;
+  flex-shrink: 0;
 }
+.prop-key::after { content: ':'; }
 .prop-val {
-  padding: .45rem .9rem;
+  font-size: .88rem;
   color: var(--fg);
-  vertical-align: top;
+  font-weight: 500;
 }
 
 /* ===== Pipeline diagram (About page) ===== */
