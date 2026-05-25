@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>About — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="static/style.css?v=1779696241">
+<link rel="stylesheet" href="static/style.css?v=1779696613">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -175,17 +175,99 @@
       <li><a href="data/papers.json">papers.json</a> — full machine-readable dump (one JSON, all metadata).</li>
     </ul>
 
+    <h2>Survey Construction Pipeline</h2>
+    <p>The following diagram shows how the catalog and companion survey were built end-to-end.</p>
+
+    <div class="pipeline-diagram">
+      <!-- Row 1: Sources -->
+      <div class="pipe-row pipe-row-sources">
+        <div class="pipe-node pipe-node-src">
+          <div class="pipe-icon">📄</div>
+          <div class="pipe-label">Literature<br><span class="pipe-sub">arXiv · PubMed · ACL · NeurIPS…</span></div>
+        </div>
+        <div class="pipe-node pipe-node-src">
+          <div class="pipe-icon">🗂</div>
+          <div class="pipe-label">Notion DB<br><span class="pipe-sub">34 papers tracked</span></div>
+        </div>
+        <div class="pipe-node pipe-node-src">
+          <div class="pipe-icon">📚</div>
+          <div class="pipe-label">references.bib<br><span class="pipe-sub">master bibliography</span></div>
+        </div>
+      </div>
+
+      <div class="pipe-arrow-down">▼</div>
+
+      <!-- Row 2: Classification -->
+      <div class="pipe-row pipe-row-classify">
+        <div class="pipe-node pipe-node-classify pipe-wide">
+          <div class="pipe-icon">🔬</div>
+          <div class="pipe-label"><strong>K × O Dual-Axis Classification</strong></div>
+          <div class="pipe-classify-grid">
+            <div class="pipe-axis pipe-axis-k">
+              <div class="pipe-axis-label">K — Knowledge Source</div>
+              <div class="pipe-axis-items">
+                <span class="pipe-pill pipe-k1">K1 Primary Lit</span>
+                <span class="pipe-pill pipe-k2">K2 Curated KB</span>
+                <span class="pipe-pill pipe-k3">K3 Obs/Exp</span>
+                <span class="pipe-pill pipe-k4">K4 Tacit</span>
+              </div>
+            </div>
+            <div class="pipe-axis-times">×</div>
+            <div class="pipe-axis pipe-axis-o">
+              <div class="pipe-axis-label">O — Operational Objective</div>
+              <div class="pipe-axis-items">
+                <span class="pipe-pill pipe-o1">O1 Ground</span>
+                <span class="pipe-pill pipe-o2">O2 Synthesis</span>
+                <span class="pipe-pill pipe-o3">O3 Hypothesis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pipe-arrow-down">▼</div>
+
+      <!-- Row 3: 12-cell grid -->
+      <div class="pipe-row pipe-row-grid">
+        <div class="pipe-node pipe-node-grid pipe-wide">
+          <div class="pipe-icon">▦</div>
+          <div class="pipe-label"><strong>12-Cell K×O Taxonomy</strong></div>
+          <div class="pipe-mini-grid">
+            <a href="cell/K1.O1.html" class="pipe-cell pipe-cell-m" title="K1.O1: 6 entries"><span class="pipe-cell-id">K1·O1</span><span class="pipe-cell-n">6</span></a><a href="cell/K1.O2.html" class="pipe-cell pipe-cell-m" title="K1.O2: 5 entries"><span class="pipe-cell-id">K1·O2</span><span class="pipe-cell-n">5</span></a><a href="cell/K1.O3.html" class="pipe-cell pipe-cell-m" title="K1.O3: 3 entries"><span class="pipe-cell-id">K1·O3</span><span class="pipe-cell-n">3</span></a><a href="cell/K2.O1.html" class="pipe-cell pipe-cell-l" title="K2.O1: 1 entries"><span class="pipe-cell-id">K2·O1</span><span class="pipe-cell-n">1</span></a><a href="cell/K2.O2.html" class="pipe-cell pipe-cell-l" title="K2.O2: 1 entries"><span class="pipe-cell-id">K2·O2</span><span class="pipe-cell-n">1</span></a><a href="cell/K2.O3.html" class="pipe-cell pipe-cell-l" title="K2.O3: 0 entries"><span class="pipe-cell-id">K2·O3</span><span class="pipe-cell-n">0</span></a><a href="cell/K3.O1.html" class="pipe-cell pipe-cell-l" title="K3.O1: 1 entries"><span class="pipe-cell-id">K3·O1</span><span class="pipe-cell-n">1</span></a><a href="cell/K3.O2.html" class="pipe-cell pipe-cell-l" title="K3.O2: 0 entries"><span class="pipe-cell-id">K3·O2</span><span class="pipe-cell-n">0</span></a><a href="cell/K3.O3.html" class="pipe-cell pipe-cell-l" title="K3.O3: 1 entries"><span class="pipe-cell-id">K3·O3</span><span class="pipe-cell-n">1</span></a><a href="cell/K4.O1.html" class="pipe-cell pipe-cell-l" title="K4.O1: 1 entries"><span class="pipe-cell-id">K4·O1</span><span class="pipe-cell-n">1</span></a><a href="cell/K4.O2.html" class="pipe-cell pipe-cell-l" title="K4.O2: 0 entries"><span class="pipe-cell-id">K4·O2</span><span class="pipe-cell-n">0</span></a><a href="cell/K4.O3.html" class="pipe-cell pipe-cell-l" title="K4.O3: 0 entries"><span class="pipe-cell-id">K4·O3</span><span class="pipe-cell-n">0</span></a>
+          </div>
+          <div class="pipe-grid-legend">
+            <span class="pipe-cell-dot pipe-cell-h"></span> ≥10 &nbsp;
+            <span class="pipe-cell-dot pipe-cell-m"></span> 3–9 &nbsp;
+            <span class="pipe-cell-dot pipe-cell-l"></span> 0–2 (frontier)
+          </div>
+        </div>
+      </div>
+
+      <div class="pipe-arrow-down">▼</div>
+
+      <!-- Row 4: Outputs -->
+      <div class="pipe-row pipe-row-outputs">
+        <div class="pipe-node pipe-node-out">
+          <div class="pipe-icon">🌐</div>
+          <div class="pipe-label">This Site<br><span class="pipe-sub">Browse · Filter · Search</span></div>
+        </div>
+        <div class="pipe-node pipe-node-out">
+          <div class="pipe-icon">📖</div>
+          <div class="pipe-label">TPAMI Survey<br><span class="pipe-sub">Oh et al. 2026</span></div>
+        </div>
+        <div class="pipe-node pipe-node-out">
+          <div class="pipe-icon">📄</div>
+          <div class="pipe-label">papers.json<br><span class="pipe-sub">machine-readable</span></div>
+        </div>
+      </div>
+    </div>
+
     <h2>Methodology</h2>
     <p>
       Entries are sourced from a Notion-tracked literature database curated by the Vision and Learning Lab,
       cross-referenced against the survey's master bibliography. K×O assignments are author-verified for
       138 papers via full Notion fetch; the remaining ~44 are tagged provisionally pending re-verification.
       Cross-source papers (e.g. <strong>MedGraphRAG</strong> spanning K1+K2+K4) appear in multiple cells.
-    </p>
-    <p>
-      Authoritative source files live in <code>/gallery_millet/yerim.oh/ScienceRAGServey/ver/2/</code>
-      (<code>main.tex</code>, <code>references.bib</code>). The catalog data pipeline is reproducible from
-      <code>site/build/</code>.
     </p>
 
     <h2>Contributing</h2>

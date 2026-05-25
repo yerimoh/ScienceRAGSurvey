@@ -1134,3 +1134,119 @@ main.with-sidebar {
   width: auto;
   max-width: 100%;
 }
+
+/* ===== Property table (Notion metadata block) ===== */
+.prop-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0 1.6rem;
+  font-size: .9rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.prop-table tr { border-bottom: 1px solid var(--line); }
+.prop-table tr:last-child { border-bottom: none; }
+.prop-table tr:nth-child(even) { background: var(--bg-subtle); }
+.prop-key {
+  width: 9rem;
+  padding: .45rem .8rem;
+  font-weight: 600;
+  color: var(--fg-muted);
+  background: var(--bg-accent);
+  white-space: nowrap;
+  vertical-align: top;
+  font-size: .82rem;
+  letter-spacing: .01em;
+}
+.prop-val {
+  padding: .45rem .9rem;
+  color: var(--fg);
+  vertical-align: top;
+}
+
+/* ===== Pipeline diagram (About page) ===== */
+.pipeline-diagram {
+  margin: 2rem 0 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+}
+.pipe-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.pipe-node {
+  background: var(--bg-card);
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: .9rem 1.1rem;
+  min-width: 140px;
+  text-align: center;
+  font-size: .88rem;
+  line-height: 1.4;
+}
+.pipe-node.pipe-wide { width: 100%; max-width: 640px; }
+.pipe-icon { font-size: 1.5rem; margin-bottom: .3rem; }
+.pipe-label { font-weight: 600; color: var(--fg); }
+.pipe-sub { font-size: .78rem; font-weight: 400; color: var(--fg-muted); }
+.pipe-node-src  { border-color: #b5c4e0; background: #f5f8ff; }
+.pipe-node-classify { border-color: var(--k-300); background: #fef9f5; }
+.pipe-node-grid { border-color: var(--o-300); background: #f5fcf7; }
+.pipe-node-out  { border-color: #b5d5b5; background: #f5faf5; }
+.pipe-arrow-down { font-size: 1.4rem; color: var(--fg-faint); line-height: 1; }
+.pipe-classify-grid {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-top: .7rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.pipe-axis { flex: 1; min-width: 200px; }
+.pipe-axis-label { font-size: .75rem; color: var(--fg-muted); margin-bottom: .4rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+.pipe-axis-items { display: flex; gap: .4rem; flex-wrap: wrap; justify-content: center; }
+.pipe-axis-times { font-size: 1.8rem; font-weight: 700; color: var(--fg-faint); }
+.pipe-pill { display: inline-block; padding: .2rem .55rem; border-radius: 20px; font-size: .78rem; font-weight: 600; }
+.pipe-k1 { background: #ffe8e0; color: #b8431f; }
+.pipe-k2 { background: #e0f5ec; color: #1f7a4d; }
+.pipe-k3 { background: #ece0f8; color: #6a3acb; }
+.pipe-k4 { background: #fef3dd; color: #a07010; }
+.pipe-o1 { background: #e0eeff; color: #1f5ab8; }
+.pipe-o2 { background: #fff0e0; color: #b86010; }
+.pipe-o3 { background: #e8f5e0; color: #3a7a1f; }
+.pipe-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .35rem;
+  margin-top: .7rem;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pipe-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: .4rem .3rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: .78rem;
+  font-weight: 600;
+  transition: opacity .15s;
+}
+.pipe-cell:hover { opacity: .8; text-decoration: none; }
+.pipe-cell-h { background: var(--cell-high); color: var(--cell-high-fg); }
+.pipe-cell-m { background: var(--cell-mid); color: var(--fg); }
+.pipe-cell-l { background: var(--cell-low); color: var(--fg-muted); }
+.pipe-cell-id { font-size: .7rem; opacity: .75; }
+.pipe-cell-n  { font-size: 1rem; font-weight: 700; }
+.pipe-grid-legend { margin-top: .6rem; font-size: .75rem; color: var(--fg-muted); display: flex; align-items: center; gap: .3rem; justify-content: center; flex-wrap: wrap; }
+.pipe-cell-dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
+.pipe-cell-dot.pipe-cell-h { background: var(--cell-high); }
+.pipe-cell-dot.pipe-cell-m { background: var(--cell-mid); }
+.pipe-cell-dot.pipe-cell-l { background: var(--cell-low); }

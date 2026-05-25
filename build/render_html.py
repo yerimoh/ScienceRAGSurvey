@@ -510,17 +510,105 @@ def render_about():
       <li><a href="data/papers.json">papers.json</a> — full machine-readable dump (one JSON, all metadata).</li>
     </ul>
 
+    <h2>Survey Construction Pipeline</h2>
+    <p>The following diagram shows how the catalog and companion survey were built end-to-end.</p>
+
+    <div class="pipeline-diagram">
+      <!-- Row 1: Sources -->
+      <div class="pipe-row pipe-row-sources">
+        <div class="pipe-node pipe-node-src">
+          <div class="pipe-icon">📄</div>
+          <div class="pipe-label">Literature<br><span class="pipe-sub">arXiv · PubMed · ACL · NeurIPS…</span></div>
+        </div>
+        <div class="pipe-node pipe-node-src">
+          <div class="pipe-icon">🗂</div>
+          <div class="pipe-label">Notion DB<br><span class="pipe-sub">{len(papers)} papers tracked</span></div>
+        </div>
+        <div class="pipe-node pipe-node-src">
+          <div class="pipe-icon">📚</div>
+          <div class="pipe-label">references.bib<br><span class="pipe-sub">master bibliography</span></div>
+        </div>
+      </div>
+
+      <div class="pipe-arrow-down">▼</div>
+
+      <!-- Row 2: Classification -->
+      <div class="pipe-row pipe-row-classify">
+        <div class="pipe-node pipe-node-classify pipe-wide">
+          <div class="pipe-icon">🔬</div>
+          <div class="pipe-label"><strong>K × O Dual-Axis Classification</strong></div>
+          <div class="pipe-classify-grid">
+            <div class="pipe-axis pipe-axis-k">
+              <div class="pipe-axis-label">K — Knowledge Source</div>
+              <div class="pipe-axis-items">
+                <span class="pipe-pill pipe-k1">K1 Primary Lit</span>
+                <span class="pipe-pill pipe-k2">K2 Curated KB</span>
+                <span class="pipe-pill pipe-k3">K3 Obs/Exp</span>
+                <span class="pipe-pill pipe-k4">K4 Tacit</span>
+              </div>
+            </div>
+            <div class="pipe-axis-times">×</div>
+            <div class="pipe-axis pipe-axis-o">
+              <div class="pipe-axis-label">O — Operational Objective</div>
+              <div class="pipe-axis-items">
+                <span class="pipe-pill pipe-o1">O1 Ground</span>
+                <span class="pipe-pill pipe-o2">O2 Synthesis</span>
+                <span class="pipe-pill pipe-o3">O3 Hypothesis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pipe-arrow-down">▼</div>
+
+      <!-- Row 3: 12-cell grid -->
+      <div class="pipe-row pipe-row-grid">
+        <div class="pipe-node pipe-node-grid pipe-wide">
+          <div class="pipe-icon">▦</div>
+          <div class="pipe-label"><strong>12-Cell K×O Taxonomy</strong></div>
+          <div class="pipe-mini-grid">
+            {"".join(
+              f'<a href="cell/{K}.{O}.html" class="pipe-cell pipe-cell-{"h" if len(by_cell.get(f"{K}.{O}",[]))>=10 else "m" if len(by_cell.get(f"{K}.{O}",[]))>=3 else "l"}" title="{K}.{O}: {len(by_cell.get(f"{K}.{O}",[])) } entries">'
+              f'<span class="pipe-cell-id">{K}·{O}</span>'
+              f'<span class="pipe-cell-n">{len(by_cell.get(f"{K}.{O}",[]))}</span>'
+              f'</a>'
+              for K in ["K1","K2","K3","K4"] for O in ["O1","O2","O3"]
+            )}
+          </div>
+          <div class="pipe-grid-legend">
+            <span class="pipe-cell-dot pipe-cell-h"></span> ≥10 &nbsp;
+            <span class="pipe-cell-dot pipe-cell-m"></span> 3–9 &nbsp;
+            <span class="pipe-cell-dot pipe-cell-l"></span> 0–2 (frontier)
+          </div>
+        </div>
+      </div>
+
+      <div class="pipe-arrow-down">▼</div>
+
+      <!-- Row 4: Outputs -->
+      <div class="pipe-row pipe-row-outputs">
+        <div class="pipe-node pipe-node-out">
+          <div class="pipe-icon">🌐</div>
+          <div class="pipe-label">This Site<br><span class="pipe-sub">Browse · Filter · Search</span></div>
+        </div>
+        <div class="pipe-node pipe-node-out">
+          <div class="pipe-icon">📖</div>
+          <div class="pipe-label">TPAMI Survey<br><span class="pipe-sub">Oh et al. 2026</span></div>
+        </div>
+        <div class="pipe-node pipe-node-out">
+          <div class="pipe-icon">📄</div>
+          <div class="pipe-label">papers.json<br><span class="pipe-sub">machine-readable</span></div>
+        </div>
+      </div>
+    </div>
+
     <h2>Methodology</h2>
     <p>
       Entries are sourced from a Notion-tracked literature database curated by the Vision and Learning Lab,
       cross-referenced against the survey's master bibliography. K×O assignments are author-verified for
       138 papers via full Notion fetch; the remaining ~44 are tagged provisionally pending re-verification.
       Cross-source papers (e.g. <strong>MedGraphRAG</strong> spanning K1+K2+K4) appear in multiple cells.
-    </p>
-    <p>
-      Authoritative source files live in <code>/gallery_millet/yerim.oh/ScienceRAGServey/ver/2/</code>
-      (<code>main.tex</code>, <code>references.bib</code>). The catalog data pipeline is reproducible from
-      <code>site/build/</code>.
     </p>
 
     <h2>Contributing</h2>
@@ -1043,6 +1131,41 @@ def render_insights():
     (ROOT / 'insights.html').write_text(page_head('Insights', base='', desc='The five requirements of scientific RAG, K×Domain coverage map, paper growth timeline, cross-source bridges, and frontier opportunities.', current='insights') + body + PAGE_FOOT)
 
 
+def _prop_block_to_table(md_content):
+    """Pre-process Notion-style property block into an HTML table.
+
+    Detects consecutive ``**Key**: value`` lines (no blank lines between them)
+    and replaces that block with a ``<table class="prop-table">`` so they render
+    nicely instead of collapsing into one inline paragraph.
+    """
+    PROP_KEYS = {
+        'DB', 'DB size', 'DB Open/Private', 'Modality',
+        'Retriever', 'Eval Task', 'Eval Metric', 'Method Name',
+    }
+    prop_re = re.compile(r'^\*\*([^*]+)\*\*:\s*(.*)')
+    lines = md_content.split('\n')
+    out = []
+    i = 0
+    while i < len(lines):
+        m = prop_re.match(lines[i])
+        if m and m.group(1) in PROP_KEYS:
+            rows = []
+            while i < len(lines):
+                pm = prop_re.match(lines[i])
+                if pm and pm.group(1) in PROP_KEYS:
+                    key = html.escape(pm.group(1))
+                    val = pm.group(2).strip()
+                    rows.append(f'<tr><th class="prop-key">{key}</th><td class="prop-val">{val}</td></tr>')
+                    i += 1
+                else:
+                    break
+            out.append('<table class="prop-table">\n' + '\n'.join(rows) + '\n</table>\n')
+        else:
+            out.append(lines[i])
+            i += 1
+    return '\n'.join(out)
+
+
 def render_paper_pages():
     """Render papers/<bib_key>.html from papers/<bib_key>.md (Notion summaries)."""
     import mistune
@@ -1055,8 +1178,6 @@ def render_paper_pages():
     count = 0
     for md_file in sorted(papers_dir.glob('*.md')):
         bib_key_fn = md_file.stem  # filename without .md, with _ instead of :/
-        # Find matching paper entry
-        # Try direct match (bib_key as filename)
         matching = None
         for bk, p in papers_by_key.items():
             if bk.replace(':','_').replace('/','_') == bib_key_fn:
@@ -1065,22 +1186,26 @@ def render_paper_pages():
             continue
         title = matching.get('title') or bib_key_fn
         md_content = md_file.read_text()
-        # Strip YAML frontmatter if present
+        # Strip YAML frontmatter
         if md_content.startswith('---'):
             end = md_content.find('---', 3)
             if end > 0:
                 md_content = md_content[end+3:].lstrip()
-        # Ensure blank lines around HTML block boundaries and Markdown headings
-        # (Notion exports often abut <table>...</table> directly against the next ### heading)
+        # Convert Notion property block → HTML table
+        md_content = _prop_block_to_table(md_content)
+        # Ensure blank lines around HTML block boundaries
         md_content = re.sub(r'(</table>)\s*\n(#)', r'\1\n\n\2', md_content)
         md_content = re.sub(r'(\n#{1,6} [^\n]+)\n(<table)', r'\1\n\n\2', md_content)
         md_content = re.sub(r'(</table>)\s*\n([^\n#<\s-])', r'\1\n\n\2', md_content)
         body_html = md_renderer(md_content)
-        bk_actual = matching['bib_key']
         url = matching.get('paper_link') or ''
         url_link = f'<a href="{esc(url)}" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>' if url else ''
         cells = matching.get('ko_cells', [])
-        cell_tags = ''.join(f'<a href="../cell/{c}.html" class="tag tag-cell">{c}</a>' for c in cells)
+        cell_tags = ''.join(f'<a href="../cell/{c}.html" class="tag tag-cell" title="{c}">{cell_label(c)}</a>' for c in cells)
+        subsec = matching.get('subsection', '')
+        subsec_tag = f'<span class="tag tag-sub">{esc(subsec)}</span>' if subsec else ''
+        domains = matching.get('domain', [])
+        dom_tags = ''.join(f'<a href="../domain/{d}.html" class="tag tag-domain">{DOMAIN_EMOJI.get(d,"")}{esc(DOMAIN_LABELS.get(d,d))}</a>' for d in domains)
         body = f'''
 <section class="paper-hero">
   <div class="wrap">
@@ -1091,7 +1216,7 @@ def render_paper_pages():
       <span class="meta-year">{esc(matching.get('year',''))}</span>
       {url_link}
     </div>
-    <div class="paper-tags">{cell_tags}</div>
+    <div class="paper-tags">{cell_tags}{subsec_tag}{dom_tags}</div>
   </div>
 </section>
 <section class="paper-body">
