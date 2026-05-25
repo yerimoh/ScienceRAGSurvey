@@ -4368,6 +4368,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "DBLP:journals/corr/abs-2304-14454",
+    "title": "PMC-LLaMA: Further Finetuning LLaMA on Medical Papers (MedC-K corpus)",
+    "year": 2023,
+    "venue": "arXiv",
+    "method": null,
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.48550/arXiv.2304.14454",
+    "note": "Medicine and clinical knowledge — PMC-LLaMA: MedC-K medical corpus (4.8M papers + 30K textbooks)",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge — PMC-LLaMA: MedC-K medical corpus (4.8M papers + 30K textbooks)",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
+  },
+  {
     "title": "PaperQA: Retrieval-Augmented Generative Agent for Scientific Research",
     "year": 2023,
     "venue": "arXiv",
