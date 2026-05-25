@@ -3012,6 +3012,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "varadi2024alphafold",
+    "title": "AlphaFold Protein Structure Database in 2024: providing structure coverage for over 214 million protein sequences",
+    "year": 2024,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkad1011",
+    "note": ">214 million predicted structures; ~500x expansion from initial 2021 release; integrated with PDB, UniProt, Ensembl, InterPro, MobiDB",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": ">214 million predicted structures; ~500x expansion from initial 2021 release; integrated with PDB, UniProt, Ensembl, InterPro, MobiDB",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Structural biology"
+  },
+  {
     "title": "BIORAG: RAG-LLM Framework for Biological Question Reasoning",
     "year": 2024,
     "venue": "arXiv",
@@ -3188,6 +3209,27 @@
     "ko_primary": null,
     "ko_note": "",
     "cross_source": false
+  },
+  {
+    "bib_key": "climatepolicyradar",
+    "title": "Climate Policy Radar: A database of climate change laws and policies",
+    "year": 2024,
+    "venue": "Climate Policy Radar",
+    "method": null,
+    "domain": [
+      "earth"
+    ],
+    "paper_link": "https://www.climatepolicyradar.org/",
+    "note": "200+ country climate laws, NDCs, LTS documents; text corpus complementing scientific archives",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "200+ country climate laws, NDCs, LTS documents; text corpus complementing scientific archives",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Astronomy, earth, and climate"
   },
   {
     "title": "ClimateGPT: Towards AI Synthesizing Interdisciplinary Research on Climate Change",
@@ -3723,6 +3765,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "ahdritz2024openfold",
+    "title": "OpenFold: Retraining AlphaFold2 yields new insights into its learning mechanisms and capacity for generalization",
+    "year": 2024,
+    "venue": "Nature Methods",
+    "method": null,
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1038/s41592-024-02272-z",
+    "note": "Open-source trainable AlphaFold2 reimplementation; OpenProteinSet MSA data backbone; enables new tasks (protein-ligand) and open re-implementations",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Open-source trainable AlphaFold2 reimplementation; OpenProteinSet MSA data backbone; enables new tasks (protein-ligand) and open re-implementations",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Structural biology"
+  },
+  {
     "title": "PathMMU: A Massive Multimodal Expert-Level Benchmark for Understanding and Reasoning in Pathology",
     "year": 2024,
     "venue": "ECCV",
@@ -4212,6 +4275,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "vallenari2023gaia",
+    "title": "Gaia Data Release 3: Summary of the content and survey properties",
+    "year": 2023,
+    "venue": "Astronomy & Astrophysics",
+    "method": null,
+    "domain": [
+      "astronomy"
+    ],
+    "paper_link": "https://doi.org/10.1051/0004-6361/202243940",
+    "note": "Gaia DR3; 1.5B sources, positions/parallaxes/spectrophotometry for nearly 2 billion stars",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Gaia DR3; 1.5B sources, positions/parallaxes/spectrophotometry for nearly 2 billion stars",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Astronomy, earth, and climate"
+  },
+  {
     "title": "GeneTuring tests GPT models in genomics",
     "year": 2023,
     "venue": "bioRxiv",
@@ -4298,6 +4382,27 @@
     "ko_primary": null,
     "ko_note": "",
     "cross_source": false
+  },
+  {
+    "bib_key": "johnson2023mimic",
+    "title": "MIMIC-IV, a freely accessible electronic health record dataset",
+    "year": 2023,
+    "venue": "Scientific Data",
+    "method": null,
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1038/s41597-022-01899-x",
+    "note": "Contemporary EHR dataset — BIDMC 2008-2019; 431,231 hospital admissions; 180,733 unique patients; successor to MIMIC-III",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Contemporary EHR dataset — BIDMC 2008-2019; 431,231 hospital admissions; 180,733 unique patients; successor to MIMIC-III",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Medical imaging and clinical EHR"
   },
   {
     "title": "MedRedQA for medical consumer question answering: Dataset, tasks, and neural baselines",
@@ -4749,6 +4854,27 @@
     "subsection": "Chemistry and drug discovery"
   },
   {
+    "bib_key": "DBLP:journals/nar/VaradiADNNYYSWL22",
+    "title": "AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models",
+    "year": 2022,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkab1061",
+    "note": "Initial release: >360,000 predicted structures across 21 model organism proteomes; predicted complement to PDB experimental structures",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Initial release: >360,000 predicted structures across 21 model organism proteomes; predicted complement to PDB experimental structures",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Structural biology"
+  },
+  {
     "title": "DDXPlus: A New Dataset For Automatic Medical Diagnosis",
     "year": 2022,
     "venue": "NeurIPS",
@@ -4990,6 +5116,27 @@
     "subsection": "Materials science and physics"
   },
   {
+    "bib_key": "abdurro2022seventeenth",
+    "title": "The Seventeenth Data Release of the Sloan Digital Sky Surveys: Complete Release of MaNGA, MaStar, and APOGEE-2 Data",
+    "year": 2022,
+    "venue": "ApJS",
+    "method": null,
+    "domain": [
+      "astronomy"
+    ],
+    "paper_link": "https://doi.org/10.3847/1538-4365/ac9eff",
+    "note": "SDSS DR17 final release; 10,010 MaNGA galaxies, ~4.9M cumulative spectra",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "SDSS DR17 final release; 10,010 MaNGA galaxies, ~4.9M cumulative spectra",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Astronomy, earth, and climate"
+  },
+  {
     "title": "Measuring Massive Multitask Language Understanding",
     "year": 2021,
     "venue": "ICLR",
@@ -5099,6 +5246,27 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "Chemistry and drug discovery"
+  },
+  {
+    "bib_key": "osanlouy2021sparc",
+    "title": "The SPARC DRC: Building a Resource for the Autonomic Nervous System Community",
+    "year": 2021,
+    "venue": "Frontiers in Physiology",
+    "method": null,
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.3389/fphys.2021.693735",
+    "note": "NIH-funded autonomic nervous system data and resource center; 2D flatmaps + 3D organ scaffolds; curated experimental data and mathematical models",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "NIH-funded autonomic nervous system data and resource center; 2D flatmaps + 3D organ scaffolds; curated experimental data and mathematical models",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Medical imaging and clinical EHR"
   },
   {
     "title": "What Disease does this Patient Have? A Large-scale Open Domain Question Answering Dataset from Medical Exams",
@@ -5747,6 +5915,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "liu2018integrated",
+    "title": "An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics",
+    "year": 2018,
+    "venue": "Cell",
+    "method": null,
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1016/j.cell.2018.02.052",
+    "note": "Pan-cancer atlas; >11,000 tumors across 33 cancer types; standardized clinical outcome endpoints (OS/PFI/DFI/DSS)",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Pan-cancer atlas; >11,000 tumors across 33 cancer types; standardized clinical outcome endpoints (OS/PFI/DFI/DSS)",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Medical imaging and clinical EHR"
+  },
+  {
     "bib_key": "DBLP:journals/nar/LandrumLBBCCGHH18",
     "title": "ClinVar: improving access to variant interpretations and supporting evidence",
     "year": 2018,
@@ -5943,6 +6132,27 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "Preprint literature"
+  },
+  {
+    "bib_key": "DBLP:journals/corr/MaguireHW17",
+    "title": "HEPData: a repository for high energy physics data",
+    "year": 2017,
+    "venue": "arXiv",
+    "method": null,
+    "domain": [
+      "physics"
+    ],
+    "paper_link": "https://doi.org/10.48550/arXiv.1704.05473",
+    "note": "Preserves published HEP numerical results: scattering cross-sections, distributions, correlation matrices",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Preserves published HEP numerical results: scattering cross-sections, distributions, correlation matrices",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Particle and nuclear physics"
   },
   {
     "bib_key": "drew2017integration",
@@ -6142,6 +6352,27 @@
     "subsection": "Chemistry and drug discovery"
   },
   {
+    "bib_key": "johnson2016mimic",
+    "title": "MIMIC-III, a freely accessible critical care database",
+    "year": 2016,
+    "venue": "Scientific Data",
+    "method": null,
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1038/sdata.2016.35",
+    "note": "ICU EHR dataset — Beth Israel Deaconess Medical Center; 53,423 adult ICU admissions 2001-2012; primary clinical RAG retrieval target",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "ICU EHR dataset — Beth Israel Deaconess Medical Center; 53,423 adult ICU admissions 2001-2012; primary clinical RAG retrieval target",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Medical imaging and clinical EHR"
+  },
+  {
     "bib_key": "osf_preprints",
     "title": "OSF Preprints",
     "year": 2016,
@@ -6161,6 +6392,27 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "Preprint literature"
+  },
+  {
+    "bib_key": "eyring2016overview",
+    "title": "Overview of the Coupled Model Intercomparison Project Phase 6 (CMIP6) experimental design and organization",
+    "year": 2016,
+    "venue": "Geoscientific Model Development",
+    "method": null,
+    "domain": [
+      "earth"
+    ],
+    "paper_link": "https://doi.org/10.5194/gmd-9-1937-2016",
+    "note": "CMIP6 design paper; petabyte-scale (~20 PB realized) climate model simulations from 49 groups",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "CMIP6 design paper; petabyte-scale (~20 PB realized) climate model simulations from 49 groups",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Astronomy, earth, and climate"
   },
   {
     "bib_key": "DBLP:journals/nar/KimTBCFGHHHSWYZ16",
@@ -6256,6 +6508,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "noaa_ncei",
+    "title": "NOAA National Centers for Environmental Information (NCEI)",
+    "year": 2015,
+    "venue": "NOAA",
+    "method": null,
+    "domain": [
+      "earth"
+    ],
+    "paper_link": "https://www.ncei.noaa.gov",
+    "note": "World's largest weather and climate archive; ~100 PB, 140+ years of records",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "World's largest weather and climate archive; ~100 PB, 140+ years of records",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Astronomy, earth, and climate"
+  },
+  {
     "bib_key": "amberger2015omim",
     "title": "OMIM.org: Online Mendelian Inheritance in Man (OMIM), an online catalog of human genes and genetic disorders",
     "year": 2015,
@@ -6298,6 +6571,27 @@
     "subsection": "Materials science and physics"
   },
   {
+    "bib_key": "uhlen2015tissue",
+    "title": "Tissue-based map of the human proteome",
+    "year": 2015,
+    "venue": "Science",
+    "method": null,
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1126/science.1260419",
+    "note": "Spatial protein expression maps across 32 normal and cancer tissues; >90% of protein-coding genes detected; IHC + transcriptomics integration",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Spatial protein expression maps across 32 normal and cancer tissues; >90% of protein-coding genes detected; IHC + transcriptomics integration",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Medical imaging and clinical EHR"
+  },
+  {
     "bib_key": "DBLP:journals/jcisd/SterlingI15",
     "title": "ZINC15: Ligand Discovery for Everyone",
     "year": 2015,
@@ -6319,6 +6613,27 @@
     "subsection": "Chemistry and drug discovery"
   },
   {
+    "bib_key": "cernopendata",
+    "title": "CERN Open Data Portal",
+    "year": 2014,
+    "venue": "CERN",
+    "method": null,
+    "domain": [
+      "physics"
+    ],
+    "paper_link": "https://opendata.cern.ch",
+    "note": "Full collision datasets from ATLAS, CMS, LHCb, ALICE under public access terms",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Full collision datasets from ATLAS, CMS, LHCb, ALICE under public access terms",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Particle and nuclear physics"
+  },
+  {
     "bib_key": "ramakrishnan2014quantum",
     "title": "Quantum chemistry structures and properties of 134 kilo molecules",
     "year": 2014,
@@ -6338,6 +6653,27 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "Chemistry and drug discovery"
+  },
+  {
+    "bib_key": "di2014autism",
+    "title": "The autism brain imaging data exchange: towards a large-scale evaluation of the intrinsic brain architecture in autism",
+    "year": 2014,
+    "venue": "Molecular Psychiatry",
+    "method": null,
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1038/mp.2013.78",
+    "note": "Multi-site ASD neuroimaging dataset; 1,112 resting-state fMRI (539 ASD + 573 controls); ages 7-64",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Multi-site ASD neuroimaging dataset; 1,112 resting-state fMRI (539 ASD + 573 controls); ages 7-64",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Medical imaging and clinical EHR"
   },
   {
     "bib_key": "jain2013commentary",
@@ -6716,6 +7052,27 @@
     "subsection": "Preprint literature"
   },
   {
+    "bib_key": "petersen2010alzheimer",
+    "title": "Alzheimer's Disease Neuroimaging Initiative (ADNI): Clinical characterization",
+    "year": 2010,
+    "venue": "Neurology",
+    "method": null,
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1212/WNL.0b013e3181cb3e25",
+    "note": "Multi-site Alzheimer's disease neuroimaging cohort; 819 subjects (229 normal, 398 MCI, 192 AD); MRI+PET+CSF biomarkers",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Multi-site Alzheimer's disease neuroimaging cohort; 819 subjects (229 normal, 398 MCI, 192 AD); MRI+PET+CSF biomarkers",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Medical imaging and clinical EHR"
+  },
+  {
     "bib_key": "reaxys",
     "title": "Reaxys",
     "year": 2009,
@@ -6784,6 +7141,27 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "Chemistry and drug discovery"
+  },
+  {
+    "bib_key": "DBLP:journals/jocn/MarcusWPCMB07",
+    "title": "Open Access Series of Imaging Studies (OASIS): Cross-sectional MRI Data in Young, Middle Aged, Nondemented, and Demented Older Adults",
+    "year": 2007,
+    "venue": "J. Cogn. Neurosci.",
+    "method": null,
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1162/jocn.2007.19.9.1498",
+    "note": "Canonical MRI dataset for normal aging and Alzheimer's disease; 416 subjects aged 18-96; cross-sectional T1-weighted MRI",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Canonical MRI dataset for normal aging and Alzheimer's disease; 416 subjects aged 18-96; cross-sectional T1-weighted MRI",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Medical imaging and clinical EHR"
   },
   {
     "title": "Statistical Predicate Invention",
@@ -7040,6 +7418,69 @@
     "subsection": "Domain-specific literature"
   },
   {
+    "bib_key": "DBLP:journals/nar/BermanWFGBWSB00",
+    "title": "The Protein Data Bank",
+    "year": 2000,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/28.1.235",
+    "note": "Single worldwide archive of 3D structures of biological macromolecules; experimental ground truth for structural biology",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Single worldwide archive of 3D structures of biological macromolecules; experimental ground truth for structural biology",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Structural biology"
+  },
+  {
+    "bib_key": "york2000sloan",
+    "title": "The Sloan Digital Sky Survey: Technical Summary",
+    "year": 2000,
+    "venue": "The Astronomical Journal",
+    "method": null,
+    "domain": [
+      "astronomy"
+    ],
+    "paper_link": "https://doi.org/10.1086/301513",
+    "note": "SDSS founding technical summary; survey goal pi steradians, hundreds of millions of objects by DR17",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "SDSS founding technical summary; survey goal pi steradians, hundreds of millions of objects by DR17",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Astronomy, earth, and climate"
+  },
+  {
+    "bib_key": "mast",
+    "title": "Mikulski Archive for Space Telescopes (MAST)",
+    "year": 1997,
+    "venue": "STScI",
+    "method": null,
+    "domain": [
+      "astronomy"
+    ],
+    "paper_link": "https://archive.stsci.edu",
+    "note": "Hosts Hubble, JWST, TESS, Kepler, Pan-STARRS, GALEX in unified portal",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Hosts Hubble, JWST, TESS, Kepler, Pan-STARRS, GALEX in unified portal",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Astronomy, earth, and climate"
+  },
+  {
     "bib_key": "webofscience",
     "title": "Web of Science",
     "year": 1997,
@@ -7063,6 +7504,27 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "General-purpose literature"
+  },
+  {
+    "bib_key": "DBLP:conf/mss/KoblerBCH95",
+    "title": "Architecture and Design of Storage and Data Management for the NASA EOSDIS",
+    "year": 1995,
+    "venue": "IEEE MSS",
+    "method": null,
+    "domain": [
+      "earth"
+    ],
+    "paper_link": "https://doi.org/10.1109/MASS.1995.528217",
+    "note": "NASA EOSDIS founding architecture paper; covers land, atmosphere, ocean Earth-observation data",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "NASA EOSDIS founding architecture paper; covers land, atmosphere, ocean Earth-observation data",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Astronomy, earth, and climate"
   },
   {
     "bib_key": "scifinder",
@@ -7131,19 +7593,21 @@
     "subsection": "Domain-specific literature"
   },
   {
-    "bib_key": "DBLP:conf/mss/KoblerBCH95",
-    "title": "DBLP:conf/mss/KoblerBCH95",
-    "year": null,
-    "venue": null,
+    "bib_key": "usgs_eros",
+    "title": "USGS Earth Resources Observation and Science (EROS) Center",
+    "year": 1973,
+    "venue": "USGS",
     "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "NASA EOSDIS founding architecture paper; covers land, atmosphere, ocean Earth-observation data",
+    "domain": [
+      "earth"
+    ],
+    "paper_link": "https://www.usgs.gov/centers/eros",
+    "note": "Archives entire Landsat record (50+ years, ~9M scenes); land remote sensing since 1972",
     "ko_cells": [
       "K3"
     ],
     "ko_primary": "K3",
-    "ko_note": "NASA EOSDIS founding architecture paper; covers land, atmosphere, ocean Earth-observation data",
+    "ko_note": "Archives entire Landsat record (50+ years, ~9M scenes); land remote sensing since 1972",
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
@@ -7166,25 +7630,6 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true
-  },
-  {
-    "bib_key": "DBLP:journals/corr/MaguireHW17",
-    "title": "DBLP:journals/corr/MaguireHW17",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Preserves published HEP numerical results: scattering cross-sections, distributions, correlation matrices",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "Preserves published HEP numerical results: scattering cross-sections, distributions, correlation matrices",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Particle and nuclear physics"
   },
   {
     "bib_key": "DBLP:journals/corr/abs-2408-01107",
@@ -7223,25 +7668,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "DBLP:journals/jocn/MarcusWPCMB07",
-    "title": "DBLP:journals/jocn/MarcusWPCMB07",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Canonical MRI dataset for normal aging and Alzheimer's disease; 416 subjects aged 18-96; cross-sectional T1-weighted MRI",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "Canonical MRI dataset for normal aging and Alzheimer's disease; 416 subjects aged 18-96; cross-sectional T1-weighted MRI",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Medical imaging and clinical EHR"
-  },
-  {
     "bib_key": "DBLP:journals/make/LahiriH25",
     "title": "DBLP:journals/make/LahiriH25",
     "year": null,
@@ -7258,44 +7684,6 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true
-  },
-  {
-    "bib_key": "DBLP:journals/nar/BermanWFGBWSB00",
-    "title": "DBLP:journals/nar/BermanWFGBWSB00",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Single worldwide archive of 3D structures of biological macromolecules; experimental ground truth for structural biology",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "Single worldwide archive of 3D structures of biological macromolecules; experimental ground truth for structural biology",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Structural biology"
-  },
-  {
-    "bib_key": "DBLP:journals/nar/VaradiADNNYYSWL22",
-    "title": "DBLP:journals/nar/VaradiADNNYYSWL22",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Initial release: >360,000 predicted structures across 21 model organism proteomes; predicted complement to PDB experimental structures",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "Initial release: >360,000 predicted structures across 21 model organism proteomes; predicted complement to PDB experimental structures",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Structural biology"
   },
   {
     "title": "MTsamples (Web Dataset)",
@@ -7320,44 +7708,6 @@
     "ko_primary": null,
     "ko_note": "",
     "cross_source": false
-  },
-  {
-    "bib_key": "abdurro2022seventeenth",
-    "title": "abdurro2022seventeenth",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "SDSS DR17 final release; 10,010 MaNGA galaxies, ~4.9M cumulative spectra",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "SDSS DR17 final release; 10,010 MaNGA galaxies, ~4.9M cumulative spectra",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Astronomy, earth, and climate"
-  },
-  {
-    "bib_key": "ahdritz2024openfold",
-    "title": "ahdritz2024openfold",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Open-source trainable AlphaFold2 reimplementation; OpenProteinSet MSA data backbone; enables new tasks (protein-ligand) and open re-implementations",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "Open-source trainable AlphaFold2 reimplementation; OpenProteinSet MSA data backbone; enables new tasks (protein-ligand) and open re-implementations",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Structural biology"
   },
   {
     "bib_key": "ansys",
@@ -7412,82 +7762,6 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true
-  },
-  {
-    "bib_key": "cernopendata",
-    "title": "cernopendata",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Full collision datasets from ATLAS, CMS, LHCb, ALICE under public access terms",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "Full collision datasets from ATLAS, CMS, LHCb, ALICE under public access terms",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Particle and nuclear physics"
-  },
-  {
-    "bib_key": "climatepolicyradar",
-    "title": "climatepolicyradar",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "200+ country climate laws, NDCs, LTS documents; text corpus complementing scientific archives",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "200+ country climate laws, NDCs, LTS documents; text corpus complementing scientific archives",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Astronomy, earth, and climate"
-  },
-  {
-    "bib_key": "di2014autism",
-    "title": "di2014autism",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Multi-site ASD neuroimaging dataset; 1,112 resting-state fMRI (539 ASD + 573 controls); ages 7-64",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "Multi-site ASD neuroimaging dataset; 1,112 resting-state fMRI (539 ASD + 573 controls); ages 7-64",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Medical imaging and clinical EHR"
-  },
-  {
-    "bib_key": "eyring2016overview",
-    "title": "eyring2016overview",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "CMIP6 design paper; petabyte-scale (~20 PB realized) climate model simulations from 49 groups",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "CMIP6 design paper; petabyte-scale (~20 PB realized) climate model simulations from 49 groups",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Astronomy, earth, and climate"
   },
   {
     "bib_key": "factsage",
@@ -7562,44 +7836,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "johnson2016mimic",
-    "title": "johnson2016mimic",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "ICU EHR dataset — Beth Israel Deaconess Medical Center; 53,423 adult ICU admissions 2001-2012; primary clinical RAG retrieval target",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "ICU EHR dataset — Beth Israel Deaconess Medical Center; 53,423 adult ICU admissions 2001-2012; primary clinical RAG retrieval target",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Medical imaging and clinical EHR"
-  },
-  {
-    "bib_key": "johnson2023mimic",
-    "title": "johnson2023mimic",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Contemporary EHR dataset — BIDMC 2008-2019; 431,231 hospital admissions; 180,733 unique patients; successor to MIMIC-III",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "Contemporary EHR dataset — BIDMC 2008-2019; 431,231 hospital admissions; 180,733 unique patients; successor to MIMIC-III",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Medical imaging and clinical EHR"
-  },
-  {
     "bib_key": "krithara2023bioasq",
     "title": "krithara2023bioasq",
     "year": null,
@@ -7616,44 +7852,6 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true
-  },
-  {
-    "bib_key": "liu2018integrated",
-    "title": "liu2018integrated",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Pan-cancer atlas; >11,000 tumors across 33 cancer types; standardized clinical outcome endpoints (OS/PFI/DFI/DSS)",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "Pan-cancer atlas; >11,000 tumors across 33 cancer types; standardized clinical outcome endpoints (OS/PFI/DFI/DSS)",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Medical imaging and clinical EHR"
-  },
-  {
-    "bib_key": "mast",
-    "title": "mast",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Hosts Hubble, JWST, TESS, Kepler, Pan-STARRS, GALEX in unified portal",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "Hosts Hubble, JWST, TESS, Kepler, Pan-STARRS, GALEX in unified portal",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Astronomy, earth, and climate"
   },
   {
     "bib_key": "matlabsimulink",
@@ -7674,63 +7872,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "noaa_ncei",
-    "title": "noaa_ncei",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "World's largest weather and climate archive; ~100 PB, 140+ years of records",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "World's largest weather and climate archive; ~100 PB, 140+ years of records",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Astronomy, earth, and climate"
-  },
-  {
-    "bib_key": "osanlouy2021sparc",
-    "title": "osanlouy2021sparc",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "NIH-funded autonomic nervous system data and resource center; 2D flatmaps + 3D organ scaffolds; curated experimental data and mathematical models",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "NIH-funded autonomic nervous system data and resource center; 2D flatmaps + 3D organ scaffolds; curated experimental data and mathematical models",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Medical imaging and clinical EHR"
-  },
-  {
-    "bib_key": "petersen2010alzheimer",
-    "title": "petersen2010alzheimer",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Multi-site Alzheimer's disease neuroimaging cohort; 819 subjects (229 normal, 398 MCI, 192 AD); MRI+PET+CSF biomarkers",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "Multi-site Alzheimer's disease neuroimaging cohort; 819 subjects (229 normal, 398 MCI, 192 AD); MRI+PET+CSF biomarkers",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Medical imaging and clinical EHR"
-  },
-  {
     "bib_key": "proii",
     "title": "proii",
     "year": null,
@@ -7749,82 +7890,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "uhlen2015tissue",
-    "title": "uhlen2015tissue",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Spatial protein expression maps across 32 normal and cancer tissues; >90% of protein-coding genes detected; IHC + transcriptomics integration",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "Spatial protein expression maps across 32 normal and cancer tissues; >90% of protein-coding genes detected; IHC + transcriptomics integration",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Medical imaging and clinical EHR"
-  },
-  {
-    "bib_key": "usgs_eros",
-    "title": "usgs_eros",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Archives entire Landsat record (50+ years, ~9M scenes); land remote sensing since 1972",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "Archives entire Landsat record (50+ years, ~9M scenes); land remote sensing since 1972",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Astronomy, earth, and climate"
-  },
-  {
-    "bib_key": "vallenari2023gaia",
-    "title": "vallenari2023gaia",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Gaia DR3; 1.5B sources, positions/parallaxes/spectrophotometry for nearly 2 billion stars",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "Gaia DR3; 1.5B sources, positions/parallaxes/spectrophotometry for nearly 2 billion stars",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Astronomy, earth, and climate"
-  },
-  {
-    "bib_key": "varadi2024alphafold",
-    "title": "varadi2024alphafold",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": ">214 million predicted structures; ~500x expansion from initial 2021 release; integrated with PDB, UniProt, Ensembl, InterPro, MobiDB",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": ">214 million predicted structures; ~500x expansion from initial 2021 release; integrated with PDB, UniProt, Ensembl, InterPro, MobiDB",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Structural biology"
-  },
-  {
     "bib_key": "welbl-etal-2017-crowdsourcing",
     "title": "welbl-etal-2017-crowdsourcing",
     "year": null,
@@ -7841,24 +7906,5 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true
-  },
-  {
-    "bib_key": "york2000sloan",
-    "title": "york2000sloan",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "SDSS founding technical summary; survey goal pi steradians, hundreds of millions of objects by DR17",
-    "ko_cells": [
-      "K3"
-    ],
-    "ko_primary": "K3",
-    "ko_note": "SDSS founding technical summary; survey goal pi steradians, hundreds of millions of objects by DR17",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Astronomy, earth, and climate"
   }
 ]

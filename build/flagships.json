@@ -1206,6 +1206,213 @@
         "bio"
       ],
       "paper_link": "https://doi.org/10.1021/acs.jcim.0c00411"
+    },
+    "johnson2016mimic": {
+      "title": "MIMIC-III, a freely accessible critical care database",
+      "year": 2016,
+      "venue": "Scientific Data",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.1038/sdata.2016.35"
+    },
+    "johnson2023mimic": {
+      "title": "MIMIC-IV, a freely accessible electronic health record dataset",
+      "year": 2023,
+      "venue": "Scientific Data",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.1038/s41597-022-01899-x"
+    },
+    "petersen2010alzheimer": {
+      "title": "Alzheimer's Disease Neuroimaging Initiative (ADNI): Clinical characterization",
+      "year": 2010,
+      "venue": "Neurology",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.1212/WNL.0b013e3181cb3e25"
+    },
+    "DBLP:journals/jocn/MarcusWPCMB07": {
+      "title": "Open Access Series of Imaging Studies (OASIS): Cross-sectional MRI Data in Young, Middle Aged, Nondemented, and Demented Older Adults",
+      "year": 2007,
+      "venue": "J. Cogn. Neurosci.",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.1162/jocn.2007.19.9.1498"
+    },
+    "di2014autism": {
+      "title": "The autism brain imaging data exchange: towards a large-scale evaluation of the intrinsic brain architecture in autism",
+      "year": 2014,
+      "venue": "Molecular Psychiatry",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.1038/mp.2013.78"
+    },
+    "liu2018integrated": {
+      "title": "An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics",
+      "year": 2018,
+      "venue": "Cell",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.1016/j.cell.2018.02.052"
+    },
+    "uhlen2015tissue": {
+      "title": "Tissue-based map of the human proteome",
+      "year": 2015,
+      "venue": "Science",
+      "domain": [
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.1126/science.1260419"
+    },
+    "osanlouy2021sparc": {
+      "title": "The SPARC DRC: Building a Resource for the Autonomic Nervous System Community",
+      "year": 2021,
+      "venue": "Frontiers in Physiology",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.3389/fphys.2021.693735"
+    },
+    "DBLP:journals/nar/BermanWFGBWSB00": {
+      "title": "The Protein Data Bank",
+      "year": 2000,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/28.1.235"
+    },
+    "DBLP:journals/nar/VaradiADNNYYSWL22": {
+      "title": "AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models",
+      "year": 2022,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gkab1061"
+    },
+    "varadi2024alphafold": {
+      "title": "AlphaFold Protein Structure Database in 2024: providing structure coverage for over 214 million protein sequences",
+      "year": 2024,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gkad1011"
+    },
+    "ahdritz2024openfold": {
+      "title": "OpenFold: Retraining AlphaFold2 yields new insights into its learning mechanisms and capacity for generalization",
+      "year": 2024,
+      "venue": "Nature Methods",
+      "domain": [
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.1038/s41592-024-02272-z"
+    },
+    "york2000sloan": {
+      "title": "The Sloan Digital Sky Survey: Technical Summary",
+      "year": 2000,
+      "venue": "The Astronomical Journal",
+      "domain": [
+        "astronomy"
+      ],
+      "paper_link": "https://doi.org/10.1086/301513"
+    },
+    "abdurro2022seventeenth": {
+      "title": "The Seventeenth Data Release of the Sloan Digital Sky Surveys: Complete Release of MaNGA, MaStar, and APOGEE-2 Data",
+      "year": 2022,
+      "venue": "ApJS",
+      "domain": [
+        "astronomy"
+      ],
+      "paper_link": "https://doi.org/10.3847/1538-4365/ac9eff"
+    },
+    "vallenari2023gaia": {
+      "title": "Gaia Data Release 3: Summary of the content and survey properties",
+      "year": 2023,
+      "venue": "Astronomy & Astrophysics",
+      "domain": [
+        "astronomy"
+      ],
+      "paper_link": "https://doi.org/10.1051/0004-6361/202243940"
+    },
+    "mast": {
+      "title": "Mikulski Archive for Space Telescopes (MAST)",
+      "year": 1997,
+      "venue": "STScI",
+      "domain": [
+        "astronomy"
+      ],
+      "paper_link": "https://archive.stsci.edu"
+    },
+    "DBLP:conf/mss/KoblerBCH95": {
+      "title": "Architecture and Design of Storage and Data Management for the NASA EOSDIS",
+      "year": 1995,
+      "venue": "IEEE MSS",
+      "domain": [
+        "earth"
+      ],
+      "paper_link": "https://doi.org/10.1109/MASS.1995.528217"
+    },
+    "noaa_ncei": {
+      "title": "NOAA National Centers for Environmental Information (NCEI)",
+      "year": 2015,
+      "venue": "NOAA",
+      "domain": [
+        "earth"
+      ],
+      "paper_link": "https://www.ncei.noaa.gov"
+    },
+    "eyring2016overview": {
+      "title": "Overview of the Coupled Model Intercomparison Project Phase 6 (CMIP6) experimental design and organization",
+      "year": 2016,
+      "venue": "Geoscientific Model Development",
+      "domain": [
+        "earth"
+      ],
+      "paper_link": "https://doi.org/10.5194/gmd-9-1937-2016"
+    },
+    "usgs_eros": {
+      "title": "USGS Earth Resources Observation and Science (EROS) Center",
+      "year": 1973,
+      "venue": "USGS",
+      "domain": [
+        "earth"
+      ],
+      "paper_link": "https://www.usgs.gov/centers/eros"
+    },
+    "climatepolicyradar": {
+      "title": "Climate Policy Radar: A database of climate change laws and policies",
+      "year": 2024,
+      "venue": "Climate Policy Radar",
+      "domain": [
+        "earth"
+      ],
+      "paper_link": "https://www.climatepolicyradar.org/"
+    },
+    "DBLP:journals/corr/MaguireHW17": {
+      "title": "HEPData: a repository for high energy physics data",
+      "year": 2017,
+      "venue": "arXiv",
+      "domain": [
+        "physics"
+      ],
+      "paper_link": "https://doi.org/10.48550/arXiv.1704.05473"
+    },
+    "cernopendata": {
+      "title": "CERN Open Data Portal",
+      "year": 2014,
+      "venue": "CERN",
+      "domain": [
+        "physics"
+      ],
+      "paper_link": "https://opendata.cern.ch"
     }
   }
 }
