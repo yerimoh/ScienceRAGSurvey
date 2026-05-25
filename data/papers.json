@@ -1303,5 +1303,73 @@
     "ko_note": "main.tex: K=K1; domain-specific (geoscience)",
     "cross_source": false,
     "subsection": "Domain-specific literature"
+  },
+  {
+    "title": "Climate Change 2023: Synthesis Report. Contribution of Working Groups I, II and III to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change",
+    "year": 2023,
+    "venue": "IPCC",
+    "venue_type": "Report",
+    "db_name": "IPCC AR6 Synthesis Report",
+    "db_size": "3 WG reports + 3 special reports synthesized; 6,841 review comments",
+    "db_open": "Open (free PDF at ipcc.ch)",
+    "db_etc": "Authoritative climate science synthesis; not a bibliographic index",
+    "chunk": null,
+    "retriever_train": false,
+    "generator_base": null,
+    "generator_train": false,
+    "eval_task": null,
+    "method": "IPCC AR6 Synthesis Report",
+    "paper_link": "https://www.ipcc.ch/report/ar6/syr/",
+    "note": "Authoritative synthesis of climate science; canonical reference document used by climate science RAG systems.",
+    "bib_key": "lee2023climate",
+    "bib_ver": "v2",
+    "domain": [
+      "earth"
+    ],
+    "modality": [
+      "Text"
+    ],
+    "type": "dataset",
+    "ko_cells": [
+      "K1"
+    ],
+    "ko_primary": "K1",
+    "ko_note": "Domain-specific literature (climate science)",
+    "cross_source": false,
+    "subsection": "Domain-specific literature"
+  },
+  {
+    "bib_key": "sever2019biorxiv",
+    "title": "bioRxiv: the preprint server for biology",
+    "year": 2019,
+    "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+    "venue_type": "Science",
+    "db_name": "bioRxiv preprint server",
+    "db_size": "310,000+ manuscripts (2019년 11월 시점)",
+    "db_open": "Open",
+    "db_etc": "OAI-PMH, REST API, Easy Journal Transfer, medRxiv sister server",
+    "chunk": null,
+    "retriever_train": false,
+    "generator_base": null,
+    "generator_train": false,
+    "eval_task": null,
+    "method": "bioRxiv OAI-PMH / REST API",
+    "paper_link": "https://doi.org/10.1101/833400",
+    "note": "2013년 CSHL 설립 생명과학 프리프린트 서버. 31만편+, 월 1천만 뷰.",
+    "bib_ver": "v2",
+    "domain": [
+      "bio"
+    ],
+    "modality": [
+      "Text"
+    ],
+    "type": "dataset",
+    "ko_cells": [
+      "K1"
+    ],
+    "ko_primary": "K1",
+    "ko_note": "main.tex: K=K1; O=-",
+    "cross_source": false,
+    "subsection": "Preprint literature"
   }
 ]
