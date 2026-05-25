@@ -208,5 +208,61 @@
     "K": "",
     "O": "O1",
     "note": "main.tex: K=-; O=O1"
+  },
+  "DBLP:journals/qss/HendricksTLF20": {
+    "cells": [
+      "K1"
+    ],
+    "K": "K1",
+    "O": "",
+    "note": "main.tex: K=K1; Knowledge Source infrastructure (Crossref)"
+  },
+  "DBLP:journals/corr/abs-2205-01833": {
+    "cells": [
+      "K1"
+    ],
+    "K": "K1",
+    "O": "",
+    "note": "main.tex: K=K1; Knowledge Source infrastructure (OpenAlex)"
+  },
+  "canese2013pubmed": {
+    "cells": [
+      "K1"
+    ],
+    "K": "K1",
+    "O": "",
+    "note": "main.tex: K=K1; domain-specific biomedical (PubMed)"
+  },
+  "europepmc2024": {
+    "cells": [
+      "K1"
+    ],
+    "K": "K1",
+    "O": "",
+    "note": "main.tex: K=K1; domain-specific biomedical (Europe PMC)"
+  },
+  "kurtz2000nasa": {
+    "cells": [
+      "K1"
+    ],
+    "K": "K1",
+    "O": "",
+    "note": "main.tex: K=K1; domain-specific astronomy (NASA ADS)"
+  },
+  "inspirehep": {
+    "cells": [
+      "K1"
+    ],
+    "K": "K1",
+    "O": "",
+    "note": "main.tex: K=K1; domain-specific HEP (INSPIRE-HEP)"
+  },
+  "georef": {
+    "cells": [
+      "K1"
+    ],
+    "K": "K1",
+    "O": "",
+    "note": "main.tex: K=K1; domain-specific geoscience (GeoRef)"
   }
 }
