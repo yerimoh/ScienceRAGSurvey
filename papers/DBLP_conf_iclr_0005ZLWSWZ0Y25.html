@@ -36,7 +36,7 @@
 <a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
 <a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
 <a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
-<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">5</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">7</span></a>
 <a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
 <a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
 
@@ -68,22 +68,23 @@
       <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
-        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">40</span></a>
-<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">38</span></a>
-<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">42</span></a>
-<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">15</span></a>
-<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">15</span></a>
-<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">10</span></a>
-<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">5</span></a>
-<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">5</span></a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">49</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">36</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">89</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">13</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">28</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">23</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">10</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">2</span></a>
 
       </div>
     </details>
 
-    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">27</span></a>
-    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">14</span></a>
-    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">95</span></a>
-    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">161</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">87</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">12</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
 
     <hr class="sb-rule">
 
@@ -109,7 +110,7 @@
       <span class="meta-year">2025</span>
       
     </div>
-    <div class="paper-tags"><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Observational & Experimental × Ground</a><span class="tag tag-sub">Cross-modal Grounding</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+    <div class="paper-tags"><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Observational & Experimental × Ground</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
   </div>
 </section>
 <section class="paper-body">
@@ -166,7 +167,10 @@
 <h2>🔗 관련 연구 및 관련 정보</h2>
 <ul>
 <li>GitHub: <a href="https://github.com/richard-peng-xia/MMed-RAG">https://github.com/richard-peng-xia/MMed-RAG</a></li>
-<li>평가 벤치마크: MIMIC-CXR, IU-Xray, Harvard-FairVLMed, PMC-OA, Quilt-1M</li>
+<li>arXiv: <a href="https://arxiv.org/abs/2410.13085">arXiv:2410.13085</a></li>
+<li>평가 벤치마크: MIMIC-CXR, IU-Xray, Harvard-FairVLMed, PMC-OA, Quilt-1M (5개 데이터셋, radiology/ophthalmology/pathology)</li>
+<li>핵심 결과: <strong>의료 VLM의 사실적 정확도 평균 43.8% 향상</strong> (abstract 확인, arXiv:2410.13085)</li>
+<li>지식소스: PubMed 텍스트가 아닌 도메인별 의료 이미지 데이터셋(방사선/안과/병리)에서 직접 검색</li>
 </ul>
 
     </article>

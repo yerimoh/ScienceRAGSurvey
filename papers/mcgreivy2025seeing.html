@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PaperQA: Retrieval-Augmented Generative Agent for Scientific Research — Scientific RAG Hub</title>
+<title>Seeing the Forest Through the Trees: Knowledge Retrieval for Streamlining Particle Physics Analysis — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
 <link rel="stylesheet" href="../static/style.css?v=1779699531">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
@@ -104,67 +104,85 @@
 <section class="paper-hero">
   <div class="wrap">
     <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
-    <h1>PaperQA: Retrieval-Augmented Generative Agent for Scientific Research</h1>
+    <h1>Seeing the Forest Through the Trees: Knowledge Retrieval for Streamlining Particle Physics Analysis</h1>
     <div class="paper-hero-meta">
-      <span class="meta-venue">arXiv</span>
-      <span class="meta-year">2023</span>
-      <a href="https://arxiv.org/abs/2312.07559v2" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+      <span class="meta-venue">ML4PS @ NeurIPS</span>
+      <span class="meta-year">2025</span>
+      <a href="https://arxiv.org/abs/2509.06855" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+    <div class="paper-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Tacit Knowledge × Ground</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a></div>
   </div>
 </section>
 <section class="paper-body">
   <div class="wrap">
     <article class="paper-markdown">
-      <h1>PaperQA: Retrieval-Augmented Generative Agent for Scientific Research</h1>
+      <h1>Seeing the Forest Through the Trees: Knowledge Retrieval for Streamlining Particle Physics Analysis</h1>
+<p>mcgreivy2025seeing | 2025 | arXiv preprint | method | [physics] | <a href="https://arxiv.org/abs/2509.06855">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">LHCb experiment corpus (CERN)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">명시 안됨; LHCb 실험 내부 문서·논문 코퍼스</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Internal (LHCb 실험 내부 문서), 코드 오픈소스</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
+<tr><td class="prop-key">Retriever</td><td class="prop-val">SciTreeRAG (계층적 트리 구조), SciGraphRAG (지식 그래프)</td></tr>
+<tr><td class="prop-key">Eval Task</td><td class="prop-val">입자물리학 문헌 질의응답 (전문가 평가)</td></tr>
+<tr><td class="prop-key">Eval Metric</td><td class="prop-val">질적 평가 (컨텍스트 품질, 문서 간 관계 커버리지)</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">SciTreeRAG + SciGraphRAG</td></tr>
+</table>
+
 <blockquote>
-<p>arXiv | 2023 | Method | bio, medical</p>
+<p>arXiv preprint | 2025 | method | physics</p>
+<h4>한 줄 요약</h4>
+<p>LHCb 실험의 문서 코퍼스를 대상으로, 표준 RAG의 국소적 청크 매칭 한계를 극복하는 두 가지 구조화 검색 시스템 제안. <strong>SciTreeRAG</strong>: 물리학 논문의 계층 구조(섹션 트리)를 활용하여 문서 간 맥락 연결 강화. <strong>SciGraphRAG</strong>: LLM으로 코퍼스를 지식 그래프로 변환, 글로벌 교차 문서 관계 검색. 비전문가의 LHC 공개 데이터 분석 지원을 목표로 한다.</p>
 </blockquote>
-<h2>한 줄 요약</h2>
-<p>과학 문헌을 동적으로 검색, 추출, 요약하여 환각(Hallucination) 없이 정확하게 출처를 인용하는 에이전트 기반의 RAG 시스템.</p>
-<h2>연구 배경 및 동기</h2>
+<h4>개발/구축 배경</h4>
+<p><strong>기존 방법의 한계</strong></p>
 <ul>
-<li><strong>기존 방법의 한계점</strong>: 기존 LLM은 환각 현상이 발생하기 쉽고, 학습 데이터 컷오프 이후의 최신 과학적 사실을 알지 못하는 한계가 있음.</li>
-<li><strong>이 연구가 필요한 이유</strong>: 일반적인 RAG 파이프라인은 고정된 선형 단계로 구성되어 있어, 과학자들이 직면하는 다양하고 복잡한 질문에 유연하게 대응하기 어려움.</li>
+<li>표준 RAG: 의미적으로 유사한 텍스트 청크를 매칭하지만 관련 정보가 여러 섹션에 분산될 때 맥락 분절(fragmented representation) 발생</li>
+<li>전체 문서 컨텍스트: 긴 물리학 논문에서 토큰 한계 초과, 불필요 정보 포함</li>
+<li>입자물리학은 실험별 고유 방법론·기호·용어로 도메인 특화 지식 필요</li>
 </ul>
-<h2>시스템 아키텍처</h2>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>대규모·장기 실험 협업(LHCb ~1,600명 협력자)의 방법론·편집 검토 가속화</li>
+<li>비전문가가 공개된 LHC 데이터를 LLM 기반 시스템으로 분석 가능하도록 지원</li>
+<li>INSPIRE-HEP 문헌과 내부 기술 문서를 통합하여 교차 문서 전문 지식 접근</li>
+</ul>
+<h4>방법론</h4>
+<p><strong>SciTreeRAG</strong>:</p>
 <ol>
-<li>사용자 질문 입력</li>
-<li><strong>Agent LLM</strong>이 도구 선택</li>
-<li><strong>[Search 도구]</strong> 키워드로 논문 검색 및 청크 분할 임베딩</li>
-<li><strong>[Gather Evidence 도구]</strong> MMR로 청크 회수 후 Summary LLM이 요약 및 채점</li>
-<li><strong>[Answer Question 도구]</strong> Ask LLM으로 사전 지식을 모으고 Answer LLM이 최종 답변 및 인용 생성</li>
-<li>에이전트가 검토 후 최종 출력 도출</li>
+<li>물리학 논문의 계층 구조(섹션·소절 트리) 파싱</li>
+<li>트리 노드별 요약 생성 및 부모-자식 맥락 연결</li>
+<li>쿼리 시 계층적 트리 순회로 집중적(focused)이고 맥락 풍부한 청크 검색</li>
 </ol>
-<h2>핵심 모듈 상세 설명</h2>
+<p><strong>SciGraphRAG</strong>:</p>
+<ol>
+<li>LLM으로 코퍼스 내 엔티티(입자, 알고리즘, 파라미터)와 관계 추출</li>
+<li>지식 그래프 구축</li>
+<li>쿼리를 그래프 탐색으로 변환, 표준 RAG로 놓치는 글로벌 도메인 연결 검색</li>
+</ol>
+<h4>실험 설정</h4>
 <ul>
-<li><strong>Search 모듈</strong>: 에이전트가 쿼리를 생성하여 Google Scholar, PubMed 등의 API를 호출. 수집된 논문을 4,000자 단위로 나누고 <code>text-embedding-ada-002</code>를 통해 벡터화.</li>
-<li><strong>Gather Evidence 모듈</strong>: 질문 벡터와 비교하여 MMR 방식으로 텍스트를 불러옴. Summary LLM(GPT-3.5)이 각 청크를 질문 관점에서 요약하고 1에서 10점의 관련성 점수를 부여해 상위 문서를 필터링.</li>
-<li><strong>Answer Question 모듈</strong>: LLM의 내재적 지식(Ask LLM)과 검색된 증거들을 합쳐 Answer LLM(GPT-4)에 제공. 모델은 반드시 제공된 증거를 기반으로 문장 끝에 인용구를 포함한 답변을 작성.</li>
+<li><strong>코퍼스</strong>: LHCb 실험 문서·논문</li>
+<li><strong>응용</strong>: 방법론 리뷰, 편집 표준 확인, 비전문가 데이터 분석 지원</li>
+<li><strong>LLM 백본</strong>: GPT-4 계열 (명시 안됨)</li>
+<li><strong>평가</strong>: 전문가 질적 평가 (수치 벤치마크 없음)</li>
 </ul>
-<h2>실험 및 평가</h2>
+<h4>주요 결과</h4>
 <ul>
-<li><strong>평가 태스크</strong>: LitQA (자체 제작), PubMedQA, MedQA-USMLE, BioASQ</li>
-<li><strong>주요 평가 결과</strong>:<ul>
-<li>LitQA 벤치마크에서 기존 상용 도구(Scite, Perplexity 등) 및 베이스라인 모델들을 큰 차이로 앞질렀음.</li>
-<li>인간 생의학 전문가 수준의 정답률(69.5% vs 인간 87.9% 정확도)을 달성함.</li>
-<li>자체 테스트 결과 환각(Hallucinated citation) 비율이 0%로 측정되어 신뢰성을 크게 높임.</li>
+<li>SciTreeRAG: 표준 RAG 대비 더 집중적이고 맥락이 풍부한 답변 생성 (전문가 평가)</li>
+<li>SciGraphRAG: 문서 간 글로벌 도메인 연결(표준 RAG에서 놓치는) 검색 가능</li>
+<li>LHCb 코퍼스에서 개념 증명(proof-of-concept) 성공</li>
 </ul>
-</li>
-</ul>
-<h2>핵심 기여</h2>
+<h4>한계점</h4>
 <ul>
-<li>검색, 요약, 답변 생성을 독립된 모듈(도구)로 분리하고 이를 LLM 에이전트가 능동적으로 조율하게 함으로써 과학적 질문 해결의 유연성과 정확성을 확보.</li>
-<li>최신 논문의 전체 텍스트 검색을 강제하는 신규 벤치마크인 'LitQA'를 성공적으로 구축.</li>
+<li>수치 벤치마크 없음 — 전문가 질적 평가만으로 객관적 비교 어려움</li>
+<li>LHCb 내부 문서 코퍼스에 한정 — 다른 실험/도메인으로의 일반화 미검증</li>
+<li>지식 그래프 구축 비용 (LLM 기반 추출) 대규모 코퍼스에서 높음</li>
+<li>SciGraphRAG의 그래프 품질은 LLM 추출 정확도에 의존</li>
 </ul>
-<h2>한계점</h2>
+<h2>관련 정보</h2>
 <ul>
-<li>시스템이 참조하는 원본 논문의 정보 자체가 틀렸을 가능성에는 대처하기 어려움.</li>
-<li>시간이 지나면서 과학적 사실이 업데이트될 수 있어, 특정 답변의 유효기간이 존재할 수 있음.</li>
-</ul>
-<h2>관련 연구 및 관련 정보</h2>
-<ul>
-<li>논문 링크: <a href="https://arxiv.org/abs/2312.07559v2">https://arxiv.org/abs/2312.07559v2</a></li>
+<li><strong>논문</strong>: <a href="https://arxiv.org/abs/2509.06855">https://arxiv.org/abs/2509.06855</a></li>
 </ul>
 
     </article>

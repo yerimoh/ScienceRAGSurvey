@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PaperQA: Retrieval-Augmented Generative Agent for Scientific Research — Scientific RAG Hub</title>
+<title>Multi-Agent System for Cosmological Parameter Analysis — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
 <link rel="stylesheet" href="../static/style.css?v=1779699531">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
@@ -104,67 +104,104 @@
 <section class="paper-hero">
   <div class="wrap">
     <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
-    <h1>PaperQA: Retrieval-Augmented Generative Agent for Scientific Research</h1>
+    <h1>Multi-Agent System for Cosmological Parameter Analysis</h1>
     <div class="paper-hero-meta">
       <span class="meta-venue">arXiv</span>
-      <span class="meta-year">2023</span>
-      <a href="https://arxiv.org/abs/2312.07559v2" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+      <span class="meta-year">2024</span>
+      <a href="https://arxiv.org/abs/2412.00431" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+    <div class="paper-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Tacit Knowledge × Ground</a><a href="../domain/astronomy.html" class="tag tag-domain">🔭Astronomy</a></div>
   </div>
 </section>
 <section class="paper-body">
   <div class="wrap">
     <article class="paper-markdown">
-      <h1>PaperQA: Retrieval-Augmented Generative Agent for Scientific Research</h1>
+      <h1>Multi-Agent System for Cosmological Parameter Analysis</h1>
+<p>sarkar2024multi | 2024 | arXiv preprint | method | [astronomy] | <a href="https://arxiv.org/abs/2412.07544">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">cobaya / classy_sz / cosmocnc 문서·소스코드 코퍼스 (K4 비공개 문서 RAG)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">소프트웨어 문서 및 소스코드 수준</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (공개 소프트웨어 문서)</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text, Code, Documentation</td></tr>
+<tr><td class="prop-key">Retriever</td><td class="prop-val">RAG over software documentation (3개 전문화 에이전트)</td></tr>
+<tr><td class="prop-key">Eval Task</td><td class="prop-val">ACT DR6 CMB 렌즈 효과 우주론적 파라미터 분석 재현</td></tr>
+<tr><td class="prop-key">Eval Metric</td><td class="prop-val">출판된 ACT DR6 파라미터 등고선과의 일치도</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">cmbagent (multi-agent RAG for cosmological analysis)</td></tr>
+</table>
+
 <blockquote>
-<p>arXiv | 2023 | Method | bio, medical</p>
+<p>arXiv preprint | 2024 | method | astronomy</p>
+<h4>한 줄 요약</h4>
+<p>우주 마이크로파 배경 복사(CMB) 분석을 자동화하는 다중 에이전트 RAG 시스템(cmbagent). cobaya, classy_sz, cosmocnc 소프트웨어 문서에 대한 RAG 기반 3개 전문화 에이전트가 협력하여 ACT DR6 CMB 렌즈 효과 우주론적 파라미터 분석을 <strong>40분, $1.55, 인간 작성 코드 0줄</strong>로 재현. 출판된 ACT 등고선과 일치하는 결과 달성.</p>
 </blockquote>
-<h2>한 줄 요약</h2>
-<p>과학 문헌을 동적으로 검색, 추출, 요약하여 환각(Hallucination) 없이 정확하게 출처를 인용하는 에이전트 기반의 RAG 시스템.</p>
-<h2>연구 배경 및 동기</h2>
+<h4>개발/구축 배경</h4>
+<p><strong>기존 방법의 한계</strong></p>
 <ul>
-<li><strong>기존 방법의 한계점</strong>: 기존 LLM은 환각 현상이 발생하기 쉽고, 학습 데이터 컷오프 이후의 최신 과학적 사실을 알지 못하는 한계가 있음.</li>
-<li><strong>이 연구가 필요한 이유</strong>: 일반적인 RAG 파이프라인은 고정된 선형 단계로 구성되어 있어, 과학자들이 직면하는 다양하고 복잡한 질문에 유연하게 대응하기 어려움.</li>
+<li>우주론적 파라미터 분석은 cobaya(마르코프 체인 몬테카를로)·classy_sz(볼츠만 코드)·cosmocnc(클러스터 풍요도) 등 복잡한 소프트웨어 스택 요구</li>
+<li>각 소프트웨어의 방대한 문서와 파라미터 설정을 전문가만이 올바르게 구성 가능</li>
+<li>새로운 데이터셋(ACT DR6 등) 적용 시 분석 파이프라인 재설정에 상당한 전문 지식 필요</li>
 </ul>
-<h2>시스템 아키텍처</h2>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>비전문가 또는 다른 분야 전문가가 CMB 분석 도구를 접근 가능하게 함</li>
+<li>새로운 데이터나 분석 요청에 자동 대응하는 자율 과학 에이전트 시스템 구현</li>
+<li>RAG를 통한 K4(암묵 지식 = 소프트웨어 문서) 활성화</li>
+</ul>
+<h4>방법론</h4>
+<p>3개 전문화 RAG 에이전트:</p>
 <ol>
-<li>사용자 질문 입력</li>
-<li><strong>Agent LLM</strong>이 도구 선택</li>
-<li><strong>[Search 도구]</strong> 키워드로 논문 검색 및 청크 분할 임베딩</li>
-<li><strong>[Gather Evidence 도구]</strong> MMR로 청크 회수 후 Summary LLM이 요약 및 채점</li>
-<li><strong>[Answer Question 도구]</strong> Ask LLM으로 사전 지식을 모으고 Answer LLM이 최종 답변 및 인용 생성</li>
-<li>에이전트가 검토 후 최종 출력 도출</li>
+<li><strong>cobaya 에이전트</strong>: MCMC 구성·실행 전문 (샘플링 설정, 파라미터 프라이어)</li>
+<li><strong>classy_sz 에이전트</strong>: 볼츠만 코드 인터페이스 전문 (클래스 파라미터, 파워 스펙트럼)</li>
+<li><strong>cosmocnc 에이전트</strong>: 은하단 풍요도 분석 전문</li>
 </ol>
-<h2>핵심 모듈 상세 설명</h2>
+<p>각 에이전트: 해당 소프트웨어 문서·소스코드에 대한 벡터 검색 기반 RAG + LLM 코드 생성. 에이전트 간 협력: 분석 파이프라인의 단계별 결과를 공유하며 순차 실행.</p>
+<h4>실험 설정</h4>
 <ul>
-<li><strong>Search 모듈</strong>: 에이전트가 쿼리를 생성하여 Google Scholar, PubMed 등의 API를 호출. 수집된 논문을 4,000자 단위로 나누고 <code>text-embedding-ada-002</code>를 통해 벡터화.</li>
-<li><strong>Gather Evidence 모듈</strong>: 질문 벡터와 비교하여 MMR 방식으로 텍스트를 불러옴. Summary LLM(GPT-3.5)이 각 청크를 질문 관점에서 요약하고 1에서 10점의 관련성 점수를 부여해 상위 문서를 필터링.</li>
-<li><strong>Answer Question 모듈</strong>: LLM의 내재적 지식(Ask LLM)과 검색된 증거들을 합쳐 Answer LLM(GPT-4)에 제공. 모델은 반드시 제공된 증거를 기반으로 문장 끝에 인용구를 포함한 답변을 작성.</li>
+<li><strong>목표</strong>: ACT DR6 CMB 렌즈 효과(lensing) + 빅뱅 핵합성(BBN) 우주론적 파라미터 추정 재현</li>
+<li><strong>입력</strong>: ACT DR6 파워 스펙트럼 데이터</li>
+<li><strong>소요 시간</strong>: 40분</li>
+<li><strong>비용</strong>: $1.55 (API 호출)</li>
+<li><strong>인간 작성 코드</strong>: 0줄</li>
+<li><strong>결과</strong>: 출판된 ACT DR6 파라미터 등고선(Ωm, σ8, S8 등)과 일치</li>
 </ul>
-<h2>실험 및 평가</h2>
+<h4>주요 결과</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>분석 완료 시간</td>
+  <td><strong>40분</strong></td>
+</tr>
+<tr>
+  <td>API 비용</td>
+  <td><strong>$1.55</strong></td>
+</tr>
+<tr>
+  <td>인간 작성 코드</td>
+  <td><strong>0줄</strong></td>
+</tr>
+<tr>
+  <td>결과 일치도</td>
+  <td>ACT DR6 등고선과 일치</td>
+</tr>
+</tbody>
+</table>
+<h4>한계점</h4>
 <ul>
-<li><strong>평가 태스크</strong>: LitQA (자체 제작), PubMedQA, MedQA-USMLE, BioASQ</li>
-<li><strong>주요 평가 결과</strong>:<ul>
-<li>LitQA 벤치마크에서 기존 상용 도구(Scite, Perplexity 등) 및 베이스라인 모델들을 큰 차이로 앞질렀음.</li>
-<li>인간 생의학 전문가 수준의 정답률(69.5% vs 인간 87.9% 정확도)을 달성함.</li>
-<li>자체 테스트 결과 환각(Hallucinated citation) 비율이 0%로 측정되어 신뢰성을 크게 높임.</li>
+<li>현재 cobaya·classy_sz·cosmocnc 3개 소프트웨어에 특화 — 다른 우주론 코드(CAMB, MontePython) 미지원</li>
+<li>에이전트 협력의 오류 전파(cascading error) 위험: 한 에이전트의 잘못된 파라미터 설정이 전체 분석 오염</li>
+<li>복잡한 다중 탐침(multi-probe) 우주론 분석(CMB + 약 렌즈 효과 + BAO 결합)으로의 확장 미검증</li>
+<li>재현 가능성 검증에 한정 — 새로운 분석 설계 자율 수행 능력 미검증</li>
 </ul>
-</li>
-</ul>
-<h2>핵심 기여</h2>
+<h2>관련 정보</h2>
 <ul>
-<li>검색, 요약, 답변 생성을 독립된 모듈(도구)로 분리하고 이를 LLM 에이전트가 능동적으로 조율하게 함으로써 과학적 질문 해결의 유연성과 정확성을 확보.</li>
-<li>최신 논문의 전체 텍스트 검색을 강제하는 신규 벤치마크인 'LitQA'를 성공적으로 구축.</li>
-</ul>
-<h2>한계점</h2>
-<ul>
-<li>시스템이 참조하는 원본 논문의 정보 자체가 틀렸을 가능성에는 대처하기 어려움.</li>
-<li>시간이 지나면서 과학적 사실이 업데이트될 수 있어, 특정 답변의 유효기간이 존재할 수 있음.</li>
-</ul>
-<h2>관련 연구 및 관련 정보</h2>
-<ul>
-<li>논문 링크: <a href="https://arxiv.org/abs/2312.07559v2">https://arxiv.org/abs/2312.07559v2</a></li>
+<li><strong>논문</strong>: <a href="https://arxiv.org/abs/2412.07544">https://arxiv.org/abs/2412.07544</a> (추정 — 확인 필요)</li>
+<li><strong>관련 소프트웨어</strong>: cobaya (github.com/CobayaSampler/cobaya), classy_sz, cosmocnc</li>
 </ul>
 
     </article>

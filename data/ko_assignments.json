@@ -1090,5 +1090,21 @@
     "K": "K4",
     "O": "O1",
     "note": "Local RAG QA over arXiv EIC papers; open-source LLaMA for answer generation; cost-effective, data-privacy preserving alternative to cloud-hosted RAGS4EIC; extension of RAGS4EIC proceeding application"
+  },
+  "mcgreivy2025seeing": {
+    "cells": [
+      "K4.O1"
+    ],
+    "K": "K4",
+    "O": "O1",
+    "note": "SciTreeRAG+SciGraphRAG over LHCb internal corpus (K4 institutional tacit knowledge)"
+  },
+  "sarkar2024multi": {
+    "cells": [
+      "K4.O1"
+    ],
+    "K": "K4",
+    "O": "O1",
+    "note": "cmbagent: multi-agent RAG over cobaya/classy_sz/cosmocnc software docs (K4 software-embedded knowledge)"
   }
 }
