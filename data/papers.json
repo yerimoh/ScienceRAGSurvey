@@ -3392,6 +3392,28 @@
     "subsection": "Domain-specific literature"
   },
   {
+    "bib_key": "DBLP:conf/emnlp/ZhangSHML24",
+    "title": "HoneyComb: A Flexible LLM-Based Agent System for Materials Science",
+    "year": 2024,
+    "venue": "EMNLP 2024 Findings",
+    "method": null,
+    "domain": [
+      "material"
+    ],
+    "paper_link": "https://doi.org/10.18653/v1/2024.findings-emnlp.192",
+    "note": "Materials science and physics — MatSciKB curated literature knowledge base for materials RAG",
+    "ko_cells": [
+      "K2",
+      "K2.O1"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Materials science and physics — MatSciKB curated literature knowledge base for materials RAG",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Materials science and physics"
+  },
+  {
     "title": "HoneyComb: Materials Science Agent",
     "year": 2024,
     "venue": "EMNLP (Findings)",
@@ -3797,6 +3819,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "navas2024review",
+    "title": "Review of Particle Physics",
+    "year": 2024,
+    "venue": "Physical Review D",
+    "method": null,
+    "domain": [
+      "physics"
+    ],
+    "paper_link": "https://doi.org/10.1103/PhysRevD.110.030001",
+    "note": "Materials science and physics — PDG Review, curated particle properties reference; most-cited in HEP",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Materials science and physics — PDG Review, curated particle properties reference; most-cited in HEP",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Materials science and physics"
+  },
+  {
     "title": "SPIQA: A Dataset for Multimodal Question Answering on Scientific Papers",
     "year": 2024,
     "venue": "D&B @ NeurIPS",
@@ -3850,6 +3893,27 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "Chemistry and drug discovery"
+  },
+  {
+    "bib_key": "milacic2024reactome",
+    "title": "The Reactome Pathway Knowledgebase 2024",
+    "year": 2024,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkad1025",
+    "note": "Biology and genomics — manually curated pathway knowledgebase",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — manually curated pathway knowledgebase",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Biology and genomics"
   },
   {
     "title": "Towards a RAG-based Summarization for the Electron Ion Collider",
@@ -4524,6 +4588,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "gene2023gene",
+    "title": "The Gene Ontology Knowledgebase in 2023",
+    "year": 2023,
+    "venue": "Genetics",
+    "method": null,
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1093/genetics/iyad031",
+    "note": "Biology and genomics — gene function ontology (2023 update)",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — gene function ontology (2023 update)",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Biology and genomics"
+  },
+  {
     "title": "The SciQA Scientific Question Answering Benchmark for Scholarly Knowledge",
     "year": 2023,
     "venue": "Scientific Reports",
@@ -4557,6 +4642,27 @@
     "ko_primary": "O1",
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false
+  },
+  {
+    "bib_key": "uniprot2023uniprot",
+    "title": "UniProt: the Universal Protein Knowledgebase in 2023",
+    "year": 2023,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkac1052",
+    "note": "Biology and genomics — protein sequence and function knowledgebase",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — protein sequence and function knowledgebase",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Biology and genomics"
   },
   {
     "bib_key": "DBLP:journals/jcisd/TingleTCGKDMI23",
@@ -4636,6 +4742,27 @@
     "ko_primary": null,
     "ko_note": "",
     "cross_source": false
+  },
+  {
+    "bib_key": "gbif2022gbif",
+    "title": "GBIF: the Global Biodiversity Information Facility",
+    "year": 2022,
+    "venue": "GBIF Secretariat",
+    "method": null,
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://www.gbif.org",
+    "note": "Biology and genomics — global biodiversity occurrence records",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — global biodiversity occurrence records",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Biology and genomics"
   },
   {
     "title": "Mapping information-rich genotype-phenotype landscapes with genome-scale Perturb-seq",
@@ -4779,6 +4906,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "DBLP:journals/corr/abs-2206-08917",
+    "title": "The Open Catalyst 2022 (OC22) Dataset and Challenges for Oxide Electrocatalysis",
+    "year": 2022,
+    "venue": "arXiv",
+    "method": null,
+    "domain": [
+      "material"
+    ],
+    "paper_link": "https://doi.org/10.48550/arXiv.2206.08917",
+    "note": "Materials science and physics — 62,331 DFT relaxations for oxide electrocatalysts",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Materials science and physics — 62,331 DFT relaxations for oxide electrocatalysts",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Materials science and physics"
+  },
+  {
     "title": "Measuring Massive Multitask Language Understanding",
     "year": 2021,
     "venue": "ICLR",
@@ -4917,6 +5065,27 @@
     "ko_primary": null,
     "ko_note": "",
     "cross_source": false
+  },
+  {
+    "bib_key": "drew2021hu",
+    "title": "hu.MAP 2.0: integration of over 15,000 proteomic experiments builds a comprehensive atlas of human protein complexes",
+    "year": 2021,
+    "venue": "Molecular Systems Biology",
+    "method": null,
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.15252/msb.20209886",
+    "note": "Biology and genomics — human protein complex map v2",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — human protein complex map v2",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Biology and genomics"
   },
   {
     "title": "Crossref: The sustainable source of community-owned scholarly metadata",
@@ -5246,6 +5415,48 @@
     "subsection": "General-purpose literature"
   },
   {
+    "bib_key": "DBLP:journals/nar/GonzalezRSRCSF20",
+    "title": "The DisGeNET knowledge platform for disease genomics: 2019 update",
+    "year": 2020,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkz1021",
+    "note": "Medicine and clinical knowledge",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
+  },
+  {
+    "bib_key": "DBLP:journals/corr/abs-2010-09990",
+    "title": "The Open Catalyst 2020 (OC20) Dataset and Community Challenges",
+    "year": 2020,
+    "venue": "arXiv",
+    "method": null,
+    "domain": [
+      "material"
+    ],
+    "paper_link": "https://arxiv.org/abs/2010.09990",
+    "note": "Materials science and physics — 1.28M DFT relaxations for catalyst/surface ML",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Materials science and physics — 1.28M DFT relaxations for catalyst/surface ML",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Materials science and physics"
+  },
+  {
     "title": "Three-Dimensional Convolutional Neural Networks and a Cross-Docked Data Set for Structure-Based Drug Design",
     "year": 2020,
     "venue": "J. Chem. Inf. Model.",
@@ -5274,6 +5485,48 @@
     "ko_primary": null,
     "ko_note": "",
     "cross_source": false
+  },
+  {
+    "bib_key": "kluwer2020uptodate",
+    "title": "UpToDate: evidence-based clinical decision support",
+    "year": 2020,
+    "venue": "Wolters Kluwer",
+    "method": null,
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://www.uptodate.com",
+    "note": "Medicine and clinical knowledge — subscription-only; defining gap in open RAG",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge — subscription-only; defining gap in open RAG",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
+  },
+  {
+    "bib_key": "DBLP:journals/nar/TateBJSBBBCCDFH19",
+    "title": "COSMIC: the Catalogue Of Somatic Mutations In Cancer",
+    "year": 2019,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gky1015",
+    "note": "Medicine and clinical knowledge",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
   },
   {
     "bib_key": "DBLP:journals/nar/MendezGBCVFMMMN19",
@@ -5428,6 +5681,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "DBLP:journals/nar/LandrumLBBCCGHH18",
+    "title": "ClinVar: improving access to variant interpretations and supporting evidence",
+    "year": 2018,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkx1153",
+    "note": "Medicine and clinical knowledge",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
+  },
+  {
     "title": "MoleculeNet: a benchmark for molecular machine learning",
     "year": 2018,
     "venue": "Chemical Science (RSC)",
@@ -5488,6 +5762,27 @@
     "ko_primary": null,
     "ko_note": "",
     "cross_source": false
+  },
+  {
+    "bib_key": "griffith2017civic",
+    "title": "CIViC is a community knowledgebase for expert crowdsourcing the clinical interpretation of variants in cancer",
+    "year": 2017,
+    "venue": "Nature Genetics",
+    "method": null,
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1038/ng.3774",
+    "note": "Medicine and clinical knowledge",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
   },
   {
     "bib_key": "chemrxiv",
@@ -5584,6 +5879,48 @@
     "subsection": "Preprint literature"
   },
   {
+    "bib_key": "drew2017integration",
+    "title": "Integration of over 9,000 mass spectrometry experiments builds a global map of human protein complexes",
+    "year": 2017,
+    "venue": "Molecular Systems Biology",
+    "method": null,
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.15252/msb.20167490",
+    "note": "Biology and genomics — human protein complex map v1",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — human protein complex map v1",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Biology and genomics"
+  },
+  {
+    "bib_key": "chakravarty2017oncokb",
+    "title": "OncoKB: a precision oncology knowledge base",
+    "year": 2017,
+    "venue": "JCO Precision Oncology",
+    "method": null,
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1200/PO.17.00011",
+    "note": "Medicine and clinical knowledge",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
+  },
+  {
     "title": "Overview of the Medical Question Answering Task at TREC 2017 LiveQA",
     "year": 2017,
     "venue": "TREC",
@@ -5639,6 +5976,27 @@
     "ko_primary": null,
     "ko_note": "",
     "cross_source": false
+  },
+  {
+    "bib_key": "de2017toward",
+    "title": "Toward a new data standard for combined marine biological and environmental datasets",
+    "year": 2017,
+    "venue": "Biodiversity Data Journal",
+    "method": null,
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.3897/BDJ.5.e16949",
+    "note": "Biology and genomics — marine biodiversity occurrence records",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — marine biodiversity occurrence records",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Biology and genomics"
   },
   {
     "title": "A full-text learning to rank dataset for medical information retrieval",
@@ -5832,6 +6190,48 @@
     "cross_source": false
   },
   {
+    "bib_key": "amberger2015omim",
+    "title": "OMIM.org: Online Mendelian Inheritance in Man (OMIM), an online catalog of human genes and genetic disorders",
+    "year": 2015,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gku1205",
+    "note": "Medicine and clinical knowledge",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
+  },
+  {
+    "bib_key": "kirklin2015open",
+    "title": "The Open Quantum Materials Database (OQMD): assessing the accuracy of DFT formation enthalpies",
+    "year": 2015,
+    "venue": "npj Computational Materials",
+    "method": null,
+    "domain": [
+      "material"
+    ],
+    "paper_link": "https://doi.org/10.1038/npjcompumats.2015.10",
+    "note": "Materials science and physics — OQMD expanded to ~300,000 DFT calculations",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Materials science and physics — OQMD expanded to ~300,000 DFT calculations",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Materials science and physics"
+  },
+  {
     "bib_key": "DBLP:journals/jcisd/SterlingI15",
     "title": "ZINC15: Ligand Discovery for Everyone",
     "year": 2015,
@@ -5872,6 +6272,48 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "Chemistry and drug discovery"
+  },
+  {
+    "bib_key": "jain2013commentary",
+    "title": "Commentary: The Materials Project: A materials genome approach to accelerating materials innovation",
+    "year": 2013,
+    "venue": "APL Materials",
+    "method": null,
+    "domain": [
+      "material"
+    ],
+    "paper_link": "https://doi.org/10.1063/1.4812323",
+    "note": "Materials science and physics — primary curated DB anchor",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Materials science and physics — primary curated DB anchor",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Materials science and physics"
+  },
+  {
+    "bib_key": "saal2013materials",
+    "title": "Materials Design and Discovery with High-Throughput Density Functional Theory: The Open Quantum Materials Database (OQMD)",
+    "year": 2013,
+    "venue": "JOM",
+    "method": null,
+    "domain": [
+      "material"
+    ],
+    "paper_link": "https://doi.org/10.1007/s11837-013-0755-4",
+    "note": "Materials science and physics — OQMD initial report (200,000+ DFT structures)",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Materials science and physics — OQMD initial report (200,000+ DFT structures)",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Materials science and physics"
   },
   {
     "title": "PubMed: the bibliographic database",
@@ -5933,6 +6375,48 @@
     "ko_primary": null,
     "ko_note": "",
     "cross_source": false
+  },
+  {
+    "bib_key": "curtarolo2012aflow",
+    "title": "AFLOW: An automatic framework for high-throughput materials discovery",
+    "year": 2012,
+    "venue": "Computational Materials Science",
+    "method": null,
+    "domain": [
+      "material"
+    ],
+    "paper_link": "https://doi.org/10.1016/j.commatsci.2012.02.005",
+    "note": "Materials science and physics — AFLOW high-throughput framework for alloys and inorganic compounds",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Materials science and physics — AFLOW high-throughput framework for alloys and inorganic compounds",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Materials science and physics"
+  },
+  {
+    "bib_key": "encode2012integrated",
+    "title": "An integrated encyclopedia of DNA elements in the human genome",
+    "year": 2012,
+    "venue": "Nature",
+    "method": null,
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1038/nature11247",
+    "note": "Biology and genomics — regulatory element encyclopedia",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — regulatory element encyclopedia",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Biology and genomics"
   },
   {
     "title": "BioASQ: A challenge on large-scale biomedical semantic indexing and question answering",
@@ -6265,6 +6749,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "hamosh2005online",
+    "title": "Online Mendelian Inheritance in Man (OMIM), a knowledgebase of human genes and genetic disorders",
+    "year": 2005,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gki033",
+    "note": "Medicine and clinical knowledge",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
+  },
+  {
     "bib_key": "scopus",
     "title": "Scopus",
     "year": 2004,
@@ -6290,6 +6795,48 @@
     "subsection": "General-purpose literature"
   },
   {
+    "bib_key": "bodenreider2004unified",
+    "title": "The Unified Medical Language System (UMLS): integrating biomedical terminology",
+    "year": 2004,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkh061",
+    "note": "Medicine and clinical knowledge",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
+  },
+  {
+    "bib_key": "DBLP:journals/nar/EdgarDL03",
+    "title": "Gene Expression Omnibus: NCBI gene expression and hybridization array data repository",
+    "year": 2002,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/30.1.207",
+    "note": "Biology and genomics — gene expression data repository",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — gene expression data repository",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Biology and genomics"
+  },
+  {
     "bib_key": "linstrom2001nist",
     "title": "The NIST Chemistry WebBook: A Chemical Data Resource on the Internet",
     "year": 2001,
@@ -6309,6 +6856,90 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "Chemistry and drug discovery"
+  },
+  {
+    "bib_key": "DBLP:journals/nar/SherryWKBPSS01",
+    "title": "dbSNP: the NCBI database of genetic variation",
+    "year": 2001,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/29.1.308",
+    "note": "Biology and genomics — genetic variation archive",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — genetic variation archive",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Biology and genomics"
+  },
+  {
+    "bib_key": "clinicaltrialsgov",
+    "title": "ClinicalTrials.gov",
+    "year": 2000,
+    "venue": "U.S. National Library of Medicine",
+    "method": null,
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://clinicaltrials.gov",
+    "note": "Medicine and clinical knowledge",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
+  },
+  {
+    "bib_key": "ashburner2000gene",
+    "title": "Gene Ontology: tool for the unification of biology",
+    "year": 2000,
+    "venue": "Nature Genetics",
+    "method": null,
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1038/75556",
+    "note": "Biology and genomics — gene function ontology (founding paper)",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — gene function ontology (founding paper)",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Biology and genomics"
+  },
+  {
+    "bib_key": "kanehisa2000kegg",
+    "title": "KEGG: Kyoto Encyclopedia of Genes and Genomes",
+    "year": 2000,
+    "venue": "Nucleic Acids Res.",
+    "method": null,
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/28.1.27",
+    "note": "Biology and genomics — pathway and genomics knowledgebase",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — pathway and genomics knowledgebase",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Biology and genomics"
   },
   {
     "title": "The NASA Astrophysics Data System: Overview",
@@ -6434,26 +7065,6 @@
     "subsection": "Domain-specific literature"
   },
   {
-    "bib_key": "DBLP:conf/emnlp/ZhangSHML24",
-    "title": "DBLP:conf/emnlp/ZhangSHML24",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Materials science and physics — MatSciKB curated literature knowledge base for materials RAG",
-    "ko_cells": [
-      "K2",
-      "K2.O1"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Materials science and physics — MatSciKB curated literature knowledge base for materials RAG",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Materials science and physics"
-  },
-  {
     "bib_key": "DBLP:conf/mss/KoblerBCH95",
     "title": "DBLP:conf/mss/KoblerBCH95",
     "year": null,
@@ -6506,44 +7117,6 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true
-  },
-  {
-    "bib_key": "DBLP:journals/corr/abs-2010-09990",
-    "title": "DBLP:journals/corr/abs-2010-09990",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Materials science and physics — 1.28M DFT relaxations for catalyst/surface ML",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Materials science and physics — 1.28M DFT relaxations for catalyst/surface ML",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Materials science and physics"
-  },
-  {
-    "bib_key": "DBLP:journals/corr/abs-2206-08917",
-    "title": "DBLP:journals/corr/abs-2206-08917",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Materials science and physics — 62,331 DFT relaxations for oxide electrocatalysts",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Materials science and physics — 62,331 DFT relaxations for oxide electrocatalysts",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Materials science and physics"
   },
   {
     "bib_key": "DBLP:journals/corr/abs-2408-01107",
@@ -6636,101 +7209,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "DBLP:journals/nar/EdgarDL03",
-    "title": "DBLP:journals/nar/EdgarDL03",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Biology and genomics — gene expression data repository",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Biology and genomics — gene expression data repository",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Biology and genomics"
-  },
-  {
-    "bib_key": "DBLP:journals/nar/GonzalezRSRCSF20",
-    "title": "DBLP:journals/nar/GonzalezRSRCSF20",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Medicine and clinical knowledge",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Medicine and clinical knowledge",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Medicine and clinical knowledge"
-  },
-  {
-    "bib_key": "DBLP:journals/nar/LandrumLBBCCGHH18",
-    "title": "DBLP:journals/nar/LandrumLBBCCGHH18",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Medicine and clinical knowledge",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Medicine and clinical knowledge",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Medicine and clinical knowledge"
-  },
-  {
-    "bib_key": "DBLP:journals/nar/SherryWKBPSS01",
-    "title": "DBLP:journals/nar/SherryWKBPSS01",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Biology and genomics — genetic variation archive",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Biology and genomics — genetic variation archive",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Biology and genomics"
-  },
-  {
-    "bib_key": "DBLP:journals/nar/TateBJSBBBCCDFH19",
-    "title": "DBLP:journals/nar/TateBJSBBBCCDFH19",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Medicine and clinical knowledge",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Medicine and clinical knowledge",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Medicine and clinical knowledge"
-  },
-  {
     "bib_key": "DBLP:journals/nar/VaradiADNNYYSWL22",
     "title": "DBLP:journals/nar/VaradiADNNYYSWL22",
     "year": null,
@@ -6809,25 +7287,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "amberger2015omim",
-    "title": "amberger2015omim",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Medicine and clinical knowledge",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Medicine and clinical knowledge",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Medicine and clinical knowledge"
-  },
-  {
     "bib_key": "ansys",
     "title": "ansys",
     "year": null,
@@ -6844,25 +7303,6 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true
-  },
-  {
-    "bib_key": "ashburner2000gene",
-    "title": "ashburner2000gene",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Biology and genomics — gene function ontology (founding paper)",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Biology and genomics — gene function ontology (founding paper)",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Biology and genomics"
   },
   {
     "bib_key": "aspenplus",
@@ -6901,25 +7341,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "bodenreider2004unified",
-    "title": "bodenreider2004unified",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Medicine and clinical knowledge",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Medicine and clinical knowledge",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Medicine and clinical knowledge"
-  },
-  {
     "bib_key": "cernopendata",
     "title": "cernopendata",
     "year": null,
@@ -6936,25 +7357,6 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true
-  },
-  {
-    "bib_key": "chakravarty2017oncokb",
-    "title": "chakravarty2017oncokb",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Medicine and clinical knowledge",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Medicine and clinical knowledge",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Medicine and clinical knowledge"
   },
   {
     "bib_key": "climatepolicyradar",
@@ -6975,63 +7377,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "clinicaltrialsgov",
-    "title": "clinicaltrialsgov",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Medicine and clinical knowledge",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Medicine and clinical knowledge",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Medicine and clinical knowledge"
-  },
-  {
-    "bib_key": "curtarolo2012aflow",
-    "title": "curtarolo2012aflow",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Materials science and physics — AFLOW high-throughput framework for alloys and inorganic compounds",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Materials science and physics — AFLOW high-throughput framework for alloys and inorganic compounds",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Materials science and physics"
-  },
-  {
-    "bib_key": "de2017toward",
-    "title": "de2017toward",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Biology and genomics — marine biodiversity occurrence records",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Biology and genomics — marine biodiversity occurrence records",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Biology and genomics"
-  },
-  {
     "bib_key": "di2014autism",
     "title": "di2014autism",
     "year": null,
@@ -7048,63 +7393,6 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true
-  },
-  {
-    "bib_key": "drew2017integration",
-    "title": "drew2017integration",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Biology and genomics — human protein complex map v1",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Biology and genomics — human protein complex map v1",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Biology and genomics"
-  },
-  {
-    "bib_key": "drew2021hu",
-    "title": "drew2021hu",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Biology and genomics — human protein complex map v2",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Biology and genomics — human protein complex map v2",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Biology and genomics"
-  },
-  {
-    "bib_key": "encode2012integrated",
-    "title": "encode2012integrated",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Biology and genomics — regulatory element encyclopedia",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Biology and genomics — regulatory element encyclopedia",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Biology and genomics"
   },
   {
     "bib_key": "eyring2016overview",
@@ -7143,44 +7431,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "gbif2022gbif",
-    "title": "gbif2022gbif",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Biology and genomics — global biodiversity occurrence records",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Biology and genomics — global biodiversity occurrence records",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Biology and genomics"
-  },
-  {
-    "bib_key": "gene2023gene",
-    "title": "gene2023gene",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Biology and genomics — gene function ontology (2023 update)",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Biology and genomics — gene function ontology (2023 update)",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Biology and genomics"
-  },
-  {
     "bib_key": "gproms",
     "title": "gproms",
     "year": null,
@@ -7199,44 +7449,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "griffith2017civic",
-    "title": "griffith2017civic",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Medicine and clinical knowledge",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Medicine and clinical knowledge",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Medicine and clinical knowledge"
-  },
-  {
-    "bib_key": "hamosh2005online",
-    "title": "hamosh2005online",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Medicine and clinical knowledge",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Medicine and clinical knowledge",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Medicine and clinical knowledge"
-  },
-  {
     "bib_key": "hsc",
     "title": "hsc",
     "year": null,
@@ -7253,25 +7465,6 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true
-  },
-  {
-    "bib_key": "jain2013commentary",
-    "title": "jain2013commentary",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Materials science and physics — primary curated DB anchor",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Materials science and physics — primary curated DB anchor",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Materials science and physics"
   },
   {
     "bib_key": "jin-etal-2019-pubmedqa",
@@ -7326,63 +7519,6 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true
-  },
-  {
-    "bib_key": "kanehisa2000kegg",
-    "title": "kanehisa2000kegg",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Biology and genomics — pathway and genomics knowledgebase",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Biology and genomics — pathway and genomics knowledgebase",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Biology and genomics"
-  },
-  {
-    "bib_key": "kirklin2015open",
-    "title": "kirklin2015open",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Materials science and physics — OQMD expanded to ~300,000 DFT calculations",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Materials science and physics — OQMD expanded to ~300,000 DFT calculations",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Materials science and physics"
-  },
-  {
-    "bib_key": "kluwer2020uptodate",
-    "title": "kluwer2020uptodate",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Medicine and clinical knowledge — subscription-only; defining gap in open RAG",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Medicine and clinical knowledge — subscription-only; defining gap in open RAG",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Medicine and clinical knowledge"
   },
   {
     "bib_key": "krithara2023bioasq",
@@ -7457,44 +7593,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "milacic2024reactome",
-    "title": "milacic2024reactome",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Biology and genomics — manually curated pathway knowledgebase",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Biology and genomics — manually curated pathway knowledgebase",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Biology and genomics"
-  },
-  {
-    "bib_key": "navas2024review",
-    "title": "navas2024review",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Materials science and physics — PDG Review, curated particle properties reference; most-cited in HEP",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Materials science and physics — PDG Review, curated particle properties reference; most-cited in HEP",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Materials science and physics"
-  },
-  {
     "bib_key": "noaa_ncei",
     "title": "noaa_ncei",
     "year": null,
@@ -7567,25 +7665,6 @@
     "bib_only": true
   },
   {
-    "bib_key": "saal2013materials",
-    "title": "saal2013materials",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Materials science and physics — OQMD initial report (200,000+ DFT structures)",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Materials science and physics — OQMD initial report (200,000+ DFT structures)",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Materials science and physics"
-  },
-  {
     "bib_key": "uhlen2015tissue",
     "title": "uhlen2015tissue",
     "year": null,
@@ -7602,25 +7681,6 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true
-  },
-  {
-    "bib_key": "uniprot2023uniprot",
-    "title": "uniprot2023uniprot",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Biology and genomics — protein sequence and function knowledgebase",
-    "ko_cells": [
-      "K2"
-    ],
-    "ko_primary": "K2",
-    "ko_note": "Biology and genomics — protein sequence and function knowledgebase",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Biology and genomics"
   },
   {
     "bib_key": "usgs_eros",

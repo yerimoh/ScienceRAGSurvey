@@ -900,6 +900,276 @@
         "chemistry"
       ],
       "paper_link": "https://doi.org/10.1093/nar/gkad1004"
+    },
+    "DBLP:journals/nar/SherryWKBPSS01": {
+      "title": "dbSNP: the NCBI database of genetic variation",
+      "year": 2001,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/29.1.308"
+    },
+    "DBLP:journals/nar/EdgarDL03": {
+      "title": "Gene Expression Omnibus: NCBI gene expression and hybridization array data repository",
+      "year": 2002,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/30.1.207"
+    },
+    "DBLP:journals/nar/GonzalezRSRCSF20": {
+      "title": "The DisGeNET knowledge platform for disease genomics: 2019 update",
+      "year": 2020,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gkz1021"
+    },
+    "DBLP:journals/nar/LandrumLBBCCGHH18": {
+      "title": "ClinVar: improving access to variant interpretations and supporting evidence",
+      "year": 2018,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gkx1153"
+    },
+    "DBLP:journals/nar/TateBJSBBBCCDFH19": {
+      "title": "COSMIC: the Catalogue Of Somatic Mutations In Cancer",
+      "year": 2019,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gky1015"
+    },
+    "DBLP:journals/corr/abs-2010-09990": {
+      "title": "The Open Catalyst 2020 (OC20) Dataset and Community Challenges",
+      "year": 2020,
+      "venue": "arXiv",
+      "domain": [
+        "material"
+      ],
+      "paper_link": "https://arxiv.org/abs/2010.09990"
+    },
+    "DBLP:journals/corr/abs-2206-08917": {
+      "title": "The Open Catalyst 2022 (OC22) Dataset and Challenges for Oxide Electrocatalysis",
+      "year": 2022,
+      "venue": "arXiv",
+      "domain": [
+        "material"
+      ],
+      "paper_link": "https://doi.org/10.48550/arXiv.2206.08917"
+    },
+    "DBLP:conf/emnlp/ZhangSHML24": {
+      "title": "HoneyComb: A Flexible LLM-Based Agent System for Materials Science",
+      "year": 2024,
+      "venue": "EMNLP 2024 Findings",
+      "domain": [
+        "material"
+      ],
+      "paper_link": "https://doi.org/10.18653/v1/2024.findings-emnlp.192"
+    },
+    "uniprot2023uniprot": {
+      "title": "UniProt: the Universal Protein Knowledgebase in 2023",
+      "year": 2023,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gkac1052"
+    },
+    "kanehisa2000kegg": {
+      "title": "KEGG: Kyoto Encyclopedia of Genes and Genomes",
+      "year": 2000,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/28.1.27"
+    },
+    "milacic2024reactome": {
+      "title": "The Reactome Pathway Knowledgebase 2024",
+      "year": 2024,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gkad1025"
+    },
+    "ashburner2000gene": {
+      "title": "Gene Ontology: tool for the unification of biology",
+      "year": 2000,
+      "venue": "Nature Genetics",
+      "domain": [
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.1038/75556"
+    },
+    "gene2023gene": {
+      "title": "The Gene Ontology Knowledgebase in 2023",
+      "year": 2023,
+      "venue": "Genetics",
+      "domain": [
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.1093/genetics/iyad031"
+    },
+    "encode2012integrated": {
+      "title": "An integrated encyclopedia of DNA elements in the human genome",
+      "year": 2012,
+      "venue": "Nature",
+      "domain": [
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.1038/nature11247"
+    },
+    "drew2017integration": {
+      "title": "Integration of over 9,000 mass spectrometry experiments builds a global map of human protein complexes",
+      "year": 2017,
+      "venue": "Molecular Systems Biology",
+      "domain": [
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.15252/msb.20167490"
+    },
+    "drew2021hu": {
+      "title": "hu.MAP 2.0: integration of over 15,000 proteomic experiments builds a comprehensive atlas of human protein complexes",
+      "year": 2021,
+      "venue": "Molecular Systems Biology",
+      "domain": [
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.15252/msb.20209886"
+    },
+    "gbif2022gbif": {
+      "title": "GBIF: the Global Biodiversity Information Facility",
+      "year": 2022,
+      "venue": "GBIF Secretariat",
+      "domain": [
+        "bio"
+      ],
+      "paper_link": "https://www.gbif.org"
+    },
+    "de2017toward": {
+      "title": "Toward a new data standard for combined marine biological and environmental datasets",
+      "year": 2017,
+      "venue": "Biodiversity Data Journal",
+      "domain": [
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.3897/BDJ.5.e16949"
+    },
+    "bodenreider2004unified": {
+      "title": "The Unified Medical Language System (UMLS): integrating biomedical terminology",
+      "year": 2004,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gkh061"
+    },
+    "hamosh2005online": {
+      "title": "Online Mendelian Inheritance in Man (OMIM), a knowledgebase of human genes and genetic disorders",
+      "year": 2005,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gki033"
+    },
+    "amberger2015omim": {
+      "title": "OMIM.org: Online Mendelian Inheritance in Man (OMIM), an online catalog of human genes and genetic disorders",
+      "year": 2015,
+      "venue": "Nucleic Acids Res.",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.1093/nar/gku1205"
+    },
+    "griffith2017civic": {
+      "title": "CIViC is a community knowledgebase for expert crowdsourcing the clinical interpretation of variants in cancer",
+      "year": 2017,
+      "venue": "Nature Genetics",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.1038/ng.3774"
+    },
+    "chakravarty2017oncokb": {
+      "title": "OncoKB: a precision oncology knowledge base",
+      "year": 2017,
+      "venue": "JCO Precision Oncology",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.1200/PO.17.00011"
+    },
+    "clinicaltrialsgov": {
+      "title": "ClinicalTrials.gov",
+      "year": 2000,
+      "venue": "U.S. National Library of Medicine",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://clinicaltrials.gov"
+    },
+    "kluwer2020uptodate": {
+      "title": "UpToDate: evidence-based clinical decision support",
+      "year": 2020,
+      "venue": "Wolters Kluwer",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://www.uptodate.com"
+    },
+    "jain2013commentary": {
+      "title": "Commentary: The Materials Project: A materials genome approach to accelerating materials innovation",
+      "year": 2013,
+      "venue": "APL Materials",
+      "domain": [
+        "material"
+      ],
+      "paper_link": "https://doi.org/10.1063/1.4812323"
+    },
+    "saal2013materials": {
+      "title": "Materials Design and Discovery with High-Throughput Density Functional Theory: The Open Quantum Materials Database (OQMD)",
+      "year": 2013,
+      "venue": "JOM",
+      "domain": [
+        "material"
+      ],
+      "paper_link": "https://doi.org/10.1007/s11837-013-0755-4"
+    },
+    "kirklin2015open": {
+      "title": "The Open Quantum Materials Database (OQMD): assessing the accuracy of DFT formation enthalpies",
+      "year": 2015,
+      "venue": "npj Computational Materials",
+      "domain": [
+        "material"
+      ],
+      "paper_link": "https://doi.org/10.1038/npjcompumats.2015.10"
+    },
+    "curtarolo2012aflow": {
+      "title": "AFLOW: An automatic framework for high-throughput materials discovery",
+      "year": 2012,
+      "venue": "Computational Materials Science",
+      "domain": [
+        "material"
+      ],
+      "paper_link": "https://doi.org/10.1016/j.commatsci.2012.02.005"
+    },
+    "navas2024review": {
+      "title": "Review of Particle Physics",
+      "year": 2024,
+      "venue": "Physical Review D",
+      "domain": [
+        "physics"
+      ],
+      "paper_link": "https://doi.org/10.1103/PhysRevD.110.030001"
     }
   }
 }
