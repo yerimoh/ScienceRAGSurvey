@@ -161,6 +161,7 @@ def sidebar(base='', current=''):
 
     <a href="{base}insights.html" class="sb-item{cls("insights")}"><span class="sb-icon">💡</span> Insights</a>
     <a href="{base}browse.html" class="sb-item{cls("browse")}"><span class="sb-icon">🔍</span> Browse all</a>
+    <a href="{base}factcheck/K1_primary_literature.html" class="sb-item{cls("factcheck/K1_primary_literature")}"><span class="sb-icon">✅</span> Fact-Check</a>
 
     <hr class="sb-rule">
 
@@ -1091,8 +1092,55 @@ def render_paper_pages():
     print(f'  papers/*.html ({count} summaries)')
 
 
+def render_factcheck_pages():
+    """Render factcheck/*.html from factcheck/*.md files."""
+    import mistune
+    md_renderer = mistune.create_markdown(escape=False, plugins=['table', 'strikethrough'])
+    fc_dir = ROOT / 'factcheck'
+    fc_dir.mkdir(exist_ok=True)
+    count = 0
+    SECTION_META = {
+        'K1_primary_literature': {
+            'title': 'Fact-Check: K1 Primary Literature',
+            'subtitle': 'General-purpose & Domain-specific literature — verified against original papers',
+            'icon': '✅',
+        },
+    }
+    for md_file in sorted(fc_dir.glob('*.md')):
+        slug = md_file.stem
+        meta = SECTION_META.get(slug, {'title': slug, 'subtitle': '', 'icon': '✅'})
+        md_content = md_file.read_text()
+        # strip YAML frontmatter if present
+        if md_content.startswith('---'):
+            end = md_content.find('---', 3)
+            if end > 0:
+                md_content = md_content[end+3:].lstrip()
+        body_html = md_renderer(md_content)
+        body = f'''
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>{esc(meta["icon"])} {esc(meta["title"])}</h1>
+    <p class="section-sub" style="margin-top:0.5rem;color:#666">{esc(meta["subtitle"])}</p>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      {body_html}
+    </article>
+  </div>
+</section>
+'''
+        out_path = fc_dir / (slug + '.html')
+        out_path.write_text(page_head(meta['title'], base='../', current=f'factcheck/{slug}') + body + PAGE_FOOT)
+        count += 1
+    print(f'  factcheck/*.html ({count} pages)')
+
+
 if __name__ == '__main__':
     render_paper_pages()   # First, so paper_card() can detect summary pages
+    render_factcheck_pages()
     render_index()
     render_about()
     render_browse()

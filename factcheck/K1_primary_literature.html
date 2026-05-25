@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fact-Check: K1 Primary Literature — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779612102">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">[K1.O1] <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">[K1.O2] <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">[K1.O3] <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">[K2.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">[K2.O2] <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">[K2.O3] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">[K3.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">[K3.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">[K3.O3] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">[K4.O1] <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">[K4.O2] <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">[K4.O3] <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">[K1] <span class="sb-count">8</span></a>
+<a href="../cell/K2.html" class="sb-sub">[K2] <span class="sb-count">0</span></a>
+<a href="../cell/K3.html" class="sb-sub">[K3] <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">[K4] <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">[O1] <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">[O2] <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">[O3] <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">18</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">9</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">16</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">3</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">8</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">4</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">1</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">9</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+    <a href="../factcheck/K1_primary_literature.html" class="sb-item active"><span class="sb-icon">✅</span> Fact-Check</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>✅ Fact-Check: K1 Primary Literature</h1>
+    <p class="section-sub" style="margin-top:0.5rem;color:#666">General-purpose &amp; Domain-specific literature — verified against original papers</p>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>Fact-Check Report: §K1 General-purpose &amp; Domain-specific literature (v2)</h1>
+<p><strong>Survey</strong>: TPAMI Scientific RAG Survey, ver/2<br />
+<strong>Date</strong>: 2026-05-25<br />
+<strong>Checker</strong>: Claude Code (claude-sonnet-4-6)<br />
+<strong>Basis</strong>: Actual paper full text read via web (not abstract-only). Source .md files at <code>/site/papers/</code>.</p>
+<hr />
+<h2>§General-purpose literature (main.tex line 362–366)</h2>
+<h3>Survey text</h3>
+<blockquote>
+<p>General-purpose corpora cover disciplines broadly enough that a single retrieval pipeline can serve more than one domain at once. Crossref~\cite{DBLP:journals/qss/HendricksTLF20} is the registry layer on which much of the rest is built, providing a free REST API of scholarly records keyed by DOI with reference linkage and <strong>basic metadata</strong>. OpenAlex~\cite{DBLP:journals/corr/abs-2205-01833} aggregates Crossref, PubMed~\cite{canese2013pubmed}, and institutional and disciplinary repositories into a single open entity graph of works, authors, venues, institutions, and concepts, accessible through a fully-open REST API. Semantic Scholar's S2ORC~\cite{DBLP:conf/acl/LoWNKW20} provides a unified bulk dataset of academic papers across all disciplines with parsed full text, structured citation linkage, and a single identifier space that maps across PubMed~\cite{canese2013pubmed}, arXiv, and other sources.</p>
+</blockquote>
+<hr />
+<h3>Crossref — DBLP:journals/qss/HendricksTLF20</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim in text</th>
+  <th>Paper says (Hendricks et al. 2020)</th>
+  <th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>&quot;free REST API&quot;</td>
+  <td><code>api.crossref.org</code> — free, no sign-up. Also OAI-PMH.</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>&quot;keyed by DOI&quot;</td>
+  <td>DOI is the primary key for all records.</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>&quot;reference linkage&quot;</td>
+  <td>Citation links are a core deposited metadata field.</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>&quot;<strong>basic</strong> metadata&quot;</td>
+  <td>Paper reports: abstract, full-text links, funder info, license, citation links, correction/retraction notices, 13 content types. &quot;Basic&quot; is an <strong>understatement</strong>.</td>
+  <td>⚠️ minor</td>
+</tr>
+<tr>
+  <td>&quot;registry layer on which much of the rest is built&quot;</td>
+  <td>OpenAlex, S2, etc. all ingest Crossref. Paper describes Crossref as scholarly metadata infrastructure.</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>Record count (not stated in survey)</td>
+  <td><strong>106M+</strong> records (paper figure), growing 11%/year.</td>
+  <td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verdict</strong>: ✅ Correct. &quot;Basic metadata&quot; is slightly understated — Crossref provides rich metadata including funding, licenses, and citation links — but not factually wrong for a high-level description.</p>
+<hr />
+<h3>OpenAlex — DBLP:journals/corr/abs-2205-01833</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim in text</th>
+  <th>Paper says (Priem, Piwowar, Orr 2022)</th>
+  <th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>&quot;aggregates Crossref, PubMed, and institutional and disciplinary repositories&quot;</td>
+  <td>Paper lists: Crossref, PubMed, ORCID, ROR, MAG, Unpaywall, OpenCitations. &quot;Institutional and disciplinary repositories&quot; is a partial description.</td>
+  <td>✅ acceptable</td>
+</tr>
+<tr>
+  <td>&quot;single open entity graph&quot;</td>
+  <td>Paper: five entity types in a connected graph.</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>&quot;works, authors, venues, institutions, and concepts&quot;</td>
+  <td>Exact five types listed in paper: Works (209M), Authors (2,013M), Venues (124K), Institutions (109K), Concepts (65K).</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>&quot;fully-open REST API&quot;</td>
+  <td>Paper: &quot;All these are free and require no registration or permission. The REST API has no rate-limits.&quot;</td>
+  <td>✅</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verdict</strong>: ✅ Correct (DataCite and &quot;dozens of repositories&quot; were removed in a prior fix; current text is accurate).</p>
+<hr />
+<h3>S2ORC — DBLP:conf/acl/LoWNKW20</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim in text</th>
+  <th>Paper says (Lo et al. 2020)</th>
+  <th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>&quot;unified bulk dataset across all disciplines&quot;</td>
+  <td>81.1M English-language papers from hundreds of publishers/archives.</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>&quot;parsed full text&quot;</td>
+  <td>GROBID-parsed full text for 8.1M open-access papers; LaTeX source for 1.5M.</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>&quot;structured citation linkage&quot;</td>
+  <td>Inline citation mentions linked to paper objects via biblio-linking pipeline.</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>&quot;maps across PubMed, arXiv, and other sources&quot;</td>
+  <td>S2ORC IDs include: DOI, PubMed, PMC, arXiv, ACL Anthology — all confirmed in Table 3.</td>
+  <td>✅</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verdict</strong>: ✅ All claims correct.</p>
+<hr />
+<h2>§Domain-specific literature (main.tex line 367–373)</h2>
+<h3>Survey text</h3>
+<blockquote>
+<p>PubMed~\cite{canese2013pubmed} and Europe PMC~\cite{europepmc2024} cover biomedicine, with PubMed indexing biomedical abstracts under the controlled MeSH vocabulary through the NCBI E-utilities API and Europe PMC adding open full text and integrated preprints over a RESTful API … Astronomy is indexed by the NASA Astrophysics Data System (ADS)~\cite{kurtz2000nasa}, which spans astronomy, planetary science, and parts of physics, and integrates direct links from papers to observational data archives and astronomical object databases through a unified bibliographic code system. High-energy physics is served by INSPIRE-HEP~\cite{inspirehep}, jointly operated by <strong>CERN, DESY, Fermilab, SLAC, and IN2P3</strong>, with an author-disambiguated bibliography that has been the field's canonical literature system since the SPIRES era of the 1970s. Geoscience is indexed by GeoRef~\cite{georef}, maintained by the American Geosciences Institute, covering geology, geophysics, hydrology, and paleontology.</p>
+</blockquote>
+<hr />
+<h3>PubMed — canese2013pubmed</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim in text</th>
+  <th>Source says (Canese &amp; Weis, NCBI Handbook 2013)</th>
+  <th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>&quot;indexing biomedical abstracts&quot;</td>
+  <td>22M+ total citations; MEDLINE core: 19M+ records.</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>&quot;controlled MeSH vocabulary&quot;</td>
+  <td>MeSH = NLM-developed thesaurus with entry terms, subheadings, pharmacological actions, UMLS terms. Hierarchical search (MeSH explosion).</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>&quot;NCBI E-utilities API&quot;</td>
+  <td>Entrez Programming Utilities (E-utils) = 8 server-side programs for programmatic access; free, stable interface.</td>
+  <td>✅</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verdict</strong>: ✅ All claims correct.</p>
+<hr />
+<h3>Europe PMC — europepmc2024</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim in text</th>
+  <th>Paper says (Rosonovski et al., NAR 2024, &quot;Europe PMC in 2023&quot;)</th>
+  <th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>&quot;open full text&quot;</td>
+  <td>42M+ abstracts; 9M+ full-text articles (open access).</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>&quot;integrated preprints&quot;</td>
+  <td>650K+ preprints from 31 preprint servers (bioRxiv 206K, Research Square 253K, medRxiv 45K, etc.).</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>&quot;over a RESTful API&quot;</td>
+  <td>Articles RESTful API + Annotations API (DocMaps, Sciety integration).</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>bib title &quot;Europe PMC in 2024&quot;</td>
+  <td>Actual title: <strong>&quot;Europe PMC in 2023&quot;</strong> — published NAR 2024. bib title is wrong by one year.</td>
+  <td>⚠️ bib error (READ-ONLY)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verdict</strong>: ✅ Text claims all correct. Bib entry title error is a pre-existing issue in references.bib (read-only).</p>
+<hr />
+<h3>NASA ADS — kurtz2000nasa</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim in text</th>
+  <th>Paper says (Kurtz et al., A&amp;AS 2000)</th>
+  <th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>&quot;spans astronomy, planetary science, and parts of physics&quot;</td>
+  <td>4 services: Astronomy (~85% of usage), Instrumentation, Physics, Preprints. Confirmed.</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>&quot;direct links from papers to observational data archives&quot;</td>
+  <td>Links to HEASARC (high-energy), NED (extragalactic), CDS-Vizier (journal data tables), electronic journal pages.</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>&quot;astronomical object databases&quot;</td>
+  <td>SIMBAD (CDS, Strasbourg) and NED (NASA/IPAC) linked directly from paper records.</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>&quot;unified bibliographic code system&quot;</td>
+  <td>= <strong>bibcode</strong> (Uniform Bibliographic Code, Schmitz et al. 1995). Format: <code>YYYY+journal+vol+page+author</code>. Paper describes this extensively.</td>
+  <td>✅ (correct paraphrase)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verdict</strong>: ✅ All claims correct and well-supported by the 2000 paper.</p>
+<hr />
+<h3>INSPIRE-HEP — inspirehep</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim in text</th>
+  <th>Actual (INSPIRE official + arXiv:2505.03860)</th>
+  <th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>&quot;CERN, DESY, Fermilab, <strong>SLAC</strong>, and IN2P3&quot;</td>
+  <td><strong>SLAC ceased all activities in 2021</strong>. SLAC should be removed.</td>
+  <td>❌</td>
+</tr>
+<tr>
+  <td>Missing: <strong>IHEP</strong></td>
+  <td>IHEP (Institute of High Energy Physics, Beijing) is an active partner. Both bib note and arXiv:2505.03860 confirm IHEP.</td>
+  <td>❌ omitted</td>
+</tr>
+<tr>
+  <td>&quot;author-disambiguated bibliography&quot;</td>
+  <td>Confirmed: author disambiguation is a core INSPIRE feature.</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>&quot;since the SPIRES era of the 1970s&quot;</td>
+  <td>SPIRES collaboration began 1974 (SLAC/DESY). &quot;1970s&quot; is correct.</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>&quot;canonical literature system&quot;</td>
+  <td>INSPIRE replaced SPIRES as HEP's primary system ~2012.</td>
+  <td>✅</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Required fix</strong> (survey text):</p>
+<blockquote>
+<p>&quot;jointly operated by CERN, DESY, Fermilab, SLAC, and IN2P3&quot;<br />
+→ <strong>&quot;jointly operated by CERN, DESY, Fermilab, IHEP, and IN2P3&quot;</strong></p>
+</blockquote>
+<p><strong>Verdict</strong>: ❌ Two errors: SLAC is outdated (left 2021); IHEP omitted.</p>
+<hr />
+<h3>GeoRef — georef</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim in text</th>
+  <th>Source says (AGI official + EBSCO)</th>
+  <th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>&quot;maintained by the American Geosciences Institute&quot;</td>
+  <td>AGI, founded 1966. ✅</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>&quot;covering geology, geophysics, hydrology, and paleontology&quot;</td>
+  <td>Confirmed by AGI and EBSCO. Coverage also includes petrology, mineralogy, marine geology, oceanography — but the four named are correct.</td>
+  <td>✅</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verdict</strong>: ✅ Correct (coverage is broader than listed, but what's listed is accurate).</p>
+<hr />
+<h3>IPCC AR6 — lee2023climate</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim in text</th>
+  <th>Source says (IPCC 2023 AR6 SYR)</th>
+  <th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>&quot;IPCC's assessment reports … authoritative synthesis documents the field treats as canonical&quot;</td>
+  <td>AR6 Synthesis Report is the IPCC's definitive summary across WG I–III. Accurate characterization.</td>
+  <td>✅</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verdict</strong>: ✅ Correct.</p>
+<hr />
+<h2>Summary table</h2>
+<table>
+<thead>
+<tr>
+  <th>Paper</th>
+  <th>Text claims</th>
+  <th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Crossref</td>
+  <td>free REST API, DOI-keyed, reference linkage</td>
+  <td>✅ (&quot;basic metadata&quot; minor understatement)</td>
+</tr>
+<tr>
+  <td>OpenAlex</td>
+  <td>5 entity types, fully-open REST API, aggregates Crossref+PubMed+repos</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>S2ORC</td>
+  <td>bulk dataset, parsed full text, citation linkage, PubMed+arXiv ID mapping</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>PubMed</td>
+  <td>MeSH controlled vocab, E-utilities API</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>Europe PMC</td>
+  <td>open full text, integrated preprints, RESTful API</td>
+  <td>✅ (bib title error in read-only file)</td>
+</tr>
+<tr>
+  <td>NASA ADS</td>
+  <td>astronomy+planetary+physics, bibcode, data archive links</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>INSPIRE-HEP</td>
+  <td>partner list</td>
+  <td>❌ SLAC removed 2021; IHEP missing</td>
+</tr>
+<tr>
+  <td>GeoRef</td>
+  <td>AGI, 4 coverage domains</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>IPCC AR6</td>
+  <td>authoritative synthesis</td>
+  <td>✅</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Only remaining fix required</h2>
+<p><strong>INSPIRE-HEP partner list in main.tex</strong> (line 370):</p>
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>Text</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Current</strong></td>
+  <td>&quot;jointly operated by CERN, DESY, Fermilab, <strong>SLAC</strong>, and IN2P3&quot;</td>
+</tr>
+<tr>
+  <td><strong>Correct</strong></td>
+  <td>&quot;jointly operated by CERN, DESY, Fermilab, <strong>IHEP</strong>, and IN2P3&quot;</td>
+</tr>
+</tbody>
+</table>
+<p>Source: arXiv:2505.03860 confirms SLAC exited 2021; bib note and INSPIRE official documentation include IHEP.</p>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>
