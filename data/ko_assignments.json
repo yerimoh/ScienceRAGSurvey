@@ -351,7 +351,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "kim2023pubchem": {
     "cells": [
@@ -359,7 +360,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "DBLP:journals/nar/GaultonBBCDHLMMAO12": {
     "cells": [
@@ -367,7 +369,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "DBLP:journals/nar/MendezGBCVFMMMN19": {
     "cells": [
@@ -375,7 +378,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "zdrazil2024chembl": {
     "cells": [
@@ -383,7 +387,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "irwin2012zinc": {
     "cells": [
@@ -391,7 +396,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "DBLP:journals/jcisd/SterlingI15": {
     "cells": [
@@ -399,7 +405,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "DBLP:journals/jcisd/TingleTCGKDMI23": {
     "cells": [
@@ -407,7 +414,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "DBLP:journals/nar/LiuLWJG07": {
     "cells": [
@@ -415,7 +423,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "gilson2016bindingdb": {
     "cells": [
@@ -423,7 +432,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "liu2025bindingdb": {
     "cells": [
@@ -431,7 +441,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "knox2024drugbank": {
     "cells": [
@@ -439,7 +450,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "DBLP:journals/nar/SzklarczykSMJBK16": {
     "cells": [
@@ -447,7 +459,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "chandak2023building": {
     "cells": [
@@ -455,7 +468,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "ioannidis2020drkg": {
     "cells": [
@@ -463,7 +477,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "lowe2017chemical": {
     "cells": [
@@ -471,7 +486,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "kearnes2021open": {
     "cells": [
@@ -479,7 +495,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "ramakrishnan2014quantum": {
     "cells": [
@@ -487,7 +504,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "isert2022qmugs": {
     "cells": [
@@ -495,7 +513,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "scifinder": {
     "cells": [
@@ -503,7 +522,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "reaxys": {
     "cells": [
@@ -511,7 +531,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "linstrom2001nist": {
     "cells": [
@@ -519,7 +540,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "groom2016csd": {
     "cells": [
@@ -527,7 +549,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "icsd": {
     "cells": [
@@ -535,7 +558,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Chemistry and drug discovery"
+    "note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery"
   },
   "uniprot2023uniprot": {
     "cells": [
