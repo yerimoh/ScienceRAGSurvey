@@ -4039,6 +4039,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "DBLP:journals/corr/abs-2303-01229",
+    "title": "Almanac: Knowledge-Grounded Language Models for Clinical Medicine",
+    "year": 2023,
+    "venue": "arXiv",
+    "method": null,
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.48550/arXiv.2303.01229",
+    "note": "Medicine and clinical knowledge — Almanac: Knowledge-Grounded Language Models for Clinical Medicine (Zakka et al. 2023). Retrieval from PubMed, UpToDate, and BMJ Best Practices.",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge — Almanac: Knowledge-Grounded Language Models for Clinical Medicine (Zakka et al. 2023). Retrieval from PubMed, UpToDate, and BMJ Best Practices.",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
+  },
+  {
     "bib_key": "chandak2023building",
     "title": "Building a knowledge graph to enable precision medicine",
     "year": 2023,

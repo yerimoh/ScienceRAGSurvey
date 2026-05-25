@@ -1286,5 +1286,14 @@
     "primary": "K2",
     "note": "Medicine and clinical knowledge — PMC-LLaMA: MedC-K medical corpus (4.8M papers + 30K textbooks)",
     "subsection": "Medicine and clinical knowledge"
+  },
+  "DBLP:journals/corr/abs-2303-01229": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Medicine and clinical knowledge — Almanac: Knowledge-Grounded Language Models for Clinical Medicine (Zakka et al. 2023). Retrieval from PubMed, UpToDate, and BMJ Best Practices.",
+    "subsection": "Medicine and clinical knowledge"
   }
 }

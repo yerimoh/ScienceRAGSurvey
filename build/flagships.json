@@ -1188,6 +1188,15 @@
         "medical"
       ],
       "paper_link": "https://doi.org/10.48550/arXiv.2304.14454"
+    },
+    "DBLP:journals/corr/abs-2303-01229": {
+      "title": "Almanac: Knowledge-Grounded Language Models for Clinical Medicine",
+      "year": 2023,
+      "venue": "arXiv",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.48550/arXiv.2303.01229"
     }
   }
 }
