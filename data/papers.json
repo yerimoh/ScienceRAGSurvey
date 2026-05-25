@@ -1371,5 +1371,1173 @@
     "ko_note": "main.tex: K=K1; O=-",
     "cross_source": false,
     "subsection": "Preprint literature"
+  },
+  {
+    "bib_key": "DBLP:journals/nar/KimTBCFGHHHSWYZ16",
+    "title": "PubChem Substance and Compound databases",
+    "year": "2016",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkv951",
+    "method": "PubChem REST API (PUG-REST, PUG-View)",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Text",
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "kim2023pubchem",
+    "title": "PubChem 2023 update",
+    "year": "2023",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkac956",
+    "method": "PUG-REST, PUG-View API",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Text",
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "DBLP:journals/nar/GaultonBBCDHLMMAO12",
+    "title": "ChEMBL: a large-scale bioactivity database for drug discovery",
+    "year": "2012",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkr777",
+    "method": "ChEMBL web interface + data download + web services",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Text",
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "DBLP:journals/nar/MendezGBCVFMMMN19",
+    "title": "ChEMBL: towards direct deposition of bioassay data",
+    "year": "2019",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gky1075",
+    "method": "ChEMBL web interface + REST API + data deposition system",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Text",
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "zdrazil2024chembl",
+    "title": "The ChEMBL Database in 2023: a drug discovery platform spanning multiple bioactivity data types and time periods",
+    "year": "2024",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkad1004",
+    "method": "ChEMBL web interface + REST API",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Text",
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "irwin2012zinc",
+    "title": "ZINC: a free tool to discover chemistry for biology",
+    "year": "2012",
+    "venue": "Journal of Chemical Information and Modeling",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1021/ci3001277",
+    "method": "ZINC web interface (zinc.docking.org)",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "DBLP:journals/jcisd/SterlingI15",
+    "title": "ZINC 15 - Ligand Discovery for Everyone",
+    "year": "2015",
+    "venue": "Journal of Chemical Information and Modeling",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1021/acs.jcim.5b00559",
+    "method": "ZINC15 web interface (zinc15.docking.org)",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "DBLP:journals/jcisd/TingleTCGKDMI23",
+    "title": "ZINC-22—A Free Multi-Billion-Scale Database of Tangible Compounds for Ligand Discovery",
+    "year": "2023",
+    "venue": "Journal of Chemical Information and Modeling",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1021/acs.jcim.2c01253",
+    "method": "CartBlanche GUI, Globus, Amazon AWS, Oracle OCI",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "DBLP:journals/nar/LiuLWJG07",
+    "title": "BindingDB: a web-accessible database of experimentally determined protein-ligand binding affinities",
+    "year": "2007",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkl999",
+    "method": "BindingDB web interface (bindingdb.org)",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "gilson2016bindingdb",
+    "title": "BindingDB in 2015: a public database for medicinal chemistry, computational chemistry and systems pharmacology",
+    "year": "2016",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkv1072",
+    "method": "BindingDB web interface + advanced cross-search",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "liu2025bindingdb",
+    "title": "BindingDB in 2024: a FAIR knowledgebase of protein-small molecule binding data",
+    "year": "2025",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkae1075",
+    "method": "BindingDB web interface + FAIR data services",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "knox2024drugbank",
+    "title": "DrugBank 6.0: the DrugBank Knowledgebase for 2024",
+    "year": "2024",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkad976",
+    "method": "DrugBank web interface (go.drugbank.com)",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Text",
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "DBLP:journals/nar/SzklarczykSMJBK16",
+    "title": "STITCH 5: augmenting protein-chemical interaction networks with tissue and affinity data",
+    "year": "2016",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkv1277",
+    "method": "STITCH web interface + API (stitch.embl.de)",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Structured",
+      "Network"
+    ]
+  },
+  {
+    "bib_key": "chandak2023building",
+    "title": "Building a knowledge graph to enable precision medicine",
+    "year": "2023",
+    "venue": "Scientific Data",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1038/s41597-023-01960-3",
+    "method": "PrimeKG graph + clinical guidelines text",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Structured",
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "ioannidis2020drkg",
+    "title": "DRKG - Drug Repurposing Knowledge Graph for COVID-19",
+    "year": "2020",
+    "venue": "arXiv preprint",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://arxiv.org/abs/2010.09600",
+    "method": "DRKG knowledge graph completion",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Structured",
+      "Network"
+    ]
+  },
+  {
+    "bib_key": "lowe2017chemical",
+    "title": "Chemical reactions from US patents (1976-Sep2016)",
+    "year": "2017",
+    "venue": "figshare",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://figshare.com/articles/dataset/Chemical_reactions_from_US_patents_1976-Sep2016_/5104873",
+    "method": "USPTO reaction dataset (text mining)",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "kearnes2021open",
+    "title": "The Open Reaction Database",
+    "year": "2021",
+    "venue": "Journal of the American Chemical Society",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1021/jacs.1c09820",
+    "method": "ORD schema + GitHub centralized repository",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "ramakrishnan2014quantum",
+    "title": "Quantum chemistry structures and properties of 134 kilo molecules",
+    "year": "2014",
+    "venue": "Scientific Data",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1038/sdata.2014.22",
+    "method": "QM9 (DFT/B3LYP/6-31G(2df,p))",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "isert2022qmugs",
+    "title": "QMugs, quantum mechanical properties of drug-like molecules",
+    "year": "2022",
+    "venue": "Scientific Data",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1038/s41597-022-01390-7",
+    "method": "QMugs (GFN2-xTB + DFT/ωB97X-D/def2-SVP)",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "scifinder",
+    "title": "SciFinder-n",
+    "year": "1995",
+    "venue": "CAS",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://scifinder-n.cas.org",
+    "method": "SciFinder-n web platform",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Text",
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "reaxys",
+    "title": "Reaxys",
+    "year": "2009",
+    "venue": "Elsevier",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://www.reaxys.com",
+    "method": "Reaxys web platform",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Text",
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "linstrom2001nist",
+    "title": "The NIST Chemistry WebBook: A chemical data resource on the internet",
+    "year": "2001",
+    "venue": "Journal of Chemical & Engineering Data",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1021/je000225m",
+    "method": "NIST Chemistry WebBook (webbook.nist.gov)",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Text",
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "groom2016csd",
+    "title": "The Cambridge Structural Database",
+    "year": "2016",
+    "venue": "Acta Crystallographica Section B",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1107/S2052520616003954",
+    "method": "CSD community web services (CCDC)",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "icsd",
+    "title": "Inorganic Crystal Structure Database (ICSD)",
+    "year": "1978",
+    "venue": "FIZ Karlsruhe",
+    "type": "dataset",
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://icsd.fiz-karlsruhe.de",
+    "method": "ICSD web interface",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Chemistry and drug discovery",
+    "subsection": "Chemistry and drug discovery",
+    "modality": [
+      "Structured"
+    ]
+  },
+  {
+    "bib_key": "uniprot2023uniprot",
+    "title": "UniProt: the Universal Protein Knowledgebase in 2023",
+    "year": "2023",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkac1052",
+    "method": "UniProt REST API / FTP",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — protein sequence and function knowledgebase",
+    "subsection": "Biology and genomics",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "kanehisa2000kegg",
+    "title": "KEGG: kyoto encyclopedia of genes and genomes",
+    "year": "2000",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/28.1.27",
+    "method": "KEGG API / FTP",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — pathway and genomics knowledgebase",
+    "subsection": "Biology and genomics",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "milacic2024reactome",
+    "title": "The Reactome Pathway Knowledgebase 2024",
+    "year": "2024",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkad1025",
+    "method": "Reactome REST API / FTP",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — manually curated pathway knowledgebase",
+    "subsection": "Biology and genomics",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "ashburner2000gene",
+    "title": "Gene ontology: tool for the unification of biology",
+    "year": "2000",
+    "venue": "Nature Genetics",
+    "type": "dataset",
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1038/75556",
+    "method": "GO Consortium public ontology",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — gene function ontology (founding paper)",
+    "subsection": "Biology and genomics",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "gene2023gene",
+    "title": "The Gene Ontology knowledgebase in 2023",
+    "year": "2023",
+    "venue": "Genetics",
+    "type": "dataset",
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1093/genetics/iyad031",
+    "method": "GO REST API / file download",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — gene function ontology (2023 update)",
+    "subsection": "Biology and genomics",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "DBLP:journals/nar/SherryWKBPSS01",
+    "title": "dbSNP: the NCBI database of genetic variation",
+    "year": "2001",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/29.1.308",
+    "method": "NCBI web / anonymous FTP",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — genetic variation archive",
+    "subsection": "Biology and genomics",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "DBLP:journals/nar/EdgarDL03",
+    "title": "Gene Expression Omnibus: NCBI gene expression and hybridization array data repository",
+    "year": "2002",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/30.1.207",
+    "method": "NCBI GEO web portal",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — gene expression data repository",
+    "subsection": "Biology and genomics",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "encode2012integrated",
+    "title": "An integrated encyclopedia of DNA elements in the human genome",
+    "year": "2012",
+    "venue": "Nature",
+    "type": "dataset",
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1038/nature11247",
+    "method": "ENCODE portal / UCSC Genome Browser",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — regulatory element encyclopedia",
+    "subsection": "Biology and genomics",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "drew2017integration",
+    "title": "Integration of over 9,000 mass spectrometry experiments builds a global map of human protein complexes",
+    "year": "2017",
+    "venue": "Molecular Systems Biology",
+    "type": "dataset",
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.15252/msb.20167490",
+    "method": "hu.MAP web interface (http://proteincomplexes.org)",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — human protein complex map v1",
+    "subsection": "Biology and genomics",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "drew2021hu",
+    "title": "hu.MAP 2.0: integration of over 15,000 proteomic experiments builds a global compendium of human multiprotein assemblies",
+    "year": "2021",
+    "venue": "Molecular Systems Biology",
+    "type": "dataset",
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.15252/msb.202010016",
+    "method": "hu.MAP 2.0 web interface (http://humap2.proteincomplexes.org/)",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — human protein complex map v2",
+    "subsection": "Biology and genomics",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "gbif2022gbif",
+    "title": "GBIF: the global biodiversity information facility",
+    "year": "2022",
+    "venue": "GBIF Secretariat",
+    "type": "dataset",
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://www.gbif.org/",
+    "method": "GBIF API / GBIF.org portal",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — global biodiversity occurrence records",
+    "subsection": "Biology and genomics",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "de2017toward",
+    "title": "Toward a new data standard for combined marine biological and environmental datasets—expanding OBIS beyond species occurrences",
+    "year": "2017",
+    "venue": "Biodiversity Data Journal",
+    "type": "dataset",
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.3897/BDJ.5.e10989",
+    "method": "OBIS API / Darwin Core Archive",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Biology and genomics — marine biodiversity occurrence records",
+    "subsection": "Biology and genomics",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "bodenreider2004unified",
+    "title": "The unified medical language system (UMLS): integrating biomedical terminology",
+    "year": "2004",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkh061",
+    "method": "UMLS Metathesaurus API / UTS (UMLS Terminology Services)",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge",
+    "subsection": "Medicine and clinical knowledge",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "DBLP:conf/acl/WuZQCXMJG25",
+    "title": "Medical Graph RAG: Evidence-based Medical Large Language Model via Graph Retrieval-Augmented Generation",
+    "year": "2025",
+    "venue": "ACL 2025",
+    "type": "method",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://aclanthology.org/2025.acl-long.1381/",
+    "method": "MedGraphRAG (U-retrieve: UMLS entity→subgraph traversal)",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge — UMLS-aligned retrieval substrate",
+    "subsection": "Medicine and clinical knowledge",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "hamosh2005online",
+    "title": "Online Mendelian Inheritance in Man (OMIM), a knowledgebase of human genes and genetic disorders",
+    "year": "2005",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gki033",
+    "method": "OMIM web / NCBI Entrez",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge",
+    "subsection": "Medicine and clinical knowledge",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "amberger2015omim",
+    "title": "OMIM.org: Online Mendelian Inheritance in Man (OMIM®), an online catalog of human genes and genetic disorders",
+    "year": "2015",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gku1205",
+    "method": "OMIM API / FTP download",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge",
+    "subsection": "Medicine and clinical knowledge",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "DBLP:journals/nar/GonzalezRSRCSF20",
+    "title": "The DisGeNET knowledge platform for disease genomics: 2019 update",
+    "year": "2020",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkz1021",
+    "method": "DisGeNET REST API / disgenet2r / Python API",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge",
+    "subsection": "Medicine and clinical knowledge",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "DBLP:journals/nar/LandrumLBBCCGHH18",
+    "title": "ClinVar: improving access to variant interpretations and supporting evidence",
+    "year": "2018",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gkx1153",
+    "method": "ClinVar website / NCBI E-utilities (Entrez) API / FTP",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge",
+    "subsection": "Medicine and clinical knowledge",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "griffith2017civic",
+    "title": "CIViC is a community knowledgebase for expert crowdsourcing the clinical interpretation of variants in cancer",
+    "year": "2017",
+    "venue": "Nature Genetics",
+    "type": "dataset",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1038/ng.3774",
+    "method": "CIViC REST API / civicdb.org",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge",
+    "subsection": "Medicine and clinical knowledge",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "DBLP:journals/nar/TateBJSBBBCCDFH19",
+    "title": "COSMIC: the Catalogue Of Somatic Mutations In Cancer",
+    "year": "2019",
+    "venue": "Nucleic Acids Research",
+    "type": "dataset",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1093/nar/gky1015",
+    "method": "COSMIC website / REST API / FTP download",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge",
+    "subsection": "Medicine and clinical knowledge",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "chakravarty2017oncokb",
+    "title": "OncoKB: a precision oncology knowledge base",
+    "year": "2017",
+    "venue": "JCO Precision Oncology",
+    "type": "dataset",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1200/PO.17.00011",
+    "method": "OncoKB REST API / oncokb.org",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge",
+    "subsection": "Medicine and clinical knowledge",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "clinicaltrialsgov",
+    "title": "ClinicalTrials.gov",
+    "year": "2000",
+    "venue": "U.S. National Library of Medicine",
+    "type": "dataset",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://clinicaltrials.gov",
+    "method": "ClinicalTrials.gov API (api.clinicaltrials.gov) / AACT PostgreSQL",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge",
+    "subsection": "Medicine and clinical knowledge",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "kluwer2020uptodate",
+    "title": "UpToDate: evidence-based clinical decision support",
+    "year": "2020",
+    "venue": "Wolters Kluwer",
+    "type": "dataset",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://www.wolterskluwer.com/en/solutions/uptodate",
+    "method": "Subscription access / EHR integration",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Medicine and clinical knowledge — subscription-only; defining gap in open RAG",
+    "subsection": "Medicine and clinical knowledge",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "jain2013commentary",
+    "title": "Commentary: The Materials Project: A materials genome approach to accelerating materials innovation",
+    "year": "2013",
+    "venue": "APL Materials",
+    "type": "dataset",
+    "domain": [
+      "material"
+    ],
+    "paper_link": "https://doi.org/10.1063/1.4812323",
+    "method": "Materials Project REST API (MPRester), www.materialsproject.org",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Materials science and physics — primary curated DB anchor",
+    "subsection": "Materials science and physics",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "saal2013materials",
+    "title": "Materials Design and Discovery with High-Throughput Density Functional Theory: The Open Quantum Materials Database (OQMD)",
+    "year": "2013",
+    "venue": "JOM",
+    "type": "dataset",
+    "domain": [
+      "material"
+    ],
+    "paper_link": "https://doi.org/10.1007/s11837-013-0755-4",
+    "method": "OQMD REST API, www.oqmd.org",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Materials science and physics — OQMD initial report (200,000+ DFT structures)",
+    "subsection": "Materials science and physics",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "kirklin2015open",
+    "title": "The Open Quantum Materials Database (OQMD): assessing the accuracy of DFT formation energies",
+    "year": "2015",
+    "venue": "npj Computational Materials",
+    "type": "dataset",
+    "domain": [
+      "material"
+    ],
+    "paper_link": "https://doi.org/10.1038/npjcompumats.2015.10",
+    "method": "OQMD REST API, www.oqmd.org/download",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Materials science and physics — OQMD expanded to ~300,000 DFT calculations",
+    "subsection": "Materials science and physics",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "curtarolo2012aflow",
+    "title": "AFLOW: An automatic framework for high-throughput materials discovery",
+    "year": "2012",
+    "venue": "Computational Materials Science",
+    "type": "dataset",
+    "domain": [
+      "material"
+    ],
+    "paper_link": "https://doi.org/10.1016/j.commatsci.2012.02.005",
+    "method": "AFLOW REST API / AFLOWLIB (aflowlib.duke.edu)",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Materials science and physics — AFLOW high-throughput framework for alloys and inorganic compounds",
+    "subsection": "Materials science and physics",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "DBLP:journals/corr/abs-2010-09990",
+    "title": "The Open Catalyst 2020 (OC20) Dataset and Community Challenges",
+    "year": "2020",
+    "venue": "ACS Catalysis",
+    "type": "dataset",
+    "domain": [
+      "material"
+    ],
+    "paper_link": "https://arxiv.org/abs/2010.09990",
+    "method": "OC20 Dataset, opencatalystproject.org",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Materials science and physics — 1.28M DFT relaxations for catalyst/surface ML",
+    "subsection": "Materials science and physics",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "DBLP:journals/corr/abs-2206-08917",
+    "title": "The Open Catalyst 2022 (OC22) Dataset and Challenges for Oxide Electrocatalysts",
+    "year": "2022",
+    "venue": "Journal of Chemical Theory and Computation",
+    "type": "dataset",
+    "domain": [
+      "material"
+    ],
+    "paper_link": "https://arxiv.org/abs/2206.08917",
+    "method": "OC22 Dataset, opencatalystproject.org",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Materials science and physics — 62,331 DFT relaxations for oxide electrocatalysts",
+    "subsection": "Materials science and physics",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "DBLP:conf/emnlp/ZhangSHML24",
+    "title": "HoneyComb: A Flexible LLM-Based Agent System for Materials Science",
+    "year": "2024",
+    "venue": "Findings of EMNLP 2024",
+    "type": "dataset",
+    "domain": [
+      "material"
+    ],
+    "paper_link": "https://doi.org/10.18653/v1/2024.findings-emnlp.192",
+    "method": "HoneyComb LLM agent + MatSciKB + ToolHub",
+    "ko_cells": [
+      "K2",
+      "K2.O1"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Materials science and physics — MatSciKB curated literature knowledge base for materials RAG",
+    "subsection": "Materials science and physics",
+    "modality": [
+      "Text"
+    ]
+  },
+  {
+    "bib_key": "navas2024review",
+    "title": "Review of Particle Physics",
+    "year": "2024",
+    "venue": "Physical Review D",
+    "type": "dataset",
+    "domain": [
+      "physics"
+    ],
+    "paper_link": "https://doi.org/10.1103/PhysRevD.110.030001",
+    "method": "PDG data access: pdg.lbl.gov",
+    "ko_cells": [
+      "K2"
+    ],
+    "ko_primary": "K2",
+    "ko_note": "Materials science and physics — PDG Review, curated particle properties reference; most-cited in HEP",
+    "subsection": "Materials science and physics",
+    "modality": [
+      "Text"
+    ]
   }
 ]

@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The unified medical language system (UMLS): integrating biomedical terminology — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">2</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">31</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">33</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">27</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">10</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">9</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">5</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">1</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">65</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>The unified medical language system (UMLS): integrating biomedical terminology</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Nucleic Acids Research</span>
+      <span class="meta-year">2004</span>
+      <a href="https://doi.org/10.1093/nar/gkh061" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Medicine and clinical knowledge</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>The unified medical language system (UMLS): integrating biomedical terminology</h1>
+<p>bodenreider2004unified | 2004 | Nucleic Acids Research | dataset | [medical] | <a href="https://doi.org/10.1093/nar/gkh061">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">UMLS (Unified Medical Language System) — Metathesaurus, Semantic Network, SPECIALIST Lexicon</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">135 semantic types; Metathesaurus 약 100개 어휘 통합 (2004년 릴리즈 기준 60개 이상 어휘소)</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (무료 라이선스, UMLS Terminology Services 등록 필요)</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">UMLS Metathesaurus API / UTS (UMLS Terminology Services)</td></tr>
+</table>
+
+<blockquote>
+<p>Nucleic Acids Research | 2004 | dataset | medical</p>
+<h4>📌 한 줄 요약</h4>
+<p>미국국립의학도서관(NLM)이 구축·배포하는 생의학 용어 통합 시스템으로, 60개 이상의 이종 생의학 어휘를 단일 메타시소러스로 연결하고 135개 의미 유형의 Semantic Network과 SPECIALIST 영어 어휘사전을 함께 제공한다.</p>
+</blockquote>
+<h4>🎯 개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>생의학 분야에는 MeSH, SNOMED CT, ICD, GO 등 수십 개의 이종 통제 어휘가 독립 운영되어 상호 운용성이 없었다</li>
+<li>서로 다른 어휘로 색인된 데이터베이스 간의 정보 검색과 통합이 불가능했다</li>
+<li>동일 개념이 각 어휘마다 다른 명칭·코드로 존재해 임상-연구 시스템 통합에 장벽이 됐다</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>이종 시스템(전자의무기록, 문헌 데이터베이스, 게놈 DB)을 의미 수준에서 연결하는 단일 '용어 척추'가 필요했다</li>
+<li>자연어 처리 시스템이 의학 텍스트를 규범화(normalize)할 기준 어휘가 없었다</li>
+</ul>
+<h4>🔨 시스템 구성</h4>
+<p>UMLS는 세 가지 지식 소스로 구성된다.</p>
+<ol>
+<li><strong>Metathesaurus</strong>: 60개 이상 어휘 소스에서 추출한 개념을 CUI(Concept Unique Identifier)로 통합; 동의어 클러스터와 다국어 표현 포함</li>
+<li><strong>Semantic Network</strong>: 135개 의미 유형(semantic type)과 그들 사이의 54개 관계(semantic relation)로 구성된 상위 온톨로지</li>
+<li><strong>SPECIALIST Lexicon</strong>: 영어 생의학 어휘의 통사·형태 정보를 담은 대형 사전; NLP 전처리 지원</li>
+</ol>
+<h4>📥 데이터 접근 방법</h4>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>UTS (UMLS Terminology Services)</td>
+  <td>웹 기반 검색 및 REST API; 무료 계정 등록 필요</td>
+</tr>
+<tr>
+  <td>FTP 다운로드</td>
+  <td>전체 Metathesaurus 릴리즈 파일 다운로드 (연 2회 업데이트)</td>
+</tr>
+<tr>
+  <td>MetamorphoSys</td>
+  <td>로컬 설치용 서브셋 빌더 — 사용할 어휘 선택·필터링</td>
+</tr>
+</tbody>
+</table>
+<h4>📤 제공 데이터 형식</h4>
+<ul>
+<li>CUI, LUI, SUI, AUI 계층 식별자 체계</li>
+<li>어휘별 원천 코드 및 소스 명칭(SAB) 매핑</li>
+<li>의미 유형·관계 정보 (SRDEF, SRSTR 파일)</li>
+<li>UMLS Rich Release Format (RRF) 관계형 테이블</li>
+</ul>
+<h4>📊 주요 통계 (논문 기준)</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>통합 어휘 소스 수</td>
+  <td><strong>60개 이상</strong> (2004년 기준)</td>
+</tr>
+<tr>
+  <td>Semantic Network 의미 유형 수</td>
+  <td><strong>135개</strong></td>
+</tr>
+<tr>
+  <td>Semantic Network 의미 관계 수</td>
+  <td><strong>54개</strong></td>
+</tr>
+<tr>
+  <td>배포 주기</td>
+  <td>연 2회 (2AA, 2AB 릴리즈)</td>
+</tr>
+<tr>
+  <td>운영 기관</td>
+  <td>U.S. National Library of Medicine (NLM)</td>
+</tr>
+</tbody>
+</table>
+<h4>⚠️ 한계점</h4>
+<ul>
+<li>라이선스 어휘 포함(SNOMED CT, ICD 등)으로 무제한 재배포 불가; 사용 목적 제한</li>
+<li>소스 어휘별 업데이트 주기가 달라 버전 불일치가 발생할 수 있다</li>
+<li>개념 매핑은 어휘 간 의미 차이를 완전히 해소하지 못하는 경우가 있다</li>
+<li>LLM 기반 RAG 파이프라인에서 직접 임베딩하기 어려운 그래프/테이블 구조</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/gkh061">Bodenreider 2004, Nucleic Acids Research</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

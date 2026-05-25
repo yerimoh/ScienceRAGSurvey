@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Open Catalyst 2022 (OC22) Dataset and Challenges for Oxide Electrocatalysts — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">2</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">31</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">33</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">27</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">10</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">9</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">5</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">1</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">65</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>The Open Catalyst 2022 (OC22) Dataset and Challenges for Oxide Electrocatalysts</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Journal of Chemical Theory and Computation</span>
+      <span class="meta-year">2022</span>
+      <a href="https://arxiv.org/abs/2206.08917" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Materials science and physics</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>The Open Catalyst 2022 (OC22) Dataset and Challenges for Oxide Electrocatalysts</h1>
+<p>DBLP:journals/corr/abs-2206-08917 | 2022 | Journal of Chemical Theory and Computation | dataset | [material] | <a href="https://arxiv.org/abs/2206.08917">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">Open Catalyst 2022 (OC22)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">62,331 DFT relaxations (~9,854,504 single point calculations, 논문 기준)</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
+<tr><td class="prop-key">Eval Task</td><td class="prop-val">Total energy prediction (S2EF-Total), IS2RE-Total</td></tr>
+<tr><td class="prop-key">Eval Metric</td><td class="prop-val">Energy MAE, Force MAE</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">OC22 Dataset, Open Catalyst Project (opencatalystproject.org)</td></tr>
+</table>
+
+<blockquote>
+<p>Journal of Chemical Theory and Computation | 2022 | dataset | material</p>
+<h4>📌 한 줄 요약</h4>
+<p>OC20에서 다루지 못한 산화물 전기촉매(OER 촉매) 재료를 위한 62,331건의 DFT 이완 데이터셋으로, 흡착 에너지를 넘어 일반화된 총 에너지 예측 태스크를 정의하고 OC20과의 결합 훈련으로 성능 향상을 입증한다.</p>
+</blockquote>
+<h4>🎯 개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>OC20은 질소·탄소·산소 화학계 위주로, 산화물 전기촉매 재료 학습 데이터 부족</li>
+<li>산소 발생 반응(OER) 촉매는 재생에너지 저장·전환에 핵심이나 ML 훈련 데이터 미비</li>
+<li>장거리 정전기 및 자기 상호작용이 중요한 산화물에 대한 별도 벤치마크 필요</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>산화물 재료의 다양한 표면 커버리지, 흡착 분자 조합을 체계적으로 포함</li>
+<li>흡착 에너지 너머의 일반화된 총 에너지 예측 태스크로 ML 모델 적용 범위 확장</li>
+<li>OC20과의 결합 훈련(joint training)으로 두 데이터셋 모두에서 성능 향상 가능성 입증</li>
+</ul>
+<h4>🔨 시스템 구성</h4>
+<p>VASP 기반 DFT 계산(RPBE 범함수)으로 산화물 슬랩 구조의 구조 이완을 수행한다. 다양한 산화물 재료, 표면 커버리지, 흡착 분자를 포함하며, 일반화된 총 에너지 태스크(S2EF-Total, IS2RE-Total)를 통해 흡착 에너지만이 아닌 시스템 전체 에너지 예측에 초점을 맞춘다. GemNet-OC 등 GNN 베이스라인과 함께 제공된다.</p>
+<h4>📥 데이터 접근 방법</h4>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>공식 웹사이트</td>
+  <td>opencatalystproject.org — 데이터 다운로드</td>
+</tr>
+<tr>
+  <td>GitHub</td>
+  <td>github.com/Open-Catalyst-Project/ocp — 코드 및 베이스라인</td>
+</tr>
+<tr>
+  <td>리더보드</td>
+  <td>총 에너지 태스크 공개 벤치마크</td>
+</tr>
+</tbody>
+</table>
+<h4>📤 제공 데이터 형식</h4>
+<ul>
+<li>DFT 이완 궤적 (초기~최종 구조, 각 단계 에너지·힘)</li>
+<li>총 에너지 (eV)</li>
+<li>원자 힘 (eV/Å)</li>
+<li>산화물 슬랩 구조 (ASE Atoms 형식)</li>
+</ul>
+<h4>📊 주요 통계 (논문 기준)</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>총 DFT 이완 계산</td>
+  <td><strong>62,331</strong></td>
+</tr>
+<tr>
+  <td>단일점 에너지 계산</td>
+  <td><strong>~9,854,504</strong></td>
+</tr>
+<tr>
+  <td>에너지 예측 개선 (결합 훈련, OC20)</td>
+  <td><strong>~19%</strong> (총 에너지 기준)</td>
+</tr>
+<tr>
+  <td>힘 예측 개선 (결합 훈련, OC22)</td>
+  <td><strong>~9%</strong></td>
+</tr>
+<tr>
+  <td>최고 모델 성능 (에너지 예측, OC20+OC22)</td>
+  <td>GemNet-OC ~36% 향상</td>
+</tr>
+</tbody>
+</table>
+<h4>⚠️ 한계점</h4>
+<ul>
+<li>OC20 대비 데이터 규모 소규모 (6만 건 vs 128만 건)</li>
+<li>산화물 특성상 장거리 정전기·자기 상호작용이 중요하나 현재 GNN은 이를 완전히 포착하지 못함</li>
+<li>용매·전해질 효과 미포함</li>
+<li>RPBE 범함수 사용으로 실험값과 체계적 오차 존재</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://arxiv.org/abs/2206.08917">The Open Catalyst 2022 (OC22) Dataset (arXiv:2206.08917)</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

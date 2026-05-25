@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZINC: a free tool to discover chemistry for biology — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">2</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">31</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">33</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">27</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">10</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">9</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">5</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">1</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">65</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>ZINC: a free tool to discover chemistry for biology</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Journal of Chemical Information and Modeling</span>
+      <span class="meta-year">2012</span>
+      <a href="https://doi.org/10.1021/ci3001277" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Chemistry and drug discovery</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>ZINC: a free tool to discover chemistry for biology</h1>
+<p>irwin2012zinc | 2012 | Journal of Chemical Information and Modeling | dataset | [chem] | <a href="https://doi.org/10.1021/ci3001277">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">ZINC (2012 version)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">20M+ 상업적 구매 가능 분자</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Structured</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">ZINC web interface (zinc.docking.org)</td></tr>
+</table>
+
+<blockquote>
+<p>Journal of Chemical Information and Modeling | 2012 | dataset | chem</p>
+<h4>📌 한 줄 요약</h4>
+<p>ZINC은 생물학적으로 관련된 형태로 제공되는 2천만 개 이상의 상업적 구매 가능 분자를 모은 공개 리간드 발견 자원으로, ready-to-dock 포맷으로 다운로드 가능하다.</p>
+</blockquote>
+<h4>🎯 개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>구매 가능한 화합물 목록이 분산되어 있고, 도킹에 필요한 3D 형태로 준비되지 않은 경우가 많았음</li>
+<li>생물학 연구자들이 계산화학 전문 지식 없이 화합물 검색을 수행하기 어려웠음
+<strong>이 시스템이 필요한 이유</strong></li>
+<li>가상 스크리닝(virtual screening)을 위해 즉시 사용 가능한 3D 도킹 포맷 화합물 라이브러리 필요</li>
+<li>구매 가능성 정보와 생물학적 활성 주석을 통합한 단일 자원 부재</li>
+</ul>
+<h4>🔨 시스템 구성</h4>
+<p>상업적 화합물 목록을 수집하여 3D 생물학적 관련 형태(protonation state, tautomer 포함)로 변환한다. 구조, 생물 활성, 물리적 성질, 판매처, 카탈로그 번호, 이름, CAS 번호로 검색 가능하다. 소규모 커스텀 서브셋 생성·편집·공유·다운로드 기능 제공.</p>
+<h4>📥 데이터 접근 방법</h4>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>웹 인터페이스</td>
+  <td>zinc.docking.org 구조/성질 검색</td>
+</tr>
+<tr>
+  <td>서브셋 다운로드</td>
+  <td>ready-to-dock 포맷(MOL2, SDF 등)</td>
+</tr>
+<tr>
+  <td>커스텀 서브셋</td>
+  <td>필터링 후 직접 다운로드</td>
+</tr>
+</tbody>
+</table>
+<h4>📤 제공 데이터 형식</h4>
+<ul>
+<li>3D 도킹 포맷 (MOL2, SDF)</li>
+<li>SMILES</li>
+<li>물리화학적 성질 (MW, LogP, HBA/HBD 등)</li>
+</ul>
+<h4>📊 주요 통계 (논문 기준)</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>구매 가능 분자</td>
+  <td>20M+</td>
+</tr>
+</tbody>
+</table>
+<h4>⚠️ 한계점</h4>
+<ul>
+<li>상업 카탈로그 기반이므로 실제 구매 가능 여부는 갱신 주기에 따라 변동</li>
+<li>구매처별 가격·리드타임 정보는 외부 링크에 의존</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://doi.org/10.1021/ci3001277">ZINC: a free tool to discover chemistry for biology</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

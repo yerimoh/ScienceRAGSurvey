@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KEGG: kyoto encyclopedia of genes and genomes — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">2</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">31</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">33</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">27</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">10</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">9</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">5</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">1</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">65</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>KEGG: kyoto encyclopedia of genes and genomes</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Nucleic Acids Research</span>
+      <span class="meta-year">2000</span>
+      <a href="https://doi.org/10.1093/nar/28.1.27" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Biology and genomics</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>KEGG: kyoto encyclopedia of genes and genomes</h1>
+<p>kanehisa2000kegg | 2000 | Nucleic Acids Research | dataset | [bio] | <a href="https://doi.org/10.1093/nar/28.1.27">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">KEGG (Kyoto Encyclopedia of Genes and Genomes)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">3개 핵심 데이터베이스 (GENES, PATHWAY, LIGAND) — 논문 기준 완전 해독된 전체 게놈의 유전자 카탈로그</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (무료 공개)</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">KEGG API / FTP (http://www.genome.ad.jp/kegg/)</td></tr>
+</table>
+
+<blockquote>
+<p>Nucleic Acids Research | 2000 | dataset | bio</p>
+<h4>📌 한 줄 요약</h4>
+<p>게놈 정보와 고차원 기능 정보를 연결하는 생물정보학 지식 베이스로, GENES(유전자 카탈로그), PATHWAY(세포 경로), LIGAND(화합물 및 효소 반응) 세 데이터베이스로 구성된다.</p>
+</blockquote>
+<h4>🎯 개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>유전체 서열 분석 프로젝트가 대량의 유전자 서열을 생산하지만, 이를 세포 수준의 기능과 연결하는 체계적 수단이 부족했다</li>
+<li>서열 정보와 대사 경로, 신호 전달 등 고차원 기능 정보 사이의 간극을 메울 통합 데이터베이스가 필요했다</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>완전 해독된 게놈의 유전자를 기능적 경로와 연결하는 체계적 분석 지원</li>
+<li>종간 기능 보존 경로(pathway motif)의 비교 분석 및 유전자 기능 예측 가능</li>
+<li>Java 기반 시각화 도구로 게놈 지도, 비교 게놈 분석, 발현 지도 탐색 지원</li>
+</ul>
+<h4>🔨 시스템 구성</h4>
+<p>KEGG는 세 가지 핵심 데이터베이스로 구성된다: (1) <strong>GENES</strong> — 완전 해독된 모든 게놈의 유전자 카탈로그, 일일 갱신, (2) <strong>PATHWAY</strong> — 대사, 막 수송, 신호 전달, 세포 주기 등 세포 과정의 그래픽 표현, (3) <strong>LIGAND</strong> — 화합물, 효소 분자, 효소 반응 정보. 보존 서브경로(pathway motif) 정보는 직교 그룹 테이블로 제공된다.</p>
+<h4>📥 데이터 접근 방법</h4>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>웹 인터페이스</td>
+  <td><a href="http://www.genome.ad.jp/kegg/">http://www.genome.ad.jp/kegg/</a> — 무료 브라우저 접근</td>
+</tr>
+<tr>
+  <td>Java 도구</td>
+  <td>게놈 지도 탐색, 게놈 비교, 발현 지도 조작</td>
+</tr>
+<tr>
+  <td>FTP</td>
+  <td>전체 데이터셋 다운로드</td>
+</tr>
+</tbody>
+</table>
+<h4>📤 제공 데이터 형식</h4>
+<ul>
+<li>유전자 카탈로그 (GENES 데이터베이스)</li>
+<li>경로 그래픽 표현 (PATHWAY 데이터베이스)</li>
+<li>화합물·효소·반응 정보 (LIGAND 데이터베이스)</li>
+<li>직교 그룹 테이블 (경로 모티프)</li>
+</ul>
+<h4>📊 주요 통계 (논문 기준)</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>수록 게놈</td>
+  <td>완전 해독된 전체 게놈 + 일부 부분 게놈</td>
+</tr>
+<tr>
+  <td>데이터 갱신</td>
+  <td>매일 업데이트</td>
+</tr>
+<tr>
+  <td>주요 구성 요소</td>
+  <td>GENES, PATHWAY, LIGAND 3개 DB</td>
+</tr>
+</tbody>
+</table>
+<h4>⚠️ 한계점</h4>
+<ul>
+<li>2000년 당시 기반 논문으로, 완전 해독된 게놈 수가 현재에 비해 매우 적었다</li>
+<li>세포 경로 정보는 수작업 큐레이션에 의존하여 신규 발견 경로의 반영 속도에 제한이 있다</li>
+<li>LIGAND 화합물 데이터베이스는 당시 효소 반응 중심으로 소분자 약물 정보가 제한적이었다</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/28.1.27">KEGG: kyoto encyclopedia of genes and genomes</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

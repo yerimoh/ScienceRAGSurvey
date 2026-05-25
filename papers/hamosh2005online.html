@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Online Mendelian Inheritance in Man (OMIM), a knowledgebase of human genes and genetic disorders — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">2</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">31</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">33</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">27</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">10</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">9</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">5</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">1</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">65</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Online Mendelian Inheritance in Man (OMIM), a knowledgebase of human genes and genetic disorders</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Nucleic Acids Research</span>
+      <span class="meta-year">2005</span>
+      <a href="https://doi.org/10.1093/nar/gki033" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Medicine and clinical knowledge</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>Online Mendelian Inheritance in Man (OMIM), a knowledgebase of human genes and genetic disorders</h1>
+<p>hamosh2005online | 2005 | Nucleic Acids Research | dataset | [medical] | <a href="https://doi.org/10.1093/nar/gki033">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">OMIM (Online Mendelian Inheritance in Man)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">15,593개 항목 (2004년 9월 기준); 유전자 9,816개, 표현형 5,777개</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">OMIM 웹사이트 / NCBI Entrez 통합 검색</td></tr>
+</table>
+
+<blockquote>
+<p>Nucleic Acids Research | 2005 | dataset | medical</p>
+<h4>📌 한 줄 요약</h4>
+<p>존스홉킨스대학교 McKusick-Nathans 연구소가 관리하고 NCBI가 배포하는 인간 유전자·유전 질환의 권위 있는 카탈로그로, 2004년 기준 15,593개 항목과 12,715개의 대립형질 변이를 수록한다.</p>
+</blockquote>
+<h4>🎯 개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>Victor McKusick의 1966년 인쇄물 &quot;Mendelian Inheritance in Man(MIM)&quot;이 기원이나, 인쇄 갱신 주기로는 급증하는 유전 발견을 따라잡기 어려웠다</li>
+<li>인쇄·CD-ROM 형식으로는 일일 문헌 업데이트 및 외부 DB 링크 기능이 불가했다</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>유전체 혁명으로 매일 새로운 유전자-질환 연관이 보고되어 실시간 온라인 갱신이 필수가 됐다</li>
+<li>임상 의사와 연구자가 단일 플랫폼에서 유전자·표현형·문헌·시퀀스 DB를 교차 검색해야 했다</li>
+</ul>
+<h4>🔨 시스템 구성</h4>
+<p>각 OMIM 항목은 고유한 6자리 MIM 번호로 식별되며 유전자(별 기호), 표현형, 유전자-표현형 관계를 기술한다.</p>
+<ul>
+<li><strong>MIM 번호 체계</strong>: 앞자리로 항목 유형 구분 (1xxxx = 상염색체 우성, 2xxxx = 상염색체 열성, 3xxxx = X-연결 등)</li>
+<li><strong>Allelic Variant 섹션</strong>: 각 항목 내 임상적으로 중요한 돌연변이 기재 (2004년 기준 1,651개 항목에 12,715개 변이)</li>
+<li><strong>Clinical Synopsis</strong>: 표현형별 임상 특징 요약 (4,500개 이상)</li>
+<li><strong>Morbid Map</strong>: 유전자-질환 매핑 알파벳 순 목록</li>
+</ul>
+<h4>📥 데이터 접근 방법</h4>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>웹 인터페이스</td>
+  <td>omim.org — 무료 검색; 개인·비영리 사용</td>
+</tr>
+<tr>
+  <td>NCBI Entrez</td>
+  <td>PubMed, Gene, OMIM 통합 검색 연결</td>
+</tr>
+<tr>
+  <td>FTP 다운로드</td>
+  <td>상업적 사용 시 별도 라이선스 필요</td>
+</tr>
+</tbody>
+</table>
+<h4>📤 제공 데이터 형식</h4>
+<ul>
+<li>MIM 번호별 텍스트 항목 (유전자 기술, 표현형, 임상 시놉시스)</li>
+<li>대립형질 변이 목록 (Allelic Variant 섹션)</li>
+<li>유전자-표현형 매핑 테이블 (Morbid Map)</li>
+<li>NCBI Gene, sequence DB, PubMed 상호 링크</li>
+</ul>
+<h4>📊 주요 통계 (논문 기준)</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>전체 항목 수</td>
+  <td><strong>15,593개</strong> (2004년 9월 기준)</td>
+</tr>
+<tr>
+  <td>유전자 항목 (분자 서열 확인)</td>
+  <td><strong>9,816개</strong></td>
+</tr>
+<tr>
+  <td>표현형/질환 항목</td>
+  <td><strong>5,777개</strong></td>
+</tr>
+<tr>
+  <td>대립형질 변이 수</td>
+  <td><strong>12,715개</strong> (1,651개 항목)</td>
+</tr>
+<tr>
+  <td>임상 시놉시스 수</td>
+  <td><strong>4,500개 이상</strong></td>
+</tr>
+<tr>
+  <td>매핑된 질환 수</td>
+  <td><strong>3,659개</strong> (2,558개 유전자 좌위에 분포)</td>
+</tr>
+<tr>
+  <td>분자 기전 확인 질환</td>
+  <td><strong>2,563개</strong></td>
+</tr>
+<tr>
+  <td>일일 고유 방문자</td>
+  <td><strong>약 8,500명</strong></td>
+</tr>
+<tr>
+  <td>일일 쿼리 수</td>
+  <td><strong>약 100,000건</strong></td>
+</tr>
+<tr>
+  <td>월간 신규 항목/업데이트</td>
+  <td>신규 약 70개, 업데이트 약 600건</td>
+</tr>
+</tbody>
+</table>
+<h4>⚠️ 한계점</h4>
+<ul>
+<li>멘델 유전 질환 중심: 복합(다유전자·환경) 질환은 포함 범위가 제한적</li>
+<li>상업적 재배포·활용 시 별도 라이선스 협의 필요</li>
+<li>텍스트 중심 서술로 구조화된 쿼리(SPARQL 등)에 직접 활용 어려움</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/gki033">Hamosh et al., Nucleic Acids Research 2005</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Toward a new data standard for combined marine biological and environmental datasets—expanding OBIS beyond species occurrences — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">2</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">31</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">33</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">27</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">10</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">9</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">5</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">1</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">65</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Toward a new data standard for combined marine biological and environmental datasets—expanding OBIS beyond species occurrences</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Biodiversity Data Journal</span>
+      <span class="meta-year">2017</span>
+      <a href="https://doi.org/10.3897/BDJ.5.e10989" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Biology and genomics</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>Toward a new data standard for combined marine biological and environmental datasets—expanding OBIS beyond species occurrences</h1>
+<p>de2017toward | 2017 | Biodiversity Data Journal | dataset | [bio] | <a href="https://doi.org/10.3897/BDJ.5.e10989">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">OBIS (Ocean Biodiversity Information System)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">전 세계 해양 생물다양성 출현 기록의 통합 저장소 (논문은 새로운 데이터 표준 확장을 논의하며 구체적 수치는 제공하지 않음)</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">OBIS API / OBIS-ENV-DATA 표준 (UNESCO-IOC)</td></tr>
+</table>
+
+<blockquote>
+<p>Biodiversity Data Journal | 2017 | dataset | bio</p>
+<h4>📌 한 줄 요약</h4>
+<p>해양 생물다양성 정보 시스템(OBIS)을 종 출현 기록 중심에서 생물·환경 결합 데이터셋으로 확장하는 새로운 데이터 표준(OBIS-ENV-DATA)을 제안하여 해양 생물 및 환경 데이터를 통합 표현하는 방안을 논의한다.</p>
+</blockquote>
+<h4>🎯 개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>기존 OBIS는 Darwin Core 기반 종 출현 기록에 특화되어 있어 환경 측정 데이터(온도, 염도, 영양염 등)와 생물 샘플 데이터를 통합하는 데 한계가 있었다</li>
+<li>해양 생물학과 환경 데이터를 연결하는 공통 데이터 표준이 없어 연구자들이 별도 분석 시스템을 구축해야 했다</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>해양 생태계 연구에서 종 출현과 환경 조건을 함께 분석하기 위한 통합 데이터 표준 필요</li>
+<li>UNESCO-IOC OBIS 사무국과 국제 OBIS 노드들(EurOBIS, OBIS-USA, MedOBIS, 남극 OBIS 등)의 협력으로 글로벌 표준 개발</li>
+<li>생물다양성 데이터와 환경 데이터의 연계를 통한 기후변화 영향 연구 지원</li>
+</ul>
+<h4>🔨 시스템 구성</h4>
+<p>OBIS-ENV-DATA는 Darwin Core Event core와 Occurrence 및 Extended Measurement or Fact (EMoF) 확장을 결합하여 생물 샘플 계층 구조, 종 출현, 관련 환경 측정값을 통합 표현한다. UNESCO-IOC OBIS 사무국이 조정하며 전 세계 수십 개의 지역 OBIS 노드가 데이터를 제공한다.</p>
+<h4>📥 데이터 접근 방법</h4>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>웹 포털</td>
+  <td><a href="https://obis.org">https://obis.org</a> — 해양 생물다양성 데이터 검색</td>
+</tr>
+<tr>
+  <td>OBIS API</td>
+  <td>프로그래밍 방식 데이터 접근</td>
+</tr>
+<tr>
+  <td>파일 다운로드</td>
+  <td>Darwin Core Archive 형식</td>
+</tr>
+</tbody>
+</table>
+<h4>📤 제공 데이터 형식</h4>
+<ul>
+<li>종 출현 기록 (Darwin Core 형식)</li>
+<li>환경 측정 데이터 (Extended Measurement or Fact)</li>
+<li>생물 샘플 계층 구조 (이벤트 기반)</li>
+</ul>
+<h4>📊 주요 통계 (논문 기준)</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>제안 표준</td>
+  <td>OBIS-ENV-DATA (Darwin Core Event core + Occurrence + EMoF)</td>
+</tr>
+<tr>
+  <td>운영 기관</td>
+  <td>UNESCO-IOC OBIS 사무국</td>
+</tr>
+<tr>
+  <td>참여 국제 노드</td>
+  <td>전 세계 수십 개 (EurOBIS, OBIS-USA, MedOBIS, 남극 OBIS 등)</td>
+</tr>
+</tbody>
+</table>
+<h4>⚠️ 한계점</h4>
+<ul>
+<li>2017년 논문은 새로운 데이터 표준 제안에 초점을 맞추어 당시 데이터 규모에 대한 정량적 수치를 제공하지 않는다</li>
+<li>데이터 품질과 지리적 커버리지가 OBIS 노드마다 불균등하다</li>
+<li>환경 측정 데이터 통합은 표준화 수준이 낮아 데이터 비교 가능성에 제한이 있다</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://doi.org/10.3897/BDJ.5.e10989">Toward a new data standard for combined marine biological and environmental datasets</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

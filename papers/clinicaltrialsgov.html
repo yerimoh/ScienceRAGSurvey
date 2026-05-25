@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ClinicalTrials.gov — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">2</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">31</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">33</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">27</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">10</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">9</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">5</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">1</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">65</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>ClinicalTrials.gov</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">U.S. National Library of Medicine</span>
+      <span class="meta-year">2000</span>
+      <a href="https://clinicaltrials.gov" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Medicine and clinical knowledge</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>ClinicalTrials.gov</h1>
+<p>clinicaltrialsgov | 2000 | U.S. National Library of Medicine | dataset | [medical] | <a href="https://clinicaltrials.gov">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">ClinicalTrials.gov (미국 임상시험 등록 데이터베이스)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">400,000개 이상 등록 임상시험 (2023년 기준); 221개 국가</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">ClinicalTrials.gov 웹사이트 / AACT (Aggregate Analysis of ClinicalTrials.gov) / REST API</td></tr>
+</table>
+
+<blockquote>
+<p>U.S. National Library of Medicine | 2000 | dataset | medical</p>
+<h4>📌 한 줄 요약</h4>
+<p>미국국립의학도서관(NLM)이 운영하는 세계 최대 임상시험 등록 데이터베이스로, 2000년 출범 이후 221개국 400,000개 이상의 임상시험 정보를 무료로 제공하며 미국 FDA Modernization Act 1997에 의해 설립됐다.</p>
+</blockquote>
+<h4>🎯 개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>임상시험 결과가 선택적으로 출판되어 부정적 결과가 문헌에서 사라지는 '출판 편향(publication bias)' 문제가 심각했다</li>
+<li>어떤 임상시험이 진행 중인지 환자·의사·연구자가 접근할 수 있는 단일 저장소가 없었다</li>
+<li>1997년 FDA Modernization Act가 특정 임상시험의 공개 등록을 처음으로 의무화했다</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>환자가 자신이 참여 가능한 임상시험을 직접 검색할 수 있는 공공 플랫폼이 필요하다</li>
+<li>연구자와 제약사가 중복 연구를 피하고 임상 인프라를 효율적으로 활용할 수 있도록 등록 정보가 필요하다</li>
+<li>2007년 FDA Amendments Act(FDAAA)로 결과 보고 의무화가 강화되면서 결과 데이터도 수집한다</li>
+</ul>
+<h4>🔨 시스템 구성</h4>
+<p>ClinicalTrials.gov는 각 임상시험을 NCT 번호(NCT + 8자리)로 식별하며 다음 정보를 구조화하여 보관한다.</p>
+<ul>
+<li><strong>Protocol 정보</strong>: 연구 제목, 조건/질환, 개입(의약품·시술), 연구 설계, 적격 기준, 1차/2차 평가변수</li>
+<li><strong>결과 보고</strong>: Phase 2·3 이상 완료 시험의 1차 평가변수 결과 (FDAAA 2007 이후 의무)</li>
+<li><strong>장소 정보</strong>: 참여 기관·국가, 연락처</li>
+<li><strong>상태 트래킹</strong>: Recruiting / Active not recruiting / Completed / Terminated 등 상태 코드</li>
+</ul>
+<h4>📥 데이터 접근 방법</h4>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>웹 인터페이스</td>
+  <td>clinicaltrials.gov — 무료 검색</td>
+</tr>
+<tr>
+  <td>공개 API</td>
+  <td>api.clinicaltrials.gov (v2) — JSON/CSV 반환</td>
+</tr>
+<tr>
+  <td>AACT DB</td>
+  <td>aact.ctti-clinicaltrials.org — PostgreSQL 형식 전체 덤프; 연구용 무료</td>
+</tr>
+<tr>
+  <td>XML 다운로드</td>
+  <td>전체 레코드 XML 또는 JSON 일괄 다운로드</td>
+</tr>
+</tbody>
+</table>
+<h4>📤 제공 데이터 형식</h4>
+<ul>
+<li>NCT 레코드 JSON/XML (프로토콜 전체)</li>
+<li>결과 테이블 (1차·2차 평가변수 결과)</li>
+<li>이상반응(Adverse Events) 테이블</li>
+<li>MeSH 질환 분류 + 개입(intervention) 표준화 용어</li>
+</ul>
+<h4>📊 주요 통계 (공식 사이트 기준)</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>등록 임상시험 수</td>
+  <td><strong>400,000개 이상</strong> (2023년 기준)</td>
+</tr>
+<tr>
+  <td>참여 국가 수</td>
+  <td><strong>221개국</strong></td>
+</tr>
+<tr>
+  <td>서비스 개시</td>
+  <td><strong>2000년</strong></td>
+</tr>
+<tr>
+  <td>의무화 근거</td>
+  <td>FDA Modernization Act 1997 / FDAAA 2007</td>
+</tr>
+<tr>
+  <td>운영 기관</td>
+  <td>U.S. National Library of Medicine (NLM)</td>
+</tr>
+</tbody>
+</table>
+<h4>⚠️ 한계점</h4>
+<ul>
+<li>등록 정보의 완성도 편차: 일부 시험은 1차 평가변수·결과 보고 미완성</li>
+<li>미국 중심 등록 의무로 비미국 시험의 등록 비율 낮음 (WHO ICTRP 병행 참조 필요)</li>
+<li>자유 텍스트 필드(적격 기준, 개입 설명)의 비정형성으로 자동 파싱 어려움</li>
+<li>완료 후 결과 데이터 미제출 시험이 상당수 존재</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>공식 사이트</strong>: <a href="https://clinicaltrials.gov">ClinicalTrials.gov</a></li>
+<li><strong>API 문서</strong>: <a href="https://api.clinicaltrials.gov">api.clinicaltrials.gov</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

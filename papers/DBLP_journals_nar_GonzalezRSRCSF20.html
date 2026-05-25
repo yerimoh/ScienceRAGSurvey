@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The DisGeNET knowledge platform for disease genomics: 2019 update — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">2</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">31</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">33</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">27</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">10</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">9</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">5</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">1</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">65</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>The DisGeNET knowledge platform for disease genomics: 2019 update</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Nucleic Acids Research</span>
+      <span class="meta-year">2020</span>
+      <a href="https://doi.org/10.1093/nar/gkz1021" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Medicine and clinical knowledge</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>The DisGeNET knowledge platform for disease genomics: 2019 update</h1>
+<p>DBLP:journals/nar/GonzalezRSRCSF20 | 2020 | Nucleic Acids Research | dataset | [medical] | <a href="https://doi.org/10.1093/nar/gkz1021">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">DisGeNET (Disease Genomics Network)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">유전자-질환 연관 >1,000,000쌍; 유전자 17,000+, 질환/형질 24,000+, 변이 117,000+</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (학술 무료; 상업적 사용 라이선스)</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">DisGeNET REST API / disgenet2r (R 패키지) / Python API</td></tr>
+</table>
+
+<blockquote>
+<p>Nucleic Acids Research | 2020 | dataset | medical</p>
+<h4>📌 한 줄 요약</h4>
+<p>전문가 큐레이션 데이터와 문헌 텍스트 마이닝을 통합해 17,000개 이상의 유전자와 24,000개 이상의 질환·형질 사이 100만 개 이상의 유전자-질환 연관 및 117,000개 이상의 변이-질환 연관을 제공하는 질환 유전체학 플랫폼이다.</p>
+</blockquote>
+<h4>🎯 개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>유전자-질환 연관이 OMIM, ClinVar, GWAS Catalog 등 수십 개 이종 소스에 분산되어 통합 조회가 불가능했다</li>
+<li>큐레이션 DB는 정확하지만 규모가 작고, 텍스트 마이닝 결과는 방대하지만 노이즈가 많았다</li>
+<li>연관의 근거 출처와 신뢰도 점수가 부재했다</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>약물 타깃 발굴, 희귀 질환 진단, 다면 발현(pleiotropy) 분석 등에 통합된 유전자-질환 지식이 필요하다</li>
+<li>표준 점수 체계(DisGeNET score)로 큐레이션·텍스트마이닝 연관의 신뢰도를 정량화할 필요가 있다</li>
+</ul>
+<h4>🔨 시스템 구성</h4>
+<p>DisGeNET은 다중 소스에서 유전자-질환·변이-질환 연관을 수집하고 4가지 증거 유형으로 분류한다.</p>
+<ul>
+<li><strong>Curated</strong>: OMIM, ClinVar, UniProt, Orphanet 등 전문가 큐레이션</li>
+<li><strong>Inferred</strong>: MGD·RGD 동물 모델에서 추론</li>
+<li><strong>Literature (text-mined)</strong>: PubMed 초록·전문 자동 추출</li>
+<li><strong>Animal models</strong>: 마우스/쥐 게놈 모델 연관</li>
+</ul>
+<p><strong>DisGeNET Score</strong>: 소스 신뢰도, 문헌 수, 큐레이션 레벨을 결합한 증거 강도 지수</p>
+<h4>📥 데이터 접근 방법</h4>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>REST API</td>
+  <td>api.disgenet.com — 유전자·질환·변이 쿼리; 무료 등록</td>
+</tr>
+<tr>
+  <td>disgenet2r</td>
+  <td>CRAN 배포 R 패키지; R 환경에서 직접 쿼리</td>
+</tr>
+<tr>
+  <td>Python API</td>
+  <td>pip install disgenet2 — Python 통합</td>
+</tr>
+<tr>
+  <td>TSV 다운로드</td>
+  <td>전체 데이터셋 파일 다운로드 (학술 무료)</td>
+</tr>
+</tbody>
+</table>
+<h4>📤 제공 데이터 형식</h4>
+<ul>
+<li>유전자-질환 연관 테이블 (GDA: Gene-Disease Association)</li>
+<li>변이-질환 연관 테이블 (VDA: Variant-Disease Association)</li>
+<li>DisGeNET score 및 증거 유형 레이블</li>
+<li>UMLS CUI 기반 질환 식별자</li>
+</ul>
+<h4>📊 주요 통계 (논문 기준)</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>질환·형질 수</td>
+  <td><strong>24,000개 이상</strong></td>
+</tr>
+<tr>
+  <td>유전자 수</td>
+  <td><strong>17,000개 이상</strong></td>
+</tr>
+<tr>
+  <td>게놈 변이 수</td>
+  <td><strong>117,000개 이상</strong></td>
+</tr>
+<tr>
+  <td>유전자-질환 연관 수</td>
+  <td><strong>1,000,000개 이상</strong> (전체; 큐레이션+문헌마이닝)</td>
+</tr>
+<tr>
+  <td>소스 통합 수</td>
+  <td>큐레이션 소스 12개 + 문헌 마이닝 포함</td>
+</tr>
+<tr>
+  <td>운영 기관</td>
+  <td>IMIM (Institut Hospital del Mar d'Investigacions Mèdiques)</td>
+</tr>
+</tbody>
+</table>
+<h4>⚠️ 한계점</h4>
+<ul>
+<li>문헌 텍스트마이닝 연관에는 위양성(false positive)이 포함될 수 있으므로 큐레이션 연관과 구분 활용 권장</li>
+<li>상업적 사용 및 대규모 API 활용은 별도 라이선스 필요</li>
+<li>UMLS CUI 기반 질환 식별로 MeSH·ICD 직접 매핑 시 추가 변환 필요</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/gkz1021">Piñero González et al., Nucleic Acids Research 2020</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Medical Graph RAG: Evidence-based Medical Large Language Model via Graph Retrieval-Augmented Generation — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">2</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">31</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">33</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">27</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">10</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">9</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">5</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">1</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">65</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Medical Graph RAG: Evidence-based Medical Large Language Model via Graph Retrieval-Augmented Generation</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">ACL 2025</span>
+      <span class="meta-year">2025</span>
+      <a href="https://aclanthology.org/2025.acl-long.1381/" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Medicine and clinical knowledge</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>Medical Graph RAG: Evidence-based Medical Large Language Model via Graph Retrieval-Augmented Generation</h1>
+<p>DBLP:conf/acl/WuZQCXMJG25 | 2025 | ACL 2025 | method | [medical] | <a href="https://aclanthology.org/2025.acl-long.1381/">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">MedC-K (Medical Corpus — Knowledge; UMLS-aligned medical literature retrieval corpus)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">논문 미기재 (UMLS 정렬 의학 문헌 코퍼스)</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
+<tr><td class="prop-key">Retriever</td><td class="prop-val">Graph-based retrieval (U-retrieve: UMLS entity→subgraph traversal)</td></tr>
+<tr><td class="prop-key">Eval Task</td><td class="prop-val">Medical VQA (NEJM, Medbullets, JAMA), Medical QA (MedQA, PubMedQA)</td></tr>
+<tr><td class="prop-key">Eval Metric</td><td class="prop-val">Accuracy</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">MedGraphRAG</td></tr>
+</table>
+
+<blockquote>
+<p>ACL 2025 | 2025 | method | medical</p>
+<h4>📌 한 줄 요약</h4>
+<p>UMLS 지식 그래프를 백본으로 활용하는 그래프 RAG 시스템으로, 의학 문헌 코퍼스(MedC-K)에서 엔티티 기반 서브그래프를 검색해 임상 질의응답의 근거 신뢰성을 높인다.</p>
+</blockquote>
+<h4>🎯 개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>기존 의학 RAG 시스템은 텍스트 청크 유사도 검색에 의존해 의학 개념 간 관계를 활용하지 못했다</li>
+<li>단순 밀집 검색(dense retrieval)은 희귀 질환·복합 임상 조건에서 근거 문서를 누락하는 경향이 있었다</li>
+<li>LLM의 의학 추론은 hallucination이 빈번하고 근거 출처를 추적하기 어려웠다</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>UMLS 기반 그래프 구조로 의학 개념 간 계층·관계를 탐색해 더 풍부한 컨텍스트를 제공할 필요가 있다</li>
+<li>임상 환경에서는 근거(evidence)의 출처를 명시할 수 있는 설명 가능한 검색이 필수적이다</li>
+</ul>
+<h4>🔨 시스템 구성</h4>
+<p>MedGraphRAG는 세 단계로 구성된다.</p>
+<ol>
+<li><strong>Entity extraction</strong>: 쿼리에서 의학 개념 추출 후 UMLS에 매핑 (U-retrieve)</li>
+<li><strong>Graph traversal</strong>: UMLS 서브그래프를 BFS/DFS로 확장하여 관련 개념·관계 수집</li>
+<li><strong>Generation</strong>: 검색된 서브그래프 + 관련 문헌 청크(MedC-K)를 컨텍스트로 LLM 생성</li>
+</ol>
+<p>UMLS의 Semantic Network(135 의미 유형)를 그래프 엣지 필터로 활용해 노이즈 제거.</p>
+<h4>📥 데이터 접근 방법</h4>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GitHub (코드)</td>
+  <td><a href="https://github.com/JoeyAlvarezMD/MedGraphRAG">https://github.com/JoeyAlvarezMD/MedGraphRAG</a> (공개 코드)</td>
+</tr>
+<tr>
+  <td>MedC-K 코퍼스</td>
+  <td>UMLS-aligned corpus; 논문에서 공개 계획 명시</td>
+</tr>
+</tbody>
+</table>
+<h4>📤 제공 데이터 형식</h4>
+<ul>
+<li>의학 개념-문서 매핑 인덱스</li>
+<li>UMLS 서브그래프 JSON</li>
+<li>생성 응답 + 근거 문서 목록</li>
+</ul>
+<h4>📊 주요 통계 (논문 기준)</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>평가 벤치마크</td>
+  <td>NEJM challenge, Medbullets, JAMA Clinical Challenge, MedQA, PubMedQA</td>
+</tr>
+<tr>
+  <td>비교 베이스라인</td>
+  <td>GraphRAG, NaiveRAG, MedRAG, 등</td>
+</tr>
+<tr>
+  <td>게재</td>
+  <td>ACL 2025 Long Paper (pp. 28443–28467)</td>
+</tr>
+</tbody>
+</table>
+<h4>⚠️ 한계점</h4>
+<ul>
+<li>UMLS 매핑 품질에 의존: 어휘 범위 밖 희귀 질환·신흥 의학 용어 처리 제한</li>
+<li>그래프 탐색 비용이 높아 실시간 임상 시스템 적용에 지연 발생 가능</li>
+<li>MedC-K 코퍼스의 구체적 규모와 구성이 논문에 충분히 기술되지 않음</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://aclanthology.org/2025.acl-long.1381/">Wu et al., ACL 2025</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

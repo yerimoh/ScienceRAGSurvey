@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HoneyComb: A Flexible LLM-Based Agent System for Materials Science — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">2</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">31</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">33</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">27</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">10</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">9</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">5</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">1</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">65</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>HoneyComb: A Flexible LLM-Based Agent System for Materials Science</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Findings of EMNLP 2024</span>
+      <span class="meta-year">2024</span>
+      <a href="https://doi.org/10.18653/v1/2024.findings-emnlp.192" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Curated Knowledge Base × Ground</a><span class="tag tag-sub">Materials science and physics</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>HoneyComb: A Flexible LLM-Based Agent System for Materials Science</h1>
+<p>DBLP:conf/emnlp/ZhangSHML24 | 2024 | Findings of EMNLP 2024 | dataset | [material] | <a href="https://doi.org/10.18653/v1/2024.findings-emnlp.192">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">MatSciKB (Materials Science Knowledge Base)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">문헌 기반 큐레이션된 구조적 지식 컬렉션 (규모 수치 논문 미기재)</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (코드 공개)</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
+<tr><td class="prop-key">Retriever</td><td class="prop-val">적응형 retriever (지식 소스 vs 도구 선택)</td></tr>
+<tr><td class="prop-key">Eval Task</td><td class="prop-val">Materials science QA, 계산 과제, 특성 예측</td></tr>
+<tr><td class="prop-key">Eval Metric</td><td class="prop-val">정확도 (task별 베이스라인 대비)</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">HoneyComb LLM 에이전트 시스템</td></tr>
+</table>
+
+<blockquote>
+<p>Findings of EMNLP 2024 | 2024 | dataset | material</p>
+<h4>📌 한 줄 요약</h4>
+<p>재료과학 전용 LLM 에이전트 시스템 HoneyComb이 구축한 큐레이션 지식 베이스(MatSciKB)로, 신뢰할 수 있는 재료과학 문헌을 구조화한 검색 기반 지식 소스이며 Materials Project 등 외부 DB 접근을 위한 ToolHub와 결합된다.</p>
+</blockquote>
+<h4>🎯 개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>범용 LLM은 재료과학의 복잡한 계산 과제와 특성화 요구를 처리하지 못함</li>
+<li>기존 LLM은 구식 암묵적 지식에 의존하여 부정확성과 환각(hallucination) 발생</li>
+<li>재료과학 전용 QA, 특성 예측, 계산 태스크를 통합하는 에이전트 시스템 부재</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>재료과학 문헌으로부터 고품질 지식을 큐레이션하여 검색 기반 정확도 향상</li>
+<li>Inductive Tool Construction 방법으로 재료과학 전용 API 도구 자동 생성·분해·정제</li>
+<li>태스크에 따라 지식 소스(MatSciKB)와 도구(ToolHub) 중 적절한 것을 선택하는 적응형 retriever 적용</li>
+</ul>
+<h4>🔨 시스템 구성</h4>
+<p>HoneyComb은 MatSciKB(지식 소스), ToolHub(계산 도구), 적응형 retriever의 세 모듈로 구성된다. MatSciKB는 신뢰할 수 있는 재료과학 문헌(논문, 교재 등)을 구조화한 텍스트 형태의 큐레이션 지식 컬렉션이다. ToolHub는 Inductive Tool Construction(ITC) 방법으로 Materials Project API 등 재료과학 도구를 자동 래핑한다. Retriever는 입력 쿼리 성격에 따라 MatSciKB 검색(사실적 질문) 또는 ToolHub 실행(계산 요청)을 선택한다.</p>
+<h4>📥 데이터 접근 방법</h4>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GitHub</td>
+  <td>코드 및 MatSciKB 공개 예정 (논문 기준)</td>
+</tr>
+<tr>
+  <td>ACL Anthology</td>
+  <td><a href="https://aclanthology.org/2024.findings-emnlp.192">https://aclanthology.org/2024.findings-emnlp.192</a></td>
+</tr>
+<tr>
+  <td>arXiv</td>
+  <td>arXiv:2409.00135</td>
+</tr>
+</tbody>
+</table>
+<h4>📤 제공 데이터 형식</h4>
+<ul>
+<li>MatSciKB: 구조화된 텍스트 지식 (재료과학 문헌 기반)</li>
+<li>ToolHub: 재료과학 API 도구 집합 (Materials Project 등)</li>
+<li>평가 벤치마크: 재료과학 QA, 계산 태스크</li>
+</ul>
+<h4>📊 주요 통계 (논문 기준)</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>논문 발표</td>
+  <td>Findings of EMNLP 2024, pp. 3369–3382</td>
+</tr>
+<tr>
+  <td>시스템 구성 모듈</td>
+  <td>3개 (MatSciKB, ToolHub, Retriever)</td>
+</tr>
+<tr>
+  <td>성능</td>
+  <td>다양한 재료과학 태스크에서 베이스라인 대비 유의미하게 향상</td>
+</tr>
+<tr>
+  <td>arXiv ID</td>
+  <td>2409.00135</td>
+</tr>
+</tbody>
+</table>
+<h4>⚠️ 한계점</h4>
+<ul>
+<li>MatSciKB의 구체적 크기(항목 수, 커버리지)가 논문에 명시되지 않음</li>
+<li>특정 재료과학 도메인(나노, 폴리머 등)에 대한 커버리지 불균형 가능성</li>
+<li>ToolHub는 Materials Project 등 외부 API에 의존하므로 API 가용성에 취약</li>
+<li>재료과학 이외 도메인 확장성은 아직 검증 단계</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://doi.org/10.18653/v1/2024.findings-emnlp.192">HoneyComb: A Flexible LLM-Based Agent System for Materials Science (EMNLP Findings, 2024)</a></li>
+<li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2409.00135">arXiv:2409.00135</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

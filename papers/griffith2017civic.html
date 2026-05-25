@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CIViC is a community knowledgebase for expert crowdsourcing the clinical interpretation of variants in cancer — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">2</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">31</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">33</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">27</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">10</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">9</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">5</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">1</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">65</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>CIViC is a community knowledgebase for expert crowdsourcing the clinical interpretation of variants in cancer</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Nature Genetics</span>
+      <span class="meta-year">2017</span>
+      <a href="https://doi.org/10.1038/ng.3774" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Medicine and clinical knowledge</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>CIViC is a community knowledgebase for expert crowdsourcing the clinical interpretation of variants in cancer</h1>
+<p>griffith2017civic | 2017 | Nature Genetics | dataset | [medical] | <a href="https://doi.org/10.1038/ng.3774">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">CIViC (Clinical Interpretation of Variants in Cancer)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">출판 시점 수백 개 변이·유전자; 지속적 커뮤니티 큐레이션으로 성장</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">CIViC REST API / civicdb.org 웹 인터페이스</td></tr>
+</table>
+
+<blockquote>
+<p>Nature Genetics | 2017 | dataset | medical</p>
+<h4>📌 한 줄 요약</h4>
+<p>암 변이의 치료적·예후적·진단적·소인적 임상 해석을 전문가 크라우드소싱으로 구축하는 오픈소스·오픈액세스 암 정밀 의학 지식 베이스로, 큐레이터-편집자 검증 워크플로를 갖춘다.</p>
+</blockquote>
+<h4>🎯 개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>암 변이의 임상적 해석이 개별 논문과 내부 실험실 시스템에 분산되어 있어 체계적 접근이 어려웠다</li>
+<li>OncoKB, JAX-CKB 등 기존 DB는 소수 전문 기관이 폐쇄적으로 큐레이션; 커뮤니티 기여 불가</li>
+<li>같은 변이의 임상적 의미에 대한 근거 출처를 투명하게 추적할 수 없었다</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>암 정밀 의학의 빠른 발전 속도에 맞추려면 전 세계 전문가 커뮤니티의 분산 큐레이션이 필요하다</li>
+<li>치료적(predictive), 예후적(prognostic), 진단적(diagnostic), 소인적(predisposing) 4가지 변이 임상 역할을 통합 관리해야 한다</li>
+</ul>
+<h4>🔨 시스템 구성</h4>
+<p>CIViC는 위키 방식의 큐레이션 워크플로를 갖는다.</p>
+<ul>
+<li><strong>Evidence Item</strong>: 개별 변이-임상 연관의 단위; 하나의 문헌 근거 + 임상 유의성 레이블</li>
+<li><strong>Variant</strong>: 유전자 내 특정 변이 (SNV, 삽입/삭제, 융합 등)</li>
+<li><strong>Gene</strong>: 변이가 속하는 유전자 항목</li>
+<li><strong>큐레이터 → 편집자 → 승인</strong> 3단계 워크플로; 편집자 검토 후 공개</li>
+</ul>
+<p>임상 역할 4가지: <strong>Predictive</strong> (치료 반응 예측), <strong>Prognostic</strong> (예후), <strong>Diagnostic</strong> (진단 분류), <strong>Predisposing</strong> (유전적 소인)</p>
+<h4>📥 데이터 접근 방법</h4>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CIViC REST API</td>
+  <td>api.civicdb.org — 유전자·변이·근거 항목 쿼리; 공개 무료</td>
+</tr>
+<tr>
+  <td>웹 인터페이스</td>
+  <td>civicdb.org — 검색, 큐레이션, 시각화</td>
+</tr>
+<tr>
+  <td>데이터 다운로드</td>
+  <td>nightly TSV/VCF 덤프; 완전 오픈액세스</td>
+</tr>
+</tbody>
+</table>
+<h4>📤 제공 데이터 형식</h4>
+<ul>
+<li>Evidence Item (변이-임상 연관 + 문헌 PMC/PMID)</li>
+<li>Variant summary (변이 기술 + 연관 항목 집계)</li>
+<li>VCF 형식 변이 파일</li>
+<li>Open-source code (GitHub: griffithlab/civic-client)</li>
+</ul>
+<h4>📊 주요 통계 (논문 기준)</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>임상 역할 범주</td>
+  <td>Predictive, Prognostic, Diagnostic, Predisposing (4가지)</td>
+</tr>
+<tr>
+  <td>큐레이션 워크플로</td>
+  <td>큐레이터 제출 → 편집자 검토 → 승인</td>
+</tr>
+<tr>
+  <td>라이선스</td>
+  <td>CC0 (공개 도메인)</td>
+</tr>
+<tr>
+  <td>코드 라이선스</td>
+  <td>MIT</td>
+</tr>
+<tr>
+  <td>운영 기관</td>
+  <td>Washington University in St. Louis (Griffith Lab)</td>
+</tr>
+</tbody>
+</table>
+<h4>⚠️ 한계점</h4>
+<ul>
+<li>커뮤니티 큐레이션 특성상 특정 유명 유전자(EGFR, BRAF, KRAS 등)에 항목이 집중</li>
+<li>편집자 수 제한으로 신규 항목 검토에 시간 지연 발생 가능</li>
+<li>희귀 암·희귀 변이는 근거 문헌 부족으로 커버리지 낮음</li>
+<li>체세포·생식세포 구분이 항목별로 일관성이 부족할 수 있음</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://doi.org/10.1038/ng.3774">Griffith et al., Nature Genetics 2017</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

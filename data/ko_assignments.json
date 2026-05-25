@@ -280,5 +280,446 @@
     "K": "K1",
     "O": "",
     "note": "main.tex: K=K1; O=- (Preprint literature / bioRxiv)"
+  },
+  "DBLP:journals/nar/KimTBCFGHHHSWYZ16": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "kim2023pubchem": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "DBLP:journals/nar/GaultonBBCDHLMMAO12": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "DBLP:journals/nar/MendezGBCVFMMMN19": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "zdrazil2024chembl": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "irwin2012zinc": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "DBLP:journals/jcisd/SterlingI15": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "DBLP:journals/jcisd/TingleTCGKDMI23": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "DBLP:journals/nar/LiuLWJG07": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "gilson2016bindingdb": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "liu2025bindingdb": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "knox2024drugbank": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "DBLP:journals/nar/SzklarczykSMJBK16": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "chandak2023building": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "ioannidis2020drkg": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "lowe2017chemical": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "kearnes2021open": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "ramakrishnan2014quantum": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "isert2022qmugs": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "scifinder": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "reaxys": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "linstrom2001nist": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "groom2016csd": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "icsd": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Chemistry and drug discovery"
+  },
+  "uniprot2023uniprot": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Biology and genomics — protein sequence and function knowledgebase"
+  },
+  "kanehisa2000kegg": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Biology and genomics — pathway and genomics knowledgebase"
+  },
+  "milacic2024reactome": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Biology and genomics — manually curated pathway knowledgebase"
+  },
+  "ashburner2000gene": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Biology and genomics — gene function ontology (founding paper)"
+  },
+  "gene2023gene": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Biology and genomics — gene function ontology (2023 update)"
+  },
+  "DBLP:journals/nar/SherryWKBPSS01": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Biology and genomics — genetic variation archive"
+  },
+  "DBLP:journals/nar/EdgarDL03": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Biology and genomics — gene expression data repository"
+  },
+  "encode2012integrated": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Biology and genomics — regulatory element encyclopedia"
+  },
+  "drew2017integration": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Biology and genomics — human protein complex map v1"
+  },
+  "drew2021hu": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Biology and genomics — human protein complex map v2"
+  },
+  "gbif2022gbif": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Biology and genomics — global biodiversity occurrence records"
+  },
+  "de2017toward": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Biology and genomics — marine biodiversity occurrence records"
+  },
+  "bodenreider2004unified": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Medicine and clinical knowledge"
+  },
+  "DBLP:conf/acl/WuZQCXMJG25": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Medicine and clinical knowledge — UMLS-aligned retrieval substrate"
+  },
+  "hamosh2005online": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Medicine and clinical knowledge"
+  },
+  "amberger2015omim": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Medicine and clinical knowledge"
+  },
+  "DBLP:journals/nar/GonzalezRSRCSF20": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Medicine and clinical knowledge"
+  },
+  "DBLP:journals/nar/LandrumLBBCCGHH18": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Medicine and clinical knowledge"
+  },
+  "griffith2017civic": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Medicine and clinical knowledge"
+  },
+  "DBLP:journals/nar/TateBJSBBBCCDFH19": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Medicine and clinical knowledge"
+  },
+  "chakravarty2017oncokb": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Medicine and clinical knowledge"
+  },
+  "clinicaltrialsgov": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Medicine and clinical knowledge"
+  },
+  "kluwer2020uptodate": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Medicine and clinical knowledge — subscription-only; defining gap in open RAG"
+  },
+  "jain2013commentary": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Materials science and physics — primary curated DB anchor"
+  },
+  "saal2013materials": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Materials science and physics — OQMD initial report (200,000+ DFT structures)"
+  },
+  "kirklin2015open": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Materials science and physics — OQMD expanded to ~300,000 DFT calculations"
+  },
+  "curtarolo2012aflow": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Materials science and physics — AFLOW high-throughput framework for alloys and inorganic compounds"
+  },
+  "DBLP:journals/corr/abs-2010-09990": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Materials science and physics — 1.28M DFT relaxations for catalyst/surface ML"
+  },
+  "DBLP:journals/corr/abs-2206-08917": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Materials science and physics — 62,331 DFT relaxations for oxide electrocatalysts"
+  },
+  "DBLP:conf/emnlp/ZhangSHML24": {
+    "cells": [
+      "K2",
+      "K2.O1"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Materials science and physics — MatSciKB curated literature knowledge base for materials RAG"
+  },
+  "navas2024review": {
+    "cells": [
+      "K2"
+    ],
+    "K": "K2",
+    "O": "",
+    "note": "Materials science and physics — PDG Review, curated particle properties reference; most-cited in HEP"
   }
 }

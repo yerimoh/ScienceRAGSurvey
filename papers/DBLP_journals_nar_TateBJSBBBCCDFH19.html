@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>COSMIC: the Catalogue Of Somatic Mutations In Cancer — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">2</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">31</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">33</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">27</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">10</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">9</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">5</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">1</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">65</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>COSMIC: the Catalogue Of Somatic Mutations In Cancer</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Nucleic Acids Research</span>
+      <span class="meta-year">2019</span>
+      <a href="https://doi.org/10.1093/nar/gky1015" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Medicine and clinical knowledge</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>COSMIC: the Catalogue Of Somatic Mutations In Cancer</h1>
+<p>DBLP:journals/nar/TateBJSBBBCCDFH19 | 2019 | Nucleic Acids Research | dataset | [medical] | <a href="https://doi.org/10.1093/nar/gky1015">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">COSMIC (Catalogue Of Somatic Mutations In Cancer)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">~600만 코딩 변이 (v86, 2018.8); 1.4M 종양 샘플; 719개 암 유전자 센서스</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (학술 무료) / 영리 기관 라이선스 필요</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">COSMIC 웹사이트 / REST API / FTP 다운로드</td></tr>
+</table>
+
+<blockquote>
+<p>Nucleic Acids Research | 2019 | dataset | medical</p>
+<h4>📌 한 줄 요약</h4>
+<p>Wellcome Sanger Institute가 운영하는 암 체세포 돌연변이 카탈로그로, v86 기준 약 600만 개 코딩 돌연변이와 140만 개 종양 샘플, 719개 암 유전자 센서스, 10가지 암 Hallmarks 주석을 제공한다.</p>
+</blockquote>
+<h4>🎯 개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>암 전장유전체·엑솜 분석 결과가 개별 논문에 분산되어 있었고 비교 가능한 형식으로 통합된 저장소가 없었다</li>
+<li>어떤 유전자가 암 드라이버인지 근거 기반으로 분류한 권위 있는 목록이 부재했다</li>
+<li>체세포 변이 외에도 융합 유전자, 복제수 변이, 메틸화 등 다양한 체세포 변화를 통합할 필요가 있었다</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>암 유전체 연구의 공통 참조 자원으로 돌연변이 스펙트럼, 서명(mutational signature), 드라이버 유전자를 체계적으로 기록해야 한다</li>
+<li>신약 개발 및 임상 해석에서 체세포 돌연변이의 맥락(조직 유형, 암 종류)을 고려한 검색이 필요하다</li>
+</ul>
+<h4>🔨 시스템 구성</h4>
+<p>COSMIC은 여러 데이터 섹션으로 구성된다.</p>
+<ul>
+<li><strong>Somatic Mutations</strong>: 수동 큐레이션 논문 + 대규모 전장엑솜·게놈 연구의 체세포 변이</li>
+<li><strong>Cancer Gene Census (CGC)</strong>: 암 유발 유전자 목록; Tier 1 (직접 증거)·Tier 2 (간접 증거) 구분; 10가지 암 Hallmarks 주석</li>
+<li><strong>COSMIC Signatures</strong>: 체세포 돌연변이 패턴 서명 (SBS, DBS, ID 유형)</li>
+<li><strong>기타 변이 유형</strong>: 유전자 융합(fusions), 복제수 변이(CNV), 유전자 발현 이상, 메틸화, 약물 내성 변이</li>
+</ul>
+<h4>📥 데이터 접근 방법</h4>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>COSMIC 웹사이트</td>
+  <td>cancer.sanger.ac.uk/cosmic — 무료 검색·시각화</td>
+</tr>
+<tr>
+  <td>FTP 다운로드</td>
+  <td>전체 데이터셋 파일; 학술 무료 등록</td>
+</tr>
+<tr>
+  <td>REST API</td>
+  <td>프로그래밍 쿼리; cosmic-cancer.org</td>
+</tr>
+<tr>
+  <td>영리 라이선스</td>
+  <td>기업·상업 목적 별도 계약</td>
+</tr>
+</tbody>
+</table>
+<h4>📤 제공 데이터 형식</h4>
+<ul>
+<li>체세포 변이 TSV/VCF 파일</li>
+<li>Cancer Gene Census TSV (Tier, Hallmarks, 암 종류)</li>
+<li>돌연변이 서명 CSV (SBS/DBS/ID 행렬)</li>
+<li>약물 내성 변이 테이블</li>
+</ul>
+<h4>📊 주요 통계 (논문 기준, v86/2018년 8월)</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>코딩 변이 수</td>
+  <td><strong>~6,000,000개</strong> (5,977,977개)</td>
+</tr>
+<tr>
+  <td>종양 샘플 수</td>
+  <td><strong>~1,400,000개</strong> (1,391,372개)</td>
+</tr>
+<tr>
+  <td>Cancer Gene Census 유전자 수</td>
+  <td><strong>719개</strong></td>
+</tr>
+<tr>
+  <td>큐레이션 논문 수</td>
+  <td><strong>26,251편</strong></td>
+</tr>
+<tr>
+  <td>대규모 WGS/WES 연구 수</td>
+  <td><strong>457개</strong></td>
+</tr>
+<tr>
+  <td>유전자 융합 수</td>
+  <td><strong>19,368개</strong></td>
+</tr>
+<tr>
+  <td>복제수 변이 수</td>
+  <td><strong>1,179,545개</strong></td>
+</tr>
+<tr>
+  <td>약물 내성 변이 수</td>
+  <td><strong>360개 고유 대립형질</strong> (24개 약물)</td>
+</tr>
+<tr>
+  <td>암 Hallmarks 주석</td>
+  <td><strong>10가지</strong></td>
+</tr>
+</tbody>
+</table>
+<h4>⚠️ 한계점</h4>
+<ul>
+<li>학술 무료지만 영리 기관 사용은 라이선스 비용 발생 — RAG 상업 배포 시 제약</li>
+<li>수동 큐레이션 기반이므로 최신 연구 반영에 시차 존재</li>
+<li>조직 유형별 커버리지 불균형: 유방암·대장암 과다 대표</li>
+<li>체세포 변이 중심으로 생식세포(germline) 변이 해석은 ClinVar·OMIM 참조 필요</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/gky1015">Tate et al., Nucleic Acids Research 2019</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

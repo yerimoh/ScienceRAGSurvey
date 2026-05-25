@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OncoKB: a precision oncology knowledge base — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">6</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">5</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">3</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">2</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">1</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">10</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">55</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">0</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">31</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">33</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">27</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">10</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">9</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">5</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">1</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">2</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">13</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">65</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">0</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>OncoKB: a precision oncology knowledge base</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">JCO Precision Oncology</span>
+      <span class="meta-year">2017</span>
+      <a href="https://doi.org/10.1200/PO.17.00011" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Medicine and clinical knowledge</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>OncoKB: a precision oncology knowledge base</h1>
+<p>chakravarty2017oncokb | 2017 | JCO Precision Oncology | dataset | [medical] | <a href="https://doi.org/10.1200/PO.17.00011">paper</a></p>
+<table class="prop-table">
+<tr><td class="prop-key">DB</td><td class="prop-val">OncoKB (Memorial Sloan Kettering Cancer Center 정밀 종양학 지식 베이스)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">출판 시점 수백 개 유전자·변이; 지속 업데이트</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (학술 무료) / 상업적 사용 라이선스</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">OncoKB REST API / oncokb.org 웹 인터페이스</td></tr>
+</table>
+
+<blockquote>
+<p>JCO Precision Oncology | 2017 | dataset | medical</p>
+<h4>📌 한 줄 요약</h4>
+<p>Memorial Sloan Kettering Cancer Center가 구축한 암 정밀 의학 지식 베이스로, FDA 승인 및 임상시험 단계 치료제와의 연관성을 기반으로 체세포 변이의 임상적 실행 가능성(actionability)을 4단계 증거 수준으로 체계화한다.</p>
+</blockquote>
+<h4>🎯 개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
+<ul>
+<li>임상 종양 유전체 데이터(MSK-IMPACT 패널 등)에서 수천 개의 변이가 보고되지만 임상적 의미를 즉각 해석할 단일 참조 자원이 없었다</li>
+<li>기존 암 변이 DB(COSMIC, ClinVar)는 임상 실행 가능성 정보가 부족했다</li>
+<li>FDA 승인 바이오마커와 임상시험 근거를 계층화된 수준으로 정리한 큐레이션 DB가 필요했다</li>
+</ul>
+<p><strong>이 시스템이 필요한 이유</strong></p>
+<ul>
+<li>종양내과 의사가 진료 현장에서 환자의 변이 프로파일을 즉시 해석하고 치료 선택에 활용할 수 있는 컴퓨터 보조 도구가 필요하다</li>
+<li>MSK-IMPACT 등 대규모 종양 시퀀싱 프로그램에서 생성되는 수만 건의 변이 보고서 자동화 주석을 지원해야 한다</li>
+</ul>
+<h4>🔨 시스템 구성</h4>
+<p>OncoKB는 변이의 임상적 실행 가능성을 4단계 증거 수준으로 분류한다.</p>
+<ul>
+<li><strong>Level 1</strong>: FDA 승인 치료제의 바이오마커 (해당 암종 내)</li>
+<li><strong>Level 2</strong>: 표준 치료 가이드라인 권고 바이오마커 (NCCN 등)</li>
+<li><strong>Level 3</strong>: 임상시험 증거 있는 바이오마커 (3A: 동일 암종, 3B: 다른 암종)</li>
+<li><strong>Level 4</strong>: 생물학적 증거 기반 추론</li>
+<li><strong>Resistance</strong>: 치료 내성 관련 변이</li>
+</ul>
+<p>유전자·변이·암종의 3차원 구조로 정보 조직화; 전문 큐레이터 팀이 MSK 임상 경험과 문헌을 기반으로 수동 큐레이션.</p>
+<h4>📥 데이터 접근 방법</h4>
+<table>
+<thead>
+<tr>
+  <th>방법</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>OncoKB REST API</td>
+  <td>api.oncokb.org — 변이 주석, 유전자 정보, 치료 연관 쿼리</td>
+</tr>
+<tr>
+  <td>웹 인터페이스</td>
+  <td>oncokb.org — 변이 검색, 유전자 요약, 치료 가이드</td>
+</tr>
+<tr>
+  <td>학술 라이선스</td>
+  <td>비영리 학술 기관 무료 등록; 상업 사용 별도 계약</td>
+</tr>
+</tbody>
+</table>
+<h4>📤 제공 데이터 형식</h4>
+<ul>
+<li>변이별 임상 실행 가능성 레이블 (Level 1~4, Resistance)</li>
+<li>연관 FDA 승인 치료제 목록</li>
+<li>임상시험 참조 정보</li>
+<li>유전자-암종 요약 텍스트</li>
+</ul>
+<h4>📊 주요 통계 (논문 기준)</h4>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>임상 실행 가능성 레벨</td>
+  <td><strong>4단계</strong> (Level 1, 2, 3A/3B, 4) + Resistance</td>
+</tr>
+<tr>
+  <td>운영 기관</td>
+  <td>Memorial Sloan Kettering Cancer Center (MSK)</td>
+</tr>
+<tr>
+  <td>초기 데이터 기반</td>
+  <td>MSK-IMPACT 패널 (468개 유전자)</td>
+</tr>
+<tr>
+  <td>참고 표준</td>
+  <td>FDA 승인 바이오마커, NCCN 가이드라인, 주요 임상시험</td>
+</tr>
+</tbody>
+</table>
+<h4>⚠️ 한계점</h4>
+<ul>
+<li>상업적 사용 시 라이선스 비용 — 제약사·바이오텍 RAG 시스템 적용 제약</li>
+<li>MSK 임상 경험 중심 큐레이션으로 특정 암종(유방, 폐, 대장) 편향 가능성</li>
+<li>Level 3·4 변이는 증거 강도가 낮아 임상 적용 시 주의 필요</li>
+<li>희귀 변이·희귀 암종은 커버리지 제한</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문</strong>: <a href="https://doi.org/10.1200/PO.17.00011">Chakravarty et al., JCO Precision Oncology 2017</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>
