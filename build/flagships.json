@@ -566,6 +566,45 @@
       ],
       "paper_link": "https://www.webofscience.com",
       "note": "Subscription-based multidisciplinary citation index spanning natural sciences, social sciences, and arts and humanities."
+    },
+    "DBLP:journals/qss/HerzogHK20": {
+      "title": "Dimensions",
+      "year": 2020,
+      "venue": "Quant. Sci. Stud.",
+      "domain": [
+        "bio",
+        "medical",
+        "chem",
+        "physics",
+        "earth"
+      ],
+      "paper_link": "https://doi.org/10.1162/qss_a_00020"
+    },
+    "DBLP:journals/dlib/KnothZ12": {
+      "title": "CORE",
+      "year": 2012,
+      "venue": "D Lib Mag.",
+      "domain": [
+        "bio",
+        "medical",
+        "chem",
+        "physics",
+        "earth"
+      ],
+      "paper_link": "https://core.ac.uk"
+    },
+    "DBLP:journals/lp/HaakFPPR12": {
+      "title": "ORCID",
+      "year": 2012,
+      "venue": "Learn. Publ.",
+      "domain": [
+        "bio",
+        "medical",
+        "chem",
+        "physics",
+        "earth"
+      ],
+      "paper_link": "https://orcid.org"
     }
   }
 }

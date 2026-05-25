@@ -3255,7 +3255,8 @@
     ],
     "ko_primary": "K1",
     "ko_note": "main.tex: K=K1; domain-specific biomedical (Europe PMC)",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Domain-specific literature"
   },
   {
     "title": "FairCLIP: Harnessing Fairness in Vision-Language Learning",
@@ -3343,7 +3344,8 @@
     ],
     "ko_primary": "K1",
     "ko_note": "main.tex: K=K1; domain-specific geoscience (GeoRef)",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Domain-specific literature"
   },
   {
     "title": "HoneyComb: Materials Science Agent",
@@ -4568,7 +4570,8 @@
     ],
     "ko_primary": "K1",
     "ko_note": "main.tex: K=K1; Knowledge Source infrastructure (OpenAlex)",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "General-purpose literature"
   },
   {
     "title": "SCIFACT-OPEN: Towards open-domain scientific claim verification",
@@ -4751,7 +4754,8 @@
     ],
     "ko_primary": "K1",
     "ko_note": "main.tex: K=K1; Knowledge Source infrastructure (Crossref)",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "General-purpose literature"
   },
   {
     "title": "Dataset of breast ultrasound images",
@@ -4780,6 +4784,31 @@
     "ko_primary": null,
     "ko_note": "",
     "cross_source": false
+  },
+  {
+    "bib_key": "DBLP:journals/qss/HerzogHK20",
+    "title": "Dimensions",
+    "year": 2020,
+    "venue": "Quant. Sci. Stud.",
+    "method": null,
+    "domain": [
+      "bio",
+      "medical",
+      "chem",
+      "physics",
+      "earth"
+    ],
+    "paper_link": "https://doi.org/10.1162/qss_a_00020",
+    "note": "Dimensions: Digital Science citation database (commercial K1 general literature)",
+    "ko_cells": [
+      "K1"
+    ],
+    "ko_primary": "K1",
+    "ko_note": "Dimensions: Digital Science citation database (commercial K1 general literature)",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "General-purpose literature"
   },
   {
     "title": "Explainable Automated Fact-Checking for Public Health Claims",
@@ -4999,7 +5028,8 @@
     ],
     "ko_primary": "K1",
     "ko_note": "main.tex: K=K1,K4; O=-",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "General-purpose literature"
   },
   {
     "title": "Three-Dimensional Convolutional Neural Networks and a Cross-Docked Data Set for Structure-Based Drug Design",
@@ -5384,7 +5414,8 @@
     ],
     "ko_primary": "K1",
     "ko_note": "main.tex: K=K1; domain-specific biomedical (PubMed)",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Domain-specific literature"
   },
   {
     "title": "SemEval-2013 Task 9: Extraction of Drug-Drug Interactions from Biomedical Texts",
@@ -5444,6 +5475,31 @@
     "cross_source": false
   },
   {
+    "bib_key": "DBLP:journals/dlib/KnothZ12",
+    "title": "CORE",
+    "year": 2012,
+    "venue": "D Lib Mag.",
+    "method": null,
+    "domain": [
+      "bio",
+      "medical",
+      "chem",
+      "physics",
+      "earth"
+    ],
+    "paper_link": "https://core.ac.uk",
+    "note": "CORE: free open-access full-text aggregator (K1 general literature)",
+    "ko_cells": [
+      "K1"
+    ],
+    "ko_primary": "K1",
+    "ko_note": "CORE: free open-access full-text aggregator (K1 general literature)",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "General-purpose literature"
+  },
+  {
     "title": "Development of a benchmark corpus to support the automatic extraction of drug-related adverse effects from medical case reports",
     "year": 2012,
     "venue": "J. Biomed. Informatics",
@@ -5500,7 +5556,33 @@
     ],
     "ko_primary": "K1",
     "ko_note": "main.tex: K=K1; domain-specific HEP (INSPIRE-HEP)",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Domain-specific literature"
+  },
+  {
+    "bib_key": "DBLP:journals/lp/HaakFPPR12",
+    "title": "ORCID",
+    "year": 2012,
+    "venue": "Learn. Publ.",
+    "method": null,
+    "domain": [
+      "bio",
+      "medical",
+      "chem",
+      "physics",
+      "earth"
+    ],
+    "paper_link": "https://orcid.org",
+    "note": "ORCID: author disambiguation identifier used by OpenAlex (K1 general literature)",
+    "ko_cells": [
+      "K1"
+    ],
+    "ko_primary": "K1",
+    "ko_note": "ORCID: author disambiguation identifier used by OpenAlex (K1 general literature)",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "General-purpose literature"
   },
   {
     "title": "ChemProt: a disease chemical biology database",
@@ -5611,7 +5693,8 @@
     "ko_note": "Elsevier Scopus: subscription-based abstract and citation database (commercial K1 general literature)",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "General-purpose literature"
   },
   {
     "title": "The NASA Astrophysics Data System: Overview",
@@ -5642,7 +5725,8 @@
     ],
     "ko_primary": "K1",
     "ko_note": "main.tex: K=K1; domain-specific astronomy (NASA ADS)",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Domain-specific literature"
   },
   {
     "bib_key": "webofscience",
@@ -5666,7 +5750,8 @@
     "ko_note": "Clarivate Web of Science: subscription-based multidisciplinary citation index (commercial K1 general literature)",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "General-purpose literature"
   },
   {
     "bib_key": "DBLP:conf/emnlp/ZhangSHML24",
@@ -6933,7 +7018,8 @@
     "ko_note": "main.tex: K=K1; O=-",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Domain-specific literature"
   },
   {
     "bib_key": "linstrom2001nist",
@@ -7239,7 +7325,8 @@
     "ko_note": "main.tex: K=K1; O=- (Preprint literature / bioRxiv)",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Preprint literature"
   },
   {
     "bib_key": "uhlen2015tissue",

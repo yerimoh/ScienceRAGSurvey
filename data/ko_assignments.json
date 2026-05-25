@@ -6,7 +6,8 @@
     ],
     "K": "K1",
     "O": "",
-    "note": "main.tex: K=K1,K4; O=-"
+    "note": "main.tex: K=K1,K4; O=-",
+    "subsection": "General-purpose literature"
   },
   "DBLP:conf/acl/Xiong0LZ24": {
     "cells": [
@@ -215,7 +216,8 @@
     ],
     "K": "K1",
     "O": "",
-    "note": "main.tex: K=K1; Knowledge Source infrastructure (Crossref)"
+    "note": "main.tex: K=K1; Knowledge Source infrastructure (Crossref)",
+    "subsection": "General-purpose literature"
   },
   "DBLP:journals/corr/abs-2205-01833": {
     "cells": [
@@ -223,7 +225,8 @@
     ],
     "K": "K1",
     "O": "",
-    "note": "main.tex: K=K1; Knowledge Source infrastructure (OpenAlex)"
+    "note": "main.tex: K=K1; Knowledge Source infrastructure (OpenAlex)",
+    "subsection": "General-purpose literature"
   },
   "canese2013pubmed": {
     "cells": [
@@ -231,7 +234,8 @@
     ],
     "K": "K1",
     "O": "",
-    "note": "main.tex: K=K1; domain-specific biomedical (PubMed)"
+    "note": "main.tex: K=K1; domain-specific biomedical (PubMed)",
+    "subsection": "Domain-specific literature"
   },
   "europepmc2024": {
     "cells": [
@@ -239,7 +243,8 @@
     ],
     "K": "K1",
     "O": "",
-    "note": "main.tex: K=K1; domain-specific biomedical (Europe PMC)"
+    "note": "main.tex: K=K1; domain-specific biomedical (Europe PMC)",
+    "subsection": "Domain-specific literature"
   },
   "kurtz2000nasa": {
     "cells": [
@@ -247,7 +252,8 @@
     ],
     "K": "K1",
     "O": "",
-    "note": "main.tex: K=K1; domain-specific astronomy (NASA ADS)"
+    "note": "main.tex: K=K1; domain-specific astronomy (NASA ADS)",
+    "subsection": "Domain-specific literature"
   },
   "inspirehep": {
     "cells": [
@@ -255,7 +261,8 @@
     ],
     "K": "K1",
     "O": "",
-    "note": "main.tex: K=K1; domain-specific HEP (INSPIRE-HEP)"
+    "note": "main.tex: K=K1; domain-specific HEP (INSPIRE-HEP)",
+    "subsection": "Domain-specific literature"
   },
   "georef": {
     "cells": [
@@ -263,7 +270,8 @@
     ],
     "K": "K1",
     "O": "",
-    "note": "main.tex: K=K1; domain-specific geoscience (GeoRef)"
+    "note": "main.tex: K=K1; domain-specific geoscience (GeoRef)",
+    "subsection": "Domain-specific literature"
   },
   "lee2023climate": {
     "cells": [
@@ -271,7 +279,8 @@
     ],
     "K": "K1",
     "O": "",
-    "note": "main.tex: K=K1; O=-"
+    "note": "main.tex: K=K1; O=-",
+    "subsection": "Domain-specific literature"
   },
   "sever2019biorxiv": {
     "cells": [
@@ -279,7 +288,8 @@
     ],
     "K": "K1",
     "O": "",
-    "note": "main.tex: K=K1; O=- (Preprint literature / bioRxiv)"
+    "note": "main.tex: K=K1; O=- (Preprint literature / bioRxiv)",
+    "subsection": "Preprint literature"
   },
   "DBLP:journals/nar/KimTBCFGHHHSWYZ16": {
     "cells": [
@@ -1113,7 +1123,8 @@
     ],
     "K": "K1",
     "O": "",
-    "note": "Elsevier Scopus: subscription-based abstract and citation database (commercial K1 general literature)"
+    "note": "Elsevier Scopus: subscription-based abstract and citation database (commercial K1 general literature)",
+    "subsection": "General-purpose literature"
   },
   "webofscience": {
     "cells": [
@@ -1121,6 +1132,34 @@
     ],
     "K": "K1",
     "O": "",
-    "note": "Clarivate Web of Science: subscription-based multidisciplinary citation index (commercial K1 general literature)"
+    "note": "Clarivate Web of Science: subscription-based multidisciplinary citation index (commercial K1 general literature)",
+    "subsection": "General-purpose literature"
+  },
+  "DBLP:journals/qss/HerzogHK20": {
+    "cells": [
+      "K1"
+    ],
+    "K": "K1",
+    "O": "",
+    "note": "Dimensions: Digital Science citation database (commercial K1 general literature)",
+    "subsection": "General-purpose literature"
+  },
+  "DBLP:journals/dlib/KnothZ12": {
+    "cells": [
+      "K1"
+    ],
+    "K": "K1",
+    "O": "",
+    "note": "CORE: free open-access full-text aggregator (K1 general literature)",
+    "subsection": "General-purpose literature"
+  },
+  "DBLP:journals/lp/HaakFPPR12": {
+    "cells": [
+      "K1"
+    ],
+    "K": "K1",
+    "O": "",
+    "note": "ORCID: author disambiguation identifier used by OpenAlex (K1 general literature)",
+    "subsection": "General-purpose literature"
   }
 }

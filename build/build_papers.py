@@ -78,6 +78,8 @@ for line in PROPS.read_text().splitlines():
         rec['cross_source'] = a.get('cross_source', False)
         if a.get('secondary'):
             rec['ko_secondary'] = a['secondary']
+        if a.get('subsection'):
+            rec['subsection'] = a['subsection']
     else:
         rec['ko_cells'] = []
         rec['ko_primary'] = None
@@ -117,6 +119,8 @@ for bk, a in ko.items():
     }
     if a.get('secondary'):
         rec['ko_secondary'] = a['secondary']
+    if a.get('subsection'):
+        rec['subsection'] = a['subsection']
     papers.append(rec)
     extra += 1
 
