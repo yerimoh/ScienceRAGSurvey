@@ -1,13 +1,11 @@
 ---
-notion_id: 355f2dcd-4912-8185-ba3c-c1972114217e
-title: MMed-RAG: Versatile Multimodal RAG System for Medical VLMs
-bib_key: DBLP:conf/iclr/0005ZLWSWZ0Y25
+title: "MMed-RAG: Versatile Multimodal RAG System for Medical VLMs"
+bib_key: "DBLP:conf/iclr/0005ZLWSWZ0Y25"
 year: 2025
 domain: medical
 type: Method
-venue: ICLR
-paper_link: https://github.com/richard-peng-xia/MMed-RAG
-originSessionId: e17a6512-257b-4eac-96cc-808523cf24a8
+venue: ICLR 2025
+paper_link: https://arxiv.org/abs/2410.13085
 ---
 # MMed-RAG: Versatile Multimodal RAG System for Medical VLMs
 
@@ -45,4 +43,7 @@ originSessionId: e17a6512-257b-4eac-96cc-808523cf24a8
 - Base LLM(LLaVA-Med)이 Pre-training 단계에서 few-shot 학습 능력을 제대로 갖추지 못한 경우, RAG를 결합하더라도 Few-shot 환경에서 성능 하락이 두드러짐.
 ## 🔗 관련 연구 및 관련 정보
 - GitHub: [https://github.com/richard-peng-xia/MMed-RAG](https://github.com/richard-peng-xia/MMed-RAG)
-- 평가 벤치마크: MIMIC-CXR, IU-Xray, Harvard-FairVLMed, PMC-OA, Quilt-1M
+- arXiv: [arXiv:2410.13085](https://arxiv.org/abs/2410.13085)
+- 평가 벤치마크: MIMIC-CXR, IU-Xray, Harvard-FairVLMed, PMC-OA, Quilt-1M (5개 데이터셋, radiology/ophthalmology/pathology)
+- 핵심 결과: **의료 VLM의 사실적 정확도 평균 43.8% 향상** (abstract 확인, arXiv:2410.13085)
+- 지식소스: PubMed 텍스트가 아닌 도메인별 의료 이미지 데이터셋(방사선/안과/병리)에서 직접 검색

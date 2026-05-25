@@ -56,9 +56,11 @@ UMLS의 Semantic Network(135 의미 유형)를 그래프 엣지 필터로 활용
 #### 📊 주요 통계 (논문 기준)
 | 항목 | 수치 |
 |---|---|
-| 평가 벤치마크 | NEJM challenge, Medbullets, JAMA Clinical Challenge, MedQA, PubMedQA |
+| 평가 벤치마크 | **9개** 의료 QA 벤치마크 + **2개** health fact-checking 데이터셋 + **1개** long-form generation test set (abstract 확인: "Validated on 9 medical Q&A benchmarks, 2 health fact-checking datasets, and a long-form generation test set") |
+| 대표 벤치마크 | NEJM challenge, Medbullets, JAMA Clinical Challenge, MedQA, PubMedQA 포함 |
 | 비교 베이스라인 | GraphRAG, NaiveRAG, MedRAG, 등 |
 | 게재 | ACL 2025 Long Paper (pp. 28443–28467) |
+| 지식소스 | UMLS + MedC-K (UMLS-aligned medical literature); MIMIC-IV 미사용 (abstract 미기재) |
 
 #### ⚠️ 한계점
 - UMLS 매핑 품질에 의존: 어휘 범위 밖 희귀 질환·신흥 의학 용어 처리 제한
