@@ -118,7 +118,30 @@
 
 <section class="cell-list">
   <div class="wrap">
-    
+    <div class="subsec-filter" id="kaxisK2subf">
+<button class="subsec-btn active" data-sub="">All <span class="subsec-n">55</span></button>
+<button class="subsec-btn" data-sub="Chemistry and drug discovery">Chemistry and drug discovery <span class="subsec-n">24</span></button>
+<button class="subsec-btn" data-sub="Biology and genomics">Biology and genomics <span class="subsec-n">12</span></button>
+<button class="subsec-btn" data-sub="Medicine and clinical knowledge">Medicine and clinical knowledge <span class="subsec-n">11</span></button>
+<button class="subsec-btn" data-sub="Materials science and physics">Materials science and physics <span class="subsec-n">8</span></button>
+</div>
+<script>
+(function(){
+  var bar = document.getElementById('kaxisK2subf');
+  if (!bar) return;
+  bar.querySelectorAll('.subsec-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      bar.querySelectorAll('.subsec-btn').forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      var sub = btn.dataset.sub;
+      document.querySelectorAll('.card[data-sub]').forEach(function(card){
+        card.style.display = (sub === '' || card.dataset.sub === sub) ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+
     <div class="card-grid"><article class="card" data-sub="Chemistry and drug discovery">
   <h3 class="card-title"><a href="https://doi.org/10.1093/nar/gkae1008" target="_blank" rel="noopener">BindingDB in 2024: a FAIR knowledgebase of protein-small molecule binding data ↗</a></h3>
   <div class="card-meta"><span class="meta-venue">Nucleic Acids Res.</span> · <span class="meta-year">2025</span></div>
@@ -127,11 +150,11 @@
   <a href="../papers/liu2025bindingdb.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Medicine and clinical knowledge">
   <h3 class="card-title">Medical Graph RAG: Towards Safe Medical Large Language Model via Graph Retrieval-Augmented Generation</h3>
   <div class="card-meta"><span class="meta-method">MedGraphRAG</span> · <span class="meta-venue">ACL</span> · <span class="meta-year">2025</span></div>
   <p class="card-note">Medicine and clinical knowledge — UMLS-aligned retrieval substrate</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Medicine and clinical knowledge</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_acl_WuZQCXMJG25.html" class="card-summary-link">Summary →</a>
 </article>
 
@@ -319,243 +342,243 @@
   <a href="../papers/icsd.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Materials science and physics">
   <h3 class="card-title">DBLP:conf/emnlp/ZhangSHML24</h3>
   
   <p class="card-note">Materials science and physics — MatSciKB curated literature knowledge base for materials RAG</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Curated Knowledge Base × Ground</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Curated Knowledge Base × Ground</a><span class="tag tag-sub">Materials science and physics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_emnlp_ZhangSHML24.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Materials science and physics">
   <h3 class="card-title">DBLP:journals/corr/abs-2010-09990</h3>
   
   <p class="card-note">Materials science and physics — 1.28M DFT relaxations for catalyst/surface ML</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Materials science and physics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_corr_abs-2010-09990.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Materials science and physics">
   <h3 class="card-title">DBLP:journals/corr/abs-2206-08917</h3>
   
   <p class="card-note">Materials science and physics — 62,331 DFT relaxations for oxide electrocatalysts</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Materials science and physics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_corr_abs-2206-08917.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Biology and genomics">
   <h3 class="card-title">DBLP:journals/nar/EdgarDL03</h3>
   
   <p class="card-note">Biology and genomics — gene expression data repository</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Biology and genomics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_nar_EdgarDL03.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Medicine and clinical knowledge">
   <h3 class="card-title">DBLP:journals/nar/GonzalezRSRCSF20</h3>
   
   <p class="card-note">Medicine and clinical knowledge</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Medicine and clinical knowledge</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_nar_GonzalezRSRCSF20.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Medicine and clinical knowledge">
   <h3 class="card-title">DBLP:journals/nar/LandrumLBBCCGHH18</h3>
   
   <p class="card-note">Medicine and clinical knowledge</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Medicine and clinical knowledge</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_nar_LandrumLBBCCGHH18.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Biology and genomics">
   <h3 class="card-title">DBLP:journals/nar/SherryWKBPSS01</h3>
   
   <p class="card-note">Biology and genomics — genetic variation archive</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Biology and genomics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_nar_SherryWKBPSS01.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Medicine and clinical knowledge">
   <h3 class="card-title">DBLP:journals/nar/TateBJSBBBCCDFH19</h3>
   
   <p class="card-note">Medicine and clinical knowledge</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Medicine and clinical knowledge</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_nar_TateBJSBBBCCDFH19.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Medicine and clinical knowledge">
   <h3 class="card-title">amberger2015omim</h3>
   
   <p class="card-note">Medicine and clinical knowledge</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Medicine and clinical knowledge</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/amberger2015omim.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Biology and genomics">
   <h3 class="card-title">ashburner2000gene</h3>
   
   <p class="card-note">Biology and genomics — gene function ontology (founding paper)</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Biology and genomics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/ashburner2000gene.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Medicine and clinical knowledge">
   <h3 class="card-title">bodenreider2004unified</h3>
   
   <p class="card-note">Medicine and clinical knowledge</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Medicine and clinical knowledge</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/bodenreider2004unified.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Medicine and clinical knowledge">
   <h3 class="card-title">chakravarty2017oncokb</h3>
   
   <p class="card-note">Medicine and clinical knowledge</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Medicine and clinical knowledge</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/chakravarty2017oncokb.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Medicine and clinical knowledge">
   <h3 class="card-title">clinicaltrialsgov</h3>
   
   <p class="card-note">Medicine and clinical knowledge</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Medicine and clinical knowledge</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/clinicaltrialsgov.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Materials science and physics">
   <h3 class="card-title">curtarolo2012aflow</h3>
   
   <p class="card-note">Materials science and physics — AFLOW high-throughput framework for alloys and inorganic compounds</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Materials science and physics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/curtarolo2012aflow.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Biology and genomics">
   <h3 class="card-title">de2017toward</h3>
   
   <p class="card-note">Biology and genomics — marine biodiversity occurrence records</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Biology and genomics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/de2017toward.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Biology and genomics">
   <h3 class="card-title">drew2017integration</h3>
   
   <p class="card-note">Biology and genomics — human protein complex map v1</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Biology and genomics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/drew2017integration.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Biology and genomics">
   <h3 class="card-title">drew2021hu</h3>
   
   <p class="card-note">Biology and genomics — human protein complex map v2</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Biology and genomics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/drew2021hu.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Biology and genomics">
   <h3 class="card-title">encode2012integrated</h3>
   
   <p class="card-note">Biology and genomics — regulatory element encyclopedia</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Biology and genomics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/encode2012integrated.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Biology and genomics">
   <h3 class="card-title">gbif2022gbif</h3>
   
   <p class="card-note">Biology and genomics — global biodiversity occurrence records</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Biology and genomics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/gbif2022gbif.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Biology and genomics">
   <h3 class="card-title">gene2023gene</h3>
   
   <p class="card-note">Biology and genomics — gene function ontology (2023 update)</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Biology and genomics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/gene2023gene.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Medicine and clinical knowledge">
   <h3 class="card-title">griffith2017civic</h3>
   
   <p class="card-note">Medicine and clinical knowledge</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Medicine and clinical knowledge</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/griffith2017civic.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Medicine and clinical knowledge">
   <h3 class="card-title">hamosh2005online</h3>
   
   <p class="card-note">Medicine and clinical knowledge</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Medicine and clinical knowledge</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/hamosh2005online.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Materials science and physics">
   <h3 class="card-title">jain2013commentary</h3>
   
   <p class="card-note">Materials science and physics — primary curated DB anchor</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Materials science and physics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/jain2013commentary.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Biology and genomics">
   <h3 class="card-title">kanehisa2000kegg</h3>
   
   <p class="card-note">Biology and genomics — pathway and genomics knowledgebase</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Biology and genomics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/kanehisa2000kegg.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Materials science and physics">
   <h3 class="card-title">kirklin2015open</h3>
   
   <p class="card-note">Materials science and physics — OQMD expanded to ~300,000 DFT calculations</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Materials science and physics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/kirklin2015open.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Medicine and clinical knowledge">
   <h3 class="card-title">kluwer2020uptodate</h3>
   
   <p class="card-note">Medicine and clinical knowledge — subscription-only; defining gap in open RAG</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Medicine and clinical knowledge</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/kluwer2020uptodate.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Biology and genomics">
   <h3 class="card-title">milacic2024reactome</h3>
   
   <p class="card-note">Biology and genomics — manually curated pathway knowledgebase</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Biology and genomics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/milacic2024reactome.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Materials science and physics">
   <h3 class="card-title">navas2024review</h3>
   
   <p class="card-note">Materials science and physics — PDG Review, curated particle properties reference; most-cited in HEP</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Materials science and physics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/navas2024review.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Materials science and physics">
   <h3 class="card-title">saal2013materials</h3>
   
   <p class="card-note">Materials science and physics — OQMD initial report (200,000+ DFT structures)</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Materials science and physics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/saal2013materials.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="Biology and genomics">
   <h3 class="card-title">uniprot2023uniprot</h3>
   
   <p class="card-note">Biology and genomics — protein sequence and function knowledgebase</p>
-  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Curated Knowledge Base</a><span class="tag tag-sub">Biology and genomics</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/uniprot2023uniprot.html" class="card-summary-link">Summary →</a>
 </article>
 </div>

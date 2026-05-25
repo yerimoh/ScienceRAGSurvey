@@ -2169,6 +2169,7 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
+    "subsection": "Medicine and clinical knowledge",
     "flagship": true
   },
   {
@@ -6449,7 +6450,8 @@
     "ko_note": "Materials science and physics — MatSciKB curated literature knowledge base for materials RAG",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Materials science and physics"
   },
   {
     "bib_key": "DBLP:conf/mss/KoblerBCH95",
@@ -6521,7 +6523,8 @@
     "ko_note": "Materials science and physics — 1.28M DFT relaxations for catalyst/surface ML",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Materials science and physics"
   },
   {
     "bib_key": "DBLP:journals/corr/abs-2206-08917",
@@ -6539,7 +6542,8 @@
     "ko_note": "Materials science and physics — 62,331 DFT relaxations for oxide electrocatalysts",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Materials science and physics"
   },
   {
     "bib_key": "DBLP:journals/corr/abs-2408-01107",
@@ -6647,7 +6651,8 @@
     "ko_note": "Biology and genomics — gene expression data repository",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Biology and genomics"
   },
   {
     "bib_key": "DBLP:journals/nar/GonzalezRSRCSF20",
@@ -6665,7 +6670,8 @@
     "ko_note": "Medicine and clinical knowledge",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
   },
   {
     "bib_key": "DBLP:journals/nar/LandrumLBBCCGHH18",
@@ -6683,7 +6689,8 @@
     "ko_note": "Medicine and clinical knowledge",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
   },
   {
     "bib_key": "DBLP:journals/nar/SherryWKBPSS01",
@@ -6701,7 +6708,8 @@
     "ko_note": "Biology and genomics — genetic variation archive",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Biology and genomics"
   },
   {
     "bib_key": "DBLP:journals/nar/TateBJSBBBCCDFH19",
@@ -6719,7 +6727,8 @@
     "ko_note": "Medicine and clinical knowledge",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
   },
   {
     "bib_key": "DBLP:journals/nar/VaradiADNNYYSWL22",
@@ -6815,7 +6824,8 @@
     "ko_note": "Medicine and clinical knowledge",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
   },
   {
     "bib_key": "ansys",
@@ -6851,7 +6861,8 @@
     "ko_note": "Biology and genomics — gene function ontology (founding paper)",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Biology and genomics"
   },
   {
     "bib_key": "aspenplus",
@@ -6905,7 +6916,8 @@
     "ko_note": "Medicine and clinical knowledge",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
   },
   {
     "bib_key": "cernopendata",
@@ -6941,7 +6953,8 @@
     "ko_note": "Medicine and clinical knowledge",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
   },
   {
     "bib_key": "climatepolicyradar",
@@ -6977,7 +6990,8 @@
     "ko_note": "Medicine and clinical knowledge",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
   },
   {
     "bib_key": "curtarolo2012aflow",
@@ -6995,7 +7009,8 @@
     "ko_note": "Materials science and physics — AFLOW high-throughput framework for alloys and inorganic compounds",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Materials science and physics"
   },
   {
     "bib_key": "de2017toward",
@@ -7013,7 +7028,8 @@
     "ko_note": "Biology and genomics — marine biodiversity occurrence records",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Biology and genomics"
   },
   {
     "bib_key": "di2014autism",
@@ -7049,7 +7065,8 @@
     "ko_note": "Biology and genomics — human protein complex map v1",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Biology and genomics"
   },
   {
     "bib_key": "drew2021hu",
@@ -7067,7 +7084,8 @@
     "ko_note": "Biology and genomics — human protein complex map v2",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Biology and genomics"
   },
   {
     "bib_key": "encode2012integrated",
@@ -7085,7 +7103,8 @@
     "ko_note": "Biology and genomics — regulatory element encyclopedia",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Biology and genomics"
   },
   {
     "bib_key": "eyring2016overview",
@@ -7139,7 +7158,8 @@
     "ko_note": "Biology and genomics — global biodiversity occurrence records",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Biology and genomics"
   },
   {
     "bib_key": "gene2023gene",
@@ -7157,7 +7177,8 @@
     "ko_note": "Biology and genomics — gene function ontology (2023 update)",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Biology and genomics"
   },
   {
     "bib_key": "gproms",
@@ -7193,7 +7214,8 @@
     "ko_note": "Medicine and clinical knowledge",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
   },
   {
     "bib_key": "hamosh2005online",
@@ -7211,7 +7233,8 @@
     "ko_note": "Medicine and clinical knowledge",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
   },
   {
     "bib_key": "hsc",
@@ -7247,7 +7270,8 @@
     "ko_note": "Materials science and physics — primary curated DB anchor",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Materials science and physics"
   },
   {
     "bib_key": "jin-etal-2019-pubmedqa",
@@ -7319,7 +7343,8 @@
     "ko_note": "Biology and genomics — pathway and genomics knowledgebase",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Biology and genomics"
   },
   {
     "bib_key": "kirklin2015open",
@@ -7337,7 +7362,8 @@
     "ko_note": "Materials science and physics — OQMD expanded to ~300,000 DFT calculations",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Materials science and physics"
   },
   {
     "bib_key": "kluwer2020uptodate",
@@ -7355,7 +7381,8 @@
     "ko_note": "Medicine and clinical knowledge — subscription-only; defining gap in open RAG",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Medicine and clinical knowledge"
   },
   {
     "bib_key": "krithara2023bioasq",
@@ -7445,7 +7472,8 @@
     "ko_note": "Biology and genomics — manually curated pathway knowledgebase",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Biology and genomics"
   },
   {
     "bib_key": "navas2024review",
@@ -7463,7 +7491,8 @@
     "ko_note": "Materials science and physics — PDG Review, curated particle properties reference; most-cited in HEP",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Materials science and physics"
   },
   {
     "bib_key": "noaa_ncei",
@@ -7553,7 +7582,8 @@
     "ko_note": "Materials science and physics — OQMD initial report (200,000+ DFT structures)",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Materials science and physics"
   },
   {
     "bib_key": "uhlen2015tissue",
@@ -7589,7 +7619,8 @@
     "ko_note": "Biology and genomics — protein sequence and function knowledgebase",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Biology and genomics"
   },
   {
     "bib_key": "usgs_eros",

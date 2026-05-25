@@ -567,7 +567,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Biology and genomics — protein sequence and function knowledgebase"
+    "note": "Biology and genomics — protein sequence and function knowledgebase",
+    "subsection": "Biology and genomics"
   },
   "kanehisa2000kegg": {
     "cells": [
@@ -575,7 +576,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Biology and genomics — pathway and genomics knowledgebase"
+    "note": "Biology and genomics — pathway and genomics knowledgebase",
+    "subsection": "Biology and genomics"
   },
   "milacic2024reactome": {
     "cells": [
@@ -583,7 +585,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Biology and genomics — manually curated pathway knowledgebase"
+    "note": "Biology and genomics — manually curated pathway knowledgebase",
+    "subsection": "Biology and genomics"
   },
   "ashburner2000gene": {
     "cells": [
@@ -591,7 +594,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Biology and genomics — gene function ontology (founding paper)"
+    "note": "Biology and genomics — gene function ontology (founding paper)",
+    "subsection": "Biology and genomics"
   },
   "gene2023gene": {
     "cells": [
@@ -599,7 +603,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Biology and genomics — gene function ontology (2023 update)"
+    "note": "Biology and genomics — gene function ontology (2023 update)",
+    "subsection": "Biology and genomics"
   },
   "DBLP:journals/nar/SherryWKBPSS01": {
     "cells": [
@@ -607,7 +612,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Biology and genomics — genetic variation archive"
+    "note": "Biology and genomics — genetic variation archive",
+    "subsection": "Biology and genomics"
   },
   "DBLP:journals/nar/EdgarDL03": {
     "cells": [
@@ -615,7 +621,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Biology and genomics — gene expression data repository"
+    "note": "Biology and genomics — gene expression data repository",
+    "subsection": "Biology and genomics"
   },
   "encode2012integrated": {
     "cells": [
@@ -623,7 +630,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Biology and genomics — regulatory element encyclopedia"
+    "note": "Biology and genomics — regulatory element encyclopedia",
+    "subsection": "Biology and genomics"
   },
   "drew2017integration": {
     "cells": [
@@ -631,7 +639,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Biology and genomics — human protein complex map v1"
+    "note": "Biology and genomics — human protein complex map v1",
+    "subsection": "Biology and genomics"
   },
   "drew2021hu": {
     "cells": [
@@ -639,7 +648,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Biology and genomics — human protein complex map v2"
+    "note": "Biology and genomics — human protein complex map v2",
+    "subsection": "Biology and genomics"
   },
   "gbif2022gbif": {
     "cells": [
@@ -647,7 +657,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Biology and genomics — global biodiversity occurrence records"
+    "note": "Biology and genomics — global biodiversity occurrence records",
+    "subsection": "Biology and genomics"
   },
   "de2017toward": {
     "cells": [
@@ -655,7 +666,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Biology and genomics — marine biodiversity occurrence records"
+    "note": "Biology and genomics — marine biodiversity occurrence records",
+    "subsection": "Biology and genomics"
   },
   "bodenreider2004unified": {
     "cells": [
@@ -663,7 +675,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Medicine and clinical knowledge"
+    "note": "Medicine and clinical knowledge",
+    "subsection": "Medicine and clinical knowledge"
   },
   "DBLP:conf/acl/WuZQCXMJG25": {
     "cells": [
@@ -671,7 +684,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Medicine and clinical knowledge — UMLS-aligned retrieval substrate"
+    "note": "Medicine and clinical knowledge — UMLS-aligned retrieval substrate",
+    "subsection": "Medicine and clinical knowledge"
   },
   "hamosh2005online": {
     "cells": [
@@ -679,7 +693,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Medicine and clinical knowledge"
+    "note": "Medicine and clinical knowledge",
+    "subsection": "Medicine and clinical knowledge"
   },
   "amberger2015omim": {
     "cells": [
@@ -687,7 +702,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Medicine and clinical knowledge"
+    "note": "Medicine and clinical knowledge",
+    "subsection": "Medicine and clinical knowledge"
   },
   "DBLP:journals/nar/GonzalezRSRCSF20": {
     "cells": [
@@ -695,7 +711,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Medicine and clinical knowledge"
+    "note": "Medicine and clinical knowledge",
+    "subsection": "Medicine and clinical knowledge"
   },
   "DBLP:journals/nar/LandrumLBBCCGHH18": {
     "cells": [
@@ -703,7 +720,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Medicine and clinical knowledge"
+    "note": "Medicine and clinical knowledge",
+    "subsection": "Medicine and clinical knowledge"
   },
   "griffith2017civic": {
     "cells": [
@@ -711,7 +729,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Medicine and clinical knowledge"
+    "note": "Medicine and clinical knowledge",
+    "subsection": "Medicine and clinical knowledge"
   },
   "DBLP:journals/nar/TateBJSBBBCCDFH19": {
     "cells": [
@@ -719,7 +738,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Medicine and clinical knowledge"
+    "note": "Medicine and clinical knowledge",
+    "subsection": "Medicine and clinical knowledge"
   },
   "chakravarty2017oncokb": {
     "cells": [
@@ -727,7 +747,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Medicine and clinical knowledge"
+    "note": "Medicine and clinical knowledge",
+    "subsection": "Medicine and clinical knowledge"
   },
   "clinicaltrialsgov": {
     "cells": [
@@ -735,7 +756,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Medicine and clinical knowledge"
+    "note": "Medicine and clinical knowledge",
+    "subsection": "Medicine and clinical knowledge"
   },
   "kluwer2020uptodate": {
     "cells": [
@@ -743,7 +765,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Medicine and clinical knowledge — subscription-only; defining gap in open RAG"
+    "note": "Medicine and clinical knowledge — subscription-only; defining gap in open RAG",
+    "subsection": "Medicine and clinical knowledge"
   },
   "jain2013commentary": {
     "cells": [
@@ -751,7 +774,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Materials science and physics — primary curated DB anchor"
+    "note": "Materials science and physics — primary curated DB anchor",
+    "subsection": "Materials science and physics"
   },
   "saal2013materials": {
     "cells": [
@@ -759,7 +783,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Materials science and physics — OQMD initial report (200,000+ DFT structures)"
+    "note": "Materials science and physics — OQMD initial report (200,000+ DFT structures)",
+    "subsection": "Materials science and physics"
   },
   "kirklin2015open": {
     "cells": [
@@ -767,7 +792,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Materials science and physics — OQMD expanded to ~300,000 DFT calculations"
+    "note": "Materials science and physics — OQMD expanded to ~300,000 DFT calculations",
+    "subsection": "Materials science and physics"
   },
   "curtarolo2012aflow": {
     "cells": [
@@ -775,7 +801,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Materials science and physics — AFLOW high-throughput framework for alloys and inorganic compounds"
+    "note": "Materials science and physics — AFLOW high-throughput framework for alloys and inorganic compounds",
+    "subsection": "Materials science and physics"
   },
   "DBLP:journals/corr/abs-2010-09990": {
     "cells": [
@@ -783,7 +810,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Materials science and physics — 1.28M DFT relaxations for catalyst/surface ML"
+    "note": "Materials science and physics — 1.28M DFT relaxations for catalyst/surface ML",
+    "subsection": "Materials science and physics"
   },
   "DBLP:journals/corr/abs-2206-08917": {
     "cells": [
@@ -791,7 +819,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Materials science and physics — 62,331 DFT relaxations for oxide electrocatalysts"
+    "note": "Materials science and physics — 62,331 DFT relaxations for oxide electrocatalysts",
+    "subsection": "Materials science and physics"
   },
   "DBLP:conf/emnlp/ZhangSHML24": {
     "cells": [
@@ -800,7 +829,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Materials science and physics — MatSciKB curated literature knowledge base for materials RAG"
+    "note": "Materials science and physics — MatSciKB curated literature knowledge base for materials RAG",
+    "subsection": "Materials science and physics"
   },
   "navas2024review": {
     "cells": [
@@ -808,7 +838,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Materials science and physics — PDG Review, curated particle properties reference; most-cited in HEP"
+    "note": "Materials science and physics — PDG Review, curated particle properties reference; most-cited in HEP",
+    "subsection": "Materials science and physics"
   },
   "johnson2016mimic": {
     "cells": [
