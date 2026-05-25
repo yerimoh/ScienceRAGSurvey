@@ -12,7 +12,7 @@ paper_link: https://www.ncei.noaa.gov
 noaa_ncei | 2015 | National Oceanic and Atmospheric Administration (system reference) | dataset | [earth, climate] | [portal](https://www.ncei.noaa.gov)
 
 **DB**: NOAA NCEI — world's largest archive for weather, climate, and geophysical data
-**DB size**: ~100 petabytes+ (기상·기후·해양·지구물리 데이터 통합); 매일 ~20 TB 신규 수집
+**DB size**: ~60 PB (archive + backup copy, per ncei.noaa.gov/about); 매일 ~20 TB 신규 수집
 **DB Open/Private**: Open (대부분 공개)
 **Modality**: ['Time series', 'Satellite image', 'Gridded data', 'Station data']
 **Retriever**: N/A (지식 소스 인프라)
@@ -58,10 +58,10 @@ NCEI는 3개 전임 기관의 통합:
 - 지구물리: 지자기·지진·쓰나미 이벤트
 - 해양: CTD(수온·염분), 파도, 해수면 변화
 
-#### 주요 통계 (model knowledge)
+#### 주요 통계 (ncei.noaa.gov/about 기준)
 | 항목 | 수치 |
 |---|---|
-| 총 보유 데이터 | **~100 PB** (2020년대 추정) |
+| 총 보유 데이터 | **~60 PB** (archive + backup copy, ncei.noaa.gov/about 확인) |
 | 일일 신규 수집 | **~20 TB** |
 | GHCN-D 관측소 수 | **~100,000** 개+ |
 | 기록 기간 | **140+ 년** (일부 1880년대 시작) |

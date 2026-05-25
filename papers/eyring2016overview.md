@@ -12,7 +12,7 @@ paper_link: https://doi.org/10.5194/gmd-9-1937-2016
 eyring2016overview | 2016 | Geoscientific Model Development | dataset | [earth, climate] | [paper](https://doi.org/10.5194/gmd-9-1937-2016)
 
 **DB**: CMIP6 — Coupled Model Intercomparison Project Phase 6
-**DB size**: Petabyte-scale; ~20 PB 이상 (전 세계 49개 모델링 그룹, 100여 개 기후 모델)
+**DB size**: Petabyte-scale; ~20 PB 이상 (전 세계 49개 모델링 그룹, 100여 개 기후 모델; 볼륨은 실제 생산 후 추정치)
 **DB Open/Private**: Open (ESGF 통해 공개 배포)
 **Modality**: ['NetCDF', 'Simulation output', 'Time series']
 **Retriever**: N/A (지식 소스 인프라)
@@ -39,7 +39,7 @@ eyring2016overview | 2016 | Geoscientific Model Development | dataset | [earth, 
 CMIP6는 WCRP(세계기후연구프로그램)가 주관하며 3단계로 구성:
 1. **DECK(Diagnostic, Evaluation and Characterization of Klima)**: 4가지 표준 실험 (piControl, historical, AMIP, abrupt4×CO₂) — 모든 참여 모델 의무
 2. **Historical 시뮬레이션**: 1850–2014 관측 기반 강제력
-3. **선택적 MIPs**: 18개 주제별 MIP (ScenarioMIP, HighResMIP, PMIP, AerChemMIP 등)
+3. **선택적 MIPs**: 21개 CMIP6-Endorsed MIP (ScenarioMIP, HighResMIP, PMIP, AerChemMIP 등)
 
 데이터 배포: ESGF (Earth System Grid Federation) — 분산 페더레이션 아카이브, 전 세계 노드 운영.
 
@@ -63,7 +63,7 @@ CMIP6는 WCRP(세계기후연구프로그램)가 주관하며 3단계로 구성:
 | 참여 모델링 그룹 | **~49** 개 (전 세계) |
 | 모델 수 | **100+** 개 ESM/GCM |
 | 총 데이터 볼륨 | **~20 PB** 이상 (추산) |
-| MIP 수 | **18** 개 |
+| MIP 수 | **21** 개 (CMIP6-Endorsed MIPs, 논문 확인) |
 | DECK 실험 | **4** 개 (의무) |
 | 지원 IPCC 보고서 | AR6 (2021) |
 

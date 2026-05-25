@@ -12,7 +12,7 @@ paper_link: https://arxiv.org/abs/2112.02026
 abdurro2022seventeenth | 2022 | The Astrophysical Journal Supplement Series | dataset | [astronomy] | [paper](https://arxiv.org/abs/2112.02026)
 
 **DB**: SDSS Data Release 17 (DR17) — final data release of SDSS-IV
-**DB size**: ~4.9M spectra cumulative; MaNGA: 10,010 galaxy IFU cubes; APOGEE-2: 657,135 stars; MaStar: 59,266 stellar spectra
+**DB size**: ~4.9M spectra cumulative; MaNGA: over 10,000 galaxy IFU cubes; APOGEE-2: over 650,000 stars; MaStar: almost 30,000 unique stars (abstract verified, arXiv:2112.02026)
 **DB Open/Private**: Open
 **Modality**: ['Spectrum', 'Catalog', 'IFU cube']
 **Retriever**: N/A (지식 소스 인프라)
@@ -36,9 +36,9 @@ SDSS-IV의 최종(완전) 공개 데이터 릴리스. MaNGA(적분시야분광),
 - SDSS-V (2020~)로 이어지는 레거시 데이터셋 확정판
 
 #### 시스템 구성
-- **MaNGA**: 2.5m SDSS 망원경 + IFU 광섬유 묶음으로 10,010개 은하의 2D 분광 지도 생성
-- **MaStar**: 59,266개 항성의 스펙트럼 라이브러리 (3622–10354Å, R~1800)
-- **APOGEE-2**: H밴드 근적외선 분광 (1.51–1.70μm, R~22,500), 657,135개 항성
+- **MaNGA**: 2.5m SDSS 망원경 + IFU 광섬유 묶음으로 10,000개 이상 은하의 2D 분광 지도 생성
+- **MaStar**: ~30,000개 고유 항성의 스펙트럼 라이브러리 (3622–10354Å, R~1800)
+- **APOGEE-2**: H밴드 근적외선 분광 (1.51–1.70μm, R~22,500), 650,000개 이상 항성
 - **eBOSS**: 퀘이사·LRG·ELG 우주론 분광 (DR16에서 완전 공개)
 
 #### 데이터 접근 방법
@@ -57,9 +57,9 @@ SDSS-IV의 최종(완전) 공개 데이터 릴리스. MaNGA(적분시야분광),
 #### 주요 통계
 | 항목 | 수치 |
 |---|---|
-| MaNGA 은하 | **10,010** 개 IFU 스펙트럼 큐브 |
-| MaStar 항성 | **59,266** 개 스펙트럼 |
-| APOGEE-2 항성 | **657,135** 개 |
+| MaNGA 은하 | **10,000+** 개 IFU 스펙트럼 큐브 (abstract: "over 10,000") |
+| MaStar 항성 | **~30,000** 개 고유 항성 (abstract: "almost 30,000") |
+| APOGEE-2 항성 | **650,000+** 개 (abstract: "over 650,000") |
 | 누적 SDSS 스펙트럼 | **~4.9M** 개 |
 | DR17 카탈로그 공개 | 2022년 1월 |
 
