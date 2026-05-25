@@ -5166,6 +5166,27 @@
     "subsection": "Preprint literature"
   },
   {
+    "bib_key": "medrxiv",
+    "title": "medRxiv",
+    "year": 2019,
+    "venue": "Cold Spring Harb. Lab. / Yale / BMJ",
+    "method": null,
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "https://www.medrxiv.org",
+    "note": "K1 preprint (clinical medicine): medRxiv is operated jointly by Cold Spring Harbor Laboratory, Yale University, and BMJ. Covers health sciences preprints.",
+    "ko_cells": [
+      "K1"
+    ],
+    "ko_primary": "K1",
+    "ko_note": "K1 preprint (clinical medicine): medRxiv is operated jointly by Cold Spring Harbor Laboratory, Yale University, and BMJ. Covers health sciences preprints.",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Preprint literature"
+  },
+  {
     "title": "A dataset of clinically generated visual questions and answers about radiology images",
     "year": 2018,
     "venue": "Scientific Data (Nature)",
@@ -5255,6 +5276,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "chemrxiv",
+    "title": "ChemRxiv",
+    "year": 2017,
+    "venue": "ACS / RSC / GDCh / CCS / CSJ",
+    "method": null,
+    "domain": [
+      "chem"
+    ],
+    "paper_link": "https://chemrxiv.org",
+    "note": "K1 preprint (chemistry): ChemRxiv is co-owned by ACS, Royal Society of Chemistry, German Chemical Society (GDCh), Chinese Chemical Society, and Chemical Society of Japan.",
+    "ko_cells": [
+      "K1"
+    ],
+    "ko_primary": "K1",
+    "ko_note": "K1 preprint (chemistry): ChemRxiv is co-owned by ACS, Royal Society of Chemistry, German Chemical Society (GDCh), Chinese Chemical Society, and Chemical Society of Japan.",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Preprint literature"
+  },
+  {
     "title": "Crowdsourcing Multiple Choice Science Questions",
     "year": 2017,
     "venue": "Workshop on Noisy User-generated Text (WNUT)",
@@ -5284,6 +5326,27 @@
     "ko_primary": null,
     "ko_note": "",
     "cross_source": false
+  },
+  {
+    "bib_key": "eartharxiv",
+    "title": "EarthArXiv",
+    "year": 2017,
+    "venue": "Center for Open Science",
+    "method": null,
+    "domain": [
+      "earth"
+    ],
+    "paper_link": "https://eartharxiv.org",
+    "note": "K1 preprint (earth sciences): EarthArXiv is a community-led open-access preprint server for earth, environmental, and planetary science.",
+    "ko_cells": [
+      "K1"
+    ],
+    "ko_primary": "K1",
+    "ko_note": "K1 preprint (earth sciences): EarthArXiv is a community-led open-access preprint server for earth, environmental, and planetary science.",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Preprint literature"
   },
   {
     "title": "Overview of the Medical Question Answering Task at TREC 2017 LiveQA",
@@ -5397,6 +5460,27 @@
     "ko_primary": null,
     "ko_note": "",
     "cross_source": false
+  },
+  {
+    "bib_key": "osf_preprints",
+    "title": "OSF Preprints",
+    "year": 2016,
+    "venue": "Center for Open Science",
+    "method": null,
+    "domain": [
+      "general"
+    ],
+    "paper_link": "https://osf.io/preprints",
+    "note": "K1 preprint (general/social sciences): OSF Preprints (Center for Open Science) hosts community-run servers including PsyArXiv, SocArXiv, and others under a single platform.",
+    "ko_cells": [
+      "K1"
+    ],
+    "ko_primary": "K1",
+    "ko_note": "K1 preprint (general/social sciences): OSF Preprints (Center for Open Science) hosts community-run servers including PsyArXiv, SocArXiv, and others under a single platform.",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Preprint literature"
   },
   {
     "title": "Deep Learning for Drug-Induced Liver Injury",
@@ -5658,6 +5742,27 @@
     "cross_source": false
   },
   {
+    "bib_key": "DBLP:journals/corr/abs-1108-2700",
+    "title": "arXiv: It was twenty years ago today (Ginsparg 2011)",
+    "year": 2011,
+    "venue": "CoRR / arXiv",
+    "method": null,
+    "domain": [
+      "general"
+    ],
+    "paper_link": "https://arxiv.org/abs/1108.2700",
+    "note": "K1 preprint (general): arXiv hosts full-text preprints across 8 disciplines (physics, math, CS, quantitative biology, quantitative finance, statistics, electrical engineering and systems science, economics) via OAI-PMH and S3 bulk access.",
+    "ko_cells": [
+      "K1"
+    ],
+    "ko_primary": "K1",
+    "ko_note": "K1 preprint (general): arXiv hosts full-text preprints across 8 disciplines (physics, math, CS, quantitative biology, quantitative finance, statistics, electrical engineering and systems science, economics) via OAI-PMH and S3 bulk access.",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Preprint literature"
+  },
+  {
     "title": "Overview of BioCreative II gene mention recognition",
     "year": 2008,
     "venue": "Genome biology",
@@ -5795,6 +5900,29 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "General-purpose literature"
+  },
+  {
+    "bib_key": "embase",
+    "title": "Embase",
+    "year": 1974,
+    "venue": "Elsevier",
+    "method": null,
+    "domain": [
+      "medical",
+      "bio",
+      "chem"
+    ],
+    "paper_link": "https://www.embase.com",
+    "note": "K1 domain-specific (biomedical/pharma): Elsevier's Embase is a subscription-based biomedical database with broader pharmacology and drug-device coverage than PubMed.",
+    "ko_cells": [
+      "K1"
+    ],
+    "ko_primary": "K1",
+    "ko_note": "K1 domain-specific (biomedical/pharma): Elsevier's Embase is a subscription-based biomedical database with broader pharmacology and drug-device coverage than PubMed.",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Domain-specific literature"
   },
   {
     "bib_key": "DBLP:conf/emnlp/ZhangSHML24",

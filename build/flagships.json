@@ -624,6 +624,62 @@
         "medical"
       ],
       "paper_link": "https://www.biorxiv.org"
+    },
+    "DBLP:journals/corr/abs-1108-2700": {
+      "title": "arXiv: It was twenty years ago today (Ginsparg 2011)",
+      "year": 2011,
+      "venue": "CoRR / arXiv",
+      "domain": [
+        "general"
+      ],
+      "paper_link": "https://arxiv.org/abs/1108.2700"
+    },
+    "embase": {
+      "title": "Embase",
+      "year": 1974,
+      "venue": "Elsevier",
+      "domain": [
+        "medical",
+        "bio",
+        "chem"
+      ],
+      "paper_link": "https://www.embase.com"
+    },
+    "medrxiv": {
+      "title": "medRxiv",
+      "year": 2019,
+      "venue": "Cold Spring Harb. Lab. / Yale / BMJ",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://www.medrxiv.org"
+    },
+    "chemrxiv": {
+      "title": "ChemRxiv",
+      "year": 2017,
+      "venue": "ACS / RSC / GDCh / CCS / CSJ",
+      "domain": [
+        "chem"
+      ],
+      "paper_link": "https://chemrxiv.org"
+    },
+    "eartharxiv": {
+      "title": "EarthArXiv",
+      "year": 2017,
+      "venue": "Center for Open Science",
+      "domain": [
+        "earth"
+      ],
+      "paper_link": "https://eartharxiv.org"
+    },
+    "osf_preprints": {
+      "title": "OSF Preprints",
+      "year": 2016,
+      "venue": "Center for Open Science",
+      "domain": [
+        "general"
+      ],
+      "paper_link": "https://osf.io/preprints"
     }
   }
 }

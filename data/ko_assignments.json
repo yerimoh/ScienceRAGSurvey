@@ -291,6 +291,60 @@
     "note": "K1 preprint (biology): bioRxiv is the primary biology preprint server, used as retrieval corpus in bio/medical RAG systems before peer review.",
     "subsection": "Preprint literature"
   },
+  "DBLP:journals/corr/abs-1108-2700": {
+    "cells": [
+      "K1"
+    ],
+    "K": "K1",
+    "O": "",
+    "note": "K1 preprint (general): arXiv hosts full-text preprints across 8 disciplines (physics, math, CS, quantitative biology, quantitative finance, statistics, electrical engineering and systems science, economics) via OAI-PMH and S3 bulk access.",
+    "subsection": "Preprint literature"
+  },
+  "embase": {
+    "cells": [
+      "K1"
+    ],
+    "K": "K1",
+    "O": "",
+    "note": "K1 domain-specific (biomedical/pharma): Elsevier's Embase is a subscription-based biomedical database with broader pharmacology and drug-device coverage than PubMed.",
+    "subsection": "Domain-specific literature"
+  },
+  "medrxiv": {
+    "cells": [
+      "K1"
+    ],
+    "K": "K1",
+    "O": "",
+    "note": "K1 preprint (clinical medicine): medRxiv is operated jointly by Cold Spring Harbor Laboratory, Yale University, and BMJ. Covers health sciences preprints.",
+    "subsection": "Preprint literature"
+  },
+  "chemrxiv": {
+    "cells": [
+      "K1"
+    ],
+    "K": "K1",
+    "O": "",
+    "note": "K1 preprint (chemistry): ChemRxiv is co-owned by ACS, Royal Society of Chemistry, German Chemical Society (GDCh), Chinese Chemical Society, and Chemical Society of Japan.",
+    "subsection": "Preprint literature"
+  },
+  "eartharxiv": {
+    "cells": [
+      "K1"
+    ],
+    "K": "K1",
+    "O": "",
+    "note": "K1 preprint (earth sciences): EarthArXiv is a community-led open-access preprint server for earth, environmental, and planetary science.",
+    "subsection": "Preprint literature"
+  },
+  "osf_preprints": {
+    "cells": [
+      "K1"
+    ],
+    "K": "K1",
+    "O": "",
+    "note": "K1 preprint (general/social sciences): OSF Preprints (Center for Open Science) hosts community-run servers including PsyArXiv, SocArXiv, and others under a single platform.",
+    "subsection": "Preprint literature"
+  },
   "DBLP:journals/nar/KimTBCFGHHHSWYZ16": {
     "cells": [
       "K2"
