@@ -1177,12 +1177,12 @@ def _prop_block_to_table(md_content):
                         i += 1
                         continue
                     key = html.escape(key_raw)
-                    rows.append(f'<div class="prop-row"><span class="prop-key">{key}</span><span class="prop-val">{val}</span></div>')
+                    rows.append(f'<tr><td class="prop-key">{key}</td><td class="prop-val">{val}</td></tr>')
                     i += 1
                 else:
                     break
             if rows:
-                out.append('<div class="prop-table">\n' + '\n'.join(rows) + '\n</div>\n')
+                out.append('<table class="prop-table">\n' + '\n'.join(rows) + '\n</table>\n')
             # if all rows were skipped, emit nothing
         else:
             out.append(lines[i])
