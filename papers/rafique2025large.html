@@ -47,9 +47,9 @@
       <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
-<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
-<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">25</span></a>
-<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">15</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">57</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">24</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
 
       </div>
     </details>
@@ -110,66 +110,70 @@
       <span class="meta-year">2025</span>
       
     </div>
-    <div class="paper-tags"><a href="../cell/K4.html" class="tag tag-cell" title="K4">Tacit Knowledge</a><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Tacit Knowledge × Ground</a><span class="tag tag-sub">Retrieval-quality</span><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a></div>
+    <div class="paper-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Tacit Knowledge × Ground</a><span class="tag tag-sub">Retrieval-quality</span><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a></div>
   </div>
 </section>
 <section class="paper-body">
   <div class="wrap">
     <article class="paper-markdown">
       <h1>DUNE-GPT: LLM Integration for Knowledge Retrieval in the DUNE Experiment</h1>
-<p>rafique2025large | 2025 | arXiv | Method | [physics] | <a href="https://arxiv.org/abs/2601.05278">paper</a></p>
-<table class="prop-table">
-<tr><td class="prop-key">Retriever</td><td class="prop-val">Dense embedding (multi-qa-mpnet-base-dot-v1) + FAISS 벡터 DB, cosine similarity</td></tr>
-<tr><td class="prop-key">Eval Task</td><td class="prop-val">DUNE 내부 문서 질의응답 (detector, reconstruction, physics analysis)</td></tr>
-<tr><td class="prop-key">Eval Metric</td><td class="prop-val">Retrieval accuracy (~70% across diverse query types, preliminary)</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">DUNE-GPT</td></tr>
-<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
-</table>
-
 <blockquote>
-<p>arXiv | 2025 | Method | physics</p>
-<h4>📌 한 줄 요약</h4>
-<p>Deep Underground Neutrino Experiment(DUNE) 협업의 DocDB, Indico, 내부 위키에 산재된 방대한 실험 문서를 대상으로 Fermilab 인프라에서 on-premise RAG를 구현한 프로토타입 시스템으로, 협업 구성원이 자연어로 실험 특화 지식을 조회할 수 있게 한다.</p>
+<p>arXiv 2025 | Method | physics
+Rafique et al. — Argonne National Laboratory (DUNE Collaboration)
+DBLP: <code>journals/corr/abs-2601-05278</code></p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
-<ul>
-<li>DUNE 협업은 기술 설계 보고서(TDR), 분석 노트, 발표 자료, 회의록을 DocDB, Indico, 내부 위키에 분산 보관</li>
-<li>신입 공동연구자나 다른 워킹 그룹 전문가가 재구성 알고리즘이나 검출기 운영 세부사항을 검색하는 데 많은 시간 소모</li>
-<li>상업 LLM API 사용은 Fermilab의 데이터 보안 및 재현성 요구를 충족하지 못함</li>
-</ul>
-<p><strong>DUNE-GPT가 필요한 이유</strong></p>
-<ul>
-<li>협업 전체 생산성 및 신규 참여자 온보딩 효율화</li>
-<li>분산된 DUNE 문서 생태계를 단일 자연어 인터페이스로 통합</li>
-</ul>
-<h4>🔨 시스템 구성</h4>
-<p><strong>데이터 소스</strong></p>
-<ul>
-<li>DocDB: DUNE 내부 문서, 기술 노트, TDR</li>
-<li>Indico: 회의 발표 자료, 미팅 노트</li>
-<li>내부 위키 문서</li>
-<li>공개 접근 가능한 DUNE 문서 (협업 정책에 따라 민감 문서 제외)</li>
-</ul>
-<p><strong>임베딩 및 검색 레이어</strong></p>
-<ul>
-<li>다양한 형식(PDF, DOCX, TXT, PNG 등) 처리 + 메타데이터 추출 + 토큰 분할</li>
-<li>임베딩 모델: multi-qa-mpnet-base-dot-v1 (과학 텍스트 최적화)</li>
-<li>벡터 DB: FAISS (Facebook AI Similarity Search)</li>
-<li>검색: cosine similarity 기반</li>
-</ul>
-<p><strong>LLM 통합</strong></p>
-<ul>
-<li>Argonne 슈퍼컴퓨터(Aurora/Argo) 및 Fermilab(Ollama) 내부 호스팅 LLM</li>
-<li>RAG 방식으로 검색된 컨텍스트를 LLM에 조건화하여 응답 생성</li>
-<li>인증된 DUNE 공동연구자만 접근 가능</li>
-</ul>
-<p><strong>인터페이스</strong></p>
-<ul>
-<li>경량 웹 인터페이스: 자연어 질의 → 포맷된 응답 + 문서 출처 인용</li>
-<li>Aurora (Argonne Leadership Computing Facility)에서 초기 개발 후 Fermilab 인프라로 이전 예정</li>
-</ul>
-<h4>📊 주요 결과</h4>
+<h2>한 줄 요약</h2>
+<p>Deep Underground Neutrino Experiment(DUNE) 협업의 DocDB·Indico·내부 위키에 산재된 방대한 실험 문서를 Fermilab 인프라(Aurora/Argo 슈퍼컴퓨터 + Ollama)에서 on-premise 밀집 검색으로 통합한 RAG 프로토타입 시스템. 다양한 질의 유형에서 예비 검색 정확도 ~70%를 보고.</p>
+<hr />
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>Step 1 — 데이터 소스 식별 및 수집
+  DUNE 내부 문서 생태계:
+  ┌─ DocDB: 기술 설계 보고서(TDR), 분석 노트, 기술 노트
+  ├─ Indico: 회의 발표 자료, 미팅 노트
+  └─ 내부 위키 문서
+  협업 정책에 따라 민감/제한 문서 제외 (공개 접근 가능 문서만)
+
+Step 2 — 전처리 및 청킹
+  다양한 형식 처리: PDF, DOCX, TXT, PNG 등
+  메타데이터 추출 (날짜, 저자, 문서 타입)
+  토큰 기반 분할 (청크 크기 미기재)
+
+Step 3 — 임베딩 및 벡터 DB 구축
+  임베딩 모델: multi-qa-mpnet-base-dot-v1 (과학 텍스트 최적화)
+  벡터 DB: FAISS (Facebook AI Similarity Search)
+  검색 방식: cosine similarity
+
+Step 4 — LLM 통합 (on-premise)
+  Argonne 슈퍼컴퓨터(Aurora/Argo):
+    Aurora: 초기 개발 및 대규모 실험 (Intel Gaudi 가속기)
+  Fermilab:
+    Ollama로 LLM 내부 호스팅 (구체적 모델명 미기재)
+  RAG 방식: 검색 컨텍스트를 LLM에 조건화하여 응답 생성
+
+Step 5 — 접근 제어 및 인터페이스
+  인증된 DUNE 공동연구자만 접근
+  경량 웹 인터페이스:
+    자연어 질의 → 포맷된 응답 + 출처 문서 인용 표시
+
+Step 6 — 예비 평가
+  다양한 질의 유형을 아우르는 쿼리 세트로 예비 평가
+  결과: 검색 정확도 ~70% (preliminary)
+  (P@k / MRR 등 정밀 메트릭 기반 체계 평가는 향후 과제)
+</code></pre>
+<hr />
+<h2>실제 질의 예시 (논문 기술 기반)</h2>
+<p><strong>검출기 운영 질의:</strong></p>
+<blockquote>
+<p><strong>Q.</strong> &quot;What is the drift velocity of electrons in the liquid argon TPC at nominal electric field?&quot;</p>
+<p>DUNE-GPT: DocDB TDR에서 관련 구절 검색 → 문서 인용 포함 답변 생성</p>
+</blockquote>
+<p><strong>재구성 알고리즘 질의:</strong></p>
+<blockquote>
+<p><strong>Q.</strong> &quot;How does Pandora reconstruct neutrino interaction vertices in the far detector?&quot;</p>
+<p>DUNE-GPT: Indico 발표 자료 + DocDB 분석 노트 통합 검색 → 답변</p>
+</blockquote>
+<hr />
+<h2>주요 결과</h2>
 <table>
 <thead>
 <tr>
@@ -180,11 +184,7 @@
 <tbody>
 <tr>
   <td>예비 검색 정확도</td>
-  <td>~70% (다양한 질의 유형에서)</td>
-</tr>
-<tr>
-  <td>처리 문서 형식</td>
-  <td>PDF, DOCX, TXT, PNG 등</td>
+  <td>~70% (다양한 질의 유형)</td>
 </tr>
 <tr>
   <td>임베딩 모델</td>
@@ -194,24 +194,27 @@
   <td>벡터 DB</td>
   <td>FAISS</td>
 </tr>
+<tr>
+  <td>처리 형식</td>
+  <td>PDF, DOCX, TXT, PNG 등</td>
+</tr>
 </tbody>
 </table>
-<blockquote>
-<p><strong>주의</strong>: &quot;preliminary results&quot; 단계이며, P@k/MRR 등 정밀 메트릭 기반 체계적 평가는 향후 과제로 명시됨.</p>
-</blockquote>
-<h4>⚠️ 한계점</h4>
+<p>MITRA(CMS, P@1=0.75)·chATLAS(ATLAS) 등 유사 물리 협업 RAG 시스템과 달리 BM25 대비 정량 비교 실험은 아직 미수행. &quot;Preliminary&quot; 단계임을 논문이 명시.</p>
+<hr />
+<h2>한계점</h2>
 <ul>
-<li>프로토타입 단계: 협업 전체 배포 전 단계이며 체계적 벤치마크 미수행</li>
-<li>민감/제한 문서는 협업 정책에 따라 인덱싱 제외 (지식 커버리지 불완전)</li>
-<li>ATLAS chATLAS 등 유사 시스템과 달리 BM25 대비 정량 비교 실험이 아직 미수행</li>
-<li>검출기 운영 로그, 코드 문서 등 다양한 형식 확장 계획 중</li>
+<li>프로토타입 단계 — 협업 전체 배포 전, 체계적 벤치마크 미수행</li>
+<li>민감 문서 제외로 지식 커버리지 불완전</li>
+<li>검색 모델과 LLM의 조합 최적화 실험 미수행</li>
+<li>BM25 등 베이스라인 대비 정량 비교 없음</li>
 </ul>
+<hr />
 <h2>관련 정보</h2>
 <ul>
 <li><strong>논문</strong>: <a href="https://arxiv.org/abs/2601.05278">arXiv:2601.05278</a></li>
 <li><strong>수락</strong>: 32nd International Symposium on Lepton Photon Interactions at High Energies, Madison WI, Aug 2025</li>
 <li><strong>저자 소속</strong>: Argonne National Laboratory (DUNE Collaboration)</li>
-<li><strong>K4 분류</strong>: K4.O1 — 기관 내부 문서(DUNE DocDB + Indico)에 대한 RAG 시스템</li>
 </ul>
 
     </article>

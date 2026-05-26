@@ -47,9 +47,9 @@
       <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
-<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
-<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">25</span></a>
-<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">15</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">57</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">24</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
 
       </div>
     </details>
@@ -118,85 +118,124 @@
     <article class="paper-markdown">
       <h1>LLaMP: Large Language Model Made Powerful for High-fidelity Materials Knowledge Retrieval</h1>
 <blockquote>
-<p>arXiv | 2024 | Benchmark | material, chem</p>
+<p>EMNLP 2025 | Method + Benchmark | material
+Chiang, Hsieh, Chaudhuri, Rohrbach — UC Berkeley / Meta FAIR
+DBLP: <code>conf/emnlp/ChiangHCR25</code></p>
 </blockquote>
 <h2>한 줄 요약</h2>
-<p>LLM 및 RAG 기반 에이전트 시스템이 수치형 재료 과학 데이터를 얼마나 정확하고 일관되게 추출·예측하는지 측정하기 위해 Materials Project 기반으로 구성한 자체 평가셋.</p>
-<h2>제작 배경</h2>
-<ul>
-<li>기존의 LLM 평가는 주로 텍스트 기반 답변에 치중되어 있어, 정밀도가 요구되는 고위험 과학 분야(예: Self-driving Labs)에서 실사용 가능 수준인지 확인하기 어려움.</li>
-<li>모델의 환각 여부뿐만 아니라 답변을 산출할 때의 '일관성(Consistency)'을 정량화할 통계적 평가 기준이 필요함.</li>
-</ul>
+<p>Materials Project API를 ReAct 에이전트 툴로 래핑하여 LLM이 DFT 계산 기반 물성 데이터를 직접 조회·검증하도록 하고, 수치형 재료 물성(체적 탄성률·밴드갭·생성 에너지·자기 순서)에 대한 정확도와 자기 일관성을 <strong>SCoR(Self-Consistency of Response)</strong> 지표로 측정하는 RAG 에이전트 시스템 및 평가 프로토콜.</p>
+<hr />
 <h2>어떻게 만들었나 (Construction Methodology)</h2>
-<ul>
-<li><strong>Step 1: 데이터 출처 선정</strong>: 평가 기준 데이터(Ground Truth)로 제일원리 계산 기반의 대규모 개방형 데이터베이스인 Materials Project(MP)를 채택.</li>
-<li><strong>Step 2: 구축 파이프라인</strong>: 3d 전이금속(체적 탄성률 평가), 일반/다원소 화합물(밴드갭 평가), 그리고 일반 생성 에너지 평가를 위한 특정 재료 리스트 구성.</li>
-<li><strong>Step 3: 서브셋 구축</strong>: MP에 등록된 모든 단일·이원·삼원 화합물 모집단에서 무작위로 800개의 재료를 추출하여 자기 정렬(Magnetic ordering) 및 총 자화(Total magnetization) 평가 서브셋 구축.</li>
-</ul>
-<h2>Input (입력)</h2>
-<ul>
-<li><strong>출처</strong>: Materials Project Database</li>
-<li><strong>문항 형식</strong>: 자연어 질문</li>
-<li><strong>도메인</strong>: 재료 물성(열역학적, 기계적 특성, 전자 구조) 및 자기적 특성</li>
-<li><strong>측정 대상</strong>:</li>
-</ul>
+<pre><code>Step 1 — 지식 소스 선정
+  Materials Project (MP): 제일원리 DFT 계산 기반 대규모 재료 DB
+  API를 통해 실시간 조회 가능
+
+Step 2 — 평가 태스크 및 서브셋 구성
+  태스크 A: Bulk Moduli (체적 탄성률, GPa)
+    대상: 3d 전이금속 (Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn)
+    Voigt / Reuss / VRH 세 가지 값 각각 평가
+
+  태스크 B: Electronic Bandgap (eV)
+    서브셋 1 (Common): 자주 참조되는 일반 화합물
+    서브셋 2 (Multi-element): 3원 이상 복잡 화합물
+
+  태스크 C: Formation Energy (ΔH_f, eV/atom)
+    MP 등록 모든 단일·이원·삼원 화합물에서 무작위 800개 추출
+
+  태스크 D: Magnetic Ordering (분류)
+    FM / AFM / FiM / NM 4개 클래스
+    무작위 800개 화합물 서브셋
+
+Step 3 — ReAct 에이전트 툴 설계 (LLaMP 시스템)
+  Materials Project → API 래퍼 툴(python-materials-project)
+  ReAct 루프: Thought → Action(API 호출) → Observation → 반복
+  최종 수치 답변 생성
+
+Step 4 — SCoR 지표 정의
+  동일 쿼리를 N회 반복 → 답변 분포 분석
+  ┌─ Precision (CoP): 정답 수렴 비율
+  ├─ Confidence: 분포 집중도
+  └─ SCoR ∈ [0,1]: 세 요소 결합 → 재현성·일관성 종합 점수
+  → MAE + SCoR로 정확도와 일관성을 동시 평가
+
+Step 5 — 베이스라인 비교
+  바닐라 LLM (GPT-4, Llama 3-8b, Gemini-Pro 등)
+  도메인 특화 프롬프팅 (StructChem)
+  LLaMP (ReAct + MP API)
+</code></pre>
+<hr />
+<h2>실제 평가 문항 예시</h2>
+<h3>태스크 A — Bulk Moduli</h3>
+<blockquote>
+<p><strong>Q.</strong> What are the bulk moduli of the following 3d transition metals: Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn?</p>
+<p><strong>LLaMP 답변 (API 조회):</strong>
+Scandium (Sc): Voigt=45.715, Reuss=45.34, VRH=45.528 GPa
+Zinc (Zn): Voigt=76.283, Reuss=95.46, VRH=85.872 GPa ...</p>
+</blockquote>
+<h3>태스크 D — Magnetic Ordering (분류)</h3>
+<blockquote>
+<p><strong>Q.</strong> What is the magnetic ordering of BaTiO₃?</p>
+<p>(A) Ferromagnetic  (B) Antiferromagnetic  (C) Ferrimagnetic  <strong>(D) Non-magnetic</strong> ← 정답</p>
+</blockquote>
+<hr />
+<h2>주요 평가 결과</h2>
+<p><strong>체적 탄성률 (Bulk Moduli) — MAE 비교</strong></p>
 <table>
 <thead>
 <tr>
-  <th>대상 특성</th>
-  <th>데이터 형태</th>
+  <th>모델</th>
+  <th>MAE ↓</th>
+  <th>SCoR ↑</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>Bulk Moduli (K)</td>
-  <td>GPa 단위의 체적 탄성률 수치</td>
+  <td>GPT-4 (바닐라)</td>
+  <td>41.225</td>
+  <td>~0.2</td>
 </tr>
 <tr>
-  <td>Formation Energy (ΔH_f)</td>
-  <td>eV/atom 단위 수치</td>
+  <td>StructChem</td>
+  <td>38.1</td>
+  <td>~0.3</td>
 </tr>
 <tr>
-  <td>Electronic Bandgap (E_g)</td>
-  <td>eV 단위 (Common 및 Multi-element 구분)</td>
+  <td>Llama 3-8b</td>
+  <td>환각 발생</td>
+  <td>~0</td>
 </tr>
 <tr>
-  <td>Magnetic Ordering</td>
-  <td>분류 태스크 (FM, AFM, FiM, NM)</td>
+  <td><strong>LLaMP (GPT-4 + MP API)</strong></td>
+  <td><strong>14.574</strong></td>
+  <td><strong>~0.8</strong></td>
 </tr>
 </tbody>
 </table>
-<h2>Output (출력 / 정답 형식)</h2>
+<p><strong>밴드갭 (Bandgap) — Multi-element 서브셋</strong></p>
 <ul>
-<li><strong>수치 회귀형 평가 지표</strong>:<ul>
-<li>MAE (Mean Absolute Error)</li>
-<li>SCoR (Self-consistency of Response): Precision, CoP, Confidence를 결합해 0~1 범위로 답변의 재현성·일관성 산출</li>
+<li>바닐라 GPT-4: MAE 매우 크고 SCoR ≈ 0 (환각)</li>
+<li>LLaMP: MAE 대폭 감소, SCoR 유의미하게 향상</li>
 </ul>
-</li>
-<li><strong>분류형 평가 지표</strong>: Accuracy, F1 Score, R²</li>
-</ul>
-<h2>예시 문항</h2>
+<p><strong>자기 순서 분류</strong></p>
 <ul>
-<li>Q: &quot;What are the bulk moduli of the following metals: Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn?&quot;</li>
-<li>A: &quot;Scandium (Sc): Voigt=45.715, Reuss=45.34, VRH=45.528 ... Zinc (Zn): Voigt=76.283, Reuss=95.46, VRH=85.872&quot; (단위 GPa)</li>
+<li>바닐라 모델: F1 낮음 (도메인 지식 부족)</li>
+<li>LLaMP: 정확도 및 F1 향상 (API 조회로 파라메트릭 오류 보완)</li>
 </ul>
-<h2>주요 평가 결과</h2>
-<ul>
-<li>도메인 특화 LLM 프롬프팅 방식(StructChem)이나 일반 바닐라 모델(Llama 3-8b, Gemini-Pro 등)은 생성 에너지나 다원소 밴드갭 예측에서 환각으로 인해 매우 큰 오차(높은 MAE)와 0에 가까운 SCoR 수치를 보임.</li>
-<li>LLaMP 프레임워크가 체적 탄성률 예측 시 바닐라 모델(GPT-4 기준 MAE 41.225) 대비 오차를 크게 줄임(MAE 14.574).</li>
-</ul>
+<hr />
 <h2>한계점</h2>
 <ul>
-<li>특정 모델의 Function-calling 역량에 따라 측정 성능이 직접적인 영향을 받음.</li>
-<li>Materials Project가 담고 있는 수치 자체가 이론적 한계(예: GGA 밴드갭 과소평가)를 가지고 있으므로, 실험적 Ground Truth와의 괴리가 있을 수 있음.</li>
+<li>Materials Project 값이 GGA DFT 계산 기반 → 실험값과 체계적 오차 존재 (밴드갭 과소평가 등)</li>
+<li>모델의 function-calling 역량에 따라 측정 성능이 직접 영향받음</li>
+<li>ReAct 루프의 API 응답 파싱 실패 시 환각으로 퇴화 가능</li>
+<li>커버리지: MP에 등록된 물질에 한정 (실험 합성 데이터 미포함)</li>
 </ul>
+<hr />
 <h2>관련 정보</h2>
 <ul>
-<li>논문 링크: <a href="https://arxiv.org/abs/2401.17244">https://arxiv.org/abs/2401.17244</a></li>
-<li>이 벤치마크를 사용한 논문:<ul>
-<li>LLaMP 원본 논문 (arXiv 2024)</li>
-</ul>
-</li>
+<li><strong>논문</strong>: <a href="https://arxiv.org/abs/2401.17244">arXiv:2401.17244</a></li>
+<li><strong>EMNLP 2025 Anthology</strong>: <a href="https://aclanthology.org/2025.emnlp-main">ACL Anthology</a></li>
+<li><strong>Materials Project</strong>: <a href="https://materialsproject.org">materialsproject.org</a></li>
+<li><strong>이 시스템을 사용한 논문</strong>: HoneyComb (EMNLP Findings 2024)의 비교 대상으로 참조</li>
 </ul>
 
     </article>

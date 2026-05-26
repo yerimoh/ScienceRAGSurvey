@@ -1,76 +1,99 @@
 ---
 title: "Large Language Model Integration for Knowledge Retrieval and Interaction for the DUNE Experiment"
-bib_key: "rafique2025large"
+bib_key: rafique2025large
 year: 2025
 domain: physics
 type: Method
-venue: arXiv (Lepton Photon 2025, Argonne/Fermilab)
+venue: arXiv (Lepton Photon 2025)
 paper_link: https://arxiv.org/abs/2601.05278
 ---
 # DUNE-GPT: LLM Integration for Knowledge Retrieval in the DUNE Experiment
 
-rafique2025large | 2025 | arXiv | Method | [physics] | [paper](https://arxiv.org/abs/2601.05278)
+> arXiv 2025 | Method | physics
+> Rafique et al. — Argonne National Laboratory (DUNE Collaboration)
+> DBLP: `journals/corr/abs-2601-05278`
 
-**Retriever**: Dense embedding (multi-qa-mpnet-base-dot-v1) + FAISS 벡터 DB, cosine similarity
-**Eval Task**: DUNE 내부 문서 질의응답 (detector, reconstruction, physics analysis)
-**Eval Metric**: Retrieval accuracy (~70% across diverse query types, preliminary)
-**Method Name**: DUNE-GPT
-**Modality**: Text
+## 한 줄 요약
+Deep Underground Neutrino Experiment(DUNE) 협업의 DocDB·Indico·내부 위키에 산재된 방대한 실험 문서를 Fermilab 인프라(Aurora/Argo 슈퍼컴퓨터 + Ollama)에서 on-premise 밀집 검색으로 통합한 RAG 프로토타입 시스템. 다양한 질의 유형에서 예비 검색 정확도 ~70%를 보고.
 
-> arXiv | 2025 | Method | physics
-#### 📌 한 줄 요약
-Deep Underground Neutrino Experiment(DUNE) 협업의 DocDB, Indico, 내부 위키에 산재된 방대한 실험 문서를 대상으로 Fermilab 인프라에서 on-premise RAG를 구현한 프로토타입 시스템으로, 협업 구성원이 자연어로 실험 특화 지식을 조회할 수 있게 한다.
+---
 
-#### 🎯 개발/구축 배경
-**기존 인프라의 한계**
-- DUNE 협업은 기술 설계 보고서(TDR), 분석 노트, 발표 자료, 회의록을 DocDB, Indico, 내부 위키에 분산 보관
-- 신입 공동연구자나 다른 워킹 그룹 전문가가 재구성 알고리즘이나 검출기 운영 세부사항을 검색하는 데 많은 시간 소모
-- 상업 LLM API 사용은 Fermilab의 데이터 보안 및 재현성 요구를 충족하지 못함
+## 어떻게 만들었나 (Construction Methodology)
 
-**DUNE-GPT가 필요한 이유**
-- 협업 전체 생산성 및 신규 참여자 온보딩 효율화
-- 분산된 DUNE 문서 생태계를 단일 자연어 인터페이스로 통합
+```
+Step 1 — 데이터 소스 식별 및 수집
+  DUNE 내부 문서 생태계:
+  ┌─ DocDB: 기술 설계 보고서(TDR), 분석 노트, 기술 노트
+  ├─ Indico: 회의 발표 자료, 미팅 노트
+  └─ 내부 위키 문서
+  협업 정책에 따라 민감/제한 문서 제외 (공개 접근 가능 문서만)
 
-#### 🔨 시스템 구성
-**데이터 소스**
-- DocDB: DUNE 내부 문서, 기술 노트, TDR
-- Indico: 회의 발표 자료, 미팅 노트
-- 내부 위키 문서
-- 공개 접근 가능한 DUNE 문서 (협업 정책에 따라 민감 문서 제외)
+Step 2 — 전처리 및 청킹
+  다양한 형식 처리: PDF, DOCX, TXT, PNG 등
+  메타데이터 추출 (날짜, 저자, 문서 타입)
+  토큰 기반 분할 (청크 크기 미기재)
 
-**임베딩 및 검색 레이어**
-- 다양한 형식(PDF, DOCX, TXT, PNG 등) 처리 + 메타데이터 추출 + 토큰 분할
-- 임베딩 모델: multi-qa-mpnet-base-dot-v1 (과학 텍스트 최적화)
-- 벡터 DB: FAISS (Facebook AI Similarity Search)
-- 검색: cosine similarity 기반
+Step 3 — 임베딩 및 벡터 DB 구축
+  임베딩 모델: multi-qa-mpnet-base-dot-v1 (과학 텍스트 최적화)
+  벡터 DB: FAISS (Facebook AI Similarity Search)
+  검색 방식: cosine similarity
 
-**LLM 통합**
-- Argonne 슈퍼컴퓨터(Aurora/Argo) 및 Fermilab(Ollama) 내부 호스팅 LLM
-- RAG 방식으로 검색된 컨텍스트를 LLM에 조건화하여 응답 생성
-- 인증된 DUNE 공동연구자만 접근 가능
+Step 4 — LLM 통합 (on-premise)
+  Argonne 슈퍼컴퓨터(Aurora/Argo):
+    Aurora: 초기 개발 및 대규모 실험 (Intel Gaudi 가속기)
+  Fermilab:
+    Ollama로 LLM 내부 호스팅 (구체적 모델명 미기재)
+  RAG 방식: 검색 컨텍스트를 LLM에 조건화하여 응답 생성
 
-**인터페이스**
-- 경량 웹 인터페이스: 자연어 질의 → 포맷된 응답 + 문서 출처 인용
-- Aurora (Argonne Leadership Computing Facility)에서 초기 개발 후 Fermilab 인프라로 이전 예정
+Step 5 — 접근 제어 및 인터페이스
+  인증된 DUNE 공동연구자만 접근
+  경량 웹 인터페이스:
+    자연어 질의 → 포맷된 응답 + 출처 문서 인용 표시
 
-#### 📊 주요 결과
+Step 6 — 예비 평가
+  다양한 질의 유형을 아우르는 쿼리 세트로 예비 평가
+  결과: 검색 정확도 ~70% (preliminary)
+  (P@k / MRR 등 정밀 메트릭 기반 체계 평가는 향후 과제)
+```
+
+---
+
+## 실제 질의 예시 (논문 기술 기반)
+
+**검출기 운영 질의:**
+> **Q.** "What is the drift velocity of electrons in the liquid argon TPC at nominal electric field?"
+>
+> DUNE-GPT: DocDB TDR에서 관련 구절 검색 → 문서 인용 포함 답변 생성
+
+**재구성 알고리즘 질의:**
+> **Q.** "How does Pandora reconstruct neutrino interaction vertices in the far detector?"
+>
+> DUNE-GPT: Indico 발표 자료 + DocDB 분석 노트 통합 검색 → 답변
+
+---
+
+## 주요 결과
+
 | 항목 | 수치 |
 |---|---|
-| 예비 검색 정확도 | ~70% (다양한 질의 유형에서) |
-| 처리 문서 형식 | PDF, DOCX, TXT, PNG 등 |
+| 예비 검색 정확도 | ~70% (다양한 질의 유형) |
 | 임베딩 모델 | multi-qa-mpnet-base-dot-v1 |
 | 벡터 DB | FAISS |
+| 처리 형식 | PDF, DOCX, TXT, PNG 등 |
 
-> **주의**: "preliminary results" 단계이며, P@k/MRR 등 정밀 메트릭 기반 체계적 평가는 향후 과제로 명시됨.
+MITRA(CMS, P@1=0.75)·chATLAS(ATLAS) 등 유사 물리 협업 RAG 시스템과 달리 BM25 대비 정량 비교 실험은 아직 미수행. "Preliminary" 단계임을 논문이 명시.
 
-#### ⚠️ 한계점
-- 프로토타입 단계: 협업 전체 배포 전 단계이며 체계적 벤치마크 미수행
-- 민감/제한 문서는 협업 정책에 따라 인덱싱 제외 (지식 커버리지 불완전)
-- ATLAS chATLAS 등 유사 시스템과 달리 BM25 대비 정량 비교 실험이 아직 미수행
-- 검출기 운영 로그, 코드 문서 등 다양한 형식 확장 계획 중
+---
+
+## 한계점
+- 프로토타입 단계 — 협업 전체 배포 전, 체계적 벤치마크 미수행
+- 민감 문서 제외로 지식 커버리지 불완전
+- 검색 모델과 LLM의 조합 최적화 실험 미수행
+- BM25 등 베이스라인 대비 정량 비교 없음
+
+---
 
 ## 관련 정보
 - **논문**: [arXiv:2601.05278](https://arxiv.org/abs/2601.05278)
 - **수락**: 32nd International Symposium on Lepton Photon Interactions at High Energies, Madison WI, Aug 2025
 - **저자 소속**: Argonne National Laboratory (DUNE Collaboration)
-- **K4 분류**: K4.O1 — 기관 내부 문서(DUNE DocDB + Indico)에 대한 RAG 시스템
