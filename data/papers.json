@@ -7905,6 +7905,25 @@
     "cross_source": false
   },
   {
+    "bib_key": "PhysioNet-mimic-cxr-2.1.0",
+    "title": "PhysioNet-mimic-cxr-2.1.0",
+    "year": null,
+    "venue": null,
+    "method": null,
+    "domain": [],
+    "paper_link": "",
+    "note": "377,110 chest X-ray images; 227,835 studies; 65,379 patients; radiology report generation benchmark",
+    "ko_cells": [
+      "K3.O1"
+    ],
+    "ko_primary": "K3.O1",
+    "ko_note": "377,110 chest X-ray images; 227,835 studies; 65,379 patients; radiology report generation benchmark",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Cross-modal"
+  },
+  {
     "bib_key": "bicerano2024polymer",
     "title": "bicerano2024polymer",
     "year": null,
@@ -7921,6 +7940,25 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true
+  },
+  {
+    "bib_key": "demner2016preparing",
+    "title": "demner2016preparing",
+    "year": null,
+    "venue": null,
+    "method": null,
+    "domain": [],
+    "paper_link": "",
+    "note": "3,955 chest X-ray reports + 7,470 DICOM images; Indiana University chest X-ray collection (IU-Xray)",
+    "ko_cells": [
+      "K3.O1"
+    ],
+    "ko_primary": "K3.O1",
+    "ko_note": "3,955 chest X-ray reports + 7,470 DICOM images; Indiana University chest X-ray collection (IU-Xray)",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Cross-modal"
   },
   {
     "bib_key": "jin-etal-2019-pubmedqa",
@@ -7959,6 +7997,25 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "Closed-form QA"
+  },
+  {
+    "bib_key": "luo2024fairclip",
+    "title": "luo2024fairclip",
+    "year": null,
+    "venue": null,
+    "method": null,
+    "domain": [],
+    "paper_link": "",
+    "note": "10,000 SLO fundus images + clinical notes; glaucoma classification; ophthalmology fairness benchmark",
+    "ko_cells": [
+      "K3.O1"
+    ],
+    "ko_primary": "K3.O1",
+    "ko_note": "10,000 SLO fundus images + clinical notes; glaucoma classification; ophthalmology fairness benchmark",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Cross-modal"
   },
   {
     "bib_key": "welbl-etal-2017-crowdsourcing",

@@ -33,7 +33,7 @@
 <a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
 <a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
 <a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">5</span></a>
-<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">2</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">5</span></a>
 <a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
 <a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
 <a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">7</span></a>
@@ -81,7 +81,7 @@
       </div>
     </details>
 
-    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">176</span></a>
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">179</span></a>
     <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">87</span></a>
     <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">12</span></a>
     <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
@@ -105,7 +105,7 @@
   <div class="wrap">
     <p class="eyebrow"><a href="../index.html#grid">← K×O Grid</a></p>
     <h1><span class="cell-id-big">[O1]</span> Ground</h1>
-    <p class="lede"><strong>25</strong> entries with <strong>Ground</strong> objective (all K sources).</p>
+    <p class="lede"><strong>28</strong> entries with <strong>Ground</strong> objective (all K sources).</p>
     <div class="cell-axis-pair">
       <div class="axis-card axis-o">
         <span class="axis-tag">O 1</span>
@@ -115,7 +115,7 @@
     </div>
     <div class="cell-nav"><a href="../cell/K1.O1.html" class="pill" title="K1.O1">Primary Literature × Ground 10</a>
 <a href="../cell/K2.O1.html" class="pill" title="K2.O1">Curated Knowledge Base × Ground 3</a>
-<a href="../cell/K3.O1.html" class="pill" title="K3.O1">Observational & Experimental × Ground 2</a>
+<a href="../cell/K3.O1.html" class="pill" title="K3.O1">Observational & Experimental × Ground 5</a>
 <a href="../cell/K4.O1.html" class="pill" title="K4.O1">Tacit Knowledge × Ground 7</a></div>
   </div>
 </section>
@@ -123,12 +123,12 @@
 <section class="cell-list">
   <div class="wrap">
     <div class="subsec-filter" id="oaxisO1subf">
-<button class="subsec-btn active" data-sub="">All <span class="subsec-n">25</span></button>
+<button class="subsec-btn active" data-sub="">All <span class="subsec-n">28</span></button>
 <button class="subsec-btn" data-sub="Retrieval-quality">Retrieval-quality <span class="subsec-n">8</span></button>
 <button class="subsec-btn" data-sub="Closed-form QA">Closed-form QA <span class="subsec-n">6</span></button>
+<button class="subsec-btn" data-sub="Cross-modal">Cross-modal <span class="subsec-n">5</span></button>
 <button class="subsec-btn" data-sub="KB-entry">KB-entry <span class="subsec-n">3</span></button>
 <button class="subsec-btn" data-sub="Long-form Citation">Long-form Citation <span class="subsec-n">2</span></button>
-<button class="subsec-btn" data-sub="Cross-modal">Cross-modal <span class="subsec-n">2</span></button>
 </div>
 <script>
 (function(){
@@ -337,6 +337,30 @@
   <p class="card-note">4,721 expert-annotated biomedical QA pairs; running since 2012; combines exact answer + ideal summary; used for evaluation in cross-modal grounding section</p>
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><span class="tag tag-sub">Closed-form QA</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/krithara2023bioasq.html" class="card-summary-link">Summary →</a>
+</article>
+
+<article class="card" data-sub="Cross-modal">
+  <h3 class="card-title">PhysioNet-mimic-cxr-2.1.0</h3>
+  
+  <p class="card-note">377,110 chest X-ray images; 227,835 studies; 65,379 patients; radiology report generation benchmark</p>
+  <div class="card-tags"><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Observational & Experimental × Ground</a><span class="tag tag-sub">Cross-modal</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  
+</article>
+
+<article class="card" data-sub="Cross-modal">
+  <h3 class="card-title">demner2016preparing</h3>
+  
+  <p class="card-note">3,955 chest X-ray reports + 7,470 DICOM images; Indiana University chest X-ray collection (IU-Xray)</p>
+  <div class="card-tags"><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Observational & Experimental × Ground</a><span class="tag tag-sub">Cross-modal</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  
+</article>
+
+<article class="card" data-sub="Cross-modal">
+  <h3 class="card-title">luo2024fairclip</h3>
+  
+  <p class="card-note">10,000 SLO fundus images + clinical notes; glaucoma classification; ophthalmology fairness benchmark</p>
+  <div class="card-tags"><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Observational & Experimental × Ground</a><span class="tag tag-sub">Cross-modal</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  
 </article>
 
 <article class="card" data-sub="KB-entry">
