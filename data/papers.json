@@ -7567,7 +7567,9 @@
     "year": 1990,
     "venue": "Software",
     "method": null,
-    "domain": "chemistry",
+    "domain": [
+      "chemistry"
+    ],
     "paper_link": "https://www.siemens.com/gproms",
     "note": "Advanced process modeling (DAE-based, CAPE-OPEN); battery/pharma/LNG tacit knowledge embedded. BIB MISSING in references.bib",
     "ko_cells": [
@@ -7586,7 +7588,9 @@
     "year": 1984,
     "venue": "Software",
     "method": null,
-    "domain": "multi",
+    "domain": [
+      "multi"
+    ],
     "paper_link": "https://www.mathworks.com",
     "note": "Numerical computing and dynamic systems simulation; control/signal/aerospace Toolbox knowledge embedded",
     "ko_cells": [
@@ -7605,7 +7609,9 @@
     "year": 1981,
     "venue": "Software",
     "method": null,
-    "domain": "chemistry",
+    "domain": [
+      "chemistry"
+    ],
     "paper_link": "https://www.aspentech.com",
     "note": "Dominant chemical process simulator; thermodynamic/kinetic/unit-operation databases embedded",
     "ko_cells": [
@@ -7646,7 +7652,9 @@
     "year": 1976,
     "venue": "Software",
     "method": null,
-    "domain": "materials",
+    "domain": [
+      "materials"
+    ],
     "paper_link": "https://www.factsage.com",
     "note": "CALPHAD-based thermochemical suite; ~60,000 compounds + 20+ solution DBs (FToxid, FTstel, FTsalt). BIB MISSING in references.bib",
     "ko_cells": [
@@ -7688,7 +7696,9 @@
     "year": 1974,
     "venue": "Software",
     "method": null,
-    "domain": "materials",
+    "domain": [
+      "materials"
+    ],
     "paper_link": "https://www.metso.com/hsc",
     "note": "Metallurgical/pyrometallurgical thermodynamic knowledge; ~30,000 species database embedded. BIB MISSING in references.bib",
     "ko_cells": [
@@ -7728,7 +7738,9 @@
     "year": 1970,
     "venue": "Software",
     "method": null,
-    "domain": "materials",
+    "domain": [
+      "materials"
+    ],
     "paper_link": "https://www.ansys.com",
     "note": "Multiphysics simulation (structural/fluid/electromagnetic); material property databases embedded",
     "ko_cells": [
@@ -7747,7 +7759,9 @@
     "year": 1967,
     "venue": "Software",
     "method": null,
-    "domain": "chemistry",
+    "domain": [
+      "chemistry"
+    ],
     "paper_link": "https://www.aveva.com",
     "note": "Dominant chemical process simulator; refinery/gas processing tacit knowledge embedded",
     "ko_cells": [

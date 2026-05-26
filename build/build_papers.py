@@ -107,7 +107,7 @@ for bk, a in ko.items():
         'year': enrich.get('year'),
         'venue': enrich.get('venue'),
         'method': enrich.get('method'),
-        'domain': enrich.get('domain', []),
+        'domain': (lambda d: d if isinstance(d, list) else ([d] if d else []))(enrich.get('domain', [])),
         'paper_link': enrich.get('paper_link', ''),
         'note': a.get('note', ''),
         'ko_cells': a.get('cells', []),

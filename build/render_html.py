@@ -278,8 +278,14 @@ def paper_card(p, base=''):
     bib_key = p.get('bib_key', '')
     paper_fn = bib_key.replace(':', '_').replace('/', '_') + '.html'
     has_summary = bib_key and (ROOT / 'papers' / paper_fn).exists()
+    is_software_tool = p.get('venue', '') == 'Software'
 
-    title_html = f'<a href="{esc(url)}" target="_blank" rel="noopener">{title} ↗</a>' if url else title
+    if is_software_tool and has_summary:
+        title_html = f'<a href="{base}papers/{paper_fn}">{title} <sup>†</sup></a>'
+    elif url:
+        title_html = f'<a href="{esc(url)}" target="_blank" rel="noopener">{title} ↗</a>'
+    else:
+        title_html = title
     meta_parts = []
     if method and method != title:
         meta_parts.append(f'<span class="meta-method">{method}</span>')
@@ -306,7 +312,7 @@ def paper_card(p, base=''):
         tag_html.append('<span class="tag tag-xs">★ cross-source</span>')
 
     summary_link = (f'<a href="{base}papers/{paper_fn}" class="card-summary-link">Summary →</a>'
-                    if has_summary else '')
+                    if has_summary and not is_software_tool else '')
 
     subsec_attr = f' data-sub="{esc(p.get("subsection",""))}"' if p.get('subsection') else ''
     return f'''<article class="card"{subsec_attr}>
