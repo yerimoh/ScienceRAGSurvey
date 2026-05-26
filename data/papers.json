@@ -322,7 +322,8 @@
     ],
     "ko_primary": "K2.O2",
     "ko_note": "main.tex: K=-; O=O2",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Verificative Synthesis"
   },
   {
     "title": "OER-DFT (HEA) — LLM-Driven Discovery of High-Entropy Catalysts via RAG",
@@ -2751,7 +2752,8 @@
     ],
     "ko_primary": "K1.O2",
     "ko_note": "main.tex: K=-; O=O2",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Aggregative Synthesis"
   },
   {
     "title": "ScIRGen: Synthesize Realistic and Large-Scale RAG Dataset for Scientific Research",
@@ -3602,7 +3604,8 @@
     ],
     "ko_primary": "K1.O2",
     "ko_note": "main.tex: K=-; O=O2",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Aggregative Synthesis"
   },
   {
     "title": "Leveraging Chemistry Foundation Models to Facilitate Structure Focused Retrieval Augmented Generation in Multi-Agent Workflows for Catalyst and Materials Design",
@@ -3946,7 +3949,8 @@
     ],
     "ko_primary": "O2",
     "ko_note": "main.tex: K=-; O=O2",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Aggregative Synthesis"
   },
   {
     "bib_key": "navas2024review",
@@ -5161,7 +5165,8 @@
     ],
     "ko_primary": "K1.O2",
     "ko_note": "main.tex: K=-; O=O2",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Verificative Synthesis"
   },
   {
     "bib_key": "DBLP:journals/corr/abs-2206-08917",
@@ -5563,7 +5568,8 @@
     ],
     "ko_primary": "K1.O2",
     "ko_note": "main.tex: K=-; O=O2",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Verificative Synthesis"
   },
   {
     "title": "Ginger Cannot Cure Cancer: Battling Fake Health News with a Comprehensive Data Repository",
@@ -7886,7 +7892,8 @@
     "ko_note": "HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 76%; outperforms PubMedGPT and GPT-4; scales to thousands of GPUs",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Aggregative Synthesis"
   },
   {
     "bib_key": "DBLP:journals/corr/abs-2408-01107",
@@ -7940,7 +7947,8 @@
     "ko_note": "Multimodal RAG fusing PubMed text+figures via cross-modal attention; evaluated on BioASQ and PubMedQA; low hallucination rate; non-inferior to human accuracy",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Aggregative Synthesis"
   },
   {
     "title": "MTsamples (Web Dataset)",
