@@ -713,7 +713,8 @@
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=O1,O2",
     "cross_source": false,
-    "subsection": "Long-form Citation"
+    "subsection": "Long-form Citation",
+    "footnote": true
   },
   {
     "title": "TaLiRAGen: target-aware ligand generation via RAG LLMs",
@@ -2201,7 +2202,8 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "Medicine and clinical knowledge",
-    "flagship": true
+    "flagship": true,
+    "footnote": true
   },
   {
     "title": "Neural Graph Matching Improves Retrieval Augmented Generation in Molecular Machine Learning",
@@ -2746,7 +2748,8 @@
     ],
     "ko_primary": "K1.O2",
     "ko_note": "main.tex: K=-; O=O2",
-    "cross_source": false
+    "cross_source": false,
+    "footnote": true
   },
   {
     "title": "ScIRGen: Synthesize Realistic and Large-Scale RAG Dataset for Scientific Research",
@@ -3595,7 +3598,8 @@
     ],
     "ko_primary": "K1.O2",
     "ko_note": "main.tex: K=-; O=O2",
-    "cross_source": false
+    "cross_source": false,
+    "footnote": true
   },
   {
     "title": "Leveraging Chemistry Foundation Models to Facilitate Structure Focused Retrieval Augmented Generation in Multi-Agent Workflows for Catalyst and Materials Design",
@@ -3938,7 +3942,8 @@
     ],
     "ko_primary": "O2",
     "ko_note": "main.tex: K=-; O=O2",
-    "cross_source": false
+    "cross_source": false,
+    "footnote": true
   },
   {
     "bib_key": "navas2024review",
@@ -7931,7 +7936,8 @@
     "ko_note": "Multimodal RAG fusing PubMed text+figures via cross-modal attention; evaluated on BioASQ and PubMedQA; low hallucination rate; non-inferior to human accuracy",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "footnote": true
   },
   {
     "title": "MTsamples (Web Dataset)",
@@ -7992,7 +7998,8 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
-    "subsection": "Closed-form QA"
+    "subsection": "Closed-form QA",
+    "footnote": true
   },
   {
     "bib_key": "krithara2023bioasq",
@@ -8011,7 +8018,8 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
-    "subsection": "Closed-form QA"
+    "subsection": "Closed-form QA",
+    "footnote": true
   },
   {
     "bib_key": "welbl-etal-2017-crowdsourcing",

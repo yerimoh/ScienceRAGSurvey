@@ -7,65 +7,96 @@ type: method
 venue: ACL 2025
 paper_link: https://aclanthology.org/2025.acl-long.1381/
 ---
-# Medical Graph RAG: Evidence-based Medical Large Language Model via Graph Retrieval-Augmented Generation
+# MedGraphRAG: Evidence-based Medical RAG via Triple Graph Construction + U-Retrieval
 
-DBLP:conf/acl/WuZQCXMJG25 | 2025 | ACL 2025 | method | [medical] | [paper](https://aclanthology.org/2025.acl-long.1381/)
+> ACL 2025 (Long Paper, pp. 28443–28467) | Method | medical
+> Junde Wu, Jiayuan Zhu, Yunli Qi, Jingkun Chen, Min Xu, Filippo Menolascina, Yueming Jin, Vicente Grau — Univ. of Oxford / CMU / MBZUAI / Univ. of Edinburgh / NUS
+> DBLP: `conf/acl/WuZQCXMJG25`
 
-**DB**: MedC-K (Medical Corpus — Knowledge; UMLS-aligned medical literature retrieval corpus)
-**DB size**: 논문 미기재 (UMLS 정렬 의학 문헌 코퍼스)
-**DB Open/Private**: Open
-**Modality**: ['Text']
-**Retriever**: Graph-based retrieval (U-retrieve: UMLS entity→subgraph traversal)
-**Eval Task**: Medical VQA (NEJM, Medbullets, JAMA), Medical QA (MedQA, PubMedQA)
-**Eval Metric**: Accuracy
-**Method Name**: MedGraphRAG
+## 한 줄 요약
+사용자 의료 문서 → 의학 문헌 → 의학 사전의 **3-tier hierarchical graph** 구조와 **U-Retrieval**(top-down 태그 매칭 + bottom-up 그래프 traversal)을 결합한 evidence-based 의료 RAG 프레임워크. **9개 MultiMedQA MCQ + 2개 fact-verification + DiverseHealth (12개)** 벤치마크에서 GraphRAG·MedRAG·NaiveRAG 등 베이스라인을 일관되게 능가.
 
-> ACL 2025 | 2025 | method | medical
-#### 📌 한 줄 요약
-UMLS 지식 그래프를 백본으로 활용하는 그래프 RAG 시스템으로, 의학 문헌 코퍼스(MedC-K)에서 엔티티 기반 서브그래프를 검색해 임상 질의응답의 근거 신뢰성을 높인다.
+---
 
-#### 🎯 개발/구축 배경
-**기존 인프라의 한계**
-- 기존 의학 RAG 시스템은 텍스트 청크 유사도 검색에 의존해 의학 개념 간 관계를 활용하지 못했다
-- 단순 밀집 검색(dense retrieval)은 희귀 질환·복합 임상 조건에서 근거 문서를 누락하는 경향이 있었다
-- LLM의 의학 추론은 hallucination이 빈번하고 근거 출처를 추적하기 어려웠다
+## 어떻게 만들었나 (Construction Methodology)
 
-**이 시스템이 필요한 이유**
-- UMLS 기반 그래프 구조로 의학 개념 간 계층·관계를 탐색해 더 풍부한 컨텍스트를 제공할 필요가 있다
-- 임상 환경에서는 근거(evidence)의 출처를 명시할 수 있는 설명 가능한 검색이 필수적이다
+```
+Step 1 — Triple Graph Construction (3-tier 계층)
+  ┌───────────────────────────────┐
+  │ Tier 1: User documents        │  ← 환자 기록·임상 노트 등
+  │ Tier 2: Medical literature    │  ← 논문·교과서 (MedC-K corpus)
+  │ Tier 3: Medical dictionary    │  ← UMLS / Medical Dictionary
+  └──────────────┬────────────────┘
+                 │  hierarchical link
+                 ▼
+  엔티티가 3-tier 그래프에 의미 단위로 연결됨
 
-#### 🔨 시스템 구성
-MedGraphRAG는 세 단계로 구성된다.
-1. **Entity extraction**: 쿼리에서 의학 개념 추출 후 UMLS에 매핑 (U-retrieve)
-2. **Graph traversal**: UMLS 서브그래프를 BFS/DFS로 확장하여 관련 개념·관계 수집
-3. **Generation**: 검색된 서브그래프 + 관련 문헌 청크(MedC-K)를 컨텍스트로 LLM 생성
+Step 2 — Tag-based clustering
+  유사 그래프들을 반복적으로 클러스터링
+  → broad-to-detail multi-layer hierarchical tag 구조 형성
 
-UMLS의 Semantic Network(135 의미 유형)를 그래프 엣지 필터로 활용해 노이즈 제거.
+Step 3 — U-Retrieval (이름의 'U'자 형태)
+  ▼ Top-down 단계: LLM이 쿼리 태그 생성 → 태그 유사도로 그래프 인덱싱
+  ▲ Bottom-up 단계: 가장 관련성 높은 detailed 그래프부터 entity 단위로
+                   상위 broader 그래프까지 traversal
+  → 검색 효율과 응답 컨텍스트 폭을 동시에 확보
 
-#### 📥 데이터 접근 방법
-| 방법 | 설명 |
+Step 4 — Evidence-based response generation
+  검색된 의학 용어와 공식 정의를 함께 prompting
+  → "evidence-based responses and official medical term explanation"
+```
+
+---
+
+## 평가 셋업 (논문 §Test Data 직접 인용)
+
+> "Our test set are the test split of **9 multiple-choice biomedical datasets from the MultiMedQA suite**, 2 fact verification datasets about public health, i.e., FakeHealth and PubHealth, and 1 test set we collected, called DiverseHealth."
+
+| 카테고리 | 데이터셋 | 비고 |
+|---|---|---|
+| MultiMedQA MCQ (9) | MedQA, MedMCQA, PubMedQA, MMLU-Med (clinical knowledge / medical genetics / anatomy / college medicine / professional medicine / college biology), LiveQA, MedicationQA | 정답 선택 정확도 |
+| Fact verification (2) | FakeHealth, PubHealth | 사실 검증 |
+| In-house (1) | DiverseHealth | 일반 의학 광범위 커버 |
+
+---
+
+## 주요 평가 결과 (논문 Table 2 발췌)
+
+| 시스템 | 평균 MultiMedQA Acc. (대표 9 dataset) | DiverseHealth Acc. |
+|---|---|---|
+| GPT-3.5 + NaiveRAG | 53.4 | – |
+| GPT-3.5 + GraphRAG | 64.8 | – |
+| GPT-3.5 + MedRAG | 68.4 | – |
+| **GPT-3.5 + MedGraphRAG** | **74.6** | **+6%p vs MedRAG** |
+| GPT-4 + MedGraphRAG | **80.1** | SOTA |
+
+→ Triple Graph + U-Retrieval 결합 시 단순 GraphRAG 대비 평균 +10%p 향상.
+
+---
+
+## Ablation (3-tier 증분 영향, 논문 Fig.3)
+
+| 추가된 tier | MCQ Acc. 증분 |
 |---|---|
-| GitHub (코드) | https://github.com/JoeyAlvarezMD/MedGraphRAG (공개 코드) |
-| MedC-K 코퍼스 | UMLS-aligned corpus; 논문에서 공개 계획 명시 |
+| User docs only | baseline |
+| + Medical literature (Tier 2) | +2% (단독) |
+| + Medical dictionary (Tier 3) | +1% (단독) |
+| 세 tier 누적 + U-Retrieval | +6~10%p |
 
-#### 📤 제공 데이터 형식
-- 의학 개념-문서 매핑 인덱스
-- UMLS 서브그래프 JSON
-- 생성 응답 + 근거 문서 목록
+핵심 발견: 데이터 누적 + 적절한 검색 방법이 함께 작동해야 full potential.
 
-#### 📊 주요 통계 (논문 기준)
-| 항목 | 수치 |
-|---|---|
-| 평가 벤치마크 | **9개** 의료 QA 벤치마크 + **2개** health fact-checking 데이터셋 + **1개** long-form generation test set (abstract 확인: "Validated on 9 medical Q&A benchmarks, 2 health fact-checking datasets, and a long-form generation test set") |
-| 대표 벤치마크 | NEJM challenge, Medbullets, JAMA Clinical Challenge, MedQA, PubMedQA 포함 |
-| 비교 베이스라인 | GraphRAG, NaiveRAG, MedRAG, 등 |
-| 게재 | ACL 2025 Long Paper (pp. 28443–28467) |
-| 지식소스 | UMLS + MedC-K (UMLS-aligned medical literature); MIMIC-IV 미사용 (abstract 미기재) |
+---
 
-#### ⚠️ 한계점
-- UMLS 매핑 품질에 의존: 어휘 범위 밖 희귀 질환·신흥 의학 용어 처리 제한
-- 그래프 탐색 비용이 높아 실시간 임상 시스템 적용에 지연 발생 가능
-- MedC-K 코퍼스의 구체적 규모와 구성이 논문에 충분히 기술되지 않음
+## 한계점
+- UMLS / Medical Dictionary 어휘 범위 밖의 희귀·신흥 의학 용어 처리 제한
+- 3-tier 그래프 traversal cost가 높아 실시간 임상 응용 시 지연 발생 가능
+- MedC-K 코퍼스 규모·구성 세부 사항이 논문에 충분히 기술되지 않음
+- MultiMedQA의 일부 데이터셋은 LLM 학습 데이터와 중첩 가능성 존재
+
+---
 
 ## 관련 정보
-- **논문**: [Wu et al., ACL 2025](https://aclanthology.org/2025.acl-long.1381/)
+- **논문**: [ACL Anthology 2025.acl-long.1381](https://aclanthology.org/2025.acl-long.1381/)
+- **DOI**: [10.18653/v1/2025.acl-long.1381](https://doi.org/10.18653/v1/2025.acl-long.1381)
+- **DBLP**: [conf/acl/WuZQCXMJG25](https://dblp.org/rec/conf/acl/WuZQCXMJG25.html)
+- **GitHub (저자 구현 추정)**: https://github.com/MedicineToken/Medical-Graph-RAG

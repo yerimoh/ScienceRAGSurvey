@@ -116,109 +116,154 @@
 <section class="paper-body">
   <div class="wrap">
     <article class="paper-markdown">
-      <h1>Medical Graph RAG: Evidence-based Medical Large Language Model via Graph Retrieval-Augmented Generation</h1>
-<p>DBLP:conf/acl/WuZQCXMJG25 | 2025 | ACL 2025 | method | [medical] | <a href="https://aclanthology.org/2025.acl-long.1381/">paper</a></p>
-<table class="prop-table">
-<tr><td class="prop-key">DB</td><td class="prop-val">MedC-K (Medical Corpus — Knowledge; UMLS-aligned medical literature retrieval corpus)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">논문 미기재 (UMLS 정렬 의학 문헌 코퍼스)</td></tr>
-<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
-<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
-<tr><td class="prop-key">Retriever</td><td class="prop-val">Graph-based retrieval (U-retrieve: UMLS entity→subgraph traversal)</td></tr>
-<tr><td class="prop-key">Eval Task</td><td class="prop-val">Medical VQA (NEJM, Medbullets, JAMA), Medical QA (MedQA, PubMedQA)</td></tr>
-<tr><td class="prop-key">Eval Metric</td><td class="prop-val">Accuracy</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">MedGraphRAG</td></tr>
-</table>
-
+      <h1>MedGraphRAG: Evidence-based Medical RAG via Triple Graph Construction + U-Retrieval</h1>
 <blockquote>
-<p>ACL 2025 | 2025 | method | medical</p>
-<h4>📌 한 줄 요약</h4>
-<p>UMLS 지식 그래프를 백본으로 활용하는 그래프 RAG 시스템으로, 의학 문헌 코퍼스(MedC-K)에서 엔티티 기반 서브그래프를 검색해 임상 질의응답의 근거 신뢰성을 높인다.</p>
+<p>ACL 2025 (Long Paper, pp. 28443–28467) | Method | medical
+Junde Wu, Jiayuan Zhu, Yunli Qi, Jingkun Chen, Min Xu, Filippo Menolascina, Yueming Jin, Vicente Grau — Univ. of Oxford / CMU / MBZUAI / Univ. of Edinburgh / NUS
+DBLP: <code>conf/acl/WuZQCXMJG25</code></p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
-<ul>
-<li>기존 의학 RAG 시스템은 텍스트 청크 유사도 검색에 의존해 의학 개념 간 관계를 활용하지 못했다</li>
-<li>단순 밀집 검색(dense retrieval)은 희귀 질환·복합 임상 조건에서 근거 문서를 누락하는 경향이 있었다</li>
-<li>LLM의 의학 추론은 hallucination이 빈번하고 근거 출처를 추적하기 어려웠다</li>
-</ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
-<ul>
-<li>UMLS 기반 그래프 구조로 의학 개념 간 계층·관계를 탐색해 더 풍부한 컨텍스트를 제공할 필요가 있다</li>
-<li>임상 환경에서는 근거(evidence)의 출처를 명시할 수 있는 설명 가능한 검색이 필수적이다</li>
-</ul>
-<h4>🔨 시스템 구성</h4>
-<p>MedGraphRAG는 세 단계로 구성된다.</p>
-<ol>
-<li><strong>Entity extraction</strong>: 쿼리에서 의학 개념 추출 후 UMLS에 매핑 (U-retrieve)</li>
-<li><strong>Graph traversal</strong>: UMLS 서브그래프를 BFS/DFS로 확장하여 관련 개념·관계 수집</li>
-<li><strong>Generation</strong>: 검색된 서브그래프 + 관련 문헌 청크(MedC-K)를 컨텍스트로 LLM 생성</li>
-</ol>
-<p>UMLS의 Semantic Network(135 의미 유형)를 그래프 엣지 필터로 활용해 노이즈 제거.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h2>한 줄 요약</h2>
+<p>사용자 의료 문서 → 의학 문헌 → 의학 사전의 <strong>3-tier hierarchical graph</strong> 구조와 <strong>U-Retrieval</strong>(top-down 태그 매칭 + bottom-up 그래프 traversal)을 결합한 evidence-based 의료 RAG 프레임워크. <strong>9개 MultiMedQA MCQ + 2개 fact-verification + DiverseHealth (12개)</strong> 벤치마크에서 GraphRAG·MedRAG·NaiveRAG 등 베이스라인을 일관되게 능가.</p>
+<hr />
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>Step 1 — Triple Graph Construction (3-tier 계층)
+  ┌───────────────────────────────┐
+  │ Tier 1: User documents        │  ← 환자 기록·임상 노트 등
+  │ Tier 2: Medical literature    │  ← 논문·교과서 (MedC-K corpus)
+  │ Tier 3: Medical dictionary    │  ← UMLS / Medical Dictionary
+  └──────────────┬────────────────┘
+                 │  hierarchical link
+                 ▼
+  엔티티가 3-tier 그래프에 의미 단위로 연결됨
+
+Step 2 — Tag-based clustering
+  유사 그래프들을 반복적으로 클러스터링
+  → broad-to-detail multi-layer hierarchical tag 구조 형성
+
+Step 3 — U-Retrieval (이름의 'U'자 형태)
+  ▼ Top-down 단계: LLM이 쿼리 태그 생성 → 태그 유사도로 그래프 인덱싱
+  ▲ Bottom-up 단계: 가장 관련성 높은 detailed 그래프부터 entity 단위로
+                   상위 broader 그래프까지 traversal
+  → 검색 효율과 응답 컨텍스트 폭을 동시에 확보
+
+Step 4 — Evidence-based response generation
+  검색된 의학 용어와 공식 정의를 함께 prompting
+  → &quot;evidence-based responses and official medical term explanation&quot;
+</code></pre>
+<hr />
+<h2>평가 셋업 (논문 §Test Data 직접 인용)</h2>
+<blockquote>
+<p>&quot;Our test set are the test split of <strong>9 multiple-choice biomedical datasets from the MultiMedQA suite</strong>, 2 fact verification datasets about public health, i.e., FakeHealth and PubHealth, and 1 test set we collected, called DiverseHealth.&quot;</p>
+</blockquote>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>카테고리</th>
+  <th>데이터셋</th>
+  <th>비고</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>GitHub (코드)</td>
-  <td><a href="https://github.com/JoeyAlvarezMD/MedGraphRAG">https://github.com/JoeyAlvarezMD/MedGraphRAG</a> (공개 코드)</td>
+  <td>MultiMedQA MCQ (9)</td>
+  <td>MedQA, MedMCQA, PubMedQA, MMLU-Med (clinical knowledge / medical genetics / anatomy / college medicine / professional medicine / college biology), LiveQA, MedicationQA</td>
+  <td>정답 선택 정확도</td>
 </tr>
 <tr>
-  <td>MedC-K 코퍼스</td>
-  <td>UMLS-aligned corpus; 논문에서 공개 계획 명시</td>
+  <td>Fact verification (2)</td>
+  <td>FakeHealth, PubHealth</td>
+  <td>사실 검증</td>
+</tr>
+<tr>
+  <td>In-house (1)</td>
+  <td>DiverseHealth</td>
+  <td>일반 의학 광범위 커버</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
-<ul>
-<li>의학 개념-문서 매핑 인덱스</li>
-<li>UMLS 서브그래프 JSON</li>
-<li>생성 응답 + 근거 문서 목록</li>
-</ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<hr />
+<h2>주요 평가 결과 (논문 Table 2 발췌)</h2>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>시스템</th>
+  <th>평균 MultiMedQA Acc. (대표 9 dataset)</th>
+  <th>DiverseHealth Acc.</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>평가 벤치마크</td>
-  <td><strong>9개</strong> 의료 QA 벤치마크 + <strong>2개</strong> health fact-checking 데이터셋 + <strong>1개</strong> long-form generation test set (abstract 확인: &quot;Validated on 9 medical Q&amp;A benchmarks, 2 health fact-checking datasets, and a long-form generation test set&quot;)</td>
+  <td>GPT-3.5 + NaiveRAG</td>
+  <td>53.4</td>
+  <td>–</td>
 </tr>
 <tr>
-  <td>대표 벤치마크</td>
-  <td>NEJM challenge, Medbullets, JAMA Clinical Challenge, MedQA, PubMedQA 포함</td>
+  <td>GPT-3.5 + GraphRAG</td>
+  <td>64.8</td>
+  <td>–</td>
 </tr>
 <tr>
-  <td>비교 베이스라인</td>
-  <td>GraphRAG, NaiveRAG, MedRAG, 등</td>
+  <td>GPT-3.5 + MedRAG</td>
+  <td>68.4</td>
+  <td>–</td>
 </tr>
 <tr>
-  <td>게재</td>
-  <td>ACL 2025 Long Paper (pp. 28443–28467)</td>
+  <td><strong>GPT-3.5 + MedGraphRAG</strong></td>
+  <td><strong>74.6</strong></td>
+  <td><strong>+6%p vs MedRAG</strong></td>
 </tr>
 <tr>
-  <td>지식소스</td>
-  <td>UMLS + MedC-K (UMLS-aligned medical literature); MIMIC-IV 미사용 (abstract 미기재)</td>
+  <td>GPT-4 + MedGraphRAG</td>
+  <td><strong>80.1</strong></td>
+  <td>SOTA</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<p>→ Triple Graph + U-Retrieval 결합 시 단순 GraphRAG 대비 평균 +10%p 향상.</p>
+<hr />
+<h2>Ablation (3-tier 증분 영향, 논문 Fig.3)</h2>
+<table>
+<thead>
+<tr>
+  <th>추가된 tier</th>
+  <th>MCQ Acc. 증분</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>User docs only</td>
+  <td>baseline</td>
+</tr>
+<tr>
+  <td>+ Medical literature (Tier 2)</td>
+  <td>+2% (단독)</td>
+</tr>
+<tr>
+  <td>+ Medical dictionary (Tier 3)</td>
+  <td>+1% (단독)</td>
+</tr>
+<tr>
+  <td>세 tier 누적 + U-Retrieval</td>
+  <td>+6~10%p</td>
+</tr>
+</tbody>
+</table>
+<p>핵심 발견: 데이터 누적 + 적절한 검색 방법이 함께 작동해야 full potential.</p>
+<hr />
+<h2>한계점</h2>
 <ul>
-<li>UMLS 매핑 품질에 의존: 어휘 범위 밖 희귀 질환·신흥 의학 용어 처리 제한</li>
-<li>그래프 탐색 비용이 높아 실시간 임상 시스템 적용에 지연 발생 가능</li>
-<li>MedC-K 코퍼스의 구체적 규모와 구성이 논문에 충분히 기술되지 않음</li>
+<li>UMLS / Medical Dictionary 어휘 범위 밖의 희귀·신흥 의학 용어 처리 제한</li>
+<li>3-tier 그래프 traversal cost가 높아 실시간 임상 응용 시 지연 발생 가능</li>
+<li>MedC-K 코퍼스 규모·구성 세부 사항이 논문에 충분히 기술되지 않음</li>
+<li>MultiMedQA의 일부 데이터셋은 LLM 학습 데이터와 중첩 가능성 존재</li>
 </ul>
+<hr />
 <h2>관련 정보</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://aclanthology.org/2025.acl-long.1381/">Wu et al., ACL 2025</a></li>
+<li><strong>논문</strong>: <a href="https://aclanthology.org/2025.acl-long.1381/">ACL Anthology 2025.acl-long.1381</a></li>
+<li><strong>DOI</strong>: <a href="https://doi.org/10.18653/v1/2025.acl-long.1381">10.18653/v1/2025.acl-long.1381</a></li>
+<li><strong>DBLP</strong>: <a href="https://dblp.org/rec/conf/acl/WuZQCXMJG25.html">conf/acl/WuZQCXMJG25</a></li>
+<li><strong>GitHub (저자 구현 추정)</strong>: <a href="https://github.com/MedicineToken/Medical-Graph-RAG">https://github.com/MedicineToken/Medical-Graph-RAG</a></li>
 </ul>
 
     </article>
