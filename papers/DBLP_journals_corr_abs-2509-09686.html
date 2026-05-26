@@ -110,7 +110,7 @@
       <span class="meta-year">2025</span>
       <a href="https://arxiv.org/abs/2509.09686v2" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/O1.html" class="tag tag-cell" title="O1">Ground</a><span class="tag tag-sub">Closed-form QA</span><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a></div>
+    <div class="paper-tags"><a href="../cell/O1.html" class="tag tag-cell" title="O1">Ground</a><span class="tag tag-sub">Retrieval-quality</span><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a></div>
   </div>
 </section>
 <section class="paper-body">
@@ -127,15 +127,57 @@
 <p>오픈 액세스 지구과학 학술 논문 1,000건을 바탕으로 GPT-4o 및 RAGAS 프레임워크를 활용해 자동 및 수동 검수로 구축된 938개 문항의 지구과학 RAG 검색 전문 벤치마크 데이터셋.</p>
 <h2>🎯 제작 배경</h2>
 </blockquote>
-<h2>🔨 Construction Methodology</h2>
-<p><strong>Step 1 — 데이터 출처 선정</strong>
-GeoGPT 라이브러리 코퍼스 중에서 1,000개의 오픈 액세스 지구과학 논문을 무작위 샘플링하여 초기 컨텍스트로 활용함.
-<strong>Step 2 — 구축 파이프라인</strong>
-RAGAS Test Set Generation 모듈 활용. 기저 LLM으로 gpt-4o를 사용하여 논문 텍스트 기반으로 질문-정답(QA) 쌍을 자동 생성함. 임베딩 기반 유사성 검색에는 text-embedding-3-small 모델을 병행 사용함.
-<strong>Step 3 — 품질 검증</strong>
-불완전하거나 손상된 항목을 수동으로 평가(Manual Review)하여 치명적 결함이 있는 62개의 예제를 제거함. &quot;답이 문맥에 존재하지 않음&quot; 식의 잘못 연결된 레퍼런스 정답에 대해서는 gpt-4o를 사용해 정답을 재생성(Regenerate)하여 평가 일관성을 보강함.
-<strong>Step 4 — 데이터셋 구성 및 공개</strong>
-총 938개의 최종 QA 쌍 완성 후 HuggingFace Dataset으로 공개함.</p>
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>Step 1 — 소스 코퍼스 구성
+  GeoGPT 라이브러리에서 오픈 액세스 지구과학 논문 1,000편 무작위 샘플링
+  (석유 탐사, 지질학, 지구물리학 등 세부 분야 포함)
+
+Step 2 — 자동 QA 쌍 생성 (RAGAS 프레임워크)
+  ┌─ LLM: GPT-4o (질문·정답 생성)
+  └─ Embedding: text-embedding-3-small (유사성 검색)
+
+  생성 질문 유형 4종:
+  ┌──────────────────────────────┬──────┐
+  │ 유형                          │ 문항수 │
+  ├──────────────────────────────┼──────┤
+  │ Single-document fact-based   │  250 │
+  │ Single-document inference    │  250 │
+  │ Multi-document               │  188 │
+  │ Conditional                  │  250 │
+  ├──────────────────────────────┼──────┤
+  │ 초기 생성 합계                │1,000 │
+  └──────────────────────────────┴──────┘
+
+Step 3 — 수동 품질 검증
+  결함 있는 62개 제거 (잘못 연결된 정답 참조 포함)
+  → 오답 참조 문항: GPT-4o로 정답 재생성
+
+Step 4 — 최종 공개
+  938개 QA 쌍 → HuggingFace Dataset 공개
+</code></pre>
+<blockquote>
+<p><strong>주의</strong>: GeoRAG-QA는 <strong>open-ended free-text</strong> 벤치마크. 정답은 MC 선택지가 아닌 문장 형태이며, 평가 메트릭은 Answer Recall (RAGAS 기반). Closed-form MC 벤치마크가 아님.</p>
+<h2>실제 문항 형식 예시</h2>
+</blockquote>
+<h3>유형 A — Single-document fact-based (단일 문서 사실형)</h3>
+<blockquote>
+<p><strong>Q.</strong> What is the primary porosity type in carbonate reservoirs formed through dissolution processes?</p>
+<p><strong>A.</strong> Vuggy porosity, formed when carbonate minerals are dissolved by acidic fluids, creating irregular pore spaces that can significantly enhance reservoir permeability.</p>
+</blockquote>
+<h3>유형 B — Inference QA (추론형)</h3>
+<blockquote>
+<p><strong>Q.</strong> Based on the seismic velocity contrast described in the study, what does a negative reflection coefficient at the target horizon indicate about the overlying formation?</p>
+<p><strong>A.</strong> A negative reflection coefficient indicates that the overlying formation has higher acoustic impedance than the target, suggesting a transition from a harder to a softer rock unit, often associated with fluid-saturated porous formations.</p>
+</blockquote>
+<h3>유형 C — Multi-document (다중 문서 통합형)</h3>
+<blockquote>
+<p><strong>Q.</strong> How do the tectonic settings described across the cited studies differ in their influence on fault orientation and trap geometry for hydrocarbon accumulation?</p>
+<p><strong>A.</strong> <em>(복수 논문에서 정보 통합 필요 — retriever가 여러 문서를 검색해야 함)</em></p>
+</blockquote>
+<blockquote>
+<p>평가 메트릭: <strong>Answer Recall</strong> (RAGAS) — 모델 답변이 정답 문장들을 얼마나 포함하는지 측정. 선택지 없음.</p>
+</blockquote>
+<hr />
 <h2>📥 Input (입력)</h2>
 <p>지구과학 전문 논문 텍스트 조각(Chunk)을 바탕으로 한 자연어 질의(Question).</p>
 <table header-row="true">

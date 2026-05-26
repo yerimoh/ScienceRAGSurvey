@@ -716,8 +716,7 @@
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=O1,O2",
     "cross_source": false,
-    "subsection": "Long-form Citation",
-    "footnote": true
+    "subsection": "Long-form Citation"
   },
   {
     "title": "TaLiRAGen: target-aware ligand generation via RAG LLMs",
@@ -927,8 +926,7 @@
     ],
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=-",
-    "cross_source": false,
-    "subsection": "Closed-form QA"
+    "cross_source": false
   },
   {
     "title": "Benchmarking Large Language Models on Answering and Explaining Challenging Medical Questions",
@@ -1590,9 +1588,9 @@
       "O1"
     ],
     "ko_primary": "O1",
-    "ko_note": "main.tex: K=-; O=O1",
+    "ko_note": "Open-ended geoscience RAG benchmark; metric = Answer Recall + Top-K Recall; not closed-form MC",
     "cross_source": false,
-    "subsection": "Closed-form QA",
+    "subsection": "Retrieval-quality",
     "footnote": true
   },
   {
@@ -2624,8 +2622,7 @@
     ],
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=-",
-    "cross_source": false,
-    "subsection": "Closed-form QA"
+    "cross_source": false
   },
   {
     "title": "Retrieval-Augmented Generation Assistant for Anatomical Pathology Laboratories",
@@ -3021,8 +3018,7 @@
     ],
     "ko_primary": "K1.O1",
     "ko_note": "Multi-source medical RAG unifying 5 sources: textbooks, clinical guidelines, PubMed abstracts, Wikipedia, UMLS+DrugBank KG; Source Planning Optimisation (SPO)",
-    "cross_source": false,
-    "subsection": "Closed-form QA"
+    "cross_source": false
   },
   {
     "title": "WeatherArchive-Bench: Benchmarking Retrieval-Augmented Reasoning for Historical Weather Archives",
@@ -3225,8 +3221,7 @@
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
-    "subsection": "Long-form Citation",
-    "footnote": true
+    "subsection": "Long-form Citation"
   },
   {
     "title": "ChemTEB: Chemical Text Embedding Benchmark, an Overview of Embedding Models Performance & Efficiency on a Specific Domain",
@@ -4618,8 +4613,7 @@
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
     "subsection": "Long-form Citation",
-    "flagship": true,
-    "footnote": true
+    "flagship": true
   },
   {
     "title": "PeTailor: Improving Large Language Model by Tailored Chunk Scorer in Biomedical Triple Extraction",
@@ -7848,8 +7842,7 @@
     "ko_note": "22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, College Biology/Medicine; outperforms BioLLMs, GPT-3.5, NewBing",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true,
-    "subsection": "Closed-form QA"
+    "bib_only": true
   },
   {
     "bib_key": "DBLP:journals/corr/abs-2603-15712",
@@ -7946,7 +7939,7 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
-    "subsection": "Closed-form QA"
+    "subsection": "Cross-modal"
   },
   {
     "bib_key": "krithara2023bioasq",
@@ -7965,7 +7958,7 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
-    "subsection": "Closed-form QA"
+    "subsection": "Cross-modal"
   },
   {
     "bib_key": "welbl-etal-2017-crowdsourcing",

@@ -67,8 +67,7 @@
     ],
     "K": "",
     "O": "",
-    "note": "main.tex: K=-; O=-",
-    "subsection": "Closed-form QA"
+    "note": "main.tex: K=-; O=-"
   },
   "DBLP:conf/iclr/0005ZLWSWZ0Y25": {
     "cells": [
@@ -85,8 +84,7 @@
     ],
     "K": "",
     "O": "",
-    "note": "main.tex: K=-; O=-",
-    "subsection": "Closed-form QA"
+    "note": "main.tex: K=-; O=-"
   },
   "DBLP:conf/nips/BushuievBJYKSHW24": {
     "cells": [
@@ -144,8 +142,8 @@
     ],
     "K": "",
     "O": "O1",
-    "note": "main.tex: K=-; O=O1",
-    "subsection": "Closed-form QA",
+    "note": "Open-ended geoscience RAG benchmark; metric = Answer Recall + Top-K Recall; not closed-form MC",
+    "subsection": "Retrieval-quality",
     "footnote": true
   },
   "DBLP:journals/corr/abs-2509-09688": {
@@ -1158,8 +1156,7 @@
     ],
     "K": "K1",
     "O": "O1",
-    "note": "Multi-source medical RAG unifying 5 sources: textbooks, clinical guidelines, PubMed abstracts, Wikipedia, UMLS+DrugBank KG; Source Planning Optimisation (SPO)",
-    "subsection": "Closed-form QA"
+    "note": "Multi-source medical RAG unifying 5 sources: textbooks, clinical guidelines, PubMed abstracts, Wikipedia, UMLS+DrugBank KG; Source Planning Optimisation (SPO)"
   },
   "DBLP:journals/make/LahiriH25": {
     "cells": [
@@ -1176,7 +1173,7 @@
     "K": "K1",
     "O": "O1",
     "note": "4,721 expert-annotated biomedical QA pairs; running since 2012; combines exact answer + ideal summary; used for evaluation in cross-modal grounding section",
-    "subsection": "Closed-form QA"
+    "subsection": "Cross-modal"
   },
   "jin-etal-2019-pubmedqa": {
     "cells": [
@@ -1185,7 +1182,7 @@
     "K": "K1",
     "O": "O1",
     "note": "1k expert-annotated + 61.2k unlabeled + 211.3k artificially generated QA; Yes/No/Maybe from PubMed abstracts; first QA dataset requiring quantitative reasoning over biomedical texts",
-    "subsection": "Closed-form QA"
+    "subsection": "Cross-modal"
   },
   "DBLP:conf/nips/LeeKV0RPVN24": {
     "cells": [
@@ -1241,8 +1238,7 @@
     ],
     "K": "K1",
     "O": "O1",
-    "note": "22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, College Biology/Medicine; outperforms BioLLMs, GPT-3.5, NewBing",
-    "subsection": "Closed-form QA"
+    "note": "22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, College Biology/Medicine; outperforms BioLLMs, GPT-3.5, NewBing"
   },
   "DBLP:conf/pasc/GokdemirSBWHHSA25": {
     "cells": [

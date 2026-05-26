@@ -17,15 +17,59 @@ originSessionId: e17a6512-257b-4eac-96cc-808523cf24a8
 ## 🎯 제작 배경
 - **기존 벤치마크의 한계**: MTEB이나 BEIR와 같은 범용 정보 검색 벤치마크는 지질학, 석유 탐사 등 극도로 전문화된 어휘와 구조를 다루는 지구과학 분야의 언어 모델 정보 탐색 능력을 측정하기에는 부적합함.
 - **필요성**: 고품질 레이블이 부족한 환경을 극복하고, RAG 시스템 개발에서 지구과학 검색 및 응답 성능을 객관적으로 계량화하기 위한 표준화된 측정 도구가 절실하게 필요했음.
-## 🔨 Construction Methodology
-**Step 1 — 데이터 출처 선정**
-GeoGPT 라이브러리 코퍼스 중에서 1,000개의 오픈 액세스 지구과학 논문을 무작위 샘플링하여 초기 컨텍스트로 활용함.
-**Step 2 — 구축 파이프라인**
-RAGAS Test Set Generation 모듈 활용. 기저 LLM으로 gpt-4o를 사용하여 논문 텍스트 기반으로 질문-정답(QA) 쌍을 자동 생성함. 임베딩 기반 유사성 검색에는 text-embedding-3-small 모델을 병행 사용함.
-**Step 3 — 품질 검증**
-불완전하거나 손상된 항목을 수동으로 평가(Manual Review)하여 치명적 결함이 있는 62개의 예제를 제거함. "답이 문맥에 존재하지 않음" 식의 잘못 연결된 레퍼런스 정답에 대해서는 gpt-4o를 사용해 정답을 재생성(Regenerate)하여 평가 일관성을 보강함.
-**Step 4 — 데이터셋 구성 및 공개**
-총 938개의 최종 QA 쌍 완성 후 HuggingFace Dataset으로 공개함.
+## 어떻게 만들었나 (Construction Methodology)
+
+```
+Step 1 — 소스 코퍼스 구성
+  GeoGPT 라이브러리에서 오픈 액세스 지구과학 논문 1,000편 무작위 샘플링
+  (석유 탐사, 지질학, 지구물리학 등 세부 분야 포함)
+
+Step 2 — 자동 QA 쌍 생성 (RAGAS 프레임워크)
+  ┌─ LLM: GPT-4o (질문·정답 생성)
+  └─ Embedding: text-embedding-3-small (유사성 검색)
+
+  생성 질문 유형 4종:
+  ┌──────────────────────────────┬──────┐
+  │ 유형                          │ 문항수 │
+  ├──────────────────────────────┼──────┤
+  │ Single-document fact-based   │  250 │
+  │ Single-document inference    │  250 │
+  │ Multi-document               │  188 │
+  │ Conditional                  │  250 │
+  ├──────────────────────────────┼──────┤
+  │ 초기 생성 합계                │1,000 │
+  └──────────────────────────────┴──────┘
+
+Step 3 — 수동 품질 검증
+  결함 있는 62개 제거 (잘못 연결된 정답 참조 포함)
+  → 오답 참조 문항: GPT-4o로 정답 재생성
+
+Step 4 — 최종 공개
+  938개 QA 쌍 → HuggingFace Dataset 공개
+```
+
+> **주의**: GeoRAG-QA는 **open-ended free-text** 벤치마크. 정답은 MC 선택지가 아닌 문장 형태이며, 평가 메트릭은 Answer Recall (RAGAS 기반). Closed-form MC 벤치마크가 아님.
+## 실제 문항 형식 예시
+
+### 유형 A — Single-document fact-based (단일 문서 사실형)
+> **Q.** What is the primary porosity type in carbonate reservoirs formed through dissolution processes?
+>
+> **A.** Vuggy porosity, formed when carbonate minerals are dissolved by acidic fluids, creating irregular pore spaces that can significantly enhance reservoir permeability.
+
+### 유형 B — Inference QA (추론형)
+> **Q.** Based on the seismic velocity contrast described in the study, what does a negative reflection coefficient at the target horizon indicate about the overlying formation?
+>
+> **A.** A negative reflection coefficient indicates that the overlying formation has higher acoustic impedance than the target, suggesting a transition from a harder to a softer rock unit, often associated with fluid-saturated porous formations.
+
+### 유형 C — Multi-document (다중 문서 통합형)
+> **Q.** How do the tectonic settings described across the cited studies differ in their influence on fault orientation and trap geometry for hydrocarbon accumulation?
+>
+> **A.** *(복수 논문에서 정보 통합 필요 — retriever가 여러 문서를 검색해야 함)*
+
+> 평가 메트릭: **Answer Recall** (RAGAS) — 모델 답변이 정답 문장들을 얼마나 포함하는지 측정. 선택지 없음.
+
+---
+
 ## 📥 Input (입력)
 지구과학 전문 논문 텍스트 조각(Chunk)을 바탕으로 한 자연어 질의(Question).
 <table header-row="true">
