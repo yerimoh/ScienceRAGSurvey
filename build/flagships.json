@@ -1413,6 +1413,62 @@
         "physics"
       ],
       "paper_link": "https://opendata.cern.ch"
+    },
+    "aspenplus": {
+      "title": "Aspen Plus: Process simulation software",
+      "year": 1981,
+      "venue": "Software",
+      "domain": "chemistry",
+      "paper_link": "https://www.aspentech.com"
+    },
+    "proii": {
+      "title": "Pro/II: Process engineering simulation software",
+      "year": 1967,
+      "venue": "Software",
+      "domain": "chemistry",
+      "paper_link": "https://www.aveva.com"
+    },
+    "gproms": {
+      "title": "gPROMS: Advanced process modelling software",
+      "year": 1990,
+      "venue": "Software",
+      "domain": "chemistry",
+      "paper_link": "https://www.siemens.com/gproms"
+    },
+    "ansys": {
+      "title": "ANSYS multiphysics simulation",
+      "year": 1970,
+      "venue": "Software",
+      "domain": "materials",
+      "paper_link": "https://www.ansys.com"
+    },
+    "matlabsimulink": {
+      "title": "MATLAB and Simulink",
+      "year": 1984,
+      "venue": "Software",
+      "domain": "multi",
+      "paper_link": "https://www.mathworks.com"
+    },
+    "hsc": {
+      "title": "HSC Chemistry: Thermodynamic calculation software",
+      "year": 1974,
+      "venue": "Software",
+      "domain": "materials",
+      "paper_link": "https://www.metso.com/hsc"
+    },
+    "factsage": {
+      "title": "FactSage: Thermochemical software and databases",
+      "year": 1976,
+      "venue": "Software",
+      "domain": "materials",
+      "paper_link": "https://www.factsage.com"
+    },
+    "DBLP:journals/jcisd/TakaharaYOKHTTKF25": {
+      "title": "Materials Dual-Source Knowledge RAG for Local LLMs in Photocatalysts",
+      "year": 2025,
+      "venue": "J. Chem. Inf. Model.",
+      "domain": "materials",
+      "paper_link": "https://doi.org/10.1021/acs.jcim.5c01941"
     }
   }
 }

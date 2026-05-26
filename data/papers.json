@@ -217,13 +217,15 @@
     "paper_link": "",
     "note": "RAG over CMS internal documents; DPR + cross-encoder reranker + 4-bit Mistral-7B; P@1 ~5.8x over BM25 on paraphrased queries (Set 2: 0.75 vs 0.13)",
     "ko_cells": [
+      "K4",
       "K4.O1"
     ],
-    "ko_primary": "K4.O1",
+    "ko_primary": "K4",
     "ko_note": "RAG over CMS internal documents; DPR + cross-encoder reranker + 4-bit Mistral-7B; P@1 ~5.8x over BM25 on paraphrased queries (Set 2: 0.75 vs 0.13)",
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
+    "subsection": "Held by institutions",
     "flagship": true
   },
   {
@@ -650,11 +652,13 @@
     ],
     "type": "Method",
     "ko_cells": [
+      "K4",
       "K4.O1"
     ],
-    "ko_primary": "K4.O1",
+    "ko_primary": "K4",
     "ko_note": "Local RAG QA over arXiv EIC papers; open-source LLaMA for answer generation; cost-effective, data-privacy preserving alternative to cloud-hosted RAGS4EIC; extension of RAGS4EIC proceeding application",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Held by individuals and communities"
   },
   {
     "title": "Synthesizing Scientific Literature with Retrieval-Augmented Language Models",
@@ -806,11 +810,13 @@
     ],
     "type": "Method",
     "ko_cells": [
+      "K4",
       "K4.O1"
     ],
-    "ko_primary": "K4.O1",
+    "ko_primary": "K4",
     "ko_note": "main.tex: K=K4; O=-",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Held by institutions"
   },
   {
     "title": "AlzheimerRAG: Multimodal RAG for Clinical Use Cases",
@@ -1314,13 +1320,15 @@
     "paper_link": "",
     "note": "RAG over DUNE DocDB + Indico + internal wikis; multi-qa-mpnet + FAISS; ~70% retrieval accuracy (preliminary); Fermilab on-premise",
     "ko_cells": [
+      "K4",
       "K4.O1"
     ],
-    "ko_primary": "K4.O1",
+    "ko_primary": "K4",
     "ko_note": "RAG over DUNE DocDB + Indico + internal wikis; multi-qa-mpnet + FAISS; ~70% retrieval accuracy (preliminary); Fermilab on-premise",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Held by institutions"
   },
   {
     "title": "DUNE-GPT (LLM Integration for DUNE Experiment)",
@@ -2036,7 +2044,8 @@
     ],
     "ko_primary": "K4",
     "ko_note": "main.tex: K=K4; O=-",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Held by institutions"
   },
   {
     "title": "MedGraphRAG: Evidence-based Medical LLM via Graph RAG",
@@ -2858,11 +2867,13 @@
     ],
     "type": "benchmark",
     "ko_cells": [
+      "K4",
       "K4.O1"
     ],
-    "ko_primary": "K4.O1",
+    "ko_primary": "K4",
     "ko_note": "SciTreeRAG+SciGraphRAG over LHCb internal corpus (K4 institutional tacit knowledge)",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Held by individuals and communities"
   },
   {
     "title": "Spatial-RAG: Spatial Retrieval Augmented Generation for Real-World Geospatial Reasoning Questions",
@@ -3729,11 +3740,13 @@
     ],
     "type": "Method",
     "ko_cells": [
+      "K4",
       "K4.O1"
     ],
-    "ko_primary": "K4.O1",
+    "ko_primary": "K4",
     "ko_note": "cmbagent: multi-agent RAG over cobaya/classy_sz/cosmocnc software docs (K4 software-embedded knowledge)",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Held by individuals and communities"
   },
   {
     "title": "OmniMedVQA: A New Large-Scale Comprehensive Evaluation Benchmark for Medical LVLM",
@@ -4054,13 +4067,15 @@
     "paper_link": "",
     "note": "RAG-based summarization AI for EIC institutional documents; LangChain + vector DB; RAGAs evaluation; prompt template instruction-tuning; Streamlit web app; serves 1,400+ physicists in 38 countries",
     "ko_cells": [
+      "K4",
       "K4.O1"
     ],
-    "ko_primary": "K4.O1",
+    "ko_primary": "K4",
     "ko_note": "RAG-based summarization AI for EIC institutional documents; LangChain + vector DB; RAGAs evaluation; prompt template instruction-tuning; Streamlit web app; serves 1,400+ physicists in 38 countries",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Held by individuals and communities"
   },
   {
     "title": "f-RAG: Molecule Generation with Fragment Retrieval Augmentation",
@@ -5637,11 +5652,10 @@
     ],
     "type": "dataset",
     "ko_cells": [
-      "K1",
-      "K4"
+      "K1"
     ],
     "ko_primary": "K1",
-    "ko_note": "main.tex: K=K1,K4; O=-",
+    "ko_note": "main.tex: K=K1; O=-",
     "cross_source": false,
     "subsection": "General-purpose literature"
   },
@@ -7548,6 +7562,63 @@
     "subsection": "Chemistry and drug discovery"
   },
   {
+    "bib_key": "gproms",
+    "title": "gPROMS: Advanced process modelling software",
+    "year": 1990,
+    "venue": "Software",
+    "method": null,
+    "domain": "chemistry",
+    "paper_link": "https://www.siemens.com/gproms",
+    "note": "Advanced process modeling (DAE-based, CAPE-OPEN); battery/pharma/LNG tacit knowledge embedded. BIB MISSING in references.bib",
+    "ko_cells": [
+      "K4"
+    ],
+    "ko_primary": "K4",
+    "ko_note": "Advanced process modeling (DAE-based, CAPE-OPEN); battery/pharma/LNG tacit knowledge embedded. BIB MISSING in references.bib",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Embedded in software"
+  },
+  {
+    "bib_key": "matlabsimulink",
+    "title": "MATLAB and Simulink",
+    "year": 1984,
+    "venue": "Software",
+    "method": null,
+    "domain": "multi",
+    "paper_link": "https://www.mathworks.com",
+    "note": "Numerical computing and dynamic systems simulation; control/signal/aerospace Toolbox knowledge embedded",
+    "ko_cells": [
+      "K4"
+    ],
+    "ko_primary": "K4",
+    "ko_note": "Numerical computing and dynamic systems simulation; control/signal/aerospace Toolbox knowledge embedded",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Embedded in software"
+  },
+  {
+    "bib_key": "aspenplus",
+    "title": "Aspen Plus: Process simulation software",
+    "year": 1981,
+    "venue": "Software",
+    "method": null,
+    "domain": "chemistry",
+    "paper_link": "https://www.aspentech.com",
+    "note": "Dominant chemical process simulator; thermodynamic/kinetic/unit-operation databases embedded",
+    "ko_cells": [
+      "K4"
+    ],
+    "ko_primary": "K4",
+    "ko_note": "Dominant chemical process simulator; thermodynamic/kinetic/unit-operation databases embedded",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Embedded in software"
+  },
+  {
     "bib_key": "icsd",
     "title": "Inorganic Crystal Structure Database (ICSD)",
     "year": 1978,
@@ -7568,6 +7639,25 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "Chemistry and drug discovery"
+  },
+  {
+    "bib_key": "factsage",
+    "title": "FactSage: Thermochemical software and databases",
+    "year": 1976,
+    "venue": "Software",
+    "method": null,
+    "domain": "materials",
+    "paper_link": "https://www.factsage.com",
+    "note": "CALPHAD-based thermochemical suite; ~60,000 compounds + 20+ solution DBs (FToxid, FTstel, FTsalt). BIB MISSING in references.bib",
+    "ko_cells": [
+      "K4"
+    ],
+    "ko_primary": "K4",
+    "ko_note": "CALPHAD-based thermochemical suite; ~60,000 compounds + 20+ solution DBs (FToxid, FTstel, FTsalt). BIB MISSING in references.bib",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Embedded in software"
   },
   {
     "bib_key": "embase",
@@ -7593,6 +7683,25 @@
     "subsection": "Domain-specific literature"
   },
   {
+    "bib_key": "hsc",
+    "title": "HSC Chemistry: Thermodynamic calculation software",
+    "year": 1974,
+    "venue": "Software",
+    "method": null,
+    "domain": "materials",
+    "paper_link": "https://www.metso.com/hsc",
+    "note": "Metallurgical/pyrometallurgical thermodynamic knowledge; ~30,000 species database embedded. BIB MISSING in references.bib",
+    "ko_cells": [
+      "K4"
+    ],
+    "ko_primary": "K4",
+    "ko_note": "Metallurgical/pyrometallurgical thermodynamic knowledge; ~30,000 species database embedded. BIB MISSING in references.bib",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Embedded in software"
+  },
+  {
     "bib_key": "usgs_eros",
     "title": "USGS Earth Resources Observation and Science (EROS) Center",
     "year": 1973,
@@ -7612,6 +7721,44 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "Astronomy, earth, and climate"
+  },
+  {
+    "bib_key": "ansys",
+    "title": "ANSYS multiphysics simulation",
+    "year": 1970,
+    "venue": "Software",
+    "method": null,
+    "domain": "materials",
+    "paper_link": "https://www.ansys.com",
+    "note": "Multiphysics simulation (structural/fluid/electromagnetic); material property databases embedded",
+    "ko_cells": [
+      "K4"
+    ],
+    "ko_primary": "K4",
+    "ko_note": "Multiphysics simulation (structural/fluid/electromagnetic); material property databases embedded",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Embedded in software"
+  },
+  {
+    "bib_key": "proii",
+    "title": "Pro/II: Process engineering simulation software",
+    "year": 1967,
+    "venue": "Software",
+    "method": null,
+    "domain": "chemistry",
+    "paper_link": "https://www.aveva.com",
+    "note": "Dominant chemical process simulator; refinery/gas processing tacit knowledge embedded",
+    "ko_cells": [
+      "K4"
+    ],
+    "ko_primary": "K4",
+    "ko_note": "Dominant chemical process simulator; refinery/gas processing tacit knowledge embedded",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Embedded in software"
   },
   {
     "bib_key": "DBLP:conf/pasc/GokdemirSBWHHSA25",
@@ -7710,42 +7857,6 @@
     "cross_source": false
   },
   {
-    "bib_key": "ansys",
-    "title": "ansys",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Multiphysics simulation (structural/fluid/electromagnetic); material property databases embedded",
-    "ko_cells": [
-      "K4"
-    ],
-    "ko_primary": "K4",
-    "ko_note": "Multiphysics simulation (structural/fluid/electromagnetic); material property databases embedded",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true
-  },
-  {
-    "bib_key": "aspenplus",
-    "title": "aspenplus",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Dominant chemical process simulator; thermodynamic/kinetic/unit-operation databases embedded",
-    "ko_cells": [
-      "K4"
-    ],
-    "ko_primary": "K4",
-    "ko_note": "Dominant chemical process simulator; thermodynamic/kinetic/unit-operation databases embedded",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true
-  },
-  {
     "bib_key": "bicerano2024polymer",
     "title": "bicerano2024polymer",
     "year": null,
@@ -7759,60 +7870,6 @@
     ],
     "ko_primary": "K2.O3",
     "ko_note": "Expert system for de novo polymer design via QSPR over PEARL (Polymer Expert Analog Repeat-unit Library); weakly-verified hypothesis — QSPR predictions without experimental validation loop; non-obvious candidates discovered",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true
-  },
-  {
-    "bib_key": "factsage",
-    "title": "factsage",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "CALPHAD-based thermochemical suite; ~60,000 compounds + 20+ solution DBs (FToxid, FTstel, FTsalt). BIB MISSING in references.bib",
-    "ko_cells": [
-      "K4"
-    ],
-    "ko_primary": "K4",
-    "ko_note": "CALPHAD-based thermochemical suite; ~60,000 compounds + 20+ solution DBs (FToxid, FTstel, FTsalt). BIB MISSING in references.bib",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true
-  },
-  {
-    "bib_key": "gproms",
-    "title": "gproms",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Advanced process modeling (DAE-based, CAPE-OPEN); battery/pharma/LNG tacit knowledge embedded. BIB MISSING in references.bib",
-    "ko_cells": [
-      "K4"
-    ],
-    "ko_primary": "K4",
-    "ko_note": "Advanced process modeling (DAE-based, CAPE-OPEN); battery/pharma/LNG tacit knowledge embedded. BIB MISSING in references.bib",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true
-  },
-  {
-    "bib_key": "hsc",
-    "title": "hsc",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Metallurgical/pyrometallurgical thermodynamic knowledge; ~30,000 species database embedded. BIB MISSING in references.bib",
-    "ko_cells": [
-      "K4"
-    ],
-    "ko_primary": "K4",
-    "ko_note": "Metallurgical/pyrometallurgical thermodynamic knowledge; ~30,000 species database embedded. BIB MISSING in references.bib",
     "cross_source": false,
     "type": "Method",
     "bib_only": true
@@ -7849,42 +7906,6 @@
     ],
     "ko_primary": "K1.O1",
     "ko_note": "4,721 expert-annotated biomedical QA pairs; running since 2012; combines exact answer + ideal summary; used for evaluation in cross-modal grounding section",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true
-  },
-  {
-    "bib_key": "matlabsimulink",
-    "title": "matlabsimulink",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Numerical computing and dynamic systems simulation; control/signal/aerospace Toolbox knowledge embedded",
-    "ko_cells": [
-      "K4"
-    ],
-    "ko_primary": "K4",
-    "ko_note": "Numerical computing and dynamic systems simulation; control/signal/aerospace Toolbox knowledge embedded",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true
-  },
-  {
-    "bib_key": "proii",
-    "title": "proii",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "Dominant chemical process simulator; refinery/gas processing tacit knowledge embedded",
-    "ko_cells": [
-      "K4"
-    ],
-    "ko_primary": "K4",
-    "ko_note": "Dominant chemical process simulator; refinery/gas processing tacit knowledge embedded",
     "cross_source": false,
     "type": "Method",
     "bib_only": true

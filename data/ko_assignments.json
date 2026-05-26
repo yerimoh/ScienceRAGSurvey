@@ -1,12 +1,11 @@
 {
   "DBLP:conf/acl/LoWNKW20": {
     "cells": [
-      "K1",
-      "K4"
+      "K1"
     ],
     "K": "K1",
     "O": "",
-    "note": "main.tex: K=K1,K4; O=-",
+    "note": "main.tex: K=K1; O=-",
     "subsection": "General-purpose literature"
   },
   "DBLP:conf/acl/Xiong0LZ24": {
@@ -139,11 +138,13 @@
   },
   "DBLP:journals/corr/abs-2509-09688": {
     "cells": [
+      "K4",
       "K4.O1"
     ],
     "K": "K4",
     "O": "",
-    "note": "main.tex: K=K4; O=-"
+    "note": "main.tex: K=K4; O=-",
+    "subsection": "Held by institutions"
   },
   "DBLP:journals/corr/abs-2601-06519": {
     "cells": [
@@ -167,7 +168,8 @@
     ],
     "K": "K4",
     "O": "",
-    "note": "main.tex: K=K4; O=-"
+    "note": "main.tex: K=K4; O=-",
+    "subsection": "Held by institutions"
   },
   "asai2026synthesizing": {
     "cells": [
@@ -1054,7 +1056,8 @@
     ],
     "K": "K4",
     "O": "",
-    "note": "Dominant chemical process simulator; thermodynamic/kinetic/unit-operation databases embedded"
+    "note": "Dominant chemical process simulator; thermodynamic/kinetic/unit-operation databases embedded",
+    "subsection": "Embedded in software"
   },
   "proii": {
     "cells": [
@@ -1062,7 +1065,8 @@
     ],
     "K": "K4",
     "O": "",
-    "note": "Dominant chemical process simulator; refinery/gas processing tacit knowledge embedded"
+    "note": "Dominant chemical process simulator; refinery/gas processing tacit knowledge embedded",
+    "subsection": "Embedded in software"
   },
   "gproms": {
     "cells": [
@@ -1070,7 +1074,8 @@
     ],
     "K": "K4",
     "O": "",
-    "note": "Advanced process modeling (DAE-based, CAPE-OPEN); battery/pharma/LNG tacit knowledge embedded. BIB MISSING in references.bib"
+    "note": "Advanced process modeling (DAE-based, CAPE-OPEN); battery/pharma/LNG tacit knowledge embedded. BIB MISSING in references.bib",
+    "subsection": "Embedded in software"
   },
   "ansys": {
     "cells": [
@@ -1078,7 +1083,8 @@
     ],
     "K": "K4",
     "O": "",
-    "note": "Multiphysics simulation (structural/fluid/electromagnetic); material property databases embedded"
+    "note": "Multiphysics simulation (structural/fluid/electromagnetic); material property databases embedded",
+    "subsection": "Embedded in software"
   },
   "matlabsimulink": {
     "cells": [
@@ -1086,7 +1092,8 @@
     ],
     "K": "K4",
     "O": "",
-    "note": "Numerical computing and dynamic systems simulation; control/signal/aerospace Toolbox knowledge embedded"
+    "note": "Numerical computing and dynamic systems simulation; control/signal/aerospace Toolbox knowledge embedded",
+    "subsection": "Embedded in software"
   },
   "hsc": {
     "cells": [
@@ -1094,7 +1101,8 @@
     ],
     "K": "K4",
     "O": "",
-    "note": "Metallurgical/pyrometallurgical thermodynamic knowledge; ~30,000 species database embedded. BIB MISSING in references.bib"
+    "note": "Metallurgical/pyrometallurgical thermodynamic knowledge; ~30,000 species database embedded. BIB MISSING in references.bib",
+    "subsection": "Embedded in software"
   },
   "factsage": {
     "cells": [
@@ -1102,23 +1110,28 @@
     ],
     "K": "K4",
     "O": "",
-    "note": "CALPHAD-based thermochemical suite; ~60,000 compounds + 20+ solution DBs (FToxid, FTstel, FTsalt). BIB MISSING in references.bib"
+    "note": "CALPHAD-based thermochemical suite; ~60,000 compounds + 20+ solution DBs (FToxid, FTstel, FTsalt). BIB MISSING in references.bib",
+    "subsection": "Embedded in software"
   },
   "DBLP:journals/corr/abs-2603-09800": {
     "cells": [
+      "K4",
       "K4.O1"
     ],
     "K": "K4",
     "O": "O1",
-    "note": "RAG over CMS internal documents; DPR + cross-encoder reranker + 4-bit Mistral-7B; P@1 ~5.8x over BM25 on paraphrased queries (Set 2: 0.75 vs 0.13)"
+    "note": "RAG over CMS internal documents; DPR + cross-encoder reranker + 4-bit Mistral-7B; P@1 ~5.8x over BM25 on paraphrased queries (Set 2: 0.75 vs 0.13)",
+    "subsection": "Held by institutions"
   },
   "rafique2025large": {
     "cells": [
+      "K4",
       "K4.O1"
     ],
     "K": "K4",
     "O": "O1",
-    "note": "RAG over DUNE DocDB + Indico + internal wikis; multi-qa-mpnet + FAISS; ~70% retrieval accuracy (preliminary); Fermilab on-premise"
+    "note": "RAG over DUNE DocDB + Indico + internal wikis; multi-qa-mpnet + FAISS; ~70% retrieval accuracy (preliminary); Fermilab on-premise",
+    "subsection": "Held by institutions"
   },
   "DBLP:conf/acl/ChenLJWG0025": {
     "cells": [
@@ -1219,35 +1232,43 @@
   },
   "DBLP:journals/corr/abs-2403-15729": {
     "cells": [
+      "K4",
       "K4.O1"
     ],
     "K": "K4",
     "O": "O1",
-    "note": "RAG-based summarization AI for EIC institutional documents; LangChain + vector DB; RAGAs evaluation; prompt template instruction-tuning; Streamlit web app; serves 1,400+ physicists in 38 countries"
+    "note": "RAG-based summarization AI for EIC institutional documents; LangChain + vector DB; RAGAs evaluation; prompt template instruction-tuning; Streamlit web app; serves 1,400+ physicists in 38 countries",
+    "subsection": "Held by individuals and communities"
   },
   "jat2026retrieval": {
     "cells": [
+      "K4",
       "K4.O1"
     ],
     "K": "K4",
     "O": "O1",
-    "note": "Local RAG QA over arXiv EIC papers; open-source LLaMA for answer generation; cost-effective, data-privacy preserving alternative to cloud-hosted RAGS4EIC; extension of RAGS4EIC proceeding application"
+    "note": "Local RAG QA over arXiv EIC papers; open-source LLaMA for answer generation; cost-effective, data-privacy preserving alternative to cloud-hosted RAGS4EIC; extension of RAGS4EIC proceeding application",
+    "subsection": "Held by individuals and communities"
   },
   "mcgreivy2025seeing": {
     "cells": [
+      "K4",
       "K4.O1"
     ],
     "K": "K4",
     "O": "O1",
-    "note": "SciTreeRAG+SciGraphRAG over LHCb internal corpus (K4 institutional tacit knowledge)"
+    "note": "SciTreeRAG+SciGraphRAG over LHCb internal corpus (K4 institutional tacit knowledge)",
+    "subsection": "Held by individuals and communities"
   },
   "sarkar2024multi": {
     "cells": [
+      "K4",
       "K4.O1"
     ],
     "K": "K4",
     "O": "O1",
-    "note": "cmbagent: multi-agent RAG over cobaya/classy_sz/cosmocnc software docs (K4 software-embedded knowledge)"
+    "note": "cmbagent: multi-agent RAG over cobaya/classy_sz/cosmocnc software docs (K4 software-embedded knowledge)",
+    "subsection": "Held by individuals and communities"
   },
   "scopus": {
     "cells": [
