@@ -77,4 +77,24 @@ PubMed 체계적 문헌 고찰(Systematic Review, SR)에서 추출한 질문과 
 
 ## 관련 정보
 - **논문**: [https://arxiv.org/abs/2310.16146](https://arxiv.org/abs/2310.16146)
+- **DBLP**: [https://dblp.org/rec/journals/corr/abs-2310-16146.html](https://dblp.org/rec/journals/corr/abs-2310-16146.html)
 - **이 벤치마크를 사용한 논문**: Clinfo.ai (PSB 2024)
+
+---
+
+## ⚠️ 팩트체크 노트 (survey §O1 Long-form citation Grounding)
+
+**Basis**: arXiv:2310.16146 본문 직접 인용 (PDF 본문 grep, abstract 아님)
+
+main.tex `\subsubsection{Long-form citation Grounding}` 단락이 Clinfo.AI를 "citation precision/recall/F1, faithfulness per claim" 평가 사례로 묶은 것은 부정확하다. **Clinfo.AI는 IEEE 형식 인용을 포함한 합성문을 생성하지만, 평가는 요약 품질 metric 기반**이며 인용 단위 grounding metric을 보고하지 않는다.
+
+| Claim (survey) | Evidence (paper body, verbatim) | Status |
+|---|---|---|
+| "paragraph with citations per claim" (생성 측면) | "structured list of article summaries ... constructing a [synthesis] ... relying on the structured list of citations to reference and accurately attribute each finding" + "construct their citations in the IEEE format" | ✅ |
+| "citation precision, recall, F1" | Table 1 SA metrics: **UniEval, COMET, CTC**; Table 2 SF: **BERTScore, ROUGE-L** | ❌ (citation-level이 아닌 summary-quality) |
+| "per-sentence grounding 평가" | "Step (2) is evaluated based on **precision and recall**. Considering the set of all documents D, RET(D, k) denotes the [retrieved set]..." → **문서 검색 P/R**이지 문장 단위 인용 P/R 아님 | ❌ |
+| "faithfulness per claim" | 명명된 metric 아님 (paper 어디에도 없음) | ❌ |
+
+**Verdict**: ⚠️ **PARTIAL** — 임상 영역 paragraph synthesis 시스템으로 인용하는 것은 정확하지만, 평가 방법론을 citation-level metric으로 묘사한 것은 사실 오류. Survey에서 Clinfo.AI를 언급할 때 평가가 UniEval/BERTScore/ROUGE 기반임을 명시하거나, citation-level metric 예시에서는 제외할 것.
+
+**Survey 수정안**: factcheck_o1_longform.md의 proposed corrected paragraph 참조.

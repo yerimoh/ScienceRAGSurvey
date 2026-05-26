@@ -140,6 +140,29 @@ Rubric 합의율: Pearson 상관계수 79.3 (general 포함) / 59.5 (전용 항�
 
 ## 관련 정보
 - **논문**: [https://doi.org/10.1038/s41586-025-10072-4](https://doi.org/10.1038/s41586-025-10072-4)
+- **arXiv 프리프린트**: [https://arxiv.org/abs/2411.14199](https://arxiv.org/abs/2411.14199)
 - **데이터**: [https://github.com/AkariAsai/ScholarQABench/tree/main/data](https://github.com/AkariAsai/ScholarQABench/tree/main/data)
 - **평가 코드**: [https://github.com/AkariAsai/ScholarQABench](https://github.com/AkariAsai/ScholarQABench)
 - **이 벤치마크를 사용한 RAG 논문**: OpenScholar (Nature 2026)
+
+---
+
+## ✅ 팩트체크 노트 (survey §O1 Long-form citation Grounding)
+
+**Basis**: arXiv:2411.14199 본문 직접 인용 (PDF 본문 grep)
+
+main.tex `\subsubsection{Long-form citation Grounding}` 단락이 ScholarQABench를 인용한 부분은 **대체로 정확**하다. 다만 "faithfulness per claim" metric은 OpenScholar에서 명명되지 않으므로 표현 수정 필요.
+
+| Claim (survey) | Evidence (paper body, verbatim) | Status |
+|---|---|---|
+| "paragraph with citations per claim" | "2,967 expert-written queries and **208 long-form answers**" | ✅ |
+| "long-form text" | "208 long-form responses written by experts" | ✅ |
+| "per-sentence grounding" | "We follow citation precision and recall formulation from Gao et al. (2023) and **compute citation precision and recall at the sentence** level" | ✅ |
+| "citation precision, recall, F1" | "we measure **citation precision** and **recall** ... we compute **Citation F1 (Cite-F1)** as well, and use it as a primarily metric" | ✅ |
+| "faithfulness per claim" | OpenScholar에 명명된 metric 아님. 그들의 추가 metric은 **Coverage (Cov), Organization (Org), Relevance (Rel)** (LLM-as-judge) | ⚠️ |
+
+**Verdict**: ✅ **MOSTLY ACCURATE** — ScholarQABench 자체 묘사와 metric 인용은 본문 근거에 부합. "faithfulness per claim"만 표현 정정 필요 (대체로 "citation accuracy" 또는 OpenScholar 본문 metric인 "coverage / organization / relevance"로 표기).
+
+**Survey 수정안**: factcheck_o1_longform.md의 proposed corrected paragraph 참조 (Gao et al. 2023 EMNLP를 인용해 sentence-level 정의의 원천 표기).
+
+**관련 missing bib**: `DBLP:conf/emnlp/GaoYYC23` (Gao, Yen, Yu, Chen — "Enabling Large Language Models to Generate Text with Citations", EMNLP 2023). 현재 references.bib에 **없음** — 임의 생성 금지, 추가 시 DBLP에서 정식 키 fetch 필요.

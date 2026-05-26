@@ -240,8 +240,46 @@
 <h2>관련 정보</h2>
 <ul>
 <li><strong>논문</strong>: <a href="https://arxiv.org/abs/2310.16146">https://arxiv.org/abs/2310.16146</a></li>
+<li><strong>DBLP</strong>: <a href="https://dblp.org/rec/journals/corr/abs-2310-16146.html">https://dblp.org/rec/journals/corr/abs-2310-16146.html</a></li>
 <li><strong>이 벤치마크를 사용한 논문</strong>: Clinfo.ai (PSB 2024)</li>
 </ul>
+<hr />
+<h2>⚠️ 팩트체크 노트 (survey §O1 Long-form citation Grounding)</h2>
+<p><strong>Basis</strong>: arXiv:2310.16146 본문 직접 인용 (PDF 본문 grep, abstract 아님)</p>
+<p>main.tex <code>\subsubsection{Long-form citation Grounding}</code> 단락이 Clinfo.AI를 &quot;citation precision/recall/F1, faithfulness per claim&quot; 평가 사례로 묶은 것은 부정확하다. <strong>Clinfo.AI는 IEEE 형식 인용을 포함한 합성문을 생성하지만, 평가는 요약 품질 metric 기반</strong>이며 인용 단위 grounding metric을 보고하지 않는다.</p>
+<table>
+<thead>
+<tr>
+  <th>Claim (survey)</th>
+  <th>Evidence (paper body, verbatim)</th>
+  <th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>&quot;paragraph with citations per claim&quot; (생성 측면)</td>
+  <td>&quot;structured list of article summaries ... constructing a [synthesis] ... relying on the structured list of citations to reference and accurately attribute each finding&quot; + &quot;construct their citations in the IEEE format&quot;</td>
+  <td>✅</td>
+</tr>
+<tr>
+  <td>&quot;citation precision, recall, F1&quot;</td>
+  <td>Table 1 SA metrics: <strong>UniEval, COMET, CTC</strong>; Table 2 SF: <strong>BERTScore, ROUGE-L</strong></td>
+  <td>❌ (citation-level이 아닌 summary-quality)</td>
+</tr>
+<tr>
+  <td>&quot;per-sentence grounding 평가&quot;</td>
+  <td>&quot;Step (2) is evaluated based on <strong>precision and recall</strong>. Considering the set of all documents D, RET(D, k) denotes the [retrieved set]...&quot; → <strong>문서 검색 P/R</strong>이지 문장 단위 인용 P/R 아님</td>
+  <td>❌</td>
+</tr>
+<tr>
+  <td>&quot;faithfulness per claim&quot;</td>
+  <td>명명된 metric 아님 (paper 어디에도 없음)</td>
+  <td>❌</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verdict</strong>: ⚠️ <strong>PARTIAL</strong> — 임상 영역 paragraph synthesis 시스템으로 인용하는 것은 정확하지만, 평가 방법론을 citation-level metric으로 묘사한 것은 사실 오류. Survey에서 Clinfo.AI를 언급할 때 평가가 UniEval/BERTScore/ROUGE 기반임을 명시하거나, citation-level metric 예시에서는 제외할 것.</p>
+<p><strong>Survey 수정안</strong>: factcheck_o1_longform.md의 proposed corrected paragraph 참조.</p>
 
     </article>
   </div>

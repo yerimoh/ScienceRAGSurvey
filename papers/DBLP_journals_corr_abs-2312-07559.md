@@ -50,3 +50,23 @@ originSessionId: e17a6512-257b-4eac-96cc-808523cf24a8
 
 ## 관련 연구 및 관련 정보
 - 논문 링크: [https://arxiv.org/abs/2312.07559v2](https://arxiv.org/abs/2312.07559v2)
+- DBLP: [https://dblp.org/rec/journals/corr/abs-2312-07559.html](https://dblp.org/rec/journals/corr/abs-2312-07559.html)
+
+---
+
+## ⚠️ 팩트체크 노트 (survey §O1 Long-form citation Grounding)
+
+**Basis**: arXiv:2312.07559 본문 직접 인용 (abstract 아님, PDF 본문 grep)
+
+main.tex `\subsubsection{Long-form citation Grounding}` 에서 LitQA를 "paragraph-with-citations-per-sentence" 벤치마크 예시로 들었으나, **LitQA는 객관식(MCQ) 벤치마크**다 — 카테고리 자체가 잘못됨.
+
+| Claim (survey) | Evidence (paper body, verbatim) | Status |
+|---|---|---|
+| "answer is a paragraph ... citations attached to each claim" | "The LitQA dataset consists of 50 **multiple-choice** questions" | ❌ |
+| "long-form text rather than a few words" | "5 Yes/No questions, 6 questions with 3 possible answers, 23 questions with 4 possible answers..." | ❌ |
+| "citation precision/recall/F1 + faithfulness per claim" | Table 2: **Accuracy** (CorrectAll/CorrectAll), **Precision** (CorrectSure/AnsweredSure) | ❌ |
+| "grounding at every individual sentence" | Hallucination 분류 ("full hallucination / citation inaccuracy / context irrelevance")는 52개 구버전 LitQA에 대한 별도 분석, 문장 단위 metric 아님 | ❌ |
+
+**Verdict**: ❌ **CATEGORY MISMATCH** — LitQA는 Closed-form QA 섹션에서만 인용해야 함. 본 단락에서는 제거하거나 ALCE 같은 실제 장문 인용 벤치마크로 교체.
+
+**Survey 수정안**: 본 단락의 "LitQA~\cite{DBLP:journals/corr/abs-2312-07559}" 인용을 삭제하고, ScholarQABench + Clinfo.AI만 남기되 각 평가 방법론은 사실대로 묘사할 것 (factcheck_o1_longform.md 참조).

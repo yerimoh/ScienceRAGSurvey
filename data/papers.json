@@ -716,7 +716,8 @@
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=O1,O2",
     "cross_source": false,
-    "subsection": "Long-form Citation"
+    "subsection": "Long-form Citation",
+    "footnote": true
   },
   {
     "title": "TaLiRAGen: target-aware ligand generation via RAG LLMs",
@@ -3224,7 +3225,8 @@
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
-    "subsection": "Long-form Citation"
+    "subsection": "Long-form Citation",
+    "footnote": true
   },
   {
     "title": "ChemTEB: Chemical Text Embedding Benchmark, an Overview of Embedding Models Performance & Efficiency on a Specific Domain",
@@ -4616,7 +4618,8 @@
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
     "subsection": "Long-form Citation",
-    "flagship": true
+    "flagship": true,
+    "footnote": true
   },
   {
     "title": "PeTailor: Improving Large Language Model by Tailored Chunk Scorer in Biomedical Triple Extraction",
