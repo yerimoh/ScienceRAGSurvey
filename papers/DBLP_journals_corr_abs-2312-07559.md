@@ -11,62 +11,147 @@ originSessionId: e17a6512-257b-4eac-96cc-808523cf24a8
 ---
 # PaperQA: Retrieval-Augmented Generative Agent for Scientific Research
 
-> arXiv | 2023 | Method | bio, medical
+> arXiv 2023 | Method + Benchmark | bio · medical
+> Jakub Lála, Odhran O'Donoghue, Aleksandar Shtedritski, Sam Cox, Samuel G Rodriques, Andrew D White (Future House / Francis Crick Institute / University of Rochester)
 
 ## 한 줄 요약
-과학 문헌을 동적으로 검색, 추출, 요약하여 환각(Hallucination) 없이 정확하게 출처를 인용하는 에이전트 기반의 RAG 시스템.
-
-## 연구 배경 및 동기
-- **기존 방법의 한계점**: 기존 LLM은 환각 현상이 발생하기 쉽고, 학습 데이터 컷오프 이후의 최신 과학적 사실을 알지 못하는 한계가 있음.
-- **이 연구가 필요한 이유**: 일반적인 RAG 파이프라인은 고정된 선형 단계로 구성되어 있어, 과학자들이 직면하는 다양하고 복잡한 질문에 유연하게 대응하기 어려움.
-
-## 시스템 아키텍처
-1. 사용자 질문 입력
-2. **Agent LLM**이 도구 선택
-3. **[Search 도구]** 키워드로 논문 검색 및 청크 분할 임베딩
-4. **[Gather Evidence 도구]** MMR로 청크 회수 후 Summary LLM이 요약 및 채점
-5. **[Answer Question 도구]** Ask LLM으로 사전 지식을 모으고 Answer LLM이 최종 답변 및 인용 생성
-6. 에이전트가 검토 후 최종 출력 도출
-
-## 핵심 모듈 상세 설명
-- **Search 모듈**: 에이전트가 쿼리를 생성하여 Google Scholar, PubMed 등의 API를 호출. 수집된 논문을 4,000자 단위로 나누고 `text-embedding-ada-002`를 통해 벡터화.
-- **Gather Evidence 모듈**: 질문 벡터와 비교하여 MMR 방식으로 텍스트를 불러옴. Summary LLM(GPT-3.5)이 각 청크를 질문 관점에서 요약하고 1에서 10점의 관련성 점수를 부여해 상위 문서를 필터링.
-- **Answer Question 모듈**: LLM의 내재적 지식(Ask LLM)과 검색된 증거들을 합쳐 Answer LLM(GPT-4)에 제공. 모델은 반드시 제공된 증거를 기반으로 문장 끝에 인용구를 포함한 답변을 작성.
-
-## 실험 및 평가
-- **평가 태스크**: LitQA (자체 제작), PubMedQA, MedQA-USMLE, BioASQ
-- **주요 평가 결과**:
-	- LitQA 벤치마크에서 기존 상용 도구(Scite, Perplexity 등) 및 베이스라인 모델들을 큰 차이로 앞질렀음.
-	- 인간 생의학 전문가 수준의 정답률(69.5% vs 인간 87.9% 정확도)을 달성함.
-	- 자체 테스트 결과 환각(Hallucinated citation) 비율이 0%로 측정되어 신뢰성을 크게 높임.
-
-## 핵심 기여
-- 검색, 요약, 답변 생성을 독립된 모듈(도구)로 분리하고 이를 LLM 에이전트가 능동적으로 조율하게 함으로써 과학적 질문 해결의 유연성과 정확성을 확보.
-- 최신 논문의 전체 텍스트 검색을 강제하는 신규 벤치마크인 'LitQA'를 성공적으로 구축.
-
-## 한계점
-- 시스템이 참조하는 원본 논문의 정보 자체가 틀렸을 가능성에는 대처하기 어려움.
-- 시간이 지나면서 과학적 사실이 업데이트될 수 있어, 특정 답변의 유효기간이 존재할 수 있음.
-
-## 관련 연구 및 관련 정보
-- 논문 링크: [https://arxiv.org/abs/2312.07559v2](https://arxiv.org/abs/2312.07559v2)
-- DBLP: [https://dblp.org/rec/journals/corr/abs-2312-07559.html](https://dblp.org/rec/journals/corr/abs-2312-07559.html)
+과학 문헌을 동적으로 검색·추출·요약하여 인용 hallucination 0%로 전문가 수준의 답변을 생성하는 에이전트 기반 RAG 시스템 **PaperQA**와, 이를 평가하기 위한 **LitQA** 벤치마크(50개 MC 생의학 질문)를 함께 제안.
 
 ---
 
-## ⚠️ 팩트체크 노트 (survey §O1 Long-form citation Grounding)
+## LitQA 벤치마크 — 어떻게 만들었나 (Construction Methodology)
 
-**Basis**: arXiv:2312.07559 본문 직접 인용 (abstract 아님, PDF 본문 grep)
+```
+Step 1 — 소스 논문 선정
+  LLM 학습 데이터 컷오프(2021년 9월) 이후 출판된 생의학 논문만 선택
+  → 모델 파라메트릭 메모리에 없는 지식만 질문화
 
-main.tex `\subsubsection{Long-form citation Grounding}` 에서 LitQA를 "paragraph-with-citations-per-sentence" 벤치마크 예시로 들었으나, **LitQA는 객관식(MCQ) 벤치마크**다 — 카테고리 자체가 잘못됨.
+Step 2 — 질문 생성 원칙
+  "Select a paper and devise a question that:
+   (1) refers to a novel finding in the paper body
+   (2) is NOT present in the abstract"
+  → 전문 생의학 연구자가 질문 작성
 
-| Claim (survey) | Evidence (paper body, verbatim) | Status |
+Step 3 — 오답 선택지(Distractor) 생성
+  질문 작성자가 직접 생성 OR
+  LLM으로 그럴듯한 오답 후보 생성 후 검토
+
+Step 4 — 동료 검토
+  공동저자들의 독립 교차 검토 후 확정
+
+Step 5 — 최종 구성
+  ┌──────────────────┬──────┐
+  │ 선택지 수         │ 문항수 │
+  ├──────────────────┼──────┤
+  │ Yes/No (2지)     │    5 │
+  │ 3지 선다          │    6 │
+  │ 4지 선다          │   23 │
+  │ 5지 선다          │   10 │
+  │ 6지 선다          │    4 │
+  │ 7지 선다          │    2 │
+  ├──────────────────┼──────┤
+  │ 합계              │   50 │
+  └──────────────────┴──────┘
+  도메인: 생의학 (biomedical)
+  평가 메트릭: Accuracy (Correct/All), Precision (Correct-Sure/Answered-Sure)
+```
+
+---
+
+## 실제 문항 예시 (논문 본문 직접 인용)
+
+### 쉬운 문항 (Yes/No)
+> **Q.** Has anyone performed a base editing screen against splice sites in CD33 before?
+>
+> **(A) Yes  (B) No**
+>
+> → 2021년 9월 이후 출판 논문 본문에서만 답을 찾을 수 있는 사실형 질문
+
+### 중간 난이도 (3지 선다)
+> **Q.** How diffuse are the laminar patterns of the axonal terminations of lower Layer 5/Layer 6 intratelencephalic neurons compared to Layer 2-4 intratelencephalic neurons in mouse cortex?
+>
+> **(A) More diffuse  (B) About the same  (C) Less diffuse**
+
+### 어려운 문항 (4지 선다, 부정형)
+> **Q.** Which of these glycoRNAs does NOT show an increase in M0 macrophages upon stimulation with LPS: U1, U35a, Y5 or U8?
+>
+> **(A) U8  (B) U1  (C) U35a  (D) Y5**
+
+---
+
+## PaperQA 시스템 아키텍처
+
+```
+[사용자 질문]
+      │
+      ▼
+┌─────────────────────────────────────────┐
+│  Agent LLM (GPT-4, τ=0.5)              │
+│  "충분한 증거(5건+)가 모일 때까지 반복" │
+└──────┬──────────────────────────────────┘
+       │ 도구 선택·호출
+  ┌────┴─────┬──────────────────┐
+  ▼          ▼                  ▼
+[Search]  [Gather Evidence]  [Answer Question]
+  │          │                  │
+  │  키워드로  │  MMR 벡터 검색    │  Ask LLM
+  │  ArXiv/  │  → Summary LLM   │  (파라메트릭 지식)
+  │  PubMed  │    (GPT-3.5)     │  + 수집된 증거 8건
+  │  검색     │    관련도 1-10점  │  → Answer LLM (GPT-4)
+  │          │    상위 필터링    │  → 인용 포함 최종 답변
+  ▼          ▼                  ▼
+4,000자 청크  20개 소스/라운드    "(Author2023)" 형식 인용
+text-embedding-ada-002 벡터화
+```
+
+4개 독립 LLM 인스턴스 운영:
+| 역할 | 모델 | 역할 설명 |
 |---|---|---|
-| "answer is a paragraph ... citations attached to each claim" | "The LitQA dataset consists of 50 **multiple-choice** questions" | ❌ |
-| "long-form text rather than a few words" | "5 Yes/No questions, 6 questions with 3 possible answers, 23 questions with 4 possible answers..." | ❌ |
-| "citation precision/recall/F1 + faithfulness per claim" | Table 2: **Accuracy** (CorrectAll/CorrectAll), **Precision** (CorrectSure/AnsweredSure) | ❌ |
-| "grounding at every individual sentence" | Hallucination 분류 ("full hallucination / citation inaccuracy / context irrelevance")는 52개 구버전 LitQA에 대한 별도 분석, 문장 단위 metric 아님 | ❌ |
+| Agent LLM | GPT-4 (τ=0.5) | 도구 선택, 반복 여부 결정 |
+| Summary LLM | GPT-3.5-turbo (τ=0.2) | 청크 요약 + 관련도 채점 |
+| Answer LLM | GPT-4 (τ=0.5) | 최종 인용 포함 답변 생성 |
+| Ask LLM | GPT-4 (τ=0.5) | 파라메트릭 지식 추출 |
 
-**Verdict**: ❌ **CATEGORY MISMATCH** — LitQA는 Closed-form QA 섹션에서만 인용해야 함. 본 단락에서는 제거하거나 ALCE 같은 실제 장문 인용 벤치마크로 교체.
+---
 
-**Survey 수정안**: 본 단락의 "LitQA~\cite{DBLP:journals/corr/abs-2312-07559}" 인용을 삭제하고, ScholarQABench + Clinfo.AI만 남기되 각 평가 방법론은 사실대로 묘사할 것 (factcheck_o1_longform.md 참조).
+## 주요 평가 결과
+
+### LitQA 정확도 비교
+| 시스템 | 정답수 | 오답수 | 모름 | **Accuracy** |
+|---|---|---|---|---|
+| **PaperQA** | **34.8** | **4.8** | **10.5** | **69.5%** |
+| 인간 전문가 | 33.4 | 4.6 | 12.0 | 66.8% |
+| Claude-2 | 20.3 | 26.3 | — | 43.6% |
+| GPT-4 | 16.7 | 16.3 | 17.0 | 33.4% |
+| Perplexity | 9.0 | 10.0 | 31.0 | 18.0% |
+
+→ PaperQA ≈ 인간 전문가 (Cramér's V: human-human 0.66±0.03 vs human-PaperQA 0.67±0.02)
+
+### 인용 Hallucination 비율
+| 모델 | 유효 인용 | **Hallucination** | 샘플 |
+|---|---|---|---|
+| **PaperQA** | **100%** | **0%** | 237 |
+| GPT-4 | 60.78% | 39.22% | 51 |
+| GPT-3.5 | 52.50% | 47.5% | 80 |
+| Claude-2 | 39.71% | 60.29% | 68 |
+
+### 표준 벤치마크 (Ablation 포함)
+| 구성 | MedQA-USMLE | BioASQ | PubMedQA |
+|---|---|---|---|
+| **PaperQA** | **68.0%** | **89.0%** | **86.3%** |
+| GPT-4 단독 | 67.0% | 84.0% | 57.9% |
+| AutoGPT | 54.0% | 73.0% | 56.8% |
+
+---
+
+## 한계점
+- 인용된 원본 논문의 정보 자체가 틀린 경우 대처 불가
+- 최신 사실 업데이트에 따른 답변 유효기간 문제
+- 질문당 평균 비용 $0.18 (2023년 기준)
+
+---
+
+## 관련 정보
+- **논문**: [arXiv:2312.07559](https://arxiv.org/abs/2312.07559v2)
+- **GitHub**: [Future-House/paper-qa](https://github.com/Future-House/paper-qa)
+- **이 벤치마크(LitQA)를 사용한 논문**: PaperQA2 (arXiv 2409.13740)
