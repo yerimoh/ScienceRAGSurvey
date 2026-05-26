@@ -278,8 +278,11 @@ def paper_card(p, base=''):
     bib_key = p.get('bib_key', '')
     paper_fn = bib_key.replace(':', '_').replace('/', '_') + '.html'
     has_summary = bib_key and (ROOT / 'papers' / paper_fn).exists()
+    use_footnote = has_summary and (p.get('venue', '') == 'Software' or p.get('footnote'))
 
-    if url:
+    if use_footnote:
+        title_html = f'<a href="{base}papers/{paper_fn}">{title} <sup>†</sup></a>'
+    elif url:
         title_html = f'<a href="{esc(url)}" target="_blank" rel="noopener">{title} ↗</a>'
     else:
         title_html = title
@@ -309,7 +312,7 @@ def paper_card(p, base=''):
         tag_html.append('<span class="tag tag-xs">★ cross-source</span>')
 
     summary_link = (f'<a href="{base}papers/{paper_fn}" class="card-summary-link">Summary →</a>'
-                    if has_summary else '')
+                    if has_summary and not use_footnote else '')
 
     subsec_attr = f' data-sub="{esc(p.get("subsection",""))}"'
     return f'''<article class="card"{subsec_attr}>
