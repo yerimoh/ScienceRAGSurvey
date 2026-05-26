@@ -3,7 +3,7 @@ notion_id: 355f2dcd-4912-8178-aece-f2b330438305
 title: The SciQA Scientific Question Answering Benchmark for Scholarly Knowledge
 bib_key: auer2023sciqa
 year: 2023
-domain: chem, bio, medical, earth
+domain: general
 type: benchmark
 venue: Scientific Reports
 paper_link: https://doi.org/10.1038/s41598-023-33607-z

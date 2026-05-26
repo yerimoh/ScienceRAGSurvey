@@ -1591,7 +1591,8 @@
     "ko_primary": "O1",
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
-    "subsection": "Closed-form QA"
+    "subsection": "Closed-form QA",
+    "footnote": true
   },
   {
     "title": "GeoGraphRAG: A graph-based retrieval-augmented generation approach for empowering large language models in automated geospatial modeling",
@@ -3189,6 +3190,8 @@
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
     "subsection": "Closed-form QA",
+    "paper_link": "https://aclanthology.org/2024.findings-acl.372",
+    "footnote": true,
     "flagship": true
   },
   {
@@ -3685,7 +3688,8 @@
     "ko_primary": "O1",
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
-    "subsection": "Closed-form QA"
+    "subsection": "Closed-form QA",
+    "footnote": true
   },
   {
     "title": "MassSpecGym: A benchmark for the discovery and identification of molecules",
@@ -4843,10 +4847,7 @@
     "bib_key": "auer2023sciqa",
     "bib_ver": "v2",
     "domain": [
-      "chem",
-      "bio",
-      "medical",
-      "earth"
+      "general"
     ],
     "modality": [
       "Text",
@@ -4859,7 +4860,8 @@
     "ko_primary": "O1",
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
-    "subsection": "Closed-form QA"
+    "subsection": "Closed-form QA",
+    "footnote": true
   },
   {
     "bib_key": "uniprot2023uniprot",

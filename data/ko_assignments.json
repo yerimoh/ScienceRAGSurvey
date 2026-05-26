@@ -15,7 +15,9 @@
     "K": "",
     "O": "O1",
     "note": "main.tex: K=-; O=O1",
-    "subsection": "Closed-form QA"
+    "subsection": "Closed-form QA",
+    "paper_link": "https://aclanthology.org/2024.findings-acl.372",
+    "footnote": true
   },
   "welbl-etal-2017-crowdsourcing": {
     "cells": [
@@ -143,7 +145,8 @@
     "K": "",
     "O": "O1",
     "note": "main.tex: K=-; O=O1",
-    "subsection": "Closed-form QA"
+    "subsection": "Closed-form QA",
+    "footnote": true
   },
   "DBLP:journals/corr/abs-2509-09688": {
     "cells": [
@@ -197,7 +200,9 @@
     "K": "",
     "O": "O1",
     "note": "main.tex: K=-; O=O1",
-    "subsection": "Closed-form QA"
+    "subsection": "Closed-form QA",
+    "footnote": true,
+    "domain_override": "general"
   },
   "nan2026taliragen": {
     "cells": [
@@ -222,7 +227,8 @@
     "K": "",
     "O": "O1",
     "note": "main.tex: K=-; O=O1",
-    "subsection": "Closed-form QA"
+    "subsection": "Closed-form QA",
+    "footnote": true
   },
   "DBLP:journals/qss/HendricksTLF20": {
     "cells": [

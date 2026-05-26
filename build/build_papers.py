@@ -80,6 +80,13 @@ for line in PROPS.read_text().splitlines():
             rec['ko_secondary'] = a['secondary']
         if a.get('subsection'):
             rec['subsection'] = a['subsection']
+        if a.get('paper_link'):
+            rec['paper_link'] = a['paper_link']
+        if a.get('footnote'):
+            rec['footnote'] = True
+        if a.get('domain_override'):
+            d = a['domain_override']
+            rec['domain'] = d if isinstance(d, list) else [d]
     else:
         rec['ko_cells'] = []
         rec['ko_primary'] = None
