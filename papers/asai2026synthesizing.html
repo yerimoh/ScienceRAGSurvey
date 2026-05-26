@@ -425,49 +425,6 @@ Rubric 합의율: Pearson 상관계수 79.3 (general 포함) / 59.5 (전용 항�
 <li><strong>평가 코드</strong>: <a href="https://github.com/AkariAsai/ScholarQABench">https://github.com/AkariAsai/ScholarQABench</a></li>
 <li><strong>이 벤치마크를 사용한 RAG 논문</strong>: OpenScholar (Nature 2026)</li>
 </ul>
-<hr />
-<h2>✅ 팩트체크 노트 (survey §O1 Long-form citation Grounding)</h2>
-<p><strong>Basis</strong>: arXiv:2411.14199 본문 직접 인용 (PDF 본문 grep)</p>
-<p>main.tex <code>\subsubsection{Long-form citation Grounding}</code> 단락이 ScholarQABench를 인용한 부분은 <strong>대체로 정확</strong>하다. 다만 &quot;faithfulness per claim&quot; metric은 OpenScholar에서 명명되지 않으므로 표현 수정 필요.</p>
-<table>
-<thead>
-<tr>
-  <th>Claim (survey)</th>
-  <th>Evidence (paper body, verbatim)</th>
-  <th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>&quot;paragraph with citations per claim&quot;</td>
-  <td>&quot;2,967 expert-written queries and <strong>208 long-form answers</strong>&quot;</td>
-  <td>✅</td>
-</tr>
-<tr>
-  <td>&quot;long-form text&quot;</td>
-  <td>&quot;208 long-form responses written by experts&quot;</td>
-  <td>✅</td>
-</tr>
-<tr>
-  <td>&quot;per-sentence grounding&quot;</td>
-  <td>&quot;We follow citation precision and recall formulation from Gao et al. (2023) and <strong>compute citation precision and recall at the sentence</strong> level&quot;</td>
-  <td>✅</td>
-</tr>
-<tr>
-  <td>&quot;citation precision, recall, F1&quot;</td>
-  <td>&quot;we measure <strong>citation precision</strong> and <strong>recall</strong> ... we compute <strong>Citation F1 (Cite-F1)</strong> as well, and use it as a primarily metric&quot;</td>
-  <td>✅</td>
-</tr>
-<tr>
-  <td>&quot;faithfulness per claim&quot;</td>
-  <td>OpenScholar에 명명된 metric 아님. 그들의 추가 metric은 <strong>Coverage (Cov), Organization (Org), Relevance (Rel)</strong> (LLM-as-judge)</td>
-  <td>⚠️</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Verdict</strong>: ✅ <strong>MOSTLY ACCURATE</strong> — ScholarQABench 자체 묘사와 metric 인용은 본문 근거에 부합. &quot;faithfulness per claim&quot;만 표현 정정 필요 (대체로 &quot;citation accuracy&quot; 또는 OpenScholar 본문 metric인 &quot;coverage / organization / relevance&quot;로 표기).</p>
-<p><strong>Survey 수정안</strong>: factcheck_o1_longform.md의 proposed corrected paragraph 참조 (Gao et al. 2023 EMNLP를 인용해 sentence-level 정의의 원천 표기).</p>
-<p><strong>관련 missing bib</strong>: <code>DBLP:conf/emnlp/GaoYYC23</code> (Gao, Yen, Yu, Chen — &quot;Enabling Large Language Models to Generate Text with Citations&quot;, EMNLP 2023). 현재 references.bib에 <strong>없음</strong> — 임의 생성 금지, 추가 시 DBLP에서 정식 키 fetch 필요.</p>
 
     </article>
   </div>
