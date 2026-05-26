@@ -34,7 +34,8 @@
     ],
     "K": "",
     "O": "O2",
-    "note": "main.tex: K=-; O=O2"
+    "note": "main.tex: K=-; O=O2",
+    "subsection": "Aggregative Synthesis"
   },
   "DBLP:conf/emnlp/ChiangHCR25": {
     "cells": [
@@ -51,7 +52,8 @@
     ],
     "K": "",
     "O": "O2",
-    "note": "main.tex: K=-; O=O2"
+    "note": "main.tex: K=-; O=O2",
+    "subsection": "Verificative Synthesis"
   },
   "DBLP:conf/emnlp/WaddenLLWZCH20": {
     "cells": [
@@ -59,7 +61,8 @@
     ],
     "K": "",
     "O": "O2",
-    "note": "main.tex: K=-; O=O2"
+    "note": "main.tex: K=-; O=O2",
+    "subsection": "Verificative Synthesis"
   },
   "DBLP:conf/emnlp/ZhengZFZWPC25": {
     "cells": [
@@ -125,7 +128,8 @@
     ],
     "K": "",
     "O": "O2",
-    "note": "main.tex: K=-; O=O2"
+    "note": "main.tex: K=-; O=O2",
+    "subsection": "Aggregative Synthesis"
   },
   "DBLP:journals/corr/abs-2410-23902": {
     "cells": [
@@ -133,7 +137,8 @@
     ],
     "K": "",
     "O": "O2",
-    "note": "main.tex: K=-; O=O2"
+    "note": "main.tex: K=-; O=O2",
+    "subsection": "Aggregative Synthesis"
   },
   "DBLP:journals/corr/abs-2509-09686": {
     "cells": [
@@ -160,7 +165,8 @@
     ],
     "K": "",
     "O": "O2",
-    "note": "main.tex: K=-; O=O2"
+    "note": "main.tex: K=-; O=O2",
+    "subsection": "Verificative Synthesis"
   },
   "DBLP:journals/corr/abs-2603-07233": {
     "cells": [
@@ -1159,7 +1165,8 @@
     ],
     "K": "K1",
     "O": "O2",
-    "note": "Multimodal RAG fusing PubMed text+figures via cross-modal attention; evaluated on BioASQ and PubMedQA; low hallucination rate; non-inferior to human accuracy"
+    "note": "Multimodal RAG fusing PubMed text+figures via cross-modal attention; evaluated on BioASQ and PubMedQA; low hallucination rate; non-inferior to human accuracy",
+    "subsection": "Aggregative Synthesis"
   },
   "krithara2023bioasq": {
     "cells": [
@@ -1241,7 +1248,8 @@
     ],
     "K": "K1",
     "O": "O2",
-    "note": "HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 76%; outperforms PubMedGPT and GPT-4; scales to thousands of GPUs"
+    "note": "HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 76%; outperforms PubMedGPT and GPT-4; scales to thousands of GPUs",
+    "subsection": "Aggregative Synthesis"
   },
   "DBLP:journals/corr/abs-2403-15729": {
     "cells": [
