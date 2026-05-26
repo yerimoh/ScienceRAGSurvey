@@ -7939,7 +7939,7 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
-    "subsection": "Cross-modal"
+    "subsection": "Closed-form QA"
   },
   {
     "bib_key": "krithara2023bioasq",
@@ -7958,7 +7958,7 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
-    "subsection": "Cross-modal"
+    "subsection": "Closed-form QA"
   },
   {
     "bib_key": "welbl-etal-2017-crowdsourcing",
