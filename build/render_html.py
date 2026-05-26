@@ -69,7 +69,7 @@ def subsec_filter_html(papers_list, prefix=''):
       bar.querySelectorAll('.subsec-btn').forEach(function(b){{b.classList.remove('active');}});
       btn.classList.add('active');
       var sub = btn.dataset.sub;
-      document.querySelectorAll('.card[data-sub]').forEach(function(card){{
+      document.querySelectorAll('.card').forEach(function(card){{
         card.style.display = (sub === '' || card.dataset.sub === sub) ? '' : 'none';
       }});
     }});
@@ -315,7 +315,7 @@ def paper_card(p, base=''):
     summary_link = (f'<a href="{base}papers/{paper_fn}" class="card-summary-link">Summary →</a>'
                     if has_summary and not use_footnote else '')
 
-    subsec_attr = f' data-sub="{esc(p.get("subsection",""))}"' if p.get('subsection') else ''
+    subsec_attr = f' data-sub="{esc(p.get("subsection",""))}"'
     return f'''<article class="card"{subsec_attr}>
   <h3 class="card-title">{title_html}</h3>
   {f'<div class="card-meta">{meta}</div>' if meta else ''}

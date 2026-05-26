@@ -135,7 +135,7 @@
       bar.querySelectorAll('.subsec-btn').forEach(function(b){b.classList.remove('active');});
       btn.classList.add('active');
       var sub = btn.dataset.sub;
-      document.querySelectorAll('.card[data-sub]').forEach(function(card){
+      document.querySelectorAll('.card').forEach(function(card){
         card.style.display = (sub === '' || card.dataset.sub === sub) ? '' : 'none';
       });
     });

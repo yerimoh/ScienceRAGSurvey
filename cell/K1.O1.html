@@ -150,7 +150,7 @@
       bar.querySelectorAll('.subsec-btn').forEach(function(b){b.classList.remove('active');});
       btn.classList.add('active');
       var sub = btn.dataset.sub;
-      document.querySelectorAll('.card[data-sub]').forEach(function(card){
+      document.querySelectorAll('.card').forEach(function(card){
         card.style.display = (sub === '' || card.dataset.sub === sub) ? '' : 'none';
       });
     });
@@ -166,7 +166,7 @@
   <a href="../papers/asai2026synthesizing.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="">
   <h3 class="card-title"><a href="https://aclanthology.org/2025.findings-emnlp.1196/" target="_blank" rel="noopener">Benchmarking Foundation Models with Retrieval-Augmented Generation in Olympic-Level Physics Problem Solving ↗</a></h3>
   <div class="card-meta"><span class="meta-method">PhoPile RAG Framework</span> · <span class="meta-venue">EMNLP (Findings)</span> · <span class="meta-year">2025</span></div>
   <p class="card-note">Physics Olympiad 멀티모달 RAG 첫 벤치마크. 4 retriever × 3 multimodal × 8 모델 비교. retrieval 노이즈 문제 존재.</p>
@@ -174,7 +174,7 @@
   <a href="../papers/DBLP_conf_emnlp_ZhengZFZWPC25.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="">
   <h3 class="card-title">Rationale-Guided Retrieval Augmented Generation for Medical Question Answering</h3>
   <div class="card-meta"><span class="meta-method">RAG²</span> · <span class="meta-venue">NAACL</span> · <span class="meta-year">2025</span></div>
   <p class="card-note">perplexity-차이 자동 라벨링으로 소형 필터 모델 학습 + rationale 쿼리 + 균등검색. SOTA on MedQA.</p>
@@ -182,7 +182,7 @@
   <a href="../papers/DBLP_conf_naacl_SohnPYPHSKK25.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="">
   <h3 class="card-title"><a href="https://github.com/Jack-ZC8/Omni-RAG-Medical" target="_blank" rel="noopener">Towards Omni-RAG: Comprehensive Retrieval-Augmented Generation for Large Language Models in Medical Applications ↗</a></h3>
   <div class="card-meta"><span class="meta-method">Source Planning Optimisation (SPO)</span> · <span class="meta-venue">ACL</span> · <span class="meta-year">2025</span></div>
   <p class="card-note">5개 다중 구조 의료 KB(MedOmniKB) 구축 + SPO 기법. 소형 Planner가 10배 큰 모델 능가.</p>
@@ -214,7 +214,7 @@
   <a href="../papers/DBLP_journals_corr_abs-2312-07559.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card">
+<article class="card" data-sub="">
   <h3 class="card-title">DBLP:journals/corr/abs-2408-01107</h3>
   
   <p class="card-note">22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, College Biology/Medicine; outperforms BioLLMs, GPT-3.5, NewBing</p>
