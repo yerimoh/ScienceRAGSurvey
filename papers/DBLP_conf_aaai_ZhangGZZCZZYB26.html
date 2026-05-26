@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>bicerano2024polymer — Scientific RAG Hub</title>
+<title>Patho-AgenticRAG: Pathology Agentic RAG with Textbook-aligned Multimodal Knowledge — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
 <link rel="stylesheet" href="../static/style.css?v=1779699531">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
@@ -104,47 +104,55 @@
 <section class="paper-hero">
   <div class="wrap">
     <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
-    <h1>bicerano2024polymer</h1>
+    <h1>Patho-AgenticRAG: Pathology Agentic RAG with Textbook-aligned Multimodal Knowledge</h1>
     <div class="paper-hero-meta">
-      <span class="meta-venue"></span>
-      <span class="meta-year"></span>
+      <span class="meta-venue">AAAI</span>
+      <span class="meta-year">2026</span>
       
     </div>
-    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Curated Knowledge Base × Hypothesis</a></div>
+    <div class="paper-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Observational & Experimental × Ground</a><span class="tag tag-sub">Cross-modal</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
   </div>
 </section>
 <section class="paper-body">
   <div class="wrap">
     <article class="paper-markdown">
-      <h1>Polymer expert — A software tool for de novo polymer design</h1>
-<p>bicerano2024polymer | 2024 | Computational Materials Science | Method | [material] | <a href="https://doi.org/10.1016/j.commatsci.2024.112810">paper</a></p>
+      <h1>Patho-AgenticRAG: Towards Multimodal Agentic Retrieval-Augmented Generation for Pathology VLMs via Reinforcement Learning</h1>
+<p>DBLP:conf/aaai/ZhangGZZCZZYB26 | 2026 | AAAI 2026 | Method | [medical] | <a href="https://arxiv.org/abs/2508.02258">paper</a></p>
 <table class="prop-table">
-<tr><td class="prop-key">Retriever</td><td class="prop-val">QSPR-based retrieval over polymer analog library (PEARL)</td></tr>
-<tr><td class="prop-key">Eval Task</td><td class="prop-val">De novo polymer design targeting desired properties (biobased PET alternatives, polycarbonate alternatives, high dielectric constant polymers)</td></tr>
-<tr><td class="prop-key">Eval Metric</td><td class="prop-val">Property prediction accuracy (QSPR), candidate generation quality</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">Polymer Expert</td></tr>
-<tr><td class="prop-key">Modality</td><td class="prop-val">Structured data (repeat unit structures, QSPR properties)</td></tr>
+<tr><td class="prop-key">DB</td><td class="prop-val">병리학 교과서 기반 page-level 임베딩 데이터베이스 (authoritative pathology textbooks)</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (GitHub 공개)</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Text, Image</td></tr>
+<tr><td class="prop-key">Retriever</td><td class="prop-val">Joint text-image retrieval (page-level embedding from pathology textbooks)</td></tr>
+<tr><td class="prop-key">Eval Task</td><td class="prop-val">Pathology multiple-choice diagnosis, pathology VQA</td></tr>
+<tr><td class="prop-key">Eval Metric</td><td class="prop-val">Accuracy</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">Patho-AgenticRAG</td></tr>
 </table>
 
 <blockquote>
-<p>Computational Materials Science | 2024 | Method | material</p>
-<h4>📌 한 줄 요약</h4>
-<p>광범위한 고분자 유사체 라이브러리(PEARL)와 QSPR(정량적 구조-성질 관계) 기반 검색 증강 추론을 활용하여 목표 성능 사양에 맞는 신규 고분자 반복 단위를 신속하게 생성하는 de novo 고분자 설계 전문가 시스템이다.</p>
+<p>AAAI 2026 | 2026 | Method | medical</p>
+<h4>한 줄 요약</h4>
+<p>병리 VLM의 환각 문제를 해결하기 위해 권위 있는 병리학 교과서의 페이지 단위 임베딩 DB를 구축하고, 텍스트+이미지 공동 검색 및 강화학습 기반 에이전틱 추론을 결합한 멀티모달 RAG 시스템이다.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 접근법의 한계</strong></p>
+<h4>개발/구축 배경</h4>
+<p><strong>기존 인프라의 한계</strong></p>
 <ul>
-<li>기존 고분자 설계는 전문가 직관에 의존하여 새로운 후보 탐색이 느리고 편향적</li>
-<li>구조-성질 관계를 체계적으로 활용하는 자동화 설계 도구 부재</li>
+<li>병리 이미지는 초고해상도·복잡한 조직 구조·세밀한 임상 의미로 인해 기존 VLM에서 환각이 빈번히 발생</li>
+<li>기존 RAG 방법은 텍스트 기반 지식 베이스에 의존, 병리 진단에 필수적인 시각 정보 활용 불가</li>
+<li>단순 텍스트 검색은 병리 이미지의 시각적 맥락(tissue morphology 등)을 포착하지 못함</li>
 </ul>
 <p><strong>이 시스템이 필요한 이유</strong></p>
 <ul>
-<li>고분자 산업에서 목표 성능(유전상수, 기계적 특성, 생분해성)을 맞추는 신규 반복 단위 신속 발굴 필요</li>
-<li>초기 데이터베이스를 대규모 유사체 라이브러리로 자동 확장하고 QSPR 예측을 통합하는 시스템 필요</li>
+<li>병리학 교과서 페이지 단위 검색으로 텍스트+이미지를 동시에 제공 → 시각 진단 단서 보존</li>
+<li>강화학습으로 다단계 검색 및 추론(task decomposition, multi-turn search) 능력 강화</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>Polymer Expert는 4단계로 구현된다: (1) 초기 반복 단위 데이터베이스 생성, (2) 대규모 유사체 반복 단위 데이터베이스(PEARL) 확장, (3) 광범위 적용 QSPR로 모든 반복 단위 특성 계산, (4) 재료 모델링 소프트웨어 스위트 내 검색 가능 라이브러리로 통합. 쿼리 시 목표 성능 사양에 대해 PEARL을 검색하여 최적 후보를 반환한다.</p>
-<h4>📊 주요 결과</h4>
+<h4>시스템 구성</h4>
+<ul>
+<li><strong>지식 소스</strong>: 권위 있는 병리학 교과서에서 page-level 임베딩으로 DB 구축 (텍스트+이미지 공존 페이지)</li>
+<li><strong>검색 방식</strong>: joint text-image search — 쿼리 텍스트+이미지 시각 단서를 동시에 검색</li>
+<li><strong>에이전틱 구성</strong>: 추론·태스크 분해·multi-turn 검색 상호작용 지원 (강화학습 기반)</li>
+<li><strong>K×O 분류</strong>: K2.O1 (병리학 교과서 = 큐레이션 지식 베이스 + 이미지 모달리티)</li>
+</ul>
+<h4>주요 통계 (논문/abstract 기준)</h4>
 <table>
 <thead>
 <tr>
@@ -154,36 +162,38 @@
 </thead>
 <tbody>
 <tr>
-  <td>적용 사례 1</td>
-  <td>PET 생분해성 대안 식별</td>
+  <td>지식 소스</td>
+  <td>병리학 교과서 page-level 임베딩 DB (규모 미기재)</td>
 </tr>
 <tr>
-  <td>적용 사례 2</td>
-  <td>비스페놀-A 폴리카보네이트 대안 발굴</td>
+  <td>검색 모달리티</td>
+  <td>Text + Image (joint)</td>
 </tr>
 <tr>
-  <td>적용 사례 3</td>
-  <td>폴리프로필렌 동등 성능 소재 탐색</td>
+  <td>평가 태스크</td>
+  <td>Pathology multiple-choice diagnosis, visual QA</td>
 </tr>
 <tr>
-  <td>적용 사례 4</td>
-  <td>높은 유전상수 고분자 발굴</td>
+  <td>성능</td>
+  <td>기존 멀티모달 모델 대비 유의미하게 향상 (abstract: &quot;significantly outperforms&quot;)</td>
 </tr>
 <tr>
-  <td>주요 발견</td>
-  <td>대부분의 유망 후보가 직관적으로 식별하기 어렵고 비자명(non-obvious)</td>
+  <td>arXiv 제출</td>
+  <td>2025년 8월 (arXiv:2508.02258)</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>한계점</h4>
 <ul>
-<li>QSPR 예측의 정확도는 훈련 데이터 범위에 한정</li>
-<li>생성된 후보의 실제 합성 가능성 및 실험적 검증이 별도로 필요</li>
-<li>강한 외부 검증자 없이 QSPR 예측값만으로 평가 — 약한 검증(weak verification) 범주</li>
+<li>병리학 도메인에 특화 → 방사선·안과 등 타 의료 모달리티로의 일반화 미검증</li>
+<li>교과서 기반 DB는 최신 임상 가이드라인이나 연구 문헌 미반영</li>
+<li>강화학습 기반 에이전틱 추론의 훈련 비용 높음</li>
 </ul>
 <h2>관련 정보</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1016/j.commatsci.2024.112810">https://doi.org/10.1016/j.commatsci.2024.112810</a></li>
+<li><strong>논문 (arXiv)</strong>: <a href="https://arxiv.org/abs/2508.02258">arXiv:2508.02258</a></li>
+<li><strong>GitHub</strong>: <a href="https://github.com/Wenchuan-Zhang/Patho-AgenticRAG">Patho-AgenticRAG</a></li>
+<li><strong>주의</strong>: main.tex Cross-Source 섹션에서 &quot;texts derived from PubMed with medical images&quot;라고 기술되어 있으나, 실제 지식 소스는 PubMed가 아닌 병리학 교과서 (abstract 확인, arXiv:2508.02258)</li>
 </ul>
 
     </article>

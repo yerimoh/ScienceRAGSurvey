@@ -799,15 +799,35 @@ def render_cell_pages():
 
     # ---------- O-only axis pages (cell/O1.html etc.) ----------
     for O in ['O1', 'O2', 'O3']:
-        ps = sorted(by_cell.get(O, []), key=year_sort)
+        # Aggregate all papers from every K×O cell + bare O-only entries
+        seen_bk = set()
+        ps = []
+        for K in ['K1', 'K2', 'K3', 'K4']:
+            for p in by_cell.get(f'{K}.{O}', []):
+                bk = p.get('bib_key') or id(p)
+                if bk not in seen_bk:
+                    seen_bk.add(bk)
+                    ps.append(p)
+        for p in by_cell.get(O, []):
+            bk = p.get('bib_key') or id(p)
+            if bk not in seen_bk:
+                seen_bk.add(bk)
+                ps.append(p)
+        ps = sorted(ps, key=year_sort)
         on, od = O_LABELS[O]
-        cards = '\n'.join(paper_card(p, base='../') for p in ps) or '<p class="empty">No O-only entries yet.</p>'
+        sf = subsec_filter_html(ps, prefix=f'oaxis{O}')
+        cards = '\n'.join(paper_card(p, base='../') for p in ps) or '<p class="empty">No entries yet.</p>'
+        # K-cell breakdown pills
+        o_cells_nav = '\n'.join(
+            f'<a href="../cell/{K}.{O}.html" class="pill" title="{K}.{O}">{cell_label(K+"."+O)} {len(by_cell.get(K+"."+O, []))}</a>'
+            for K in ['K1', 'K2', 'K3', 'K4']
+        )
         body = f'''
 <section class="cell-hero">
   <div class="wrap">
     <p class="eyebrow"><a href="../index.html#grid">← K×O Grid</a></p>
     <h1><span class="cell-id-big">[{O}]</span> {esc(on)}</h1>
-    <p class="lede"><strong>{len(ps)}</strong> O-axis-only entries (benchmarks without paired K).</p>
+    <p class="lede"><strong>{len(ps)}</strong> entries with <strong>{esc(on)}</strong> objective (all K sources).</p>
     <div class="cell-axis-pair">
       <div class="axis-card axis-o">
         <span class="axis-tag">O {O[1]}</span>
@@ -815,11 +835,13 @@ def render_cell_pages():
         <p>{esc(od)}</p>
       </div>
     </div>
+    <div class="cell-nav">{o_cells_nav}</div>
   </div>
 </section>
 
 <section class="cell-list">
   <div class="wrap">
+    {sf}
     <div class="card-grid">{cards}</div>
   </div>
 </section>

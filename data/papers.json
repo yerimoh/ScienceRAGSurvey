@@ -225,7 +225,7 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
-    "subsection": "Held by institutions",
+    "subsection": "Retrieval-quality",
     "flagship": true
   },
   {
@@ -473,6 +473,29 @@
     "cross_source": false
   },
   {
+    "bib_key": "DBLP:conf/aaai/ZhangGZZCZZYB26",
+    "title": "Patho-AgenticRAG: Pathology Agentic RAG with Textbook-aligned Multimodal Knowledge",
+    "year": 2026,
+    "venue": "AAAI",
+    "method": "Patho-AgenticRAG",
+    "domain": [
+      "medical"
+    ],
+    "paper_link": "",
+    "note": "Multimodal agentic RAG for pathology VLMs; retrieves over pathology-specific image patches + text (K3.O1 cross-modal grounding)",
+    "ko_cells": [
+      "K3",
+      "K3.O1"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Multimodal agentic RAG for pathology VLMs; retrieves over pathology-specific image patches + text (K3.O1 cross-modal grounding)",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Cross-modal",
+    "flagship": true
+  },
+  {
     "title": "Polymer Literature Scholar (PHA Biodegradable Polymer Expert)",
     "year": 2026,
     "venue": "arXiv",
@@ -658,7 +681,7 @@
     "ko_primary": "K4",
     "ko_note": "Local RAG QA over arXiv EIC papers; open-source LLaMA for answer generation; cost-effective, data-privacy preserving alternative to cloud-hosted RAGS4EIC; extension of RAGS4EIC proceeding application",
     "cross_source": false,
-    "subsection": "Held by individuals and communities"
+    "subsection": "Retrieval-quality"
   },
   {
     "title": "Synthesizing Scientific Literature with Retrieval-Augmented Language Models",
@@ -692,7 +715,8 @@
     ],
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=O1,O2",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Long-form Citation"
   },
   {
     "title": "TaLiRAGen: target-aware ligand generation via RAG LLMs",
@@ -816,7 +840,7 @@
     "ko_primary": "K4",
     "ko_note": "main.tex: K=K4; O=-",
     "cross_source": false,
-    "subsection": "Held by institutions"
+    "subsection": "Retrieval-quality"
   },
   {
     "title": "AlzheimerRAG: Multimodal RAG for Clinical Use Cases",
@@ -902,7 +926,8 @@
     ],
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=-",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Closed-form QA"
   },
   {
     "title": "Benchmarking Large Language Models on Answering and Explaining Challenging Medical Questions",
@@ -1328,7 +1353,7 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
-    "subsection": "Held by institutions"
+    "subsection": "Retrieval-quality"
   },
   {
     "title": "DUNE-GPT (LLM Integration for DUNE Experiment)",
@@ -1565,7 +1590,8 @@
     ],
     "ko_primary": "O1",
     "ko_note": "main.tex: K=-; O=O1",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Closed-form QA"
   },
   {
     "title": "GeoGraphRAG: A graph-based retrieval-augmented generation approach for empowering large language models in automated geospatial modeling",
@@ -1762,6 +1788,7 @@
     "ko_primary": "K2.O1",
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
+    "subsection": "KB-entry",
     "flagship": true
   },
   {
@@ -1954,7 +1981,8 @@
     ],
     "ko_primary": "K3.O1",
     "ko_note": "main.tex: K=-; O=-",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Cross-modal"
   },
   {
     "title": "MOTOR: Multimodal Optimal Transport via Grounded Retrieval in Medical Visual Question Answering",
@@ -2594,7 +2622,8 @@
     ],
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=-",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Closed-form QA"
   },
   {
     "title": "Retrieval-Augmented Generation Assistant for Anatomical Pathology Laboratories",
@@ -2873,7 +2902,7 @@
     "ko_primary": "K4",
     "ko_note": "SciTreeRAG+SciGraphRAG over LHCb internal corpus (K4 institutional tacit knowledge)",
     "cross_source": false,
-    "subsection": "Held by individuals and communities"
+    "subsection": "Retrieval-quality"
   },
   {
     "title": "Spatial-RAG: Spatial Retrieval Augmented Generation for Real-World Geospatial Reasoning Questions",
@@ -2990,7 +3019,8 @@
     ],
     "ko_primary": "K1.O1",
     "ko_note": "Multi-source medical RAG unifying 5 sources: textbooks, clinical guidelines, PubMed abstracts, Wikipedia, UMLS+DrugBank KG; Source Planning Optimisation (SPO)",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Closed-form QA"
   },
   {
     "title": "WeatherArchive-Bench: Benchmarking Retrieval-Augmented Reasoning for Historical Weather Archives",
@@ -3158,6 +3188,7 @@
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
+    "subsection": "Closed-form QA",
     "flagship": true
   },
   {
@@ -3189,7 +3220,8 @@
     ],
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=O1",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Long-form Citation"
   },
   {
     "title": "ChemTEB: Chemical Text Embedding Benchmark, an Overview of Embedding Models Performance & Efficiency on a Specific Domain",
@@ -3464,7 +3496,7 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
-    "subsection": "Materials science and physics"
+    "subsection": "KB-entry"
   },
   {
     "title": "HoneyComb: Materials Science Agent",
@@ -3652,7 +3684,8 @@
     ],
     "ko_primary": "O1",
     "ko_note": "main.tex: K=-; O=O1",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Closed-form QA"
   },
   {
     "title": "MassSpecGym: A benchmark for the discovery and identification of molecules",
@@ -3746,7 +3779,7 @@
     "ko_primary": "K4",
     "ko_note": "cmbagent: multi-agent RAG over cobaya/classy_sz/cosmocnc software docs (K4 software-embedded knowledge)",
     "cross_source": false,
-    "subsection": "Held by individuals and communities"
+    "subsection": "Retrieval-quality"
   },
   {
     "title": "OmniMedVQA: A New Large-Scale Comprehensive Evaluation Benchmark for Medical LVLM",
@@ -4075,7 +4108,7 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
-    "subsection": "Held by individuals and communities"
+    "subsection": "Retrieval-quality"
   },
   {
     "title": "f-RAG: Molecule Generation with Fragment Retrieval Augmentation",
@@ -4578,6 +4611,7 @@
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
+    "subsection": "Long-form Citation",
     "flagship": true
   },
   {
@@ -4824,7 +4858,8 @@
     ],
     "ko_primary": "O1",
     "ko_note": "main.tex: K=-; O=O1",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Closed-form QA"
   },
   {
     "bib_key": "uniprot2023uniprot",
@@ -7808,7 +7843,8 @@
     "ko_note": "22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, College Biology/Medicine; outperforms BioLLMs, GPT-3.5, NewBing",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Closed-form QA"
   },
   {
     "bib_key": "DBLP:journals/corr/abs-2603-15712",
@@ -7904,7 +7940,8 @@
     "ko_note": "1k expert-annotated + 61.2k unlabeled + 211.3k artificially generated QA; Yes/No/Maybe from PubMed abstracts; first QA dataset requiring quantitative reasoning over biomedical texts",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Closed-form QA"
   },
   {
     "bib_key": "krithara2023bioasq",
@@ -7922,7 +7959,8 @@
     "ko_note": "4,721 expert-annotated biomedical QA pairs; running since 2012; combines exact answer + ideal summary; used for evaluation in cross-modal grounding section",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Closed-form QA"
   },
   {
     "bib_key": "welbl-etal-2017-crowdsourcing",
@@ -7940,6 +7978,7 @@
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "KB-entry"
   }
 ]
