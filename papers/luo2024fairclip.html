@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>luo2024fairclip — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">10</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">7</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">5</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">5</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">7</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">25</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">15</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">73</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">42</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">119</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">21</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">36</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">14</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">5</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">179</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">87</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">12</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>luo2024fairclip</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue"></span>
+      <span class="meta-year"></span>
+      
+    </div>
+    <div class="paper-tags"><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Observational & Experimental × Ground</a><span class="tag tag-sub">Cross-modal</span></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>FairCLIP / Harvard-FairVLMed</h1>
+<blockquote>
+<p>CVPR 2024 (pp. 12289–12301) | Benchmark + Method | medical (ophthalmology)
+Luo, Shi, Khan, Afzal, Huang, Yuan, Tian, Song, Kouhana, Elze, Fang, Wang
+Massachusetts Eye and Ear / Harvard Medical School
+DBLP: <code>conf/cvpr/Luo0KA0Y0SKE0024</code></p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>하버드 의대 안과에서 수집한 SLO 안저 이미지 <strong>10,000장</strong> + 임상 노트로 구성된 <strong>Harvard-FairVLMed</strong> 데이터셋과, 이를 기반으로 인구통계학적 공정성을 개선하는 <strong>FairCLIP</strong> 방법론을 함께 제안. 녹내장(Glaucoma) 분류에서 6개 보호 속성의 공정성을 측정·개선.</p>
+<hr />
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>Step 1 — 데이터 수집
+  Massachusetts Eye and Ear (Harvard Medical School), 2015–2022
+  SLO(Scanning Laser Ophthalmoscopy) 안저 이미지 + 임상 노트 수집
+  총 10,000명 환자 기록 (각 환자 1건)
+
+Step 2 — 레이블 생성 (녹내장 진단 기준)
+  시야 검사(Visual Field, VF) 결과 기반:
+  ┌─ 정상(Non-glaucoma): VF mean deviation ≥ -1 dB, 정상 결과
+  └─ 녹내장(Glaucoma):   VF mean deviation &lt; -3 dB, 비정상 결과
+
+Step 3 — 임상 노트 비식별화 (3단계)
+  1) Microsoft Presidio 자동 익명화 (민감정보 → placeholder)
+  2) 미탐지 보호정보 대상 규칙 기반 매칭
+  3) 4명의 의학 전문가 수동 검증
+
+Step 4 — 보호 속성 수집
+  ┌─ Race: Asian / Black / White
+  ├─ Gender: Female / Male
+  ├─ Ethnicity: Non-Hispanic / Hispanic / Unspecified
+  ├─ Preferred Language: English / Spanish / Other / Unknown
+  ├─ Marital Status: Married / Single / Divorced / Widowed / Other
+  └─ Age: mean 60.9 ± 16.2세
+
+Step 5 — 데이터 분할
+  ┌──────────┬──────────┐
+  │ Train    │  7,000   │
+  │ Val      │  1,000   │
+  │ Test     │  2,000   │
+  │ 합계     │ 10,000   │
+  └──────────┴──────────┘
+</code></pre>
+<hr />
+<h2>SLO 안저 촬영이란?</h2>
+<p><strong>SLO (Scanning Laser Ophthalmoscopy)</strong>: 레이저를 이용해 망막을 고해상도로 스캔하는 안과 촬영법. 녹내장의 시신경 손상(optic nerve damage)과 망막 신경섬유층(RNFL) 이상을 평가하는 데 활용됨.</p>
+<p>임상 노트: 11–332단어 (평균 147단어), 시각 소견 기반 진단·치료 계획 포함.</p>
+<hr />
+<h2>보호 속성 분포</h2>
+<table>
+<thead>
+<tr>
+  <th>속성</th>
+  <th>그룹</th>
+  <th>비율/건수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Race</td>
+  <td>Asian</td>
+  <td>819명</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Black</td>
+  <td>1,491명</td>
+</tr>
+<tr>
+  <td></td>
+  <td>White</td>
+  <td>7,690명</td>
+</tr>
+<tr>
+  <td>Gender</td>
+  <td>Female</td>
+  <td>56.3%</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Male</td>
+  <td>43.7%</td>
+</tr>
+<tr>
+  <td>Ethnicity</td>
+  <td>Non-Hispanic</td>
+  <td>90.6%</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Hispanic</td>
+  <td>4.0%</td>
+</tr>
+<tr>
+  <td>Language</td>
+  <td>English</td>
+  <td>92.5%</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Spanish</td>
+  <td>1.7%</td>
+</tr>
+<tr>
+  <td>Marital</td>
+  <td>Married/Partnered</td>
+  <td>57.4%</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Single</td>
+  <td>26.4%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>평가 메트릭 정의</h2>
+<table>
+<thead>
+<tr>
+  <th>메트릭</th>
+  <th>방향</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>AUC</strong></td>
+  <td>↑ 높을수록 좋음</td>
+  <td>전체 진단 성능 (ROC 곡선 아래 면적)</td>
+</tr>
+<tr>
+  <td><strong>ES-AUC</strong></td>
+  <td>↑ 높을수록 좋음</td>
+  <td><code>AUC / (1 + Σ\|AUC - AUCₐ\|)</code> — 공정성 반영 AUC</td>
+</tr>
+<tr>
+  <td><strong>DPD</strong></td>
+  <td>↓ 낮을수록 좋음</td>
+  <td>Demographic Parity Difference (예측 격차)</td>
+</tr>
+<tr>
+  <td><strong>DEOdds</strong></td>
+  <td>↓ 낮을수록 좋음</td>
+  <td>Difference in Equalized Odds (기회 균등 격차)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>주요 평가 결과 (Zero-shot, ViT-B/16)</h2>
+<p><strong>Race 속성 기준:</strong></p>
+<table>
+<thead>
+<tr>
+  <th>모델</th>
+  <th>DPD ↓</th>
+  <th>DEOdds ↓</th>
+  <th>AUC ↑</th>
+  <th>ES-AUC ↑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CLIP</td>
+  <td>15.35 ± 6.50</td>
+  <td>15.11 ± 5.01</td>
+  <td>67.84 ± 0.90</td>
+  <td>61.67 ± 0.63</td>
+</tr>
+<tr>
+  <td><strong>FairCLIP</strong></td>
+  <td><strong>6.07 ± 2.44</strong></td>
+  <td><strong>10.50 ± 2.73</strong></td>
+  <td><strong>70.24 ± 1.26</strong></td>
+  <td><strong>65.50 ± 2.60</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gender 속성 기준:</strong></p>
+<table>
+<thead>
+<tr>
+  <th>모델</th>
+  <th>DPD ↓</th>
+  <th>DEOdds ↓</th>
+  <th>AUC ↑</th>
+  <th>ES-AUC ↑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CLIP</td>
+  <td>4.34 ± 0.66</td>
+  <td>9.95 ± 0.64</td>
+  <td>67.84</td>
+  <td>63.21</td>
+</tr>
+<tr>
+  <td><strong>FairCLIP</strong></td>
+  <td><strong>0.84 ± 0.25</strong></td>
+  <td><strong>2.97 ± 2.07</strong></td>
+  <td><strong>69.76</strong></td>
+  <td><strong>65.39</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Race 기준 DPD: 15.35 → 6.07 (60% 개선), DEOdds: 15.11 → 10.50</p>
+<hr />
+<h2>한계점</h2>
+<ul>
+<li>단일 기관(Massachusetts Eye and Ear) 데이터 → 지역·인구 편향 가능</li>
+<li>White 환자 비율 76.9%로 불균형</li>
+<li>녹내장 진단에 특화 → 타 안과 질환 일반화 미검증</li>
+<li>SLO 이미지에 한정 (OCT, fundus photography 등 미포함)</li>
+</ul>
+<hr />
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문 (CVPR 2024)</strong>: <a href="https://arxiv.org/abs/2403.19949">arXiv:2403.19949</a></li>
+<li><strong>CVPR Open Access</strong>: <a href="https://openaccess.thecvf.com/content/CVPR2024/html/Luo_FairCLIP_Harnessing_Fairness_in_Vision-Language_Learning_CVPR_2024_paper.html">OpenCVPR 2024</a></li>
+<li><strong>GitHub</strong>: <a href="https://github.com/Harvard-Ophthalmology-AI-Lab/FairCLIP">Harvard-Ophthalmology-AI-Lab/FairCLIP</a></li>
+<li><strong>데이터셋</strong>: <a href="https://ophai.hms.harvard.edu/datasets/harvard-fairvlmed10k">Harvard-FairVLMed10K</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>
