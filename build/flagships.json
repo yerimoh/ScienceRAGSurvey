@@ -489,6 +489,36 @@
       ],
       "paper_link": ""
     },
+    "PhysioNet-mimic-cxr-2.1.0": {
+      "title": "MIMIC-CXR: A De-identified Publicly Available Database of Chest Radiographs with Free-text Reports",
+      "year": 2019,
+      "venue": "Sci Data",
+      "method": "MIMIC-CXR",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://physionet.org/content/mimic-cxr/2.1.0/"
+    },
+    "demner2016preparing": {
+      "title": "Preparing a Collection of Radiology Examinations for Distribution and Retrieval",
+      "year": 2016,
+      "venue": "JAMIA",
+      "method": "IU-Xray",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.1093/jamia/ocv080"
+    },
+    "luo2024fairclip": {
+      "title": "FairCLIP: Harnessing Fairness in Vision-Language Learning",
+      "year": 2024,
+      "venue": "CVPR",
+      "method": "FairCLIP / Harvard-FairVLMed",
+      "domain": [
+        "medical"
+      ],
+      "paper_link": "https://arxiv.org/abs/2403.19949"
+    },
     "nguyen2023medredqa": {
       "title": "MedRedQA: A Consumer Medical Question Answering Corpus",
       "year": 2023,
