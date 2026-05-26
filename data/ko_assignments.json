@@ -1174,8 +1174,7 @@
     ],
     "K": "K1",
     "O": "O1",
-    "note": "4,721 expert-annotated biomedical QA pairs; running since 2012; combines exact answer + ideal summary; used for evaluation in cross-modal grounding section",
-    "subsection": "Closed-form QA"
+    "note": "4,721 expert-annotated biomedical QA pairs; running since 2012; combines exact answer + ideal summary; used for evaluation in cross-modal grounding section"
   },
   "jin-etal-2019-pubmedqa": {
     "cells": [
@@ -1183,8 +1182,7 @@
     ],
     "K": "K1",
     "O": "O1",
-    "note": "1k expert-annotated + 61.2k unlabeled + 211.3k artificially generated QA; Yes/No/Maybe from PubMed abstracts; first QA dataset requiring quantitative reasoning over biomedical texts",
-    "subsection": "Closed-form QA"
+    "note": "1k expert-annotated + 61.2k unlabeled + 211.3k artificially generated QA; Yes/No/Maybe from PubMed abstracts; first QA dataset requiring quantitative reasoning over biomedical texts"
   },
   "DBLP:conf/nips/LeeKV0RPVN24": {
     "cells": [

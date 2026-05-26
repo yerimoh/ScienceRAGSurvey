@@ -7999,8 +7999,7 @@
     "ko_note": "1k expert-annotated + 61.2k unlabeled + 211.3k artificially generated QA; Yes/No/Maybe from PubMed abstracts; first QA dataset requiring quantitative reasoning over biomedical texts",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true,
-    "subsection": "Closed-form QA"
+    "bib_only": true
   },
   {
     "bib_key": "krithara2023bioasq",
@@ -8018,8 +8017,7 @@
     "ko_note": "4,721 expert-annotated biomedical QA pairs; running since 2012; combines exact answer + ideal summary; used for evaluation in cross-modal grounding section",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true,
-    "subsection": "Closed-form QA"
+    "bib_only": true
   },
   {
     "bib_key": "welbl-etal-2017-crowdsourcing",
