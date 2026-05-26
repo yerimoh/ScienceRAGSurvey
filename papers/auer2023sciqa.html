@@ -128,17 +128,36 @@
 <li>학술 커뮤니케이션은 지식 표현의 이질성, 과학적 담론에 따른 개념의 진화, 다양한 세분화 수준, 단순 엔티티를 넘어선 새로운 지식 구조를 띠고 있어 이에 특화된 벤치마크가 필요함.</li>
 </ul>
 <h2>어떻게 만들었나 (Construction Methodology)</h2>
-<p>[image: SciQA construction pipeline]</p>
-<ul>
-<li><strong>Step 1: 데이터 출처 선정</strong>: 연구 논문의 기여도를 의미론적으로 설명하는 약 170,000개의 리소스와 15,000개의 논문이 포함된 오픈 리서치 지식 그래프(ORKG)를 데이터 소스로 채택.</li>
-<li><strong>Step 2: 구축 파이프라인</strong>:<ol>
-<li><strong>수작업 질문 100개 생성</strong>: 다양한 연구 분야에서 ORKG의 비교(comparison) 데이터를 선정한 후, 단일 답변·True/False·집계(min/max/average) 등 여러 유형의 자연어 질문과 그에 대응하는 SPARQL 쿼리를 수동 작성.</li>
-<li><strong>자동 생성 질문 2,465개 확장</strong>: ORKG 데이터의 이질성 문제를 줄이기 위해 균일하게 기술된 컴퓨터 과학 분야의 'papers-with-code' 데이터셋을 타겟으로 함. 8개의 SPARQL 쿼리 템플릿과 GPT-3를 활용한 32개의 질문 변형을 만든 뒤, ORKG 엔티티로 플레이스홀더를 채워 2,465개의 질문-쿼리 쌍을 자동 생성.</li>
-</ol>
-</li>
-<li><strong>Step 3: 품질 검증</strong>: 13명의 저자와 ORKG 큐레이션 보조금을 받는 21명의 도메인 전문가들이 참여하여 질문의 적합성 및 쿼리의 구문적·의미적 정확성을 다중 교차 검토(Peer review).</li>
-<li><strong>Step 4: 데이터셋 구성 및 공개</strong>: 수작업 및 자동 생성 질문을 합쳐 총 2,565개로 구성. Zenodo 및 Hugging Face를 통해 공개.</li>
-</ul>
+<pre><code>Step 1 — 데이터 출처 선정
+  ORKG (Open Research Knowledge Graph)
+  약 170,000개 리소스 + 15,000개 논문의 기여도를 의미론적으로 기술한 KG
+
+Step 2 — 수작업 질문 100개 생성
+  ORKG 비교(comparison) 데이터 선정
+  → 단일 답변 / True/False / 집계(min/max/average) 유형
+  → 자연어 질문 + SPARQL 쿼리 수동 작성
+
+Step 3 — 자동 생성 질문 2,465개 확장
+  대상: CS 분야 'papers-with-code' 데이터 (균일 기술로 이질성 최소화)
+  ┌─ 8개 SPARQL 쿼리 템플릿
+  └─ GPT-3로 32개 질문 변형 생성
+     → ORKG 엔티티로 placeholder 채워 2,465개 질문-쿼리 쌍 자동 완성
+
+Step 4 — 품질 검증
+  13명 저자 + 21명 도메인 전문가 (ORKG 큐레이션 보조금 수혜)
+  → 질문 적합성 + SPARQL 구문/의미 정확성 다중 교차 검토
+
+Step 5 — 공개
+  ┌──────────────┬────────┐
+  │ 구분          │ 문항수  │
+  ├──────────────┼────────┤
+  │ 수작업        │   100  │
+  │ 자동 생성     │ 2,465  │
+  ├──────────────┼────────┤
+  │ 합계 (SciQA) │ 2,565  │
+  └──────────────┴────────┘
+  Zenodo + Hugging Face 공개
+</code></pre>
 <h2>Input (입력)</h2>
 <ul>
 <li><strong>출처 및 문항 형식</strong>: ORKG 지식 그래프 구조 기반의 자연어 질문 (단일 논문 대상, 혹은 수십~수백 편의 논문 성과를 집계한 비교 데이터 대상)</li>

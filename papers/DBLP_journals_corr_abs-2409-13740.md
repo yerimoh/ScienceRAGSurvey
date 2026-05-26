@@ -31,7 +31,6 @@ PaperQA2는 과학 문헌 검색·요약·모순탐지 세 가지 실제 태스�
 
 ---
 ## 시스템 아키텍처
-[image: PaperQA2 architecture]
 
 ```
 [사용자 쿼리]

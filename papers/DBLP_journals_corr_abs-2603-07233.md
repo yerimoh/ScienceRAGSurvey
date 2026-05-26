@@ -44,7 +44,6 @@ RAG를 유전자 perturbation 세포 반응 예측에 최초로 적용한 프레
 - **미분 가능한 검색 메커니즘**을 통해 생성 목표와 검색 목표를 end-to-end로 공동 최적화
 
 ## 시스템 아키텍처
-[image: PT-RAG architecture diagram]
 
 ```
 입력: (perturbation gene g, cell state c)

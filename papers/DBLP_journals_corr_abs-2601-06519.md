@@ -21,7 +21,6 @@ originSessionId: e17a6512-257b-4eac-96cc-808523cf24a8
 - **이 연구가 필요한 이유**: 약물-질환 처방이나 부작용 같은 안전과 직결된 문제(Safety-critical errors)를 방지하기 위해서는, 텍스트 문맥뿐만 아니라 구조화된 외부 의학 지식(KG)을 이용한 교차 검증이 필수적임.
 
 ## 시스템 아키텍처
-[image: MedRAGChecker pipeline diagram]
 
 ```
 [LLM 생성 답변 (Raw Answer)]
