@@ -1056,7 +1056,7 @@
     ],
     "K": "K4",
     "O": "",
-    "note": "Dominant chemical process simulator; thermodynamic/kinetic/unit-operation databases embedded",
+    "note": "Leading general-purpose chemical-engineering process simulator; thermodynamic/kinetic/unit-operation databases embedded",
     "subsection": "Embedded in software"
   },
   "proii": {
@@ -1065,7 +1065,7 @@
     ],
     "K": "K4",
     "O": "",
-    "note": "Dominant chemical process simulator; refinery/gas processing tacit knowledge embedded",
+    "note": "Process simulator widely deployed in refining and petrochemicals; tacit knowledge embedded in unit-operation models",
     "subsection": "Embedded in software"
   },
   "gproms": {
@@ -1074,7 +1074,7 @@
     ],
     "K": "K4",
     "O": "",
-    "note": "Advanced process modeling (DAE-based, CAPE-OPEN); battery/pharma/LNG tacit knowledge embedded. BIB MISSING in references.bib",
+    "note": "Leading advanced-process-modeling (APM) platform (equation-based, DAE); battery/pharma/LNG process knowledge embedded",
     "subsection": "Embedded in software"
   },
   "ansys": {
@@ -1101,7 +1101,7 @@
     ],
     "K": "K4",
     "O": "",
-    "note": "Metallurgical/pyrometallurgical thermodynamic knowledge; ~30,000 species database embedded. BIB MISSING in references.bib",
+    "note": "Thermochemical software for pyrometallurgical and hydrometallurgical process simulation; ~30,000 species database (Metso Outotec)",
     "subsection": "Embedded in software"
   },
   "factsage": {
@@ -1110,7 +1110,7 @@
     ],
     "K": "K4",
     "O": "",
-    "note": "CALPHAD-based thermochemical suite; ~60,000 compounds + 20+ solution DBs (FToxid, FTstel, FTsalt). BIB MISSING in references.bib",
+    "note": "CALPHAD-based thermochemical suite; ~60,000 compounds + 20+ solution DBs (FToxid, FTstel, FTsalt) for metallurgical and high-temperature calculations",
     "subsection": "Embedded in software"
   },
   "DBLP:journals/corr/abs-2603-09800": {

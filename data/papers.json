@@ -7571,12 +7571,12 @@
       "chemistry"
     ],
     "paper_link": "https://www.siemens.com/gproms",
-    "note": "Advanced process modeling (DAE-based, CAPE-OPEN); battery/pharma/LNG tacit knowledge embedded. BIB MISSING in references.bib",
+    "note": "Leading advanced-process-modeling (APM) platform (equation-based, DAE); battery/pharma/LNG process knowledge embedded",
     "ko_cells": [
       "K4"
     ],
     "ko_primary": "K4",
-    "ko_note": "Advanced process modeling (DAE-based, CAPE-OPEN); battery/pharma/LNG tacit knowledge embedded. BIB MISSING in references.bib",
+    "ko_note": "Leading advanced-process-modeling (APM) platform (equation-based, DAE); battery/pharma/LNG process knowledge embedded",
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
@@ -7613,12 +7613,12 @@
       "chemistry"
     ],
     "paper_link": "https://www.aspentech.com",
-    "note": "Dominant chemical process simulator; thermodynamic/kinetic/unit-operation databases embedded",
+    "note": "Leading general-purpose chemical-engineering process simulator; thermodynamic/kinetic/unit-operation databases embedded",
     "ko_cells": [
       "K4"
     ],
     "ko_primary": "K4",
-    "ko_note": "Dominant chemical process simulator; thermodynamic/kinetic/unit-operation databases embedded",
+    "ko_note": "Leading general-purpose chemical-engineering process simulator; thermodynamic/kinetic/unit-operation databases embedded",
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
@@ -7656,12 +7656,12 @@
       "materials"
     ],
     "paper_link": "https://www.factsage.com",
-    "note": "CALPHAD-based thermochemical suite; ~60,000 compounds + 20+ solution DBs (FToxid, FTstel, FTsalt). BIB MISSING in references.bib",
+    "note": "CALPHAD-based thermochemical suite; ~60,000 compounds + 20+ solution DBs (FToxid, FTstel, FTsalt) for metallurgical and high-temperature calculations",
     "ko_cells": [
       "K4"
     ],
     "ko_primary": "K4",
-    "ko_note": "CALPHAD-based thermochemical suite; ~60,000 compounds + 20+ solution DBs (FToxid, FTstel, FTsalt). BIB MISSING in references.bib",
+    "ko_note": "CALPHAD-based thermochemical suite; ~60,000 compounds + 20+ solution DBs (FToxid, FTstel, FTsalt) for metallurgical and high-temperature calculations",
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
@@ -7700,12 +7700,12 @@
       "materials"
     ],
     "paper_link": "https://www.metso.com/hsc",
-    "note": "Metallurgical/pyrometallurgical thermodynamic knowledge; ~30,000 species database embedded. BIB MISSING in references.bib",
+    "note": "Thermochemical software for pyrometallurgical and hydrometallurgical process simulation; ~30,000 species database (Metso Outotec)",
     "ko_cells": [
       "K4"
     ],
     "ko_primary": "K4",
-    "ko_note": "Metallurgical/pyrometallurgical thermodynamic knowledge; ~30,000 species database embedded. BIB MISSING in references.bib",
+    "ko_note": "Thermochemical software for pyrometallurgical and hydrometallurgical process simulation; ~30,000 species database (Metso Outotec)",
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
@@ -7763,12 +7763,12 @@
       "chemistry"
     ],
     "paper_link": "https://www.aveva.com",
-    "note": "Dominant chemical process simulator; refinery/gas processing tacit knowledge embedded",
+    "note": "Process simulator widely deployed in refining and petrochemicals; tacit knowledge embedded in unit-operation models",
     "ko_cells": [
       "K4"
     ],
     "ko_primary": "K4",
-    "ko_note": "Dominant chemical process simulator; refinery/gas processing tacit knowledge embedded",
+    "ko_note": "Process simulator widely deployed in refining and petrochemicals; tacit knowledge embedded in unit-operation models",
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
