@@ -1981,8 +1981,7 @@
     ],
     "ko_primary": "K3.O1",
     "ko_note": "main.tex: K=-; O=-",
-    "cross_source": false,
-    "subsection": "Cross-modal"
+    "cross_source": false
   },
   {
     "title": "MOTOR: Multimodal Optimal Transport via Grounded Retrieval in Medical Visual Question Answering",
