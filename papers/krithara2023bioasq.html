@@ -33,7 +33,7 @@
 <a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
 <a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
 <a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">5</span></a>
-<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">5</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">6</span></a>
 <a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
 <a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
 <a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">7</span></a>
@@ -68,9 +68,9 @@
       <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
-        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">73</span></a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">74</span></a>
 <a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">42</span></a>
-<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">122</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">123</span></a>
 <a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">21</span></a>
 <a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">36</span></a>
 <a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
@@ -83,7 +83,7 @@
 
     <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">179</span></a>
     <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">87</span></a>
-    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">13</span></a>
     <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
 
     <hr class="sb-rule">
@@ -117,76 +117,301 @@
   <div class="wrap">
     <article class="paper-markdown">
       <h1>BioASQ-QA: A manually curated corpus for Biomedical Question Answering</h1>
-<p>krithara2023bioasq | 2023 | Scientific Data | benchmark | [medical, bio] | <a href="https://doi.org/10.1038/s41597-023-02068-4">paper</a></p>
-<table class="prop-table">
-<tr><td class="prop-key">DB</td><td class="prop-val">BioASQ QA benchmark (Task B)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">4,721 expert-annotated QA pairs (continuously extended since 2012)</td></tr>
-<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
-<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
-<tr><td class="prop-key">Eval Task</td><td class="prop-val">Biomedical QA (exact answer + ideal summary answer)</td></tr>
-<tr><td class="prop-key">Eval Metric</td><td class="prop-val">F1, MAP, MRR, ROUGE (ideal answers)</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">BioASQ Challenge (Task A: MeSH indexing, Task B: QA)</td></tr>
-</table>
-
 <blockquote>
-<p>Scientific Data | 2023 | benchmark | medical · bio</p>
-<h4>📌 한 줄 요약</h4>
-<p>생물의학 전문가가 2012년부터 연간 500여 개씩 직접 작성한 4,721개 질문-답변 쌍으로 구성된 BioASQ Task B 벤치마크로, exact answer와 paragraph-sized ideal answer를 모두 포함하는 복합 생물의학 QA 데이터셋이다.</p>
+<p>Scientific Data 2023 | Benchmark + Challenge Infrastructure | medical · bio</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 접근법의 한계</strong></p>
-<ul>
-<li>기존 QA 벤치마크는 실제 생물의학 전문가의 정보 니즈를 반영하지 못함</li>
-<li>exact answer 외에 요약형(ideal) answer를 포함한 벤치마크가 없었음</li>
-</ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
-<ul>
-<li>PubMed에 분당 2편 이상 논문이 등록되는 환경에서 정확하고 빠른 생물의학 정보 접근 시스템이 필요</li>
-<li>IR, passage retrieval, NLG, multi-document summarization을 통합 평가하는 벤치마크 필요</li>
-</ul>
-<h4>🔨 시스템 구성</h4>
-<p>BioASQ 인프라는 전문가 주석 도구, 시스템 평가 도구, 벤치마크 저장소, 평가 서비스를 포함한다. Task B에서 각 질문에 대해 관련 문서, 스니펫, 개념, RDF 트리플, exact answer(예: 질병명), ideal answer(단락형 요약)를 제공하도록 설계된다. 2012년부터 매년 챌린지를 운영하며 100개 이상의 기관이 참여하였다.</p>
-<h4>📊 주요 결과</h4>
+<h2>한 줄 요약</h2>
+<p>2012년부터 매년 운영되는 <strong>BioASQ Challenge Task B의 누적 QA 데이터셋</strong>. 21명의 생의학 전문가(EU 중심)가 직접 작성한 <strong>4,721개 질문</strong>(2022년 기준)과 함께 <strong>관련 문서·스니펫·온톨로지 개념·RDF 트리플·exact answer·paragraph 단위 ideal answer</strong>를 8단계 annotation 프로토콜로 제공. IR + QA + multi-document summarization을 동시 평가하는 유일한 의생물학 벤치마크.</p>
+<hr />
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>BioASQ 인프라 = 전문가 team + Annotation tool + Assessment tool + Challenge
+
+Step 0 — Expert team 구성 (2012~)
+  └─ 21명 전문가 (cardio, psychiatry, pharmacology, drug repositioning,
+     genomics, proteomics, clinical IR 등 광범위 커버)
+  └─ 7명이 가장 활발히 기여
+  └─ 매년 1인당 ~500 questions 목표
+
+Step 1 — Question formulation (8단계 annotation 시작)
+  ┌──────────────────────────────────────────────┐
+  │ Question type 4종 선택:                       │
+  │  · Yes/No                                    │
+  │    e.g. &quot;Do CpG islands colocalise with TSS?&quot;│
+  │  · Factoid (단일 entity 답)                  │
+  │    e.g. &quot;Which virus causes mononucleosis?&quot;  │
+  │  · List (entity 리스트)                      │
+  │    e.g. &quot;Which are the Raf kinase inhibitors?&quot;│
+  │  · Summary (1-paragraph 요약 필요)            │
+  │    e.g. &quot;How does dabigatran affect aPTT?&quot;   │
+  └──────────────────────────────────────────────┘
+  ⚠ 가이드라인: PubMed 쿼리로 10~60개 article 회수 가능 범위 내,
+                 controversial 질문 회피, 반드시 biomedical 도메인
+
+Step 2 — Relevant concept 선정 (synonym/broader/narrower 포함)
+
+Step 3 — Information retrieval (PubMed advanced query)
+   ↓ 다양한 쿼리 가능 (실험적으로 &quot;many roads lead to Rome&quot;)
+
+Step 4 — 충분한 article 집합 선정
+Step 5 — Text snippet 추출 (full sentence 단위, 다중 article 허용)
+Step 6 — Query revision (Step 2-5 반복; 답 못 찾으면 question 폐기)
+
+Step 7 — Exact answer
+  · Yes/No → &quot;yes&quot; / &quot;no&quot;
+  · Factoid → entity name + synonym 모두
+  · List → entity 리스트 + 각 element의 synonym
+  · Summary → blank (Step 8에서 통합)
+
+Step 8 — Ideal answer (1-paragraph)
+  반드시 Step 5의 snippet 기반 (전문가 사견 금지),
+  rephrase/shorten/order 자유, 다른 전문가가 읽기 좋게 작성
+
+[Post-challenge] Assessment phase:
+  Expert가 자신이 만든 질문에 대한 system 답을 review,
+  → 누락된 relevant doc/snippet은 gold dataset에 추가 → dataset 품질 점진 개선
+</code></pre>
+<hr />
+<h2>데이터 소스 (Drug-Target-Disease triangle)</h2>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>축</th>
+  <th>리소스</th>
+  <th>규모</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>총 QA 쌍</td>
-  <td>4,721개 (2023년 기준)</td>
+  <td><strong>Drugs</strong></td>
+  <td><strong>Jochem</strong> (Joint Chemical Dictionary — UMLS+MeSH+ChEBI+DrugBank+KEGG+HMDB+ChemIDplus 통합)</td>
+  <td>—</td>
 </tr>
 <tr>
-  <td>연간 신규 질문</td>
-  <td>~500개 (전문가 작성)</td>
+  <td><strong>Targets</strong></td>
+  <td><strong>Gene Ontology</strong> (cellular component / molecular function / biological process)</td>
+  <td>—</td>
 </tr>
 <tr>
-  <td>참여 기관 수</td>
-  <td>전 세계 100개 이상 (모든 대륙)</td>
+  <td></td>
+  <td><strong>UniProt SwissProt</strong> (manual review)</td>
+  <td>&gt;500k sequences</td>
 </tr>
 <tr>
-  <td>운영 기간</td>
-  <td>2012년~현재</td>
+  <td><strong>Diseases</strong></td>
+  <td><strong>Disease Ontology</strong> (MeSH/ICD/NCI/SNOMED/OMIM 통합 매핑)</td>
+  <td>~8,000 diseases</td>
 </tr>
 <tr>
-  <td>질문 유형</td>
-  <td>Yes/No, Factoid, List, Summary</td>
+  <td><strong>Documents</strong></td>
+  <td><strong>MEDLINE/PubMed</strong> (abstracts only since BioASQ-4, 2016)</td>
+  <td>&gt;34M citations</td>
+</tr>
+<tr>
+  <td><strong>Indexing</strong></td>
+  <td><strong>MeSH</strong> (16 trees)</td>
+  <td>~30,200 descriptors</td>
+</tr>
+<tr>
+  <td><del>Linked Data</del></td>
+  <td><del>Linked Life Data</del> (10B statements) — <em>abandoned recent editions</em></td>
+  <td>—</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<hr />
+<h2>데이터셋 누적 성장 (BioASQ Challenge 1~10)</h2>
+<table>
+<thead>
+<tr>
+  <th>년도</th>
+  <th>Challenge</th>
+  <th>누적 질문수</th>
+  <th>평균 #docs/Q</th>
+  <th>평균 #snippets/Q</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>2012</td>
+  <td>BioASQ-1 (proof-of-concept)</td>
+  <td>10</td>
+  <td>–</td>
+  <td>–</td>
+</tr>
+<tr>
+  <td>2013</td>
+  <td>BioASQ-2</td>
+  <td>310</td>
+  <td>14.28</td>
+  <td>18.71</td>
+</tr>
+<tr>
+  <td>2014</td>
+  <td>BioASQ-3</td>
+  <td>810</td>
+  <td>13.45</td>
+  <td>13.30</td>
+</tr>
+<tr>
+  <td>2015</td>
+  <td>BioASQ-4</td>
+  <td>1,307</td>
+  <td>13.00</td>
+  <td>17.86</td>
+</tr>
+<tr>
+  <td>2016</td>
+  <td>BioASQ-5</td>
+  <td>1,799</td>
+  <td>11.86</td>
+  <td>20.38</td>
+</tr>
+<tr>
+  <td>2017</td>
+  <td>BioASQ-6</td>
+  <td>2,251</td>
+  <td>12.01</td>
+  <td>14.76</td>
+</tr>
+<tr>
+  <td>2018</td>
+  <td>BioASQ-7</td>
+  <td>2,747</td>
+  <td>11.14</td>
+  <td>13.91</td>
+</tr>
+<tr>
+  <td>2019</td>
+  <td>BioASQ-8</td>
+  <td>3,243</td>
+  <td>10.15</td>
+  <td>12.92</td>
+</tr>
+<tr>
+  <td>2020</td>
+  <td>BioASQ-9</td>
+  <td>3,742</td>
+  <td>9.43</td>
+  <td>12.33</td>
+</tr>
+<tr>
+  <td>2021</td>
+  <td>BioASQ-10</td>
+  <td>4,234</td>
+  <td>9.22</td>
+  <td>12.24</td>
+</tr>
+<tr>
+  <td><strong>2022</strong></td>
+  <td><strong>(current)</strong></td>
+  <td><strong>4,721</strong></td>
+  <td><strong>8.58</strong></td>
+  <td><strong>11.36</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠ 추세: 평균 doc/snippet 수 점진 감소 — Sufficient set 정책(BioASQ-4부터)으로 &quot;최소한&quot;의 evidence만 요구.</p>
+</blockquote>
+<hr />
+<h2>실제 인스턴스 예시 (JSON format)</h2>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;52bf1b0a03868f1b06000009&quot;,
+  &quot;body&quot;: &quot;Do CpG islands colocalise with transcription start sites?&quot;,
+  &quot;type&quot;: &quot;yesno&quot;,
+  &quot;documents&quot;: [
+    &quot;https://www.ncbi.nlm.nih.gov/pubmed/838566&quot;, ...
+  ],
+  &quot;snippets&quot;: [
+    {&quot;text&quot;: &quot;A common explanation for the G+C rise that is seen
+              here in the mammalian profile in the proximity of
+              the TSS is the presence of CpG islands, ...&quot;,
+     &quot;document&quot;: &quot;...&quot;, &quot;beginSection&quot;: &quot;abstract&quot;,
+     &quot;offsetInBeginSection&quot;: 122, &quot;offsetInEndSection&quot;: 272}, ...
+  ],
+  &quot;concepts&quot;: [&quot;https://www.disease-ontology.org/api/metadata/DOID:893&quot;, ...],
+  &quot;triples&quot;: [{&quot;s&quot;:&quot;...&quot;,&quot;p&quot;:&quot;.../name&quot;,&quot;o&quot;:&quot;Wilson_disease&quot;}, ...],
+  &quot;ideal_answer&quot;: [&quot;Yes. It is generally known that the presence
+                    of a CpG island around the TSS is related to
+                    the expression pattern of the gene. ...&quot;],
+  &quot;exact_answer&quot;: &quot;yes&quot;
+}
+</code></pre>
+<hr />
+<h2>평가 메트릭 (Task B)</h2>
+<table>
+<thead>
+<tr>
+  <th>Phase</th>
+  <th>평가 대상</th>
+  <th>메트릭</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Phase A</strong></td>
+  <td>Document retrieval</td>
+  <td>MAP, Mean Precision/Recall/F-measure</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Snippet retrieval</td>
+  <td>MAP, Mean Precision/Recall/F-measure</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Concept retrieval</td>
+  <td>(동일)</td>
+</tr>
+<tr>
+  <td></td>
+  <td>RDF triple retrieval</td>
+  <td>(동일)</td>
+</tr>
+<tr>
+  <td><strong>Phase B</strong></td>
+  <td>Exact answer (Yes/No)</td>
+  <td><strong>Macro F1</strong> (BioASQ-6부터 공식 / Accuracy 병기)</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Exact answer (Factoid)</td>
+  <td>Mean Reciprocal Rank, Strict/Lenient Accuracy</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Exact answer (List)</td>
+  <td>Mean F1</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Ideal answer</td>
+  <td>1–5 manual scoring × 4 criteria (recall / precision / repetition / readability)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>한계점</h2>
 <ul>
-<li>영어 질문만 포함 (다국어 지원 없음)</li>
-<li>연간 업데이트 주기로 인해 최신 문헌 반영에 시간 지연 존재</li>
-<li>Task A (MeSH 인덱싱)와 Task B (QA)가 분리되어 있어 통합 평가 어려움</li>
+<li><strong>English only</strong> — 다국어 의생물학 QA 불가.</li>
+<li><strong>연 1회 업데이트</strong> — PubMed에 분당 2편 등록되는 환경에 비해 최신 문헌 반영 지연.</li>
+<li><strong>Abstract only</strong> (BioASQ-4부터): full-text PMC 활용 안 함 → 표·그림 등 abstract 외 정보 평가 불가.</li>
+<li><strong>Linked Life Data 폐기</strong> → RDF triple 평가축은 사실상 비활성.</li>
+<li><strong>Expert 편향</strong>: 21명 중 유럽 비중 압도 → 글로벌 임상 다양성 부족 가능.</li>
+<li><strong>Controversial 질문 회피 정책</strong>: 명확한 답이 없는 의학 논쟁은 의도적으로 제외 → real-world 임상 의사결정 시나리오 일부 누락.</li>
 </ul>
+<hr />
 <h2>관련 정보</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1038/s41597-023-02068-4">https://doi.org/10.1038/s41597-023-02068-4</a></li>
-<li><strong>공식 웹사이트</strong>: <a href="http://bioasq.org">http://bioasq.org</a></li>
+<li><strong>논문</strong>: <a href="https://doi.org/10.1038/s41597-023-02068-4">Scientific Data 10:170 (2023)</a></li>
+<li><strong>공식 사이트</strong>: <a href="http://bioasq.org">bioasq.org</a></li>
+<li><strong>데이터 다운로드</strong>: <a href="http://participants-area.bioasq.org">participants-area.bioasq.org</a></li>
+<li><strong>이 벤치마크를 사용하는 주요 후속 작업</strong>:<ul>
+<li>MEDRAG/MIRAGE (Xiong et al., ACL 2024) — BioASQ-Y/N 618 질문을 MC 형식으로 재구성</li>
+<li>AlzheimerRAG (Lahiri &amp; Hu, MAKE 2025) — cross-modal 평가에 사용</li>
+<li>PubMedQA의 비교 대상 (Jin et al., EMNLP-IJCNLP 2019)</li>
+</ul>
+</li>
 </ul>
 
     </article>

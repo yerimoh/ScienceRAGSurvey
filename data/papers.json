@@ -8037,5 +8037,27 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "KB-entry"
+  },
+  {
+    "bib_key": "10.1007/978-3-031-43993-3_51",
+    "title": "PMC-CLIP: Contrastive Language-Image Pre-training Using Biomedical Documents",
+    "year": 2023,
+    "venue": "MICCAI",
+    "method": "PMC-OA / PMC-CLIP",
+    "domain": [
+      "medical",
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1007/978-3-031-43993-3_51",
+    "note": "1.65M biomedical image-text pairs from PubMed Central OA (8x larger than MedICaT); subfigure-subcaption fine-grained alignment; PMC-CLIP pretrained model achieves SOTA on ROCO retrieval, MedMNIST, Medical VQA",
+    "ko_cells": [
+      "K3.O1"
+    ],
+    "ko_primary": "K3.O1",
+    "ko_note": "1.65M PMC OA biomedical image-text pairs; cross-modal grounding dataset cited in §o1-crossmodal",
+    "cross_source": false,
+    "type": "dataset",
+    "subsection": "Cross-modal",
+    "bib_only": false
   }
 ]

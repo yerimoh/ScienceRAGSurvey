@@ -33,7 +33,7 @@
 <a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
 <a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
 <a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">5</span></a>
-<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">5</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">6</span></a>
 <a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
 <a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
 <a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">7</span></a>
@@ -68,9 +68,9 @@
       <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
-        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">73</span></a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">74</span></a>
 <a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">42</span></a>
-<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">122</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">123</span></a>
 <a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">21</span></a>
 <a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">36</span></a>
 <a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
@@ -83,7 +83,7 @@
 
     <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">179</span></a>
     <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">87</span></a>
-    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">12</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">13</span></a>
     <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
 
     <hr class="sb-rule">
@@ -117,80 +117,219 @@
   <div class="wrap">
     <article class="paper-markdown">
       <h1>PubMedQA: A Dataset for Biomedical Research Question Answering</h1>
-<p>jin-etal-2019-pubmedqa | 2019 | EMNLP-IJCNLP 2019 | benchmark | [medical] | <a href="https://aclanthology.org/D19-1259/">paper</a></p>
-<table class="prop-table">
-<tr><td class="prop-key">DB</td><td class="prop-val">PubMedQA (biomedical research QA from PubMed abstracts)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">1k expert-annotated + 61.2k unlabeled + 211.3k artificially generated QA instances</td></tr>
-<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (https://pubmedqa.github.io)</td></tr>
-<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
-<tr><td class="prop-key">Eval Task</td><td class="prop-val">Biomedical research question answering (Yes/No/Maybe)</td></tr>
-<tr><td class="prop-key">Eval Metric</td><td class="prop-val">Accuracy</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">PubMedQA</td></tr>
-</table>
-
 <blockquote>
-<p>EMNLP-IJCNLP 2019 | 2019 | benchmark | medical</p>
-<h4>📌 한 줄 요약</h4>
-<p>PubMed 초록에서 수집한 1k 전문가 주석, 61.2k 미주석, 211.3k 인공 생성 QA 인스턴스로 구성된 생물의학 연구 질문 응답 벤치마크로, 정량적 내용을 포함한 추론이 필요한 최초의 QA 데이터셋이다.</p>
+<p>EMNLP-IJCNLP 2019 | Benchmark | medical</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 접근법의 한계</strong></p>
-<ul>
-<li>기존 생물의학 QA 데이터셋은 정량적 수치 추론(quantitative reasoning)이 필요하지 않았음</li>
-<li>PubMed 초록의 결론 부분을 활용한 체계적 QA 구성 방법론이 없었음</li>
-</ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
-<ul>
-<li>의학 연구에서 &quot;~이 효과가 있는가?&quot;와 같은 Yes/No/Maybe 형태의 질문에 답하는 시스템 평가 필요</li>
-<li>임상 의사결정 지원을 위한 추론 능력 벤치마크 필요</li>
-</ul>
-<h4>🔨 시스템 구성</h4>
-<p>각 PubMedQA 인스턴스는 (1) 연구 논문 제목 또는 파생 질문, (2) 결론을 제외한 초록 (컨텍스트), (3) 초록의 결론 (long answer), (4) Yes/No/Maybe 요약 답변으로 구성된다. 전문가 주석 1k 인스턴스는 생물의학 전문가가 직접 레이블링하였으며, 인공 생성 211.3k 인스턴스는 자동화 파이프라인으로 생성되었다.</p>
-<h4>📊 주요 결과</h4>
+<h2>한 줄 요약</h2>
+<p>PubMed 초록 중 <strong>질문 제목 + 구조화된 초록</strong>을 가진 논문에서 자동/수동으로 구성한 yes/no/maybe QA 벤치마크. <strong>PQA-L (1k 전문가 주석) + PQA-U (61.2k 미주석) + PQA-A (211.3k 자동 생성)</strong> 의 3분할로, 정량적 추론(quantitative reasoning)이 필수인 최초의 생의학 QA 데이터셋.</p>
+<hr />
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>Step 1 — PubMed 후보 추출 (25M references)
+  └─ 필터 1: 제목에 물음표(?) 포함 → ~760k articles
+  └─ 필터 2: 구조화 초록 보유 (Methods/Results/Conclusions) → ~120k
+  └─ 결과: pre-PQA-U (yes/no/maybe로 답할 수 있을 후보)
+
+Step 2 — 인스턴스 4-tuple 구성
+  각 article에서:
+  ┌────────────────┬───────────────────────────────────────┐
+  │ Question       │ 원래 논문 제목 (e.g. &quot;Do statins...?&quot;)│
+  │ Context        │ 구조화 초록 − Conclusion section      │
+  │ Long Answer    │ Conclusion section 자체               │
+  │ Yes/No/Maybe   │ Long Answer를 요약한 단일 레이블      │
+  └────────────────┴───────────────────────────────────────┘
+
+Step 3 — PQA-L 1,000개 (전문가 주석, Algorithm 1)
+  └─ 2,173 후보 중 1,091개 (50.2%) 는 yes/no/maybe 답변 불가로 제거
+     (wh-question / multiple-choice 형식 등)
+  └─ 두 명의 M.D. candidate 어노테이터:
+     · Annotator 1: question + context + long answer → label (reasoning-free)
+     · Annotator 2: question + context 만 → label (reasoning-required)
+     · 두 레이블 동일 → 채택 / 불일치 → 합의 도출 (불가 시 인스턴스 제거)
+  └─ 500개 = 10-fold cross-validation, 나머지 500개 = test set
+
+Step 4 — PQA-U 61.2k (미주석, 반지도학습용)
+  pre-PQA-U 중 PQA-L에 미포함된 yes/no/maybe-answerable 인스턴스.
+  Rule-based 필터(wh-words / multi-entity selection 제거)로 식별
+  → Annotator 1과 93% 일치율 검증
+
+Step 5 — PQA-A 211.3k (자동 생성, 사전학습용)
+  └─ Statement title (POS 태그 NP-(VBP/VBZ), Stanford CoreNLP)
+  └─ Copula/auxiliary verb 추가로 question으로 변환
+     · &quot;Statins reduce AF.&quot; → &quot;Do statins reduce AF?&quot;
+  └─ VB의 negation status로 Yes/No 자동 부여 (Maybe 없음)
+  └─ 200k = 학습 / 11.3k = 검증
+</code></pre>
+<hr />
+<h2>데이터셋 통계</h2>
 <table>
 <thead>
 <tr>
   <th>항목</th>
-  <th>수치</th>
+  <th>PQA-L</th>
+  <th>PQA-U</th>
+  <th>PQA-A</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>전문가 주석</td>
-  <td>1,000개</td>
+  <td>QA pair 수</td>
+  <td>1.0k</td>
+  <td>61.2k</td>
+  <td>211.3k</td>
 </tr>
 <tr>
-  <td>미주석</td>
-  <td>61,200개</td>
+  <td>Yes (%)</td>
+  <td><strong>55.2</strong></td>
+  <td>–</td>
+  <td><strong>92.8</strong></td>
 </tr>
 <tr>
-  <td>인공 생성</td>
-  <td>211,300개</td>
+  <td>No (%)</td>
+  <td><strong>33.8</strong></td>
+  <td>–</td>
+  <td><strong>7.2</strong></td>
 </tr>
 <tr>
-  <td>최고 모델 성능</td>
-  <td>BioBERT multi-phase fine-tuning: 68.1%</td>
+  <td>Maybe (%)</td>
+  <td><strong>11.0</strong></td>
+  <td>–</td>
+  <td>0.0</td>
 </tr>
 <tr>
-  <td>인간 단일 성능</td>
-  <td>78.0%</td>
+  <td>평균 질문 길이 (tok)</td>
+  <td>14.4</td>
+  <td>15.0</td>
+  <td>16.3</td>
 </tr>
 <tr>
-  <td>다수결 기준선</td>
-  <td>55.2%</td>
+  <td>평균 context 길이 (tok)</td>
+  <td>238.9</td>
+  <td>237.3</td>
+  <td>238.0</td>
+</tr>
+<tr>
+  <td>평균 long answer 길이 (tok)</td>
+  <td>43.2</td>
+  <td>45.9</td>
+  <td>41.0</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<hr />
+<h2>실제 문항 형식 예시</h2>
+<blockquote>
+<p><strong>Question.</strong> Do preoperative statins reduce atrial fibrillation after coronary artery bypass grafting?</p>
+<p><strong>Context.</strong>
+<em>(Objective)</em> Recent studies have demonstrated that statins have pleiotropic effects, including anti-inflammatory effects and AF preventive effects [...]
+<em>(Methods)</em> 221 patients underwent CABG in our hospital from 2004 to 2007. 14 patients with preoperative AF and 4 with valve surgery [...]
+<em>(Results)</em> The overall incidence of postoperative AF was 26%. Postoperative AF was significantly lower in the Statin group compared with the Non-statin group (<strong>16% versus 33%, p=0.005</strong>). [...]</p>
+<p><strong>Long Answer.</strong> <em>(Conclusion)</em> Our study indicated that preoperative statin therapy seems to reduce AF development after CABG.</p>
+<p><strong>Answer:</strong> <strong>yes</strong></p>
+</blockquote>
+<p>→ 핵심 supporting fact는 Results의 통계 비교(16% vs 33%, p=0.005). 추론 타입은 <em>Inter-group comparison</em> (57.5% of PQA-L에서 가장 흔함).</p>
+<hr />
+<h2>질문/추론 타입 분포 (PQA-L 200개 샘플 분석)</h2>
+<table>
+<thead>
+<tr>
+  <th>질문 타입</th>
+  <th>%</th>
+  <th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Does a factor influence the output?</td>
+  <td>36.5</td>
+  <td>&quot;Does ibuprofen increase perioperative blood loss?&quot;</td>
+</tr>
+<tr>
+  <td>Is a therapy good/necessary?</td>
+  <td>26.0</td>
+  <td>&quot;Should circumcision be performed in childhood?&quot;</td>
+</tr>
+<tr>
+  <td>Is a statement true?</td>
+  <td>18.0</td>
+  <td>&quot;Sternal fracture in growing children: a rare and overlooked fracture?&quot;</td>
+</tr>
+<tr>
+  <td>Is a factor related to the output?</td>
+  <td>18.0</td>
+  <td>&quot;Can PRISM predict length of PICU stay?&quot;</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+  <th>추론 타입</th>
+  <th>%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Inter-group comparison</td>
+  <td><strong>57.5</strong></td>
+</tr>
+<tr>
+  <td>Interpreting subgroup statistics</td>
+  <td>16.5</td>
+</tr>
+<tr>
+  <td>Interpreting (single) group statistics</td>
+  <td>16.0</td>
+</tr>
+<tr>
+  <td><strong>정량적 내용 추론이 필수인 비율</strong></td>
+  <td><strong>96.5%</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>주요 평가 결과 (PQA-L test 500개 기준)</h2>
+<table>
+<thead>
+<tr>
+  <th>Model</th>
+  <th>Accuracy</th>
+  <th>Macro F1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Majority baseline</td>
+  <td>55.2%</td>
+  <td>–</td>
+</tr>
+<tr>
+  <td>BioBERT multi-phase fine-tuning + LongAnswer BoW supervision</td>
+  <td><strong>68.1%</strong></td>
+  <td>52.8%</td>
+</tr>
+<tr>
+  <td>Human single performance</td>
+  <td>78.0%</td>
+  <td>72.2%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>핵심 발견:</strong> 최고 성능 모델도 인간보다 <strong>9.9%p 낮음</strong> → quantitative reasoning이 RAG / LLM에게 여전히 미해결 과제.</p>
+<hr />
+<h2>한계점</h2>
 <ul>
-<li>Yes/No/Maybe 3-class에 국한되어 개방형 답변 평가 불가</li>
-<li>초록 기반이므로 전문 도메인 지식 없이 답하기 어려운 질문 포함</li>
-<li>인공 생성 인스턴스의 품질이 전문가 주석에 비해 낮을 수 있음</li>
+<li><strong>Clinical study 토픽 편중</strong>: MeSH 분포에서 Pregnancy Outcome / Socioeconomic Factors / Risk Assessment / Survival Analysis 등이 일반 PubMed 대비 과대표상 (p &lt; 0.05, two-proportion z-test).</li>
+<li><strong>PQA-A는 Maybe 없음</strong>: 자동 생성 규칙(negation status 기반)이 binary만 지원 → 불확실성 학습 신호 부족.</li>
+<li>~50%의 question-titled PubMed 논문은 yes/no/maybe로 답할 수 없음 (wh-question / multi-choice) → 후보군 좁음.</li>
+<li>어노테이션 오류율 ~1% (두 어노테이터가 같은 실수를 한 경우, 인간 단일 성능 22% 오류율의 제곱).</li>
 </ul>
+<hr />
 <h2>관련 정보</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://aclanthology.org/D19-1259/">https://aclanthology.org/D19-1259/</a></li>
-<li><strong>데이터셋</strong>: <a href="https://pubmedqa.github.io">https://pubmedqa.github.io</a></li>
+<li><strong>논문</strong>: <a href="https://aclanthology.org/D19-1259/">aclanthology.org/D19-1259</a> (Jin et al., EMNLP-IJCNLP 2019, pp.2567–2577)</li>
+<li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/1909.06146">1909.06146</a></li>
+<li><strong>데이터셋</strong>: <a href="https://pubmedqa.github.io">pubmedqa.github.io</a></li>
+<li><strong>이 벤치마크를 사용한 주요 후속 작업</strong>: MIRAGE/MEDRAG (Xiong et al., ACL 2024) — PQA-L에서 context를 제거하여 RAG 평가용으로 재구성</li>
 </ul>
 
     </article>
