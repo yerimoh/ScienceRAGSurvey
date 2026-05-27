@@ -758,7 +758,8 @@
     ],
     "ko_primary": "K1.O3",
     "ko_note": "main.tex: K=-; O=O3",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Docking-verified Hypothesis"
   },
   {
     "title": "A vision-language foundation model-based multi-modal retrieval-augmented generation framework for remote sensing lithological recognition",
@@ -2570,7 +2571,8 @@
     ],
     "ko_primary": "K1.O3",
     "ko_note": "main.tex: K=-; O=O3",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Docking-verified Hypothesis"
   },
   {
     "title": "Rationale-Guided Retrieval Augmented Generation for Medical Question Answering",
@@ -3752,6 +3754,7 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
+    "subsection": "Docking-verified Hypothesis",
     "flagship": true
   },
   {

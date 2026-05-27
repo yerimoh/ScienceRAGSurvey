@@ -47,7 +47,7 @@ TYPE_LABELS = {
 O_SUBSECTIONS = {
     'O1': {'Text-only Closed-form QA', 'Text-only Long-form Citation', 'Cross-modal'},
     'O2': {'Aggregative Synthesis', 'Verificative Synthesis'},
-    'O3': set(),
+    'O3': {'Docking-verified Hypothesis'},
 }
 K_SUBSECTIONS = {
     'K1': {'General-purpose literature', 'Domain-specific literature', 'Preprint literature'},

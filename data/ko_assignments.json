@@ -101,7 +101,8 @@
     ],
     "K": "",
     "O": "O3",
-    "note": "main.tex: K=-; O=O3"
+    "note": "main.tex: K=-; O=O3",
+    "subsection": "Docking-verified Hypothesis"
   },
   "DBLP:journals/corr/abs-2310-16146": {
     "cells": [
@@ -214,7 +215,8 @@
     ],
     "K": "",
     "O": "O3",
-    "note": "main.tex: K=-; O=O3"
+    "note": "main.tex: K=-; O=O3",
+    "subsection": "Docking-verified Hypothesis"
   },
   "replogle2022mapping": {
     "cells": [
@@ -1191,7 +1193,8 @@
     ],
     "K": "K2",
     "O": "O3",
-    "note": "Fragment-based drug discovery with retrieval augmentation; hard/soft fragment retrieval; iterative refinement + genetic fragment modification; evaluated on PMO benchmark 23 tasks; AUC top-10 metric"
+    "note": "Fragment-based drug discovery with retrieval augmentation; hard/soft fragment retrieval; iterative refinement + genetic fragment modification; evaluated on PMO benchmark 23 tasks; AUC top-10 metric",
+    "subsection": "Docking-verified Hypothesis"
   },
   "DBLP:conf/aaai/LeeBHBPS26": {
     "cells": [
