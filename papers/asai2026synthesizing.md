@@ -103,15 +103,89 @@ Rubric 합의율: Pearson 상관계수 79.3 (general 포함) / 59.5 (전용 항�
 | Human pairwise | 전문가 16명, win/tie/lose | Scholar-Multi (108Q) |
 | Human usefulness | 전문가 1–5점 → useful/neutral/not useful | Scholar-Multi |
 
-## 예시 문항
-**Scholar-CS 예시**
-- Q: "What are the best practices to protect a software against vulnerabilities from third-party libraries?"
-- Rubric Must have: "보안 취약점 스캐닝 도구 사용 방법 설명", "의존성 버전 고정 전략"
-- Rubric Nice to have: "third-party 라이브러리의 실제 사례"
+## 예시 문항 (논문 Figure 3 / Figure 15 / Table 23 / Appendix E 직접 인용)
 
-**Scholar-Multi 예시 (물리학)**
-- Q: "What are ways to cool the centre-of-mass motion of levitated nanoparticles?"
-- 답변에 feedback cooling, coherent scattering, optical cavity cooling 등 복수 방법 포함 필요
+### 📘 단일 논문 — SciFact (Claim Verification, 생의학)
+> **Claim**: "1,000 genomes project enables mapping of genetic sequence variation consisting of rare variants with larger penetrance effects than common variants."
+>
+> **Reference [1]**: *Rare Variants Create Synthetic Genome-Wide Associations*: "GWAS have identified at least 2,000 common variants ... rare causal mutations responsible for both hearing loss and sickle cell anemia create genome-wide significant synthetic associations..."
+>
+> **Expert verdict**: `true [1]` (claim supported)
+> **평가 방식**: Accuracy + Citation F1
+
+### 📘 단일 논문 — PubMedQA (Yes/No, 의학)
+> **Q**: "Systematic use of patient-rated depression severity monitoring: is it helpful and feasible in clinical psychiatry?"
+>
+> **Reference [1]**: *Same-titled paper*: "STAR\*D emphasized the importance of measurement-based care for the treatment of depression ... PHQ-9 for monitoring depression severity was introduced in 19 diverse psychiatric practices..."
+>
+> **Expert answer**: `Yes [1]`
+> **평가 방식**: Accuracy + Citation F1
+
+### 📘 단일 논문 — QASA (Long-form 단답, AI/ML)
+> **Q (about ShuffleNet 논문)**: "What are the side effects of group convolution?"
+>
+> **Reference [1] (ShuffleNet paper)**: "...larger group numbers result in more output channels for a given complexity constraint, which helps to encode more information, though it might also lead to degradation for an individual convolutional filter due to limited corresponding input channels..."
+>
+> **Expert answer**: "The side effects of group convolutions are: blocked flow of information between channel groups when multiple group convolutions are combined; and damaged individual convolution filters for each group due to decreased number of input channels [1]."
+> **평가 방식**: ROUGE-L + Citation F1
+
+---
+
+### 📚 멀티 논문 — Scholar-CS Rubric 예시 ① (소프트웨어 보안)
+> **Q**: "What are the best practices to protect software against vulnerabilities from third-party libraries?"
+>
+> **Must Have rubric**
+> - Item-1: 신뢰할 수 있는 출처 (reliable source), 업데이트 모니터링, 코드 리뷰 등 예방 모범 사례 논의
+>
+> **Nice to Have rubric**
+> - Item-1: 다양한 프로그래밍 언어에서 사용되는 유명 third-party library 사례 제시
+>
+> **Expert answer 발췌**
+> > "Protecting software against vulnerabilities stemming from third-party libraries is a crucial aspect of software security [1] [2]. Below are best practices ... (1) Develop intelligent security tools to automatically detect and repair vulnerabilities ... (2) Applying formal verification methods to examine security properties as part of library test suites or continuous integration..."
+>
+> **평가 방식**: Rubric accuracy (GPT-4o-turbo 채점, must=가중치 큼) + Citation F1 + Coverage/Relevance/Organization (Prometheus v2 5점)
+
+### 📚 멀티 논문 — Scholar-CS Rubric 예시 ② (Python 타입 추론)
+> **Q**: "What publicly available datasets are typically used for evaluating type inference systems in Python?"
+>
+> **Most Important rubric**
+> - 일반적인 type inference 시스템의 목표 정의 (도입부)
+> - Python에서 자동 type inference의 중요성 강조
+> - 평가 통합 접근의 필요성 + 평가 지표 (exact matches, missing types, accuracy 등)
+> - **공개 데이터셋 열거 + 각 데이터셋 간단 설명**
+>
+> **Nice to Have rubric**
+> - rule-based vs ML-based type inference 방법론 카테고리 설명
+>
+> **Supporting quotes 예시 (어노테이터 제공)**
+> - "ManyTypes4Py: 5,382 Python projects with over 869,000 type annotations ... lightweight static analyzer pipeline to extract type information from ASTs"
+> - "TypeEvalPy: 154 code snippets with 845 type annotations across 18 categories targeting various Python..."
+
+---
+
+### 🧬 멀티 논문 — Scholar-Bio 예시 (Inspiring Paper 기반)
+> **Q**: "How does CRISPR/Cas9 compare to other gene-editing technologies in terms of efficiency and precision?"
+>
+> **Inspiring Paper**: Sajeesh et al. 2006. *CRISPR/Cas9 gene-editing: Research technologies, clinical applications and ethical considerations*
+>
+> **Inspiring abstract**: "Gene therapy carries the potential to treat more than 10,000 human monogenic diseases ... The repurposing of CRISPR/Cas9, an ancient bacterial immune defense system, into a gene-editing technology has armed researchers with a revolutionary tool..."
+>
+> Scholar-Bio는 비용 문제로 **질문만 수집**, expert answer 없이 **Citation F1만 평가**.
+
+---
+
+### ⚛️ 멀티 논문 — Scholar-Multi 예시 (Physics: levitated optomechanics)
+> **Q**: "What are ways to cool the centre-of-mass (CoM) motion of levitated nanoparticles?"
+>
+> **Expert-written answer 발췌 (인용 포함)**
+> > "For levitated nanoparticles, cooling their motional degrees of freedom—especially to the quantum ground state—is of great importance ... Currently, the most commonly used cooling method is **feedback cooling** [Tongcang Li et al. 2011]. By measuring the real-time position of the levitated nanoparticle, its instantaneous velocity can be determined, allowing for the application of a feedback cooling scattering force in the opposite direction of the velocity ... cooled from room temperature to 1.5 mK [Tongcang Li 2011], or even to the ground state in cryogenic environments [Novotný 2021]. An alternative method involves levitating the nanosphere in an **optical cavity and cooling via coherent scattering** [Deli´c 2018]. The trapping laser is red-detuned from the optical resonance at the CoM motional frequency ... cool the CoM motion to temperatures as low as 1 K [Deli´c 2018] and to the ground-state [Anonymous 2020]. A more recent proposal, known as **cold damping**, ... adjusts the spatial position of the optical traps using an acousto-optic deflector (AOD) [Vijayan 2022]..."
+>
+> **Fine-grained scores**: Org 5.0 | Rel 5.0 | Cov 4.0
+>
+> **OpenScholar-GPT4o answer 발췌 (비교용)**
+> > "Cooling the centre-of-mass (CoM) motion of levitated nanoparticles is crucial for advancing experiments in levitated optomechanics ... One prominent approach is **cavity-assisted optomechanical cooling**, where the CoM motion is cooled via coherent scattering of light into an optical cavity ... [Windey 2018] ... achieve minimal temperatures in the millikelvin regime for pressures around 10⁻⁵..."
+>
+> **평가 방식**: Citation F1 + Coverage/Relevance/Organization (Prometheus v2 + 16 human experts) + Pairwise win/tie/lose
 
 ## 주요 평가 결과
 **Scholar-CS (Rubric accuracy + Citation F1)**

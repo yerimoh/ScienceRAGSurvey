@@ -319,18 +319,89 @@ Rubric 합의율: Pearson 상관계수 79.3 (general 포함) / 59.5 (전용 항�
 </tr>
 </tbody>
 </table>
-<h2>예시 문항</h2>
-<p><strong>Scholar-CS 예시</strong></p>
+<h2>예시 문항 (논문 Figure 3 / Figure 15 / Table 23 / Appendix E 직접 인용)</h2>
+<h3>📘 단일 논문 — SciFact (Claim Verification, 생의학)</h3>
+<blockquote>
+<p><strong>Claim</strong>: &quot;1,000 genomes project enables mapping of genetic sequence variation consisting of rare variants with larger penetrance effects than common variants.&quot;</p>
+<p><strong>Reference [1]</strong>: <em>Rare Variants Create Synthetic Genome-Wide Associations</em>: &quot;GWAS have identified at least 2,000 common variants ... rare causal mutations responsible for both hearing loss and sickle cell anemia create genome-wide significant synthetic associations...&quot;</p>
+<p><strong>Expert verdict</strong>: <code>true [1]</code> (claim supported)
+<strong>평가 방식</strong>: Accuracy + Citation F1</p>
+</blockquote>
+<h3>📘 단일 논문 — PubMedQA (Yes/No, 의학)</h3>
+<blockquote>
+<p><strong>Q</strong>: &quot;Systematic use of patient-rated depression severity monitoring: is it helpful and feasible in clinical psychiatry?&quot;</p>
+<p><strong>Reference [1]</strong>: <em>Same-titled paper</em>: &quot;STAR*D emphasized the importance of measurement-based care for the treatment of depression ... PHQ-9 for monitoring depression severity was introduced in 19 diverse psychiatric practices...&quot;</p>
+<p><strong>Expert answer</strong>: <code>Yes [1]</code>
+<strong>평가 방식</strong>: Accuracy + Citation F1</p>
+</blockquote>
+<h3>📘 단일 논문 — QASA (Long-form 단답, AI/ML)</h3>
+<blockquote>
+<p><strong>Q (about ShuffleNet 논문)</strong>: &quot;What are the side effects of group convolution?&quot;</p>
+<p><strong>Reference [1] (ShuffleNet paper)</strong>: &quot;...larger group numbers result in more output channels for a given complexity constraint, which helps to encode more information, though it might also lead to degradation for an individual convolutional filter due to limited corresponding input channels...&quot;</p>
+<p><strong>Expert answer</strong>: &quot;The side effects of group convolutions are: blocked flow of information between channel groups when multiple group convolutions are combined; and damaged individual convolution filters for each group due to decreased number of input channels [1].&quot;
+<strong>평가 방식</strong>: ROUGE-L + Citation F1</p>
+</blockquote>
+<hr />
+<h3>📚 멀티 논문 — Scholar-CS Rubric 예시 ① (소프트웨어 보안)</h3>
+<blockquote>
+<p><strong>Q</strong>: &quot;What are the best practices to protect software against vulnerabilities from third-party libraries?&quot;</p>
+<p><strong>Must Have rubric</strong></p>
 <ul>
-<li>Q: &quot;What are the best practices to protect a software against vulnerabilities from third-party libraries?&quot;</li>
-<li>Rubric Must have: &quot;보안 취약점 스캐닝 도구 사용 방법 설명&quot;, &quot;의존성 버전 고정 전략&quot;</li>
-<li>Rubric Nice to have: &quot;third-party 라이브러리의 실제 사례&quot;</li>
+<li>Item-1: 신뢰할 수 있는 출처 (reliable source), 업데이트 모니터링, 코드 리뷰 등 예방 모범 사례 논의</li>
 </ul>
-<p><strong>Scholar-Multi 예시 (물리학)</strong></p>
+<p><strong>Nice to Have rubric</strong></p>
 <ul>
-<li>Q: &quot;What are ways to cool the centre-of-mass motion of levitated nanoparticles?&quot;</li>
-<li>답변에 feedback cooling, coherent scattering, optical cavity cooling 등 복수 방법 포함 필요</li>
+<li>Item-1: 다양한 프로그래밍 언어에서 사용되는 유명 third-party library 사례 제시</li>
 </ul>
+<p><strong>Expert answer 발췌</strong></p>
+<blockquote>
+<p>&quot;Protecting software against vulnerabilities stemming from third-party libraries is a crucial aspect of software security [1] [2]. Below are best practices ... (1) Develop intelligent security tools to automatically detect and repair vulnerabilities ... (2) Applying formal verification methods to examine security properties as part of library test suites or continuous integration...&quot;</p>
+</blockquote>
+<p><strong>평가 방식</strong>: Rubric accuracy (GPT-4o-turbo 채점, must=가중치 큼) + Citation F1 + Coverage/Relevance/Organization (Prometheus v2 5점)</p>
+</blockquote>
+<h3>📚 멀티 논문 — Scholar-CS Rubric 예시 ② (Python 타입 추론)</h3>
+<blockquote>
+<p><strong>Q</strong>: &quot;What publicly available datasets are typically used for evaluating type inference systems in Python?&quot;</p>
+<p><strong>Most Important rubric</strong></p>
+<ul>
+<li>일반적인 type inference 시스템의 목표 정의 (도입부)</li>
+<li>Python에서 자동 type inference의 중요성 강조</li>
+<li>평가 통합 접근의 필요성 + 평가 지표 (exact matches, missing types, accuracy 등)</li>
+<li><strong>공개 데이터셋 열거 + 각 데이터셋 간단 설명</strong></li>
+</ul>
+<p><strong>Nice to Have rubric</strong></p>
+<ul>
+<li>rule-based vs ML-based type inference 방법론 카테고리 설명</li>
+</ul>
+<p><strong>Supporting quotes 예시 (어노테이터 제공)</strong></p>
+<ul>
+<li>&quot;ManyTypes4Py: 5,382 Python projects with over 869,000 type annotations ... lightweight static analyzer pipeline to extract type information from ASTs&quot;</li>
+<li>&quot;TypeEvalPy: 154 code snippets with 845 type annotations across 18 categories targeting various Python...&quot;</li>
+</ul>
+</blockquote>
+<hr />
+<h3>🧬 멀티 논문 — Scholar-Bio 예시 (Inspiring Paper 기반)</h3>
+<blockquote>
+<p><strong>Q</strong>: &quot;How does CRISPR/Cas9 compare to other gene-editing technologies in terms of efficiency and precision?&quot;</p>
+<p><strong>Inspiring Paper</strong>: Sajeesh et al. 2006. <em>CRISPR/Cas9 gene-editing: Research technologies, clinical applications and ethical considerations</em></p>
+<p><strong>Inspiring abstract</strong>: &quot;Gene therapy carries the potential to treat more than 10,000 human monogenic diseases ... The repurposing of CRISPR/Cas9, an ancient bacterial immune defense system, into a gene-editing technology has armed researchers with a revolutionary tool...&quot;</p>
+<p>Scholar-Bio는 비용 문제로 <strong>질문만 수집</strong>, expert answer 없이 <strong>Citation F1만 평가</strong>.</p>
+</blockquote>
+<hr />
+<h3>⚛️ 멀티 논문 — Scholar-Multi 예시 (Physics: levitated optomechanics)</h3>
+<blockquote>
+<p><strong>Q</strong>: &quot;What are ways to cool the centre-of-mass (CoM) motion of levitated nanoparticles?&quot;</p>
+<p><strong>Expert-written answer 발췌 (인용 포함)</strong></p>
+<blockquote>
+<p>&quot;For levitated nanoparticles, cooling their motional degrees of freedom—especially to the quantum ground state—is of great importance ... Currently, the most commonly used cooling method is <strong>feedback cooling</strong> [Tongcang Li et al. 2011]. By measuring the real-time position of the levitated nanoparticle, its instantaneous velocity can be determined, allowing for the application of a feedback cooling scattering force in the opposite direction of the velocity ... cooled from room temperature to 1.5 mK [Tongcang Li 2011], or even to the ground state in cryogenic environments [Novotný 2021]. An alternative method involves levitating the nanosphere in an <strong>optical cavity and cooling via coherent scattering</strong> [Deli´c 2018]. The trapping laser is red-detuned from the optical resonance at the CoM motional frequency ... cool the CoM motion to temperatures as low as 1 K [Deli´c 2018] and to the ground-state [Anonymous 2020]. A more recent proposal, known as <strong>cold damping</strong>, ... adjusts the spatial position of the optical traps using an acousto-optic deflector (AOD) [Vijayan 2022]...&quot;</p>
+</blockquote>
+<p><strong>Fine-grained scores</strong>: Org 5.0 | Rel 5.0 | Cov 4.0</p>
+<p><strong>OpenScholar-GPT4o answer 발췌 (비교용)</strong></p>
+<blockquote>
+<p>&quot;Cooling the centre-of-mass (CoM) motion of levitated nanoparticles is crucial for advancing experiments in levitated optomechanics ... One prominent approach is <strong>cavity-assisted optomechanical cooling</strong>, where the CoM motion is cooled via coherent scattering of light into an optical cavity ... [Windey 2018] ... achieve minimal temperatures in the millikelvin regime for pressures around 10⁻⁵...&quot;</p>
+</blockquote>
+<p><strong>평가 방식</strong>: Citation F1 + Coverage/Relevance/Organization (Prometheus v2 + 16 human experts) + Pairwise win/tie/lose</p>
+</blockquote>
 <h2>주요 평가 결과</h2>
 <p><strong>Scholar-CS (Rubric accuracy + Citation F1)</strong></p>
 <table>
