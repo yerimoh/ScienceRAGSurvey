@@ -80,7 +80,7 @@ def subsec_filter_html(papers_list, prefix='', axis_scope=None):
             if not s: continue
             if allowed is not None and s not in allowed: continue
             counts[s] += 1
-    if len(counts) < 2:
+    if len(counts) < 1:
         return ''
     total = len(papers_list)
     chips = f'<button class="subsec-btn active" data-sub="">All <span class="subsec-n">{total}</span></button>\n'

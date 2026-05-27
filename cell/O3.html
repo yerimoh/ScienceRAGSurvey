@@ -122,7 +122,29 @@
 
 <section class="cell-list">
   <div class="wrap">
-    
+    <div class="subsec-filter" id="oaxisO3subf">
+<button class="subsec-btn active" data-sub="">All <span class="subsec-n">11</span></button>
+<button class="subsec-btn" data-sub="Docking-verified Hypothesis">Docking-verified Hypothesis <span class="subsec-n">3</span></button>
+</div>
+<script>
+(function(){
+  var bar = document.getElementById('oaxisO3subf');
+  if (!bar) return;
+  bar.querySelectorAll('.subsec-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      bar.querySelectorAll('.subsec-btn').forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      var sub = btn.dataset.sub;
+      document.querySelectorAll('.card').forEach(function(card){
+        var cardSub = card.dataset.sub || '';
+        var cardSubs = cardSub.split(' | ');
+        card.style.display = (sub === '' || cardSubs.indexOf(sub) >= 0) ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+
     <div class="card-grid"><article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2603.07233" target="_blank" rel="noopener">Retrieval-Augmented Generation for Predicting Cellular Responses to Gene Perturbation ↗</a></h3>
   <div class="card-meta"><span class="meta-method">PT-RAG</span> · <span class="meta-venue">Gen2 @ ICLR</span> · <span class="meta-year">2026</span></div>

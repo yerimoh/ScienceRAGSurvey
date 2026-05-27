@@ -135,7 +135,29 @@
 
 <section class="cell-list">
   <div class="wrap">
-    
+    <div class="subsec-filter" id="cellK2.O3subf">
+<button class="subsec-btn active" data-sub="">All <span class="subsec-n">5</span></button>
+<button class="subsec-btn" data-sub="Docking-verified Hypothesis">Docking-verified Hypothesis <span class="subsec-n">1</span></button>
+</div>
+<script>
+(function(){
+  var bar = document.getElementById('cellK2.O3subf');
+  if (!bar) return;
+  bar.querySelectorAll('.subsec-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      bar.querySelectorAll('.subsec-btn').forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      var sub = btn.dataset.sub;
+      document.querySelectorAll('.card').forEach(function(card){
+        var cardSub = card.dataset.sub || '';
+        var cardSubs = cardSub.split(' | ');
+        card.style.display = (sub === '' || cardSubs.indexOf(sub) >= 0) ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+
     <div class="card-grid"><article class="card" data-sub="">
   <h3 class="card-title">CLADD: RAG-Enhanced Collaborative LLM Agents for Drug Discovery</h3>
   <div class="card-meta"><span class="meta-method">CLADD</span> · <span class="meta-venue">AAAI</span> · <span class="meta-year">2026</span></div>
