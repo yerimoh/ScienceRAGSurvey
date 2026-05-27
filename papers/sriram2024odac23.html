@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Open DAC 2023 Dataset and Challenges for Sorbent Discovery in Direct Air Capture — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">11</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">8</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">19</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">4</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">7</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">26</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">83</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">132</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">14</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">7</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">175</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">103</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">16</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>The Open DAC 2023 Dataset and Challenges for Sorbent Discovery in Direct Air Capture</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">ACS Central Science</span>
+      <span class="meta-year">2024</span>
+      <a href="https://doi.org/10.1021/acscentsci.3c01629" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Curated Knowledge Base × Hypothesis</a><span class="tag tag-sub">Simulation-verified Materials Discovery</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>ODAC23: 8,400 MOFs × 38M DFT for Direct-Air-Capture Sorbent Discovery</h1>
+<blockquote>
+<p>ACS Central Science 10:923–941 | 2024 | Benchmark + Dataset (DFT-verified MOF sorbent screening) | material · chem
+Anuroop Sriram, Sihoon Choi, Xiaohan Yu, Logan M. Brabson, Abhishek Das, Zachary Ulissi, Matt Uyttendaele, Andrew J. Medford, David S. Sholl — Meta FAIR / Georgia Tech / ORNL
+arXiv: <a href="https://arxiv.org/abs/2311.00341">2311.00341</a> · DOI: <a href="https://doi.org/10.1021/acscentsci.3c01629">10.1021/acscentsci.3c01629</a></p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p><strong>직접 공기 포집(Direct Air Capture, DAC)</strong>용 <strong>금속-유기 골격체(MOF)</strong> 후보 탐색을 위한 <strong>38M+ DFT calculation × 8,400+ MOF benchmark</strong>. 입력은 MOF + adsorbate(CO₂, H₂O) 구조이며, <strong>OC20과 동일한 3-task 정의 (S2EF / IS2RE / IS2RS)</strong>로 ML 모델을 평가. MOF adsorption DFT 데이터로는 현재 <strong>가장 큰 공개 데이터셋</strong>.</p>
+<hr />
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>Step 1 — 과학적 동기
+  ┌──────────────────────────────────────────────┐
+  │ - Annual CO₂ emission ~36B tonnes (2020)     │
+  │ - Atmospheric CO₂ +50% since preindustrial   │
+  │   → ~420 ppm                                 │
+  │ - DAC: ambient-condition negative emissions  │
+  │ - MOFs: modular, tunable, high porosity      │
+  │   → ideal customizable sorbents              │
+  │ - 문제: vast chemical space + humidity/temp  │
+  │   dependence → 효율적 screening 필요          │
+  └──────────────────────────────────────────────┘
+
+Step 2 — MOF corpus 구성 (8,400+ frameworks)
+  ┌──────────────┬────────┬───────────────────────┐
+  │ Set          │ Count  │ Source                │
+  ├──────────────┼────────┼───────────────────────┤
+  │ Pristine MOFs│ 4,942  │ CoRE MOF + curated    │
+  │ Defective MOFs│ 3,470  │ defect 1–16% 농도     │
+  │ Ultrastable   │   114  │ Nandy fragmented +   │
+  │              │        │ recombined            │
+  └──────────────┴────────┴───────────────────────┘
+  · 57 metals (Zn / Cu / Cd 최다)
+  · monometallic 89% / bimetallic 10.7% / 
+    trimetallic &lt;1%
+
+Step 3 — Adsorbate placement
+  · Classical FF + Monte Carlo sampling
+  · ~2–6 placements per framework
+  · CO₂ only / H₂O only / CO₂ + H₂O / CO₂ + 2H₂O
+
+Step 4 — DFT 계산 규모
+  ┌──────────────────────────────────────────────┐
+  │ - 38M+ single-point DFT calculations         │
+  │ - 170K converged adsorption energies          │
+  │ - ~400M core-hours compute                    │
+  │ - largest MOF-adsorption DFT dataset to date │
+  └──────────────────────────────────────────────┘
+
+Step 5 — Benchmark task 정의 (OC20-style)
+  ┌─────────────────────────────────────────────┐
+  │ S2EF (Structure → Energy + Forces)           │
+  │  · 입력: MOF+adsorbate single structure      │
+  │  · 출력: Ẽ_ads + per-atom forces             │
+  │                                              │
+  │ IS2RE (Initial Structure → Relaxed Energy)  │
+  │  · 입력: 초기 placement (non-relaxed)        │
+  │  · 출력: 최종 relaxed adsorption energy      │
+  │                                              │
+  │ IS2RS (Initial Structure → Relaxed Struct)  │
+  │  · 입력: 초기 placement                       │
+  │  · 출력: 최종 relaxed 3D coordinates         │
+  └─────────────────────────────────────────────┘
+
+Step 6 — Adsorption energy 정의
+  Ẽ_ads = E_system − E_MOF − n_CO2·E_CO2 − n_H2O·E_H2O
+  (tilde = not necessarily relaxed)
+
+Step 7 — Promising MOF 식별 (downstream verification)
+  · ODAC23 안에서 직접 promising MOF 발굴
+  · Single + co-adsorption energy 분석
+  · Adsorbate-adsorbate interaction energy 계산
+</code></pre>
+<hr />
+<h2>원문 직접 인용 (arXiv:2311.00341 / ACS Central Sci. §Abstract + §본문)</h2>
+<blockquote>
+<p>&quot;We explore a computational approach benefiting from recent innovations in machine learning (ML) and present a dataset named <strong>Open DAC 2023 (ODAC23) consisting of more than 38M density functional theory (DFT) calculations on more than 8,400 MOF materials containing adsorbed CO₂ and/or H₂O</strong>.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;ODAC23 is by far the <strong>largest dataset of MOF adsorption calculations at the DFT level of accuracy currently available</strong>.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;The final dataset includes a total of <strong>4,942 pristine MOFs and 3,470 defective MOFs</strong> with defect concentrations ranging from 1-16%. The MOFs contain a diverse set of <strong>57 metals</strong>, with Zn, Cu, and Cd being the most common, and include a mix of monometallic (89%), bimetallic (10.7%), and trimetallic (&lt; 1%) frameworks.&quot; (§Methods)</p>
+</blockquote>
+<blockquote>
+<p>&quot;In total, the dataset consists of <strong>over 170K converged adsorption energies and nearly 40M single point calculations</strong>, corresponding to over <strong>400M core-hours of compute time</strong>.&quot; (§Methods)</p>
+</blockquote>
+<blockquote>
+<p>&quot;The Open DAC 2023 (ODAC23) dataset has been designed to allow <strong>training of ML models to approximate DFT calculations</strong>, similar to previous work in heterogeneous catalysis (<strong>OC20 and OC22</strong>). We use the <strong>same three task definitions used in the OC20 work</strong>.&quot; (§Tasks)</p>
+</blockquote>
+<blockquote>
+<p>Tasks: &quot;<strong>Structure to Total Energy and Forces (S2EF)</strong> takes a structure as input and predicts Ẽ_ads ... Initial Structure to Relaxed Structure (IS2RS) ... Initial Structure to Relaxed Energy (IS2RE)&quot; (OC20 정의 인용)</p>
+</blockquote>
+<hr />
+<h2>평가 framework</h2>
+<table>
+<thead>
+<tr>
+  <th>Task</th>
+  <th>Input</th>
+  <th>Output</th>
+  <th>Primary Metric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>S2EF</strong></td>
+  <td>MOF+adsorbate single config</td>
+  <td>Ẽ_ads + forces</td>
+  <td>Energy MAE + Force MAE</td>
+</tr>
+<tr>
+  <td><strong>IS2RE</strong></td>
+  <td>initial (non-relaxed)</td>
+  <td>relaxed E_ads</td>
+  <td>Energy MAE within 20 meV/atom</td>
+</tr>
+<tr>
+  <td><strong>IS2RS</strong></td>
+  <td>initial (non-relaxed)</td>
+  <td>relaxed 3D structure</td>
+  <td>RMSD vs DFT-relaxed</td>
+</tr>
+<tr>
+  <td><strong>Adsorbate-adsorbate interaction</strong></td>
+  <td>CO₂+H₂O combined</td>
+  <td>E_inter_mol</td>
+  <td>qualitative ranking</td>
+</tr>
+<tr>
+  <td><strong>Co-adsorption energy</strong></td>
+  <td>CO₂+H₂O joint vs separate</td>
+  <td>favorability ranking</td>
+  <td>DFT ground truth</td>
+</tr>
+</tbody>
+</table>
+<p>→ OC20/OC22 with the <strong>same evaluation protocol</strong> → MOF/DAC domain으로 확장</p>
+<hr />
+<h2>주요 결과 (논문 §Results)</h2>
+<table>
+<thead>
+<tr>
+  <th>발견</th>
+  <th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>MOFs with various adsorbate-adsorbate interactions identified</td>
+  <td>ZIDBEV (E=0), IMAGAG (-0.64 eV), IPIDUH (1.04 eV) 등</td>
+</tr>
+<tr>
+  <td>Co-adsorption distortion 효과</td>
+  <td>LEWZET 2nd H₂O 시 -5.48 eV (MOF distortion)</td>
+</tr>
+<tr>
+  <td>Direct identification of promising DAC MOFs</td>
+  <td>downstream FF screening 불필요</td>
+</tr>
+<tr>
+  <td>FF-based screening 한계 노출</td>
+  <td>open-metal site / defect에서 FF 부정확</td>
+</tr>
+<tr>
+  <td>ML models trained on ODAC23</td>
+  <td>DFT-level 근사로 high-throughput screening 가능</td>
+</tr>
+</tbody>
+</table>
+<p>→ <strong>결론</strong>: ML + ODAC23 = DAC sorbent discovery의 <strong>scalable in-silico verification platform</strong></p>
+<hr />
+<h2>한계점</h2>
+<ul>
+<li><strong>DFT functional dependence</strong>: PBE-based, 다른 functional과 격차</li>
+<li><strong>OC20-style framework</strong>: liquid/gas phase 외 confined geometry 한정</li>
+<li><strong>Adsorbate 한정</strong>: CO₂, H₂O만 (다른 기체 미커버)</li>
+<li><strong>Compute cost</strong>: 400M core-hours 재현 불가</li>
+<li><strong>Class imbalance</strong>: monometallic 89% → bimetallic/trimetallic 데이터 sparse</li>
+<li><strong>Defect concentration 1–16%</strong>: amorphous / heavily-defective MOF 미커버</li>
+<li><strong>시간</strong>: 2023 cutoff, 후속 ODAC24/25 등장 시 비교 필요</li>
+</ul>
+<hr />
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문 (ACS Central Sci.)</strong>: <a href="https://doi.org/10.1021/acscentsci.3c01629">10.1021/acscentsci.3c01629</a></li>
+<li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2311.00341">2311.00341</a></li>
+<li><strong>공식 사이트</strong>: <a href="https://opencatalystproject.org/">opencatalystproject.org</a> (Open DAC subset)</li>
+<li><strong>GitHub</strong>: <a href="https://github.com/Open-Catalyst-Project/ocp">Open-Catalyst-Project/ocp</a></li>
+<li><strong>저자 소속</strong>: Meta FAIR / Georgia Tech / ORNL</li>
+<li><strong>이 dataset을 사용한 후속 작업</strong>: OMat24 (Meta 2024, OpenDAC를 design 참조), MLIP Arena gas-adsorption task</li>
+<li><strong>관련 데이터셋</strong>: OC20 (Chanussot 2021), OC22 (Tran 2023), OMat24 (Barroso-Luque 2024), CoRE MOF database (Chung 2014)</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

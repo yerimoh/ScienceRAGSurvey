@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CAFA3: Critical Assessment of Function Annotation — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">11</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">8</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">19</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">4</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">7</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">26</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">83</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">132</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">14</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">7</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">175</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">103</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">16</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>CAFA3: Critical Assessment of Function Annotation</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Genome Biology</span>
+      <span class="meta-year">2019</span>
+      <a href="https://doi.org/10.1186/s13059-019-1835-8" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Curated Knowledge Base × Hypothesis</a><span class="tag tag-sub">Database-verified Prediction</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>CAFA3: Time-delayed Protein-GO Function Prediction Benchmark</h1>
+<blockquote>
+<p>Genome Biology 20:244 | 2019 | Benchmark (protein function annotation canonical) | bio · medical
+Naihui Zhou, Yuxiang Jiang, ... Iddo Friedberg (and ~100 co-authors) — international CAFA consortium
+DOI: <a href="https://doi.org/10.1186/s13059-019-1835-8">10.1186/s13059-019-1835-8</a> · PMID 31744546</p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>단백질의 기능(Gene Ontology term)을 시퀀스/구조로부터 예측하는 task의 <strong>국제 challenge benchmark</strong>. CAFA1(2010) → CAFA2(2013) → CAFA3(2017–2019) 3회 cycle 운영. <strong>time-delayed evaluation</strong> 프로토콜로 challenge 시작 시점에 GO annotation이 없는 단백질이 챌린지 기간 동안 실험으로 검증된 결과를 hidden test set으로 사용.</p>
+<hr />
+<h2>어떻게 만들었나 (CAFA Challenge Methodology)</h2>
+<pre><code>Step 1 — Challenge timeline (3년 주기)
+  ┌──────────────────────────────────────────────┐
+  │ T0: Challenge 개시 — UniProt-GO annotation   │
+  │     snapshot 공개                            │
+  │                                               │
+  │ T0 ~ T0+9개월: 참가자 예측 제출 마감          │
+  │     (각 미주석 단백질에 대해 GO term 후보들  │
+  │      을 확률 점수와 함께 ranked list 제출)   │
+  │                                               │
+  │ T0+9 ~ T0+30개월: 자연 실험적 검증 누적       │
+  │     UniProt이 새 GO annotation 등록          │
+  │                                               │
+  │ T0+30개월: Held-out test set 확정             │
+  │     T0 시점 unannotated였으나 챌린지 기간    │
+  │     실험으로 새 annotation을 받은 단백질들    │
+  └──────────────────────────────────────────────┘
+
+Step 2 — Evaluation: time-delayed held-out
+  └─ 챌린지 시작 후 새로 annotated된 단백질만 test
+  └─ data leakage 원천 차단 (전체 시간축으로)
+  └─ &quot;retrieve-then-rank GO term&quot; task 형식
+
+Step 3 — Target 종 + 분야
+  └─ 18+ target species (human, mouse, yeast, A. thaliana 등)
+  └─ 3 GO sub-ontologies: BP (Biological Process),
+                          MF (Molecular Function),
+                          CC (Cellular Component)
+  └─ NK (No Knowledge) + LK (Limited Knowledge) categories
+
+Step 4 — Evaluation metric
+  └─ Fmax (precision-recall curve의 max F1)
+  └─ Smin (semantic distance, GO 계층 고려)
+  └─ ROC-AUC (per-term basis)
+  └─ Coverage (얼마나 많은 단백질에 예측 제공)
+</code></pre>
+<hr />
+<h2>원문 직접 인용 (Zhou 2019 Genome Biol §Title)</h2>
+<blockquote>
+<p>Title: <em>&quot;The <strong>CAFA challenge reports improved protein function prediction</strong> and new functional annotations for hundreds of genes through experimental screens&quot;</em></p>
+</blockquote>
+<blockquote>
+<p>&quot;the third Critical Assessment of Function Annotation (CAFA3) ... evaluation of method performance using time-delayed propagation&quot;</p>
+</blockquote>
+<blockquote>
+<p>CAFA series: CAFA1 (2010–2011, 18 species), CAFA2 (2013–2014, ~100,000 proteins), CAFA3 (2016–2018, ~92,000 proteins)</p>
+</blockquote>
+<hr />
+<h2>평가 셋업</h2>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>CAFA3 (2017–2019)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Challenge cycle</td>
+  <td>3rd edition</td>
+</tr>
+<tr>
+  <td>Target proteins</td>
+  <td>~92,000 (challenge 시작 시 unannotated)</td>
+</tr>
+<tr>
+  <td>Held-out test size</td>
+  <td>챌린지 기간 동안 새로 annotated된 ~3,000–10,000 단백질</td>
+</tr>
+<tr>
+  <td>GO sub-ontologies</td>
+  <td>MF (Molecular Function), BP (Biological Process), CC (Cellular Component)</td>
+</tr>
+<tr>
+  <td>Categories</td>
+  <td>No-Knowledge (NK), Limited-Knowledge (LK)</td>
+</tr>
+<tr>
+  <td>Submission format</td>
+  <td>Per-protein, per-GO-term confidence score (0–1)</td>
+</tr>
+<tr>
+  <td>Primary metric</td>
+  <td>Fmax (precision-recall 기반)</td>
+</tr>
+<tr>
+  <td>Secondary metrics</td>
+  <td>Smin (semantic distance), ROC-AUC, coverage</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>주요 평가 결과 (논문 본문)</h2>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>참가 팀</td>
+  <td>50+ 국제 그룹</td>
+</tr>
+<tr>
+  <td>최고 성능 모델</td>
+  <td>DeepGOPlus, NetGO, GOLabeler, ... (CAFA3)</td>
+</tr>
+<tr>
+  <td>인간 단백질 GO MF Fmax</td>
+  <td>~0.6 (top systems)</td>
+</tr>
+<tr>
+  <td>종 횡단 generalization</td>
+  <td>인간 외 종에서 성능 저하</td>
+</tr>
+<tr>
+  <td>&quot;Improved&quot; 키워드</td>
+  <td>CAFA1 → CAFA3로 일관된 성능 향상 입증</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>주요 활용</h2>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Task</td>
+  <td>Protein → GO term ranking</td>
+</tr>
+<tr>
+  <td>Retrieval-then-rank</td>
+  <td>retrieve homologs → rank candidate GO terms canonical 패턴</td>
+</tr>
+<tr>
+  <td>Database verifier</td>
+  <td>UniProt-GO held-out experimental annotations</td>
+</tr>
+<tr>
+  <td>RAG application</td>
+  <td>sequence embedding retrieval → GO term proposal</td>
+</tr>
+<tr>
+  <td>후속 작업</td>
+  <td>CAFA4 (2020–), CAFA5 (Kaggle 2023)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>한계점</h2>
+<ul>
+<li><strong>Sparse annotation</strong>: GO term은 인간조차 부분 annotated, full ground truth 없음</li>
+<li><strong>Bias toward studied proteins</strong>: 잘 연구된 단백질이 over-represented</li>
+<li><strong>GO ontology drift</strong>: 챌린지 도중 ontology 자체 업데이트 가능</li>
+<li><strong>Long-tail GO terms</strong>: 희귀 function은 examples 부족</li>
+<li><strong>3년 cycle</strong>: 평가 결과 발표가 모델 개발 후 한참 뒤</li>
+<li><strong>Domain bias</strong>: human/model organism 비율 높음, microbial protein 적음</li>
+</ul>
+<hr />
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문 (Genome Biol)</strong>: <a href="https://doi.org/10.1186/s13059-019-1835-8">10.1186/s13059-019-1835-8</a></li>
+<li><strong>PubMed</strong>: <a href="https://pubmed.ncbi.nlm.nih.gov/31744546/">PMID 31744546</a></li>
+<li><strong>공식 사이트</strong>: <a href="https://www.biofunctionprediction.org/cafa">biofunctionprediction.org</a> (CAFA consortium)</li>
+<li><strong>CAFA3 데이터</strong>: synapse.org/cafa3</li>
+<li><strong>Kaggle CAFA5 (2023)</strong>: <a href="https://www.kaggle.com/competitions/cafa-5-protein-function-prediction">kaggle.com/competitions/cafa-5-protein-function-prediction</a></li>
+<li><strong>이 challenge를 사용한 주요 모델</strong>: DeepGOPlus, NetGO, GOLabeler, Funfams, Argot, INGA, TALE, ProteInfer 등</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

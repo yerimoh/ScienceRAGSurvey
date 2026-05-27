@@ -3897,6 +3897,29 @@
     "cross_source": false
   },
   {
+    "bib_key": "DBLP:journals/corr/abs-2410-12771",
+    "title": "Open Materials 2024 (OMat24) Inorganic Materials Dataset and Models",
+    "year": 2024,
+    "venue": "arXiv (Meta FAIR)",
+    "method": "OMat24",
+    "domain": [
+      "material",
+      "chem",
+      "physics"
+    ],
+    "paper_link": "https://arxiv.org/abs/2410.12771",
+    "note": "OMat24 — 110M+ DFT inorganic-materials dataset + EquiformerV2/eSEN MLIP models; Matbench Discovery F1 > 0.9",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "OMat24 — 110M+ DFT inorganic-materials dataset + EquiformerV2/eSEN MLIP models; Matbench Discovery F1 > 0.9",
+    "cross_source": false,
+    "type": "benchmark",
+    "bib_only": true,
+    "subsection": "Simulation-verified Materials Discovery"
+  },
+  {
     "bib_key": "ahdritz2024openfold",
     "title": "OpenFold: Retraining AlphaFold2 yields new insights into its learning mechanisms and capacity for generalization",
     "year": 2024,
@@ -4113,6 +4136,28 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "Chemistry and drug discovery"
+  },
+  {
+    "bib_key": "sriram2024odac23",
+    "title": "The Open DAC 2023 Dataset and Challenges for Sorbent Discovery in Direct Air Capture",
+    "year": 2024,
+    "venue": "ACS Central Science",
+    "method": "ODAC23",
+    "domain": [
+      "material",
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1021/acscentsci.3c01629",
+    "note": "ODAC23 — 8,400+ MOFs × 38M DFT for DAC sorbent discovery; OC20-style S2EF/IS2RE/IS2RS tasks",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "ODAC23 — 8,400+ MOFs × 38M DFT for DAC sorbent discovery; OC20-style S2EF/IS2RE/IS2RS tasks",
+    "cross_source": false,
+    "type": "benchmark",
+    "bib_only": true,
+    "subsection": "Simulation-verified Materials Discovery"
   },
   {
     "bib_key": "milacic2024reactome",
@@ -5097,6 +5142,29 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "Structural biology"
+  },
+  {
+    "bib_key": "DBLP:conf/iclr/XieFGBJ22",
+    "title": "Crystal Diffusion Variational Autoencoder for Periodic Material Generation",
+    "year": 2022,
+    "venue": "ICLR 2022",
+    "method": "CDVAE",
+    "domain": [
+      "material",
+      "chem",
+      "physics"
+    ],
+    "paper_link": "https://arxiv.org/abs/2110.06197",
+    "note": "CDVAE — 3-dataset crystal generation benchmark (Perov-5 / Carbon-24 / MP-20) with Validity / Coverage / Property statistics",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "CDVAE — 3-dataset crystal generation benchmark (Perov-5 / Carbon-24 / MP-20) with Validity / Coverage / Property statistics",
+    "cross_source": false,
+    "type": "benchmark",
+    "bib_only": true,
+    "subsection": "Simulation-verified Materials Discovery"
   },
   {
     "title": "DDXPlus: A New Dataset For Automatic Medical Diagnosis",

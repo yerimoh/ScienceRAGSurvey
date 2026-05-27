@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comprehensive Analysis of Kinase Inhibitor Selectivity (Davis Kd Matrix) — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">11</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">8</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">19</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">4</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">7</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">26</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">83</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">132</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">14</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">7</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">175</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">103</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">16</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Comprehensive Analysis of Kinase Inhibitor Selectivity (Davis Kd Matrix)</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Nature Biotechnology</span>
+      <span class="meta-year">2011</span>
+      <a href="https://doi.org/10.1038/nbt.1990" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Curated Knowledge Base × Hypothesis</a><span class="tag tag-sub">Database-verified Prediction</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>Davis Dataset: 72 Kinase Inhibitors × 442 Kinases Comprehensive Kd Matrix</h1>
+<blockquote>
+<p>Nature Biotechnology 29(11):1046–1051 | 2011 | Benchmark (DTI regression canonical) | chem · bio · medical
+Mindy I. Davis, Jeremy P. Hunt, Sanna Herrgard, Pietro Ciceri, Lisa M. Wodicka, Gabriel Pallares, Michael Hocker, Daniel K. Treiber, Patrick P. Zarrinkar — DiscoveRx Corporation
+DOI: <a href="https://doi.org/10.1038/nbt.1990">10.1038/nbt.1990</a> · PMID 22037378</p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p><strong>72개 kinase inhibitor × 442개 kinase</strong> (human catalytic protein kinome의 &gt;80% 커버)의 결합 친화도(<strong>Kd</strong>)를 종합 측정한 대규모 DTI 매트릭스. drug-target interaction <strong>regression</strong> task의 표준 benchmark로 거의 모든 DTI 논문에 등장.</p>
+<hr />
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>Step 1 — Kinase panel 구축
+  └─ Human catalytic protein kinome &gt;80% 커버
+  └─ 442 kinases (type I + type II + atypical kinases)
+  └─ DiscoveRx KINOMEscan platform 사용
+
+Step 2 — Inhibitor 선정
+  └─ 72 commercially available kinase inhibitors
+  └─ Type I (ATP-competitive) + Type II (allosteric) 혼합
+  └─ Pre-clinical → marketed drugs (예: imatinib, dasatinib, sunitinib)
+
+Step 3 — Kd 측정
+  └─ Competition binding assay (KINOMEscan)
+  └─ Dissociation constant Kd (nM 단위)
+  └─ 모든 (inhibitor, kinase) 쌍에 대해 측정
+  └─ Sparsity 일부 있음 (결합 약한 쌍 제외)
+
+Step 4 — Type I vs Type II 비교 분석
+  └─ Type II 일반적으로 더 선택적
+  └─ &quot;Group-selective&quot; inhibitor 패턴 발견
+  └─ Understudied kinase의 도구 화합물 식별
+</code></pre>
+<hr />
+<h2>원문 직접 인용 (Davis 2011 Nat Biotechnol §Abstract)</h2>
+<blockquote>
+<p>&quot;We evaluate the <strong>interaction of 72 kinase inhibitors with 442 kinases</strong>, covering <strong>&gt;80% of the human catalytic protein kinome</strong>.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;Type II inhibitors are more selective than type I inhibitors, but there are exceptions.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;We identify <strong>group-selective</strong> inhibitors that target specific kinase subfamilies while remaining selective elsewhere, providing a resource for identifying appropriate tool compounds for understudied kinases.&quot;</p>
+</blockquote>
+<hr />
+<h2>데이터셋 통계 (DTI benchmark perspective)</h2>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Inhibitor 수</td>
+  <td>72</td>
+</tr>
+<tr>
+  <td>Kinase 수</td>
+  <td>442 (human catalytic kinome &gt;80%)</td>
+</tr>
+<tr>
+  <td>Assay</td>
+  <td>KINOMEscan competition binding</td>
+</tr>
+<tr>
+  <td>Output unit</td>
+  <td>Kd (nM)</td>
+</tr>
+<tr>
+  <td>Sparsity</td>
+  <td>측정된 쌍만 보고 (~약 30% 활성)</td>
+</tr>
+<tr>
+  <td>Subset 통상 사용</td>
+  <td>DeepDTA 등 모델 평가 시 68 × 442 reduced</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>주요 활용</h2>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Task 정의</td>
+  <td>Drug-Target Interaction (DTI) regression</td>
+</tr>
+<tr>
+  <td>Metric</td>
+  <td>RMSE, MSE, CI (Concordance Index), Spearman</td>
+</tr>
+<tr>
+  <td>Pairing</td>
+  <td>KIBA (Tang 2014)와 함께 보고되는 표준 짝꿍</td>
+</tr>
+<tr>
+  <td>Pioneer 모델</td>
+  <td>DeepDTA (Öztürk 2018), GraphDTA, MolTrans 등</td>
+</tr>
+<tr>
+  <td>TDC 통합</td>
+  <td><code>multi_pred.DTI.DAVIS</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>한계점</h2>
+<ul>
+<li><strong>단일 assay platform</strong>: KINOMEscan 의존 → 다른 assay 결과와 차이 가능</li>
+<li><strong>Sparsity</strong>: 측정되지 않은 쌍 다수 → matrix completion task로도 활용</li>
+<li><strong>In vitro only</strong>: 세포 내 효과 미반영</li>
+<li><strong>Kinase family bias</strong>: catalytic kinase 위주, pseudokinase 미포함</li>
+<li><strong>시간</strong>: 2011년 데이터, 최신 inhibitor (kinase degrader 등) 미반영</li>
+</ul>
+<hr />
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문 (DOI)</strong>: <a href="https://doi.org/10.1038/nbt.1990">10.1038/nbt.1990</a></li>
+<li><strong>PubMed</strong>: <a href="https://pubmed.ncbi.nlm.nih.gov/22037378/">PMID 22037378</a></li>
+<li><strong>DiscoveRx KINOMEscan</strong>: <a href="https://www.discoverx.com">discoverx.com/kinomescan</a></li>
+<li><strong>공식 데이터</strong>: published in paper supplementary; TDC <code>DAVIS</code> task에서 표준화</li>
+<li><strong>이 benchmark를 사용한 주요 작업</strong>: DeepDTA (Öztürk 2018), GraphDTA (Nguyen 2021), MolTrans (Huang 2020), 거의 모든 DTI deep learning 논문</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

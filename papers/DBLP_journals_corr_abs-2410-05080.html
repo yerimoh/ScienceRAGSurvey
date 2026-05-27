@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ScienceAgentBench: 102 Tasks × 44 Pubs × API+E2E Code Success — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">11</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">8</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">19</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">4</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">7</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">26</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">83</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">132</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">14</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">7</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">175</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">103</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">16</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>ScienceAgentBench: 102 Tasks × 44 Pubs × API+E2E Code Success</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">ICLR / arXiv</span>
+      <span class="meta-year">2024</span>
+      <a href="https://arxiv.org/abs/2410.05080" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Curated Knowledge Base × Hypothesis</a><span class="tag tag-sub">Simulation-verified Materials Discovery</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>ScienceAgentBench: 102 Tasks × 44 Peer-Reviewed Publications, Per-step API + E2E Code Success</h1>
+<blockquote>
+<p>ICLR 2025 | Benchmark (data-driven scientific discovery agents) | bio · chem · material · physics · general
+Ziru Chen, Shijie Chen, Yuting Ning, Qianheng Zhang, Boshi Wang, Botao Yu, Yifei Li, Zeyi Liao, Chen Liang, Zixuan Tian, Junlin Wang, Xuechen Li, Hua Xu, Zhen Wang, Yu Su, Huan Sun — Ohio State University
+DBLP: <code>journals/corr/abs-2410-05080</code> · arXiv: <a href="https://arxiv.org/abs/2410.05080">2410.05080</a></p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>LLM agent가 과학 데이터 분석 코드를 작성·실행하는 task <strong>102개</strong>를 <strong>44 peer-reviewed publications</strong>에서 추출하고 <strong>9 domain experts</strong>가 검증한 benchmark. 각 task의 출력은 <strong>self-contained Python file</strong>, 평가는 <strong>per-step API-call accuracy + end-to-end executable code success</strong>. 최고 성능 agent도 task의 <strong>32.4% (independent), 34.3% (expert knowledge)</strong> 만 해결.</p>
+<hr />
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>Step 1 — Task 수집 (peer-reviewed publication 기반)
+  ┌──────────────────────────────────────────────┐
+  │ 44 peer-reviewed publications에서 task 추출  │
+  │ 4 disciplines: bioinformatics, computational │
+  │   chemistry, geographical information science,│
+  │   psychology &amp; cognitive neuroscience        │
+  │                                               │
+  │ 102 tasks 총 수집                            │
+  └──────────────────────────────────────────────┘
+
+Step 2 — 전문가 검증 (9 subject matter experts)
+  └─ Each task: multiple rounds manual validation
+  └─ annotation 품질 + scientific plausibility 확인
+  └─ 비현실 task 제거
+
+Step 3 — Task 통일 — self-contained Python program
+  ┌──────────────────────────────────────────────┐
+  │ Input: task description + dataset path        │
+  │ Required output: single .py file              │
+  │ Execution: agent 작성 코드 실행해서          │
+  │            결과 검증                          │
+  └──────────────────────────────────────────────┘
+
+Step 4 — Evaluation metrics
+  · Code execution success rate (binary)
+  · Per-step API call accuracy (granular)
+  · Cost (API tokens used)
+  · Programs / execution results / costs 동시 평가
+
+Step 5 — Agent strategies tested
+  · Direct prompting
+  · OpenHands CodeAct
+  · Self-debug
+  · 각 3 attempts/task
+</code></pre>
+<hr />
+<h2>원문 직접 인용 (arXiv:2410.05080 §Abstract + §1)</h2>
+<blockquote>
+<p>&quot;we present <strong>ScienceAgentBench, a new benchmark</strong> for evaluating language agents for data-driven scientific discovery&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;we extract <strong>102 tasks from 44 peer-reviewed publications in four disciplines</strong> and engage <strong>nine subject matter experts</strong> to validate them&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;We unify the target output for every task to a <strong>self-contained Python program file</strong> and employ an array of evaluation metrics to examine the generated programs, execution results, and costs&quot;</p>
+</blockquote>
+<blockquote>
+<p>Strategies: &quot;<strong>direct prompting, OpenHands CodeAct, and self-debug</strong>&quot;</p>
+</blockquote>
+<blockquote>
+<p>Results: &quot;the best-performing agent can only solve <strong>32.4% of the tasks independently and 34.3% with expert-provided knowledge</strong>&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;OpenAI o1-preview with direct prompting and self-debug, which can boost the performance&quot;</p>
+</blockquote>
+<hr />
+<h2>평가 metric 상세</h2>
+<p>| Metric | 의미 | 단위 |
+|---|---|---|
+| <strong>Execution success</strong> | 코드가 실행 가능한가 | binary (per task) |
+| <strong>Per-step API accuracy</strong> | 각 단계 함수 호출 정확성 | percentage |
+| <strong>End-to-end success</strong> | 최종 결과가 expected output과 일치 | binary |
+| <strong>Cost</strong> | API 토큰 사용량 | $ |
+| 3 attempts allowed | best-of-3 평가 |</p>
+<hr />
+<h2>주요 평가 결과 (논문 본문)</h2>
+<table>
+<thead>
+<tr>
+  <th>Agent / Strategy</th>
+  <th>독립 (no expert knowledge)</th>
+  <th>전문가 지식 제공</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Direct prompting (Claude/GPT-4)</td>
+  <td>(낮음)</td>
+  <td>(낮음+α)</td>
+</tr>
+<tr>
+  <td>OpenHands CodeAct</td>
+  <td>(중간)</td>
+  <td>(중간+α)</td>
+</tr>
+<tr>
+  <td>Self-debug</td>
+  <td>(개선)</td>
+  <td>(개선+α)</td>
+</tr>
+<tr>
+  <td><strong>Best agent (overall)</strong></td>
+  <td><strong>32.4%</strong></td>
+  <td><strong>34.3%</strong></td>
+</tr>
+<tr>
+  <td>OpenAI o1-preview + self-debug</td>
+  <td>(boost)</td>
+  <td>(highest)</td>
+</tr>
+</tbody>
+</table>
+<p>→ 결론: 현재 LLM agent는 <strong>end-to-end automation 불충분</strong>. &quot;even building a fully automatic AI Scientist is far from complete&quot;</p>
+<hr />
+<h2>4개 분야 task 분포</h2>
+<table>
+<thead>
+<tr>
+  <th>Discipline</th>
+  <th>대표 task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Bioinformatics</td>
+  <td>sequence analysis, RNA-seq pipeline</td>
+</tr>
+<tr>
+  <td>Computational Chemistry</td>
+  <td>molecular descriptors, DFT post-processing</td>
+</tr>
+<tr>
+  <td>Geographical Information Science</td>
+  <td>spatial data analysis, GIS workflow</td>
+</tr>
+<tr>
+  <td>Psychology &amp; Cognitive Neuroscience</td>
+  <td>EEG/fMRI analysis, statistical modeling</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>한계점</h2>
+<ul>
+<li><strong>102 tasks 만</strong>: 더 큰 scale benchmark 필요</li>
+<li><strong>4 disciplines 한정</strong>: physics, mathematics 등 미커버</li>
+<li><strong>Output as Python</strong>: 다른 언어 / 시각화 / 수학 증명 미평가</li>
+<li><strong>연구 도메인 편향</strong>: data analysis 위주, 가설 생성 미평가</li>
+<li><strong>실험 검증 부재</strong>: 코드 실행 결과는 in silico, wet-lab 검증 없음</li>
+<li><strong>시간</strong>: 2024 cutoff, 최신 agent (Claude 3.7 등) 미평가</li>
+</ul>
+<hr />
+<h2>관련 정보</h2>
+<ul>
+<li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2410.05080">2410.05080</a></li>
+<li><strong>DBLP</strong>: <a href="https://dblp.org/rec/journals/corr/abs-2410-05080.html">journals/corr/abs-2410-05080</a></li>
+<li><strong>공식 사이트</strong>: <a href="https://osu-nlp-group.github.io/ScienceAgentBench/">osu-nlp-group.github.io/ScienceAgentBench</a></li>
+<li><strong>GitHub</strong>: <a href="https://github.com/OSU-NLP-Group/ScienceAgentBench">OSU-NLP-Group/ScienceAgentBench</a></li>
+<li><strong>저자 소속</strong>: Ohio State University</li>
+<li><strong>Venue</strong>: ICLR 2025</li>
+<li><strong>관련 작업</strong>: MLAgentBench (Huang et al.), SWE-Bench (Jimenez et al.), MatClaw (Zhang 2026, materials-specific code-as-action)</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

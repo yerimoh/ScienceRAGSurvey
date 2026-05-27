@@ -1700,6 +1700,44 @@
         "physics"
       ],
       "paper_link": "https://arxiv.org/abs/2509.20630"
+    },
+    "DBLP:conf/iclr/XieFGBJ22": {
+      "title": "Crystal Diffusion Variational Autoencoder for Periodic Material Generation",
+      "year": 2022,
+      "venue": "ICLR 2022",
+      "method": "CDVAE",
+      "domain": [
+        "material",
+        "chem",
+        "physics"
+      ],
+      "type": "benchmark",
+      "paper_link": "https://arxiv.org/abs/2110.06197"
+    },
+    "DBLP:journals/corr/abs-2410-12771": {
+      "title": "Open Materials 2024 (OMat24) Inorganic Materials Dataset and Models",
+      "year": 2024,
+      "venue": "arXiv (Meta FAIR)",
+      "method": "OMat24",
+      "domain": [
+        "material",
+        "chem",
+        "physics"
+      ],
+      "type": "benchmark",
+      "paper_link": "https://arxiv.org/abs/2410.12771"
+    },
+    "sriram2024odac23": {
+      "title": "The Open DAC 2023 Dataset and Challenges for Sorbent Discovery in Direct Air Capture",
+      "year": 2024,
+      "venue": "ACS Central Science",
+      "method": "ODAC23",
+      "domain": [
+        "material",
+        "chem"
+      ],
+      "type": "benchmark",
+      "paper_link": "https://doi.org/10.1021/acscentsci.3c01629"
     }
   }
 }

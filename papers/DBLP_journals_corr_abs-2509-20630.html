@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MLIP Arena: Physics-aware MLIP Benchmark Platform — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">11</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">8</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">19</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">4</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">7</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">26</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">83</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">132</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">14</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">7</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">175</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">103</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">16</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>MLIP Arena: Physics-aware MLIP Benchmark Platform</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">NeurIPS D&amp;B 2025</span>
+      <span class="meta-year">2025</span>
+      <a href="https://arxiv.org/abs/2509.20630" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Curated Knowledge Base × Hypothesis</a><span class="tag tag-sub">Simulation-verified Materials Discovery</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>MLIP Arena: Physics-aware MLIP Benchmark beyond DFT-error Metrics</h1>
+<blockquote>
+<p>NeurIPS 2025 Datasets &amp; Benchmarks Track | Benchmark (foundation MLIP physics-aware evaluation) | material · chem · physics
+Yuan Chiang, Tobias Kreiman, Christine Zhang, Matthew C. Kuner, Elizabeth Weaver, Ishan Amin, Hyunsoo Park, Yunsung Lim, Jihan Kim, Daryl Chrzan, Aron Walsh, Samuel M. Blau, Mark Asta, Aditi S. Krishnapriyan — UC Berkeley / LBNL / Imperial / KAIST
+DBLP: <code>journals/corr/abs-2509-20630</code> · arXiv: <a href="https://arxiv.org/abs/2509.20630">2509.20630</a></p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p><strong>Foundation MLIP (machine learning interatomic potential)</strong> 을 <strong>DFT-error metric 기반이 아닌 physics-aware 기반</strong>으로 평가하는 open benchmark platform. <strong>dynamical stability, gas adsorption, phase transition, vacancy migration</strong> 등 downstream 물리 task 중심. Matbench Discovery의 약점 (error metric vulnerable to data leakage) 보완.</p>
+<hr />
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>Step 1 — 문제 인식: 기존 MLIP benchmark의 약점
+  ┌──────────────────────────────────────────────┐
+  │ 1. Data leakage (Matbench Discovery 등)       │
+  │    → energy 과적합 → force/finite-T 부정확   │
+  │ 2. Static dataset → 새 데이터셋 등장 시 무용 │
+  │ 3. Error-based metric ≠ practical utility    │
+  │    → 일부 MLIP는 ground-state error 낮으나   │
+  │       phonon/transport에서 실패              │
+  └──────────────────────────────────────────────┘
+
+Step 2 — Physics-aware task 설계 (4 카테고리)
+  ┌─────────────────────────────────────┐
+  │ A. Asymptotic Behaviors             │
+  │    - 비물리적 force divergence 검출  │
+  │                                      │
+  │ B. Stability &amp; Reactivity           │
+  │    - Dynamical stability             │
+  │    - Phase transition                │
+  │    - Vacancy migration               │
+  │    - Gas adsorption                  │
+  │                                      │
+  │ C. Distribution Shifts              │
+  │    - 학습 데이터 밖 chemistry        │
+  │                                      │
+  │ D. Thermodynamic Properties         │
+  │    - phonon spectra                  │
+  │    - elastic constants               │
+  │    - free energy                     │
+  └─────────────────────────────────────┘
+
+Step 3 — Platform infrastructure
+  ┌──────────────────────────────────────────────┐
+  │ - Python package (open source)               │
+  │   `pip install mlip-arena`                   │
+  │ - Online leaderboard                         │
+  │ - Workflow orchestration (Parquet, JSON,     │
+  │   ASE DB)                                    │
+  │ - Submission via GitHub                      │
+  └──────────────────────────────────────────────┘
+
+Step 4 — Evaluation philosophy
+  · Physics priors 존중 (symmetry, conservation)
+  · Failure-mode 노출 (실패 상황을 명시적 시각화)
+  · Reproducibility (random seed, hyperparameter)
+  · Multi-DFT reference (PBE/SCAN/HSE 등 비교)
+</code></pre>
+<hr />
+<h2>원문 직접 인용 (arXiv:2509.20630 §Abstract + §1)</h2>
+<blockquote>
+<p>&quot;We introduce <strong>MLIP Arena, a benchmark platform that evaluates force field performance based on physics awareness, chemical reactivity, stability under extreme conditions, and predictive capabilities for thermodynamic properties</strong> and physical phenomena&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;Existing benchmarks suffer from <strong>data leakage, limited transferability, and an over-reliance on error-based metrics tied to specific density functional theory (DFT) references</strong>&quot;</p>
+</blockquote>
+<blockquote>
+<p>4 카테고리: &quot;<strong>Asymptotic Behaviors / Stability and Reactivity / Distribution Shifts / Thermodynamic Properties</strong>&quot; + 구체적 phenomena &quot;<strong>Dynamical stability, Gas adsorption, Phase transition, Vacancy migration</strong>&quot;</p>
+</blockquote>
+<blockquote>
+<p>Matbench Discovery 비판: &quot;non-compliant models rank highly for crystal stability metrics due to <strong>energy overfitting at the expense of forces and finite-temperature capabilities</strong>&quot;</p>
+</blockquote>
+<blockquote>
+<p>Available: <strong><a href="https://github.com/atomind-ai/mlip-arena">https://github.com/atomind-ai/mlip-arena</a></strong></p>
+</blockquote>
+<hr />
+<h2>평가 framework</h2>
+<table>
+<thead>
+<tr>
+  <th>Metric category</th>
+  <th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Physics awareness</strong></td>
+  <td>Symmetry preservation, energy conservation, force smoothness</td>
+</tr>
+<tr>
+  <td><strong>Chemical reactivity</strong></td>
+  <td>Bond breaking, transition state</td>
+</tr>
+<tr>
+  <td><strong>Stability under extreme conditions</strong></td>
+  <td>High T/P, defect, surface</td>
+</tr>
+<tr>
+  <td><strong>Thermodynamic predictions</strong></td>
+  <td>Phonons, elastic, gas adsorption, free energy</td>
+</tr>
+<tr>
+  <td><strong>Distribution shift</strong></td>
+  <td>OOD chemistry generalization</td>
+</tr>
+</tbody>
+</table>
+<p>→ DFT energy MAE/MAEF 같은 단순 error metric은 <strong>secondary</strong>.</p>
+<hr />
+<h2>주요 발견 (논문 본문)</h2>
+<table>
+<thead>
+<tr>
+  <th>관찰</th>
+  <th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Top Matbench Discovery model이 phonon에서 실패</td>
+  <td>error metric의 한계</td>
+</tr>
+<tr>
+  <td>Foundation MLIP들이 OOD chemistry에 transferability 부족</td>
+  <td>학습 데이터 dependence</td>
+</tr>
+<tr>
+  <td>Symmetry-breaking 발견</td>
+  <td>physical prior 위반</td>
+</tr>
+<tr>
+  <td>Force smoothness vs energy accuracy trade-off</td>
+  <td>PES landscape 품질</td>
+</tr>
+</tbody>
+</table>
+<p>→ <strong>결론</strong>: MLIP foundation model 평가는 <strong>physics-aware task</strong> 기반이어야 함.</p>
+<hr />
+<h2>한계점</h2>
+<ul>
+<li><strong>2025년 NeurIPS D&amp;B submission</strong>: 최종 leaderboard 진행 중</li>
+<li><strong>Foundation MLIP만 대상</strong>: classical FF, specific-task MLIP 미커버</li>
+<li><strong>Task 수 제한</strong>: ~수십 개 카테고리, 더 확장 필요</li>
+<li><strong>DFT reference 다양성</strong>: PBE 위주, advanced functional 미충분</li>
+<li><strong>계산 비용</strong>: physics-aware test가 단순 error metric보다 훨씬 무거움</li>
+<li><strong>CPU/GPU 다양성</strong>: 다양한 hardware에서 정확도 일관성 검증 필요</li>
+</ul>
+<hr />
+<h2>관련 정보</h2>
+<ul>
+<li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2509.20630">2509.20630</a></li>
+<li><strong>DBLP</strong>: <a href="https://dblp.org/rec/journals/corr/abs-2509-20630.html">journals/corr/abs-2509-20630</a></li>
+<li><strong>GitHub</strong>: <a href="https://github.com/atomind-ai/mlip-arena">atomind-ai/mlip-arena</a></li>
+<li><strong>Python package</strong>: <code>pip install mlip-arena</code></li>
+<li><strong>공식 사이트</strong>: <a href="https://atomind.ai/mlip-arena/">atomind.ai/mlip-arena</a> (예정)</li>
+<li><strong>Venue</strong>: NeurIPS 2025 Datasets &amp; Benchmarks</li>
+<li><strong>저자 소속</strong>: UC Berkeley / LBNL / Imperial College London / KAIST</li>
+<li><strong>관련 benchmarks</strong>: Matbench Discovery (Riebesell 2025 NMI, beats), JARVIS-Leaderboard (Choudhary 2024 npj CompMat), AdsorbML (Lan 2023 npj CompMat)</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

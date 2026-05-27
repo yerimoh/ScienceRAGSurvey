@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Open Materials 2024 (OMat24) Inorganic Materials Dataset and Models — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">11</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">8</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">19</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">4</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">7</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">26</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">83</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">132</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">14</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">7</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">175</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">103</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">16</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Open Materials 2024 (OMat24) Inorganic Materials Dataset and Models</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">arXiv (Meta FAIR)</span>
+      <span class="meta-year">2024</span>
+      <a href="https://arxiv.org/abs/2410.12771" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Curated Knowledge Base × Hypothesis</a><span class="tag tag-sub">Simulation-verified Materials Discovery</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>OMat24: 110M-DFT MLIP Training &amp; Evaluation Suite (Matbench Discovery F1 &gt; 0.9)</h1>
+<blockquote>
+<p>arXiv 2024 (Meta FAIR Technical Report) | Benchmark + Dataset + Models (foundation MLIP) | material · chem · physics
+Luis Barroso-Luque, Muhammed Shuaibi, Xiang Fu, Brandon M. Wood, Misko Dzamba, Meng Gao, Ammar Rizvi, Matt Uyttendaele, C. Lawrence Zitnick, Zachary W. Ulissi — Fundamental AI Research (FAIR) at Meta
+arXiv: <a href="https://arxiv.org/abs/2410.12771">2410.12771</a> · CoRR: <code>journals/corr/abs-2410-12771</code></p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>무기 재료(inorganic material)용 <strong>110M+ DFT calculation 공개 데이터셋</strong> + <strong>EquiformerV2/eSEN MLIP 모델 체크포인트</strong> + <strong>Matbench Discovery 평가 프로토콜</strong>을 묶은 large-scale training+benchmark suite. 기존 데이터의 약 100배 규모이며, <strong>F1 &gt; 0.9 (stability)</strong>, <strong>MAE 20 meV/atom (formation energy)</strong> 달성. <strong>공개된 모든 leaderboard top model이 OMat24 채택</strong>.</p>
+<hr />
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>Step 1 — 문제 인식: open MLIP training data 부족
+  ┌──────────────────────────────────────────────┐
+  │ &quot;the state-of-the-art in openly available    │
+  │  and reproducible datasets and models        │
+  │  lagged behind proprietary models&quot;           │
+  │ + MPTrj/MPF 같은 기존 dataset은 equilibrium  │
+  │   위주, far-from-equilibrium 부족             │
+  └──────────────────────────────────────────────┘
+
+Step 2 — OMat24 dataset 구성
+  ┌──────────────────────────────────────────────┐
+  │ - 110M+ single-point DFT calculations         │
+  │ - 118M structures total (energy, forces,      │
+  │   cell stress labels)                          │
+  │ - 1–100 atoms per structure                    │
+  │   (majority &lt; 20 atoms from Alexandria)        │
+  │ - Source: Alexandria base + AIMD sampling +   │
+  │   non-equilibrium perturbations                │
+  │ - DFT settings designed for compatibility     │
+  │   with MPtrj/Materials Project                 │
+  └──────────────────────────────────────────────┘
+
+Step 3 — Three core design principles
+  · Scale: ~2 orders of magnitude &gt; 기존 open dataset
+  · Diversity: periodic table 전반 + far-from-equilibrium
+  · Open-science: CC-by license, full reproducibility
+
+Step 4 — Pretrained MLIP 모델
+  · EquiformerV2 variants (Liao 2023, 2024)
+  · eSEN variants (Fu 2024)
+  · Pretrained on OMat24, fine-tuned for MPtrj
+    DFT-settings compatibility
+
+Step 5 — Evaluation protocol
+  ┌──────────────────────────────────────────────┐
+  │ 1. Matbench Discovery (WBM 257K structures)   │
+  │    → F1, DAF, precision, recall, MAE          │
+  │ 2. Thermal conductivity / phonon benchmarks   │
+  │    (newly introduced)                          │
+  │ 3. Softening bias quantification              │
+  │    (energy/force/derivative systematic        │
+  │     underestimation correction)                │
+  └──────────────────────────────────────────────┘
+
+Step 6 — 공개 자원
+  · Dataset: HuggingFace fairchem/OMAT24 (CC-by-4.0)
+  · Models: HuggingFace fairchem/OMAT24
+  · Code: github.com/FAIR-Chem/fairchem (MIT)
+</code></pre>
+<hr />
+<h2>원문 직접 인용 (arXiv:2410.12771 §Abstract + §1 + §2)</h2>
+<blockquote>
+<p>&quot;we present the <strong>Open Materials 2024 (OMat24) dataset, comprising over 110M DFT calculations</strong> across diverse chemistries, materials, and configurations.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;MLIP models trained on OMat24 achieve leading performance on the <strong>Matbench Discovery leaderboard, surpassing previous models with F1 scores above 0.9 for stability and 20 meV/atom accuracy for formation energy</strong>.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;Models trained on OMat24 also exhibit the highest accuracy in newly developed <strong>thermal conductivity and phonon prediction task benchmarks</strong>.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;OMat24's diversity <strong>corrects the consistent softening bias of prior models trained on less diverse datasets</strong>, which systematically underpredicted energy, forces, and derivative properties like phonons.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;The OMat24 dataset includes a total of <strong>118 million structures labeled with energy, forces and cell stress</strong>. The number of atoms per structure ranges from <strong>1 to 100 atoms per structure</strong>.&quot; (§2.1)</p>
+</blockquote>
+<blockquote>
+<p>Three design principles: &quot;<strong>Scale</strong>: OMat24 is a large-scale public ab-initio training dataset for inorganic materials <strong>up to 2 orders of magnitude larger than other openly available datasets</strong> in terms of number of single-point calculations. <strong>Diversity</strong>: OMat24 has compositional diversity across the periodic table thanks to community efforts to prototype and catalog hypothetical materials, and contains a large fraction of far-from-equilibrium structures. <strong>Open-science</strong>: OMat24 is released under a permissive CC-by license.&quot; (§2.1)</p>
+</blockquote>
+<blockquote>
+<p>&quot;<strong>Since its release, all top models on the leaderboard have adopted the dataset.</strong>&quot; (§1)</p>
+</blockquote>
+<hr />
+<h2>평가 framework</h2>
+<table>
+<thead>
+<tr>
+  <th>Benchmark</th>
+  <th>Metric</th>
+  <th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Matbench Discovery</strong></td>
+  <td>F$_1$ (stability)</td>
+  <td>binary stable/unstable WBM 257K</td>
+</tr>
+<tr>
+  <td><strong>Matbench Discovery</strong></td>
+  <td>MAE (formation E)</td>
+  <td>regression eV/atom</td>
+</tr>
+<tr>
+  <td><strong>Matbench Discovery</strong></td>
+  <td>DAF</td>
+  <td>discovery acceleration</td>
+</tr>
+<tr>
+  <td><strong>Phonon prediction</strong></td>
+  <td>newly added</td>
+  <td>force-derivative property</td>
+</tr>
+<tr>
+  <td><strong>Thermal conductivity</strong></td>
+  <td>newly added</td>
+  <td>transport property</td>
+</tr>
+<tr>
+  <td><strong>Softening bias</strong></td>
+  <td>systematic error magnitude</td>
+  <td>energy/force/phonon underestimation</td>
+</tr>
+</tbody>
+</table>
+<p>→ OMat24 train 모델: F$_1$ &gt; 0.9, MAE = 20 meV/atom (Matbench Discovery top)</p>
+<hr />
+<h2>주요 결과 (논문 §2 + Tables)</h2>
+<table>
+<thead>
+<tr>
+  <th>Metric</th>
+  <th>OMat24-trained 모델</th>
+  <th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Matbench F$_1$ (stability)</td>
+  <td><strong>&gt; 0.9</strong></td>
+  <td>이전 best 대비 향상</td>
+</tr>
+<tr>
+  <td>Formation E MAE</td>
+  <td><strong>20 meV/atom</strong></td>
+  <td>DFT-level 정확도</td>
+</tr>
+<tr>
+  <td>Softening bias</td>
+  <td>사라지거나 reduce됨</td>
+  <td>non-equilibrium 학습 효과</td>
+</tr>
+<tr>
+  <td>Phonon prediction</td>
+  <td>highest accuracy</td>
+  <td>force-derivative 정확</td>
+</tr>
+<tr>
+  <td>Architecture</td>
+  <td>EquiformerV2, eSEN</td>
+  <td>동일 데이터로 다른 아키텍처도 향상</td>
+</tr>
+</tbody>
+</table>
+<p>→ <strong>결론</strong>: dataset diversity (특히 far-from-equilibrium)가 MLIP 정확도 결정적, 모든 leaderboard top model이 OMat24를 채택.</p>
+<hr />
+<h2>한계점</h2>
+<ul>
+<li><strong>DFT settings compatibility</strong>: MPtrj와 다른 functional/parameter → fine-tuning 필요</li>
+<li><strong>Inorganic bulk material 한정</strong>: 분자, 표면, 인터페이스 미커버</li>
+<li><strong>License</strong>: dataset CC-by, model checkpoint custom license</li>
+<li><strong>Compute requirement</strong>: 110M DFT 계산은 reproducibility를 제한</li>
+<li><strong>Static dataset</strong>: 후속 OMat25/26 등장 시 비교 필요</li>
+<li><strong>시간</strong>: 2024 cutoff (논문 명시 2026-05-21 revision)</li>
+</ul>
+<hr />
+<h2>관련 정보</h2>
+<ul>
+<li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2410.12771">2410.12771</a></li>
+<li><strong>DBLP</strong>: <a href="https://dblp.org/rec/journals/corr/abs-2410-12771.html">journals/corr/abs-2410-12771</a></li>
+<li><strong>Dataset</strong>: <a href="https://huggingface.co/datasets/fairchem/OMAT24">huggingface.co/datasets/fairchem/OMAT24</a> (CC-by-4.0)</li>
+<li><strong>Models</strong>: <a href="https://huggingface.co/fairchem/OMAT24">huggingface.co/fairchem/OMAT24</a></li>
+<li><strong>GitHub</strong>: <a href="https://github.com/FAIR-Chem/fairchem">FAIR-Chem/fairchem</a> (MIT)</li>
+<li><strong>저자 소속</strong>: Meta FAIR</li>
+<li><strong>이 dataset을 사용한 후속 작업</strong>: Matbench Discovery top models (모두 OMat24 채택), MLIP Arena (NeurIPS 2025 D&amp;B)</li>
+<li><strong>관련 데이터셋</strong>: MPtrj (Deng 2023), Alexandria (Schmidt 2024), Materials Project, OC20 (Chanussot 2021), OC22, ODAC23</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TWOSIDES &amp;amp; OFFSIDES: Data-driven Prediction of Drug Effects and Interactions — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">11</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">8</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">19</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">4</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">7</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">26</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">83</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">132</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">14</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">7</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">175</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">103</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">16</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>TWOSIDES &amp; OFFSIDES: Data-driven Prediction of Drug Effects and Interactions</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Science Translational Medicine</span>
+      <span class="meta-year">2012</span>
+      <a href="https://doi.org/10.1126/scitranslmed.3003377" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Curated Knowledge Base × Hypothesis</a><span class="tag tag-sub">Database-verified Prediction</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>TWOSIDES &amp; OFFSIDES: Data-driven Prediction of Drug Effects and Interactions</h1>
+<blockquote>
+<p>Science Translational Medicine 4(125):125ra31 | 2012 | Benchmark (DDI side-effect canonical GT) | medical · bio
+Nicholas P. Tatonetti, Patrick P. Ye, Roxana Daneshjou, Russ B. Altman — Stanford University
+DOI: <a href="https://doi.org/10.1126/scitranslmed.3003377">10.1126/scitranslmed.3003377</a> · PMID 22422992</p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>FDA의 자발적 부작용 보고 시스템(FAERS)에서 측정되지 않은 교란 요인을 보정하는 통계적 접근으로 두 가지 자원을 구축: <strong>OFFSIDES</strong> (단일 약물 부작용 DB)와 <strong>TWOSIDES</strong> (약물 쌍 간 부작용 DB). DDI side-effect 예측 모델 평가의 canonical ground truth로 자리잡음.</p>
+<hr />
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>Step 1 — 데이터 출처: FAERS (FDA Adverse Event Reporting System)
+  └─ FDA에 자발 보고된 부작용 신고 raw data (수백만 건)
+
+Step 2 — 측정되지 않은 교란 보정 (저자 핵심 기여)
+  └─ Adaptive correction methodology 개발
+  └─ 환자 인구통계·동반질환·약물 노출 패턴 보정
+  └─ 거짓 양성 부작용 신호 제거
+
+Step 3 — 자원 두 개 구축
+  ┌──────────────┬─────────────────────────────────┐
+  │ OFFSIDES     │ 단일 약물 부작용 데이터베이스    │
+  │              │ FDA on-label 외 추가 부작용     │
+  ├──────────────┼─────────────────────────────────┤
+  │ TWOSIDES     │ 약물 쌍 × 부작용 라벨           │
+  │              │ DDI side-effect type prediction │
+  │              │ canonical GT (DrugBank는        │
+  │              │ &quot;존재 여부&quot;만 있는 반면, type   │
+  │              │ 라벨까지 제공)                  │
+  └──────────────┴─────────────────────────────────┘
+
+Step 4 — 외부 검증
+  └─ 47 drug class interactions를 독립적인 EMR 데이터로 corroborate
+  └─ 핵심 발견: SSRI + thiazide → QT prolongation 유의 증가
+</code></pre>
+<hr />
+<h2>원문 직접 인용 (Tatonetti 2012 STM, PMC3382018 body verbatim)</h2>
+<blockquote>
+<p>&quot;We developed an adaptive approach to correct for unmeasured confounding factors in spontaneous reporting databases and created two resources: <strong>Offsides (a database of drug effects) and Twosides (a database of drug-drug interaction side effects)</strong>.&quot;</p>
+</blockquote>
+<blockquote>
+<p>Data source: &quot;<strong>1,851,171 adverse event reports</strong> in the AERS from the FDA's Web site from the first quarter of <strong>2004 to the first quarter of 2009</strong>&quot;</p>
+</blockquote>
+<blockquote>
+<p>Propensity score matching (PSM): &quot;<strong>Each exposed patient (that is, report) is matched to a nonexposed patient with a similar probability</strong> according to the PSM model, thereby mitigating the effects of confounders&quot; + &quot;we used PSM to model the probability that a given report lists [that drug] as a concomitant medication&quot; using &quot;the top 200 covariates (sorted by their Spearman correlation coefficient, ρ)&quot;</p>
+</blockquote>
+<blockquote>
+<p><strong>OFFSIDES dataset</strong>: &quot;<strong>438,801 off-label side effects</strong> for <strong>1,332 drugs</strong> and <strong>10,097 adverse events</strong>&quot;</p>
+</blockquote>
+<blockquote>
+<p><strong>TWOSIDES dataset</strong>: &quot;<strong>868,221 significant associations</strong> between <strong>59,220 pairs of drugs</strong> and <strong>1,301 adverse events</strong>&quot;</p>
+</blockquote>
+<blockquote>
+<p>EMR validation: &quot;We found additional evidence of drug effects for <strong>47 of 395 interactions</strong> when looking for short-term (≤36 days) changes in laboratory markers after the start of treatment&quot;</p>
+</blockquote>
+<blockquote>
+<p>SSRI + thiazide QT case: &quot;patients receiving combined thiazides and SSRIs showed <strong>1.5 (95% CI, 1.2 to 1.9) times as likely</strong> to record a prolonged QT interval compared to thiazide-only users&quot;</p>
+</blockquote>
+<hr />
+<h2>데이터셋 통계 (논문 본문 verbatim)</h2>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>AERS raw reports</td>
+  <td>1,851,171 (2004 Q1 ~ 2009 Q1)</td>
+</tr>
+<tr>
+  <td><strong>OFFSIDES 부작용 라벨 수</strong></td>
+  <td><strong>438,801</strong></td>
+</tr>
+<tr>
+  <td>OFFSIDES 약물 수</td>
+  <td>1,332</td>
+</tr>
+<tr>
+  <td>OFFSIDES adverse event 종류</td>
+  <td>10,097</td>
+</tr>
+<tr>
+  <td><strong>TWOSIDES 약물 쌍 수</strong></td>
+  <td><strong>59,220</strong></td>
+</tr>
+<tr>
+  <td>TWOSIDES significant associations</td>
+  <td>868,221</td>
+</tr>
+<tr>
+  <td>TWOSIDES adverse event 종류</td>
+  <td>1,301</td>
+</tr>
+<tr>
+  <td>EMR validation 비율</td>
+  <td>47/395 (≈12%)</td>
+</tr>
+</tbody>
+</table>
+<h2>주요 활용</h2>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Database-verified DDI prediction GT</td>
+  <td>DDI side-effect type 라벨 표준</td>
+</tr>
+<tr>
+  <td>라벨 granularity</td>
+  <td>DrugBank(&quot;DDI exists or not&quot;)보다 세밀 (specific ADR type)</td>
+</tr>
+<tr>
+  <td>인용 후속 작업</td>
+  <td>Decagon (Zitnik 2018), MUFFIN, DDI-PULearn, 등 다수 DDI 모델 평가</td>
+</tr>
+<tr>
+  <td>통합 위치</td>
+  <td>TDC <code>multi_pred.DDI</code> task의 핵심 데이터</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>한계점</h2>
+<ul>
+<li>FAERS 자발 보고 의존 → 표본 편향 (under-reporting / over-reporting)</li>
+<li>시간적 cutoff: 2012년까지 데이터, 신약 미반영</li>
+<li>인과관계 ≠ 상관관계: confounding 보정해도 spurious signal 가능</li>
+<li>부작용 유형 표준화: MedDRA terminology 의존</li>
+<li>약물 쌍에만 적용 (3+ 약물 동시 복용 미지원)</li>
+</ul>
+<hr />
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문 (DOI)</strong>: <a href="https://doi.org/10.1126/scitranslmed.3003377">10.1126/scitranslmed.3003377</a></li>
+<li><strong>PubMed</strong>: <a href="https://pubmed.ncbi.nlm.nih.gov/22422992/">PMID 22422992</a></li>
+<li><strong>Data download</strong>: <a href="https://tatonettilab.org/offsides">tatonettilab.org/offsides</a> (현재) · 원본은 Stanford 호스팅</li>
+<li><strong>이 데이터를 사용한 후속 작업</strong>: TDC <code>multi_pred.DDI</code>, Decagon (Zitnik et al. 2018 Bioinformatics), MR-GNN 등 DDI side-effect 예측 표준 GT</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

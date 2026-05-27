@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Matbench Discovery: ML Crystal Stability Benchmark on 257K WBM Structures — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">11</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">8</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">19</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">4</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">7</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">26</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">83</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">132</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">14</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">7</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">175</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">103</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">16</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Matbench Discovery: ML Crystal Stability Benchmark on 257K WBM Structures</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Nature Machine Intelligence</span>
+      <span class="meta-year">2025</span>
+      <a href="https://doi.org/10.1038/s42256-025-01055-1" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Curated Knowledge Base × Hypothesis</a><span class="tag tag-sub">Simulation-verified Materials Discovery</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>Matbench Discovery: ML Crystal Stability Benchmark on 257K WBM Structures</h1>
+<blockquote>
+<p>Nature Machine Intelligence 7:836–847 | 2025 | Benchmark (convex-hull stability prediction) | material · chem · physics
+Janosh Riebesell, Rhys E. A. Goodall, Philipp Benner, Yuan Chiang, Bowen Deng, Gerbrand Ceder, Mark Asta, Alpha A. Lee, Anubhav Jain, Kristin A. Persson — Cambridge / LBNL / BAM / UC Berkeley
+arXiv: <a href="https://arxiv.org/abs/2308.14920">2308.14920</a> · DOI: <a href="https://doi.org/10.1038/s42256-025-01055-1">10.1038/s42256-025-01055-1</a></p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>ML energy 모델을 <strong>고처리량 안정 무기 결정 탐색의 pre-filter</strong>로 평가하는 task-based benchmark. <strong>WBM 데이터셋의 257K+ 구조</strong>에 대해 <strong>convex hull distance</strong>의 F$_1$, DAF, precision/recall을 측정하며, <strong>UIP(Universal Interatomic Potential)</strong> 들이 F$_1$ 0.57–0.82, <strong>discovery acceleration factor up to 6×</strong>로 최고 성능.</p>
+<hr />
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>Step 1 — Test corpus: WBM dataset
+  └─ Wang et al. 2021 npj CompMat
+  └─ 257,487 구조 (relaxed + unrelaxed)
+  └─ Materials Project을 합성한 chemistry 확장
+
+Step 2 — Task 정의
+  ┌──────────────────────────────────────────┐
+  │ Input: 미relaxed candidate crystal       │
+  │ Predict: distance from convex hull       │
+  │   (relaxed → E_hull &lt; 0 → stable)        │
+  │ Threshold: 0 eV/atom above convex hull   │
+  │   → binary classification: stable/unstable│
+  └──────────────────────────────────────────┘
+
+Step 3 — Primary metrics (classification-focused)
+  · F$_1$ score (binary stable/unstable)
+  · DAF (Discovery Acceleration Factor):
+    &quot;found N stable from K predictions&quot; vs random
+  · Precision (P): TP / (TP + FP)
+  · Recall (R): TP / (TP + FN)
+
+Step 4 — Secondary: regression metrics
+  · MAE on E_hull (eV/atom)
+  · Disagreement with classification metric:
+    &quot;high false-positive rate near 0 eV/atom decision boundary&quot;
+
+Step 5 — Public leaderboard + Python package
+  └─ Submission via Python package
+  └─ Online leaderboard maintained
+</code></pre>
+<hr />
+<h2>원문 직접 인용 (arXiv:2308.14920 §Abstract)</h2>
+<blockquote>
+<p>&quot;We present <strong>Matbench Discovery</strong>, an evaluation framework for ML energy models, applied as <strong>pre-filters for high-throughput searches of stable inorganic crystals</strong>.&quot;</p>
+</blockquote>
+<blockquote>
+<p>Ranking (best→worst): &quot;<strong>EquiformerV2 + DeNS &gt; Orb &gt; SevenNet &gt; MACE &gt; CHGNet &gt; M3GNet &gt; ALIGNN &gt; MEGNet &gt; CGCNN &gt; CGCNN+P &gt; Wrenformer &gt; BOWSR &gt; Voronoi fingerprint random forest</strong>&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;UIPs emerge as the top performers, achieving <strong>F$_1$ scores of 0.57–0.82</strong> and <strong>discovery acceleration factors (DAF) of up to 6× on the first 10k stable predictions</strong>&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;<strong>Accurate regressors can yield high false-positive rates near the decision boundary at 0 eV/atom above the convex hull</strong>&quot; — regression metric ≠ task metric</p>
+</blockquote>
+<blockquote>
+<p>&quot;the WBM dataset consists of <strong>257,487 structures</strong>&quot;</p>
+</blockquote>
+<hr />
+<h2>평가 metric 상세</h2>
+<table>
+<thead>
+<tr>
+  <th>Metric</th>
+  <th>의미</th>
+  <th>우선순위</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>F$_1$</strong></td>
+  <td>binary stable/unstable</td>
+  <td>Primary</td>
+</tr>
+<tr>
+  <td><strong>DAF</strong></td>
+  <td>discovery acceleration vs random</td>
+  <td>Primary</td>
+</tr>
+<tr>
+  <td><strong>Precision</strong></td>
+  <td>TP / (TP+FP), reduce wasted DFT calls</td>
+  <td>Primary</td>
+</tr>
+<tr>
+  <td><strong>Recall</strong></td>
+  <td>TP / (TP+FN), avoid missing stable materials</td>
+  <td>Primary</td>
+</tr>
+<tr>
+  <td>MAE (E_hull)</td>
+  <td>regression error</td>
+  <td>Secondary (misleading)</td>
+</tr>
+</tbody>
+</table>
+<p>→ <strong>task-based 평가</strong>를 강조 (regression metric은 부수적). 작은 MAE라도 decision boundary 근처에서 false positive 많을 수 있음.</p>
+<hr />
+<h2>주요 평가 결과 (논문 본문)</h2>
+<table>
+<thead>
+<tr>
+  <th>Model</th>
+  <th>F$_1$</th>
+  <th>DAF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Voronoi RF</td>
+  <td>(낮음)</td>
+  <td>–</td>
+</tr>
+<tr>
+  <td>MEGNet / CGCNN</td>
+  <td>(중간)</td>
+  <td>–</td>
+</tr>
+<tr>
+  <td>M3GNet</td>
+  <td>0.57+</td>
+  <td>~3×</td>
+</tr>
+<tr>
+  <td>CHGNet, MACE, SevenNet, Orb</td>
+  <td>(높음)</td>
+  <td>–</td>
+</tr>
+<tr>
+  <td><strong>EquiformerV2 + DeNS</strong></td>
+  <td><strong>0.82</strong> (top)</td>
+  <td><strong>6×</strong> (top, first 10k)</td>
+</tr>
+</tbody>
+</table>
+<p>→ Universal Interatomic Potentials (UIP) &gt; task-specific models &gt; one-shot predictors</p>
+<hr />
+<h2>한계점</h2>
+<ul>
+<li><strong>WBM 데이터셋 한계</strong>: 합성된 구조 → 실험 검증 미반영</li>
+<li><strong>Regression vs classification 갈등</strong>: 작은 MAE도 boundary near false positive</li>
+<li><strong>DFT functional 의존</strong>: PBE 기반 ground truth, 다른 functional과 격차</li>
+<li><strong>Stable ≠ synthesizable</strong>: 열역학적 stability만 평가, 합성 경로/속도론 미반영</li>
+<li><strong>Open Catalyst 등 다른 도메인 미포함</strong>: 표면, 분자 미커버</li>
+<li><strong>데이터 leakage 위험</strong>: 일부 모델이 WBM 인접 구조로 학습되었을 가능성</li>
+</ul>
+<hr />
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문 (Nature MI)</strong>: <a href="https://doi.org/10.1038/s42256-025-01055-1">10.1038/s42256-025-01055-1</a></li>
+<li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2308.14920">2308.14920</a></li>
+<li><strong>공식 사이트</strong>: <a href="https://matbench-discovery.materialsproject.org/">matbench-discovery.materialsproject.org</a></li>
+<li><strong>Python package</strong>: <code>pip install matbench-discovery</code></li>
+<li><strong>GitHub</strong>: <a href="https://github.com/janosh/matbench-discovery">janosh/matbench-discovery</a></li>
+<li><strong>WBM 데이터셋</strong>: Wang et al. 2021 npj CompMat (Matbench Discovery의 test corpus)</li>
+<li><strong>이 benchmark를 사용한 후속 작업</strong>: MLIP Arena (NeurIPS 2025 D&amp;B), foundation MLIP papers</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

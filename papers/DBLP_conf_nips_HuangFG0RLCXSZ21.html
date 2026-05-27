@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Therapeutics Data Commons: Machine Learning Datasets and Tasks for Drug Discovery and Development — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">11</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">8</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">19</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">4</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">7</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">26</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">83</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">132</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">14</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">7</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">175</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">103</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">16</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Therapeutics Data Commons: Machine Learning Datasets and Tasks for Drug Discovery and Development</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">NeurIPS D&amp;B 2021</span>
+      <span class="meta-year">2021</span>
+      <a href="https://arxiv.org/abs/2102.09548" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Curated Knowledge Base × Hypothesis</a><span class="tag tag-sub">Database-verified Prediction</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>TDC (Therapeutics Data Commons): 66 AI-ready Datasets × 22 Learning Tasks Umbrella Benchmark</h1>
+<blockquote>
+<p>NeurIPS 2021 Datasets and Benchmarks Track | Benchmark Suite | medical · bio · chem
+Kexin Huang, Tianfan Fu, Wenhao Gao, Yue Zhao, Yusuf H. Roohani, Jure Leskovec, Connor W. Coley, Cao Xiao, Jimeng Sun, Marinka Zitnik — Harvard / Stanford / MIT / Georgia Tech / IBM / UIUC
+DBLP: <code>conf/nips/HuangFG0RLCXSZ21</code> · arXiv: <a href="https://arxiv.org/abs/2102.09548">2102.09548</a> · Web: <a href="https://tdcommons.ai">tdcommons.ai</a></p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>약물 발견·개발 전 범위(small molecule → biologics → clinical trial)에 걸친 <strong>66개 AI-ready 데이터셋 × 22개 learning task</strong> 통합 평가 플랫폼. <strong>29 public leaderboards</strong>, <strong>17 molecule generation oracles</strong>, <strong>23 evaluation 전략</strong>, <strong>33 data 분할/함수</strong>, 오픈 Python 라이브러리 제공. Database-verified Prediction 시스템 (CLADD 등)의 사실상 표준 평가 hub.</p>
+<hr />
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>3개 학습 패러다임 × 22 tasks × 66 datasets 구조
+
+┌──────────────────────────────────────────────────────────────┐
+│ 1. single_pred (단일 인스턴스 예측) — 9 tasks                │
+│    └─ ADME (흡수·분포·대사·배설) Property Prediction         │
+│    └─ Tox (독성) Prediction                                  │
+│    └─ HTS (high-throughput screening) Prediction             │
+│    └─ QM (양자역학 properties)                               │
+│    └─ Yields (반응 수율) Prediction                          │
+│    └─ Paratope / Epitope Prediction (항체 결합 부위)         │
+│    └─ Antibody Developability Prediction                     │
+│    └─ CRISPR Repair Outcome Prediction                       │
+│                                                               │
+│ 2. multi_pred (다중 인스턴스 예측) — 7 tasks                 │
+│    └─ DTI (Drug-Target Interaction)                          │
+│    └─ DDI (Drug-Drug Interaction)                            │
+│    └─ PPI (Protein-Protein Interaction)                      │
+│    └─ GDA (Gene-Disease Association)                         │
+│    └─ DrugRes (Drug Response on cell lines, GDSC)            │
+│    └─ DrugSyn (Drug Synergy)                                 │
+│    └─ Peptide MHC binding / TCR-Epitope                      │
+│                                                               │
+│ 3. generation — 6 tasks                                       │
+│    └─ Molecule Generation (de novo design)                   │
+│    └─ Reaction / Retrosynthesis Prediction                   │
+│    └─ Forward Synthesis Prediction                           │
+│    └─ Paratope Antibody Sequence Generation                  │
+│    └─ MolOpt (Molecule Optimization with 17 oracles)         │
+└──────────────────────────────────────────────────────────────┘
+
+Step 1 — 데이터셋 수집 + 정제
+  공개 임상/생화학 DB 66종에서 raw data 다운로드
+  → 통합 schema로 정규화 (SMILES, sequence, label 형식 표준화)
+  → 결측치/중복 제거, train/val/test split 표준화
+
+Step 2 — 평가 프로토콜 표준화
+  · 33 data functions/splits: random/scaffold/cold-start/temporal/등
+  · 23 evaluation strategies: AUROC/AUPRC/RMSE/MAE/Top-K/등
+  · 17 molecule generation oracles: QED/SA/LogP/JNK3/GSK3β/DRD2/등
+                                    (PMO benchmark 의 oracle 모음)
+
+Step 3 — 29 Public Leaderboards
+  · ADMET Group Leaderboard
+  · Docking Group Leaderboard
+  · 시간 추적 가능한 공개 비교 (reproducibility 보장)
+
+Step 4 — Python Library + Documentation
+  └─ pip install PyTDC
+  └─ 통일된 `from tdc.single_pred import ADME` 식 API
+  └─ tdcommons.ai 공식 문서 + Tutorial
+</code></pre>
+<hr />
+<h2>원문 직접 인용 (arXiv:2102.09548 §Abstract 본문)</h2>
+<blockquote>
+<p><em>&quot;Therapeutics machine learning is an emerging field with incredible opportunities for innovation and impact ... we introduce <strong>Therapeutics Data Commons (TDC), the first unifying platform</strong> to systematically access and evaluate machine learning across the entire range of therapeutics. To date, TDC includes <strong>66 AI-ready datasets spread across 22 learning tasks</strong> and spanning the discovery and development of safe and effective medicines.&quot;</em></p>
+</blockquote>
+<blockquote>
+<p><em>&quot;TDC also provides an ecosystem of tools and community resources, including <strong>33 data functions and types of meaningful data splits</strong>, <strong>23 strategies for systematic model evaluation</strong>, <strong>17 molecule generation oracles</strong>, and <strong>29 public leaderboards</strong>. All resources are integrated and accessible via an open Python library.&quot;</em></p>
+</blockquote>
+<blockquote>
+<p><em>&quot;We carry out extensive experiments on selected datasets, demonstrating that even the strongest algorithms <strong>fall short of solving key therapeutics challenges</strong>, including real dataset distributional shifts, multi-scale modeling of heterogeneous data, and robust generalization to novel data points.&quot;</em></p>
+</blockquote>
+<hr />
+<h2>Input / Output (학습 패러다임별)</h2>
+<table>
+<thead>
+<tr>
+  <th>패러다임</th>
+  <th>Input</th>
+  <th>Output</th>
+  <th>대표 task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>single_pred</strong></td>
+  <td>단일 분자/단백질 (SMILES, sequence)</td>
+  <td>scalar/class label</td>
+  <td>ADMET, Toxicity (Tox21, SIDER, ClinTox 등 포함)</td>
+</tr>
+<tr>
+  <td><strong>multi_pred</strong></td>
+  <td>(drug, target) 또는 (drug, drug) pair</td>
+  <td>interaction score / class</td>
+  <td>DTI (BindingDB, DAVIS, KIBA 포함), DDI</td>
+</tr>
+<tr>
+  <td><strong>generation</strong></td>
+  <td>constraint / oracle 점수</td>
+  <td>신규 분자 SMILES</td>
+  <td>MolOpt, retrosynthesis</td>
+</tr>
+</tbody>
+</table>
+<p><strong>오라클 사용 시 예시</strong>:</p>
+<ul>
+<li>QED / SA → 분자 약물성</li>
+<li>DRD2 / JNK3 / GSK3β → bioactivity prediction</li>
+<li>Docking 모듈 → Vina score (PMO subset)</li>
+</ul>
+<hr />
+<h2>주요 평가 결과 (논문 §본문 + Table)</h2>
+<h3>평가 환경</h3>
+<ul>
+<li><strong>29 public leaderboards</strong> 운영 (ADMET Group, Docking Group 등)</li>
+<li><strong>23 evaluation strategies</strong> (AUROC, AUPRC, RMSE, MAE, Top-K Recall, Spearman 등)</li>
+<li><strong>33 data splits</strong> (random, scaffold, cold-start, temporal, lo-shot 등)</li>
+</ul>
+<h3>핵심 발견 (논문 §본문 인용)</h3>
+<ul>
+<li>&quot;even the <strong>strongest algorithms fall short</strong> of solving key therapeutics challenges&quot;</li>
+<li><strong>Distribution shift</strong> (시계열·실험실 간) 강건성 부족</li>
+<li><strong>Multi-scale modeling</strong> (small molecule ↔ protein ↔ disease) 통합 미숙</li>
+<li><strong>Novel data points</strong> 일반화 한계</li>
+</ul>
+<hr />
+<h2>데이터셋 통계 (대표 subset)</h2>
+<table>
+<thead>
+<tr>
+  <th>Category</th>
+  <th>대표 datasets</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>ADMET</td>
+  <td>Caco2, HIA, Pgp, Bioavailability, Lipophilicity, Solubility, BBBP, PAMPA, Half-Life, Clearance, hERG, AMES, DILI</td>
+</tr>
+<tr>
+  <td>Toxicity</td>
+  <td>ClinTox, Tox21, ToxCast, LD50</td>
+</tr>
+<tr>
+  <td>HTS</td>
+  <td>SARS-CoV-2 in vitro, HIV</td>
+</tr>
+<tr>
+  <td>DTI</td>
+  <td>BindingDB (Kd/Ki/IC50/EC50), DAVIS, KIBA</td>
+</tr>
+<tr>
+  <td>DDI</td>
+  <td>DrugBank DDI, TWOSIDES</td>
+</tr>
+<tr>
+  <td>GDA</td>
+  <td>DisGeNET</td>
+</tr>
+<tr>
+  <td>DrugRes</td>
+  <td>GDSC cell-line response</td>
+</tr>
+<tr>
+  <td>Generation</td>
+  <td>MOSES, ZINC 250K, ChEMBL, USPTO retrosynthesis</td>
+</tr>
+</tbody>
+</table>
+<p>→ Database-verified Prediction RAG 시스템 (CLADD 등) 평가 시 자주 활용.</p>
+<hr />
+<h2>한계점 (논문 §Limitations + 후속 연구 지적)</h2>
+<ul>
+<li><strong>데이터셋 품질 편차</strong>: 일부 small-scale dataset은 충분한 변동 통계 부족</li>
+<li><strong>Distribution shift</strong> 평가가 부족 (시간/실험실/도메인 간 동일성 가정)</li>
+<li><strong>시간 의존성 데이터</strong>: 새로 발견된 drug-target은 leaderboard에 천천히 반영</li>
+<li><strong>Benchmark gaming</strong>: leaderboard 최적화가 실제 의학적 가치와 분리 가능</li>
+<li><strong>타입별 dataset 균형</strong>: small molecule 위주, biologics/macromolecule 비율 낮음</li>
+<li><strong>Closed-set evaluation</strong>: 미발견 분자/단백질에 대한 generalization 측정 불가</li>
+</ul>
+<hr />
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문 (arXiv)</strong>: <a href="https://arxiv.org/abs/2102.09548">2102.09548</a></li>
+<li><strong>NeurIPS 2021 Datasets and Benchmarks Track</strong>: <a href="https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/4c7a167bb329bd92580a99ce422d6fa6-Abstract-round1.html">Round 1 paper</a></li>
+<li><strong>DBLP</strong>: <a href="https://dblp.org/rec/conf/nips/HuangFG0RLCXSZ21.html">conf/nips/HuangFG0RLCXSZ21</a></li>
+<li><strong>공식 홈페이지</strong>: <a href="https://tdcommons.ai">tdcommons.ai</a></li>
+<li><strong>PyPI</strong>: <code>pip install PyTDC</code></li>
+<li><strong>이 benchmark를 사용한 후속 RAG 작업</strong>: CLADD (Database-verified Prediction), PMO (MolOpt subset reuse), Patho-AgenticRAG (Pathology subset), 등 의약 RAG 표준 평가 hub</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

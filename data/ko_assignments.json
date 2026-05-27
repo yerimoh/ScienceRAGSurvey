@@ -1518,5 +1518,32 @@
     "O": "O3",
     "note": "MLIP Arena — Simulation-verified Materials Discovery benchmark",
     "subsection": "Simulation-verified Materials Discovery"
+  },
+  "DBLP:conf/iclr/XieFGBJ22": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "CDVAE — 3-dataset crystal generation benchmark (Perov-5 / Carbon-24 / MP-20) with Validity / Coverage / Property statistics",
+    "subsection": "Simulation-verified Materials Discovery"
+  },
+  "DBLP:journals/corr/abs-2410-12771": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "OMat24 — 110M+ DFT inorganic-materials dataset + EquiformerV2/eSEN MLIP models; Matbench Discovery F1 > 0.9",
+    "subsection": "Simulation-verified Materials Discovery"
+  },
+  "sriram2024odac23": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "ODAC23 — 8,400+ MOFs × 38M DFT for DAC sorbent discovery; OC20-style S2EF/IS2RE/IS2RS tasks",
+    "subsection": "Simulation-verified Materials Discovery"
   }
 }

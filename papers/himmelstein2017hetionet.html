@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hetionet: Systematic Integration of Biomedical Knowledge for Drug Repurposing — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">11</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">8</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">19</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">4</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">7</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">26</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">83</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">132</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">14</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">7</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">175</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">103</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">16</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Hetionet: Systematic Integration of Biomedical Knowledge for Drug Repurposing</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">eLife</span>
+      <span class="meta-year">2017</span>
+      <a href="https://doi.org/10.7554/eLife.26726" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Curated Knowledge Base × Hypothesis</a><span class="tag tag-sub">Database-verified Prediction</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>Hetionet v1.0: 47,031 nodes (11 types) × 2,250,197 relationships (24 types)</h1>
+<blockquote>
+<p>eLife 6:e26726 | 2017 | Benchmark (drug-disease repurposing edge prediction GT) | medical · bio
+Daniel S. Himmelstein, Antoine Lizee, Christine Hessler, Leo Brueggeman, Sabrina L. Chen, Dexter Hadley, Ari Green, Pouya Khankhanian, Sergio E. Baranzini — UCSF / UPenn
+DOI: <a href="https://doi.org/10.7554/eLife.26726">10.7554/eLife.26726</a></p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>29개 공개 자원을 통합한 <strong>47,031 노드 (11 type) × 2,250,197 relationship (24 edge type)</strong> 의 hetnet (heterogeneous network). 약물 재활용(drug repurposing) edge prediction 표준 GT로 자리잡았으며, <strong>40명 community 멤버</strong>의 실시간 피드백을 받은 <strong>fully open</strong> 연구.</p>
+<hr />
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>Step 1 — 데이터 소스 통합 (29 public resources)
+  └─ DrugBank, ChEMBL, SIDER, Bgee, GTEx, MSigDB, GO, DO, MeSH,
+     GWAS Catalog, LINCS L1000, STRING, BioGRID, PathBank, etc.
+
+Step 2 — Node typing (11 types)
+  ┌──────────────────────┬─────────────────────────┐
+  │ Node type            │ 예시                     │
+  ├──────────────────────┼─────────────────────────┤
+  │ Compound             │ 1,552 small molecules    │
+  │ Disease              │ 137 complex diseases     │
+  │ Gene                 │ proteins/genes           │
+  │ Anatomy              │ tissues/organs           │
+  │ Pathway              │ biological pathways      │
+  │ Biological Process   │ GO BP                    │
+  │ Cellular Component   │ GO CC                    │
+  │ Molecular Function   │ GO MF                    │
+  │ Symptom              │ disease symptoms         │
+  │ Pharmacologic Class  │ MeSH                     │
+  │ Side Effect          │ ADRs                     │
+  └──────────────────────┴─────────────────────────┘
+
+Step 3 — Edge typing (24 metaedges)
+  └─ Compound-Disease (treats / palliates)
+  └─ Compound-Gene (binds / upregulates / downregulates)
+  └─ Disease-Gene (associates / upregulates / downregulates / locates)
+  └─ Gene-Gene (interacts / covaries / regulates)
+  └─ Anatomy-Gene (expresses / upregulates / downregulates)
+  └─ ... 24 종류 총
+
+Step 4 — Drug Repurposing 모델: Project Rephetio
+  └─ Metapath-based feature engineering
+  └─ Logistic regression on metapath similarities
+  └─ DM (Compound-treats-Disease) edge prediction
+  └─ 새 후보: nicardipine, fluoxetine for Multiple Sclerosis 등
+
+Step 5 — Open community development
+  └─ GitHub-first manuscript (dhimmel/rephetio-manuscript)
+  └─ 40명 외부 community 멤버 실시간 피드백
+  └─ &quot;entirely open&quot; 연구 모델
+</code></pre>
+<hr />
+<h2>원문 직접 인용 (Himmelstein 2017 eLife §본문)</h2>
+<blockquote>
+<p>&quot;Hetionet v1.0 consists of <strong>47,031 nodes of 11 types</strong> and <strong>2,250,197 relationships of 24 types</strong>. Data was integrated from <strong>29 public resources</strong> to connect compounds, diseases, genes, anatomies, etc.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;The hetnet contains 47,031 nodes of 11 types (Table 1) and 2,250,197 relationships of 24 types (Table 2). The nodes consist of <strong>1,552 small molecule compounds</strong> and <strong>137 complex diseases</strong>.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;This study was <strong>entirely open</strong> and received realtime feedback from <strong>40 community members</strong>.&quot;</p>
+</blockquote>
+<hr />
+<h2>Project Rephetio 평가 결과</h2>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Task</td>
+  <td>Compound-treats-Disease edge prediction</td>
+</tr>
+<tr>
+  <td>Training</td>
+  <td>known 1,552 × 137 (compound × disease) treatments</td>
+</tr>
+<tr>
+  <td>Features</td>
+  <td>metapath count + diffusion-based scores</td>
+</tr>
+<tr>
+  <td>AUROC</td>
+  <td>~0.97 (validation)</td>
+</tr>
+<tr>
+  <td>신약 발견 사례</td>
+  <td>nicardipine for MS, fluoxetine reuse 등</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>주요 활용</h2>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Task 정의</td>
+  <td>Drug repurposing edge prediction</td>
+</tr>
+<tr>
+  <td>Granularity</td>
+  <td>Compound-treats-Disease (DM) edge inference</td>
+</tr>
+<tr>
+  <td>후속 작업</td>
+  <td>EdgePrediction, NodeXL community detection</td>
+</tr>
+<tr>
+  <td>KG embedding 모델</td>
+  <td>TransE, ComplEx, DistMult on Hetionet</td>
+</tr>
+<tr>
+  <td>차별성</td>
+  <td>DRKG/PrimeKG와 별도로 repurposing edge-prediction 표준</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>한계점</h2>
+<ul>
+<li><strong>2017년 v1.0 cutoff</strong>: 신약/신질환 미반영</li>
+<li><strong>Open Targets / DrugBank 의존성</strong>: 원본 DB 라이선스 변경 시 일부 사용 제한</li>
+<li><strong>Predicted treatment 검증</strong>: edge prediction은 hypothesis 생성, wet-lab 추가 필요</li>
+<li><strong>Heterogeneity bias</strong>: 일부 edge type은 data sparse</li>
+<li><strong>단방향 relationship</strong>: 모든 edge는 unweighted (strength 미반영)</li>
+</ul>
+<hr />
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문 (eLife)</strong>: <a href="https://doi.org/10.7554/eLife.26726">10.7554/eLife.26726</a></li>
+<li><strong>공식 사이트</strong>: <a href="https://het.io">het.io</a> — 인터랙티브 탐색</li>
+<li><strong>GitHub</strong>: <a href="https://github.com/hetio/hetionet">hetio/hetionet</a></li>
+<li><strong>데이터 다운로드</strong>: <a href="https://github.com/hetio/hetionet/tree/master/hetnet">github.com/hetio/hetionet/tree/master/hetnet</a></li>
+<li><strong>Project Rephetio 결과</strong>: <a href="https://het.io/repurpose">het.io/repurpose</a></li>
+<li><strong>이 benchmark를 사용한 주요 작업</strong>: DRKG, PrimeKG (구조적 영감), TxGNN, GraIL 등 biomedical KG embedding/inference 연구</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

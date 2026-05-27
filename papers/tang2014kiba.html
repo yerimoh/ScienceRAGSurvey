@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KIBA: Integrated Kinase Inhibitor Bioactivity Score — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779699531">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">11</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">8</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">19</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">4</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">7</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">26</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">83</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">132</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">14</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">7</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">175</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">103</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">16</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>KIBA: Integrated Kinase Inhibitor Bioactivity Score</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">J. Chem. Inf. Model.</span>
+      <span class="meta-year">2014</span>
+      <a href="https://doi.org/10.1021/ci400709d" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Curated Knowledge Base × Hypothesis</a><span class="tag tag-sub">Database-verified Prediction</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>KIBA: 52,498 compounds × 467 kinases — Integrated Bioactivity Score</h1>
+<blockquote>
+<p>J. Chem. Inf. Model. 54(3):735–743 | 2014 | Benchmark (DTI regression at scale) | chem · bio · medical
+Jing Tang, Agnieszka Szwajda, Sushil Shakyawar, Tao Xu, Petteri Hintsanen, Krister Wennerberg, Tero Aittokallio — Institute for Molecular Medicine Finland (FIMM), University of Helsinki
+DOI: <a href="https://doi.org/10.1021/ci400709d">10.1021/ci400709d</a> · PMID 24521231</p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p><strong>3종의 large-scale 생화학 kinase inhibitor assay</strong> + <strong>ChEMBL</strong> + <strong>STITCH</strong> 데이터를 <strong>52,498 compounds × 467 kinases</strong>의 단일 통합 매트릭스로 합쳐, IC50/Ki/Kd를 <strong>246,088개 KIBA score</strong>로 변환한 대규모 DTI benchmark. Davis (2011)의 대형 짝꿍으로 거의 항상 함께 보고됨.</p>
+<hr />
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>Step 1 — 3개 large-scale kinase assay 소스 통합
+  ├─ Anastassiadis et al. 2011 (Nature Biotech) — ~30K activities
+  ├─ Davis et al. 2011 (Nat Biotech) — Kd 매트릭스
+  ├─ Metz et al. 2011 (Nature Chem Biol) — pIC50 매트릭스
+  └─ + ChEMBL bioactivities + STITCH chemical-protein
+
+Step 2 — 다양한 측정 단위 통합 (KIBA score 계산)
+  ┌─────────────────────────────────────────────┐
+  │ Mixed bioactivity types:                    │
+  │   - Kd (dissociation constant)              │
+  │   - Ki (inhibition constant)                │
+  │   - IC50 (50% inhibitory concentration)     │
+  │                                              │
+  │ KIBA score: 모델-기반 통합                  │
+  │   → 서로 다른 assay/단위를 단일 score로     │
+  │   → bias correction + consistency filtering │
+  └─────────────────────────────────────────────┘
+
+Step 3 — 매트릭스 결과
+  ┌─────────────────┬──────────────────────┐
+  │ 항목            │ 수치                  │
+  ├─────────────────┼──────────────────────┤
+  │ Compounds       │ 52,498               │
+  │ Kinase targets  │ 467                  │
+  │ Integrated      │ 246,088 KIBA scores  │
+  └─────────────────┴──────────────────────┘
+
+Step 4 — 결과 분석
+  └─ 각 assay 간 활성 일치율 quantify
+  └─ Compound bioactivity profile 패턴 군집
+  └─ Drug repositioning 후보 시사
+</code></pre>
+<hr />
+<h2>원문 직접 인용 (Tang 2014 JCIM §Abstract)</h2>
+<blockquote>
+<p>&quot;We integrated bioactivity measurements from <strong>three recent large-scale biochemical assays</strong> of kinase inhibitors alongside data from established databases (<strong>ChEMBL</strong> and <strong>STITCH</strong>).&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;The study consolidated diverse bioactivity types including <strong>IC50, Ki, and Kd</strong> values across <strong>52,498 compounds</strong> and <strong>467 kinase targets</strong>, generating <strong>246,088 integrated KIBA scores</strong>.&quot;</p>
+</blockquote>
+<hr />
+<h2>주요 활용</h2>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Task 정의</td>
+  <td>Drug-Target Interaction (DTI) regression — 대규모</td>
+</tr>
+<tr>
+  <td>Output</td>
+  <td>KIBA score (낮을수록 강한 결합)</td>
+</tr>
+<tr>
+  <td>Pairing</td>
+  <td>Davis dataset과 함께 보고되는 표준 짝꿍</td>
+</tr>
+<tr>
+  <td>Pioneer 모델</td>
+  <td>DeepDTA (Öztürk 2018) — DAVIS + KIBA 둘 다 baseline</td>
+</tr>
+<tr>
+  <td>대비 Davis</td>
+  <td>약 700× 큰 규모, sparsity 더 높음</td>
+</tr>
+<tr>
+  <td>TDC 통합</td>
+  <td><code>multi_pred.DTI.KIBA</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>데이터셋 통계</h2>
+<table>
+<thead>
+<tr>
+  <th>Subset</th>
+  <th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Compounds (drugs/inhibitors)</td>
+  <td>52,498</td>
+</tr>
+<tr>
+  <td>Kinase targets</td>
+  <td>467</td>
+</tr>
+<tr>
+  <td>통합 KIBA scores</td>
+  <td>246,088</td>
+</tr>
+<tr>
+  <td>Sparsity</td>
+  <td>~99% (drug × target 매트릭스 대부분 비어 있음)</td>
+</tr>
+<tr>
+  <td>Bioactivity 원본 단위</td>
+  <td>Kd, Ki, IC50 모두 통합</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>한계점</h2>
+<ul>
+<li><strong>여전한 sparsity</strong>: 246K scores / (52K × 467) ≈ 1% — matrix completion task로 어려움</li>
+<li><strong>단위 통합 model assumption</strong>: KIBA score 변환 시 정확도 가정 (Kd/Ki/IC50 ≠ 정확히 비교 가능)</li>
+<li><strong>Kinase 외 무관</strong>: kinase-specific, 다른 단백질 family 미포함</li>
+<li><strong>시간</strong>: 2014년 데이터, 최신 inhibitor (kinase degrader, allosteric) 미반영</li>
+<li><strong>단일 통합 score</strong>: type-specific binding mode 정보 손실 (예: type I vs II)</li>
+</ul>
+<hr />
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문 (DOI)</strong>: <a href="https://doi.org/10.1021/ci400709d">10.1021/ci400709d</a></li>
+<li><strong>PubMed</strong>: <a href="https://pubmed.ncbi.nlm.nih.gov/24521231/">PMID 24521231</a></li>
+<li><strong>저자 소속</strong>: FIMM, University of Helsinki (now Aittokallio Lab)</li>
+<li><strong>이 benchmark를 사용한 주요 작업</strong>: DeepDTA, GraphDTA, AttentionDTA, MolTrans, KronRLS, SimBoost 등 거의 모든 DTI deep learning 논문</li>
+<li><strong>함께 보고되는 짝꿍</strong>: <a href="davis2011kinase.html">Davis</a> (Davis et al. 2011 Nat Biotechnol)</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="llms.txt">llms.txt</a> ·
+      <a href="llms-full.txt">llms-full.txt</a> ·
+      <a href="data/papers.json">papers.json</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>
