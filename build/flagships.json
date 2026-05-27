@@ -1499,6 +1499,16 @@
       "venue": "J. Chem. Inf. Model.",
       "domain": "materials",
       "paper_link": "https://doi.org/10.1021/acs.jcim.5c01941"
+    },
+    "welbl-etal-2017-crowdsourcing": {
+      "title": "Crowdsourcing Multiple Choice Science Questions (SciQ)",
+      "year": 2017,
+      "venue": "W-NUT @ EMNLP",
+      "method": "SciQ",
+      "domain": [
+        "general"
+      ],
+      "paper_link": "https://aclanthology.org/W17-4413/"
     }
   }
 }
