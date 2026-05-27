@@ -4190,13 +4190,15 @@
     "paper_link": "https://doi.org/10.1038/s41597-023-02068-4",
     "note": "4,721 expert-annotated biomedical QA pairs; running since 2012; combines exact answer + ideal summary; used for evaluation in cross-modal grounding section",
     "ko_cells": [
-      "K1.O1"
+      "K1.O1",
+      "K1.O2"
     ],
     "ko_primary": "K1.O1",
     "ko_note": "4,721 expert-annotated biomedical QA pairs; running since 2012; combines exact answer + ideal summary; used for evaluation in cross-modal grounding section",
     "cross_source": false,
     "type": "benchmark",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Aggregative Synthesis"
   },
   {
     "bib_key": "chandak2023building",

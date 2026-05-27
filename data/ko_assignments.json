@@ -1165,11 +1165,13 @@
   },
   "krithara2023bioasq": {
     "cells": [
-      "K1.O1"
+      "K1.O1",
+      "K1.O2"
     ],
     "K": "K1",
     "O": "O1",
-    "note": "4,721 expert-annotated biomedical QA pairs; running since 2012; combines exact answer + ideal summary; used for evaluation in cross-modal grounding section"
+    "note": "4,721 expert-annotated biomedical QA pairs; running since 2012; combines exact answer + ideal summary; used for evaluation in cross-modal grounding section",
+    "subsection": "Aggregative Synthesis"
   },
   "jin-etal-2019-pubmedqa": {
     "cells": [
