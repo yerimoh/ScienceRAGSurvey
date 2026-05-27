@@ -811,7 +811,9 @@ SECTION_OVERVIEWS = {
     'K1.O1': {
         'subsection': 'Literature-grounded Answering',
         'subsubsec_id': 'subsubsec:kxo_k1o1',
-        'paragraph': r'''A system operating under the \textcolor{Oaxis}{\textsc{Ground}} objective retrieves information over PubMed~\cite{canese2013pubmed}, full-text articles, or open-access corpora to utilize \textcolor{Kaxis}{\textsc{Primary Literature}}, producing either a closed-form verdict or a cited paragraph anchored to the retrieved sources so that its factual accuracy and citation fidelity can be rigorously evaluated. The methodologies developed for this intersection include retrieval-augmented generation (RAG) frameworks such as MEDRAG~\cite{DBLP:conf/acl/Xiong0LZ24}, BioRAG~\cite{DBLP:journals/corr/abs-2408-01107}, and RAG$^2$~\cite{DBLP:conf/naacl/SohnPYPHSKK25} on the closed-form side, alongside PaperQA~\cite{DBLP:journals/corr/abs-2312-07559}, OpenScholar~\cite{asai2026synthesizing}, and Clinfo.ai~\cite{DBLP:journals/corr/abs-2310-16146} on the long-form citation side. Activity within this domain follows from the parallel growth of multiple-choice and short-answer benchmarks, dense and hybrid retrievers optimized for scientific text, and citation-based evaluations that facilitate automated verification.''',
+        # Abstracted paragraph — concrete system names dropped; the cited papers are
+        # surfaced visually as card grid below the paragraph.
+        'paragraph': r'''A system operating under the \textcolor{Oaxis}{\textsc{Ground}} objective retrieves information over PubMed~\cite{canese2013pubmed}, full-text articles, or open-access corpora to utilize \textcolor{Kaxis}{\textsc{Primary Literature}}, producing either a closed-form verdict or a cited paragraph anchored to the retrieved sources so that its factual accuracy and citation fidelity can be rigorously evaluated. The methodologies developed for this intersection include retrieval-augmented generation (RAG) frameworks~\cite{DBLP:conf/acl/Xiong0LZ24}\cite{DBLP:journals/corr/abs-2408-01107}\cite{DBLP:conf/naacl/SohnPYPHSKK25}\cite{DBLP:journals/corr/abs-2312-07559}\cite{asai2026synthesizing}\cite{DBLP:journals/corr/abs-2310-16146} that span both closed-form and long-form citation regimes. Activity within this domain follows from the parallel growth of multiple-choice and short-answer benchmarks, dense and hybrid retrievers optimized for scientific text, and citation-based evaluations that facilitate automated verification.''',
         'evidence': {
             'canese2013pubmed': 'PubMed — NCBI biomedical literature index (≈36M citations). Foundational substrate for medical/biological RAG: free-text abstracts indexed under MeSH, with ~1M new papers/year.',
             'DBLP:conf/acl/Xiong0LZ24': 'MEDRAG / MIRAGE: "Benchmarking Retrieval-Augmented Generation for Medicine" — 7,663 multiple-choice questions across 5 medical QA datasets (MMLU-Med, MedQA-US, MedMCQA, PubMedQA, BioASQ-Y/N); zero-shot + question-only retrieval (ACL Findings 2024 pp.6233-6251).',
@@ -825,7 +827,7 @@ SECTION_OVERVIEWS = {
     'K3.O3': {
         'subsection': 'Weakly-verified Hypothesis Generation',
         'subsubsec_id': 'subsubsec:o3-weakverifier',
-        'paragraph': r'''A final form of hypothesis is one in which the system generates a candidate that no strong external verifier can directly check, so that evaluation falls back to downstream task accuracy, expert validation, or recovery against a held-out reference rather than to docking, database lookup, or simulation. The output is typically a literature-derived hypothesis, such as a cellular-response prediction, a biomedical link prediction, or a molecular structure inferred from a non-textual signal, and the absence of an in-loop verifier means that novelty and plausibility carry more of the evaluation burden than physical correctness does. Evaluation in this setting consists of distributional similarity for predicted perturbation responses, held-out edge recovery for link-prediction tasks, and Top-K accuracy or Tanimoto similarity against held-out reference structures for measurement-derived candidates, instantiated on retrieval-augmented gene-perturbation cellular response prediction~\cite{DBLP:journals/corr/abs-2603-07233} over the Replogle-Nadig single-gene perturbation subset~\cite{replogle2022mapping} of the Perturb-seq atlas, against the PerturBench benchmark~\cite{DBLP:journals/corr/abs-2408-10609} which standardizes four generalization regimes for cellular perturbation analysis and against the held-out perturbation evaluation protocol introduced by GEARS~\cite{roohani2024gears} on Norman 2019 dual-gene combinations~\cite{norman2019exploring}, on biomedical link prediction over OpenBioLink~\cite{DBLP:journals/bioinformatics/BreitOAS20} and OGB-biokg~\cite{DBLP:conf/nips/HuFZDRLCL20}, and on MS/MS-driven molecular discovery in the MassSpecGym benchmark~\cite{DBLP:conf/nips/BushuievBJYKSHW24} with three challenges spanning de novo molecular structure generation, molecule retrieval, and spectrum simulation. These metrics certify that the generated hypotheses recover known cases or align with expert intuition, but the absence of a strong external verifier leaves the K3.O3 and K4.O3 cells of the catalog largely empty, a sparsity we revisit in \S\ref{sec:frontiers} as a concrete frontier for future scientific RAG.''',
+        'paragraph': r'''A final form of hypothesis is one in which the system generates a candidate that no strong external verifier can directly check, so that evaluation falls back to downstream task accuracy, expert validation, or recovery against a held-out reference rather than to docking, database lookup, or simulation. The output is typically a literature-derived hypothesis, such as a cellular-response prediction, a biomedical link prediction, or a molecular structure inferred from a non-textual signal, and the absence of an in-loop verifier means that novelty and plausibility carry more of the evaluation burden than physical correctness does. Evaluation in this setting consists of distributional similarity for predicted perturbation responses, held-out edge recovery for link-prediction tasks, and Top-K accuracy or Tanimoto similarity against held-out reference structures for measurement-derived candidates, instantiated across retrieval-augmented perturbation prediction~\cite{DBLP:journals/corr/abs-2603-07233}\cite{replogle2022mapping}\cite{DBLP:journals/corr/abs-2408-10609}\cite{roohani2024gears}\cite{norman2019exploring}, biomedical link prediction~\cite{DBLP:journals/bioinformatics/BreitOAS20}\cite{DBLP:conf/nips/HuFZDRLCL20}, and MS/MS-driven molecular discovery~\cite{DBLP:conf/nips/BushuievBJYKSHW24}. These metrics certify that the generated hypotheses recover known cases or align with expert intuition, but the absence of a strong external verifier leaves the K3.O3 and K4.O3 cells of the catalog largely empty, a sparsity we revisit in \S\ref{sec:frontiers} as a concrete frontier for future scientific RAG.''',
         'evidence': {
             'DBLP:journals/corr/abs-2603-07233': 'PT-RAG (Perturbation-aware Two-stage RAG): GenePT semantic retrieval + Gumbel-Softmax cell-type-aware selection. Outperforms STATE and vanilla RAG on Replogle-Nadig single-gene perturbation in distributional similarity W1, W2 (arXiv:2603.07233 §Abstract).',
             'replogle2022mapping': 'Genome-scale Perturb-seq atlas — foundational single-cell perturbation dataset across thousands of essential genes; substrate for PT-RAG (Replogle et al., Cell 2022).',
@@ -840,7 +842,7 @@ SECTION_OVERVIEWS = {
     'K2.O3': {
         'subsection': 'Simulation-verified Materials Discovery',
         'subsubsec_id': 'subsubsec:o3-simulation',
-        'paragraph': r'''A third form of hypothesis is one in which the system proposes new material candidates and a physics-based simulator serves as the external verifier, returning thermodynamic stability and reaction-energy profiles through density functional theory or end-to-end computational results through executed scientific code. The output is either a candidate crystal, a relaxed adsorbate-surface configuration, or a metal-organic framework selected for a sorbent target, and novelty is measured against an existing materials database while validity is measured against the simulator's physical predictions. Evaluation in this setting consists of stable-crystal classification with \(F_1\) and discovery-acceleration factor on the WBM corpus of about 257K candidate structures in Matbench Discovery~\cite{riebesell2025matbench}, validity and coverage of generated crystals on the MP-20, Carbon-24, and Perov-5 splits in CDVAE~\cite{DBLP:conf/iclr/XieFGBJ22}, lowest-energy adsorbate-surface identification rate with roughly \(2{,}000\times\) simulator-time speedup over about 1,000 catalyst surfaces and about 100K configurations in ADsorbML~\cite{lan2023adsorbml}, sorbent-screening targets backed by about 38M density-functional calculations over 8,400 metal-organic frameworks in ODAC23~\cite{sriram2024odac23}, foundation machine-learning interatomic potential training and evaluation splits drawn from about 110M density-functional calculations with WBM-disjoint test sets in OMat24~\cite{DBLP:journals/corr/abs-2410-12771}, physics-aware tests of force smoothness, phase transitions, gas adsorption, and vacancy migration beyond DFT-error metrics in MLIP Arena~\cite{DBLP:journals/corr/abs-2509-20630}, multi-verifier coverage across about 1,500 tasks and eleven categories in JARVIS-Leaderboard~\cite{choudhary2024jarvis}, and 102 executable-code tasks drawn from 44 peer-reviewed publications in ScienceAgentBench~\cite{DBLP:journals/corr/abs-2410-05080}. These benchmarks certify that proposed candidates pass simulation-based checks at orders-of-magnitude greater throughput than traditional high-throughput screening, but density functional theory and code execution themselves rely on functionals, parameter choices, and software assumptions whose limits the simulator cannot diagnose from within.''',
+        'paragraph': r'''A third form of hypothesis is one in which the system proposes new material candidates and a physics-based simulator serves as the external verifier, returning thermodynamic stability and reaction-energy profiles through density functional theory or end-to-end computational results through executed scientific code. The output is either a candidate crystal, a relaxed adsorbate-surface configuration, or a metal-organic framework selected for a sorbent target, and novelty is measured against an existing materials database while validity is measured against the simulator's physical predictions. Evaluation in this setting consists of stable-crystal classification with \(F_1\) and discovery-acceleration factor, validity and coverage of generated crystals, lowest-energy adsorbate-surface identification rate against orders-of-magnitude simulator-time speedup, sorbent-screening targets, foundation MLIP training and evaluation splits, physics-aware tests beyond DFT-error metrics, multi-verifier coverage across thousands of tasks, and executable-code tasks drawn from peer-reviewed publications~\cite{riebesell2025matbench}\cite{DBLP:conf/iclr/XieFGBJ22}\cite{lan2023adsorbml}\cite{sriram2024odac23}\cite{DBLP:journals/corr/abs-2410-12771}\cite{DBLP:journals/corr/abs-2509-20630}\cite{choudhary2024jarvis}\cite{DBLP:journals/corr/abs-2410-05080}. These benchmarks certify that proposed candidates pass simulation-based checks at orders-of-magnitude greater throughput than traditional high-throughput screening, but density functional theory and code execution themselves rely on functionals, parameter choices, and software assumptions whose limits the simulator cannot diagnose from within.''',
         'evidence': {
             'riebesell2025matbench': 'WBM 215,488 unique prototypes after cleaning, 32,942 stable. Top model eqV2 S DeNS reaches F1=0.815 with DAF=5.042 (arXiv:2308.14920 §2.1 + Table 1).',
             'DBLP:conf/iclr/XieFGBJ22': 'Three datasets: Perov-5 (18,928 perovskites, 56 elements, 5 atoms/cell), Carbon-24 (10,153 C-only, 6-24 atoms), MP-20. Metrics: Validity (>0.5 Å), COV-R/COV-P, EMD (arXiv:2110.06197 §5).',
@@ -876,7 +878,11 @@ def render_overview_section(cell_key, papers_by_key, base='../'):
     html_text = re.sub(r'\\\(([^)]+)\\\)', r'<em>\1</em>', html_text)
     html_text = html_text.replace(r'{,}', ',').replace(r'\times', '×')
 
+    # Build hidden footnote items (popover targets) AND visible card grid
     fn_items = []
+    card_html = []
+    # Infer axis_scope from cell_key (K1.O1 → 'O1', K3 → 'K3', O3 → 'O3')
+    axis_scope = cell_key.split('.')[1] if '.' in cell_key else cell_key
     for i, key in enumerate(cite_order, 1):
         p = papers_by_key.get(key, {})
         title = p.get('title', key)
@@ -886,28 +892,34 @@ def render_overview_section(cell_key, papers_by_key, base='../'):
         label = method or title or key
         body = f'<p><strong>{esc(label)}</strong>'
         if title and title != label:
-            body += f' — <em>{esc(title)}</em>'
+            body += f' &mdash; <em>{esc(title)}</em>'
         body += '</p>'
         if ev:
             body += f'<p>{esc(ev)}</p>'
-        # Prefer in-site summary if a .md/.html exists; otherwise external paper link
         summary_path = ROOT / 'papers' / f'{safe_key}.html'
         if summary_path.exists():
             body += f'<p><a href="{base}papers/{safe_key}.html">Full summary &rarr;</a></p>'
         elif p.get('paper_link'):
             body += f'<p><a href="{esc(p["paper_link"])}" target="_blank" rel="noopener">Source &uarr;</a></p>'
         fn_items.append(f'<li id="fn-ov{i}">{body}</li>')
+        if p:
+            card_html.append(paper_card(p, base=base, axis_scope=axis_scope))
 
-    fn_html = '<section class="footnotes overview-fns"><h3>Citations</h3><ol>' + ''.join(fn_items) + '</ol></section>'
+    # Hidden popover-target list (visually hidden but in DOM for footnotes.js)
+    fn_html = ('<section class="footnotes overview-fns" aria-hidden="true">'
+               '<ol>' + ''.join(fn_items) + '</ol></section>')
+
+    cards_block = ('<div class="card-grid ov-cards">' + '\n'.join(card_html) + '</div>') if card_html else ''
 
     return f'''
 <section class="cell-overview">
   <div class="wrap">
     <h2 class="ov-title">Section overview &mdash; § {esc(o['subsection'])}</h2>
-    <p class="ov-sub">Click any superscript chip to see the verbatim evidence for that citation. <em>(Survey §{esc(o.get('subsubsec_id', ''))})</em></p>
+    <p class="ov-sub">Click any superscript chip in the paragraph to see verbatim evidence; the cited papers are listed below.</p>
     <div class="ov-paragraph">
       <p>{html_text}</p>
     </div>
+    {cards_block}
     {fn_html}
   </div>
 </section>'''

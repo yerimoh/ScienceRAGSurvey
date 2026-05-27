@@ -1413,32 +1413,22 @@ sup.footnote-ref a:focus {
   font-size: 0.95rem;
   text-align: justify;
 }
+/* Hide the overview footnote list — kept in DOM as popover target only.
+   footnotes.js reads innerHTML to populate the popover on chip click. */
 .cell-overview .overview-fns {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+/* Cited-papers card grid (shown directly under the paragraph) */
+.cell-overview .ov-cards {
   margin-top: 1.5rem;
-  max-width: 920px;
-  border-top: none;
-  padding-top: 0;
 }
-.cell-overview .overview-fns h3 {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--fg-muted, #777);
-  margin: 0 0 0.5rem 0;
+.cell-overview .ov-cards .card {
+  /* Inherit card styling; nothing extra needed since .card-grid handles layout */
 }
-.cell-overview .overview-fns ol {
-  font-size: 0.82rem;
-  padding-left: 1.5em;
-  color: var(--fg, #333);
-}
-.cell-overview .overview-fns li {
-  margin-bottom: 0.7rem;
-  line-height: 1.5;
-}
-.cell-overview .overview-fns li p { margin: 0.15rem 0; }
-.cell-overview .overview-fns li p:first-child { color: var(--fg, #1a1a1a); }
-.cell-overview .overview-fns li em { color: var(--fg-muted, #555); font-style: italic; }
-.cell-overview .overview-fns a { color: var(--accent, #005faf); }
 
 /* ============= Cell tier badge (Active / Emerging / Frontier) ============= */
 .cell-tier-row {
