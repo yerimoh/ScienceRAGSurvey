@@ -712,7 +712,7 @@
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=O1,O2",
     "cross_source": false,
-    "subsection": "Long-form Citation"
+    "subsection": "Text-only Long-form Citation"
   },
   {
     "title": "TaLiRAGen: target-aware ligand generation via RAG LLMs",
@@ -3174,7 +3174,7 @@
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
-    "subsection": "Closed-form QA",
+    "subsection": "Text-only Closed-form QA",
     "paper_link": "https://aclanthology.org/2024.findings-acl.372",
     "footnote": true,
     "flagship": true
@@ -3209,7 +3209,7 @@
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
-    "subsection": "Long-form Citation"
+    "subsection": "Text-only Long-form Citation"
   },
   {
     "title": "ChemTEB: Chemical Text Embedding Benchmark, an Overview of Embedding Models Performance & Efficiency on a Specific Domain",
@@ -3693,7 +3693,7 @@
     "ko_primary": "O1",
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
-    "subsection": "Closed-form QA",
+    "subsection": "Text-only Closed-form QA",
     "footnote": true
   },
   {
@@ -4639,7 +4639,7 @@
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
-    "subsection": "Closed-form QA",
+    "subsection": "Text-only Closed-form QA",
     "flagship": true
   },
   {
@@ -4884,7 +4884,7 @@
     "ko_primary": "O1",
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
-    "subsection": "Closed-form QA",
+    "subsection": "Text-only Closed-form QA",
     "footnote": true
   },
   {
@@ -6229,7 +6229,7 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
-    "subsection": "Closed-form QA"
+    "subsection": "Text-only Closed-form QA"
   },
   {
     "bib_key": "eartharxiv",
