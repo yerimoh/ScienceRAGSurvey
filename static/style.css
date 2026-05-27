@@ -1298,3 +1298,85 @@ main.with-sidebar {
 .pipe-cell-dot.pipe-cell-h { background: var(--cell-high); }
 .pipe-cell-dot.pipe-cell-m { background: var(--cell-mid); }
 .pipe-cell-dot.pipe-cell-l { background: var(--cell-low); }
+
+/* ============= Footnote popover ============= */
+sup.footnote-ref {
+  font-size: 0.72em;
+  vertical-align: super;
+  line-height: 0;
+  margin: 0 1px;
+}
+sup.footnote-ref a {
+  display: inline-block;
+  padding: 1px 5px;
+  min-width: 14px;
+  background: rgba(0, 95, 175, 0.12);
+  color: var(--accent, #005faf);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+sup.footnote-ref a:hover,
+sup.footnote-ref a:focus {
+  background: var(--accent, #005faf);
+  color: #fff;
+  outline: none;
+}
+.fn-popover {
+  position: absolute;
+  z-index: 1000;
+  max-width: 380px;
+  background: var(--bg, #fff);
+  color: var(--fg, #1a1a1a);
+  border: 1px solid var(--border, #d8d8d8);
+  border-radius: 8px;
+  padding: 12px 14px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+  font-size: 0.85em;
+  line-height: 1.55;
+}
+.fn-popover::before {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 16px;
+  width: 12px;
+  height: 12px;
+  background: var(--bg, #fff);
+  border-left: 1px solid var(--border, #d8d8d8);
+  border-top: 1px solid var(--border, #d8d8d8);
+  transform: rotate(45deg);
+}
+.fn-popover p { margin: 0 0 6px 0; }
+.fn-popover p:last-child { margin-bottom: 0; }
+.fn-popover .fn-close {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-size: 1.2em;
+  color: var(--fg-muted, #777);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  line-height: 1;
+}
+.fn-popover .fn-close:hover { color: var(--fg, #1a1a1a); }
+.fn-popover code {
+  background: rgba(0, 0, 0, 0.04);
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: 0.92em;
+}
+/* Hide the long footnotes section at the bottom — replaced by popover */
+.paper-markdown .footnotes {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border, #d8d8d8);
+  font-size: 0.82em;
+  color: var(--fg-muted, #555);
+}
+.paper-markdown .footnotes ol { padding-left: 1.5em; }
+.paper-markdown .footnotes li { margin-bottom: 0.5rem; }
+.footnote-backref { text-decoration: none; opacity: 0.6; margin-left: 4px; }

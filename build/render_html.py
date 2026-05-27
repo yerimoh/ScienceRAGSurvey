@@ -270,7 +270,9 @@ def page_head(title, base='', desc='Scientific RAG Hub — a curated catalog of 
 '''
 
 
-PAGE_FOOT = '''</main>
+def page_foot(base=''):
+    js_mtime = int((ROOT / 'static/footnotes.js').stat().st_mtime)
+    return f'''</main>
 <footer class="site-footer">
   <div class="wrap">
     <p>
@@ -279,16 +281,19 @@ PAGE_FOOT = '''</main>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="llms.txt">llms.txt</a> ·
-      <a href="llms-full.txt">llms-full.txt</a> ·
-      <a href="data/papers.json">papers.json</a> ·
-      <a href="about.html">About</a>
+      <a href="{base}llms.txt">llms.txt</a> ·
+      <a href="{base}llms-full.txt">llms-full.txt</a> ·
+      <a href="{base}data/papers.json">papers.json</a> ·
+      <a href="{base}about.html">About</a>
     </p>
   </div>
 </footer>
+<script src="{base}static/footnotes.js?v={js_mtime}"></script>
 </body>
 </html>
 '''
+
+PAGE_FOOT = page_foot()  # back-compat for callers that still use the constant
 
 
 def paper_card(p, base='', axis_scope=None):
@@ -813,7 +818,7 @@ def render_cell_pages():
   </div>
 </section>
 '''
-            (ROOT / 'cell' / f'{cell}.html').write_text(page_head(f'[{cell}] {kn} × {on}', base='../', current=f'cell/{cell}') + body + PAGE_FOOT)
+            (ROOT / 'cell' / f'{cell}.html').write_text(page_head(f'[{cell}] {kn} × {on}', base='../', current=f'cell/{cell}') + body + page_foot('../'))
 
     # ---------- K-only axis pages (cell/K1.html etc.) ----------
     for K in ['K1', 'K2', 'K3', 'K4']:
@@ -844,7 +849,7 @@ def render_cell_pages():
   </div>
 </section>
 '''
-        (ROOT / 'cell' / f'{K}.html').write_text(page_head(f'[{K}] {kn}', base='../', current=f'cell/{K}') + body + PAGE_FOOT)
+        (ROOT / 'cell' / f'{K}.html').write_text(page_head(f'[{K}] {kn}', base='../', current=f'cell/{K}') + body + page_foot('../'))
 
     # ---------- O-only axis pages (cell/O1.html etc.) ----------
     for O in ['O1', 'O2', 'O3']:
@@ -895,7 +900,7 @@ def render_cell_pages():
   </div>
 </section>
 '''
-        (ROOT / 'cell' / f'{O}.html').write_text(page_head(f'[{O}] {on}', base='../', current=f'cell/{O}') + body + PAGE_FOOT)
+        (ROOT / 'cell' / f'{O}.html').write_text(page_head(f'[{O}] {on}', base='../', current=f'cell/{O}') + body + page_foot('../'))
 
 
 # ---------- domain/<d>.html ----------
@@ -930,7 +935,7 @@ def render_domain_pages():
   </div>
 </section>
 '''
-        (ROOT / 'domain' / f'{d}.html').write_text(page_head(label, base='../', current=f'domain/{d}') + body + PAGE_FOOT)
+        (ROOT / 'domain' / f'{d}.html').write_text(page_head(label, base='../', current=f'domain/{d}') + body + page_foot('../'))
 
 
 # ---------- topics/<type>.html ----------
@@ -955,7 +960,7 @@ def render_type_pages():
   </div>
 </section>
 '''
-        (ROOT / 'topics' / f'{t.lower()}.html').write_text(page_head(label, base='../', current=f'topics/{t.lower()}') + body + PAGE_FOOT)
+        (ROOT / 'topics' / f'{t.lower()}.html').write_text(page_head(label, base='../', current=f'topics/{t.lower()}') + body + page_foot('../'))
 
 
 # ---------- insights.html ----------
@@ -1372,7 +1377,7 @@ def render_paper_pages():
 </section>
 '''
         out_fn = bib_key_fn + '.html'
-        (papers_dir / out_fn).write_text(page_head(esc(title), base='../', current=f'papers/{bib_key_fn}') + body + PAGE_FOOT)
+        (papers_dir / out_fn).write_text(page_head(esc(title), base='../', current=f'papers/{bib_key_fn}') + body + page_foot('../'))
         count += 1
     print(f'  papers/*.html ({count} summaries)')
 

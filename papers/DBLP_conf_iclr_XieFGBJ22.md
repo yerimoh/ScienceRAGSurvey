@@ -14,7 +14,11 @@ paper_link: https://arxiv.org/abs/2110.06197
 > arXiv: [2110.06197](https://arxiv.org/abs/2110.06197) · OpenReview: [03RLpj-tc_](https://openreview.net/forum?id=03RLpj-tc_)
 
 ## 한 줄 요약
-주기 결정 구조 생성(periodic material generation)을 위한 **3-dataset standard benchmark** (Perov-5 18,928 / Carbon-24 10,153 / MP-20)와 **3-task evaluation suite** (Reconstruction, Generation, Property Optimization)를 제안. 평가 지표로 **Validity, Coverage (COV-R / COV-P), Property statistics (EMD)**를 도입해 이전 method들의 비교 불가능 문제를 해결.
+주기 결정 구조 생성(periodic material generation)을 위한 **3-dataset standard benchmark** (Perov-5 18,928[^perov] / Carbon-24 10,153[^carbon] / MP-20)와 **3-task evaluation suite** (Reconstruction, Generation, Property Optimization)를 제안. 평가 지표로 **Validity, Coverage (COV-R / COV-P), Property statistics (EMD)**[^metrics]를 도입해 이전 method들의 비교 불가능 문제를 해결.
+
+[^perov]: arXiv:2110.06197 §5: "**Perov-5** (Castelli et al., 2012) includes **18928 perovskite materials** that share the same structure but differ in composition. There are **56 elements** and all materials have **5 atoms in the unit cell**."
+[^carbon]: arXiv:2110.06197 §5: "**Carbon-24** (Pickard, 2020) includes **10153 materials** that are all made up of carbon atoms but differ in structures. There is **1 element** and the materials have **6 - 24 atoms** in the unit cells."
+[^metrics]: arXiv:2110.06197 §5.2: "1) **Validity**. ... shortest distance between any pair of atoms is larger than 0.5 Å ... 2) **Coverage (COV)**. ... **COV-R (Recall) and COV-P (Precision)** ... 3) **Property statistics**. We compute the **earth mover's distance (EMD)** ... density (ρ), energy (E), and number of unique elements (# elem.)"
 
 ---
 
