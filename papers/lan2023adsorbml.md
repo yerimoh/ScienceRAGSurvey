@@ -53,6 +53,68 @@ Step 4 — Evaluation metrics
 
 ---
 
+## 실제 데이터 형식 예시 (논문 §Methods + Table I + Table II)
+
+### 유형 A — Input/Output schema
+
+> **Input**: catalyst surface + adsorbate (반응 중간체, *CHO / *CO / *OH 등)
+>
+> ```
+> Surface:    slab with 3D periodic boundary
+> Adsorbate:  reaction intermediate (e.g., *CHO for CO2 reduction)
+> Initial config: heuristic (symmetry-based) + random sampling
+> ```
+>
+> **Output**: lowest adsorption energy + valid relaxed structure
+>
+> ```
+> E_ads ≡ min over all valid relaxed configs (eV)
+> Valid 기준:
+>   - 흡착물이 표면에서 desorption 안 됨
+>   - dissociation 안 됨
+>   - surface mismatch 없음
+> Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
+> ```
+
+### 유형 B — OC20-Dense dataset 구조
+
+> | Split | Unique systems | Unique configs | Adsorbates | Bulks |
+> |---|---|---|---|---|
+> | **Validation** | 973 | 85,658 | 74 | 833 |
+> | **Test** | 989 | 105,714 | 74 | 837 |
+>
+> 각 split은 ~250 systems × 4 subsplits = **ID, OOD-Adsorbate, OOD-Catalyst, OOD-Both**
+
+### 유형 C — Algorithm (ML+SP / ML+RX, top-k)
+
+> ```
+> 1. Generate initial configs (heuristic + random sampling)
+> 2. ML potential relaxation → rank by energy (lowest first)
+> 3. Take best-k candidates:
+>    Option A (ML+SP): single-point DFT on each → take min
+>    Option B (ML+RX): full DFT relaxation from ML state → take min
+> 4. Return: min(DFT outputs)
+> ```
+>
+> Trade-off knob: **k = 1, 2, 3, 4, 5** (k↑ → 정확도↑, speedup↓)
+
+### 유형 D — Model 비교 (Table I, OC20-Dense Test)
+
+> | Model | Success Rate ↑ | Energy MAE [eV] ↓ | OC20 S2EF Force MAE [eV/Å] |
+> |---|---|---|---|
+> | SchNet | 1.01% | 0.5150 | 0.0496 |
+> | DimeNet++ | 1.72% | 0.4329 | 0.0446 |
+> | PaiNN | 10.92% | 0.2994 | 0.0294 |
+> | GemNet-OC | 46.51% | 0.1849 | 0.0179 |
+> | GemNet-OC-MD | 50.05% | 0.1966 | 0.0173 |
+> | GemNet-OC-MD-Large | 48.03% | 0.1935 | 0.0164 |
+> | SCN-MD-Large | 51.87% | 0.1758 | 0.0160 |
+> | **eSCN-MD-Large** | **56.52%** | **0.1739** | **0.0139** |
+>
+> → AdsorbML (eSCN-MD-Large, k=3, ML+SP): **89.28% success × ~2000× speedup** (논문 Figure 3 balanced point: 87.36% × 2290×)
+
+---
+
 ## 원문 직접 인용 (arXiv:2211.16486 §Abstract)
 
 > "we demonstrate **machine learning potentials can be leveraged to identify low energy adsorbate-surface configurations** more accurately and efficiently"

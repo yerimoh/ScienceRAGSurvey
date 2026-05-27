@@ -163,6 +163,72 @@ Step 4 — User contributions
   └─ Globus 호스팅 (대용량 데이터)
 </code></pre>
 <hr />
+<h2>실제 데이터 형식 예시 (논문 §I + Figure 1 + §Abstract)</h2>
+<h3>유형 A — Benchmark task naming convention</h3>
+<blockquote>
+<p>JARVIS-Leaderboard에서 task는 <code>Category-Subcategory-Target-Dataset-Split-Metric</code> 형식:</p>
+<pre><code>AI-SinglePropertyPrediction-formation_energy_peratom-dft_3d-test-mae
+   │                       │                          │       │    │
+   Category                Target property            Dataset Split Metric
+</code></pre>
+<p>예시 task 들:</p>
+<ul>
+<li><code>AI-SinglePropertyPrediction-bandgap_opt_HSE-dft_3d-test-mae</code></li>
+<li><code>ES-SinglePropertyPrediction-bandgap_HSE-silicon-test-mae</code></li>
+<li><code>FF-SinglePropertyPrediction-cohesive_energy-bulk_silicon-test-mae</code></li>
+<li><code>QC-SinglePropertyPrediction-ground_state_energy-H2-test-mae</code></li>
+<li><code>EXP-SinglePropertyPrediction-bandgap-silicon-test-mae</code></li>
+</ul>
+</blockquote>
+<h3>유형 B — 5 카테고리 coverage</h3>
+<blockquote>
+<pre><code>┌──────────────────────────────────────────────┐
+│ AI  (Artificial Intelligence)                │
+│  · Input: atomic structure / image / spectra │
+│           / text                              │
+│  · 예: formation energy 예측 ALIGNN/MEGNet 등 │
+│                                              │
+│ ES  (Electronic Structure)                   │
+│  · DFT (PBE/SCAN/HSE) / GW / DMC             │
+│  · 다양한 software, pseudopotential 비교     │
+│                                              │
+│ FF  (Force-fields)                            │
+│  · 고전 FF · ML interatomic potential        │
+│  · 결정 안정성, 표면, defect                 │
+│                                              │
+│ QC  (Quantum Computation)                    │
+│  · Hamiltonian simulation, VQE 등 회로        │
+│                                              │
+│ EXP (Experimental)                            │
+│  · XRD, ARPES, XPS, magnetometry 등           │
+│  · inter-laboratory benchmark                 │
+└──────────────────────────────────────────────┘
+</code></pre>
+</blockquote>
+<h3>유형 C — Submission 구조 (contribution 단위)</h3>
+<blockquote>
+<p>각 leaderboard 기여는 다음 4개 파일 묶음:</p>
+<pre><code>contribution_folder/
+├── *.csv.zip       — 모델 예측값 (or 실험 측정값)
+├── run.sh          — 재현 shell script
+├── metadata.json   — team / DOI / software ver / hardware / wall-time
+└── Dockerfile      — environment specification (optional)
+</code></pre>
+<p>자동 비교 reference data는 <code>benchmarks/&lt;category&gt;/&lt;target&gt;.json.zip</code> 에 사전 등록.</p>
+</blockquote>
+<h3>유형 D — Scale 통계 (논문 Abstract)</h3>
+<blockquote>
+<pre><code>┌─────────────────────────┬────────────┐
+│ Total benchmarks         │   274      │
+│ Total contributions      │ 1,281      │
+│ Methods compared         │   152      │
+│ Total data points        │ 8,000,000+ │
+│ Categories               │     5 (+조합)│
+└─────────────────────────┴────────────┘
+</code></pre>
+<p>한 task (예: formation energy of silicon)에 17+ ES method 결과가 모두 등록되어 inter-method 비교 가능.</p>
+</blockquote>
+<hr />
 <h2>원문 직접 인용 (arXiv:2306.11688 §Abstract + §본문)</h2>
 <blockquote>
 <p>&quot;<strong>JARVIS-Leaderboard, an open-source benchmark platform</strong> that allows users to set up benchmarks with custom tasks and enables contributions in the form of dataset, methods, and metrics&quot;</p>

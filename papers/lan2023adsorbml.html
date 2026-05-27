@@ -156,6 +156,57 @@ Step 4 — Evaluation metrics
   · Trade-off curve: accuracy × efficiency
 </code></pre>
 <hr />
+<h2>실제 데이터 형식 예시 (논문 §Methods + Table I + Table II)</h2>
+<h3>유형 A — Input/Output schema</h3>
+<blockquote>
+<p><strong>Input</strong>: catalyst surface + adsorbate (반응 중간체, *CHO / *CO / *OH 등)</p>
+<pre><code>Surface:    slab with 3D periodic boundary
+Adsorbate:  reaction intermediate (e.g., *CHO for CO2 reduction)
+Initial config: heuristic (symmetry-based) + random sampling
+</code></pre>
+<p><strong>Output</strong>: lowest adsorption energy + valid relaxed structure</p>
+<pre><code>E_ads ≡ min over all valid relaxed configs (eV)
+Valid 기준:
+  - 흡착물이 표면에서 desorption 안 됨
+  - dissociation 안 됨
+  - surface mismatch 없음
+Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
+</code></pre>
+</blockquote>
+<h3>유형 B — OC20-Dense dataset 구조</h3>
+<blockquote>
+<p>| Split | Unique systems | Unique configs | Adsorbates | Bulks |
+|---|---|---|---|---|
+| <strong>Validation</strong> | 973 | 85,658 | 74 | 833 |
+| <strong>Test</strong> | 989 | 105,714 | 74 | 837 |</p>
+<p>각 split은 ~250 systems × 4 subsplits = <strong>ID, OOD-Adsorbate, OOD-Catalyst, OOD-Both</strong></p>
+</blockquote>
+<h3>유형 C — Algorithm (ML+SP / ML+RX, top-k)</h3>
+<blockquote>
+<pre><code>1. Generate initial configs (heuristic + random sampling)
+2. ML potential relaxation → rank by energy (lowest first)
+3. Take best-k candidates:
+   Option A (ML+SP): single-point DFT on each → take min
+   Option B (ML+RX): full DFT relaxation from ML state → take min
+4. Return: min(DFT outputs)
+</code></pre>
+<p>Trade-off knob: <strong>k = 1, 2, 3, 4, 5</strong> (k↑ → 정확도↑, speedup↓)</p>
+</blockquote>
+<h3>유형 D — Model 비교 (Table I, OC20-Dense Test)</h3>
+<blockquote>
+<p>| Model | Success Rate ↑ | Energy MAE [eV] ↓ | OC20 S2EF Force MAE [eV/Å] |
+|---|---|---|---|
+| SchNet | 1.01% | 0.5150 | 0.0496 |
+| DimeNet++ | 1.72% | 0.4329 | 0.0446 |
+| PaiNN | 10.92% | 0.2994 | 0.0294 |
+| GemNet-OC | 46.51% | 0.1849 | 0.0179 |
+| GemNet-OC-MD | 50.05% | 0.1966 | 0.0173 |
+| GemNet-OC-MD-Large | 48.03% | 0.1935 | 0.0164 |
+| SCN-MD-Large | 51.87% | 0.1758 | 0.0160 |
+| <strong>eSCN-MD-Large</strong> | <strong>56.52%</strong> | <strong>0.1739</strong> | <strong>0.0139</strong> |</p>
+<p>→ AdsorbML (eSCN-MD-Large, k=3, ML+SP): <strong>89.28% success × ~2000× speedup</strong> (논문 Figure 3 balanced point: 87.36% × 2290×)</p>
+</blockquote>
+<hr />
 <h2>원문 직접 인용 (arXiv:2211.16486 §Abstract)</h2>
 <blockquote>
 <p>&quot;we demonstrate <strong>machine learning potentials can be leveraged to identify low energy adsorbate-surface configurations</strong> more accurately and efficiently&quot;</p>

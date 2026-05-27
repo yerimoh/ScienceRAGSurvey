@@ -59,6 +59,115 @@ Step 5 — Agent strategies tested
 
 ---
 
+## 실제 데이터 형식 예시 (논문 §2 + Figure 2 + Table 1)
+
+### 유형 A — Task 4-component schema (논문 Figure 2)
+
+각 task는 다음 4개 component로 구성:
+
+> **(a) Task Instruction**: 자연어 task 명세
+> ```
+> "Train a multitask model on the Clintox dataset to predict
+>  a drug's toxicity and FDA approval status. Save the test
+>  set predictions, including the SMILES representation of
+>  drugs and the probability of positive labels, to
+>  pred_results/clintox_test_pred.csv"
+> ```
+>
+> **(b) Dataset Information** (디렉토리 + preview):
+> ```
+> Dataset Directory:
+> |-- clintox/
+> |---- clintox_test.csv
+> |---- clintox_train.csv
+>
+> Dataset Preview:
+> [START Preview of clintox/clintox_train.csv]
+> smiles,FDA_APPROVED,CT_TOX
+> CCC(/C=C/Cl)(C#C)O,1,0
+> C[C@H]1C[C@H]2[C@@H]3CC[C@@H](...),1,0
+> [END Preview ...]
+> ```
+>
+> **(c) Expert-Provided Knowledge** (optional):
+> ```
+> 1. On the task: The ClinTox dataset contains drugs approved by ...
+> 2. On featurization: To represent the molecular structure,
+>    use Extended-Connectivity Fingerprints (ECFPs) ...
+> ```
+>
+> **(d) Annotated Program** (ground truth, hidden):
+> ```python
+> import deepchem as dc
+> from deepchem.molnet.load_function.molnet_loader import _MolnetLoader
+> class MyClintoxLoader(_MolnetLoader):
+>     def create_dataset(self): ...
+> CLINTOX_TASKS = ['FDA_APPROVED', 'CT_TOX']
+> ...
+> test_scores_df.to_csv('pred_results/clintox_test_pred.csv')
+> ```
+
+### 유형 B — Task-specific Success Criteria (Table 1 예시)
+
+> | Task instruction (요약) | Sub-tasks | Success Criteria |
+> |---|---|---|
+> | Train multitask model on ClinTox for tox+FDA approval | Feature Eng, Deep Learning | ROC-AUC ≥ 0.77 on test set |
+> | Build DTI model with DAVIS for COVID drug repurposing | Feature Eng, Deep Learning | Top-5 repurposed drugs match gold |
+> | Analyze IMU sleep data, compute sleep endpoints | Computational Analysis | `math.isclose` to gold answer |
+> | Visualize Toronto fire station coverage | Map Visualization | GPT-4o judge ≥ 60 score |
+
+### 유형 C — 4 disciplines × 102 tasks 분포
+
+> ```
+> ┌──────────────────────────────────────────────┬─────┐
+> │ Bioinformatics                                │     │
+> │ Computational Chemistry                       │     │
+> │ Geographical Information Science (GIS)        │  102│
+> │ Psychology & Cognitive Neuroscience           │     │
+> ├──────────────────────────────────────────────┼─────┤
+> │ Source: 44 peer-reviewed publications         │     │
+> │ Validated by: 9 subject matter experts        │     │
+> │ (senior PhD students + professors)            │     │
+> └──────────────────────────────────────────────┴─────┘
+> ```
+>
+> Sub-task 빈도 (각 task는 여러 sub-task 조합):
+> - Information Visualization (65), Data Analysis (59), Data Visualization (45)
+> - Computational Analysis (38), Data Processing (23), Model Development (23)
+> - Feature Engineering (20), Map Visualization (18), Deep Learning (14)
+
+### 유형 D — Evaluation metrics (논문 §2.3)
+
+> ```
+> 4 program-level metrics:
+>   1. VER (Valid Execution Rate)  — binary: program 실행되고 output 저장됨
+>   2. SR  (Success Rate)           — binary: success criteria 충족
+>   3. CBS (CodeBERTScore)          — annotated program과 코드 유사도
+>   4. Cost                          — API token 비용
+>
+> + 5-stage Rubric (human eval):
+>   Data Loading | Data Processing | Modeling/Viz | Output Formatting | Output Saving
+> ```
+>
+> Best agent (OpenAI o1-preview + self-debug, 3 attempts):
+> - **independent**: 32.4% → **42.2%** (with expert knowledge: 34.3%)
+> - 그러나 **10× cost** 증가 → 비용-성능 trade-off 명확
+
+### 유형 E — 기존 benchmark 비교 (Table 2)
+
+> | Benchmark | Code Gen | # Test Tasks | Heterogeneous Data | Shortcut Prevent |
+> |---|---|---|---|---|
+> | SWE-Bench | File-Level Edit | 2,294 | ✗ | ✗ |
+> | BioCoder-Py | Function-Level | 1,126 | ✗ | ✗ |
+> | ML-Bench | Line-Level | 260 | ✓ | ✗ |
+> | MLAgentBench | File-Level Edit | 13 | ✗ | ✗ |
+> | DiscoveryBench-Real | Indirect (NL hypothesis) | 239 | ✓ | ✗ |
+> | SciCode | Function-Level | 80 | ✗ | ✓ |
+> | BLADE | Function-Level | 12 | ✗ | ✗ |
+> | **ScienceAgentBench** | **File-Level Gen** | **102** | ✓ | ✓ |
+
+---
+
 ## 원문 직접 인용 (arXiv:2410.05080 §Abstract + §1)
 
 > "we present **ScienceAgentBench, a new benchmark** for evaluating language agents for data-driven scientific discovery"
