@@ -1380,3 +1380,61 @@ sup.footnote-ref a:focus {
 .paper-markdown .footnotes ol { padding-left: 1.5em; }
 .paper-markdown .footnotes li { margin-bottom: 0.5rem; }
 .footnote-backref { text-decoration: none; opacity: 0.6; margin-left: 4px; }
+
+/* ============= Cell-page section overview (survey paragraph excerpt) ============= */
+.cell-overview {
+  background: var(--bg-alt, #f9f9fb);
+  border-top: 1px solid var(--border, #d8d8d8);
+  border-bottom: 1px solid var(--border, #d8d8d8);
+  padding: 2rem 0;
+}
+.cell-overview .ov-title {
+  font-size: 1.1rem;
+  margin: 0 0 0.4rem 0;
+  color: var(--accent, #005faf);
+  font-weight: 600;
+}
+.cell-overview .ov-sub {
+  font-size: 0.8rem;
+  color: var(--fg-muted, #666);
+  margin: 0 0 1.2rem 0;
+}
+.cell-overview .ov-paragraph {
+  background: var(--bg, #fff);
+  border: 1px solid var(--border, #e0e0e0);
+  border-radius: 8px;
+  padding: 1.2rem 1.4rem;
+  max-width: 920px;
+}
+.cell-overview .ov-paragraph p {
+  margin: 0;
+  line-height: 1.75;
+  font-size: 0.95rem;
+  text-align: justify;
+}
+.cell-overview .overview-fns {
+  margin-top: 1.5rem;
+  max-width: 920px;
+  border-top: none;
+  padding-top: 0;
+}
+.cell-overview .overview-fns h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--fg-muted, #777);
+  margin: 0 0 0.5rem 0;
+}
+.cell-overview .overview-fns ol {
+  font-size: 0.82rem;
+  padding-left: 1.5em;
+  color: var(--fg, #333);
+}
+.cell-overview .overview-fns li {
+  margin-bottom: 0.7rem;
+  line-height: 1.5;
+}
+.cell-overview .overview-fns li p { margin: 0.15rem 0; }
+.cell-overview .overview-fns li p:first-child { color: var(--fg, #1a1a1a); }
+.cell-overview .overview-fns li em { color: var(--fg-muted, #555); font-style: italic; }
+.cell-overview .overview-fns a { color: var(--accent, #005faf); }

@@ -126,7 +126,10 @@ def cell_label(code):
 by_cell = defaultdict(list)
 by_dom = defaultdict(list)
 by_type = defaultdict(list)
+papers_by_key = {}
 for p in papers:
+    if p.get('bib_key'):
+        papers_by_key[p['bib_key']] = p
     for c in p.get('ko_cells', []):
         by_cell[c].append(p)
     for d in p.get('domain', []):
@@ -773,6 +776,78 @@ def render_browse():
 
 
 # ---------- cell/<K>.<O>.html ----------
+SECTION_OVERVIEWS = {
+    'K2.O3': {
+        'subsection': 'Simulation-verified Materials Discovery',
+        'subsubsec_id': 'subsubsec:o3-simulation',
+        'paragraph': r'''A third form of hypothesis is one in which the system proposes new material candidates and a physics-based simulator serves as the external verifier, returning thermodynamic stability and reaction-energy profiles through density functional theory or end-to-end computational results through executed scientific code. The output is either a candidate crystal, a relaxed adsorbate-surface configuration, or a metal-organic framework selected for a sorbent target, and novelty is measured against an existing materials database while validity is measured against the simulator's physical predictions. Evaluation in this setting consists of stable-crystal classification with \(F_1\) and discovery-acceleration factor on the WBM corpus of about 257K candidate structures in Matbench Discovery~\cite{riebesell2025matbench}, validity and coverage of generated crystals on the MP-20, Carbon-24, and Perov-5 splits in CDVAE~\cite{DBLP:conf/iclr/XieFGBJ22}, lowest-energy adsorbate-surface identification rate with roughly \(2{,}000\times\) simulator-time speedup over about 1,000 catalyst surfaces and about 100K configurations in ADsorbML~\cite{lan2023adsorbml}, sorbent-screening targets backed by about 38M density-functional calculations over 8,400 metal-organic frameworks in ODAC23~\cite{sriram2024odac23}, foundation machine-learning interatomic potential training and evaluation splits drawn from about 110M density-functional calculations with WBM-disjoint test sets in OMat24~\cite{DBLP:journals/corr/abs-2410-12771}, physics-aware tests of force smoothness, phase transitions, gas adsorption, and vacancy migration beyond DFT-error metrics in MLIP Arena~\cite{DBLP:journals/corr/abs-2509-20630}, multi-verifier coverage across about 1,500 tasks and eleven categories in JARVIS-Leaderboard~\cite{choudhary2024jarvis}, and 102 executable-code tasks drawn from 44 peer-reviewed publications in ScienceAgentBench~\cite{DBLP:journals/corr/abs-2410-05080}. These benchmarks certify that proposed candidates pass simulation-based checks at orders-of-magnitude greater throughput than traditional high-throughput screening, but density functional theory and code execution themselves rely on functionals, parameter choices, and software assumptions whose limits the simulator cannot diagnose from within.''',
+        'evidence': {
+            'riebesell2025matbench': 'WBM 215,488 unique prototypes after cleaning, 32,942 stable. Top model eqV2 S DeNS reaches F1=0.815 with DAF=5.042 (arXiv:2308.14920 §2.1 + Table 1).',
+            'DBLP:conf/iclr/XieFGBJ22': 'Three datasets: Perov-5 (18,928 perovskites, 56 elements, 5 atoms/cell), Carbon-24 (10,153 C-only, 6-24 atoms), MP-20. Metrics: Validity (>0.5 Å), COV-R/COV-P, EMD (arXiv:2110.06197 §5).',
+            'lan2023adsorbml': 'Open Catalyst Dense: 989 unique adsorbate-surface systems × 105,714 configurations. Balanced ML+SP (k=3, eSCN-MD-Large): 87.36% success × 2,290× DFT speedup (arXiv:2211.16486 §Abstract + Fig. 3).',
+            'sriram2024odac23': '4,942 pristine + 3,470 defective + 114 ultrastable MOFs. 170K converged adsorption energies, 38M+ single-point DFT, 400M core-hours. OC20-style S2EF/IS2RE/IS2RS tasks (arXiv:2311.00341 §Methods).',
+            'DBLP:journals/corr/abs-2410-12771': '118M structures total: 100M train / 5M val / 5M ID-test + WBM-disjoint test + OOD-Elemental 619K. F1 > 0.9 stability, MAE 20 meV/atom formation energy. All top Matbench leaderboard models adopted OMat24 (arXiv:2410.12771 §2).',
+            'DBLP:journals/corr/abs-2509-20630': 'Four physics-aware categories: Asymptotic (EOS on 1,000 WBM + diatomic PEC), Stability & Reactivity (NVT/NPT MD on RM24, H2 combustion), Distribution Shifts, Thermodynamic Properties (arXiv:2509.20630 §2 + Fig. 1).',
+            'choudhary2024jarvis': '274 benchmarks, 1,281 contributions, 152 methods, 8M+ data points across AI/ES/FF/QC/EXP categories. Naming convention: Category-Subcategory-Target-Dataset-Split-Metric (arXiv:2306.11688 §Abstract).',
+            'DBLP:journals/corr/abs-2410-05080': '102 tasks from 44 peer-reviewed publications across 4 disciplines (Bioinformatics, Computational Chemistry, GIS, Psychology). Each task: instruction + dataset + expert knowledge + annotated program. Best agent: 32.4% independent (arXiv:2410.05080 §2).',
+        },
+    },
+}
+
+
+def render_overview_section(cell_key, papers_by_key, base='../'):
+    """Render a survey section overview paragraph with footnote-popover citations."""
+    o = SECTION_OVERVIEWS.get(cell_key)
+    if not o:
+        return ''
+    text = o['paragraph']
+    evidence_map = o.get('evidence', {})
+    cite_order = []
+
+    def cite_repl(m):
+        key = m.group(1)
+        if key not in cite_order:
+            cite_order.append(key)
+        n = cite_order.index(key) + 1
+        return f'<sup class="footnote-ref" id="fnref-ov{n}"><a href="#fn-ov{n}">{n}</a></sup>'
+
+    html_text = re.sub(r'\\cite\{([^}]+)\}', cite_repl, text)
+    html_text = html_text.replace('~', '&nbsp;')
+    html_text = re.sub(r'\\\(([^)]+)\\\)', r'<em>\1</em>', html_text)
+    html_text = html_text.replace(r'{,}', ',').replace(r'\times', '×')
+
+    fn_items = []
+    for i, key in enumerate(cite_order, 1):
+        p = papers_by_key.get(key, {})
+        title = p.get('title', key)
+        method = p.get('method', '')
+        safe_key = key.replace(':', '_').replace('/', '_')
+        ev = evidence_map.get(key, '')
+        label = method or title or key
+        body = f'<p><strong>{esc(label)}</strong>'
+        if title and title != label:
+            body += f' — <em>{esc(title)}</em>'
+        body += '</p>'
+        if ev:
+            body += f'<p>{esc(ev)}</p>'
+        body += f'<p><a href="{base}papers/{safe_key}.html">Full summary →</a></p>'
+        fn_items.append(f'<li id="fn-ov{i}">{body}</li>')
+
+    fn_html = '<section class="footnotes overview-fns"><h3>Citations</h3><ol>' + ''.join(fn_items) + '</ol></section>'
+
+    return f'''
+<section class="cell-overview">
+  <div class="wrap">
+    <h2 class="ov-title">Section overview &mdash; § {esc(o['subsection'])}</h2>
+    <p class="ov-sub">Click any superscript chip to see the verbatim evidence for that citation. <em>(Survey §{esc(o.get('subsubsec_id', ''))})</em></p>
+    <div class="ov-paragraph">
+      <p>{html_text}</p>
+    </div>
+    {fn_html}
+  </div>
+</section>'''
+
+
 def render_cell_pages():
     for K in ['K1', 'K2', 'K3', 'K4']:
         for O in ['O1', 'O2', 'O3']:
@@ -788,6 +863,7 @@ def render_cell_pages():
 
             cards = '\n'.join(paper_card(p, base='../', axis_scope=O) for p in ps) or '<p class="empty">No verified entries in this cell yet — see <a href="../about.html#methodology">methodology</a> and the survey §11 frontier discussion.</p>'
             sf = subsec_filter_html(ps, prefix=f'cell{cell}', axis_scope=O)
+            overview_html = render_overview_section(cell, papers_by_key, base='../')
 
             body = f'''
 <section class="cell-hero">
@@ -810,6 +886,8 @@ def render_cell_pages():
     <div class="cell-nav">{other_cells_nav}</div>
   </div>
 </section>
+
+{overview_html}
 
 <section class="cell-list">
   <div class="wrap">
