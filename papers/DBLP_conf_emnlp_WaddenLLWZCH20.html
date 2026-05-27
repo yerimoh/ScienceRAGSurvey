@@ -116,97 +116,227 @@
 <section class="paper-body">
   <div class="wrap">
     <article class="paper-markdown">
-      <h1>Fact or Fiction: Verifying Scientific Claims</h1>
-<ul>
-<li><strong>기존 방법의 한계</strong>: FEVER 등 기존 팩트체킹 데이터셋은 위키피디아 기반이거나 인위적으로 조작된 클레임을 사용하여 과학 분야 특유의 배경지식과 복잡한 언어 구조 미반영</li>
-<li><strong>이 연구가 필요한 이유</strong>: 코로나19같은 보건 위기 상황에서 연구 문헌을 바탕으로 과학적 주장의 진위를 검증하고 근거를 신속하게 찾는 자동화 시스템이 필수적임</li>
-</ul>
+      <h1>SciFact: 1,409 Expert-Written Scientific Claims with Rationale Annotation</h1>
 <blockquote>
-<p>EMNLP | 2020 | Method | bio · medical</p>
-<h2>📌 한 줄 요약</h2>
-<p>과학적 문헌에서 주어진 클레임의 사실 여부(SUPPORTS/REFUTES)를 판별하고 근거 문장을 찾는 3단계 파이프라인 시스템(VERISCI) 개발 및 전문가 주석 데이터셋(SCIFACT) 구축.</p>
-<h2>🎯 연구 배경 및 동기</h2>
+<p>EMNLP 2020 (Long Paper, pp. 7534–7550) | Benchmark + Baseline (VERISCI) | bio · medical
+David Wadden, Shanchuan Lin, Kyle Lo, Lucy Lu Wang, Madeleine van Zuylen, Arman Cohan, Hannaneh Hajishirzi — AI2 / Univ. of Washington
+DBLP: <code>conf/emnlp/WaddenLLWZCH20</code> · arXiv: <a href="https://arxiv.org/abs/2004.14974">2004.14974</a></p>
 </blockquote>
-<h2>🏗️ 시스템 아키텍처</h2>
-<pre><code class="language-javascript">[입력 Claim]
-      │
-      ▼
-[ABSTRACTRETRIEVAL]
-TF-IDF (unigram + bigram) 기반
-상위 k=3개 관련 초록 검색
-      │
-      ▼
-[RATIONALSELECTION]
-각 초록 내 문장 단위 검사
-클레임 지지/반박 근거 문장(선택)
-      │
-      ▼
-[LABELPREDICTION]
-RoBERTa-large 기반 분류기
-SUPPORTS / REFUTES / NOINFO
-</code></pre>
-<h2>🔑 핵심 모듈 상세 설명</h2>
-<h3>1. ABSTRACTRETRIEVAL</h3>
-<ul>
-<li>TF-IDF(unigram + bigram)를 사용하여 클레임과 가장 유사한 상위 k=3개 관련 문헌 초록을 검색</li>
-<li>파인튜닝 없는 비파라미터 검색기</li>
-</ul>
-<h3>2. RATIONALSELECTION</h3>
-<ul>
-<li>RoBERTa-large 모델로 각 문장이 클레임의 근거가 될 수 있는지 이진 분류</li>
-<li>근거 문장(Rationale)을 필터링하여 다음 단계로 전달</li>
-</ul>
-<h3>3. LABELPREDICTION</h3>
-<ul>
-<li>추출된 근거 문장들 + 클레임을 RoBERTa-large 분류기에 입력</li>
-<li><strong>FEVER 데이터셋</strong>으로 사전학습 후 SCIFACT로 파인튜닝 시 성능 크게 향상</li>
-<li>Oracle(정답 초록 제공) 환경에서 Abstract Label+Rationale F1 약 72.6%</li>
-</ul>
-<h2>🧪 실험 및 평가</h2>
-<p><strong>평가 환경 및 결과 (SCIFACT)</strong></p>
-<table header-row="true">
-<tr>
-<td>조건</td>
-<td>Abstract Label-Only F1</td>
-<td>Abstract Label+Rationale F1</td>
-</tr>
-<tr>
-<td>Oracle Abstract</td>
-<td>~89.7%</td>
-<td>~72.6%</td>
-</tr>
-<tr>
-<td>Oracle Rationale</td>
-<td>—</td>
-<td>~72.0%</td>
-</tr>
-<tr>
-<td>Open (TF-IDF 검색)</td>
-<td>~64.1%</td>
-<td>~46.4%</td>
-</tr>
-</table>
+<h2>한 줄 요약</h2>
+<p>과학 문헌에서 단일 atomic claim에 대해 <strong>SUPPORTS / REFUTES / NOINFO</strong> verdict를 부여하고 그 verdict를 정당화하는 <strong>rationale 문장</strong>까지 식별하는 task와, <strong>1,409개 전문가 작성 claim</strong> 으로 구성된 데이터셋. <strong>abstract-level F1 + sentence-level (rationale) F1</strong> 두 단위로 평가하는 verification benchmark의 표준.</p>
+<hr />
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>Step 1 — Citation sentence 수집 (자연 발생 claim 출처)
+  └─ S2-ORC corpus의 인용 문장(citation sentence) 추출
+  └─ 인용 문장 ≈ 다른 논문의 결과를 진술하는 &quot;natural claim&quot;
+  └─ 합성(synthetic) FEVER claim 대신 실제 과학 문헌에서 사용된 주장 채택
 
-<p><strong>CORD-19 케이스 스터디</strong></p>
+Step 2 — Claim 재작성 (전문가 annotators)
+  └─ Annotators: biomedical research 학위/배경자
+  └─ citation 문장을 atomic claim으로 변환
+  └─ 예: &quot;X reduces Y by Z% (p&lt;0.001)&quot; → &quot;X reduces Y&quot;
+
+Step 3 — 증거 abstract 식별 + rationale 주석
+  ┌───────────────────────────────────────────────┐
+  │ 각 claim에 대해:                              │
+  │   1. SUPPORTS / REFUTES / NOINFO abstract 식별│
+  │   2. rationale 문장 표시 (Lei et al. 2016식)  │
+  │      = verdict 근거 문장 (claim당 평균 1-3개)  │
+  └───────────────────────────────────────────────┘
+  Sentence-level rationale 주석 신뢰도:
+    Cohen's κ = 0.71 (저자 보고)
+
+Step 4 — 최종 데이터셋 구성
+  ┌────────────────────┬──────────────────┐
+  │ 항목               │ 규모              │
+  ├────────────────────┼──────────────────┤
+  │ Claim 수            │ 1,409            │
+  │ Evidence-bearing   │ ~5,183 abstracts  │
+  │ 평균 rationale     │ 1.7 문장/abstract │
+  │ Split              │ train/dev/test    │
+  │ Label 분포         │ SUPP/REFUTE/NEI   │
+  └────────────────────┴──────────────────┘
+</code></pre>
+<hr />
+<h2>원문 직접 인용 (arXiv:2004.14974 §본문)</h2>
+<blockquote>
+<p><strong>Task 정의</strong>: <em>&quot;search literature containing evidence that <strong>SUPPORTS or REFUTES</strong> a given scientific claim, and to identify <strong>rationales</strong> justifying each decision&quot;</em></p>
+</blockquote>
+<blockquote>
+<p><strong>데이터셋 규모</strong>: <em>&quot;we construct SCIFACT, an expert-annotated dataset of <strong>1,409 scientific claims</strong> accompanied by abstracts that support or refute each claim, and annotated with <strong>rationales</strong> (Lei et al., 2016) justifying each SUPPORTS / REFUTES decision&quot;</em></p>
+</blockquote>
+<blockquote>
+<p><strong>레이블 체계</strong>: <em>&quot;labels each abstract as <strong>SUPPORTS, REFUTES, or NOINFO</strong> with respect to the claim&quot;</em></p>
+</blockquote>
+<blockquote>
+<p><strong>Annotation 출처 (자연 claim)</strong>: <em>&quot;we develop a novel annotation protocol in which annotators <strong>re-formulate naturally occurring claims</strong> in the scientific literature – citation sentences – into atomic scientific claims&quot;</em></p>
+</blockquote>
+<blockquote>
+<p><strong>Sentence-level 신뢰도</strong>: <em>&quot;sentence-level agreement. The resulting <strong>Cohen's κ is 0.71</strong>&quot;</em></p>
+</blockquote>
+<blockquote>
+<p><strong>FEVER와의 차이</strong>: <em>&quot;claims in the popular FEVER dataset (Thorne et al., 2018) are <strong>synthetic</strong>, since they are created by annotators by mutating sentences from Wikipedia&quot;</em> → SciFact는 자연 발생 citation 활용</p>
+</blockquote>
+<hr />
+<h2>Input / Output</h2>
+<h3>Input</h3>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Claim</td>
+  <td>자연어 atomic 과학 진술 (citation sentence 재작성)</td>
+</tr>
+<tr>
+  <td>Corpus</td>
+  <td>~5,183 biomedical research abstracts</td>
+</tr>
+<tr>
+  <td>Task setting</td>
+  <td>(1) <strong>Oracle abstract</strong> (gold abstract 주어짐) / (2) <strong>Open</strong> (TF-IDF로 코퍼스 전체 검색)</td>
+</tr>
+</tbody>
+</table>
+<h3>Output + Evaluation Metrics</h3>
+<table>
+<thead>
+<tr>
+  <th>단위</th>
+  <th>Metric</th>
+  <th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Abstract-level</strong></td>
+  <td>F1 (label)</td>
+  <td>claim ↔ abstract verdict (SUPP/REFUTE/NOINFO) 정확도</td>
+</tr>
+<tr>
+  <td><strong>Sentence-level</strong></td>
+  <td>F1 (rationale)</td>
+  <td>어떤 문장이 verdict의 근거인지 정확도</td>
+</tr>
+</tbody>
+</table>
+<p>→ <strong>두 단위 F1을 동시 평가</strong>하는 것이 SciFact의 정체성. 단순 accuracy benchmark와 구분되는 핵심.</p>
+<hr />
+<h2>실제 Claim 예시 (논문 Table 1 + Fig 1 verbatim, COVID-19 데모)</h2>
+<h3>예시 1 — 동일 claim에 대한 SUPPORTS / REFUTES evidence 양립</h3>
+<blockquote>
+<p><strong>Claim</strong>: <em>&quot;Lopinavir / ritonavir have exhibited favorable clinical responses when used as a treatment for coronavirus.&quot;</em></p>
+<p><strong>Supports (verbatim)</strong>: <em>&quot;...after lopinavir/ritonavir (Kaletra, AbbVie) was administered, β-coronavirus viral loads significantly decreased and no or little coronavirus titers were observed...&quot;</em></p>
+<p><strong>Refutes (verbatim)</strong>: <em>&quot;The focused drug repurposing of known approved drugs (such as lopinavir/ritonavir) has been reported failed for curing SARS-CoV-2 infected patients...&quot;</em></p>
+</blockquote>
+<h3>예시 2 — 기후 의존성 (단방향 어휘 검증 필요)</h3>
+<blockquote>
+<p><strong>Claim</strong>: <em>&quot;The coronavirus cannot thrive in warmer climates.&quot;</em></p>
+<p><strong>Supports</strong>: <em>&quot;...most outbreaks display a pattern of clustering in relatively cool and dry areas...unsuitable climates can cause the virus to destabilize quickly...&quot;</em></p>
+<p><strong>Refutes</strong>: <em>&quot;...significant cases in the coming months are likely to occur in more humid (warmer) climates, irrespective of the climate-dependence of transmission...&quot;</em></p>
+</blockquote>
+<h3>예시 3 — Statistical reasoning + 단방향 검증</h3>
+<blockquote>
+<p><strong>Claim</strong>: <em>&quot;Cardiac injury is common in critical cases of COVID-19.&quot;</em></p>
+<p><strong>Rationale 검증 포인트</strong> (논문 §본문 인용):</p>
 <ul>
-<li>코로나19 관련 클레임에 대해 의대생 평가 포함</li>
-<li>Lopinavir/ritonavir 등 실제 임상 코맨트에서 가능한 근거 잘 추출</li>
+<li>단방향 관계: <em>&quot;replacing higher with lower would cause the rationale to REFUTE the claim rather than SUPPORT it&quot;</em></li>
+<li>통계적 유의성: <em>&quot;the system should interpret <strong>p &lt; 0.001</strong> as an indication that the reported finding is statistically significant&quot;</em></li>
 </ul>
-<h2>💡 핵심 기여</h2>
+</blockquote>
+<hr />
+<h2>VERISCI 베이스라인 (저자가 함께 제안한 3-stage pipeline)</h2>
+<pre><code>[Claim 입력]
+     │
+     ▼
+┌──────────────────────────────────┐
+│ Step 1 — ABSTRACTRETRIEVAL        │
+│   TF-IDF (unigram + bigram)       │
+│   top-k = 3 abstracts             │
+└──────────┬────────────────────────┘
+           ▼
+┌──────────────────────────────────┐
+│ Step 2 — RATIONALESELECTION       │
+│   RoBERTa-large sentence selector │
+│   rationale 문장 이진 분류        │
+└──────────┬────────────────────────┘
+           ▼
+┌──────────────────────────────────┐
+│ Step 3 — LABELPREDICTION          │
+│   RoBERTa-large classifier        │
+│   SUPPORTS / REFUTES / NOINFO     │
+└──────────┬────────────────────────┘
+           ▼
+   [Verdict + rationale 문장들]
+</code></pre>
+<p><strong>도메인 적응 실험 결과 (논문 §6)</strong>: FEVER (Wikipedia) + Wikipedia 일반 claim 등 추가 학습 시 SciFact 성능 향상 → &quot;simple domain adaptation techniques substantially improve performance&quot; (§Abstract).</p>
+<hr />
+<h2>주요 평가 결과 (논문 본문 Table 3·4)</h2>
+<table>
+<thead>
+<tr>
+  <th>Setting</th>
+  <th>Abstract Label-Only F1</th>
+  <th>Abstract Label+Rationale F1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Oracle Abstract (gold 주어짐)</td>
+  <td>~89.7%</td>
+  <td>~72.6%</td>
+</tr>
+<tr>
+  <td>Oracle Rationale (rationale 주어짐)</td>
+  <td>–</td>
+  <td>~72.0%</td>
+</tr>
+<tr>
+  <td><strong>Open (TF-IDF 검색)</strong></td>
+  <td>~64.1%</td>
+  <td><strong>~46.4%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>→ Open setting에서 큰 폭의 성능 저하 → retrieval이 verification 성공의 큰 bottleneck.
+→ Label+Rationale F1이 Label-Only F1보다 ~17%p 낮음 → rationale 식별이 label 추론보다 어려운 task.</p>
+<hr />
+<h2>COVID-19 zero-shot 검증 케이스 (논문 §본문 인용)</h2>
+<blockquote>
+<p><em>&quot;We showcase the ability of our model to verify expert-written claims concerning the novel coronavirus COVID-19 against the newly-released <strong>CORD-19 corpus</strong> (Wang et al., 2020). Expert annotators judge retrieved evidence to be plausible for <strong>23 of 36 claims</strong>.&quot;</em></p>
+</blockquote>
+<p>→ 실제 의료 위기 상황에서 zero-shot 일반화 가능성 시연. SciFact 학습 모델이 새 도메인(COVID-19)에 즉시 적용 가능.</p>
+<hr />
+<h2>핵심 기여</h2>
 <ol>
-<li>과학적 클레임 검증(Scientific Claim Verification)이라는 새로운 태스크 공식화</li>
-<li>논문 인용구(Citance) 기반의 자연스러운 1.4K개 전문가 주석 데이터셋(SCIFACT) 구축 및 공개</li>
-<li>도메인 특화 데이터 및 사전학습을 활용한 강력한 베이스라인(VERISCI) 구축</li>
+<li><strong>Scientific Claim Verification</strong> task 공식화 (claim → abstract → label + rationale)</li>
+<li><strong>1,409개 전문가 주석 claim 데이터셋</strong> (citation sentence 기반의 자연 claim)</li>
+<li><strong>VERISCI 베이스라인</strong> 및 도메인 적응 학습 효과 입증 (FEVER 사전학습 → SciFact 향상)</li>
+<li><strong>Sentence-level + Abstract-level F1 동시 평가</strong> 프로토콜 정립</li>
 </ol>
-<h2>⚠️ 한계점</h2>
+<hr />
+<h2>한계점</h2>
 <ul>
-<li>인과관계 추론, 통계적 수치(p-value, 신뢰구간) 해석, 상호참조(Coreference) 해결, 감역 특화 배경지식 요구되는 부분에서 여전히 오류 발생</li>
+<li><strong>소규모</strong>: 1,409 claim, ~5,183 abstract corpus → SciFact-Open (500K)으로 확장됨</li>
+<li><strong>단방향 평가</strong>: 단일 (claim, abstract) 쌍 단위; 다중 abstract 간 모순/통합 미평가</li>
+<li><strong>Citation sentence 출처 편향</strong>: 인용 문장 기반이라 review-style claim에 편향 가능</li>
+<li><strong>인과관계·통계 해석 한계</strong>: VERISCI는 p-value, 신뢰구간, coreference 해결에서 오류</li>
+<li><strong>Sentence-level 어려움</strong>: rationale 식별이 abstract-level label 추론보다 더 어려움</li>
 </ul>
-<h2>🔗 관련 연구 및 관련 정보</h2>
+<hr />
+<h2>관련 정보</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://aclanthology.org/2020.emnlp-main.609/">https://aclanthology.org/2020.emnlp-main.609/</a></li>
-<li><strong>GitHub (SCIFACT)</strong>: <a href="https://github.com/allenai/scifact">https://github.com/allenai/scifact</a></li>
-<li><strong>참조</strong>: CORD-19 (Wang et al., 2020), FEVER (Thorne et al., 2018)</li>
+<li><strong>논문 (ACL Anthology)</strong>: <a href="https://aclanthology.org/2020.emnlp-main.609/">2020.emnlp-main.609</a></li>
+<li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2004.14974">2004.14974</a></li>
+<li><strong>DOI</strong>: <a href="https://doi.org/10.18653/v1/2020.emnlp-main.609">10.18653/v1/2020.emnlp-main.609</a></li>
+<li><strong>DBLP</strong>: <a href="https://dblp.org/rec/conf/emnlp/WaddenLLWZCH20.html">conf/emnlp/WaddenLLWZCH20</a></li>
+<li><strong>GitHub</strong>: <a href="https://github.com/allenai/scifact">allenai/scifact</a></li>
+<li><strong>확장</strong>: <strong>SciFact-Open</strong> (Wadden et al., EMNLP Findings 2022) — 500K abstract pool로 open-domain 평가</li>
+<li><strong>이 benchmark를 사용한 후속 작업</strong>: VerT5erini, ParagraphJoint, MultiVerS, OpenScholar (citation F1 평가에도 활용)</li>
 </ul>
 
     </article>

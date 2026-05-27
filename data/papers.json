@@ -320,8 +320,7 @@
     ],
     "ko_primary": "K2.O2",
     "ko_note": "main.tex: K=-; O=O2",
-    "cross_source": false,
-    "subsection": "Verificative Synthesis"
+    "cross_source": false
   },
   {
     "title": "OER-DFT (HEA) — LLM-Driven Discovery of High-Entropy Catalysts via RAG",
