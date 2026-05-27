@@ -4527,6 +4527,28 @@
     "cross_source": false
   },
   {
+    "bib_key": "10.1007/978-3-031-43993-3_51",
+    "title": "PMC-CLIP: Contrastive Language-Image Pre-training Using Biomedical Documents",
+    "year": 2023,
+    "venue": "MICCAI",
+    "method": "PMC-CLIP / PMC-OA",
+    "domain": [
+      "medical",
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1007/978-3-031-43993-3_51",
+    "note": "PMC-OA: 1.65M biomedical image-text pairs (PubMed Central OA); cited in §o1-crossmodal as evidence for cross-modal grounding",
+    "ko_cells": [
+      "K3.O1"
+    ],
+    "ko_primary": "K3.O1",
+    "ko_note": "PMC-OA: 1.65M biomedical image-text pairs (PubMed Central OA); cited in §o1-crossmodal as evidence for cross-modal grounding",
+    "cross_source": false,
+    "type": "dataset",
+    "bib_only": true,
+    "subsection": "Cross-modal"
+  },
+  {
     "title": "PMC-CLIP: Contrastive Language-Image Pre-training using Biomedical Documents",
     "year": 2023,
     "venue": "MICCAI",
@@ -7885,25 +7907,6 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "Embedded in software"
-  },
-  {
-    "bib_key": "10.1007/978-3-031-43993-3_51",
-    "title": "10.1007/978-3-031-43993-3_51",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "PMC-OA: 1.65M biomedical image-text pairs (PubMed Central OA); cited in §o1-crossmodal as evidence for cross-modal grounding",
-    "ko_cells": [
-      "K3.O1"
-    ],
-    "ko_primary": "K3.O1",
-    "ko_note": "PMC-OA: 1.65M biomedical image-text pairs (PubMed Central OA); cited in §o1-crossmodal as evidence for cross-modal grounding",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Cross-modal"
   },
   {
     "bib_key": "DBLP:conf/pasc/GokdemirSBWHHSA25",

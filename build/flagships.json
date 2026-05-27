@@ -1511,6 +1511,18 @@
         "general"
       ],
       "paper_link": "https://aclanthology.org/W17-4413/"
+    },
+    "10.1007/978-3-031-43993-3_51": {
+      "title": "PMC-CLIP: Contrastive Language-Image Pre-training Using Biomedical Documents",
+      "year": 2023,
+      "venue": "MICCAI",
+      "method": "PMC-CLIP / PMC-OA",
+      "type": "dataset",
+      "domain": [
+        "medical",
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.1007/978-3-031-43993-3_51"
     }
   }
 }
