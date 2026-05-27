@@ -1378,7 +1378,8 @@
     "note": "377,110 chest X-ray images; 227,835 studies; 65,379 patients; radiology report generation benchmark",
     "paper_link": "https://physionet.org/content/mimic-cxr/2.1.0/",
     "K": "K3",
-    "O": ""
+    "O": "",
+    "subsection": "Medical imaging and clinical EHR"
   },
   "demner2016preparing": {
     "cells": [
@@ -1387,7 +1388,8 @@
     "note": "3,955 chest X-ray reports + 7,470 DICOM images; Indiana University chest X-ray collection (IU-Xray)",
     "paper_link": "https://doi.org/10.1093/jamia/ocv080",
     "K": "K3",
-    "O": ""
+    "O": "",
+    "subsection": "Medical imaging and clinical EHR"
   },
   "luo2024fairclip": {
     "cells": [
