@@ -129,7 +129,10 @@
     "K": "",
     "O": "O2",
     "note": "main.tex: K=-; O=O2",
-    "subsection": "Text-only Closed-form QA"
+    "subsection": [
+      "Text-only Closed-form QA",
+      "Verificative Synthesis"
+    ]
   },
   "DBLP:journals/corr/abs-2410-23902": {
     "cells": [

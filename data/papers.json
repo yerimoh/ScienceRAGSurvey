@@ -3593,7 +3593,10 @@
     "ko_primary": "K1.O2",
     "ko_note": "main.tex: K=-; O=O2",
     "cross_source": false,
-    "subsection": "Text-only Closed-form QA"
+    "subsection": [
+      "Text-only Closed-form QA",
+      "Verificative Synthesis"
+    ]
   },
   {
     "title": "Leveraging Chemistry Foundation Models to Facilitate Structure Focused Retrieval Augmented Generation in Multi-Agent Workflows for Catalyst and Materials Design",
