@@ -118,50 +118,75 @@
     <article class="paper-markdown">
       <h1>MIMIC-CXR v2.1.0</h1>
 <blockquote>
-<p>Scientific Data 2019 + PhysioNet | Benchmark Dataset | medical (radiology)
-Johnson et al. — Beth Israel Deaconess Medical Center / MIT</p>
+<p>Scientific Data (Nature) | 2019 | Benchmark Dataset | medical (radiology)
+Johnson, Pollard, Berkowitz, Greenbaum, Lungren, Deng, Mark, Horng — MIT / Beth Israel Deaconess Medical Center / Stanford / Harvard
+DOI: <code>10.1038/s41597-019-0322-0</code> · PhysioNet v2.1.0 (Open-access subset: MIMIC-CXR-JPG)</p>
 </blockquote>
 <h2>한 줄 요약</h2>
-<p>Beth Israel Deaconess Medical Center(2011–2016) 응급실의 흉부 X-ray <strong>377,110장</strong> + 방사선과 리포트 <strong>227,835건</strong>을 HIPAA Safe Harbor 규정에 맞게 비식별화하여 공개한 대규모 방사선 영상 데이터셋. 자동 보고서 생성·임상 NLP·RAG 평가의 표준 벤치마크.</p>
-<hr />
+<p>Beth Israel Deaconess Medical Center 응급실(2011–2016)에서 수집한 <strong>흉부 X-ray 377,110장 + 방사선과 free-text 리포트 227,835건(고유 환자 65,379명)</strong>을 HIPAA Safe Harbor 규정에 맞게 비식별화하여 공개한 대규모 흉부 영상 데이터셋. 자동 보고서 생성·임상 NLP·멀티모달 RAG 평가의 사실상의 표준 벤치마크.</p>
+<h2>제작 배경</h2>
+<p><strong>왜 이 데이터셋이 필요했나</strong></p>
+<ul>
+<li>흉부 X-ray는 전 세계에서 가장 빈번한 의료 영상 검사. 그러나 미국 내 방사선 전문의 비율 감소 추세 + 도시-농촌 분포 편향 → 자동 판독 알고리즘 수요 급증.</li>
+<li>자원이 부족한 지역의 현실:</li>
+</ul>
+<ul>
+<li>기존 공개 데이터셋(JSRT 247장, ChestX-ray14 112,120장)은 전문의가 작성한 <strong>자유 텍스트 리포트</strong>가 없거나 자동 NLP 레이블만 제공 → 영상-텍스트 멀티모달 학습 불가.</li>
+<li>&quot;A key requirement in the application of these advances to automated chest radiograph analysis is a sufficiently large data set&quot; — MIMIC-CXR는 <strong>이미지 + 리포트 페어</strong>를 대규모로 묶어 공개한 최초 사례.</li>
+</ul>
+<blockquote>
+<p>&quot;As of 2015, only 11 radiologists served the 12 million people of Rwanda, while the entire country of Liberia, with a population of four million, had only two practicing radiologists.&quot;</p>
+</blockquote>
 <h2>어떻게 만들었나 (Construction Methodology)</h2>
-<pre><code>Step 1 — 데이터 수집
-  병원 PACS(Picture Archiving and Communication System)에서 DICOM 이미지 추출
-  EHR에서 방사선과 리포트 추출 (2011–2016, BIDMC 응급실)
+<p><strong>전체 구성</strong>: EHR/PACS 추출 → DICOM 비식별화(헤더 + 픽셀) → 리포트 규칙 기반 PHI 제거 → 수동 검증 → PhysioNet 공개</p>
+<pre><code>Step 1 — EHR/PACS에서 코호트 구축
+  ┌─ BIDMC EHR에 응급실 흉부 X-ray 요청 쿼리 (2011–2016)
+  ├─ 환자 식별자만 추출 → 추가로 해당 환자의 흉부 X-ray 전수 추출
+  └─ subject_id 재배정: 10,000,000–19,999,999 범위 난수
+     study_id 재배정: 50,000,000–59,999,999 범위 난수
+     날짜: 환자별 일관된 date shift로 2100–2200년대 매핑
+     (계절성 정보는 제거, 환자 내 종단적 시간 관계는 보존)
 
-Step 2 — DICOM 이미지 비식별화
-  ┌─ RSNA Clinical Trials Processor (DICOM 헤더)
-  └─ OCR (tesseract v3.05.02) → burned-in 텍스트 PHI 블랙박스 처리
-  날짜: 2100–2200년대로 시프트
-  환자 ID: 10M–19M 범위 난수 재배정
-  수동 검토: 6,900장 검증, PHI 0건
+Step 2 — DICOM 메타데이터 비식별화 (DICOM Standard 2017e)
+  Basic Application Level Confidentiality Profile
+    + Clean Descriptors Option
+    + Retain Longitudinal Temporal Information Modified Dates
+    + Clean Pixel Data
+    + Clean Graphics
+  De-identification: Orthanc v1.0.0 → UUID 기반 새 식별자 생성
+  Patient Identity Removed (0012,0062) = &quot;YES&quot;
 
-Step 3 — 리포트 비식별화
-  규칙 기반 + 신경망 혼합 → PHI를 &quot;___&quot; 대체
-  검증: 9,770/9,778 PHI 토큰 탐지 (99.99% 정확도)
+Step 3 — Burned-in PHI 픽셀 제거
+  PACS 영상 중 모달리티에서 굽혀 넣은(burned-in) 텍스트 PHI 존재
+  ┌─ 3단계 이진화 (max pixel / min pixel / 고정 텍스트 임계값)
+  ├─ Tesseract v3.05.02 OCR로 텍스트 영역 탐지
+  ├─ Regex 기반 PHI 분류 (보수적)
+  └─ PHI 의심 영역 → 검정 바운딩 박스로 마스킹
+     Burned In Annotation (0028,0301) 플래그 &quot;YES&quot;
 
-Step 4 — 이미지 포맷 변환
-  DICOM → JPEG (quality 95, histogram equalization)
-  원본 임상 해상도 보존 (리사이즈 없음)
+Step 4 — 리포트 텍스트 비식별화
+  XML에서 텍스트 추출 → 헤더/clinical info segment 제거
+  규칙 기반 PHI 탐지 (Neamatullah 2008 알고리즘 확장)
+  PHI → &quot;_ _ _&quot; (세 underscores)
+  Gold standard: 2,238 리포트 수동 어노테이션 (9,778 PHI tokens)
+  자동 탐지 실패: 8개 토큰만 누락 (99.92%)
+    └─ 영어 사전 단어와 동일한 의사 이름 3개 (예: &quot;Rose&quot;), 오타 1개,
+       날짜 typo 2개, initials 2개 → 수동 제거
 
-Step 5 — NLP 레이블 추출 (14개)
-  CheXpert + NegBio 앙상블로 리포트 자유 텍스트 분석
-  ┌──────────────────────────────────────────┐
-  │ 1. No Finding    8. Pneumonia            │
-  │ 2. Enlarged Cardiomediastinum  9. Atelectasis   │
-  │ 3. Cardiomegaly  10. Pneumothorax        │
-  │ 4. Lung Lesion   11. Pleural Effusion    │
-  │ 5. Lung Opacity  12. Pleural Other       │
-  │ 6. Edema         13. Fracture            │
-  │ 7. Consolidation 14. Support Devices     │
-  └──────────────────────────────────────────┘
-  각 레이블 상태: Positive / Negative / Uncertain / Disagreement
+Step 5 — 픽셀 PHI 검증
+  6,900 이미지 수동 검토 (annotator 2명 독립)
+  180장이 secondary consensus review로 회부 → 0건 실제 PHI
+  주된 false-positive 사유:
+    (1) pacemaker 등 implanted device
+    (2) 병원 내 위치 표시 (e.g. &quot;MICU&quot;)
+    (3) 촬영 기술 약어 (e.g. &quot;prt rr slot 11&quot;)
 
-Step 6 — 최종 공개 (PhysioNet v2.1.0)
-  IRB 면제 승인 후 PhysioNet을 통해 공개
+Step 6 — PhysioNet 공개 (Credentialed access)
+  IRB 면제 (BIDMC), CITI 인증 + data use agreement 필요
+  GitHub: MIT-LCP/mimic-cxr (loading 코드 only — 비식별화 코드는 PHI 포함으로 비공개)
 </code></pre>
-<hr />
-<h2>데이터셋 통계</h2>
+<h2>Input (입력 / 데이터셋 구성)</h2>
+<p><strong>기본 통계</strong></p>
 <table>
 <thead>
 <tr>
@@ -172,15 +197,15 @@ Step 6 — 최종 공개 (PhysioNet v2.1.0)
 <tbody>
 <tr>
   <td>총 이미지</td>
-  <td>377,110장</td>
+  <td><strong>377,110장</strong></td>
 </tr>
 <tr>
-  <td>영상 연구(study)</td>
-  <td>227,835건</td>
+  <td>영상 study</td>
+  <td><strong>227,835건</strong></td>
 </tr>
 <tr>
-  <td>고유 환자 수</td>
-  <td>65,379명</td>
+  <td>고유 환자</td>
+  <td><strong>65,379명</strong></td>
 </tr>
 <tr>
   <td>수집 기간</td>
@@ -188,68 +213,156 @@ Step 6 — 최종 공개 (PhysioNet v2.1.0)
 </tr>
 <tr>
   <td>기관</td>
-  <td>Beth Israel Deaconess Medical Center</td>
+  <td>Beth Israel Deaconess Medical Center (Boston, MA)</td>
+</tr>
+<tr>
+  <td>영상 모달리티</td>
+  <td>DICOM (원본) + JPEG (MIMIC-CXR-JPG 부속)</td>
+</tr>
+<tr>
+  <td>평균 리포트 길이</td>
+  <td>145 words / 642 chars</td>
+</tr>
+<tr>
+  <td>평균 PHI 토큰/리포트</td>
+  <td>4.4</td>
 </tr>
 </tbody>
 </table>
-<p><strong>촬영 뷰 분포:</strong></p>
+<p><strong>촬영 뷰 분포 (Simon-Leeming Code, Table 1)</strong></p>
 <table>
 <thead>
 <tr>
-  <th>뷰</th>
-  <th>비율</th>
+  <th>코드</th>
+  <th>검사명</th>
+  <th style="text-align:right">DICOM 수</th>
+  <th style="text-align:right">비율</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>PA + Lateral (정면+측면)</td>
-  <td>65.94%</td>
+  <td>C11</td>
+  <td>CHEST (PA AND LAT)</td>
+  <td style="text-align:right">248,664</td>
+  <td style="text-align:right">65.94%</td>
 </tr>
 <tr>
-  <td>Portable AP (침상 촬영)</td>
-  <td>33.49%</td>
+  <td>C12</td>
+  <td>CHEST (PORTABLE AP)</td>
+  <td style="text-align:right">126,292</td>
+  <td style="text-align:right">33.49%</td>
 </tr>
 <tr>
-  <td>특수 촬영</td>
-  <td>0.57%</td>
+  <td>PC111</td>
+  <td>DX CHEST PORTABLE PICC LINE PLACEMENT</td>
+  <td style="text-align:right">329</td>
+  <td style="text-align:right">0.09%</td>
+</tr>
+<tr>
+  <td>PC171</td>
+  <td>DX CHEST PORT LINE/TUBE PLCMT 1 EXAM</td>
+  <td style="text-align:right">255</td>
+  <td style="text-align:right">0.07%</td>
+</tr>
+<tr>
+  <td>PC172</td>
+  <td>DX CHEST PORT LINE/TUBE PLCMT 2 EXAMS</td>
+  <td style="text-align:right">165</td>
+  <td style="text-align:right">0.04%</td>
+</tr>
+<tr>
+  <td>나머지 19개</td>
+  <td></td>
+  <td style="text-align:right">&lt;600</td>
+  <td style="text-align:right">&lt;0.2%</td>
 </tr>
 </tbody>
 </table>
-<p><strong>분할:</strong></p>
+<p><strong>디렉토리 구조</strong> (Table 2 발췌)</p>
+<pre><code>p10000032/
+├── s50414267/                         ← Study folder (anonymized)
+│   ├── 02aa804e-bde0afdd-112c0b34-7bc16630-4e384014.dcm
+│   └── 174413ec-4ec4c1f7-34ea26b7-c5f994f8-79ef1962.dcm
+├── s50414267.txt                      ← Free-text report
+├── s53189527/
+│   └── ...
+</code></pre>
+<ul>
+<li>patient ID = <code>p</code> + 8 digits starting with <code>1</code></li>
+<li>study ID = <code>s</code> + 8 digits starting with <code>5</code></li>
+<li>DICOM filename = 40-char hex UUID with dash separators</li>
+<li>1차 그룹 폴더 <code>p10/</code>, <code>p11/</code>, ... (디렉토리당 파일 수 폭증 방지)</li>
+</ul>
+<h2>Output (정답/레이블 형식)</h2>
+<p><strong>MIMIC-CXR-JPG 부속 CheXpert 자동 NLP 레이블 (14개, Stanford CheXpert + NegBio 앙상블)</strong></p>
 <table>
 <thead>
 <tr>
-  <th>분할</th>
-  <th>이미지 수</th>
-  <th>환자 수</th>
+  <th>#</th>
+  <th>Label</th>
+  <th>#</th>
+  <th>Label</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>Train</td>
-  <td>368,960</td>
-  <td>64,586</td>
+  <td>1</td>
+  <td>No Finding</td>
+  <td>8</td>
+  <td>Pneumonia</td>
 </tr>
 <tr>
-  <td>Validation</td>
-  <td>2,991</td>
-  <td>500</td>
+  <td>2</td>
+  <td>Enlarged Cardiomediastinum</td>
+  <td>9</td>
+  <td>Atelectasis</td>
 </tr>
 <tr>
-  <td>Test</td>
-  <td>5,159</td>
-  <td>293</td>
+  <td>3</td>
+  <td>Cardiomegaly</td>
+  <td>10</td>
+  <td>Pneumothorax</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>Lung Lesion</td>
+  <td>11</td>
+  <td>Pleural Effusion</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>Lung Opacity</td>
+  <td>12</td>
+  <td>Pleural Other</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td>Edema</td>
+  <td>13</td>
+  <td>Fracture</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td>Consolidation</td>
+  <td>14</td>
+  <td>Support Devices</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2>리포트 형식 예시 (실제 비식별화 예시)</h2>
+<p>각 레이블 상태: <strong>Positive / Negative / Uncertain / Disagreement</strong></p>
+<h2>예시 사례 (논문 원문 직접 인용)</h2>
+<h3>📄 리포트 형식 — Section 구조 (Methods 발췌)</h3>
+<blockquote>
+<p>&quot;Reports are archived with linebreaks to ensure individual lines are no longer than 79 characters, and contain up to four segments delimited by underscores repeated to the width of the page. The four segments are: an optional addendum, a report header with patient information, clinical information imported from the EHR, and the main body of the report. Only the addendum and main segments of the report are written by the radiologist.&quot;</p>
+<p>&quot;PHI of any length was consistently replaced with three underscores ('_ _ _'). Study reports are stored in individual text files named using the anonymous study identifier.&quot;</p>
+</blockquote>
+<h3>🩺 비식별화된 리포트 (PhysioNet 공식 샘플, MIMIC-CXR 라이선스 예시)</h3>
+<blockquote>
 <pre><code>FINAL REPORT
-
-EXAMINATION: CHEST (PA AND LAT)
-INDICATION: ___ year old woman with ?pleural effusion // ?pleural effusion
-TECHNIQUE: Chest PA and lateral
-COMPARISON: ___
+EXAMINATION:  CHEST (PA AND LAT)
+INDICATION:   ___ year old woman with ?pleural effusion // ?pleural effusion
+TECHNIQUE:    Chest PA and lateral
+COMPARISON:   ___
 
 FINDINGS:
 Cardiac size cannot be evaluated. Large left pleural effusion is new.
@@ -259,47 +372,63 @@ opacities are better seen in prior CT. There is no pneumothorax.
 IMPRESSION:
 Large left and small right pleural effusions, new.
 </code></pre>
-<p>리포트 구조: <strong>Indication → Technique → Comparison → Findings → Impression</strong>
-<code>___</code> = 비식별화로 제거된 정보 (환자 나이, 날짜, 이름 등)</p>
-<hr />
-<h2>RAG 평가 벤치마크로서의 활용</h2>
+<p><code>___</code> = PHI(환자 나이·이름·날짜) 자리. 리포트 구조 = <strong>Indication → Technique → Comparison → Findings → Impression</strong>.</p>
+</blockquote>
+<h3>🔍 픽셀 비식별화 검증 — Secondary review 사유 (Methods §&quot;Validation of de-identification&quot; 발췌)</h3>
+<blockquote>
+<p>&quot;We then manually reviewed the pixel data for 6,900 radiographs. Each image was reviewed by two independent annotators. 180 images were identified for a secondary consensus review; none of which ultimately had PHI. The most common causes for annotators to request consensus review were: (1) existence of a support device such as a pacemaker, (2) text identifying in-hospital location (e.g. 'MICU'), and (3) obscure text relating to radiograph technique (e.g. 'prt rr slot 11').&quot;</p>
+</blockquote>
+<h3>⚠️ 영상 품질 변동성 (Technical Validation 발췌 — RAG 모델이 마주칠 noise)</h3>
+<blockquote>
+<p>&quot;Aside from view parsing and de-identification of the dataset, no filtering or processing of the images was performed. Consequently, images exhibit a number of phenomena common in daily practice. The quality of images varies, both in terms of technique and in terms of patient positioning (e.g. not all patients are healthy enough to stand for a posterior-anterior radiograph, or sit upright for an anterior-posterior radiograph). Images may unintentionally omit anatomy present in a standard chest radiograph, or have objects that obstruct important anatomy.&quot;</p>
+<p>Figure 2 캡션: &quot;From left to right: (a) poor patient positioning, (b) black box obscuring potential PHI, (c) secondary collimation to improve image quality, and (d) incorrect image orientation information in the meta-data.&quot;</p>
+</blockquote>
+<h2>주요 평가 결과 (이 데이터셋이 RAG·VLM 벤치마크로 쓰인 후속 연구)</h2>
+<p>MIMIC-CXR 자체는 학습/평가용 데이터로 공개되며 — 별도 leaderboard 운영은 없음. 후속 연구의 표준 분할은 train 368,960 / val 2,991 / test 5,159 (MIMIC-CXR-JPG split).</p>
 <table>
 <thead>
 <tr>
-  <th>태스크</th>
-  <th>평가 메트릭</th>
+  <th>후속 태스크</th>
+  <th>평가 지표</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>자동 방사선 보고서 생성</td>
-  <td>BLEU, ROUGE, CIDEr, METEOR (NLP) + 임상 정확도 메트릭</td>
+  <td>BLEU-4, ROUGE-L, CIDEr, METEOR (NLP) + Clinical Efficacy (CE) score</td>
 </tr>
 <tr>
-  <td>비정상 흉부 이미지 분류</td>
-  <td>AUC, F1 (14개 레이블)</td>
+  <td>14-label 분류</td>
+  <td>AUC-ROC, macro-F1</td>
 </tr>
 <tr>
-  <td>멀티모달 RAG 검색</td>
-  <td>Retrieval P/R/nDCG</td>
+  <td>영상-텍스트 검색</td>
+  <td>R@1/5/10, MRR</td>
+</tr>
+<tr>
+  <td>멀티모달 RAG (예: CEMRAG, LaB-RAG, MMed-RAG)</td>
+  <td>검색 P/R/nDCG + 다운스트림 생성 정확도</td>
 </tr>
 </tbody>
 </table>
-<p>대표 RAG 시스템: CEMRAG (개념 강화 멀티모달 RAG), LaB-RAG (레이블 부스팅 RAG)</p>
-<hr />
 <h2>한계점</h2>
 <ul>
-<li>단일 기관(BIDMC) 데이터 → 일반화 편향 가능</li>
-<li>흉부 X-ray에 한정 (CT, MRI 미포함)</li>
-<li>레이블이 NLP 자동 추출 → 전문가 수동 검증 아님</li>
+<li><strong>단일 기관</strong>(BIDMC, Boston) → 인종·기기·protocol 편향 가능. CheXpert(Stanford), PadChest(Alicante) 등과의 cross-site 평가 권장.</li>
+<li><strong>응급실 한정</strong> → 외래·routine 검사와 환자 분포 다름.</li>
+<li><strong>14 레이블은 자동 NLP 추출</strong> (CheXpert + NegBio) — 전문가 수동 검증 아님. Uncertain/Disagreement 비율 무시할 수 없음.</li>
+<li><strong>DICOM 비식별화 코드 비공개</strong> (&quot;Due to the use of real patient information during the de-identification process, the code used to prepare the dataset cannot be made publicly available.&quot;)</li>
+<li><strong>흉부 X-ray에 한정</strong> — CT, MRI 미포함. PhysioNet의 다른 데이터셋과 결합 필요.</li>
+<li><strong>임상 컨텍스트 segment 제거</strong>됨 → 환자 history 기반 추론 불가능. RAG 시스템이 EHR과 별도 페어링 필요.</li>
 </ul>
-<hr />
 <h2>관련 정보</h2>
 <ul>
-<li><strong>PhysioNet</strong>: <a href="https://physionet.org/content/mimic-cxr/2.1.0/">mimic-cxr v2.1.0</a></li>
 <li><strong>논문 (Scientific Data)</strong>: <a href="https://doi.org/10.1038/s41597-019-0322-0">doi:10.1038/s41597-019-0322-0</a></li>
-<li><strong>GitHub</strong>: <a href="https://github.com/MIT-LCP/mimic-cxr">MIT-LCP/mimic-cxr</a></li>
-<li><strong>이 데이터셋을 사용한 RAG 논문</strong>: IU-Xray와 함께 방사선 보고서 생성 RAG의 표준 쌍</li>
+<li><strong>PhysioNet (DICOM, credentialed)</strong>: <a href="https://physionet.org/content/mimic-cxr/2.1.0/">mimic-cxr v2.1.0</a></li>
+<li><strong>PhysioNet (JPEG 부속, 14 labels 포함)</strong>: <a href="https://physionet.org/content/mimic-cxr-jpg/2.1.0/">mimic-cxr-jpg v2.1.0</a></li>
+<li><strong>GitHub (loading code only)</strong>: <a href="https://github.com/MIT-LCP/mimic-cxr">MIT-LCP/mimic-cxr</a></li>
+<li><strong>문서</strong>: <a href="https://mimic-cxr.mit.edu">mimic-cxr.mit.edu</a></li>
+<li><strong>CheXpert 레이블러</strong>: Irvin et al., AAAI 2019</li>
+<li><strong>연관 데이터셋 (IU-Xray)</strong>: Demner-Fushman et al. 2016 — 방사선 보고서 생성 RAG의 표준 쌍</li>
 </ul>
 
     </article>

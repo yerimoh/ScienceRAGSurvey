@@ -118,225 +118,365 @@
     <article class="paper-markdown">
       <h1>FairCLIP / Harvard-FairVLMed</h1>
 <blockquote>
-<p>CVPR 2024 (pp. 12289–12301) | Benchmark + Method | medical (ophthalmology)
+<p>CVPR 2024 (pp. 12289–12301) | Benchmark Dataset + Method | medical (ophthalmology)
 Luo, Shi, Khan, Afzal, Huang, Yuan, Tian, Song, Kouhana, Elze, Fang, Wang
-Massachusetts Eye and Ear / Harvard Medical School
-DBLP: <code>conf/cvpr/Luo0KA0Y0SKE0024</code></p>
+Harvard Ophthalmology AI Lab (Massachusetts Eye and Ear / Harvard Medical School) + NYU
+DBLP: <code>conf/cvpr/Luo0KA0Y0SKE0024</code> · arXiv:2403.19949</p>
 </blockquote>
 <h2>한 줄 요약</h2>
-<p>하버드 의대 안과에서 수집한 SLO 안저 이미지 <strong>10,000장</strong> + 임상 노트로 구성된 <strong>Harvard-FairVLMed</strong> 데이터셋과, 이를 기반으로 인구통계학적 공정성을 개선하는 <strong>FairCLIP</strong> 방법론을 함께 제안. 녹내장(Glaucoma) 분류에서 6개 보호 속성의 공정성을 측정·개선.</p>
-<hr />
+<p>하버드 의대 안과에서 수집한 <strong>SLO 안저(fundus) 이미지 10,000장 + 임상 노트 10,000건</strong>(녹내장 진단)을 6가지 보호 속성(인종/성별/민족/언어/혼인상태/연령)으로 라벨링한 최초의 <strong>fair medical vision-language 데이터셋(Harvard-FairVLMed)</strong>. 더불어 Sinkhorn 거리 기반 최적전송으로 인구통계학적 격차를 완화하는 <strong>FairCLIP</strong> 방법론을 함께 제안.</p>
+<h2>제작 배경</h2>
+<p><strong>문제 인식 (Abstract 발췌)</strong></p>
+<blockquote>
+<p>&quot;Fairness is a critical concern in deep learning, especially in healthcare, where these models influence diagnoses and treatment decisions. Although fairness has been investigated in the vision-only domain, the fairness of medical vision-language (VL) models remains unexplored due to the scarcity of medical VL datasets for studying fairness.&quot;</p>
+</blockquote>
+<p>기존 vision-only fairness 데이터셋(Fitzpatrick17k, HAM10000, ODIR-2019, PAPILA 등)은 모두 텍스트가 없어 VL 모델 fairness 평가 불가. CheXpert/MIMIC-CXR/PadChest는 텍스트가 있으나 인구통계 속성이 <em>age, gender</em> 정도로 한정. <strong>Harvard-FairVLMed는 fundus image + clinical note + 6개 protected attribute</strong>를 모두 갖춘 최초 사례.</p>
+<p><strong>의학적 배경</strong>: 녹내장은 망막 신경섬유층(RNFL) 손상으로 인한 시야 결손이 진행되는 질환. 인종(Black), 성별(Female), 연령(고령)에 따라 유병률이 크게 다른 것으로 알려져 — fairness 측정에 적합한 도메인.</p>
 <h2>어떻게 만들었나 (Construction Methodology)</h2>
-<pre><code>Step 1 — 데이터 수집
-  Massachusetts Eye and Ear (Harvard Medical School), 2015–2022
-  SLO(Scanning Laser Ophthalmoscopy) 안저 이미지 + 임상 노트 수집
-  총 10,000명 환자 기록 (각 환자 1건)
+<pre><code>Step 1 — Cohort 수집 (Massachusetts Eye and Ear, Harvard)
+  10,000 환자, 환자당 1건 SLO fundus image + 1건 clinical note
+  Visual Field (VF) test로 진단 ground truth 생성:
+    ┌─ Non-glaucoma: VF mean deviation ≥ -1 dB,
+    │                 정상 VF glaucoma hemifield test, 정상 PSD
+    └─ Glaucoma:     VF mean deviation &lt; -3 dB,
+                     비정상 VF glaucoma hemifield test, 비정상 PSD
 
-Step 2 — 레이블 생성 (녹내장 진단 기준)
-  시야 검사(Visual Field, VF) 결과 기반:
-  ┌─ 정상(Non-glaucoma): VF mean deviation ≥ -1 dB, 정상 결과
-  └─ 녹내장(Glaucoma):   VF mean deviation &lt; -3 dB, 비정상 결과
+Step 2 — 임상 노트 비식별화 (3-stage)
+  Stage 1: Microsoft Presidio 자동 익명화 → PHI를 placeholder 치환
+  Stage 2: 규칙 기반 매칭으로 Presidio 미탐지 PHI(physical address 등) 추가 제거
+  Stage 3: 4명의 의학 전문가가 수동 검증
+  결과: 노트 길이 11–332 words, 평균 147 words
 
-Step 3 — 임상 노트 비식별화 (3단계)
-  1) Microsoft Presidio 자동 익명화 (민감정보 → placeholder)
-  2) 미탐지 보호정보 대상 규칙 기반 매칭
-  3) 4명의 의학 전문가 수동 검증
+Step 3 — 6개 protected attribute 수집
+  Race        : Asian (819) / Black (1,491) / White (7,690)
+  Gender      : Female 56.3% / Male 43.7%
+  Ethnicity   : Non-Hispanic 90.6% / Hispanic 4.0% / Unspecified 5.4%
+  Language    : English 92.5% / Spanish 1.7% / Other 0.8% / Unknown 5.0%
+  Marital     : Married/Partnered 57.4% / Single 26.4% / others
+  Age         : mean 60.9 ± 16.2 years
 
-Step 4 — 보호 속성 수집
-  ┌─ Race: Asian / Black / White
-  ├─ Gender: Female / Male
-  ├─ Ethnicity: Non-Hispanic / Hispanic / Unspecified
-  ├─ Preferred Language: English / Spanish / Other / Unknown
-  ├─ Marital Status: Married / Single / Divorced / Widowed / Other
-  └─ Age: mean 60.9 ± 16.2세
+Step 4 — 데이터 분할
+  Train  7,000 | Val 1,000 | Test 2,000
 
-Step 5 — 데이터 분할
-  ┌──────────┬──────────┐
-  │ Train    │  7,000   │
-  │ Val      │  1,000   │
-  │ Test     │  2,000   │
-  │ 합계     │ 10,000   │
-  └──────────┴──────────┘
+Step 5 — 평가 메트릭 정의
+  AUC        ↑ ROC 곡선 아래 면적 (전체 진단 성능)
+  ES-AUC     ↑ Equity-Scaled AUC = AUC / (1 + Σ|AUC-AUCₐ|)
+  DPD        ↓ Demographic Parity Difference
+  DEOdds     ↓ Difference in Equalized Odds
+  Group-wise AUC: 각 subgroup별 AUC
 </code></pre>
-<hr />
-<h2>SLO 안저 촬영이란?</h2>
-<p><strong>SLO (Scanning Laser Ophthalmoscopy)</strong>: 레이저를 이용해 망막을 고해상도로 스캔하는 안과 촬영법. 녹내장의 시신경 손상(optic nerve damage)과 망막 신경섬유층(RNFL) 이상을 평가하는 데 활용됨.</p>
-<p>임상 노트: 11–332단어 (평균 147단어), 시각 소견 기반 진단·치료 계획 포함.</p>
-<hr />
-<h2>보호 속성 분포</h2>
+<p><strong>FairCLIP 알고리즘 핵심</strong> (논문 §4 발췌)</p>
+<ul>
+<li>batch 내 visual-text similarity score <code>M_{i,i}</code>의 분포를 protected attribute별로 정렬</li>
+<li>전체 분포 vs. group 분포의 <strong>Sinkhorn distance</strong> 최소화 (CLIP loss + Sinkhorn regularizer)</li>
+</ul>
+<blockquote>
+<p>&quot;This is achieved by minimizing the disparity between the probability distributions of M_{i,i}, which represents the correlation between visual and language features, across different racial groups (or other attribute-)...&quot;</p>
+</blockquote>
+<h2>Input (입력 / 데이터셋 구성)</h2>
+<p><strong>기존 fairness 데이터셋과의 비교 (Table 1)</strong></p>
 <table>
 <thead>
 <tr>
+  <th>데이터셋</th>
+  <th>모달리티</th>
+  <th style="text-align:right">이미지</th>
+  <th style="text-align:right">환자</th>
   <th>속성</th>
-  <th>그룹</th>
-  <th>비율/건수</th>
+  <th>텍스트</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>Race</td>
-  <td>Asian</td>
-  <td>819명</td>
+  <td>Fitzpatrick17k</td>
+  <td>Skin Photos</td>
+  <td style="text-align:right">16,012</td>
+  <td style="text-align:right">1,373</td>
+  <td>Skin type</td>
+  <td>✗</td>
 </tr>
 <tr>
-  <td></td>
-  <td>Black</td>
-  <td>1,491명</td>
+  <td>HAM10000</td>
+  <td>Dermatoscopy</td>
+  <td style="text-align:right">9,948</td>
+  <td style="text-align:right">–</td>
+  <td>Age; Gender</td>
+  <td>✗</td>
 </tr>
 <tr>
-  <td></td>
-  <td>White</td>
-  <td>7,690명</td>
+  <td>ODIR-2019</td>
+  <td>Color Fundus</td>
+  <td style="text-align:right">8,000</td>
+  <td style="text-align:right">5,000</td>
+  <td>Age; Gender</td>
+  <td>✗</td>
 </tr>
 <tr>
-  <td>Gender</td>
-  <td>Female</td>
-  <td>56.3%</td>
+  <td>PAPILA</td>
+  <td>Color Fundus</td>
+  <td style="text-align:right">488</td>
+  <td style="text-align:right">244</td>
+  <td>Age; Gender</td>
+  <td>✗</td>
 </tr>
 <tr>
-  <td></td>
-  <td>Male</td>
-  <td>43.7%</td>
+  <td>Harvard-GDP</td>
+  <td>OCT</td>
+  <td style="text-align:right">1,000</td>
+  <td style="text-align:right">1,000</td>
+  <td>Age; Gender; Race; Ethnicity</td>
+  <td>✗</td>
 </tr>
 <tr>
-  <td>Ethnicity</td>
-  <td>Non-Hispanic</td>
-  <td>90.6%</td>
+  <td>CheXpert</td>
+  <td>CXR + Report</td>
+  <td style="text-align:right">222,793</td>
+  <td style="text-align:right">65,240</td>
+  <td>Age; Gender; Race</td>
+  <td>✓ (Description)</td>
 </tr>
 <tr>
-  <td></td>
-  <td>Hispanic</td>
-  <td>4.0%</td>
+  <td>MIMIC-CXR</td>
+  <td>CXR + Report</td>
+  <td style="text-align:right">370,955</td>
+  <td style="text-align:right">65,079</td>
+  <td>Age; Gender; Race</td>
+  <td>✓ (Description)</td>
 </tr>
 <tr>
-  <td>Language</td>
-  <td>English</td>
-  <td>92.5%</td>
-</tr>
-<tr>
-  <td></td>
-  <td>Spanish</td>
-  <td>1.7%</td>
-</tr>
-<tr>
-  <td>Marital</td>
-  <td>Married/Partnered</td>
-  <td>57.4%</td>
-</tr>
-<tr>
-  <td></td>
-  <td>Single</td>
-  <td>26.4%</td>
+  <td><strong>Harvard-FairVLMed</strong></td>
+  <td><strong>SLO Fundus + Note</strong></td>
+  <td style="text-align:right"><strong>10,000</strong></td>
+  <td style="text-align:right"><strong>10,000</strong></td>
+  <td><strong>6개 속성</strong></td>
+  <td><strong>✓ (Description + Non-Imaging Clinical Info)</strong></td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2>평가 메트릭 정의</h2>
+<p><strong>임상 노트 길이 분포 (Fig 4a, 부록)</strong>: 11–332 words, <strong>평균 147 words</strong></p>
+<h2>Output (Task &amp; 평가 지표)</h2>
+<p><strong>Primary task</strong>: glaucoma vs non-glaucoma binary classification (zero-shot or linear-probing on VL model)
+<strong>Secondary</strong>: 6개 보호 속성별 공정성 측정</p>
 <table>
 <thead>
 <tr>
-  <th>메트릭</th>
+  <th>지표</th>
   <th>방향</th>
-  <th>설명</th>
+  <th>정의</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td><strong>AUC</strong></td>
-  <td>↑ 높을수록 좋음</td>
-  <td>전체 진단 성능 (ROC 곡선 아래 면적)</td>
+  <td>AUC</td>
+  <td>↑</td>
+  <td>전체 진단 성능</td>
 </tr>
 <tr>
-  <td><strong>ES-AUC</strong></td>
-  <td>↑ 높을수록 좋음</td>
-  <td><code>AUC / (1 + Σ\|AUC - AUCₐ\|)</code> — 공정성 반영 AUC</td>
+  <td>ES-AUC</td>
+  <td>↑</td>
+  <td><code>AUC / (1 + Σ\|AUC - AUC_a\|)</code> — 공정성 보정 AUC</td>
 </tr>
 <tr>
-  <td><strong>DPD</strong></td>
-  <td>↓ 낮을수록 좋음</td>
-  <td>Demographic Parity Difference (예측 격차)</td>
+  <td>DPD</td>
+  <td>↓</td>
+  <td>Demographic Parity Difference</td>
 </tr>
 <tr>
-  <td><strong>DEOdds</strong></td>
-  <td>↓ 낮을수록 좋음</td>
-  <td>Difference in Equalized Odds (기회 균등 격차)</td>
+  <td>DEOdds</td>
+  <td>↓</td>
+  <td>Difference in Equalized Odds</td>
+</tr>
+<tr>
+  <td>Group-wise AUC</td>
+  <td>–</td>
+  <td>subgroup별 AUC (Asian/Black/White, Female/Male 등)</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2>주요 평가 결과 (Zero-shot, ViT-B/16)</h2>
-<p><strong>Race 속성 기준:</strong></p>
+<h2>예시 사례 (논문 Figure 1 원문 직접 인용)</h2>
+<p>논문 Figure 1은 <strong>non-glaucoma 환자와 glaucoma 환자 각각에 대한 SLO fundus image + clinical note</strong> 쌍을 제시한다. 비식별화 후 노트의 실제 텍스트:</p>
+<h3>🔬 Non-Glaucoma 사례 (Figure 1, 좌측)</h3>
+<blockquote>
+<p><strong>SLO Fundus Image</strong> + Clinical Note:</p>
+<blockquote>
+<p>&quot;Attending targets maintaining IOP ≤ 18 mmHg in both eyes without glaucoma meds, prescribes artificial tears, schedules follow-up for comprehensive eye evaluation, and confirms the accuracy of the scribe's notes.&quot;</p>
+</blockquote>
+</blockquote>
+<p>→ 이 환자는 안압(IOP, intraocular pressure)이 ≤ 18 mmHg로 정상 범위, 녹내장 약물 미투여, 인공 누액만 처방 → <strong>non-glaucoma</strong>.</p>
+<h3>🔬 Glaucoma 사례 (Figure 1, 우측)</h3>
+<blockquote>
+<p><strong>SLO Fundus Image</strong> + Clinical Note:</p>
+<blockquote>
+<p>&quot;Suspected disc damage in right eye due to inflammation, not clearly progressive glaucoma; treatment for damage prevention ongoing; patient stable on Timolol with follow-up appointments scheduled.&quot;</p>
+</blockquote>
+</blockquote>
+<p>→ 시신경 디스크 손상 의심, Timolol(β-blocker, IOP-lowering)로 안정화 중 → <strong>glaucoma 카테고리</strong> (VF mean deviation &lt; -3 dB).</p>
+<h3>🧬 진단 기준 (논문 본문 발췌)</h3>
+<blockquote>
+<p>&quot;The subjects are categorized into non-glaucoma (visual function measured by visual field (VF) test is normal: VF mean deviation ≥ -1 dB and normal VF glaucoma hemifield test and pattern standard deviation (PSD) results) and glaucoma categories (visual function measured by VF test is abnormal: VF mean deviation &lt; -3 dB and abnormal VF glaucoma hemifield test and PSD results).&quot;</p>
+</blockquote>
+<h3>🧑‍⚕️ 데이터셋 다양성 (논문 §3 발췌)</h3>
+<blockquote>
+<p>&quot;Harvard-FairVLMed contains records for 10,000 patients, each paired with an SLO fundus image and a clinical note for diagnosing Glaucoma, along with fine-grained protected attributes such as age, gender, race, ethnicity, preferred language, and marital status.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;Gender-wise, females constitute 56.3% of the subjects, with the remainder being males. The ethnic distribution is highlighted by 90.6% Non-Hispanic, 4.0% Hispanic, and 5.4% unspecified. In terms of preferred language, 92.5% of the subjects prefer English, 1.7% prefer Spanish, 0.8% prefer other languages, and 5.0% remain unknown.&quot;</p>
+</blockquote>
+<h2>주요 평가 결과</h2>
+<h3>Zero-shot Fairness 분석 (Table 2 발췌, 4가지 VL 모델 × 4가지 속성, linear probing)</h3>
+<p><strong>Race 속성 — pre-training이 fairness에 미치는 영향:</strong></p>
 <table>
 <thead>
 <tr>
   <th>모델</th>
-  <th>DPD ↓</th>
-  <th>DEOdds ↓</th>
-  <th>AUC ↑</th>
-  <th>ES-AUC ↑</th>
+  <th style="text-align:right">DPD ↓</th>
+  <th style="text-align:right">DEOdds ↓</th>
+  <th style="text-align:right">AUC ↑</th>
+  <th style="text-align:right">ES-AUC ↑</th>
+  <th style="text-align:right">Asian</th>
+  <th style="text-align:right">Black</th>
+  <th style="text-align:right">White</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>CLIP</td>
-  <td>15.35 ± 6.50</td>
-  <td>15.11 ± 5.01</td>
-  <td>67.84 ± 0.90</td>
-  <td>61.67 ± 0.63</td>
+  <td style="text-align:right">5.30 ± 0.63</td>
+  <td style="text-align:right">14.00 ± 1.01</td>
+  <td style="text-align:right">77.27</td>
+  <td style="text-align:right">72.43</td>
+  <td style="text-align:right">79.74</td>
+  <td style="text-align:right">73.60</td>
+  <td style="text-align:right">77.82</td>
 </tr>
 <tr>
-  <td><strong>FairCLIP</strong></td>
-  <td><strong>6.07 ± 2.44</strong></td>
-  <td><strong>10.50 ± 2.73</strong></td>
-  <td><strong>70.24 ± 1.26</strong></td>
-  <td><strong>65.50 ± 2.60</strong></td>
+  <td>CLIP-FT (FairVLMed로 finetune)</td>
+  <td style="text-align:right">4.01 ± 0.47</td>
+  <td style="text-align:right">9.57 ± 0.83</td>
+  <td style="text-align:right">80.27</td>
+  <td style="text-align:right">74.70</td>
+  <td style="text-align:right">82.19</td>
+  <td style="text-align:right">75.67</td>
+  <td style="text-align:right">81.20</td>
+</tr>
+<tr>
+  <td>BLIP2</td>
+  <td style="text-align:right">9.44 ± 0.65</td>
+  <td style="text-align:right">10.62 ± 0.22</td>
+  <td style="text-align:right">73.81</td>
+  <td style="text-align:right">68.88</td>
+  <td style="text-align:right">76.28</td>
+  <td style="text-align:right">69.55</td>
+  <td style="text-align:right">74.22</td>
+</tr>
+<tr>
+  <td>BLIP2-FT</td>
+  <td style="text-align:right">8.30 ± 0.36</td>
+  <td style="text-align:right">10.91 ± 0.32</td>
+  <td style="text-align:right">80.10</td>
+  <td style="text-align:right">73.81</td>
+  <td style="text-align:right">82.09</td>
+  <td style="text-align:right">74.43</td>
+  <td style="text-align:right">80.97</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Gender 속성 기준:</strong></p>
+<p>→ <strong>Asian 그룹이 모든 모델에서 가장 높은 진단 성능</strong>, Black 그룹이 가장 낮음.</p>
+<h3>FairCLIP 방법론의 효과 (Table 3 발췌, ViT-B/16 기준, zero-shot)</h3>
+<p><strong>Race 속성:</strong></p>
 <table>
 <thead>
 <tr>
   <th>모델</th>
-  <th>DPD ↓</th>
-  <th>DEOdds ↓</th>
-  <th>AUC ↑</th>
-  <th>ES-AUC ↑</th>
+  <th style="text-align:right">DPD ↓</th>
+  <th style="text-align:right">DEOdds ↓</th>
+  <th style="text-align:right">AUC ↑</th>
+  <th style="text-align:right">ES-AUC ↑</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>CLIP</td>
-  <td>4.34 ± 0.66</td>
-  <td>9.95 ± 0.64</td>
-  <td>67.84</td>
-  <td>63.21</td>
+  <td>CLIP (ViT-B/16)</td>
+  <td style="text-align:right">15.35 ± 6.50</td>
+  <td style="text-align:right">15.11 ± 5.01</td>
+  <td style="text-align:right">67.84 ± 0.90</td>
+  <td style="text-align:right">61.67 ± 0.63</td>
 </tr>
 <tr>
-  <td><strong>FairCLIP</strong></td>
-  <td><strong>0.84 ± 0.25</strong></td>
-  <td><strong>2.97 ± 2.07</strong></td>
-  <td><strong>69.76</strong></td>
-  <td><strong>65.39</strong></td>
+  <td><strong>FairCLIP (ViT-B/16)</strong></td>
+  <td style="text-align:right"><strong>6.07 ± 2.44</strong></td>
+  <td style="text-align:right"><strong>10.50 ± 2.73</strong></td>
+  <td style="text-align:right"><strong>70.24 ± 1.26</strong></td>
+  <td style="text-align:right"><strong>65.50 ± 2.60</strong></td>
+</tr>
+<tr>
+  <td>CLIP (ViT-L/14)</td>
+  <td style="text-align:right">10.10 ± 9.44</td>
+  <td style="text-align:right">10.79 ± 10.41</td>
+  <td style="text-align:right">67.83 ± 2.92</td>
+  <td style="text-align:right">63.53 ± 1.83</td>
+</tr>
+<tr>
+  <td>FairCLIP (ViT-L/14)</td>
+  <td style="text-align:right">17.79 ± 4.86</td>
+  <td style="text-align:right">18.30 ± 2.07</td>
+  <td style="text-align:right">69.88 ± 2.00</td>
+  <td style="text-align:right">66.54 ± 1.73</td>
 </tr>
 </tbody>
 </table>
-<p>Race 기준 DPD: 15.35 → 6.07 (60% 개선), DEOdds: 15.11 → 10.50</p>
-<hr />
+<p>→ ViT-B/16에서 DPD <strong>60% 감소</strong> (15.35 → 6.07), DEOdds <strong>30% 감소</strong>, AUC와 ES-AUC 모두 향상.</p>
+<p><strong>Gender 속성:</strong></p>
+<table>
+<thead>
+<tr>
+  <th>모델</th>
+  <th style="text-align:right">DPD ↓</th>
+  <th style="text-align:right">DEOdds ↓</th>
+  <th style="text-align:right">AUC ↑</th>
+  <th style="text-align:right">ES-AUC ↑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CLIP (ViT-B/16)</td>
+  <td style="text-align:right">4.34 ± 0.66</td>
+  <td style="text-align:right">9.95 ± 0.64</td>
+  <td style="text-align:right">67.84 ± 0.90</td>
+  <td style="text-align:right">63.21 ± 0.83</td>
+</tr>
+<tr>
+  <td><strong>FairCLIP (ViT-B/16)</strong></td>
+  <td style="text-align:right"><strong>0.84 ± 0.25</strong></td>
+  <td style="text-align:right"><strong>2.97 ± 2.07</strong></td>
+  <td style="text-align:right"><strong>69.76 ± 2.49</strong></td>
+  <td style="text-align:right"><strong>65.39 ± 2.39</strong></td>
+</tr>
+</tbody>
+</table>
+<p>→ DPD <strong>80% 감소</strong> (4.34 → 0.84), DEOdds <strong>70% 감소</strong>.</p>
+<h3>핵심 발견 (논문 §5.2 발췌)</h3>
+<blockquote>
+<p>&quot;In terms of racial subgroups, Asian patients consistently have the highest diagnostic performance, whereas Black patients have the lowest. Across genders, male patients are consistently better diagnosed than female patients.&quot;</p>
+<p>&quot;non-Hispanic patients make up 90.6% of our dataset, potentially leading to improved performance in this subgroup. However, this is unlikely to be the only factor responsible for these performance disparities since the Asian, Male, and Spanish subgroups exhibit superior performances despite being the minority subgroups. This indicates that the pre-training of these models could potentially play a role in the biases exhibited by these models.&quot;</p>
+</blockquote>
 <h2>한계점</h2>
 <ul>
-<li>단일 기관(Massachusetts Eye and Ear) 데이터 → 지역·인구 편향 가능</li>
-<li>White 환자 비율 76.9%로 불균형</li>
-<li>녹내장 진단에 특화 → 타 안과 질환 일반화 미검증</li>
-<li>SLO 이미지에 한정 (OCT, fundus photography 등 미포함)</li>
+<li><strong>단일 기관</strong>(Massachusetts Eye and Ear) → 지역·인구 편향 가능. 다국가/다기관 검증 필요.</li>
+<li><strong>인종 분포 불균형</strong>: White 76.9% vs Black 14.9% vs Asian 8.2% — 절대 수의 부족이 fairness 측정 분산 증가의 원인.</li>
+<li><strong>녹내장 진단에 특화</strong> — 당뇨망막병증·황반변성 등 타 안과 질환 일반화 미검증.</li>
+<li><strong>SLO 이미지에 한정</strong> (Color fundus, OCT, fundus photography 등 미포함) — 다중 모달리티 ophthalmology fairness는 후속 과제.</li>
+<li><strong>임상 노트가 짧음</strong> (평균 147 words) — 환자 history나 가족력 등 풍부한 컨텍스트 부재 → 일부 진단 단서는 노트에 없을 수 있음.</li>
+<li><strong>FairCLIP가 모든 속성에서 일관되게 개선되지 않음</strong> — Race/Gender는 명확히 개선되나 Ethnicity/Language에서는 DPD 증가하는 경우 존재 (Table 3).</li>
 </ul>
-<hr />
 <h2>관련 정보</h2>
 <ul>
 <li><strong>논문 (CVPR 2024)</strong>: <a href="https://arxiv.org/abs/2403.19949">arXiv:2403.19949</a></li>
-<li><strong>CVPR Open Access</strong>: <a href="https://openaccess.thecvf.com/content/CVPR2024/html/Luo_FairCLIP_Harnessing_Fairness_in_Vision-Language_Learning_CVPR_2024_paper.html">OpenCVPR 2024</a></li>
+<li><strong>CVPR Open Access</strong>: <a href="https://openaccess.thecvf.com/content/CVPR2024/html/Luo_FairCLIP_Harnessing_Fairness_in_Vision-Language_Learning_CVPR_2024_paper.html">openaccess.thecvf.com/.../FairCLIP</a></li>
 <li><strong>GitHub</strong>: <a href="https://github.com/Harvard-Ophthalmology-AI-Lab/FairCLIP">Harvard-Ophthalmology-AI-Lab/FairCLIP</a></li>
 <li><strong>데이터셋</strong>: <a href="https://ophai.hms.harvard.edu/datasets/harvard-fairvlmed10k">Harvard-FairVLMed10K</a></li>
+<li><strong>Presidio 비식별화 도구</strong>: <a href="https://github.com/microsoft/presidio">github.com/microsoft/presidio</a></li>
+<li><strong>이 데이터셋을 사용한 후속 RAG 연구</strong>: medical VL fairness benchmarks의 시드 데이터셋으로 활용</li>
 </ul>
 
     </article>

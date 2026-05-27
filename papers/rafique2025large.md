@@ -9,91 +9,119 @@ paper_link: https://arxiv.org/abs/2601.05278
 ---
 # DUNE-GPT: LLM Integration for Knowledge Retrieval in the DUNE Experiment
 
-> arXiv 2025 | Method | physics
-> Rafique et al. — Argonne National Laboratory (DUNE Collaboration)
-> DBLP: `journals/corr/abs-2601-05278`
+> arXiv 2601.05278 | 2025 | Method | physics
+> Rafique, Singh, Srinivas — Argonne National Laboratory (DUNE Collaboration)
+> Presented at Lepton Photon 2025, Madison WI
 
 ## 한 줄 요약
-Deep Underground Neutrino Experiment(DUNE) 협업의 DocDB·Indico·내부 위키에 산재된 방대한 실험 문서를 Fermilab 인프라(Aurora/Argo 슈퍼컴퓨터 + Ollama)에서 on-premise 밀집 검색으로 통합한 RAG 프로토타입 시스템. 다양한 질의 유형에서 예비 검색 정확도 ~70%를 보고.
+**Deep Underground Neutrino Experiment (DUNE)** 의 DocDB·Indico·내부 위키 문서를 Fermilab/ALCF 인프라(Aurora 슈퍼컴퓨터 + Argo + Ollama)에서 검색하는 RAG 프로토타입 시스템. `multi-qa-mpnet-base-dot-v1` + FAISS로 인덱싱, 다양한 질의 유형에서 **예비 검색 정확도 ~70%** 보고. on-premise · 인증된 DUNE 공동연구자만 접근.
 
----
+## 제작 배경
+**기존 방법의 한계**
+- DUNE 협업은 DocDB(기술 설계 보고서/TDR, 분석 노트), Indico(미팅·발표), 내부 위키 등 **다수 분산 플랫폼**에 문서 보관
+- 신규 협력자가 reconstruction, simulation, data analysis, detector operations 정보를 찾는 데 시간 집약적
+- 상용 LLM 직접 사용 시 **data privacy, reproducibility, network accessibility** 모두 우려
+- ATLAS/CMS의 chATLAS/MITRA와 유사한 needs
+
+**왜 DUNE-GPT가 필요했는지**
+- "next-generation neutrino experiment"로서 미공개 데이터 외부 전송 금지
+- Fermilab compliance 내에서 동작해야 함
+- 인증된 DUNE 협력자만 접근 가능한 secure interface 필요
 
 ## 어떻게 만들었나 (Construction Methodology)
 
 ```
-Step 1 — 데이터 소스 식별 및 수집
-  DUNE 내부 문서 생태계:
-  ┌─ DocDB: 기술 설계 보고서(TDR), 분석 노트, 기술 노트
-  ├─ Indico: 회의 발표 자료, 미팅 노트
-  └─ 내부 위키 문서
-  협업 정책에 따라 민감/제한 문서 제외 (공개 접근 가능 문서만)
+Step 1 — 데이터 소스 수집
+  ┌─ DocDB : TDR, 분석 노트, 기술 노트
+  ├─ Indico : 회의 발표 자료, 미팅 노트
+  └─ 내부 wiki : DUNE 운영 문서
+  포맷: PDF, DOCX, TXT, PNG 등 다종
+  Sensitive/restricted 콘텐츠는 협업 정책에 따라 **제외**
+  → 협업 전체 접근 가능 문서만 처리
 
-Step 2 — 전처리 및 청킹
-  다양한 형식 처리: PDF, DOCX, TXT, PNG 등
+Step 2 — 전처리
   메타데이터 추출 (날짜, 저자, 문서 타입)
-  토큰 기반 분할 (청크 크기 미기재)
+  token-level segmentation → embedding 준비
 
-Step 3 — 임베딩 및 벡터 DB 구축
-  임베딩 모델: multi-qa-mpnet-base-dot-v1 (과학 텍스트 최적화)
-  벡터 DB: FAISS (Facebook AI Similarity Search)
-  검색 방식: cosine similarity
+Step 3 — Embedding & Retrieval
+  Embedding model: multi-qa-mpnet-base-dot-v1
+                    (transformer encoder, scientific-text optimized)
+  Vector DB: FAISS (Facebook AI Similarity Search)
+  Similarity: cosine similarity
 
-Step 4 — LLM 통합 (on-premise)
-  Argonne 슈퍼컴퓨터(Aurora/Argo):
-    Aurora: 초기 개발 및 대규모 실험 (Intel Gaudi 가속기)
-  Fermilab:
-    Ollama로 LLM 내부 호스팅 (구체적 모델명 미기재)
-  RAG 방식: 검색 컨텍스트를 LLM에 조건화하여 응답 생성
+Step 4 — Response Generation (on-premise)
+  LLM hosting:
+  ┌─ Argonne (Argo)    : prototype 개발
+  └─ Fermilab (Ollama) : 최종 배포 인프라
+  RAG: retrieved snippets로 LLM 조건화
+       → hallucination 위험 최소화 + grounded answer
+  반환: 답변 + DUNE 내부 출처 인용
 
-Step 5 — 접근 제어 및 인터페이스
-  인증된 DUNE 공동연구자만 접근
-  경량 웹 인터페이스:
-    자연어 질의 → 포맷된 응답 + 출처 문서 인용 표시
+Step 5 — Deployment
+  Aurora supercomputer (ALCF) → Fermilab 이전 진행
+  Python backend, 경량 web interface
+  인증된 DUNE 협력자만 접근 (Fermilab SSO 통합 예정)
 
-Step 6 — 예비 평가
-  다양한 질의 유형을 아우르는 쿼리 세트로 예비 평가
-  결과: 검색 정확도 ~70% (preliminary)
-  (P@k / MRR 등 정밀 메트릭 기반 체계 평가는 향후 과제)
+Step 6 — 예비 평가 (Sec. 4)
+  Detector specifics + reconstruction algorithms
+    + physics analysis workflows
+  검색 정확도 ~70% (preliminary, 정량 IR 메트릭 미시행)
 ```
 
----
+## Input (입력)
+- 자연어 질의 (web interface)
+- 인증된 DUNE 협력자 자격증명
 
-## 실제 질의 예시 (논문 기술 기반)
+## Output (출력)
+- 검색 컨텍스트 기반 답변 + DUNE 내부 출처 인용
+- top-3 retrieved references (Fig. 3 frontend 표시)
 
-**검출기 운영 질의:**
-> **Q.** "What is the drift velocity of electrons in the liquid argon TPC at nominal electric field?"
->
-> DUNE-GPT: DocDB TDR에서 관련 구절 검색 → 문서 인용 포함 답변 생성
+## 예시 문항 (논문 본문 명시 내용)
 
-**재구성 알고리즘 질의:**
-> **Q.** "How does Pandora reconstruct neutrino interaction vertices in the far detector?"
->
-> DUNE-GPT: Indico 발표 자료 + DocDB 분석 노트 통합 검색 → 답변
+> 본 논문은 4쪽 짧은 proceedings로, **구체적인 verbatim Q/A 예시는 본문에 포함되어 있지 않음**. 다만 시스템의 평가 범위와 인터페이스를 다음과 같이 명시:
 
----
+### 📘 평가 질의 카테고리 (Sec. 4 본문 그대로)
+> "Initial benchmarks demonstrate that the RAG-based system retrieves relevant documentation with high accuracy (∼70%) across **diverse query types, including detector specifics, reconstruction algorithms, and physics analysis workflows**."
 
-## 주요 결과
+### 📘 Frontend 예시 (Fig. 3 caption)
+> "Frontend web interface showing a sample question, response, and the **top three retrieved references** used in response generation."
+> *(구체 question 텍스트는 figure에만 표시되고 본문에 inline 인용 없음)*
 
-| 항목 | 수치 |
+### 📘 데이터 소스 범위
+> "We extracted publicly accessible and internal DUNE documentation, including DUNE documents, presentations, meeting notes, technical design reports, and working group materials from DocDB and Indico."
+
+### 📘 보안 정책 (Sec. 3 본문)
+> "all operations—including embedding generation and LLM inference—are performed within the DUNE internal computing environment. **Only authenticated DUNE collaborators will be able to use this tool.**"
+
+> 본 paper는 system overview proceedings이며, 정량 평가 + 구체 Q/A 케이스 스터디는 follow-up paper에 예정.
+
+## 주요 결과 (Sec. 4 Preliminary)
+
+| 항목 | 값 |
 |---|---|
-| 예비 검색 정확도 | ~70% (다양한 질의 유형) |
-| 임베딩 모델 | multi-qa-mpnet-base-dot-v1 |
+| **검색 정확도 (preliminary)** | ~70% (across diverse query types) |
+| 임베딩 모델 | `multi-qa-mpnet-base-dot-v1` |
 | 벡터 DB | FAISS |
-| 처리 형식 | PDF, DOCX, TXT, PNG 등 |
+| Generation LLM | Argo (Argonne) + Ollama (Fermilab) |
+| HW (prototype) | Aurora supercomputer (ALCF, Intel Gaudi) |
+| HW (deploy) | Fermilab Ollama 인프라 |
+| 처리 포맷 | PDF, DOCX, TXT, PNG 등 |
 
-MITRA(CMS, P@1=0.75)·chATLAS(ATLAS) 등 유사 물리 협업 RAG 시스템과 달리 BM25 대비 정량 비교 실험은 아직 미수행. "Preliminary" 단계임을 논문이 명시.
+> **비교 기준 없음**: MITRA(CMS, P@1=0.75 on semantic queries) · chATLAS(ATLAS, GPT-4o-mini API) 같은 BM25 baseline 정량 비교 미수행. 저자가 "preliminary" 명시.
 
----
-
-## 한계점
-- 프로토타입 단계 — 협업 전체 배포 전, 체계적 벤치마크 미수행
-- 민감 문서 제외로 지식 커버리지 불완전
-- 검색 모델과 LLM의 조합 최적화 실험 미수행
+## 한계점 (저자 명시)
+- **프로토타입 단계** — 협업 전체 배포 전, 체계적 벤치마크 부재
+- **민감 문서 제외**: 협업 정책으로 controlled 자료 인덱싱 불가 → 지식 커버리지 불완전
+- **정량 메트릭 부재**: P@k, MRR, recall@k 등 IR metric으로 평가 미시행
 - BM25 등 베이스라인 대비 정량 비교 없음
-
----
+- Multi-modal content (plots, figures) 미통합 — future work
+- 검색 모델과 LLM 조합의 최적화 실험 미수행
+- DUNE 외 LBL/SBN/실험 외부 transferability 미검증
 
 ## 관련 정보
-- **논문**: [arXiv:2601.05278](https://arxiv.org/abs/2601.05278)
-- **수락**: 32nd International Symposium on Lepton Photon Interactions at High Energies, Madison WI, Aug 2025
+- **논문**: [arXiv:2601.05278](https://arxiv.org/abs/2601.05278) (v2, 13 Jan 2026)
+- **발표**: 32nd International Symposium on Lepton Photon Interactions at High Energies, Madison WI, Aug 25–29, 2025
 - **저자 소속**: Argonne National Laboratory (DUNE Collaboration)
+- **인프라**: Aurora (ALCF) + Argo + Fermilab Ollama
+- **유사 시스템**: chATLAS (ATLAS), MITRA (CMS), AI4EIC RAGS4EIC (EIC)
+- **그랜트**: U.S. DOE Office of HEP + 다국 funding agencies

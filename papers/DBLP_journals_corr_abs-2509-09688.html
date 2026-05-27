@@ -117,56 +117,169 @@
   <div class="wrap">
     <article class="paper-markdown">
       <h1>AI-Powered Assistant for Long-Term Access to RHIC Knowledge</h1>
-<ul>
-<li><strong>기존 방법의 한계점</strong>: 대형 입자 물리 실험실에서는 기술 노트, 실험 노하우, 검출기 관련 심층 지식 등 방대한 &quot;암묵적 지식(Tacit Knowledge)&quot;이 내부 메일링 리스트와 분산된 레거시 문서 형태로 흩어져 있어 유실 위험이 높음. 상용 LLM(ChatGPT 등)은 이러한 비공개 내부망 데이터에 접근할 수 없음.</li>
-<li><strong>이 연구가 필요한 이유</strong>: RHIC 가속기가 2025년 운영을 종료함에 따라, 약 1 ExaByte에 달하는 데이터와 25년간 누적된 실험적 지식을 향후 세대(EIC 실험 등)가 원활하게 검색하고 재현할 수 있는 차세대 지식 보존 프레임워크(DAPP)가 절실히 요구됨.</li>
-</ul>
 <blockquote>
-<p>arXiv | 2025 | Method | physics</p>
-<h2>📌 한 줄 요약</h2>
-<p>25년간 운영된 브룩헤이븐 국립 연구소 RHIC 가속기의 방대한 실험 지식과 비공개 내부 문서를 영구 보존하고 쿼리할 수 있도록 설계된 MCP(Model Context Protocol) 기반 RAG 어시스턴트 시스템.</p>
-<h2>🎯 연구 배경 및 동기</h2>
+<p>arXiv 2509.09688 | 2025 | Method | physics
+Brookhaven National Laboratory (STAR / PHENIX / sPHENIX / RHIC DAPP)</p>
 </blockquote>
-<h2>🏗️ 시스템 아키텍처</h2>
+<h2>한 줄 요약</h2>
+<p>25년간 운영된 브룩헤이븐 RHIC 가속기의 <strong>약 1 EB 데이터 + 600편 이상 논문 + 메일링 리스트 등 암묵적 지식</strong>을 영구 보존하기 위해, <strong>MCP(Model Context Protocol) 기반 RAG 어시스턴트</strong>(DAPP)를 구축. ChromaDB + vLLM/Llama3.3·Mistral-Large·LlamaCpp/Ollama로 on-premise 인프라 구성, 비공개 내부 메일링 리스트까지 인용 가능.</p>
+<h2>제작 배경</h2>
+<p><strong>기존 방법의 한계</strong></p>
+<ul>
+<li>25년간 RHIC가 축적한 STAR/PHENIX/sPHENIX 실험 노하우는 내부 메일링 리스트·기술 노트·구형 PostScript 등 분산 형태로 흩어져 있어 유실 위험</li>
+<li>ChatGPT/Gemini/Claude 등 상용 LLM은 공개 데이터만 학습 → 비공개 내부 컨텍스트(디버깅 기록, 운영 노트 등) 접근 불가</li>
+<li>협업 정책(public / collaboration-restricted / controlled) 차등으로 인해 단일 클라우드 SaaS 사용 불가</li>
+</ul>
+<p><strong>왜 이 시스템이 필요했는지</strong></p>
+<ul>
+<li>&quot;오늘날의 대학원생이 20년 전에 개발된 방법론을 이해해야 할 수 있다&quot;는 시계열 문제 해결 필요</li>
+<li>2025년 RHIC 운영 종료에 맞춰 <strong>EIC(Electron-Ion Collider) 후속 실험</strong>으로 지식 전수</li>
+<li>출판 전 내부 자료를 외부에 노출하지 않으면서도 자연어 질의 가능한 인터페이스 제공</li>
+</ul>
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>Step 1 — Recursive Multi-Format Web-Content Extraction (Fig. 2.1)
+  Seed URL → BeautifulSoup + requests로 HTML 순회
+  dynamic filter / blacklist (calendars, login 페이지 차단)
+  파일 확장자별 전용 파서:
+  ┌─ HTML       : nav 제거 → 본문 + 하이퍼링크 파싱
+  ├─ PDF        : Marker (ML-based PDF→Markdown)
+  ├─ DOC/PPT    : LibreOffice 변환
+  └─ PS/EPS     : Ghostscript로 PDF 변환 후 Marker
+
+Step 2 — 텍스트 정제 + 메타데이터 헤더 부착
+  source URL, page title, timestamp 추가
+  통계 로깅(redirect/filter/extension 빈도)
+
+Step 3 — 벡터 임베딩 (ChromaDB)
+  RHIC 기술 노트 · 컨퍼런스 슬라이드 · 코드 스니펫 · SW 문서
+  embedded into searchable ChromaDB
+
+Step 4 — MCP 오케스트레이션 (FastAPI-MCP)
+  /ask 요청에 JSON 헤더 부착:
+    - ordered stack of models
+    - max context budget per stage
+    - security tier (caller credentials 기반)
+  단계별 컨텍스트 분리: retrieval → summarization
+                       → inference → evaluation
+  보안 티어별 라우팅 (public/collaboration-restricted/controlled)
+
+Step 5 — 멀티 엔진 추론 비교 (Fig. 3.1)
+  vLLM      : 멀티-GPU 처리량 ↑, 80%+ utilization 유지
+  LlamaCpp  : 1-GPU 처리량 ↑, 4-GPU에서 21% utilization로 급감
+  Ollama    : GPU 수 증가 시 처리량·utilization 모두 감소
+  HW: A6000 → A100 → H100 순으로 throughput 확장
+</code></pre>
+<h2>Input (입력)</h2>
+<ul>
+<li><strong>수집 대상</strong>: RHIC 내부 collaboration website, 아카이브, 메일링 리스트 (HTML/PDF/PS/DOCX/PPTX)</li>
+<li><strong>사용자 질의</strong>: 자연어 (<code>/ask</code> 엔드포인트)</li>
+<li><strong>보안 컨텍스트</strong>: SSO 인증, RBAC, 데이터 분류 (public / collaboration-restricted / controlled)</li>
+</ul>
+<h2>Output (출력)</h2>
+<ul>
+<li>검색 컨텍스트로 LLM이 생성한 응답 (Llama3.3-70B / Mistral-Large-2411 / ChatGPT o3 비교)</li>
+<li>출처 문서 인용 (메일링 리스트 / arXiv / 내부 기술 노트)</li>
+<li>향후: AES-256 at rest, TLS 1.3 in transit, audit log</li>
+</ul>
+<h2>예시 문항 (논문 본문 4. Benchmarking 섹션 직접 인용)</h2>
+<p>본 시스템은 STAR 전문가들이 작성한 내부 벤치마크 질의로 평가됨. 본문에 명시된 두 가지 verbatim Q:</p>
+<h3>📘 STAR 검출기 운영 질의 ①</h3>
+<blockquote>
+<p><strong>Q</strong>: &quot;How are space charge effects considered in the STAR experiment?&quot;
+<strong>평가 방식</strong>: 도메인 전문가들이 작성한 ground-truth 답변과 LLM 응답을 정성 비교</p>
+</blockquote>
+<h3>📘 STAR 검출기 운영 질의 ②</h3>
+<blockquote>
+<p><strong>Q</strong>: &quot;What is the TOF resolution in STAR experiment?&quot;
+<strong>평가 방식</strong>: 동일 (전문가 reference vs LLM 생성)</p>
+</blockquote>
+<h3>📘 평가 시스템 비교 (본문 그대로)</h3>
+<blockquote>
+<p>&quot;Llama3.3 model was noted for its concise and detailed narrative, whereas Mistral was similarly precise but slightly more verbose. In contrast, ChatGPT o3 adopted a more pedagogical, verbose style that, while comprehensive, included extraneous details.&quot;</p>
+<p>&quot;Llama3.3 and Mistral models successfully and quickly retrieved context from internal collaboration mailing lists, which are inaccessible to public-facing commercial LLMs.&quot;</p>
+</blockquote>
+<h2>주요 평가 결과</h2>
+<p><strong>LLM 비교 (정성 평가, 본문 4장)</strong></p>
+<table>
+<thead>
+<tr>
+  <th>LLM</th>
+  <th>구동 환경</th>
+  <th>핵심 평가 결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Llama3.3-70B + RAG</strong></td>
+  <td>로컬 vLLM</td>
+  <td>정확·간결, <strong>내부 메일링 리스트 인용 성공</strong></td>
+</tr>
+<tr>
+  <td><strong>Mistral-Large-2411 + RAG</strong></td>
+  <td>로컬</td>
+  <td>정확하나 약간 장황</td>
+</tr>
+<tr>
+  <td>ChatGPT o3 (baseline)</td>
+  <td>상용 SaaS</td>
+  <td>arXiv / ResearchGate 등 <strong>공개 자료만</strong> 인용, 내부 디버깅 기록 미접근</td>
+</tr>
+</tbody>
+</table>
+<p><strong>추론 엔진 처리량 (Fig. 3.1, 정량)</strong></p>
+<table>
+<thead>
+<tr>
+  <th>엔진</th>
+  <th>1-GPU 처리량</th>
+  <th>4-GPU 활용률</th>
+  <th>디자인 철학</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>vLLM</td>
+  <td>중간</td>
+  <td><strong>&gt;80% 유지</strong></td>
+  <td>parallel-first</td>
+</tr>
+<tr>
+  <td>LlamaCpp</td>
+  <td><strong>최고</strong></td>
+  <td>21%로 급감</td>
+  <td>memory distribution-first</td>
+</tr>
+<tr>
+  <td>Ollama</td>
+  <td>중간</td>
+  <td>점진적 감소</td>
+  <td>balanced</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>HW 세대별: H100 &gt; A100 &gt; A6000 (모든 엔진 공통)</p>
+</blockquote>
+<h2>핵심 기여</h2>
 <ol>
-<li><strong>Data Harvesting</strong>: Custom Web Scraper가 내부 웹사이트, 아카이브, 메일링 리스트를 순회하며 다양한 확장자(HTML, PDF, DOCX, PS 등) 다운로드.</li>
-<li><strong>Data Extraction &amp; Cleaning</strong>: Marker(ML 기반 PDF 파싱), LibreOffice 등을 사용해 구조 보존형 Markdown으로 변환.</li>
-<li><strong>Indexing</strong>: ChromaDB를 이용해 추출된 텍스트를 임베딩 벡터로 변환하여 저장.</li>
-<li><strong>MCP Orchestration</strong>: 사용자 쿼리가 인입되면 Model Context Protocol 래퍼가 쿼리를 분석하고 검색 백엔드로 라우팅.</li>
-<li><strong>Generation</strong>: 검색된 컨텍스트를 융합(fusion)하여 Llama3.3 또는 Mistral 기반 엔진이 최종 답변 및 출처 인용 내역 생성.</li>
+<li><strong>퍼블릭 챗봇이 접근할 수 없는 비공개 메일링 리스트 + 비공식 디스커션을 LLM 지식 베이스로 통합</strong></li>
+<li><strong>MCP 채택</strong>: 검색·요약·추론·평가 단계를 독립 컨텍스트로 분리 → 모니터링·설명 가능성 ↑</li>
+<li><strong>3-engine benchmark</strong>: vLLM/LlamaCpp/Ollama 처리량·utilization 정량 비교 (Fig. 3.1)</li>
+<li><strong>STAR 사용 사례 → EIC 일반화 가능 템플릿</strong> 제시</li>
 </ol>
-<h2>🔑 핵심 모듈 상세 설명</h2>
+<h2>한계점</h2>
 <ul>
-<li><strong>Recursive Multi-Format Web-Content Extraction Framework</strong>: ML 모델인 Marker를 도입해 수식 및 레이아웃 유지율을 기존 파서 대비 획기적으로 개선. PDF뿐 아니라 구형 PostScript 파일까지 처리.</li>
+<li>평가가 <strong>정성 비교(qualitative)</strong> 위주, 정량 IR 지표(P@k, MRR) 부재</li>
+<li>Public / collaboration-restricted / controlled 권한 분리·RBAC 완전 구현 진행 중</li>
+<li>외부 최신 출판물(API, RSS feed) ↔ 로컬 DB 자동 동기화 미구현</li>
+<li>평가용 인사이더-레벨 질문 세트 규모 미공개</li>
 </ul>
-<p>| 모듈/도구명 | 연동 방식 및 목적 |
-| Marker Library | ML을 통해 복잡한 표/수식 포함 PDF 문서를 시맨틱 손실 없이 Markdown으로 변환 |
-| ChromaDB | 정제된 내부 기술 문서 및 메일링 리스트 아카이브를 벡터화하여 Semantic Search 제공 |
-| MCP (Model Context Protocol) | 검색, 요약, 추론 단계를 독립된 컨텍스트로 분리하여 실행 로직과 배포 환경 디커플링 |</p>
-<h2>🧪 실험 및 평가</h2>
+<h2>관련 정보</h2>
 <ul>
-<li><strong>평가 데이터</strong>: 다년간 경험을 갖춘 STAR 실험 도메인 전문가들이 직접 작성한 내부 질문 세트.</li>
-<li><strong>비교 모델 결과</strong>:
-| LLM | 구동 환경 | 질적 평가 결과 |
-| Llama3.3-70B (RAG) | 로컬 vLLM | 정확하고 간결. 내부 메일링 리스트(비공개 자료) 성공적으로 인용. |
-| Mistral-Large-2411 (RAG) | 로컬 | 정확하나 약간 장황한 텍스트 톤. |
-| ChatGPT o3 (Baseline) | 상용 서비스 | 퍼블릭 데이터에만 의존하여 내부 심층 컨텍스트(디버깅 기록 등) 확보 실패. |</li>
-</ul>
-<h2>💡 핵심 기여</h2>
-<ol>
-<li>퍼블릭 AI 챗봇이 도달할 수 없는 <strong>조직 내부의 암묵적 학술 지식과 문제 해결 과정(메일링 리스트 등)을 LLM 지식 베이스로 통합</strong>함.</li>
-<li>Model Context Protocol(MCP)을 선도적으로 채택하여 RAG 파이프라인 각 단계의 모니터링 및 설명 가능성을 극대화함.</li>
-<li>vLLM, LlamaCpp, Ollama 등 다양한 추론 엔진의 병렬 처리 확장성을 실증적으로 비교 분석함.</li>
-</ol>
-<h2>⚠️ 한계점</h2>
-<ul>
-<li>Public / Collaboration-restricted / Controlled 데이터의 권한이 복잡하여 역할 기반 접근 제어(RBAC) 및 보안 통합(SSO, AES-256) 모듈 고도화가 추가로 필요함.</li>
-<li>외부 최신 출판물(API, RSS 피드 등)과 로컬 DB 간의 자동 동기화 기능은 아직 구현 전 단계임.</li>
-</ul>
-<h2>🔗 관련 연구 및 관련 정보</h2>
-<ul>
-<li>논문 링크: <a href="https://arxiv.org/abs/2509.09688">https://arxiv.org/abs/2509.09688</a></li>
-<li>오픈 벤치마크 미활용. 향후 고차원 도메인 특화 성능 평가 프레임워크 공개 예정.</li>
+<li><strong>논문</strong>: <a href="https://arxiv.org/abs/2509.09688">arXiv:2509.09688</a> (NYSDS 2025)</li>
+<li><strong>발표</strong>: New York Scientific Data Summit 2025</li>
+<li><strong>관련 도구</strong>: ChromaDB · Marker · FastAPI-MCP · vLLM · LlamaCpp · Ollama</li>
+<li><strong>후속 비전</strong>: EIC 실험 통합 (논문 결론부)</li>
 </ul>
 
     </article>

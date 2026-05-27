@@ -314,6 +314,31 @@ Step 8 — Ideal answer (1-paragraph)
 <p>⚠ 추세: 평균 doc/snippet 수 점진 감소 — Sufficient set 정책(BioASQ-4부터)으로 &quot;최소한&quot;의 evidence만 요구.</p>
 </blockquote>
 <hr />
+<h2>도메인 적합성 판단 예시 (논문 Section 'Annotation process', verbatim)</h2>
+<blockquote>
+<p><strong>Q1 (REJECTED):</strong> <em>&quot;Which are the differences between Hidden Markov Models (HMMs) and Artificial Neural Networks (ANNs)?&quot;</em>
+· 일반 ML 비교 — 직접적인 biomedical 적용 명시 없음 → 거부.</p>
+<p><strong>Q2 (ACCEPTED):</strong> <em>&quot;Which are the uses of Hidden Markov Models (HMMs) in gene prediction?&quot;</em>
+· &quot;gene prediction&quot;이라는 biomedical 응용을 명시 → 채택.</p>
+</blockquote>
+<p>→ BioASQ는 명확한 biomedical 적용이 있는 질문만 허용하며, controversial하거나 답이 없는 의학 논쟁은 회피.</p>
+<h2>검색 단계 verbatim 예시 (Tables 1-3 in paper)</h2>
+<h3>Step 3 PubMed Query (Q: &quot;Do CpG islands colocalise with transcription start sites?&quot;)</h3>
+<blockquote>
+<p>관련 용어 추출: &quot;CpG Island&quot;, &quot;transcription start site&quot;, + synonym &quot;Transcription Initiation Site&quot;
+PubMed Advanced Query: <code>&quot;CpG Island&quot; AND &quot;transcription start site&quot;</code></p>
+<p>회수된 article 예시 (Table 1):
+· <em>&quot;Putative Zinc Finger Protein Binding Sites Are Over-Represented in the Boundaries of Methylation-Resistant CpG Islands in the Human Genome&quot;</em>
+· <em>&quot;CpG Islands: Starting Blocks for Replication and Transcription&quot;</em></p>
+</blockquote>
+<h3>Step 5 Text Snippet 예시 (Table 2)</h3>
+<blockquote>
+<p><em>&quot;A common explanation for the G+C rise that is seen here in the mammalian profile in the proximity of the TSS is the presence of CpG islands, ...&quot;</em></p>
+</blockquote>
+<h3>Step 8 Ideal Answer (Table 3, verbatim)</h3>
+<blockquote>
+<p><em>&quot;Yes. It is generally known that the presence of a CpG island around the TSS is related to the expression pattern of the gene. ...&quot;</em></p>
+</blockquote>
 <h2>실제 인스턴스 예시 (JSON format)</h2>
 <pre><code class="language-json">{
   &quot;id&quot;: &quot;52bf1b0a03868f1b06000009&quot;,

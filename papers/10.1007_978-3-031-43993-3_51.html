@@ -118,11 +118,23 @@
     <article class="paper-markdown">
       <h1>PMC-OA / PMC-CLIP: Contrastive Language-Image Pre-training Using Biomedical Documents</h1>
 <blockquote>
-<p>MICCAI 2023 | Multimodal Dataset + Foundation Model | medical · bio</p>
+<p>MICCAI 2023 | Multimodal Dataset + Foundation Model | medical · bio
+Lin, Zhao, Zhang, Wu, Wu, Zhang, Wang, Xie — Shanghai Jiao Tong University / Shanghai AI Lab
+DBLP: <code>conf/miccai/Lin23</code> · arXiv:2303.07240</p>
 </blockquote>
 <h2>한 줄 요약</h2>
-<p>PubMed Central Open Access subset에서 자동 파이프라인으로 수집한 <strong>1.65M biomedical image-text pair</strong>. <strong>subfigure-subcaption 단위 fine-grained 정렬</strong>(61.0%)을 통해 기존 MedICaT(217K, 75%가 compound figure 그대로) 대비 <strong>8배 큰 정제 데이터셋</strong>. 동봉된 PMC-CLIP 모델은 PMC-OA로 사전학습 시 ROCO 검색에서 SOTA 대비 <strong>R@10 +8.1%</strong> 달성.</p>
-<hr />
+<p>PubMed Central Open Access subset의 247만 논문에서 자동 파이프라인으로 수집한 <strong>1.65M biomedical image-text pair</strong>. <strong>subfigure-subcaption 단위 fine-grained 정렬</strong>(61.0%)을 통해 기존 MedICaT(217K, 75%가 compound figure 그대로) 대비 <strong>8배 큰 정제 데이터셋</strong>. 동봉된 PMC-CLIP 모델은 PMC-OA로 사전학습 시 ROCO 검색에서 SOTA 대비 <strong>R@10 +8.1%p</strong> 달성.</p>
+<h2>제작 배경</h2>
+<p><strong>기존 의료 멀티모달 데이터셋의 한계 (논문 §1 발췌)</strong></p>
+<blockquote>
+<p>&quot;These existing biomedical image-caption datasets are still far from satisfaction for two reasons: First, the size of the existing datasets is limited (e.g., ROCO with 81K, MedICaT with 217K). Second, the existing datasets contain a large portion of compound figures (e.g., 75% in MedICaT) without separating into subfigures and aligning to corresponding subcaptions, resulting in noisy supervision signals.&quot;</p>
+</blockquote>
+<p>핵심 문제:</p>
+<ul>
+<li>의료 논문의 그림은 다수가 <strong>compound figure</strong> (한 그림 안에 (A) Macroscopic, (B) H&amp;E section, (C) Microscopic 등 여러 subfigure)</li>
+<li>기존 데이터셋은 <strong>compound figure 전체에 캡션 전체</strong>를 매칭 → CLIP 학습 시 noise 다대(多大)</li>
+<li>반면 PubMed Central은 247만 논문 + 1,221만 figure-caption 페어 보유 → 자동 파이프라인으로 정제 시 큰 도약 가능</li>
+</ul>
 <h2>어떻게 만들었나 (Construction Methodology — 6-step Pipeline)</h2>
 <pre><code>Step 1 — PubMed Central에서 figure-caption 수집
   └─ 시점: 2022-09-16
@@ -148,7 +160,7 @@ Step 4 — Subfigure 재필터링 (non-medical subfigure 제거)
      (avg 4.3 subfigures / caption)
   └─ = PMC-OA-Beta (subfig + 전체 caption만 매칭)
 
-Step 5 — Subcaption 분리 (caption distributor)
+Step 5 — Subcaption 분리 (caption distributor [Yu Yu et al. 2017])
   └─ 239,905 separable caption → 898,467 subcaptions
   └─ 1,003,911 subfigures에 대응
 
@@ -156,6 +168,7 @@ Step 6 — Subfigure ↔ Subcaption 정렬
   └─ PMC-OA-Beta로 사전학습한 CLIP-style 모델을
      MedICaTSub에 contrastive finetune (alignment acc 73% on test)
   └─ 결과: 1,003,911 fine-grained Subfig-SubCap pairs
+     + 642,681 coarse Subfig-Cap pairs (separable 못한 경우)
 
 [Final PMC-OA dataset]
 ┌──────────────────────────────────────────┬─────────────┬──────┐
@@ -167,8 +180,8 @@ Step 6 — Subfigure ↔ Subcaption 정렬
 │ Total PMC-OA                             │ 1,646,592   │ 100% │
 └──────────────────────────────────────────┴─────────────┴──────┘
 </code></pre>
-<hr />
-<h2>기존 데이터셋과의 비교</h2>
+<h2>Input (입력 / 데이터셋 구성)</h2>
+<p><strong>기존 데이터셋과의 비교 (논문 Table 1 발췌)</strong></p>
 <table>
 <thead>
 <tr>
@@ -183,7 +196,7 @@ Step 6 — Subfigure ↔ Subcaption 정렬
   <td>ROCO (2018)</td>
   <td style="text-align:right">81K</td>
   <td style="text-align:right">1,828,575</td>
-  <td>Radiology only, no compound</td>
+  <td>Radiology only, no compound figure separation</td>
 </tr>
 <tr>
   <td>MedICaT (2020)</td>
@@ -199,8 +212,7 @@ Step 6 — Subfigure ↔ Subcaption 정렬
 </tr>
 </tbody>
 </table>
-<hr />
-<h2>데이터 통계 (PMC-OA Overview)</h2>
+<p><strong>PMC-OA 통계 축 (Fig. 3)</strong></p>
 <table>
 <thead>
 <tr>
@@ -211,7 +223,7 @@ Step 6 — Subfigure ↔ Subcaption 정렬
 <tbody>
 <tr>
   <td>Diagnostic procedure</td>
-  <td>CT / MRI / X-ray / Ultrasound / Histopathology / <strong>Mitotic figure</strong> 등 광범위 — MIMIC-CXR(흉부 X-ray only) 한계 보완</td>
+  <td>CT / MRI / X-ray / Ultrasound / Histopathology / Mitotic figure 등 광범위</td>
 </tr>
 <tr>
   <td>Disease (free-form text)</td>
@@ -227,20 +239,124 @@ Step 6 — Subfigure ↔ Subcaption 정렬
 </tr>
 </tbody>
 </table>
-<hr />
-<h2>동봉 모델 (PMC-CLIP) 평가 결과</h2>
+<h2>Output (PMC-CLIP 모델 구조)</h2>
 <p><strong>모델 구성:</strong></p>
 <ul>
 <li>Vision encoder: ResNet50 (from scratch)</li>
 <li>Text encoder: PubmedBERT (initialized)</li>
 <li>Fusion: 4-layer transformer</li>
 <li>Loss: ITC (CLIP-style contrastive) + MLM with visual cues (λ=0.5)</li>
+<li>입력 해상도: 224 × 224</li>
 </ul>
-<h3>Image-Text Retrieval (ROCO test, 2,000 samples; zero-shot setting)</h3>
+<p><strong>Loss 함수</strong> (논문 §3 발췌):</p>
+<blockquote>
+<p>&quot;Specifically, we denote batch size as b, we calculate the softmax-normalized cross-modality dot product similarity between the current visual/text embedding (v / t) and all samples within the batch, termed as p_{i2t}, p_{t2i} ∈ R^b, and the final ITC loss is:
+L_ITC = E_{(I,T) ∼ D} [ CE(y_{i2t}, p_{i2t}) + CE(y_{t2i}, p_{t2i}) ]&quot;</p>
+</blockquote>
+<h2>예시 사례 (논문 Figure 2 직접 인용 — Step 5 Caption Distributor 작동 예시)</h2>
+<h3>🔬 Compound Figure 분리 예시 (Figure 2 시각 시퀀스 발췌)</h3>
+<p>논문 Figure 2의 파이프라인 다이어그램은 <strong>실제 한 compound figure가 PMC-OA에서 처리되는 전체 과정</strong>을 보여준다.</p>
+<p><strong>원본 compound figure caption (Step 5에서 분리된 subcaption 예시):</strong></p>
+<blockquote>
+<p>&quot;(A) Macroscopic view of primary lung tumor tissue ......&quot;
+&quot;(B) Three representative H&amp;E stained sections of FFPE lung tissue were scanned ......&quot;
+&quot;(C) Microscopic view at ×40 magnification ......&quot;</p>
+</blockquote>
+<p>→ 위 caption은 원본에서는 단일 문자열이었으나 caption distributor가 <code>(A)/(B)/(C)</code> 마커를 인식해 <strong>3개의 subcaption으로 분리</strong>. 동시에 DETR detector가 같은 compound figure에서 3개의 subfigure 박스를 검출 → <strong>fine-tuned CLIP-style aligner</strong>가 (A) ↔ &quot;Macroscopic view of primary lung tumor&quot;, (B) ↔ &quot;H&amp;E stained sections&quot;, (C) ↔ &quot;Microscopic view at ×40&quot; 짝맞춤.</p>
+<h3>🌳 분리 불가 예시 (Step 5 fail)</h3>
+<blockquote>
+<p>&quot;Figure 4. Forest Regeneration (A) Dense ...... (B) The almost ......&quot;</p>
+</blockquote>
+<p>→ 일부 caption은 길이가 너무 짧거나 구조가 불분명해 distributor가 separate 못함 (전체 1.65M 중 642,681쌍, 39%). 이 경우 <strong>subfigure + 전체 caption</strong> 형태(coarse pair)로 PMC-OA에 포함.</p>
+<h3>📊 데이터셋 통계 (논문 §2.2 발췌)</h3>
+<blockquote>
+<p>&quot;Fig. 3(a), PMC-OA covers a wide range of diagnostic procedures, spanning from common (CT, MRI, X-ray) to rare ones (mitotic figure), which is much diverse than before.&quot;</p>
+<p>&quot;In PMC-OA, diseases are given in the free-form text, allowing for elaborate identification and analysis. For instance, eye diseases can be further categorized into Cataracts, Conjunctivitis, Macular degeneration, fish eye disease, etc.&quot;</p>
+<p>&quot;We provide the sex-ratio across ages in Fig. 3(d), as we can see PMC-OA is approximately gender-balanced, with 54% males.&quot;</p>
+</blockquote>
+<h3>🎯 Alignment 정확도 (Step 6 발췌)</h3>
+<blockquote>
+<p>&quot;We split the subset into train and test by 3:1, and the finetuned model achieves alignment accuracy=73% on test set. We finally align 1,003,911 subfigure-subcaption pairs. Along with the remaining 642,681 subfigure-caption pairs, we termed this dataset as PMC-OA.&quot;</p>
+</blockquote>
+<h2>주요 평가 결과</h2>
+<h3>Image-Text Retrieval (ROCO test, 2,000 samples; zero-shot setting — Table 2)</h3>
 <table>
 <thead>
 <tr>
   <th>Method</th>
+  <th>Pretrain</th>
+  <th style="text-align:right">Size</th>
+  <th style="text-align:right">I2T R@1</th>
+  <th style="text-align:right">R@5</th>
+  <th style="text-align:right">R@10</th>
+  <th style="text-align:right">T2I R@1</th>
+  <th style="text-align:right">R@5</th>
+  <th style="text-align:right">R@10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>ViLT</td>
+  <td>COCO/VG/SBU/GCC</td>
+  <td style="text-align:right">4.1M</td>
+  <td style="text-align:right">11.90</td>
+  <td style="text-align:right">31.90</td>
+  <td style="text-align:right">43.20</td>
+  <td style="text-align:right">9.75</td>
+  <td style="text-align:right">28.95</td>
+  <td style="text-align:right">41.40</td>
+</tr>
+<tr>
+  <td>METER</td>
+  <td>(동일)</td>
+  <td style="text-align:right">4.1M</td>
+  <td style="text-align:right">14.45</td>
+  <td style="text-align:right">33.30</td>
+  <td style="text-align:right">45.10</td>
+  <td style="text-align:right">11.30</td>
+  <td style="text-align:right">27.25</td>
+  <td style="text-align:right">39.60</td>
+</tr>
+<tr>
+  <td>M3AE</td>
+  <td>ROCO+MedICaT</td>
+  <td style="text-align:right">233K</td>
+  <td style="text-align:right">19.10</td>
+  <td style="text-align:right">45.60</td>
+  <td style="text-align:right">61.20</td>
+  <td style="text-align:right">19.05</td>
+  <td style="text-align:right">47.75</td>
+  <td style="text-align:right">61.35</td>
+</tr>
+<tr>
+  <td>ARL</td>
+  <td>ROCO+MedICaT+CXR</td>
+  <td style="text-align:right">233K</td>
+  <td style="text-align:right">23.45</td>
+  <td style="text-align:right">50.60</td>
+  <td style="text-align:right">62.05</td>
+  <td style="text-align:right">23.50</td>
+  <td style="text-align:right">49.05</td>
+  <td style="text-align:right">63.00</td>
+</tr>
+<tr>
+  <td><strong>PMC-CLIP</strong></td>
+  <td><strong>PMC-OA</strong></td>
+  <td style="text-align:right"><strong>1.6M</strong></td>
+  <td style="text-align:right"><strong>31.41</strong></td>
+  <td style="text-align:right"><strong>61.15</strong></td>
+  <td style="text-align:right"><strong>71.88</strong></td>
+  <td style="text-align:right"><strong>28.02</strong></td>
+  <td style="text-align:right"><strong>58.33</strong></td>
+  <td style="text-align:right"><strong>69.69</strong></td>
+</tr>
+</tbody>
+</table>
+<p>→ I2T R@10에서 직전 SOTA(ARL) 대비 <strong>+8.1%p</strong> (62.05 → 71.88). 특히 PMC-OA는 ROCO 트레이닝 데이터를 <strong>포함하지 않았는데도</strong> ROCO 평가에서 zero-shot으로 SOTA 달성.</p>
+<h3>Pretrain dataset ablation (Table 1) — PMC-OA의 효과</h3>
+<table>
+<thead>
+<tr>
   <th>Pretrain</th>
   <th style="text-align:right">Size</th>
   <th style="text-align:right">I2T R@10</th>
@@ -249,149 +365,118 @@ Step 6 — Subfigure ↔ Subcaption 정렬
 </thead>
 <tbody>
 <tr>
-  <td>ViLT</td>
-  <td>COCO/VG/SBU/GCC</td>
-  <td style="text-align:right">4.1M</td>
-  <td style="text-align:right">43.20</td>
-  <td style="text-align:right">41.40</td>
-</tr>
-<tr>
-  <td>METER</td>
-  <td>(동일)</td>
-  <td style="text-align:right">4.1M</td>
-  <td style="text-align:right">45.10</td>
-  <td style="text-align:right">39.60</td>
-</tr>
-<tr>
-  <td>M3AE</td>
-  <td>ROCO+MedICaT</td>
-  <td style="text-align:right">233K</td>
-  <td style="text-align:right">61.20</td>
-  <td style="text-align:right">61.35</td>
-</tr>
-<tr>
-  <td>ARL</td>
-  <td>ROCO+MedICaT+CXR</td>
-  <td style="text-align:right">233K</td>
-  <td style="text-align:right">62.05</td>
-  <td style="text-align:right">63.00</td>
-</tr>
-<tr>
-  <td><strong>PMC-CLIP</strong></td>
-  <td><strong>PMC-OA</strong></td>
-  <td style="text-align:right"><strong>1.6M</strong></td>
-  <td style="text-align:right"><strong>71.88</strong></td>
-  <td style="text-align:right"><strong>69.69</strong></td>
-</tr>
-</tbody>
-</table>
-<p>→ I2T R@10에서 직전 SOTA 대비 <strong>+8.1%p</strong>.</p>
-<h3>Pretrain dataset ablation (PMC-OA의 효과)</h3>
-<table>
-<thead>
-<tr>
-  <th>Pretrain</th>
-  <th style="text-align:right">I2T R@10</th>
-  <th style="text-align:right">T2I R@10</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>ROCO (173K)</td>
+  <td>ROCO</td>
+  <td style="text-align:right">173 K</td>
   <td style="text-align:right">46.52</td>
   <td style="text-align:right">47.38</td>
 </tr>
 <tr>
-  <td>MedICaT (173K)</td>
+  <td>MedICaT</td>
+  <td style="text-align:right">173 K</td>
   <td style="text-align:right">46.52</td>
   <td style="text-align:right">47.38</td>
 </tr>
 <tr>
-  <td>PMC-OA Beta (1.6M, coarse only)</td>
+  <td>PMC-OA Beta (coarse only)</td>
+  <td style="text-align:right">1.6 M</td>
   <td style="text-align:right">70.16</td>
   <td style="text-align:right">66.35</td>
 </tr>
 <tr>
-  <td><strong>PMC-OA (1.6M, fine-grained)</strong></td>
+  <td><strong>PMC-OA (fine-grained)</strong></td>
+  <td style="text-align:right"><strong>1.6 M</strong></td>
   <td style="text-align:right"><strong>71.88</strong></td>
   <td style="text-align:right"><strong>69.69</strong></td>
 </tr>
 </tbody>
 </table>
-<h3>Image Classification (MedMNIST 일부)</h3>
+<p>→ Beta(coarse) → Final(fine-grained)으로 가면서 <strong>+1.72%p (I2T), +3.34%p (T2I)</strong> 추가 향상 — subfigure-subcaption 정렬의 가치 확인.</p>
+<h3>Image Classification (MedMNIST, Table 3)</h3>
 <table>
 <thead>
 <tr>
   <th>Method</th>
-  <th style="text-align:right">PneumoniaMNIST ACC</th>
-  <th style="text-align:right">BreastMNIST ACC</th>
-  <th style="text-align:right">DermaMNIST ACC</th>
+  <th style="text-align:right">PneumoniaMNIST AUC/ACC</th>
+  <th style="text-align:right">BreastMNIST AUC/ACC</th>
+  <th style="text-align:right">DermaMNIST AUC/ACC</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>ResNet50 from scratch</td>
-  <td style="text-align:right">88.40</td>
-  <td style="text-align:right">86.60</td>
-  <td style="text-align:right">73.10</td>
+  <td>ResNet50 (scratch)</td>
+  <td style="text-align:right">96.20/88.40</td>
+  <td style="text-align:right">91.90/86.60</td>
+  <td style="text-align:right">91.20/73.10</td>
+</tr>
+<tr>
+  <td>DWT-CV</td>
+  <td style="text-align:right">95.69/88.67</td>
+  <td style="text-align:right">89.77/85.68</td>
+  <td style="text-align:right">91.67/74.75</td>
 </tr>
 <tr>
   <td>SADAE (SOTA)</td>
-  <td style="text-align:right">91.80</td>
-  <td style="text-align:right">87.80</td>
-  <td style="text-align:right">75.90</td>
+  <td style="text-align:right">98.30/91.80</td>
+  <td style="text-align:right">91.50/87.80</td>
+  <td style="text-align:right">92.70/75.90</td>
 </tr>
 <tr>
   <td><strong>PMC-CLIP</strong></td>
-  <td style="text-align:right"><strong>95.35</strong></td>
-  <td style="text-align:right"><strong>91.35</strong></td>
-  <td style="text-align:right"><strong>79.80</strong></td>
+  <td style="text-align:right"><strong>99.02/95.35</strong></td>
+  <td style="text-align:right"><strong>94.56/91.35</strong></td>
+  <td style="text-align:right"><strong>93.41/79.80</strong></td>
 </tr>
 </tbody>
 </table>
-<h3>Medical VQA (VQA-RAD / SLAKE)</h3>
+<h3>Medical VQA (VQA-RAD / SLAKE, Table 4)</h3>
 <table>
 <thead>
 <tr>
   <th>Method</th>
-  <th style="text-align:right">VQA-RAD Overall</th>
-  <th style="text-align:right">SLAKE Overall</th>
+  <th style="text-align:right">VQA-RAD Open/Closed/Overall</th>
+  <th style="text-align:right">SLAKE Open/Closed/Overall</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>MEVF-BAN</td>
-  <td style="text-align:right">66.10</td>
-  <td style="text-align:right">78.60</td>
+  <td style="text-align:right">49.20 / 77.20 / 66.10</td>
+  <td style="text-align:right">77.80 / 79.80 / 78.60</td>
 </tr>
 <tr>
-  <td>M3AE</td>
-  <td style="text-align:right">77.01</td>
-  <td style="text-align:right">83.25</td>
+  <td>CPRD-BAN</td>
+  <td style="text-align:right">52.50 / 77.90 / 67.80</td>
+  <td style="text-align:right">79.50 / 83.40 / 81.10</td>
+</tr>
+<tr>
+  <td>M3AE (SOTA)</td>
+  <td style="text-align:right">67.23 / 83.46 / 77.01</td>
+  <td style="text-align:right">80.31 / 87.82 / 83.25</td>
 </tr>
 <tr>
   <td><strong>PMC-CLIP</strong></td>
-  <td style="text-align:right"><strong>77.60</strong></td>
-  <td style="text-align:right"><strong>84.30</strong></td>
+  <td style="text-align:right">67.00 / <strong>84.00</strong> / <strong>77.60</strong></td>
+  <td style="text-align:right"><strong>81.90</strong> / <strong>88.00</strong> / <strong>84.30</strong></td>
 </tr>
 </tbody>
 </table>
-<hr />
+<p>→ 6개 metric 중 5개에서 SOTA M3AE 능가.</p>
 <h2>한계점</h2>
 <ul>
-<li><strong>Caption distributor의 불완전성</strong>: 239,905 separable caption만 처리 → 나머지는 coarse subfig-cap pair로 유지(39%).</li>
+<li><strong>Caption distributor의 불완전성</strong>: 239,905 separable caption만 처리 → 나머지 39%는 coarse subfig-cap pair로 유지.</li>
 <li><strong>Alignment 정확도 73%</strong>: subfig↔subcap 매칭이 perfect하지 않음 (CLIP-style finetune 의존).</li>
 <li><strong>자동 키워드/분류기 기반 필터</strong>: 일부 비의료 figure 통과 / 일부 의료 figure 누락 가능.</li>
 <li><strong>저자/기관 메타데이터 부재</strong>: figure source paper 인용은 가능하나 환자 메타데이터(age/disease ground truth)는 caption 텍스트에만 의존.</li>
 <li><strong>2022-09-16 snapshot</strong>: 이후 PMC OA 신규 논문은 별도 파이프라인 재실행 필요(논문은 &quot;continuously updatable&quot;이라 명시).</li>
+<li><strong>저작권 우려</strong>: PubMed Central Open Access subset에 한정되어 있으나, 일부 figure는 CC BY-NC 라이선스 — 상업적 활용 제한.</li>
 </ul>
-<hr />
 <h2>관련 정보</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1007/978-3-031-43993-3_51">MICCAI 2023 — Springer</a></li>
+<li><strong>논문 (MICCAI 2023)</strong>: <a href="https://doi.org/10.1007/978-3-031-43993-3_51">Springer — doi:10.1007/978-3-031-43993-3_51</a></li>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2303.07240">2303.07240</a></li>
-<li><strong>GitHub</strong>: <a href="https://github.com/WeixiongLin/PMC-CLIP">https://github.com/WeixiongLin/PMC-CLIP</a></li>
-<li><strong>HuggingFace 데이터셋</strong>: PMC-OA (Subfig-SubCap pair 1M+ public)</li>
+<li><strong>GitHub</strong>: <a href="https://github.com/WeixiongLin/PMC-CLIP">WeixiongLin/PMC-CLIP</a></li>
+<li><strong>HuggingFace 데이터셋</strong>: <a href="https://huggingface.co/datasets/axiong/pmc_oa">PMC-OA (1M+ Subfig-SubCap pairs)</a></li>
+<li><strong>HuggingFace 모델</strong>: <a href="https://huggingface.co/ryanyip7777/pmc_vit_l_14">WeixiongLin/PMC_CLIP</a></li>
 <li><strong>이 데이터셋/모델 사용 후속 작업</strong>: MMed-RAG / Patho-AgenticRAG / 다양한 medical RAG cross-modal grounding 평가축</li>
 </ul>
 

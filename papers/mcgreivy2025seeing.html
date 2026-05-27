@@ -117,72 +117,177 @@
   <div class="wrap">
     <article class="paper-markdown">
       <h1>Seeing the Forest Through the Trees: Knowledge Retrieval for Streamlining Particle Physics Analysis</h1>
-<p>mcgreivy2025seeing | 2025 | arXiv preprint | method | [physics] | <a href="https://arxiv.org/abs/2509.06855">paper</a></p>
-<table class="prop-table">
-<tr><td class="prop-key">DB</td><td class="prop-val">LHCb experiment corpus (CERN)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">명시 안됨; LHCb 실험 내부 문서·논문 코퍼스</td></tr>
-<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Internal (LHCb 실험 내부 문서), 코드 오픈소스</td></tr>
-<tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
-<tr><td class="prop-key">Retriever</td><td class="prop-val">SciTreeRAG (계층적 트리 구조), SciGraphRAG (지식 그래프)</td></tr>
-<tr><td class="prop-key">Eval Task</td><td class="prop-val">입자물리학 문헌 질의응답 (전문가 평가)</td></tr>
-<tr><td class="prop-key">Eval Metric</td><td class="prop-val">질적 평가 (컨텍스트 품질, 문서 간 관계 커버리지)</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">SciTreeRAG + SciGraphRAG</td></tr>
-</table>
-
 <blockquote>
-<p>arXiv preprint | 2025 | method | physics</p>
-<h4>한 줄 요약</h4>
-<p>LHCb 실험의 문서 코퍼스를 대상으로, 표준 RAG의 국소적 청크 매칭 한계를 극복하는 두 가지 구조화 검색 시스템 제안. <strong>SciTreeRAG</strong>: 물리학 논문의 계층 구조(섹션 트리)를 활용하여 문서 간 맥락 연결 강화. <strong>SciGraphRAG</strong>: LLM으로 코퍼스를 지식 그래프로 변환, 글로벌 교차 문서 관계 검색. 비전문가의 LHC 공개 데이터 분석 지원을 목표로 한다.</p>
+<p>arXiv:2509.06855 | 2025 | method | physics
+McGreivy, Delaney, Beck, Williams — MIT (NSF AI Institute for AI and Fundamental Interactions, LHCb)</p>
 </blockquote>
-<h4>개발/구축 배경</h4>
-<p><strong>기존 방법의 한계</strong></p>
-<ul>
-<li>표준 RAG: 의미적으로 유사한 텍스트 청크를 매칭하지만 관련 정보가 여러 섹션에 분산될 때 맥락 분절(fragmented representation) 발생</li>
-<li>전체 문서 컨텍스트: 긴 물리학 논문에서 토큰 한계 초과, 불필요 정보 포함</li>
-<li>입자물리학은 실험별 고유 방법론·기호·용어로 도메인 특화 지식 필요</li>
-</ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
-<ul>
-<li>대규모·장기 실험 협업(LHCb ~1,600명 협력자)의 방법론·편집 검토 가속화</li>
-<li>비전문가가 공개된 LHC 데이터를 LLM 기반 시스템으로 분석 가능하도록 지원</li>
-<li>INSPIRE-HEP 문헌과 내부 기술 문서를 통합하여 교차 문서 전문 지식 접근</li>
-</ul>
-<h4>방법론</h4>
-<p><strong>SciTreeRAG</strong>:</p>
+<h2>한 줄 요약</h2>
+<p>LHCb 코퍼스를 대상으로, 표준 RAG의 chunk fragmentation 한계를 극복하는 두 가지 구조화 검색 시스템 제안: <strong>SCITREERAG</strong>(논문 LaTeX 섹션 트리 + recursive attention-weighted 임베딩) + <strong>SCIGRAPHRAG</strong>(LLM-구축 Neo4j Knowledge Graph + NL→CYPHER). HFLAV에서 자동 생성한 <strong>56개 평가 질의</strong>로 검증, SCITREERAG가 baseRAG 대비 &quot;poor&quot; rating을 25% → 10%로 감소.</p>
+<h2>제작 배경</h2>
+<p><strong>표준 RAG의 세 가지 한계 (저자 분류, Sec. 1)</strong></p>
 <ol>
-<li>물리학 논문의 계층 구조(섹션·소절 트리) 파싱</li>
-<li>트리 노드별 요약 생성 및 부모-자식 맥락 연결</li>
-<li>쿼리 시 계층적 트리 순회로 집중적(focused)이고 맥락 풍부한 청크 검색</li>
+<li><strong>Accidental Semantic Similarity</strong> — 키워드만 공유하는 무관 청크 검색</li>
+<li><strong>Fragmented Context</strong> — 청크 단위 concat이 논리적 관계 손상</li>
+<li><strong>Lack of Global Knowledge</strong> — 코퍼스 전반의 관계·패턴 검색 불가</li>
 </ol>
-<p><strong>SciGraphRAG</strong>:</p>
-<ol>
-<li>LLM으로 코퍼스 내 엔티티(입자, 알고리즘, 파라미터)와 관계 추출</li>
-<li>지식 그래프 구축</li>
-<li>쿼리를 그래프 탐색으로 변환, 표준 RAG로 놓치는 글로벌 도메인 연결 검색</li>
-</ol>
-<h4>실험 설정</h4>
+<p><strong>왜 이 시스템이 필요했는지</strong></p>
 <ul>
-<li><strong>코퍼스</strong>: LHCb 실험 문서·논문</li>
-<li><strong>응용</strong>: 방법론 리뷰, 편집 표준 확인, 비전문가 데이터 분석 지원</li>
-<li><strong>LLM 백본</strong>: GPT-4 계열 (명시 안됨)</li>
-<li><strong>평가</strong>: 전문가 질적 평가 (수치 벤치마크 없음)</li>
+<li>LHCb 협업: 수천 편 논문, 1,600명+ 협력자 — CERN open data 사용한 비전문가 분석 지원 필요</li>
+<li>LHC publications가 INSPIRE-HEP 등에 산재 → 종합적 cross-document synthesis 부재</li>
+<li>신규 PhD 학생의 진입 장벽 완화</li>
 </ul>
-<h4>주요 결과</h4>
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>═══════════════════════════════════════════
+[A] SCITREERAG — Local Knowledge Retrieval
+═══════════════════════════════════════════
+Step A1 — Tree 구축 (per article)
+  sanitized LaTeX source 파싱
+  abstract = root
+  section/subsection = intermediate nodes
+  paragraph / figure caption / table / equation = leaf nodes
+
+Step A2 — Recursive LLM summary
+  leaf summary = atomic content
+  intermediate summary = recursive concat + summarize(children)
+  root summary = abstract
+
+Step A3 — Refined dense embedding
+  각 노드 summary → paragraph embedding
+  recursive attention-weighted refinement:
+    동일 정보의 multi-level 표현 → robust signal 증폭
+    word-choice / 환각 artifact 감쇠
+
+Step A4 — Retrieval (Greedy tree traversal)
+  abstract → section → subsection → leaf
+  topically relevant section 우선
+  같은 paper의 leaf nodes를 묶어 context에 추가
+
+═══════════════════════════════════════════
+[B] SCIGRAPHRAG — Global Knowledge Retrieval
+═══════════════════════════════════════════
+Step B1 — Per-article KG
+  GPT-5 mini가 abstract → high-level KG (observable, decay, period)
+  도메인 normalization: e.g., &quot;Bs → µ+µ−&quot; → &quot;B(s)0 -&gt; mu+ mu-&quot;
+  body text → systematic uncertainty + analysis methods 추출
+  Entity types: 노란(decays) / 자주(observables) /
+                연파랑(uncertainty) / 주황(methods)
+
+Step B2 — Canonicalization (cross-document merge)
+  TF-IDF(name) + semantic emb(description) → hybrid sim
+  agglomerative clustering by type
+  LLM-as-judge가 cluster 내 entity 병합 결정
+  ex) &quot;tracking efficiency in vertex&quot; vs &quot;in muon&quot; → 분리 유지
+
+Step B3 — NL → CYPHER 변환
+  LLM이 schema + 3 few-shot examples 보고
+  CYPHER expression 생성 (Neo4j)
+  semantic similarity search (no exact string)
+
+Step B4 — Query 실행 + LLM synthesis → NL answer
+
+═══════════════════════════════════════════
+[C] 평가 — HFLAV Eval Q&amp;A (Sec. A.2)
+═══════════════════════════════════════════
+HFLAV 리포트 &quot;Averages of b-hadron, c-hadron,
+  τ-lepton properties as of 2023&quot;
+  ↳ LHCb corpus에 미포함 → 진정한 retrieval 평가
+  ↳ 7개 chapter × 8 query = 56 queries
+GPT-5 mini가 각 query에 대해 rubric 생성:
+  Essential / Expert-level / Factual benchmarks 3-tier
+LLM-as-judge로 grade {poor / satisfactory / good}
+Human expert가 sub-sample 검증
+</code></pre>
+<h2>Input (입력)</h2>
 <ul>
-<li>SciTreeRAG: 표준 RAG 대비 더 집중적이고 맥락이 풍부한 답변 생성 (전문가 평가)</li>
-<li>SciGraphRAG: 문서 간 글로벌 도메인 연결(표준 RAG에서 놓치는) 검색 가능</li>
-<li>LHCb 코퍼스에서 개념 증명(proof-of-concept) 성공</li>
+<li>LHCb 코퍼스 (sanitized LaTeX source 사용)</li>
+<li>사용자 자연어 질의 (b-hadron lifetime, Vcb, CP violation phase 등)</li>
+<li>HFLAV reference values (정량 benchmark)</li>
 </ul>
-<h4>한계점</h4>
+<h2>Output (출력)</h2>
 <ul>
-<li>수치 벤치마크 없음 — 전문가 질적 평가만으로 객관적 비교 어려움</li>
-<li>LHCb 내부 문서 코퍼스에 한정 — 다른 실험/도메인으로의 일반화 미검증</li>
-<li>지식 그래프 구축 비용 (LLM 기반 추출) 대규모 코퍼스에서 높음</li>
-<li>SciGraphRAG의 그래프 품질은 LLM 추출 정확도에 의존</li>
+<li>SCITREERAG: 트리 traversal 결과 청크 + LLM 응답</li>
+<li>SCIGRAPHRAG: KG 서브그래프 + CYPHER 결과 + NL synthesis</li>
+</ul>
+<h2>예시 문항 (논문 본문 + Appendix A.2·B.2 직접 인용)</h2>
+<h3>📘 HFLAV Eval Example Query ① — b-hadron lifetime</h3>
+<blockquote>
+<p>&quot;What are the most precise measurements of b-hadron lifetimes performed by LHCb, and how do the systematic uncertainties in these measurements compare across different decay channels and methodologies?&quot;</p>
+</blockquote>
+<h3>📘 HFLAV Eval Example Query ② — |Vcb|</h3>
+<blockquote>
+<p>&quot;What is LHCb's most precise measurement of |Vcb| from exclusive semileptonic B decays, and how does it compare to the inclusive determination? What are the dominant sources of theoretical and experimental uncertainty in the exclusive approach?&quot;</p>
+</blockquote>
+<h3>📘 HFLAV Eval Example Query ③ — Polarization fractions</h3>
+<blockquote>
+<p>&quot;Which B0 decay mode has been most useful for studying polarization fractions in vector-vector final states, and what are the LHCb results?&quot;</p>
+</blockquote>
+<h3>📘 SCIGRAPHRAG Example — Query γ (Sec. 4)</h3>
+<blockquote>
+<p><strong>Q</strong>: &quot;What decay channel should I use to measure the CP violating phase γ? What sources of systematic uncertainty will dominate my analysis?&quot;</p>
+<p><strong>SCIGRAPHRAG Response (verbatim)</strong>:</p>
+<blockquote>
+<p>&quot;Use a combination of tree-level B → D(∗)h modes plus the time-dependent Bs → D∓s K± channel. Practically this means including B± → DK± and B± → Dπ± (with D → KSππ, KSKK, K±π∓, K±π∓π±π∓, 3- and 4-body final states), B± → D∗K±, B0 → DK∗0/± and B0 → DK+π− (GLW/ADS/GGSZ-type approaches) ... combining these channels is the route taken in recent LHCb determinations and gives the best precision on γ [2010.08483, 2410.21115, 2209.03692, 2412.14074]. The dominant systematic uncertainties will be external hadronic inputs and model/theory assumptions: uncertainties on D-decay hadronic parameters (rXD, δXD, κXD, CP-even fractions F+ for multi-body modes) ...&quot;</p>
+</blockquote>
+<p><strong>LLM-as-judge 결과</strong>: SCIGRAPHRAG = &quot;good&quot;, SCITREERAG/RAG = &quot;satisfactory&quot; (저자 동의)</p>
+</blockquote>
+<h3>📘 SCIGRAPHRAG Example — Query ∆ms (Sec. B.2)</h3>
+<blockquote>
+<p><strong>Q</strong>: &quot;Which decay provides the most precise measurement of the B0s eigenstate oscillation frequency, ∆ms? What are the dominant systematic uncertainties for that measurement?&quot;</p>
+<p><strong>응답 발췌</strong>: <em>&quot;the recent LHCb result quoted in the context gives ∆ms = 17.7683 ± 0.0051 (stat) ± 0.0032 (syst) ps−1 from B0s → D−s π+ [2104.04421]; earlier LHCb measurements on the same channels report compatible values with larger uncertainties (e.g. 17.768 ± 0.023 ± 0.006 [1304.4741])&quot;</em></p>
+</blockquote>
+<h2>주요 평가 결과 (Sec. 4, Sec. B.1)</h2>
+<p><strong>LLM-as-judge Quality Grades (HFLAV 56-Q, context 8k/16k/32k 평균)</strong></p>
+<table>
+<thead>
+<tr>
+  <th>System</th>
+  <th>&quot;poor&quot; 비율</th>
+  <th>&quot;satisfactory + good&quot; 비율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>BaseRAG (표준)</td>
+  <td>25%</td>
+  <td>~42%</td>
+</tr>
+<tr>
+  <td>SCITREERAG (no diffusion)</td>
+  <td>20%</td>
+  <td>&gt;50%</td>
+</tr>
+<tr>
+  <td><strong>SCITREERAG + diffusion</strong></td>
+  <td><strong>10%</strong></td>
+  <td><strong>&gt;50%</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>저자 결론: &quot;SCITREERAG demonstrates modest but consistent improvements over BaseRAG ... receiving 'poor' ratings only 10% of the time compared to 25% for RAG.&quot;</p>
+</blockquote>
+<p><strong>KG Canonicalization 검증 (Fig. 1)</strong></p>
+<ul>
+<li>Query γ: 17개 &quot;CKM Angle gamma&quot; entity들이 단일 entity로 올바르게 병합</li>
+<li>Query ∆ms: 4개의 중복 &quot;Delta m_s&quot; entity 발견 → <strong>불완전 entity resolution</strong> 사례 (저자 명시)</li>
+</ul>
+<h2>한계점</h2>
+<ul>
+<li><strong>수치 표준 벤치마크 부재</strong>: P@k, MRR 같은 IR metric 미사용 (LLM-as-judge만)</li>
+<li>SCIGRAPHRAG는 <strong>work in progress</strong> — KG 구축·NL→Cypher 신뢰성 미흡</li>
+<li>Schema가 좁게 정의(particle physics analysis) → 일반화 미검증</li>
+<li>Human expert validation은 sub-sample만, full evaluation 미시행</li>
+<li>LHCb 코퍼스에 한정 — ATLAS/CMS/ALICE로의 transferability 미검증</li>
+<li>KG 구축은 article별 1회성 upfront cost지만 GPT-5 mini API 비용 누적</li>
 </ul>
 <h2>관련 정보</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://arxiv.org/abs/2509.06855">https://arxiv.org/abs/2509.06855</a></li>
+<li><strong>논문</strong>: <a href="https://arxiv.org/abs/2509.06855">arXiv:2509.06855</a></li>
+<li><strong>저자 소속</strong>: MIT (NSF AI Institute for AI and Fundamental Interactions)</li>
+<li><strong>사용 LLM</strong>: GPT-5 mini (KG 구축), embedding model (DPR / SciBERT 계열, 본문 미명시)</li>
+<li><strong>평가 reference</strong>: HFLAV 2023 report (Banerjee et al. 2024) — LHCb 코퍼스에 미포함</li>
+<li><strong>KG 도구</strong>: Neo4j (CYPHER query language)</li>
+<li><strong>코드 공개</strong>: workshop camera-ready 버전에서 공개 예정</li>
 </ul>
 
     </article>

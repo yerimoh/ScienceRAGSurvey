@@ -5,179 +5,194 @@ bib_key: DBLP:conf/emnlp/ZhengZFZWPC25
 year: 2025
 domain: physics
 type: Method
-venue: EMNLP (Findings)
+venue: EMNLP (Findings) 2025
 paper_link: https://aclanthology.org/2025.findings-emnlp.1196/
 originSessionId: e17a6512-257b-4eac-96cc-808523cf24a8
 ---
 # Benchmarking Foundation Models with Retrieval-Augmented Generation in Olympic-Level Physics Problem Solving
 
-> EMNLP (Findings) | 2025 | Method | physics
-## 📌 한 줄 요약
-Physics Olympiad 문제 풀이를 위한 최초의 멀티모달 RAG 벤치마크 **PhoPile**을 구축하고, 8개 foundation model × 7종 retriever 조합으로 RAG의 물리 추론 향상 가능성을 종합 평가한 연구.
-## 🎯 연구 배경 및 동기
-### 기존 방법의 한계점
-- 기존 자연과학 데이터셋(SciQ, ScienceQA 등)은 초중고 수준의 단순 문제로 구성되어 전문가 수준의 물리 추론 벤치마킹에 부적합
-- Foundation model들은 도메인 특화 전문 지식 부족, 잦은 환각(hallucination), 물리 법칙 적용의 일관성 부재 문제를 가짐
-- Olympiad 수준 물리 문제는 다이어그램·그래프·수식을 필수적으로 포함하는 멀티모달 특성이 있으나, 기존 RAG 연구는 텍스트 위주
-### 이 연구가 필요한 이유
-- 수험생이 과거 유사 문제를 참고하여 새 문제를 푸는 방식(few-shot retrieval)을 AI에 적용하면 물리 추론 능력을 향상시킬 수 있다는 가설 검증 필요
-- Olympiad 문제는 연도 간 유사 개념이 반복되므로 RAG의 효용이 기대됨
-## 🏗️ 시스템 아키텍처
-[image]
-```javascript
-[Physics Olympiad 문제 입력 (쿼리)]
-        ↓
-[Retriever] → PhoPile Corpus (2,662문제, 과거 연도)
-        ↓ Top-k 유사 문제+해설 반환
-[Generator (LLM/LMM)] ← k-shot 예시로 활용
-        ↓
-[생성된 풀이]
-        ↓ (선택적)
-[Reflection: GPT-4가 답안 재검토·수정]
-        ↓
-[GPT-4 Judge: 0/5/10점 step-wise + solution-level 채점]
+> EMNLP Findings | 2025 | Method | physics
+
+## 한 줄 요약
+**PhoPile** — 7개 국제 Physics Olympiad(IPhO, APhO, EuPhO, NBPhO, RMPh, USAPhO, BPhO)에서 모은 3,052개 올림피아드 문제(2018년 이전 2,662개 retrieval corpus + 2019-2021년 390개 test) 기반 **최초의 멀티모달 RAG 물리 벤치마크**. 텍스트·이미지가 결합된 진정한 olympiad 난이도 문제에 대해 8개 LLM/LMM × 7개 retriever × 1-3 shot × reflection on/off를 종합 평가.
+
+## 제작 배경
+**기존 데이터셋의 한계**
+- SciQ, ScienceQA, TheoremQA 등은 "small number of low-difficulty, text-only physics problems" (논문 §1)
+- OlympiadBench는 난이도는 올렸지만 RAG 없이 isolation 평가 → retrieval 효용 미평가
+- 물리 답안은 numerical, symbolic, diagrammatic 다양 → 수학과 달리 자동 채점 매우 어려움
+
+**왜 필요한가**
+- 수험생이 과거 유사 문제를 참고하여 새 문제를 푸는 학습 방식 = few-shot retrieval과 유사
+- Olympiad는 연도 간 개념이 반복 → 과거 문제 retrieval이 효과적일 것이라는 가설 검증 필요
+- 저자 인용: "competition problems share similar concepts across years, and past problems capture not only the necessary physics knowledge from basic principles, but also problem-solving strategies" (§1)
+
+## 어떻게 만들었나 (Construction Methodology)
+**Step 1: Data Collection**
+- 7개 대회 공식 PDF에서 2009-2021 문제 수집
+- IPhO (International), APhO (Asian), EuPhO (European), NBPhO (Nordic-Baltic), RMPh (Romanian Master), USAPhO (United States), BPhO (British)
+- 2019-2021 → test set (390문제)
+- 2009-2018 → retrieval corpus (2,662문제)
+
+**Step 2: 표준화 (논문 §2)**
+1. LaTeX 변환: 수식·도해를 표준 LaTeX로 변환
+2. Image placeholder: `###img_1###` 형태로 이미지 위치 표시
+3. Hierarchical Question Structure: main problem + sub-questions 계층 보존
+4. Token statistics 정규화 (Table 2)
+
+**Step 3: 시스템 아키텍처**
 ```
-## 🔑 핵심 모듈 상세 설명
-### PhoPile 데이터셋
-<table header-row="true">
-<tr>
-<td>구성 요소</td>
-<td>내용</td>
-</tr>
-<tr>
-<td>총 문제 수</td>
-<td>3,052문제</td>
-</tr>
-<tr>
-<td>Retrieval Corpus</td>
-<td>2,662문제 (2018년 이전 출제분)</td>
-</tr>
-<tr>
-<td>Test Set</td>
-<td>390문제 (2019~2021년 출제분)</td>
-</tr>
-<tr>
-<td>대회 출처</td>
-<td>IPhO, APhO, EuPhO, NBPhO, RMPhO, AAPT, BPhO (7개)</td>
-</tr>
-<tr>
-<td>모달리티</td>
-<td>텍스트 + 이미지(다이어그램, 그래프, 수식)</td>
-</tr>
-</table>
-### Retriever 목록
-<table header-row="true">
-<tr>
-<td>유형</td>
-<td>Retriever</td>
-<td>특징</td>
-</tr>
-<tr>
-<td>Text-only</td>
-<td>BM25</td>
-<td>어휘 기반 검색</td>
-</tr>
-<tr>
-<td>Text-only</td>
-<td>Contriever</td>
-<td>비지도 학습 dense retriever</td>
-</tr>
-<tr>
-<td>Text-only</td>
-<td>DPR</td>
-<td>Dense Passage Retriever</td>
-</tr>
-<tr>
-<td>Text-only</td>
-<td>DRAGON</td>
-<td>다양한 증강 기반 dense retriever</td>
-</tr>
-<tr>
-<td>Multimodal</td>
-<td>VisualBERT 기반</td>
-<td>이미지+텍스트 결합 임베딩</td>
-</tr>
-<tr>
-<td>Multimodal</td>
-<td>CLIP 기반</td>
-<td>OpenAI 멀티모달 임베딩</td>
-</tr>
-<tr>
-<td>Multimodal</td>
-<td>BLIP 기반</td>
-<td>부트스트래핑 언어-이미지 사전학습</td>
-</tr>
-</table>
-### Generator 목록
-<table header-row="true">
-<tr>
-<td>모델</td>
-<td>유형</td>
-<td>참고</td>
-</tr>
-<tr>
-<td>GPT-3.5-turbo</td>
-<td>LLM</td>
-<td>OpenAI API</td>
-</tr>
-<tr>
-<td>GPT-4</td>
-<td>LLM</td>
-<td>OpenAI API</td>
-</tr>
-<tr>
-<td>GPT-4V</td>
-<td>LMM</td>
-<td>OpenAI API (Vision)</td>
-</tr>
-<tr>
-<td>Gemini-Pro</td>
-<td>LLM</td>
-<td>Google API</td>
-</tr>
-<tr>
-<td>Gemini-Pro-Vision</td>
-<td>LMM</td>
-<td>Google API (Vision)</td>
-</tr>
-<tr>
-<td>ChatGLM</td>
-<td>LLM</td>
-<td>오픈소스</td>
-</tr>
-<tr>
-<td>(기타 LLM 포함)</td>
-<td>-</td>
-<td>총 8개 모델</td>
-</tr>
-</table>
-### GPT-4 Judge 평가 프레임워크
-- **Step-wise 평가**: 풀이 과정 단계별 정확성 확인
-- **Solution-level 평가**: 최종 답안 정확성 확인
-- **점수 체계**: 0점(완전 오답) / 5점(부분 정답) / 10점(완전 정답)
-- 참조 해설(reference solution)을 함께 제공하여 채점 근거로 활용
-## 🧪 실험 및 평가
-### 평가 태스크
-- **PhoPile-Test**: 텍스트 전용 문제 390개
-- **PhoPile(V)-Test**: 이미지 포함 문제 서브셋 (멀티모달 모델 평가용)
-### 주요 결과
-- RAG 통합 시 일부 모델에서 성능 향상 확인 (Gemini-Pro: RAG로 17.95%까지 향상)
-- Text retriever 중 Contriever가 전반적으로 안정적 성능
-- Multimodal retriever는 텍스트 위주 문제에서 오히려 노이즈 유발 가능
-- Shot 수 증가(1→2→3-shot)가 항상 성능 향상을 보장하지 않음
-- Reflection 메커니즘이 일부 모델에서 노이즈 완화에 효과적
-## 💡 핵심 기여
-1. Physics Olympiad 7개 대회 기반 **최초의 멀티모달 RAG 물리 벤치마크 PhoPile** 구축
-2. LLM 4종 + LMM 4종, text retriever 4종 + multimodal retriever 3종 **종합 비교 실험**
-3. 단계별(step-wise) + 최종 답안(solution-level) 이중 채점 **GPT-4 judge 프레임워크** 설계
-4. 물리 추론에서 RAG의 효용과 한계에 대한 최초의 체계적 분석 제공
-## ⚠️ 한계점
-- 검색된 문제가 노이즈로 작용하여 성능을 오히려 낮추는 경우 존재
-- 도메인 특화 파인튜닝 없이 범용 retriever만 사용 → 물리 특화 임베딩 부재
-- GPT-4 judge 의존적 평가 → judge의 물리 전문성에 의존
-- 영어 문제 중심 (일부 다국어 대회 문제 포함되나 주로 영어 번역본)
-## 🔗 관련 연구 및 관련 정보
+                  [New Olympiad Question + ###img###]
+                                │
+                                ▼
+              ┌──────────────────────────────────┐
+              │   Retrievers (7 종)              │
+              │   ─────────────────────────      │
+              │   Text-only:                     │
+              │     - BM25 (sparse)              │
+              │     - Emb-cos (all-MiniLM-L6-v2) │
+              │     - Dragon+                    │
+              │     - Contriever                 │
+              │   Multimodal:                    │
+              │     - CLIP                       │
+              │     - VisualBERT                 │
+              │     - ALIGN                      │
+              └────────────┬─────────────────────┘
+                           │ Top-k similar (q_i, a_i) pairs
+                           ▼
+              ┌──────────────────────────────────┐
+              │   Generator (8 종)               │
+              │   ─────────────────────────      │
+              │   Closed: GPT-3.5, GPT-4,        │
+              │           GPT-4V, Gemini-Pro,    │
+              │           Gemini-Pro-V           │
+              │   Open: Llama-3-70B,             │
+              │         DeepSeek-Math,           │
+              │         Mistral-7B, Phi-3.5,     │
+              │         Mathstral-7B (FT 가능)   │
+              │   - Few-shot prompt with         │
+              │     retrieved Q-A pairs          │
+              │   - Sub-question 자동 chain      │
+              └────────────┬─────────────────────┘
+                           │
+                           ▼ Candidate answer
+              ┌──────────────────────────────────┐
+              │   (Optional) Reflection (GPT-4)  │
+              │   ─────────────────────────      │
+              │   Answer w/RAG vs Answer w/o RAG │
+              │   → 더 정확한 답 선택            │
+              └────────────┬─────────────────────┘
+                           │
+                           ▼
+              ┌──────────────────────────────────┐
+              │   GPT-4 Judge                    │
+              │   ─────────────────────────      │
+              │   Reference answer + Student     │
+              │   answer → 0-10 점               │
+              │   (full score 정답 / 부분점수    │
+              │    중간단계 비율)                │
+              └──────────────────────────────────┘
+```
+
+### Generator Prompt (논문 Figure 3, 그대로 인용)
+> "Your task is to answer the physics questions. The mathematical formulas are provided in Latex code. There are some related questions and their answers you may find helpful.
+> Here are the examples:
+> Question: {Retrieved Question 1}
+> Reference answer: {Reference Answer to Question 1}
+> Question: {Retrieved Question 2}
+> Reference answer: {Reference Answer to Question 2}
+> The question that you need to solve is: {Question to be answered}
+> Respond with the FINAL answer to the question to get a higher score as possible as you can, rather than only give directions or suggestions for solving the problem. Do NOT use the conditions in the example questions to solve the question."
+
+### Reflection Prompt (Figure 4)
+> "Your task is to choose the answer with a higher score of the given physics problem.
+> Question: {Question to be answered}
+> Answer 1: {Candidate answer without RAG}
+> Answer 2: {Candidate answer with RAG}
+> Please give a reason and output the final answer number in side '##', for example, ##1##."
+
+### Judge Prompt (Figure 5)
+> "You are a professional physicist and you will grade answers provided by physics students by reference to standard answers. The full score is 10 points, and the minimum score is 0 points. If the student gives the final answer, full marks will be awarded directly. If the student does not give the final answer or the final answer is incorrect, please score based on the proportion of correct calculation steps given by the student. You only need to output a score number."
+
+## Input/Output
+**Input**: Olympiad 물리 문제 (text + LaTeX + optional image) + (선택) k개 retrieved Q-A pair
+
+**Output**: 단계별 풀이 + 최종 답안 (numerical / symbolic / diagrammatic)
+
+**Evaluation**: GPT-4 grader가 reference answer 대비 0-10점 (Pass Rate = 정답 인정 비율, Average Score = 0-10 평균)
+
+## 예시 사례
+### 예시 ① — Charged Ring (논문 Figure 1, retrieval pipeline showcase)
+> **New Question (test set)**:
+> > "Consider a uniformly charged metallic ring of radius R and total charge q. The ring is a hollow toroid of thickness 2a≪R. This thickness can be neglected in parts A, B, C, and E. The xy plane coincides with the plane of the ring, while the z-axis is perpendicular to it, as shown in Figure 1. In parts A and B you might need to use the formula (Taylor expansion): (1 + xε) ≈ 1 + εx + 0.5ε(ε−1)x², when x≪1. Calculate the electrostatic potential Φ(z) along the axis of the ring at a z distance from its center (point A in ###img_1###)."
+>
+> **Retrievers tested**: BM25, MiniLM+cosine, Dragon+, Contriever (text-only) 또는 CLIP/VisualBERT/ALIGN (multimodal)
+> **Generators tested**: GPT-4, Gemini-Pro, Llama-3, Mistral 등 8종
+
+### 예시 ② — Error Analysis (저자가 직접 분류한 negative case, §3.3)
+> 검색이 오히려 성능을 떨어뜨린 3가지 원인 (논문 §3.3):
+> 1) "the general retriever was not effectively applied to physics problems, as retriever specific to physics may consider the questions that using the same theorem as the top-k relevant ones, instead of those with highest semantic similarity"
+> 2) "The format in retrieved questions misleads the candidate models' answering. The retrieved questions and their reference answer may provide guidance answers instead of directly answering the question. Therefore, the foundation models may refuse to answer the final answer directly"
+> 3) "some wrong answers arise from using conditions in the retrieved questions as if they were the known conditions in the current question"
+
+## 주요 평가 결과
+**Table 4 — PhoPile-Test (text-only, Pass Rate% / Avg Score)**
+| Model | Input | w/o RAG | Emb-cos | BM25 | Dragon+ | Contriever |
+|---|---|---|---|---|---|---|
+| Llama-3-70B | T | 10.51 (1.34) | 5.4 (1.84) | **19.07** (4.86) | 13.62 (4.83) | 10.28 (4.65) |
+| Llama-3-70B + Reflection | T | 10.51 | **19.38** (4.35) | **19.38** (4.35) | 14.51 | 10.80 |
+| GPT-3.5 | T | 7.95 (4.12) | 8.72 | 8.23 | 10.00 | 7.69 |
+| Gemini-Pro | T | 17.18 (5.30) | 16.15 | 15.90 | 16.41 | **30.51** (5.19) |
+| Gemini-Pro + Reflection | T | 17.18 | **21.54** (5.72) | 20.51 | 18.72 | 19.74 |
+| GPT-4 | T | 26.41 (6.27) | 24.10 | 25.19 | 25.71 | 25.19 |
+| GPT-4 + Reflection | T | 26.41 | 27.92 | 27.69 | **28.46** (6.34) | 26.99 |
+| Mathstral-7B-v0.1-FT | T | 6.62 | 27.17 | **29.02** (9.28) | 28.90 | 27.66 |
+| Llama-3-8B-FT | T | 5.86 | **28.31** (5.90) | 26.44 | 27.46 | 25.39 |
+
+**Table 5 — PhoPile(V)-Test (multimodal, image+text)**
+| Model | w/o RAG | CLIP | VisualBERT | ALIGN |
+|---|---|---|---|---|
+| Gemini-Pro-V | 12.82 (5.09) | **17.48** | 13.59 | 14.56 |
+| Gemini-Pro-V + Reflection | 12.82 | 14.56 | **17.48** (5.28) | 15.53 |
+| GPT-4V | 21.79 (6.26) | **30.10** (6.20) | 24.27 | 15.53 |
+| GPT-4V + Reflection | 21.79 | 26.41 | 22.33 | 23.30 |
+
+**Table 6 — k-shot 효과 (Avg Score in parens)**
+| Model | k | Emb-cos | BM25 | Dragon+ | Contriever |
+|---|---|---|---|---|---|
+| GPT-3.5 | 1 | 8.97 | 6.92 | 9.74 | 0.77 |
+| GPT-3.5 | 2 | 8.72 | 8.23 | 10.00 | 7.69 |
+| GPT-3.5 | 3 | 9.74 | 6.41 | 7.44 | 7.71 |
+| GPT-4 | 1 | 26.74 | 22.82 | 26.41 | **28.97** |
+| GPT-4 | 2 | 24.10 | 25.19 | 25.71 | 25.19 |
+| GPT-4 | 3 | 25.90 | 22.56 | 22.37 | 24.62 |
+
+**Table 3 — GPT-4 Grader 신뢰성 (tolerance k)**
+| Tolerance k | 0 | 1 | 2 | 3 |
+|---|---|---|---|---|
+| Accuracy (%) vs human | 37 | 49 | 73 | 87 |
+
+**핵심 관찰**
+- 최고 성능: GPT-4V + CLIP(multimodal) = **30.10%** ; Gemini-Pro + Contriever(text) = **30.51%**
+- RAG 효과는 model마다 다름 — 일부 (GPT-3.5 + Contriever) 는 base보다 하락
+- Reflection은 약한 모델(Gemini-Pro, Llama-3-70B)에서 큰 향상
+- k=1이 종종 k=2,3보다 우수 → "Shot 수 증가가 항상 좋은 것은 아님"
+- Open-source FT 모델(Mathstral 29.02)이 GPT-4와 거의 동급
+
+## 핵심 기여
+1. **PhoPile** — 7개 대회 기반 최초의 multimodal physics olympiad RAG benchmark
+2. **8 LLM/LMM × 7 retriever × 3 shot × reflection 종합 ablation** — 가장 광범위한 physics RAG 평가
+3. **Step-wise + solution-level GPT-4 judge** — 추론 단계 채점 프레임워크 (tolerance k=3에서 인간 일치율 87%)
+4. **Error taxonomy** — RAG 실패 3가지 원인 분류 (semantic mismatch / format misleading / condition leakage)
+
+## 한계점
+- 일반 retriever만 사용 → physics-specific retriever 부재 ("highlights the significance of establishing domain-specific retrievers", §3.3)
+- GPT-4 judge 의존 → judge가 물리 전문성을 보장하지 않음
+- 영어 문제 중심 (다국어 대회는 영어 번역본)
+- 검색 노이즈 robustness 미흡 → conditions leakage 빈발
+
+## 관련 정보
 - **논문 링크**: [https://aclanthology.org/2025.findings-emnlp.1196/](https://aclanthology.org/2025.findings-emnlp.1196/)
 - **arXiv**: [https://arxiv.org/abs/2510.00919](https://arxiv.org/abs/2510.00919)
-- **관련 벤치마크**: SciQ (Welbl et al., 2017), ScienceQA (Lu et al., 2022), TheoremQA (Chen et al., 2023)
-- **이 벤치마크(PhoPile)를 사용한 논문**: 본 논문 자체
+- **관련 벤치마크**: SciQ (Welbl et al., 2017), ScienceQA (Lu et al., 2022), TheoremQA (Chen et al., 2023), OlympiadBench (He et al., 2024)
+- **K×O 분류**: K3 (체계적 지식/educational artifacts) × O1 (closed-form QA) — 과거 olympiad Q-A pair를 demonstration으로 활용

@@ -120,24 +120,57 @@
 <blockquote>
 <p>AAAI 2026 (vol. 40, no. 35, pp. 29921–29929) | Method | medical (pathology)
 Zhang, Guo, H.Zhang, P.Zhang, Chen, S.Zhang, Z.Zhang, Yi, Bu
-DBLP: <code>conf/aaai/ZhangGZZCZZYB26</code></p>
+DBLP: <code>conf/aaai/ZhangGZZCZZYB26</code> · arXiv:2508.02258</p>
 </blockquote>
 <h2>한 줄 요약</h2>
-<p>600권 이상의 병리학 교과서에서 페이지 단위 멀티모달 임베딩(ColQwen2)으로 구축한 20만 페이지 규모의 지식 베이스와, GRPO 강화학습으로 훈련한 아젠틱 라우터(Qwen3-4B)를 결합해 병리 VLM의 환각을 억제하는 멀티모달 RAG 시스템. PathMMU-test에서 78.32%, MedXpertQA에서 60.00%(+38pp)를 달성.</p>
-<hr />
+<p>600권 이상의 권위 있는 병리학 교과서에서 <strong>페이지 단위 멀티모달 임베딩(ColQwen2)</strong>으로 구축한 <strong>20만+ 페이지 규모의 지식 베이스</strong>와, <strong>GRPO 강화학습</strong>으로 훈련한 4-단계 의사결정 아젠틱 라우터(Qwen3-4B)를 결합해 병리 VLM의 환각을 억제하는 멀티모달 RAG 시스템. PathMMU-test에서 78.32%, <strong>MedXpertQA에서 60.00% (+38pp vs base Patho-R1-7B)</strong> 달성.</p>
+<h2>제작 배경</h2>
+<p><strong>병리학 VLM의 한계</strong> (논문 §2 발췌)</p>
+<blockquote>
+<p>&quot;Reinforcement learning (RL) provides a promising paradigm for aligning the outputs of VLMs with clinical accuracy requirements, especially in high-risk medical domains where hallucinated descriptions can lead to severe consequences.&quot;</p>
+</blockquote>
+<p>기존 의료 RAG의 문제:</p>
+<ul>
+<li><strong>Text-only RAG</strong>: 병리 진단의 핵심인 H&amp;E 염색 패턴·세포 형태·공간 배치 등 <strong>시각 단서를 텍스트로 환원 불가</strong></li>
+<li><strong>Static RAG pipeline</strong>: 모든 쿼리에 무차별 검색 → 일반 상식 문제(&quot;What stain is used for nuclei?&quot;)까지 retrieve 시 latency·noise 증가</li>
+<li><strong>MMed-RAG·MedRAG 등 기존 medical RAG</strong>: 일반 의학 위주이며 병리 전문성 부족, retrieval 대상이 paper abstract/journal에 한정</li>
+</ul>
+<p><strong>Patho-AgenticRAG의 차별점</strong>:</p>
+<ol>
+<li><strong>페이지 단위 multimodal indexing</strong> (ColQwen2): textbook 페이지를 하나의 image-text 통합 벡터로 표현 → text-only chunk 대비 시각 패턴 보존</li>
+<li><strong>Agentic Router</strong>: 쿼리별로 RAG 호출 여부·검색 깊이·해부학 파티션·조직 분류기 활성화 여부를 동적 결정</li>
+<li><strong>GRPO RL 학습</strong>: SFT만으로 부족한 결정 정확도를 강화학습으로 fine-tune</li>
+</ol>
 <h2>어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — 병리학 교과서 지식 베이스 구축
-  600권 이상 권위 있는 병리학 교과서 → ~300,000페이지 수집
+  600+ 권위 있는 병리학 교과서 → ~300,000 페이지 수집
   커버·서문·목차·참고문헌 제거 → 200,000+ 고품질 페이지 보존
   19개 해부학 카테고리로 파티셔닝:
-    bone/soft tissue, cytology, GI, hematology, infectious diseases,
-    oral/head/neck, urinary/reproductive, breast, endocrine,
-    general pathology, histology, pediatric, skin, CNS,
-    female reproductive, gross sampling, IHC, ophthalmology, respiratory
-  임베딩: ColQwen2 (텍스트+이미지 통합 벡터 공간, 페이지 단위)
-  벡터 DB: Milvus + HNSW 인덱싱
+    1. Bone and soft tissue        11. Histology
+    2. Cytology                    12. Pediatric pathology
+    3. Gastrointestinal (GI)       13. Skin
+    4. Hematology                  14. Central nervous system (CNS)
+    5. Infectious diseases         15. Female reproductive system
+    6. Oral / Head / Neck (ENT)    16. Gross sampling
+    7. Urinary / male reproductive 17. Immunohistochemistry (IHC)
+    8. Breast                      18. Ophthalmology
+    9. Endocrine system            19. Respiratory
+   10. General pathology
+  임베딩: ColQwen2 — 텍스트+이미지 통합 다중-벡터 표현 (페이지 단위)
+  벡터 DB: Milvus + HNSW 인덱싱, 150M+ 벡터
 
-Step 2 — 라우터 훈련 데이터 구성
+Step 2 — Patho-Fusion 리랭킹 알고리즘 설계
+  ColQwen2가 생성한 두 similarity matrix를 결합:
+    - S_t ∈ R^{Nt × Nd} : query text token ↔ page document token
+    - S_v ∈ R^{Nv × Nd} : query image patch ↔ page document patch
+  Patho-Fusion Score (이 논문 고유):
+    Score = α · mean(max(S_t[i, :]))    ← CoPaLi-style text relevance
+          + β · κ(S_v[i, :])              ← image kurtosis (집중적 시각 관심)
+  설계 의도: 시각 modality의 평균 유사도는 무시,
+            &quot;특정 영역에 집중된 attention&quot;만 가산점 부여
+            → 균일한(noisy) 시각 매칭을 패널티
+
+Step 3 — Agentic Router 훈련 데이터 구성
   Quilt-VQA + Path-VQA 훈련 세트에서 질문 선별
   ┌─ Patho-R1-7B 정답 → 2,200개 (RAG 불필요 학습 신호)
   └─ Patho-R1-7B 오답 → 2,200개 (RAG 필요 학습 신호)
@@ -145,37 +178,44 @@ Step 2 — 라우터 훈련 데이터 구성
 
   QwenMax로 각 샘플에 대한 전문가 설계 프롬프트 기반
   ground-truth 4-단계 의사결정 경로 생성:
-    Decision 1: RAG 호출 여부
-    Decision 2: 쿼리 분해 수
+    Decision 1: RAG 호출 여부 (Yes/No)
+    Decision 2: 쿼리 분해 수 (1, 2, 3, ...)
     Decision 3: 조직 특화 분류기 활성화 여부
-    Decision 4: 검색 해부학 파티션 선택
+    Decision 4: 검색 해부학 파티션 선택 (19개 중)
 
   SFT 400개 / GRPO RL 4,000개로 분할
 
-Step 3 — 라우터 학습 (Qwen3-4B)
+Step 4 — 라우터 학습 (Qwen3-4B)
   Phase A — SFT: 400개 샘플, 3 epoch, LR=1e-5 (vision tower frozen)
-  Phase B — GRPO: 4,000개 샘플, 3 epoch, actor LR=1e-6 / critic LR=1e-5
+  Phase B — GRPO: 4,000개 샘플, 3 epoch
+                  actor LR=1e-6 / critic LR=1e-5
   Hardware: 8× NVIDIA RTX 4090
 
   계층적 보상 함수 (max 4점):
   ┌─ Decision 1 오류: 0점 (조기 종료)
-  ├─ Decision 1 정답(RAG 불필요): 4점
+  ├─ Decision 1 정답(RAG 불필요): 4점 (단순 질문이므로)
   ├─ Decision 1 정답(RAG 필요): 1점 → Decision 2 정답: +1점
   └─ Decision 3+4 정답: 추가 1~2점 → 최대 4점
 
-Step 4 — 인퍼런스 파이프라인
-  쿼리 [이미지+텍스트]
+Step 5 — 인퍼런스 파이프라인 (Multi-agent Workflow)
+  사용자 입력 [이미지+텍스트]
        ↓
   Agentic Router (Qwen3-4B)
     → RAG 필요? No → Patho-R1-7B 직접 답변
-    → RAG 필요? Yes → 쿼리 분해 (N개)
+    → RAG 필요? Yes → 후보별 sub-task 분해, 해부학 파티션 선택
        ↓
-  ColQwen2 인코딩 → Milvus HNSW 검색
-  Patho-Fusion 리랭킹 (text-doc × image-doc 스코어링)
+  VRAG Agent — multi-turn retrieval + summarization
+    - text-based retrieval (각 후보별 keyword)
+    - Patho-Fusion 리랭킹 (text-doc × image-doc kurtosis)
+    - iterative 증거 sufficiency 평가
        ↓
-  상위 페이지 + 원본 쿼리 → Patho-R1-7B → 최종 답변
+  Top-1 page evidence + 원본 쿼리 + comparative instructions
+       ↓
+  Patho-R1-7B (specialized pathology VLM)
+    → contrastive reasoning constrained to evidence
+    → 진단 + interpretable justification
 
-Step 5 — 평가 벤치마크
+Step 6 — 평가 벤치마크 7개
   ┌─────────────────────────┬──────────┬───────────────┐
   │ 벤치마크                 │ 문항수   │ 유형          │
   ├─────────────────────────┼──────────┼───────────────┤
@@ -192,177 +232,251 @@ Step 5 — 평가 벤치마크
   │ OmniMedVQA BRIGHT       │    890   │ VQA           │
   └─────────────────────────┴──────────┴───────────────┘
 </code></pre>
-<hr />
-<h2>실제 태스크 형식 예시</h2>
-<p>PathMMU는 5개 서브도메인 병리 이미지와 함께 제공되는 다지선다 진단 문제이다. 실제 문항 구조:</p>
+<h2>Input (입력) / Output (출력)</h2>
+<p><strong>Input</strong>: 병리 이미지 (H&amp;E 염색 슬라이드 등) + 자연어 질문 (객관식 또는 Y/N)
+<strong>Output</strong>: 정답 옵션 + (선택적으로) evidence-grounded justification</p>
+<p><strong>Knowledge base</strong>: 200,000+ pathology textbook pages, indexed in Milvus + HNSW
+<strong>Vision encoder for routing</strong>: Qwen3-4B (multimodal)
+<strong>Vision encoder for retrieval</strong>: ColQwen2 (page-level multi-vector)
+<strong>Final VLM (inference engine)</strong>: Patho-R1-7B (pathology-specialized)</p>
+<h2>예시 사례 (논문 Figure 2, Figure 3 — 실제 멀티모달 검색 워크플로우 직접 인용)</h2>
+<h3>🔬 Case 1: Multi-turn Retrieval — Monophasic Synovial Sarcoma (Figure 2 발췌)</h3>
+<p>논문 Figure 2는 실제 query가 시스템 내부에서 어떻게 처리되는지를 단계별로 보여준다.</p>
 <blockquote>
-<p><strong>[병리 슬라이드 이미지 첨부]</strong></p>
-<p><strong>Q.</strong> The image shows a histological section stained with H&amp;E. Which of the following best describes the pathological finding?</p>
-<p>(A) Squamous cell carcinoma with keratin pearl formation
-(B) Adenocarcinoma with gland formation
-(C) Small cell carcinoma with nuclear molding
-(D) Large cell carcinoma without specific differentiation</p>
-</blockquote>
-<p>Path-VQA 형식 (Yes/No):</p>
+<p><strong>Original Text Query (PathMMU 객관식 문제, Ground Truth: A)</strong>:</p>
 <blockquote>
-<p><strong>[병리 이미지]</strong>
-<strong>Q.</strong> Is there evidence of inflammation in this tissue section?
-<strong>(A) Yes  (B) No</strong></p>
+<p>&quot;This image shows monophasic synovial sarcoma. What are its key histologic features?
+A. Dense, uniform spindle cells with scant cytoplasm in short, intersecting fascicles.
+B. Biphasic: glandular epithelium with spindle cell stroma.
+C. Scattered adipocytes in fibrous stroma with atypia.
+D. Large polygonal cells with coarse eosinophilic granules.&quot;</p>
 </blockquote>
-<hr />
-<h2>Patho-Fusion 멀티모달 리랭킹</h2>
-<p>ColQwen2가 생성한 텍스트-문서 유사도 행렬 T와 이미지-문서 유사도 행렬 I를 결합:</p>
+<p><strong>VRAG Agent Rewritten Search Query</strong>:</p>
+<blockquote>
+<p>&quot;What are the histological features of monophasic synovial sarcoma?&quot;</p>
+</blockquote>
+<p><strong>Multi-turn Retrieval 결과</strong> (Patho-Fusion score):</p>
+<ul>
+<li>&quot;Cytologic appearance of Ewing sarcoma/PNET...&quot; (score 0.6638 → text retrieval top1이나 distractor)</li>
+<li>&quot;Monophasic synovial sarcoma. The tumor...&quot; (0.6558)</li>
+<li>&quot;...monophasic synovial sarcoma with...&quot; (0.6190)</li>
+<li><strong>Final Top1 (after Patho-Fusion rerank)</strong>: &quot;Synovial sarcoma with an adenocarcinoma-like appearance of the epithelial component.&quot; (0.6602, 이미지 attention 집중도 가장 높음)</li>
+</ul>
+<p><strong>Sub-VRAG agent thought process (논문 Figure 2)</strong>: text retrieval은 <em>Ewing sarcoma</em>를 top1으로 잘못 가져왔으나, image kurtosis term이 <em>synovial sarcoma</em> 페이지를 정확히 rerank → 최종 정답 A 도출.</p>
+</blockquote>
+<h3>🧬 Case 2: 학습 데이터 라벨링 예시 (Appendix, Q1-Q2 발췌)</h3>
+<p>훈련 데이터의 ground-truth answer 예시:</p>
+<blockquote>
+<p><strong>Q1</strong>: &quot;Histological features of invasive lobular carcinoma of the breast, including Indian-file pattern&quot;
+<strong>A1</strong>: &quot;Histological features of invasive lobular carcinoma of the breast include uniform small round tumor cells infiltrating the stroma in a single-file (Indian-file) arrangement and circumferentially around ducts in a target-like pattern.&quot;</p>
+<p><strong>Q2</strong>: &quot;How to differentiate ductal, papillary, and mucinous breast carcinoma histologically&quot;
+<strong>A2</strong>: &quot;Histologically, ductal carcinoma shows glandular, papillary, cribriform, or diffuse growth patterns, often forming nests, trabeculae, or cords. Papillary carcinoma is characterized by prom[inent papillary structures...]&quot;</p>
+</blockquote>
+<h3>🧠 Case 3: RAG-skip 결정 가이드라인 (Appendix prompt 발췌)</h3>
+<blockquote>
+<p>&quot;If the question reflects common knowledge in pathology or histology, such as 'What stain is used for nuclei?' or 'Which cell secretes collagen?', a <code>&lt;think&gt;</code> is sufficient, and no tool needs to be called.&quot;</p>
+</blockquote>
+<p>→ Router는 <em>상식 수준 질문</em>은 RAG 호출 없이 처리, <strong>드문/복잡한 질문</strong>(예: rare 종양 감별)만 vector DB 검색.</p>
+<h2>주요 평가 결과</h2>
+<h3>Patho-Fusion 리랭킹 성능 (Table 1)</h3>
+<p>100개 전문가 큐레이션 image-question-answer 쌍 기준:</p>
 <table>
 <thead>
 <tr>
-  <th>검색 방법</th>
-  <th>Recall@1</th>
-  <th>MRR@5</th>
-  <th>NDCG@20</th>
+  <th>방법</th>
+  <th style="text-align:right">Rec@1</th>
+  <th style="text-align:right">Rec@5</th>
+  <th style="text-align:right">MRR@5</th>
+  <th style="text-align:right">NDCG@5</th>
+  <th style="text-align:right">NDCG@20</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>CoPaLi</td>
-  <td>0.640</td>
-  <td>0.703</td>
-  <td>0.769</td>
+  <td>CoPaLi (Text)</td>
+  <td style="text-align:right">0.640</td>
+  <td style="text-align:right"><strong>0.900</strong></td>
+  <td style="text-align:right">0.734</td>
+  <td style="text-align:right">0.804</td>
+  <td style="text-align:right">0.796</td>
+</tr>
+<tr>
+  <td>CoPaLi (Image)</td>
+  <td style="text-align:right">0.060</td>
+  <td style="text-align:right">0.220</td>
+  <td style="text-align:right">0.112</td>
+  <td style="text-align:right">0.174</td>
+  <td style="text-align:right">0.359</td>
 </tr>
 <tr>
   <td>WeiMoCIR</td>
-  <td>0.680</td>
-  <td>0.741</td>
-  <td>0.802</td>
+  <td style="text-align:right">0.060</td>
+  <td style="text-align:right">0.200</td>
+  <td style="text-align:right">0.102</td>
+  <td style="text-align:right">0.163</td>
+  <td style="text-align:right">0.342</td>
 </tr>
 <tr>
-  <td><strong>Patho-Fusion</strong></td>
-  <td><strong>0.720</strong></td>
-  <td><strong>0.777</strong></td>
-  <td><strong>0.827</strong></td>
+  <td><strong>Patho-Fusion (ours)</strong></td>
+  <td style="text-align:right"><strong>0.720</strong></td>
+  <td style="text-align:right">0.880</td>
+  <td style="text-align:right"><strong>0.777</strong></td>
+  <td style="text-align:right"><strong>0.824</strong></td>
+  <td style="text-align:right"><strong>0.827</strong></td>
 </tr>
 </tbody>
 </table>
-<p><em>(100개 전문가 큐레이션 이미지-질문-정답 쌍 기준)</em></p>
-<hr />
-<h2>주요 평가 결과</h2>
-<p><strong>PathMMU Multiple-Choice QA (Table 2)</strong></p>
+<h3>PathMMU Multiple-Choice QA (Table 2 발췌)</h3>
 <table>
 <thead>
 <tr>
   <th>모델</th>
-  <th>PathMMU-test</th>
-  <th>PathMMU-tiny</th>
+  <th style="text-align:right">PathMMU-test</th>
+  <th style="text-align:right">PathMMU-test-tiny</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+  <td>InternVL2-8B</td>
+  <td style="text-align:right">43.68</td>
+  <td style="text-align:right">44.86</td>
+</tr>
+<tr>
+  <td>InternVL2.5-8B</td>
+  <td style="text-align:right">50.06</td>
+  <td style="text-align:right">50.62</td>
+</tr>
+<tr>
   <td>InternVL3-8B</td>
-  <td>54.07</td>
-  <td>42.94</td>
+  <td style="text-align:right">54.07</td>
+  <td style="text-align:right">50.80</td>
 </tr>
 <tr>
   <td>Llama-3.2V-11B-cot</td>
-  <td>51.81</td>
-  <td>29.94</td>
+  <td style="text-align:right">51.81</td>
+  <td style="text-align:right">45.45</td>
 </tr>
 <tr>
   <td>Qwen2.5VL-7B</td>
-  <td>41.18</td>
-  <td>24.86</td>
+  <td style="text-align:right">41.18</td>
+  <td style="text-align:right">43.20</td>
 </tr>
 <tr>
   <td>Patho-R1-7B (base)</td>
-  <td>75.34</td>
-  <td>44.63</td>
+  <td style="text-align:right">75.34</td>
+  <td style="text-align:right">66.43</td>
 </tr>
 <tr>
   <td><strong>Patho-AgenticRAG</strong></td>
-  <td><strong>78.32</strong></td>
-  <td><strong>57.22</strong></td>
+  <td style="text-align:right"><strong>78.32</strong></td>
+  <td style="text-align:right"><strong>70.96</strong></td>
 </tr>
 <tr>
   <td>향상 (vs. base)</td>
-  <td><strong>+2.98pp</strong></td>
-  <td><strong>+12.59pp</strong></td>
+  <td style="text-align:right"><strong>+2.98pp</strong></td>
+  <td style="text-align:right"><strong>+4.53pp</strong></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Yes/No VQA 및 전문가 QA (Table 3)</strong></p>
+<p>세부 subset (Atlas / EduContent / PathCLS / PubMed / SocialPath)에서도 일관되게 SOTA.</p>
+<h3>Yes/No VQA 및 전문가 QA (Table 3, 본문 §4 직접 인용)</h3>
+<blockquote>
+<p>&quot;Patho-AgenticRAG achieves +13.37% improvement on Quilt-VQA (75.80% vs. 64.72%) and +38.00% on MedXpertQA (60.00% vs. 22.00%) over Patho-R1. The largest margin appears on MedXpertQA, highlighting the importance of retrieval-augmented reasoning in knowledge-intensive tasks. On OmniMedVQA Bright Challenge, the model improves from 70.79% (Patho-R1) to 90.11%, a +19.32% increase.&quot;</p>
+</blockquote>
 <table>
 <thead>
 <tr>
   <th>모델</th>
-  <th>Path-VQA</th>
-  <th>MedXpertQA</th>
-  <th>Quilt-VQA</th>
+  <th style="text-align:right">Path-VQA</th>
+  <th style="text-align:right">Quilt-VQA</th>
+  <th style="text-align:right">MedXpertQA</th>
+  <th style="text-align:right">OmniMedVQA Bright</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>InternVL2.5-8B</td>
-  <td>60.06</td>
-  <td>64.78</td>
-  <td>49.78</td>
+  <td style="text-align:right">60.06</td>
+  <td style="text-align:right">49.78</td>
+  <td style="text-align:right">64.78</td>
+  <td style="text-align:right">22.22</td>
 </tr>
 <tr>
   <td>Patho-R1-7B (base)</td>
-  <td>64.72</td>
-  <td>22.00</td>
-  <td>70.79</td>
+  <td style="text-align:right">64.72</td>
+  <td style="text-align:right">70.79</td>
+  <td style="text-align:right">22.00</td>
+  <td style="text-align:right">46.97</td>
 </tr>
 <tr>
   <td><strong>Patho-AgenticRAG</strong></td>
-  <td><strong>75.80</strong></td>
-  <td><strong>60.00</strong></td>
-  <td><strong>90.11</strong></td>
+  <td style="text-align:right"><strong>75.80</strong></td>
+  <td style="text-align:right"><strong>90.11</strong></td>
+  <td style="text-align:right"><strong>60.00</strong></td>
+  <td style="text-align:right"><strong>80.34</strong></td>
 </tr>
 <tr>
   <td>향상 (vs. base)</td>
-  <td><strong>+13.37pp</strong></td>
-  <td><strong>+38.00pp</strong></td>
-  <td><strong>+19.32pp</strong></td>
+  <td style="text-align:right"><strong>+11.08pp</strong></td>
+  <td style="text-align:right"><strong>+19.32pp</strong></td>
+  <td style="text-align:right"><strong>+38.00pp</strong></td>
+  <td style="text-align:right"><strong>+33.37pp</strong></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Ablation — 라우터 학습 전략 (Path-VQA 기준)</strong></p>
+<h3>Ablation — 라우터 학습 전략 (Quilt-VQA 기준)</h3>
 <table>
 <thead>
 <tr>
   <th>구성</th>
-  <th>Path-VQA</th>
+  <th style="text-align:right">Quilt-VQA</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>GRPO-only (SFT 없음)</td>
-  <td>77.51%</td>
+  <td>Patho-R1 (no router, no RAG)</td>
+  <td style="text-align:right">64.72%</td>
 </tr>
 <tr>
-  <td>SFT-only (400개)</td>
-  <td>78.10%</td>
+  <td>+Qwen3 (raw router)</td>
+  <td style="text-align:right">60.93% (오히려 감소 — overcalling RAG)</td>
 </tr>
 <tr>
-  <td><strong>SFT400 + GRPO4k</strong></td>
-  <td><strong>80.34%</strong></td>
+  <td>+GRPO4k only</td>
+  <td style="text-align:right">60.93%</td>
+</tr>
+<tr>
+  <td>+SFT4k → GRPO400</td>
+  <td style="text-align:right">미세 향상</td>
+</tr>
+<tr>
+  <td><strong>+SFT400 → GRPO4k</strong></td>
+  <td style="text-align:right"><strong>75.80%</strong> (+14.87% over GRPO-only)</td>
 </tr>
 </tbody>
 </table>
-<hr />
+<p>→ 논문 §4 주장:</p>
+<blockquote>
+<p>&quot;These results suggest that SFT400 provides an effective 'cold start' that guides the policy initialization without compromising flexibility or generalization.&quot;</p>
+</blockquote>
 <h2>한계점</h2>
 <ul>
-<li>평가가 폐쇄형(closed-ended) 태스크에 한정 — 개방형 진단 추론 미평가</li>
-<li>지식 베이스가 교과서 기반 → 최신 임상 가이드라인·연구 논문 미반영</li>
-<li>교과서 커버리지에 따른 세부 병리 도메인별 불균형 가능성</li>
-<li>검색 지연 및 대규모 Milvus 인덱스 운영 비용 미보고</li>
-<li>병리 도메인 외 타 의료 모달리티(방사선, 안과) 일반화 미검증</li>
+<li><strong>평가가 폐쇄형(closed-ended) 태스크에 한정</strong> — Yes/No와 객관식 위주, 개방형 진단 추론(differential diagnosis) 미평가.</li>
+<li><strong>지식 베이스가 교과서 기반</strong> → 최신 임상 가이드라인·연구 논문 미반영 (예: 최근 1년 내 신약).</li>
+<li><strong>교과서 커버리지의 도메인 불균형</strong> — 19개 카테고리 중 일부는 소수 books에 의존 가능.</li>
+<li><strong>검색 지연·인프라 비용 미보고</strong>: 150M+ 벡터 Milvus 인덱스 + multi-turn agentic 호출은 실용 deploy 시 latency 우려.</li>
+<li><strong>병리 도메인 외 일반화 미검증</strong> — 동일 파이프라인이 방사선·안과·심전도에서 작동하는지 미증명.</li>
+<li><strong>GRPO 학습의 안정성</strong>: ablation에서 GRPO-only는 base보다 성능 <em>하락</em>하는 경우 확인 — SFT cold-start 의존성 강함.</li>
+<li><strong>VRAG Agent의 multi-turn 호출 수가 가변</strong> → 일관된 latency 보장 어려움.</li>
 </ul>
-<hr />
 <h2>관련 정보</h2>
 <ul>
 <li><strong>논문 (arXiv)</strong>: <a href="https://arxiv.org/abs/2508.02258">arXiv:2508.02258</a></li>
 <li><strong>AAAI 2026</strong>: vol. 40, no. 35, pp. 29921–29929</li>
 <li><strong>GitHub</strong>: <a href="https://github.com/Wenchuan-Zhang/Patho-AgenticRAG">Wenchuan-Zhang/Patho-AgenticRAG</a></li>
 <li><strong>DBLP</strong>: <a href="https://dblp.org/rec/conf/aaai/ZhangGZZCZZYB26">conf/aaai/ZhangGZZCZZYB26</a></li>
+<li><strong>base model</strong>: <a href="https://huggingface.co/blackshow/Patho-R1">Patho-R1-7B (Hugging Face)</a></li>
+<li><strong>Retrieval encoder</strong>: <a href="https://huggingface.co/vidore/colqwen2-v1.0">ColQwen2 (vidore)</a></li>
 </ul>
 
     </article>

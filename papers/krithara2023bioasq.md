@@ -102,6 +102,32 @@ Step 8 — Ideal answer (1-paragraph)
 
 ---
 
+## 도메인 적합성 판단 예시 (논문 Section 'Annotation process', verbatim)
+
+> **Q1 (REJECTED):** *"Which are the differences between Hidden Markov Models (HMMs) and Artificial Neural Networks (ANNs)?"*
+> · 일반 ML 비교 — 직접적인 biomedical 적용 명시 없음 → 거부.
+>
+> **Q2 (ACCEPTED):** *"Which are the uses of Hidden Markov Models (HMMs) in gene prediction?"*
+> · "gene prediction"이라는 biomedical 응용을 명시 → 채택.
+
+→ BioASQ는 명확한 biomedical 적용이 있는 질문만 허용하며, controversial하거나 답이 없는 의학 논쟁은 회피.
+
+## 검색 단계 verbatim 예시 (Tables 1-3 in paper)
+
+### Step 3 PubMed Query (Q: "Do CpG islands colocalise with transcription start sites?")
+> 관련 용어 추출: "CpG Island", "transcription start site", + synonym "Transcription Initiation Site"
+> PubMed Advanced Query: `"CpG Island" AND "transcription start site"`
+>
+> 회수된 article 예시 (Table 1):
+> · *"Putative Zinc Finger Protein Binding Sites Are Over-Represented in the Boundaries of Methylation-Resistant CpG Islands in the Human Genome"*
+> · *"CpG Islands: Starting Blocks for Replication and Transcription"*
+
+### Step 5 Text Snippet 예시 (Table 2)
+> *"A common explanation for the G+C rise that is seen here in the mammalian profile in the proximity of the TSS is the presence of CpG islands, ..."*
+
+### Step 8 Ideal Answer (Table 3, verbatim)
+> *"Yes. It is generally known that the presence of a CpG island around the TSS is related to the expression pattern of the gene. ..."*
+
 ## 실제 인스턴스 예시 (JSON format)
 
 ```json

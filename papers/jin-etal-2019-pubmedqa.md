@@ -71,20 +71,53 @@ Step 5 — PQA-A 211.3k (자동 생성, 사전학습용)
 
 ---
 
-## 실제 문항 형식 예시
+## 실제 문항 형식 예시 (논문 Figure 1, Sakamoto et al. 2011, verbatim)
 
-> **Question.** Do preoperative statins reduce atrial fibrillation after coronary artery bypass grafting?
+### 대표 인스턴스 (PQA-L, Annals of Thoracic & Cardiovascular Surgery 17(4):376-382)
+> **Question.** *"Do preoperative statins reduce atrial fibrillation after coronary artery bypass grafting?"*
 >
 > **Context.**
-> *(Objective)* Recent studies have demonstrated that statins have pleiotropic effects, including anti-inflammatory effects and AF preventive effects [...]
-> *(Methods)* 221 patients underwent CABG in our hospital from 2004 to 2007. 14 patients with preoperative AF and 4 with valve surgery [...]
-> *(Results)* The overall incidence of postoperative AF was 26%. Postoperative AF was significantly lower in the Statin group compared with the Non-statin group (**16% versus 33%, p=0.005**). [...]
+> *(Objective)* Recent studies have demonstrated that statins have pleiotropic effects, including anti-inflammatory effects and atrial fibrillation (AF) preventive effects [...]
+> *(Methods)* 221 patients underwent CABG in our hospital from 2004 to 2007. 14 patients with preoperative AF and 4 patients with concomitant valve surgery [...]
+> *(Results)* The overall incidence of postoperative AF was 26%. Postoperative AF was significantly lower in the **Statin group compared with the Non-statin group (16% versus 33%, p=0.005)**. Multivariate analysis demonstrated that independent predictors of AF [...]
 >
-> **Long Answer.** *(Conclusion)* Our study indicated that preoperative statin therapy seems to reduce AF development after CABG.
+> **Long Answer.** *(Conclusion)* "Our study indicated that preoperative statin therapy seems to reduce AF development after CABG."
 >
 > **Answer:** **yes**
 
 → 핵심 supporting fact는 Results의 통계 비교(16% vs 33%, p=0.005). 추론 타입은 *Inter-group comparison* (57.5% of PQA-L에서 가장 흔함).
+
+### 추가 verbatim 질문 예시 (논문 본문 Table, p.5)
+
+**유형 1: Does a factor influence the output? (36.5%)**
+> · *"Does reducing spasticity translate into functional benefit?"*
+> · *"Does ibuprofen increase perioperative blood loss during hip arthroplasty?"*
+
+**유형 2: Is a therapy good/necessary? (26.0%)**
+> · *"Should circumcision be performed in childhood?"*
+> · *"Is external palliative radiotherapy for gallbladder carcinoma effective?"*
+
+**유형 3: Is a statement true? (18.0%)**
+> · *"Sternal fracture in growing children: a rare and often overlooked fracture?"*
+> · *"Xanthogranulomatous cholecystitis: a premalignant condition?"*
+
+**유형 4: Is a factor related to the output? (18.0%)**
+> · *"Can PRISM predict length of PICU stay?"*
+> · *"Is trabecular bone related to primary stability of miniscrews?"*
+
+### Reasoning Type별 supporting evidence 예시 (논문 본문, p.5–6 verbatim)
+
+> **Inter-group comparison (57.5%)**
+> > *"Postoperative AF was significantly lower in the Statin group compared with the Non-statin group (16% versus 33%, p=0.005)."*
+
+> **Interpreting subgroup statistics (16.5%)**
+> > *"57% of patients were of lower socioeconomic status and they had more health problems, less functioning, and more symptoms."*
+
+> **Interpreting (single) group statistics (16.0%)**
+> > *"A total of 4 children aged 5-14 years with a sternal fracture were treated in 2 years, 2 children were hospitalized for pain management..."*
+
+> **No interpretations (numbers only, 21.0%)**
+> > *"30-day mortality was 12.4% in those aged<70 years and 22% in [...] those ≥70 years"*
 
 ---
 

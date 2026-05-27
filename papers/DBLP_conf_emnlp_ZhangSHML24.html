@@ -119,133 +119,281 @@
       <h1>HoneyComb: A Flexible LLM-Based Agent System for Materials Science</h1>
 <blockquote>
 <p>Findings of EMNLP 2024 (pp. 3369–3382) | Method | material
-Zhang, Su, Huang, Ma, Li — various affiliations
-DBLP: <code>conf/emnlp/ZhangSHML24</code></p>
+Zhang, Su, Huang, Ma, Li 외 · DBLP: <code>conf/emnlp/ZhangSHML24</code></p>
 </blockquote>
 <h2>한 줄 요약</h2>
-<p>재료과학 문헌에서 큐레이션한 구조적 지식 베이스(MatSciKB)와 Materials Project API 도구 모음(ToolHub)을 <strong>Inductive Tool Construction</strong> 방식으로 구축하고, 적응형 retriever가 태스크에 따라 지식 검색 vs. 도구 실행을 선택하는 재료과학 전용 LLM 에이전트 시스템.</p>
-<hr />
+<p>재료과학에 특화된 <strong>MatSciKB (38,469 entry KB)</strong> + <strong>ToolHub (general + Inductive Tool Construction 기반 specialized API)</strong> + <strong>하이브리드 Retriever (BM25 + Contriever)</strong>의 3-컴포넌트 LLM 에이전트 시스템. GPT-4 기반 HoneyComb이 <strong>MaScQA 79.07% (vs GPT-4 단독 58.46%, +20.61pp)</strong>, <strong>SciQA 96.54% (vs 90.84%, +5.70pp)</strong> 달성. 16.62% baseline의 HoneyBee-7B를 79.69%로 끌어올려 +63pp 증가의 극적 효과.</p>
+<h2>제작 배경</h2>
+<ul>
+<li><strong>재료과학 LLM의 한계</strong>: 기존 모델들은 일반 도메인 학습 데이터에 의존 → 재료과학 특화 (arXiv preprint, Wikipedia 재료 항목, textbook formula 등) 지식 부재.</li>
+<li><strong>Coscientist (Boiko et al. 2023) 등 도메인 agent의 성공</strong>이 재료과학에도 적용 가능함을 시사.</li>
+<li>정적(static) LLM은 PubMed/Materials Project 같이 매일 업데이트되는 데이터 소스를 반영 못함 → real-time tool augmentation 필요.</li>
+<li><strong>MaScQA (Zaki et al. 2023)</strong> 발표로 재료과학 평가 셋이 마련됨 → tool-augmented system을 정량적으로 검증할 기반 마련.</li>
+</ul>
 <h2>어떻게 만들었나 (Construction Methodology)</h2>
-<pre><code>Step 1 — MatSciKB 구축 (지식 소스)
-  재료과학 논문·교재에서 신뢰할 수 있는 지식 추출
-  구조화된 텍스트 형식으로 큐레이션
-  (구체적 문서 수·청크 수는 논문 미기재)
+<pre><code>HoneyComb 전체 아키텍처 (Fig. 1, p.4)
 
-Step 2 — ToolHub 구축 (계산 도구)
-  Inductive Tool Construction (ITC) 방법:
-  ┌─ Materials Project API 등 재료과학 도구 탐색
-  ├─ LLM이 도구 설명·파라미터 자동 파싱
-  ├─ 태스크별 하위 도구로 분해 (Decompose)
-  └─ 중복/불필요 도구 정제 (Refine)
-  결과: 재료과학 전용 API 툴 컬렉션
+Query → [Knowledge Retrieval Phase]
+            │
+            ├─ MatSciKB (시맨틱 검색)
+            └─ ToolHub Tool Selection
+                  ↓ Executor (iterative)
+            ┌─ Tool Assessor: 어떤 도구 쓸지 결정
+            └─ Tool Executor: 실행 + 결과 평가 → refine
+                  ↓
+            Retriever (BM25 + Contriever 하이브리드)
+                  ↓
+            LLM → Final Answer
 
-Step 3 — 적응형 Retriever 설계
-  입력 쿼리 분석:
-  ├─ 사실적 질문 (factual) → MatSciKB 의미론적 검색
-  └─ 계산 요청 (computation) → ToolHub API 실행
+────────────────────────────────────────
+Component 1: MatSciKB (Table 1, p.6 verbatim 수치)
+  Total entries: 38,469
+  ┌──────────────────────────────────┬────────┐
+  │ Source                           │ Entries│
+  ├──────────────────────────────────┼────────┤
+  │ Materials Science Papers (arXiv) │ 20,384 │
+  │ Wikipedia (Materials Science)    │  3,620 │
+  │ Materials Science Textbook       │  1,930 │
+  │ Materials Science Dataset        │ 10,473 │
+  │ Materials Science Formula        │     57 │
+  │ GPT-generated Examples           │  2,005 │
+  └──────────────────────────────────┴────────┘
+  · 16개 카테고리 트리 구조
+  · CRUD operation 지원 (실시간 갱신)
 
-Step 4 — 평가 벤치마크 설정
-  ┌──────────────┬────────────────────────────────────┐
-  │ 벤치마크      │ 설명                                │
-  ├──────────────┼────────────────────────────────────┤
-  │ MaScQA       │ GATE 재료과학 기출 650문항           │
-  │ SciQ         │ 크라우드소싱 과학 MCQ 13,679문항     │
-  │ MP 물성 태스크│ LLaMP 프로토콜(체적 탄성률·밴드갭 등)│
-  └──────────────┴────────────────────────────────────┘
+────────────────────────────────────────
+Component 2: ToolHub (Inductive Tool Construction, Algorithm 1)
+  General Tools (Table 2):
+    Google Search, Arxiv Search, Wikipedia Search,
+    YouTube Search, Python REPL
+  Specialized Tools:
+    Materials Project API 등 도메인 함수
+    + ITC로 자동 합성된 sub-tool 세트
+
+  Inductive Tool Construction (ITC):
+    1. 무작위 computational 질문 subset D_train 선정
+    2. LLM이 도구 description·파라미터 자동 파싱
+    3. 태스크별로 sub-tool로 decompose
+    4. 중복·불필요 tool 제거 (refine)
+
+────────────────────────────────────────
+Component 3: Hybrid Retriever
+  · BM25 (lexical) → 빠른 keyword match
+  · Contriever (dense) → 의미적/문맥적 매칭
+  · 단순 쿼리: BM25 / 복잡 쿼리: Contriever (m &lt; k+1 결과)
+
+────────────────────────────────────────
+Agent-ToolHub 2-phase Protocol
+  Phase 1 — Tool Assessor:
+     &quot;원본 쿼리 → 후보 도구 subset 선택&quot;
+  Phase 2 — Tool Executor (Fig. 2):
+     thought-process 수행
+     ├─ 단일 tool로 해결 가능 → 실행
+     └─ 복잡 → multi-tool decompose
 </code></pre>
-<hr />
+<h2>Input (입력)</h2>
+<ul>
+<li><strong>사용자 자연어 쿼리</strong> (재료과학 도메인)</li>
+<li><strong>태스크 유형</strong>:<ul>
+<li>factoid (예: &quot;Fe₂O₃의 결정 구조?&quot;)</li>
+<li>computational (예: &quot;BaTiO₃의 formation energy?&quot;)</li>
+<li>reasoning (예: GATE 시험 NUM/MATCH/MCQ)</li>
+</ul>
+</li>
+</ul>
+<h2>Output (출력 / 정답 형식)</h2>
+<ul>
+<li>자연어 답변 (인용 + 출처)</li>
+<li>MaScQA 형식: A/B/C/D 또는 수치</li>
+<li>SciQA 형식: 4지 선다 정답</li>
+</ul>
 <h2>실제 태스크 예시</h2>
-<h3>사실형 질문 (MatSciKB 경로)</h3>
+<h3>MaScQA — GATE 기출 (Zaki et al. 2023 활용, 650문항)</h3>
 <blockquote>
-<p><strong>Q.</strong> What is the crystal structure of perovskite BaTiO₃?</p>
-<p><strong>HoneyComb 처리</strong>: MatSciKB 검색 → &quot;BaTiO₃: 페로브스카이트 구조, 입방정계(Pm3m), a=4.01Å&quot; → 답변 생성</p>
+<p><strong>태스크 분포</strong>:
+· MCQ 285 / MATCH 70 / MCQN 67 / NUM 228
+· 14개 재료과학 sub-domain (thermodynamics, atomic structure, mechanical behavior, …)</p>
+<p>HoneyComb 처리 흐름:
+· MCQ 개념형 → MatSciKB 검색 → 관련 textbook chunk + Wikipedia 항목 회수 → LLM 답변
+· NUM 계산형 → ToolHub의 Python REPL 또는 specialized formula tool → 수치 산출</p>
 </blockquote>
-<h3>계산 요청 (ToolHub 경로)</h3>
+<h3>SciQ — 11,679 multiple-choice 과학 (Welbl et al. 2017 활용; 본 논문에서는 SciQA로 표기)</h3>
 <blockquote>
-<p><strong>Q.</strong> What is the formation energy of Fe₂O₃ according to Materials Project?</p>
-<p><strong>HoneyComb 처리</strong>: ToolHub → MP API 호출(mp-19770) → ΔH_f = −2.03 eV/atom → 답변 생성</p>
+<p><strong>태스크</strong>: 4지 선다 생물·화학·물리 학부 초반 수준 문제
+HoneyComb는 SciQ에 대해 ToolHub만 사용해도 +5.5%p 향상 (Table 5)</p>
 </blockquote>
-<hr />
+<h3>Real-world 쿼리 (시스템 데모)</h3>
+<blockquote>
+<p><strong>Q (factoid):</strong> &quot;What is the crystal structure of perovskite BaTiO₃?&quot;
+→ MatSciKB 검색 → &quot;BaTiO₃: 페로브스카이트 구조, 입방정계, a≈4.01Å&quot; → 답변</p>
+<p><strong>Q (computational):</strong> &quot;What is the formation energy of Fe₂O₃?&quot;
+→ ToolHub → Materials Project API → ΔH_f ≈ -2.03 eV/atom → 답변 + DOI</p>
+</blockquote>
 <h2>주요 평가 결과</h2>
-<p><strong>MaScQA (Accuracy)</strong></p>
+<h3>Table 3 — HoneyComb 통합 효과 (Accuracy %)</h3>
 <table>
 <thead>
 <tr>
-  <th>모델</th>
-  <th>Accuracy</th>
+  <th>Backbone LLM</th>
+  <th>MaScQA baseline</th>
+  <th>+ HoneyComb</th>
+  <th>Δ (pp)</th>
+  <th>SciQA baseline</th>
+  <th>+ HoneyComb</th>
+  <th>Δ (pp)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>HoneyBee-7B (재료과학 특화 SFT)</td>
-  <td>33.96%</td>
+  <td><strong>HoneyBee-7B</strong> (재료과학 SFT)</td>
+  <td>16.62</td>
+  <td><strong>33.38</strong></td>
+  <td><strong>+16.76</strong></td>
+  <td>33.96</td>
+  <td><strong>79.69</strong></td>
+  <td><strong>+45.73</strong></td>
 </tr>
-<tr>
-  <td>GPT-4 (바닐라)</td>
-  <td>~62%</td>
-</tr>
-<tr>
-  <td><strong>HoneyComb (GPT-4 + MatSciKB + ToolHub)</strong></td>
-  <td><strong>79.07%</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>SciQ (Accuracy)</strong></p>
-<table>
-<thead>
-<tr>
-  <th>모델</th>
-  <th>Accuracy</th>
-</tr>
-</thead>
-<tbody>
 <tr>
   <td>GPT-3.5</td>
-  <td>90.69%</td>
+  <td>33.54</td>
+  <td>38.46</td>
+  <td>+4.92</td>
+  <td>90.69</td>
+  <td>90.83</td>
+  <td>+0.14</td>
 </tr>
 <tr>
-  <td>GPT-4 (바닐라)</td>
-  <td>90.84%</td>
+  <td><strong>GPT-4</strong></td>
+  <td>58.46</td>
+  <td><strong>79.07</strong></td>
+  <td><strong>+20.61</strong></td>
+  <td>90.84</td>
+  <td><strong>96.54</strong></td>
+  <td><strong>+5.70</strong></td>
 </tr>
 <tr>
-  <td><strong>HoneyComb (GPT-4 기반)</strong></td>
-  <td><strong>96.54%</strong></td>
+  <td>LLaMA2</td>
+  <td>22.15</td>
+  <td>36.31</td>
+  <td>+14.16</td>
+  <td>75.79</td>
+  <td>78.66</td>
+  <td>+2.87</td>
+</tr>
+<tr>
+  <td>LLaMA3</td>
+  <td>24.62</td>
+  <td>47.23</td>
+  <td>+22.61</td>
+  <td>93.00</td>
+  <td>93.32</td>
+  <td>+0.32</td>
 </tr>
 </tbody>
 </table>
-<p><strong>LLaMP 체적 탄성률 평가 (MAE, 낮을수록 좋음)</strong></p>
+<p>→ <strong>HoneyBee+HoneyComb이 SciQA에서 +45.73pp 점프</strong> (16.62 → 79.69) — domain-specific SFT 모델에 RAG가 결합되었을 때 가장 큰 효과.</p>
+<h3>Table 5 — Ablation Study (GPT-4 기준)</h3>
 <table>
 <thead>
 <tr>
-  <th>모델</th>
-  <th>MAE</th>
+  <th>Setting</th>
+  <th>MatSciKB</th>
+  <th>ToolHub</th>
+  <th>Retriever</th>
+  <th><strong>MaScQA Acc.</strong></th>
+  <th><strong>SciQA Acc.</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>GPT-4 (바닐라)</td>
-  <td>41.225</td>
+  <td>Baseline GPT-4</td>
+  <td>–</td>
+  <td>–</td>
+  <td>–</td>
+  <td>61.38</td>
+  <td>90.84</td>
 </tr>
 <tr>
-  <td><strong>HoneyComb (ToolHub → MP API)</strong></td>
-  <td>HoneyComb 수준으로 대폭 감소</td>
+  <td>+ MatSciKB only</td>
+  <td>✓</td>
+  <td>–</td>
+  <td>–</td>
+  <td>78.31 (+16.93)</td>
+  <td>–</td>
+</tr>
+<tr>
+  <td>+ ToolHub only</td>
+  <td>–</td>
+  <td>✓</td>
+  <td>–</td>
+  <td>73.23 (+11.85)</td>
+  <td>96.34 (+5.50)</td>
+</tr>
+<tr>
+  <td><strong>Full HoneyComb</strong></td>
+  <td>✓</td>
+  <td>✓</td>
+  <td>✓</td>
+  <td><strong>79.07</strong></td>
+  <td><strong>96.56</strong></td>
 </tr>
 </tbody>
 </table>
-<hr />
+<p>→ MaScQA: MatSciKB가 단독 효과 최대 (+16.93pp), ToolHub와 조합 시 +17.69pp 도달.
+→ SciQA: ToolHub만으로 96%대 달성 (단순 사실 검증에 일반 도구가 충분).</p>
+<h3>Table 4 — Material Category별 성능 (예: Atomic Structure)</h3>
+<table>
+<thead>
+<tr>
+  <th>Model</th>
+  <th>Baseline</th>
+  <th>+ HoneyComb</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>HoneyBee</td>
+  <td>12.0</td>
+  <td>34.00</td>
+</tr>
+<tr>
+  <td>GPT-3.5</td>
+  <td>35.00</td>
+  <td>32.00 (drop)</td>
+</tr>
+<tr>
+  <td>GPT-4</td>
+  <td>55.00</td>
+  <td>(HoneyComb 적용)</td>
+</tr>
+<tr>
+  <td>...</td>
+  <td>...</td>
+  <td>...</td>
+</tr>
+</tbody>
+</table>
+<p>→ <strong>LLaMA-3는 Material Testing에서 +33.34pp</strong> 향상. GPT-3.5는 일부 카테고리에서 성능 하락 — domain mismatch 시나리오 존재.</p>
 <h2>한계점</h2>
 <ul>
-<li>MatSciKB의 구체적 규모(항목 수, 커버리지)가 논문에 명시되지 않음</li>
-<li>ToolHub는 Materials Project API 가용성에 의존 (서비스 중단 시 취약)</li>
-<li>재료과학 이외 도메인 확장성 미검증</li>
-<li>특정 세부 분야(폴리머, 나노소재) 커버리지 불균형 가능성</li>
+<li><strong>MaScQA·SciQA 외 generalizability 미검증</strong> (저자 인정, Limitations section).</li>
+<li><strong>MatSciKB curation 비공개 세부</strong>: arXiv 20,384 papers의 선정 기준·중복 처리 절차가 본문에 명시되지 않음.</li>
+<li><strong>ToolHub는 Materials Project API 가용성에 의존</strong> — 서비스 중단·rate limit 시 취약.</li>
+<li><strong>재료과학 외 도메인 확장성 미검증</strong> (저자 자체 평가).</li>
+<li><strong>GPT-3.5에서 일부 카테고리 성능 하락</strong> — RAG가 항상 도움되지 않는 modality mismatch 사례 존재.</li>
+<li><strong>연구 design·예측 같은 open-ended 태스크 평가 부재</strong> (MCQ/NUM 중심).</li>
+<li><strong>MatSciKB가 정적 스냅샷일 가능성</strong>: 실시간 갱신 메커니즘은 언급되나 평가는 batch.</li>
 </ul>
-<hr />
 <h2>관련 정보</h2>
 <ul>
 <li><strong>논문</strong>: <a href="https://doi.org/10.18653/v1/2024.findings-emnlp.192">EMNLP Findings 2024</a></li>
-<li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2409.00135">arXiv:2409.00135</a></li>
 <li><strong>DBLP</strong>: <a href="https://dblp.org/rec/conf/emnlp/ZhangSHML24">conf/emnlp/ZhangSHML24</a></li>
+<li><strong>사용 벤치마크</strong>:<ul>
+<li>MaScQA — Zaki et al. 2023 (Digital Discovery), 650 GATE 문제</li>
+<li>SciQA → 실제로는 SciQ (Welbl et al. 2017), 11,679 MC 과학 문제</li>
+</ul>
+</li>
+<li><strong>비교 대상 시스템</strong>: LLaMP (Chiang et al. 2025), Darwin, StructChem, HoneyBee-7B SFT</li>
 </ul>
 
     </article>
