@@ -1467,11 +1467,11 @@
   },
   "corsello2017drhub": {
     "cells": [
-      "K2.O3"
+      "K2"
     ],
     "K": "K2",
-    "O": "O3",
-    "note": "Drug Repurposing Hub — Database-verified Prediction benchmark",
-    "subsection": "Database-verified Prediction"
+    "O": "",
+    "note": "Hand-curated library of 4,707 clinical compounds (3,422 marketed/trialed) — Broad Institute resource, used as DTI evaluation source",
+    "subsection": "Chemistry and drug discovery"
   }
 }

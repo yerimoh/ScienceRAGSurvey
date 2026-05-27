@@ -1628,7 +1628,7 @@
       "year": 2017,
       "venue": "Nature Medicine",
       "method": "Drug Repurposing Hub",
-      "type": "benchmark",
+      "type": "dataset",
       "domain": [
         "medical",
         "chem"

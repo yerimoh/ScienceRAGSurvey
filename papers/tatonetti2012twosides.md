@@ -48,15 +48,36 @@ Step 4 — 외부 검증
 
 ---
 
-## 원문 직접 인용 (Tatonetti 2012 STM §Abstract)
+## 원문 직접 인용 (Tatonetti 2012 STM, PMC3382018 body verbatim)
 
 > "We developed an adaptive approach to correct for unmeasured confounding factors in spontaneous reporting databases and created two resources: **Offsides (a database of drug effects) and Twosides (a database of drug-drug interaction side effects)**."
 
-> "Combined treatment with selective serotonin reuptake inhibitors and thiazides is associated with significantly increased incidence of prolonged QT intervals"
+> Data source: "**1,851,171 adverse event reports** in the AERS from the FDA's Web site from the first quarter of **2004 to the first quarter of 2009**"
 
-> "47 drug class interactions corroborated through independent electronic medical records analysis"
+> Propensity score matching (PSM): "**Each exposed patient (that is, report) is matched to a nonexposed patient with a similar probability** according to the PSM model, thereby mitigating the effects of confounders" + "we used PSM to model the probability that a given report lists [that drug] as a concomitant medication" using "the top 200 covariates (sorted by their Spearman correlation coefficient, ρ)"
+
+> **OFFSIDES dataset**: "**438,801 off-label side effects** for **1,332 drugs** and **10,097 adverse events**"
+
+> **TWOSIDES dataset**: "**868,221 significant associations** between **59,220 pairs of drugs** and **1,301 adverse events**"
+
+> EMR validation: "We found additional evidence of drug effects for **47 of 395 interactions** when looking for short-term (≤36 days) changes in laboratory markers after the start of treatment"
+
+> SSRI + thiazide QT case: "patients receiving combined thiazides and SSRIs showed **1.5 (95% CI, 1.2 to 1.9) times as likely** to record a prolonged QT interval compared to thiazide-only users"
 
 ---
+
+## 데이터셋 통계 (논문 본문 verbatim)
+
+| 항목 | 수치 |
+|---|---|
+| AERS raw reports | 1,851,171 (2004 Q1 ~ 2009 Q1) |
+| **OFFSIDES 부작용 라벨 수** | **438,801** |
+| OFFSIDES 약물 수 | 1,332 |
+| OFFSIDES adverse event 종류 | 10,097 |
+| **TWOSIDES 약물 쌍 수** | **59,220** |
+| TWOSIDES significant associations | 868,221 |
+| TWOSIDES adverse event 종류 | 1,301 |
+| EMR validation 비율 | 47/395 (≈12%) |
 
 ## 주요 활용
 
