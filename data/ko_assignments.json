@@ -43,7 +43,8 @@
     ],
     "K": "",
     "O": "O1",
-    "note": "main.tex: K=-; O=O1"
+    "note": "main.tex: K=-; O=O1",
+    "subsection": "Text-only Closed-form QA"
   },
   "DBLP:conf/emnlp/WaddenLKCBWH22": {
     "cells": [
@@ -69,7 +70,8 @@
     ],
     "K": "",
     "O": "",
-    "note": "main.tex: K=-; O=-"
+    "note": "main.tex: K=-; O=-",
+    "subsection": "Text-only Closed-form QA"
   },
   "DBLP:conf/iclr/0005ZLWSWZ0Y25": {
     "cells": [
@@ -77,7 +79,8 @@
     ],
     "K": "",
     "O": "",
-    "note": "main.tex: K=-; O=-"
+    "note": "main.tex: K=-; O=-",
+    "subsection": "Cross-modal"
   },
   "DBLP:conf/naacl/SohnPYPHSKK25": {
     "cells": [
@@ -85,7 +88,8 @@
     ],
     "K": "",
     "O": "",
-    "note": "main.tex: K=-; O=-"
+    "note": "main.tex: K=-; O=-",
+    "subsection": "Text-only Closed-form QA"
   },
   "DBLP:conf/nips/BushuievBJYKSHW24": {
     "cells": [
@@ -93,7 +97,8 @@
     ],
     "K": "",
     "O": "O3",
-    "note": "main.tex: K=-; O=O3"
+    "note": "main.tex: K=-; O=O3",
+    "subsection": "Weakly-verified Hypothesis Generation"
   },
   "DBLP:journals/bib/ZhangPHCM25": {
     "cells": [
@@ -120,7 +125,7 @@
     "K": "",
     "O": "O1",
     "note": "main.tex: K=-; O=O1",
-    "subsection": "Text-only Closed-form QA"
+    "subsection": "Text-only Long-form Citation"
   },
   "DBLP:journals/corr/abs-2409-13740": {
     "cells": [
@@ -166,12 +171,11 @@
     ],
     "K": "",
     "O": "O2",
-    "note": "main.tex: K=-; O=O2"
+    "note": "main.tex: K=-; O=O2",
+    "subsection": "Verificative Synthesis"
   },
   "DBLP:journals/corr/abs-2603-07233": {
-    "cells": [
-      "K1.O3"
-    ],
+    "cells": [],
     "K": "",
     "O": "O3",
     "note": "main.tex: K=-; O=O3"
@@ -854,7 +858,8 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Materials science and physics — MatSciKB curated literature knowledge base for materials RAG"
+    "note": "Materials science and physics — MatSciKB curated literature knowledge base for materials RAG",
+    "subsection": "Text-only Closed-form QA"
   },
   "navas2024review": {
     "cells": [
@@ -1158,15 +1163,15 @@
     ],
     "K": "K1",
     "O": "O1",
-    "note": "Multi-source medical RAG unifying 5 sources: textbooks, clinical guidelines, PubMed abstracts, Wikipedia, UMLS+DrugBank KG; Source Planning Optimisation (SPO)"
+    "note": "Multi-source medical RAG unifying 5 sources: textbooks, clinical guidelines, PubMed abstracts, Wikipedia, UMLS+DrugBank KG; Source Planning Optimisation (SPO)",
+    "subsection": "Text-only Closed-form QA"
   },
   "DBLP:journals/make/LahiriH25": {
-    "cells": [
-      "K1.O2"
-    ],
+    "cells": [],
     "K": "K1",
     "O": "O2",
-    "note": "Multimodal RAG fusing PubMed text+figures via cross-modal attention; evaluated on BioASQ and PubMedQA; low hallucination rate; non-inferior to human accuracy"
+    "note": "Multimodal RAG fusing PubMed text+figures via cross-modal attention; evaluated on BioASQ and PubMedQA; low hallucination rate; non-inferior to human accuracy",
+    "subsection": "Cross-modal"
   },
   "krithara2023bioasq": {
     "cells": [
@@ -1176,7 +1181,10 @@
     "K": "K1",
     "O": "O1",
     "note": "4,721 expert-annotated biomedical QA pairs; running since 2012; combines exact answer + ideal summary; used for evaluation in cross-modal grounding section",
-    "subsection": "Aggregative Synthesis"
+    "subsection": [
+      "Text-only Closed-form QA",
+      "Aggregative Synthesis"
+    ]
   },
   "jin-etal-2019-pubmedqa": {
     "cells": [
@@ -1211,7 +1219,8 @@
     ],
     "K": "K2",
     "O": "O3",
-    "note": "GPT-4 + RAG over 50,000 materials (Materials Project, NOMAD, OC20); 250+ HEA CO2 reduction catalysts; 82% thermodynamic stability; best alloy Fe0.2Co0.2Ni0.2Ir0.1Ru0.3 at 0.285V limiting potential (25% vs IrO2); 200x HTS efficiency"
+    "note": "GPT-4 + RAG over 50,000 materials (Materials Project, NOMAD, OC20); 250+ HEA CO2 reduction catalysts; 82% thermodynamic stability; best alloy Fe0.2Co0.2Ni0.2Ir0.1Ru0.3 at 0.285V limiting potential (25% vs IrO2); 200x HTS efficiency",
+    "subsection": "Simulation-verified Materials Discovery"
   },
   "zhang2026matclaw": {
     "cells": [
@@ -1219,12 +1228,11 @@
     ],
     "K": "K2",
     "O": "O3",
-    "note": "Code-first LLM agent; RAG over domain source code (pymatgen, atomate2, jobflow, dpdata, DeePMD-kit); ~99% API-call accuracy; 4-layer memory; 3 end-to-end demonstrations on CuInP2S6 (force field, Curie temp, parameter search)"
+    "note": "Code-first LLM agent; RAG over domain source code (pymatgen, atomate2, jobflow, dpdata, DeePMD-kit); ~99% API-call accuracy; 4-layer memory; 3 end-to-end demonstrations on CuInP2S6 (force field, Curie temp, parameter search)",
+    "subsection": "Simulation-verified Materials Discovery"
   },
   "xiao2024repurposing": {
-    "cells": [
-      "K1.O3"
-    ],
+    "cells": [],
     "K": "K1",
     "O": "O3",
     "note": "Link prediction on biomedical literature knowledge graph for Alzheimer's non-pharmacological intervention repurposing; weakly-verified hypothesis (no strong external verifier); evaluation by downstream task accuracy and expert validation"
@@ -1243,7 +1251,8 @@
     ],
     "K": "K1",
     "O": "O1",
-    "note": "22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, College Biology/Medicine; outperforms BioLLMs, GPT-3.5, NewBing"
+    "note": "22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, College Biology/Medicine; outperforms BioLLMs, GPT-3.5, NewBing",
+    "subsection": "Text-only Closed-form QA"
   },
   "DBLP:conf/pasc/GokdemirSBWHHSA25": {
     "cells": [
@@ -1251,7 +1260,8 @@
     ],
     "K": "K1",
     "O": "O2",
-    "note": "HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 76%; outperforms PubMedGPT and GPT-4; scales to thousands of GPUs"
+    "note": "HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 76%; outperforms PubMedGPT and GPT-4; scales to thousands of GPUs",
+    "subsection": "Aggregative Synthesis"
   },
   "DBLP:journals/corr/abs-2403-15729": {
     "cells": [

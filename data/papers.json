@@ -275,7 +275,8 @@
     "ko_note": "Code-first LLM agent; RAG over domain source code (pymatgen, atomate2, jobflow, dpdata, DeePMD-kit); ~99% API-call accuracy; 4-layer memory; 3 end-to-end demonstrations on CuInP2S6 (force field, Curie temp, parameter search)",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Simulation-verified Materials Discovery"
   },
   {
     "title": "MedRAGChecker: Claim-Level Verification for Biomedical Retrieval-Augmented Generation",
@@ -321,7 +322,8 @@
     ],
     "ko_primary": "K2.O2",
     "ko_note": "main.tex: K=-; O=O2",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Verificative Synthesis"
   },
   {
     "title": "OER-DFT (HEA) — LLM-Driven Discovery of High-Entropy Catalysts via RAG",
@@ -631,10 +633,8 @@
       "Replogle-Nadig"
     ],
     "type": "Method",
-    "ko_cells": [
-      "K1.O3"
-    ],
-    "ko_primary": "K1.O3",
+    "ko_cells": [],
+    "ko_primary": null,
     "ko_note": "main.tex: K=-; O=O3",
     "cross_source": false
   },
@@ -924,7 +924,8 @@
     ],
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=-",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Text-only Closed-form QA"
   },
   {
     "title": "Benchmarking Large Language Models on Answering and Explaining Challenging Medical Questions",
@@ -1783,6 +1784,7 @@
     "ko_primary": "K2.O1",
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
+    "subsection": "Text-only Closed-form QA",
     "flagship": true
   },
   {
@@ -1998,7 +2000,8 @@
     ],
     "ko_primary": "K3.O1",
     "ko_note": "main.tex: K=-; O=-",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Cross-modal"
   },
   {
     "title": "MOTOR: Multimodal Optimal Transport via Grounded Retrieval in Medical Visual Question Answering",
@@ -2662,7 +2665,8 @@
     ],
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=-",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Text-only Closed-form QA"
   },
   {
     "title": "Retrieval-Augmented Generation Assistant for Anatomical Pathology Laboratories",
@@ -3057,7 +3061,8 @@
     ],
     "ko_primary": "K1.O1",
     "ko_note": "Multi-source medical RAG unifying 5 sources: textbooks, clinical guidelines, PubMed abstracts, Wikipedia, UMLS+DrugBank KG; Source Planning Optimisation (SPO)",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Text-only Closed-form QA"
   },
   {
     "title": "WeatherArchive-Bench: Benchmarking Retrieval-Augmented Reasoning for Historical Weather Archives",
@@ -3554,7 +3559,8 @@
     "ko_note": "Materials science and physics — MatSciKB curated literature knowledge base for materials RAG",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Text-only Closed-form QA"
   },
   {
     "title": "HoneyComb: Materials Science Agent",
@@ -3803,7 +3809,8 @@
     ],
     "ko_primary": "K3.O3",
     "ko_note": "main.tex: K=-; O=O3",
-    "cross_source": false
+    "cross_source": false,
+    "subsection": "Weakly-verified Hypothesis Generation"
   },
   {
     "bib_key": "DBLP:conf/nips/LeeKV0RPVN24",
@@ -4409,7 +4416,10 @@
     "cross_source": false,
     "type": "benchmark",
     "bib_only": true,
-    "subsection": "Aggregative Synthesis"
+    "subsection": [
+      "Text-only Closed-form QA",
+      "Aggregative Synthesis"
+    ]
   },
   {
     "bib_key": "chandak2023building",
@@ -4874,7 +4884,7 @@
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
-    "subsection": "Text-only Closed-form QA",
+    "subsection": "Text-only Long-form Citation",
     "flagship": true
   },
   {
@@ -5024,10 +5034,8 @@
       "Text"
     ],
     "type": "benchmark",
-    "ko_cells": [
-      "K1.O3"
-    ],
-    "ko_primary": "K1.O3",
+    "ko_cells": [],
+    "ko_primary": null,
     "ko_note": "Link prediction on biomedical literature knowledge graph for Alzheimer's non-pharmacological intervention repurposing; weakly-verified hypothesis (no strong external verifier); evaluation by downstream task accuracy and expert validation",
     "cross_source": false
   },
@@ -8418,7 +8426,8 @@
     "ko_note": "HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 76%; outperforms PubMedGPT and GPT-4; scales to thousands of GPUs",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Aggregative Synthesis"
   },
   {
     "bib_key": "DBLP:journals/corr/abs-2408-01107",
@@ -8436,7 +8445,8 @@
     "ko_note": "22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, College Biology/Medicine; outperforms BioLLMs, GPT-3.5, NewBing",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Text-only Closed-form QA"
   },
   {
     "bib_key": "DBLP:journals/corr/abs-2603-15712",
@@ -8454,7 +8464,8 @@
     "ko_note": "GPT-4 + RAG over 50,000 materials (Materials Project, NOMAD, OC20); 250+ HEA CO2 reduction catalysts; 82% thermodynamic stability; best alloy Fe0.2Co0.2Ni0.2Ir0.1Ru0.3 at 0.285V limiting potential (25% vs IrO2); 200x HTS efficiency",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Simulation-verified Materials Discovery"
   },
   {
     "bib_key": "DBLP:journals/make/LahiriH25",
@@ -8465,14 +8476,13 @@
     "domain": [],
     "paper_link": "",
     "note": "Multimodal RAG fusing PubMed text+figures via cross-modal attention; evaluated on BioASQ and PubMedQA; low hallucination rate; non-inferior to human accuracy",
-    "ko_cells": [
-      "K1.O2"
-    ],
-    "ko_primary": "K1.O2",
+    "ko_cells": [],
+    "ko_primary": null,
     "ko_note": "Multimodal RAG fusing PubMed text+figures via cross-modal attention; evaluated on BioASQ and PubMedQA; low hallucination rate; non-inferior to human accuracy",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true
+    "bib_only": true,
+    "subsection": "Cross-modal"
   },
   {
     "title": "MTsamples (Web Dataset)",
