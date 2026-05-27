@@ -1547,6 +1547,19 @@
         "bio"
       ],
       "paper_link": "https://doi.org/10.1038/s41597-023-02068-4"
+    },
+    "DBLP:conf/nips/HuangFG0RLCXSZ21": {
+      "title": "Therapeutics Data Commons: Machine Learning Datasets and Tasks for Drug Discovery and Development",
+      "year": 2021,
+      "venue": "NeurIPS D&B 2021",
+      "method": "TDC",
+      "type": "benchmark",
+      "domain": [
+        "medical",
+        "bio",
+        "chem"
+      ],
+      "paper_link": "https://arxiv.org/abs/2102.09548"
     }
   }
 }

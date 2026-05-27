@@ -1202,7 +1202,8 @@
     ],
     "K": "K2",
     "O": "O3",
-    "note": "RAG-empowered agentic system; Drug Repurposing Hub + DrugBank + STITCH for DTI (13,688 molecules); BBBP/Sider/ClinTox/BACE for toxicity; no domain fine-tuning; outperforms GNNs and LLMs"
+    "note": "RAG-empowered agentic system; Drug Repurposing Hub + DrugBank + STITCH for DTI (13,688 molecules); BBBP/Sider/ClinTox/BACE for toxicity; no domain fine-tuning; outperforms GNNs and LLMs",
+    "subsection": "Database-verified Prediction"
   },
   "DBLP:journals/corr/abs-2603-15712": {
     "cells": [
@@ -1409,5 +1410,14 @@
     "note": "PMC-OA: 1.65M biomedical image-text pairs (PubMed Central OA); cited in §o1-crossmodal as evidence for cross-modal grounding",
     "subsection": "Cross-modal",
     "paper_link": "https://doi.org/10.1007/978-3-031-43993-3_51"
+  },
+  "DBLP:conf/nips/HuangFG0RLCXSZ21": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "66 AI-ready datasets × 22 tasks × 29 leaderboards — Database-verified Prediction umbrella benchmark for drug discovery",
+    "subsection": "Database-verified Prediction"
   }
 }

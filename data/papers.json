@@ -126,6 +126,7 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
+    "subsection": "Database-verified Prediction",
     "flagship": true
   },
   {
@@ -5375,6 +5376,29 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "Medical imaging and clinical EHR"
+  },
+  {
+    "bib_key": "DBLP:conf/nips/HuangFG0RLCXSZ21",
+    "title": "Therapeutics Data Commons: Machine Learning Datasets and Tasks for Drug Discovery and Development",
+    "year": 2021,
+    "venue": "NeurIPS D&B 2021",
+    "method": "TDC",
+    "domain": [
+      "medical",
+      "bio",
+      "chem"
+    ],
+    "paper_link": "https://arxiv.org/abs/2102.09548",
+    "note": "66 AI-ready datasets × 22 tasks × 29 leaderboards — Database-verified Prediction umbrella benchmark for drug discovery",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "66 AI-ready datasets × 22 tasks × 29 leaderboards — Database-verified Prediction umbrella benchmark for drug discovery",
+    "cross_source": false,
+    "type": "benchmark",
+    "bib_only": true,
+    "subsection": "Database-verified Prediction"
   },
   {
     "title": "What Disease does this Patient Have? A Large-scale Open Domain Question Answering Dataset from Medical Exams",
