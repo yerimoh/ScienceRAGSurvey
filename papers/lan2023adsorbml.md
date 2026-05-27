@@ -78,10 +78,11 @@ Step 4 — Evaluation metrics
 
 ### 유형 B — OC20-Dense dataset 구조
 
-> | Split | Unique systems | Unique configs | Adsorbates | Bulks |
-> |---|---|---|---|---|
-> | **Validation** | 973 | 85,658 | 74 | 833 |
-> | **Test** | 989 | 105,714 | 74 | 837 |
+| Split | Unique systems | Unique configs | Adsorbates | Bulks |
+|---|---|---|---|---|
+| **Validation** | 973 | 85,658 | 74 | 833 |
+| **Test** | 989 | 105,714 | 74 | 837 |
+
 >
 > 각 split은 ~250 systems × 4 subsplits = **ID, OOD-Adsorbate, OOD-Catalyst, OOD-Both**
 
@@ -100,28 +101,19 @@ Step 4 — Evaluation metrics
 
 ### 유형 D — Model 비교 (Table I, OC20-Dense Test)
 
-> | Model | Success Rate ↑ | Energy MAE [eV] ↓ | OC20 S2EF Force MAE [eV/Å] |
-> |---|---|---|---|
-> | SchNet | 1.01% | 0.5150 | 0.0496 |
-> | DimeNet++ | 1.72% | 0.4329 | 0.0446 |
-> | PaiNN | 10.92% | 0.2994 | 0.0294 |
-> | GemNet-OC | 46.51% | 0.1849 | 0.0179 |
-> | GemNet-OC-MD | 50.05% | 0.1966 | 0.0173 |
-> | GemNet-OC-MD-Large | 48.03% | 0.1935 | 0.0164 |
-> | SCN-MD-Large | 51.87% | 0.1758 | 0.0160 |
-> | **eSCN-MD-Large** | **56.52%** | **0.1739** | **0.0139** |
+| Model | Success Rate ↑ | Energy MAE [eV] ↓ | OC20 S2EF Force MAE [eV/Å] |
+|---|---|---|---|
+| SchNet | 1.01% | 0.5150 | 0.0496 |
+| DimeNet++ | 1.72% | 0.4329 | 0.0446 |
+| PaiNN | 10.92% | 0.2994 | 0.0294 |
+| GemNet-OC | 46.51% | 0.1849 | 0.0179 |
+| GemNet-OC-MD | 50.05% | 0.1966 | 0.0173 |
+| GemNet-OC-MD-Large | 48.03% | 0.1935 | 0.0164 |
+| SCN-MD-Large | 51.87% | 0.1758 | 0.0160 |
+| **eSCN-MD-Large** | **56.52%** | **0.1739** | **0.0139** |
+
 >
 > → AdsorbML (eSCN-MD-Large, k=3, ML+SP): **89.28% success × ~2000× speedup** (논문 Figure 3 balanced point: 87.36% × 2290×)
-
----
-
-## 원문 직접 인용 (arXiv:2211.16486 §Abstract)
-
-> "we demonstrate **machine learning potentials can be leveraged to identify low energy adsorbate-surface configurations** more accurately and efficiently"
-
-> "one balanced option finding the lowest energy configuration **87.36% of the time**, while achieving a **~2000× speedup** in computation"
-
-> "we introduce the **Open Catalyst Dense dataset** containing nearly **1,000 diverse surfaces and ~100,000 unique configurations**"
 
 ---
 

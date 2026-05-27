@@ -174,11 +174,34 @@ Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
 </code></pre>
 </blockquote>
 <h3>유형 B — OC20-Dense dataset 구조</h3>
+<table>
+<thead>
+<tr>
+  <th>Split</th>
+  <th>Unique systems</th>
+  <th>Unique configs</th>
+  <th>Adsorbates</th>
+  <th>Bulks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Validation</strong></td>
+  <td>973</td>
+  <td>85,658</td>
+  <td>74</td>
+  <td>833</td>
+</tr>
+<tr>
+  <td><strong>Test</strong></td>
+  <td>989</td>
+  <td>105,714</td>
+  <td>74</td>
+  <td>837</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
-<p>| Split | Unique systems | Unique configs | Adsorbates | Bulks |
-|---|---|---|---|---|
-| <strong>Validation</strong> | 973 | 85,658 | 74 | 833 |
-| <strong>Test</strong> | 989 | 105,714 | 74 | 837 |</p>
 <p>각 split은 ~250 systems × 4 subsplits = <strong>ID, OOD-Adsorbate, OOD-Catalyst, OOD-Both</strong></p>
 </blockquote>
 <h3>유형 C — Algorithm (ML+SP / ML+RX, top-k)</h3>
@@ -193,29 +216,68 @@ Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
 <p>Trade-off knob: <strong>k = 1, 2, 3, 4, 5</strong> (k↑ → 정확도↑, speedup↓)</p>
 </blockquote>
 <h3>유형 D — Model 비교 (Table I, OC20-Dense Test)</h3>
+<table>
+<thead>
+<tr>
+  <th>Model</th>
+  <th>Success Rate ↑</th>
+  <th>Energy MAE [eV] ↓</th>
+  <th>OC20 S2EF Force MAE [eV/Å]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>SchNet</td>
+  <td>1.01%</td>
+  <td>0.5150</td>
+  <td>0.0496</td>
+</tr>
+<tr>
+  <td>DimeNet++</td>
+  <td>1.72%</td>
+  <td>0.4329</td>
+  <td>0.0446</td>
+</tr>
+<tr>
+  <td>PaiNN</td>
+  <td>10.92%</td>
+  <td>0.2994</td>
+  <td>0.0294</td>
+</tr>
+<tr>
+  <td>GemNet-OC</td>
+  <td>46.51%</td>
+  <td>0.1849</td>
+  <td>0.0179</td>
+</tr>
+<tr>
+  <td>GemNet-OC-MD</td>
+  <td>50.05%</td>
+  <td>0.1966</td>
+  <td>0.0173</td>
+</tr>
+<tr>
+  <td>GemNet-OC-MD-Large</td>
+  <td>48.03%</td>
+  <td>0.1935</td>
+  <td>0.0164</td>
+</tr>
+<tr>
+  <td>SCN-MD-Large</td>
+  <td>51.87%</td>
+  <td>0.1758</td>
+  <td>0.0160</td>
+</tr>
+<tr>
+  <td><strong>eSCN-MD-Large</strong></td>
+  <td><strong>56.52%</strong></td>
+  <td><strong>0.1739</strong></td>
+  <td><strong>0.0139</strong></td>
+</tr>
+</tbody>
+</table>
 <blockquote>
-<p>| Model | Success Rate ↑ | Energy MAE [eV] ↓ | OC20 S2EF Force MAE [eV/Å] |
-|---|---|---|---|
-| SchNet | 1.01% | 0.5150 | 0.0496 |
-| DimeNet++ | 1.72% | 0.4329 | 0.0446 |
-| PaiNN | 10.92% | 0.2994 | 0.0294 |
-| GemNet-OC | 46.51% | 0.1849 | 0.0179 |
-| GemNet-OC-MD | 50.05% | 0.1966 | 0.0173 |
-| GemNet-OC-MD-Large | 48.03% | 0.1935 | 0.0164 |
-| SCN-MD-Large | 51.87% | 0.1758 | 0.0160 |
-| <strong>eSCN-MD-Large</strong> | <strong>56.52%</strong> | <strong>0.1739</strong> | <strong>0.0139</strong> |</p>
 <p>→ AdsorbML (eSCN-MD-Large, k=3, ML+SP): <strong>89.28% success × ~2000× speedup</strong> (논문 Figure 3 balanced point: 87.36% × 2290×)</p>
-</blockquote>
-<hr />
-<h2>원문 직접 인용 (arXiv:2211.16486 §Abstract)</h2>
-<blockquote>
-<p>&quot;we demonstrate <strong>machine learning potentials can be leveraged to identify low energy adsorbate-surface configurations</strong> more accurately and efficiently&quot;</p>
-</blockquote>
-<blockquote>
-<p>&quot;one balanced option finding the lowest energy configuration <strong>87.36% of the time</strong>, while achieving a <strong>~2000× speedup</strong> in computation&quot;</p>
-</blockquote>
-<blockquote>
-<p>&quot;we introduce the <strong>Open Catalyst Dense dataset</strong> containing nearly <strong>1,000 diverse surfaces and ~100,000 unique configurations</strong>&quot;</p>
 </blockquote>
 <hr />
 <h2>주요 평가 결과</h2>

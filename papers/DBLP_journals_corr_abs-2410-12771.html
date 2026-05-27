@@ -209,13 +209,43 @@ Cell stress:  eV/Å³ (3×3 tensor)
 <p>WBM Test split이 &quot;highest prediction errors → most informative test of model generalization&quot; (논문 §2.1.1)</p>
 </blockquote>
 <h3>유형 C — Source dataset 비교 (compositional/configurational coverage)</h3>
+<table>
+<thead>
+<tr>
+  <th>Dataset</th>
+  <th>Size (structures)</th>
+  <th>Configuration</th>
+  <th>Compositional diversity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>OMat24</strong></td>
+  <td>118M</td>
+  <td>equilibrium + far-from-eq</td>
+  <td>periodic table 전반, oxide over-represented</td>
+</tr>
+<tr>
+  <td>MPtrj</td>
+  <td>1.6M</td>
+  <td>near-equilibrium</td>
+  <td>Materials Project subset</td>
+</tr>
+<tr>
+  <td>Alexandria</td>
+  <td>~5M</td>
+  <td>equilibrium-only</td>
+  <td>hypothetical prototyped</td>
+</tr>
+<tr>
+  <td>OC20</td>
+  <td>130M</td>
+  <td>catalyst surface only</td>
+  <td>적은 chemistry</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
-<p>| Dataset | Size (structures) | Configuration | Compositional diversity |
-|---|---|---|---|
-| <strong>OMat24</strong> | 118M | equilibrium + far-from-eq | periodic table 전반, oxide over-represented |
-| MPtrj | 1.6M | near-equilibrium | Materials Project subset |
-| Alexandria | ~5M | equilibrium-only | hypothetical prototyped |
-| OC20 | 130M | catalyst surface only | 적은 chemistry |</p>
 <p>→ OMat24 = <strong>2 orders of magnitude larger</strong> than other open datasets</p>
 </blockquote>
 <h3>유형 D — 다운스트림 평가 task</h3>
@@ -227,29 +257,6 @@ Cell stress:  eV/Å³ (3×3 tensor)
 <li><strong>Softening bias 측정</strong> — energy/force/phonon 체계적 underestimation 정량화</li>
 </ol>
 <p>→ OMat24-trained model: F$_1$ &gt; 0.9, formation E MAE = 20 meV/atom, <strong>모든 Matbench Discovery top model이 OMat24 채택</strong>.</p>
-</blockquote>
-<hr />
-<h2>원문 직접 인용 (arXiv:2410.12771 §Abstract + §1 + §2)</h2>
-<blockquote>
-<p>&quot;we present the <strong>Open Materials 2024 (OMat24) dataset, comprising over 110M DFT calculations</strong> across diverse chemistries, materials, and configurations.&quot;</p>
-</blockquote>
-<blockquote>
-<p>&quot;MLIP models trained on OMat24 achieve leading performance on the <strong>Matbench Discovery leaderboard, surpassing previous models with F1 scores above 0.9 for stability and 20 meV/atom accuracy for formation energy</strong>.&quot;</p>
-</blockquote>
-<blockquote>
-<p>&quot;Models trained on OMat24 also exhibit the highest accuracy in newly developed <strong>thermal conductivity and phonon prediction task benchmarks</strong>.&quot;</p>
-</blockquote>
-<blockquote>
-<p>&quot;OMat24's diversity <strong>corrects the consistent softening bias of prior models trained on less diverse datasets</strong>, which systematically underpredicted energy, forces, and derivative properties like phonons.&quot;</p>
-</blockquote>
-<blockquote>
-<p>&quot;The OMat24 dataset includes a total of <strong>118 million structures labeled with energy, forces and cell stress</strong>. The number of atoms per structure ranges from <strong>1 to 100 atoms per structure</strong>.&quot; (§2.1)</p>
-</blockquote>
-<blockquote>
-<p>Three design principles: &quot;<strong>Scale</strong>: OMat24 is a large-scale public ab-initio training dataset for inorganic materials <strong>up to 2 orders of magnitude larger than other openly available datasets</strong> in terms of number of single-point calculations. <strong>Diversity</strong>: OMat24 has compositional diversity across the periodic table thanks to community efforts to prototype and catalog hypothetical materials, and contains a large fraction of far-from-equilibrium structures. <strong>Open-science</strong>: OMat24 is released under a permissive CC-by license.&quot; (§2.1)</p>
-</blockquote>
-<blockquote>
-<p>&quot;<strong>Since its release, all top models on the leaderboard have adopted the dataset.</strong>&quot; (§1)</p>
 </blockquote>
 <hr />
 <h2>평가 framework</h2>

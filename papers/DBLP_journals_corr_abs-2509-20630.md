@@ -120,17 +120,18 @@ Step 4 — Evaluation philosophy
 ### 유형 C — EOS Benchmark Results (Table 1)
 
 > 1,000 WBM structures, lower=better (deviation from ideal physics)
->
-> | Model | Derivative flips ↓ | Tortuosity ↓ | E compression ρ ↓ | dE/dV compression ρ ↑ | Missing ↓ |
-> |---|---|---|---|---|---|
-> | **MACE-MPA** | **1.037** | **1.005** | **-0.999** | **0.996** | **2** |
-> | eSEN | 1.042 | 1.008 | -0.999 | 0.997 | 5 |
-> | MACE-MP(M) | 1.042 | 1.009 | -0.999 | 0.994 | 5 |
-> | MatterSim | 1.045 | 1.006 | -0.997 | 0.993 | 3 |
-> | CHGNet | 1.105 | 1.015 | -0.996 | 0.993 | 3 |
-> | SevenNet | 1.109 | 1.019 | -0.998 | 0.989 | 3 |
-> | M3GNet | 1.175 | 1.018 | -0.996 | 0.990 | 5 |
-> | ORBv2 | 1.316 | 1.037 | -0.992 | 0.970 | 7 |
+
+| Model | Derivative flips ↓ | Tortuosity ↓ | E compression ρ ↓ | dE/dV compression ρ ↑ | Missing ↓ |
+|---|---|---|---|---|---|
+| **MACE-MPA** | **1.037** | **1.005** | **-0.999** | **0.996** | **2** |
+| eSEN | 1.042 | 1.008 | -0.999 | 0.997 | 5 |
+| MACE-MP(M) | 1.042 | 1.009 | -0.999 | 0.994 | 5 |
+| MatterSim | 1.045 | 1.006 | -0.997 | 0.993 | 3 |
+| CHGNet | 1.105 | 1.015 | -0.996 | 0.993 | 3 |
+| SevenNet | 1.109 | 1.019 | -0.998 | 0.989 | 3 |
+| M3GNet | 1.175 | 1.018 | -0.996 | 0.990 | 5 |
+| ORBv2 | 1.316 | 1.037 | -0.992 | 0.970 | 7 |
+
 >
 > → **Matbench Discovery 상위 모델** ≠ EOS 상위 모델 (force smoothness ≠ energy regression)
 
@@ -162,20 +163,6 @@ Step 4 — Evaluation philosophy
 >
 > Models evaluated: **MACE-MP(M), CHGNet, M3GNet, MatterSim, ORBv2, SevenNet, MACE-MPA, eSEN** (Table S4)
 > Workflow: Prefect orchestration · Parquet/JSON/ASE DB storage · GitHub submission
-
----
-
-## 원문 직접 인용 (arXiv:2509.20630 §Abstract + §1)
-
-> "We introduce **MLIP Arena, a benchmark platform that evaluates force field performance based on physics awareness, chemical reactivity, stability under extreme conditions, and predictive capabilities for thermodynamic properties** and physical phenomena"
-
-> "Existing benchmarks suffer from **data leakage, limited transferability, and an over-reliance on error-based metrics tied to specific density functional theory (DFT) references**"
-
-> 4 카테고리: "**Asymptotic Behaviors / Stability and Reactivity / Distribution Shifts / Thermodynamic Properties**" + 구체적 phenomena "**Dynamical stability, Gas adsorption, Phase transition, Vacancy migration**"
-
-> Matbench Discovery 비판: "non-compliant models rank highly for crystal stability metrics due to **energy overfitting at the expense of forces and finite-temperature capabilities**"
-
-> Available: **https://github.com/atomind-ai/mlip-arena**
 
 ---
 

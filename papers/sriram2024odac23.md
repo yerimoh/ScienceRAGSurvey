@@ -119,15 +119,16 @@ Step 7 — Promising MOF 식별 (downstream verification)
 ### 유형 C — Promising DAC MOF 예시 (논문 Table S3 / Fig. 3)
 
 > Top promising MOFs identified directly in ODAC23 by DFT:
->
-> | CSD code | E_ads(CO₂) − E_ads(H₂O) | Adsorbate-adsorbate E |
-> |---|---|---|
-> | **ZIDBEV** | 강한 CO₂ binding | E_inter_mol ≈ 0 eV (separate adsorption OK) |
-> | **IMAGAG** | favors CO₂+H₂O 공존 | E_inter_mol = −0.64 eV |
-> | **IPIDUH** | CO₂+H₂O 비호환 | E_inter_mol = +1.04 eV |
-> | **TUGTAR** | CO₂+H₂O 비호환 | E_inter_mol = +0.51 eV |
-> | **KOQLUZ** | 강한 MOF 재배열 | E_inter_mol = −2.31 eV |
-> | **LEWZET** | 두 번째 H₂O 흡착 시 distortion | 2nd E_inter_mol = −5.48 eV |
+
+| CSD code | E_ads(CO₂) − E_ads(H₂O) | Adsorbate-adsorbate E |
+|---|---|---|
+| **ZIDBEV** | 강한 CO₂ binding | E_inter_mol ≈ 0 eV (separate adsorption OK) |
+| **IMAGAG** | favors CO₂+H₂O 공존 | E_inter_mol = −0.64 eV |
+| **IPIDUH** | CO₂+H₂O 비호환 | E_inter_mol = +1.04 eV |
+| **TUGTAR** | CO₂+H₂O 비호환 | E_inter_mol = +0.51 eV |
+| **KOQLUZ** | 강한 MOF 재배열 | E_inter_mol = −2.31 eV |
+| **LEWZET** | 두 번째 H₂O 흡착 시 distortion | 2nd E_inter_mol = −5.48 eV |
+
 >
 > **선별 기준** (Findley & Sholl):
 > - E_ads(CO₂) < −0.5 eV (sufficient binding at dilute DAC conditions)
@@ -153,22 +154,6 @@ Step 7 — Promising MOF 식별 (downstream verification)
 >
 > Metals: 57 species · monometallic 89% / bimetallic 10.7% / trimetallic <1%
 > Most common: Zn, Cu, Cd
-
----
-
-## 원문 직접 인용 (arXiv:2311.00341 / ACS Central Sci. §Abstract + §본문)
-
-> "We explore a computational approach benefiting from recent innovations in machine learning (ML) and present a dataset named **Open DAC 2023 (ODAC23) consisting of more than 38M density functional theory (DFT) calculations on more than 8,400 MOF materials containing adsorbed CO₂ and/or H₂O**."
-
-> "ODAC23 is by far the **largest dataset of MOF adsorption calculations at the DFT level of accuracy currently available**."
-
-> "The final dataset includes a total of **4,942 pristine MOFs and 3,470 defective MOFs** with defect concentrations ranging from 1-16%. The MOFs contain a diverse set of **57 metals**, with Zn, Cu, and Cd being the most common, and include a mix of monometallic (89%), bimetallic (10.7%), and trimetallic (< 1%) frameworks." (§Methods)
-
-> "In total, the dataset consists of **over 170K converged adsorption energies and nearly 40M single point calculations**, corresponding to over **400M core-hours of compute time**." (§Methods)
-
-> "The Open DAC 2023 (ODAC23) dataset has been designed to allow **training of ML models to approximate DFT calculations**, similar to previous work in heterogeneous catalysis (**OC20 and OC22**). We use the **same three task definitions used in the OC20 work**." (§Tasks)
-
-> Tasks: "**Structure to Total Energy and Forces (S2EF)** takes a structure as input and predicts Ẽ_ads ... Initial Structure to Relaxed Structure (IS2RS) ... Initial Structure to Relaxed Energy (IS2RE)" (OC20 정의 인용)
 
 ---
 

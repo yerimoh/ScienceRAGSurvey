@@ -109,12 +109,12 @@ Step 5 — Agent strategies tested
 
 ### 유형 B — Task-specific Success Criteria (Table 1 예시)
 
-> | Task instruction (요약) | Sub-tasks | Success Criteria |
-> |---|---|---|
-> | Train multitask model on ClinTox for tox+FDA approval | Feature Eng, Deep Learning | ROC-AUC ≥ 0.77 on test set |
-> | Build DTI model with DAVIS for COVID drug repurposing | Feature Eng, Deep Learning | Top-5 repurposed drugs match gold |
-> | Analyze IMU sleep data, compute sleep endpoints | Computational Analysis | `math.isclose` to gold answer |
-> | Visualize Toronto fire station coverage | Map Visualization | GPT-4o judge ≥ 60 score |
+| Task instruction (요약) | Sub-tasks | Success Criteria |
+|---|---|---|
+| Train multitask model on ClinTox for tox+FDA approval | Feature Eng, Deep Learning | ROC-AUC ≥ 0.77 on test set |
+| Build DTI model with DAVIS for COVID drug repurposing | Feature Eng, Deep Learning | Top-5 repurposed drugs match gold |
+| Analyze IMU sleep data, compute sleep endpoints | Computational Analysis | `math.isclose` to gold answer |
+| Visualize Toronto fire station coverage | Map Visualization | GPT-4o judge ≥ 60 score |
 
 ### 유형 C — 4 disciplines × 102 tasks 분포
 
@@ -155,32 +155,16 @@ Step 5 — Agent strategies tested
 
 ### 유형 E — 기존 benchmark 비교 (Table 2)
 
-> | Benchmark | Code Gen | # Test Tasks | Heterogeneous Data | Shortcut Prevent |
-> |---|---|---|---|---|
-> | SWE-Bench | File-Level Edit | 2,294 | ✗ | ✗ |
-> | BioCoder-Py | Function-Level | 1,126 | ✗ | ✗ |
-> | ML-Bench | Line-Level | 260 | ✓ | ✗ |
-> | MLAgentBench | File-Level Edit | 13 | ✗ | ✗ |
-> | DiscoveryBench-Real | Indirect (NL hypothesis) | 239 | ✓ | ✗ |
-> | SciCode | Function-Level | 80 | ✗ | ✓ |
-> | BLADE | Function-Level | 12 | ✗ | ✗ |
-> | **ScienceAgentBench** | **File-Level Gen** | **102** | ✓ | ✓ |
-
----
-
-## 원문 직접 인용 (arXiv:2410.05080 §Abstract + §1)
-
-> "we present **ScienceAgentBench, a new benchmark** for evaluating language agents for data-driven scientific discovery"
-
-> "we extract **102 tasks from 44 peer-reviewed publications in four disciplines** and engage **nine subject matter experts** to validate them"
-
-> "We unify the target output for every task to a **self-contained Python program file** and employ an array of evaluation metrics to examine the generated programs, execution results, and costs"
-
-> Strategies: "**direct prompting, OpenHands CodeAct, and self-debug**"
-
-> Results: "the best-performing agent can only solve **32.4% of the tasks independently and 34.3% with expert-provided knowledge**"
-
-> "OpenAI o1-preview with direct prompting and self-debug, which can boost the performance"
+| Benchmark | Code Gen | # Test Tasks | Heterogeneous Data | Shortcut Prevent |
+|---|---|---|---|---|
+| SWE-Bench | File-Level Edit | 2,294 | ✗ | ✗ |
+| BioCoder-Py | Function-Level | 1,126 | ✗ | ✗ |
+| ML-Bench | Line-Level | 260 | ✓ | ✗ |
+| MLAgentBench | File-Level Edit | 13 | ✗ | ✗ |
+| DiscoveryBench-Real | Indirect (NL hypothesis) | 239 | ✓ | ✗ |
+| SciCode | Function-Level | 80 | ✗ | ✓ |
+| BLADE | Function-Level | 12 | ✗ | ✗ |
+| **ScienceAgentBench** | **File-Level Gen** | **102** | ✓ | ✓ |
 
 ---
 

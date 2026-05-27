@@ -216,16 +216,86 @@ Monitor: # H₂O formed, ΔH, bond breaking/formation
 <h3>유형 C — EOS Benchmark Results (Table 1)</h3>
 <blockquote>
 <p>1,000 WBM structures, lower=better (deviation from ideal physics)</p>
-<p>| Model | Derivative flips ↓ | Tortuosity ↓ | E compression ρ ↓ | dE/dV compression ρ ↑ | Missing ↓ |
-|---|---|---|---|---|---|
-| <strong>MACE-MPA</strong> | <strong>1.037</strong> | <strong>1.005</strong> | <strong>-0.999</strong> | <strong>0.996</strong> | <strong>2</strong> |
-| eSEN | 1.042 | 1.008 | -0.999 | 0.997 | 5 |
-| MACE-MP(M) | 1.042 | 1.009 | -0.999 | 0.994 | 5 |
-| MatterSim | 1.045 | 1.006 | -0.997 | 0.993 | 3 |
-| CHGNet | 1.105 | 1.015 | -0.996 | 0.993 | 3 |
-| SevenNet | 1.109 | 1.019 | -0.998 | 0.989 | 3 |
-| M3GNet | 1.175 | 1.018 | -0.996 | 0.990 | 5 |
-| ORBv2 | 1.316 | 1.037 | -0.992 | 0.970 | 7 |</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+  <th>Model</th>
+  <th>Derivative flips ↓</th>
+  <th>Tortuosity ↓</th>
+  <th>E compression ρ ↓</th>
+  <th>dE/dV compression ρ ↑</th>
+  <th>Missing ↓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>MACE-MPA</strong></td>
+  <td><strong>1.037</strong></td>
+  <td><strong>1.005</strong></td>
+  <td><strong>-0.999</strong></td>
+  <td><strong>0.996</strong></td>
+  <td><strong>2</strong></td>
+</tr>
+<tr>
+  <td>eSEN</td>
+  <td>1.042</td>
+  <td>1.008</td>
+  <td>-0.999</td>
+  <td>0.997</td>
+  <td>5</td>
+</tr>
+<tr>
+  <td>MACE-MP(M)</td>
+  <td>1.042</td>
+  <td>1.009</td>
+  <td>-0.999</td>
+  <td>0.994</td>
+  <td>5</td>
+</tr>
+<tr>
+  <td>MatterSim</td>
+  <td>1.045</td>
+  <td>1.006</td>
+  <td>-0.997</td>
+  <td>0.993</td>
+  <td>3</td>
+</tr>
+<tr>
+  <td>CHGNet</td>
+  <td>1.105</td>
+  <td>1.015</td>
+  <td>-0.996</td>
+  <td>0.993</td>
+  <td>3</td>
+</tr>
+<tr>
+  <td>SevenNet</td>
+  <td>1.109</td>
+  <td>1.019</td>
+  <td>-0.998</td>
+  <td>0.989</td>
+  <td>3</td>
+</tr>
+<tr>
+  <td>M3GNet</td>
+  <td>1.175</td>
+  <td>1.018</td>
+  <td>-0.996</td>
+  <td>0.990</td>
+  <td>5</td>
+</tr>
+<tr>
+  <td>ORBv2</td>
+  <td>1.316</td>
+  <td>1.037</td>
+  <td>-0.992</td>
+  <td>0.970</td>
+  <td>7</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
 <p>→ <strong>Matbench Discovery 상위 모델</strong> ≠ EOS 상위 모델 (force smoothness ≠ energy regression)</p>
 </blockquote>
 <h3>유형 D — 4-category benchmark structure</h3>
@@ -254,23 +324,6 @@ Monitor: # H₂O formed, ΔH, bond breaking/formation
 </code></pre>
 <p>Models evaluated: <strong>MACE-MP(M), CHGNet, M3GNet, MatterSim, ORBv2, SevenNet, MACE-MPA, eSEN</strong> (Table S4)
 Workflow: Prefect orchestration · Parquet/JSON/ASE DB storage · GitHub submission</p>
-</blockquote>
-<hr />
-<h2>원문 직접 인용 (arXiv:2509.20630 §Abstract + §1)</h2>
-<blockquote>
-<p>&quot;We introduce <strong>MLIP Arena, a benchmark platform that evaluates force field performance based on physics awareness, chemical reactivity, stability under extreme conditions, and predictive capabilities for thermodynamic properties</strong> and physical phenomena&quot;</p>
-</blockquote>
-<blockquote>
-<p>&quot;Existing benchmarks suffer from <strong>data leakage, limited transferability, and an over-reliance on error-based metrics tied to specific density functional theory (DFT) references</strong>&quot;</p>
-</blockquote>
-<blockquote>
-<p>4 카테고리: &quot;<strong>Asymptotic Behaviors / Stability and Reactivity / Distribution Shifts / Thermodynamic Properties</strong>&quot; + 구체적 phenomena &quot;<strong>Dynamical stability, Gas adsorption, Phase transition, Vacancy migration</strong>&quot;</p>
-</blockquote>
-<blockquote>
-<p>Matbench Discovery 비판: &quot;non-compliant models rank highly for crystal stability metrics due to <strong>energy overfitting at the expense of forces and finite-temperature capabilities</strong>&quot;</p>
-</blockquote>
-<blockquote>
-<p>Available: <strong><a href="https://github.com/atomind-ai/mlip-arena">https://github.com/atomind-ai/mlip-arena</a></strong></p>
 </blockquote>
 <hr />
 <h2>평가 framework</h2>

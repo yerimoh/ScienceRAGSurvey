@@ -135,18 +135,6 @@ Step 4 — User contributions
 
 ---
 
-## 원문 직접 인용 (arXiv:2306.11688 §Abstract + §본문)
-
-> "**JARVIS-Leaderboard, an open-source benchmark platform** that allows users to set up benchmarks with custom tasks and enables contributions in the form of dataset, methods, and metrics"
-
-> "**using 152 methods with more than 8 million data-points**, and the leaderboard is continuously expanding"
-
-> "Public website: **https://pages.nist.gov/jarvis_leaderboard/**"
-
-> Contrast with MatBench: "MatBench provides a leaderboard for machine learned structure-based property predictions of inorganic materials using **13 supervised machine learning tasks**" — JARVIS-Leaderboard expands to wider task coverage with multiple verifiers.
-
----
-
 ## 평가 framework
 
 | 차원 | 옵션 |

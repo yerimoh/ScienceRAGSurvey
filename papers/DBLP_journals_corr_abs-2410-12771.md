@@ -113,12 +113,13 @@ Step 6 — 공개 자원
 
 ### 유형 C — Source dataset 비교 (compositional/configurational coverage)
 
-> | Dataset | Size (structures) | Configuration | Compositional diversity |
-> |---|---|---|---|
-> | **OMat24** | 118M | equilibrium + far-from-eq | periodic table 전반, oxide over-represented |
-> | MPtrj | 1.6M | near-equilibrium | Materials Project subset |
-> | Alexandria | ~5M | equilibrium-only | hypothetical prototyped |
-> | OC20 | 130M | catalyst surface only | 적은 chemistry |
+| Dataset | Size (structures) | Configuration | Compositional diversity |
+|---|---|---|---|
+| **OMat24** | 118M | equilibrium + far-from-eq | periodic table 전반, oxide over-represented |
+| MPtrj | 1.6M | near-equilibrium | Materials Project subset |
+| Alexandria | ~5M | equilibrium-only | hypothetical prototyped |
+| OC20 | 130M | catalyst surface only | 적은 chemistry |
+
 >
 > → OMat24 = **2 orders of magnitude larger** than other open datasets
 
@@ -130,24 +131,6 @@ Step 6 — 공개 자원
 > 4. **Softening bias 측정** — energy/force/phonon 체계적 underestimation 정량화
 >
 > → OMat24-trained model: F$_1$ > 0.9, formation E MAE = 20 meV/atom, **모든 Matbench Discovery top model이 OMat24 채택**.
-
----
-
-## 원문 직접 인용 (arXiv:2410.12771 §Abstract + §1 + §2)
-
-> "we present the **Open Materials 2024 (OMat24) dataset, comprising over 110M DFT calculations** across diverse chemistries, materials, and configurations."
-
-> "MLIP models trained on OMat24 achieve leading performance on the **Matbench Discovery leaderboard, surpassing previous models with F1 scores above 0.9 for stability and 20 meV/atom accuracy for formation energy**."
-
-> "Models trained on OMat24 also exhibit the highest accuracy in newly developed **thermal conductivity and phonon prediction task benchmarks**."
-
-> "OMat24's diversity **corrects the consistent softening bias of prior models trained on less diverse datasets**, which systematically underpredicted energy, forces, and derivative properties like phonons."
-
-> "The OMat24 dataset includes a total of **118 million structures labeled with energy, forces and cell stress**. The number of atoms per structure ranges from **1 to 100 atoms per structure**." (§2.1)
-
-> Three design principles: "**Scale**: OMat24 is a large-scale public ab-initio training dataset for inorganic materials **up to 2 orders of magnitude larger than other openly available datasets** in terms of number of single-point calculations. **Diversity**: OMat24 has compositional diversity across the periodic table thanks to community efforts to prototype and catalog hypothetical materials, and contains a large fraction of far-from-equilibrium structures. **Open-science**: OMat24 is released under a permissive CC-by license." (§2.1)
-
-> "**Since its release, all top models on the leaderboard have adopted the dataset.**" (§1)
 
 ---
 

@@ -92,19 +92,20 @@ Step 5 — Public leaderboard + Python package
 
 ### 유형 C — Leaderboard model 정렬 (Table 1)
 
-> | Rank | Model | F$_1$ ↑ | DAF ↑ | Prec ↑ | MAE ↓ | Training | Targets |
-> |---|---|---|---|---|---|---|---|
-> | 1 | **eqV2 S DeNS** | **0.815** | **5.042** | 0.771 | 0.036 | MPtrj 1.6M | EFSD |
-> | 2 | ORB MPtrj | 0.765 | 4.702 | 0.719 | 0.045 | MPtrj 1.6M | EFSD |
-> | 3 | SevenNet | 0.724 | 4.252 | 0.650 | 0.048 | MPtrj 1.6M | EFSG |
-> | 4 | MACE | 0.669 | 3.777 | 0.577 | 0.057 | MPtrj 1.6M | EFSG |
-> | 5 | CHGNet | 0.613 | 3.361 | 0.514 | 0.063 | MPtrj 1.6M | EFSGM |
-> | 6 | M3GNet | 0.569 | 2.882 | 0.441 | 0.075 | MPF 188K | EFSG |
-> | 7 | ALIGNN | 0.567 | 3.206 | 0.490 | 0.093 | MP 2022 155K | E only |
-> | 8 | MEGNet | 0.510 | 2.959 | 0.452 | 0.130 | MP Graphs 133K | E only |
-> | 9 | CGCNN | 0.507 | 2.855 | 0.436 | 0.138 | MP 2022 155K | E only |
-> | … | Wrenformer, BOWSR, Voronoi RF | 0.466 → 0.333 | … | | | | |
-> | — | Dummy (random) | 0.185 | 1.000 | 0.154 | 0.124 | — | — |
+| Rank | Model | F$_1$ ↑ | DAF ↑ | Prec ↑ | MAE ↓ | Training | Targets |
+|---|---|---|---|---|---|---|---|
+| 1 | **eqV2 S DeNS** | **0.815** | **5.042** | 0.771 | 0.036 | MPtrj 1.6M | EFSD |
+| 2 | ORB MPtrj | 0.765 | 4.702 | 0.719 | 0.045 | MPtrj 1.6M | EFSD |
+| 3 | SevenNet | 0.724 | 4.252 | 0.650 | 0.048 | MPtrj 1.6M | EFSG |
+| 4 | MACE | 0.669 | 3.777 | 0.577 | 0.057 | MPtrj 1.6M | EFSG |
+| 5 | CHGNet | 0.613 | 3.361 | 0.514 | 0.063 | MPtrj 1.6M | EFSGM |
+| 6 | M3GNet | 0.569 | 2.882 | 0.441 | 0.075 | MPF 188K | EFSG |
+| 7 | ALIGNN | 0.567 | 3.206 | 0.490 | 0.093 | MP 2022 155K | E only |
+| 8 | MEGNet | 0.510 | 2.959 | 0.452 | 0.130 | MP Graphs 133K | E only |
+| 9 | CGCNN | 0.507 | 2.855 | 0.436 | 0.138 | MP 2022 155K | E only |
+| … | Wrenformer, BOWSR, Voronoi RF | 0.466 → 0.333 | … | | | | |
+| — | Dummy (random) | 0.185 | 1.000 | 0.154 | 0.124 | — | — |
+
 >
 > → UIPs (energy+force+stress) > energy-only one-shot 모델: 명확한 격차
 
@@ -113,20 +114,6 @@ Step 5 — Public leaderboard + Python package
 > "Accurate regressors can yield **high false-positive rates near the decision boundary at 0 eV/atom**" — 작은 MAE라도 hull 근처에서는 stable/unstable 오분류 다수 발생.
 >
 > 예시: CGCNN+P, Wrenformer, BOWSR — regression MAE는 양호하나 F$_1$이 낮음 (task-based 평가 필요성 증명)
-
----
-
-## 원문 직접 인용 (arXiv:2308.14920 §Abstract)
-
-> "We present **Matbench Discovery**, an evaluation framework for ML energy models, applied as **pre-filters for high-throughput searches of stable inorganic crystals**."
-
-> Ranking (best→worst): "**EquiformerV2 + DeNS > Orb > SevenNet > MACE > CHGNet > M3GNet > ALIGNN > MEGNet > CGCNN > CGCNN+P > Wrenformer > BOWSR > Voronoi fingerprint random forest**"
-
-> "UIPs emerge as the top performers, achieving **F$_1$ scores of 0.57–0.82** and **discovery acceleration factors (DAF) of up to 6× on the first 10k stable predictions**"
-
-> "**Accurate regressors can yield high false-positive rates near the decision boundary at 0 eV/atom above the convex hull**" — regression metric ≠ task metric
-
-> "the WBM dataset consists of **257,487 structures**"
 
 ---
 
