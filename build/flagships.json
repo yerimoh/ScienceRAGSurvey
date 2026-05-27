@@ -1634,6 +1634,72 @@
         "chem"
       ],
       "paper_link": "https://doi.org/10.1038/nm.4306"
+    },
+    "riebesell2025matbench": {
+      "title": "Matbench Discovery: ML Crystal Stability Benchmark on 257K WBM Structures",
+      "year": 2025,
+      "venue": "Nature Machine Intelligence",
+      "method": "Matbench Discovery",
+      "type": "benchmark",
+      "domain": [
+        "material",
+        "chem",
+        "physics"
+      ],
+      "paper_link": "https://doi.org/10.1038/s42256-025-01055-1"
+    },
+    "lan2023adsorbml": {
+      "title": "AdsorbML: 1000 Adsorbate-Surface DFT-Success Benchmark",
+      "year": 2023,
+      "venue": "npj Computational Materials",
+      "method": "AdsorbML",
+      "type": "benchmark",
+      "domain": [
+        "material",
+        "chem"
+      ],
+      "paper_link": "https://doi.org/10.1038/s41524-023-01121-5"
+    },
+    "choudhary2024jarvis": {
+      "title": "JARVIS-Leaderboard: ~1500 Tasks × 11 Categories Multi-modal Materials Benchmark",
+      "year": 2024,
+      "venue": "npj Computational Materials",
+      "method": "JARVIS-Leaderboard",
+      "type": "benchmark",
+      "domain": [
+        "material",
+        "chem",
+        "physics"
+      ],
+      "paper_link": "https://doi.org/10.1038/s41524-024-01259-w"
+    },
+    "DBLP:journals/corr/abs-2410-05080": {
+      "title": "ScienceAgentBench: 102 Tasks × 44 Pubs × API+E2E Code Success",
+      "year": 2024,
+      "venue": "ICLR / arXiv",
+      "method": "ScienceAgentBench",
+      "type": "benchmark",
+      "domain": [
+        "bio",
+        "chem",
+        "material",
+        "physics",
+        "general"
+      ],
+      "paper_link": "https://arxiv.org/abs/2410.05080"
+    },
+    "DBLP:journals/corr/abs-2509-20630": {
+      "title": "MLIP Arena: Physics-aware MLIP Benchmark Platform",
+      "year": 2025,
+      "venue": "NeurIPS D&B 2025",
+      "method": "MLIP Arena",
+      "type": "benchmark",
+      "domain": [
+        "material",
+        "chem",
+        "physics"
+      ],
+      "paper_link": "https://arxiv.org/abs/2509.20630"
     }
   }
 }

@@ -1473,5 +1473,50 @@
     "O": "",
     "note": "Hand-curated library of 4,707 clinical compounds (3,422 marketed/trialed) — Broad Institute resource, used as DTI evaluation source",
     "subsection": "Chemistry and drug discovery"
+  },
+  "riebesell2025matbench": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "Matbench Discovery — Simulation-verified Materials Discovery benchmark",
+    "subsection": "Simulation-verified Materials Discovery"
+  },
+  "lan2023adsorbml": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "AdsorbML — Simulation-verified Materials Discovery benchmark",
+    "subsection": "Simulation-verified Materials Discovery"
+  },
+  "choudhary2024jarvis": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "JARVIS-Leaderboard — Simulation-verified Materials Discovery benchmark",
+    "subsection": "Simulation-verified Materials Discovery"
+  },
+  "DBLP:journals/corr/abs-2410-05080": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "ScienceAgentBench — Simulation-verified Materials Discovery benchmark",
+    "subsection": "Simulation-verified Materials Discovery"
+  },
+  "DBLP:journals/corr/abs-2509-20630": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "MLIP Arena — Simulation-verified Materials Discovery benchmark",
+    "subsection": "Simulation-verified Materials Discovery"
   }
 }

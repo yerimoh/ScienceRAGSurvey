@@ -1940,6 +1940,29 @@
     "cross_source": false
   },
   {
+    "bib_key": "DBLP:journals/corr/abs-2509-20630",
+    "title": "MLIP Arena: Physics-aware MLIP Benchmark Platform",
+    "year": 2025,
+    "venue": "NeurIPS D&B 2025",
+    "method": "MLIP Arena",
+    "domain": [
+      "material",
+      "chem",
+      "physics"
+    ],
+    "paper_link": "https://arxiv.org/abs/2509.20630",
+    "note": "MLIP Arena — Simulation-verified Materials Discovery benchmark",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "MLIP Arena — Simulation-verified Materials Discovery benchmark",
+    "cross_source": false,
+    "type": "benchmark",
+    "bib_only": true,
+    "subsection": "Simulation-verified Materials Discovery"
+  },
+  {
     "title": "MMed-RAG: Versatile Multimodal RAG System for Medical VLMs",
     "year": 2025,
     "venue": "ICLR",
@@ -2018,6 +2041,29 @@
     "ko_primary": null,
     "ko_note": "",
     "cross_source": false
+  },
+  {
+    "bib_key": "riebesell2025matbench",
+    "title": "Matbench Discovery: ML Crystal Stability Benchmark on 257K WBM Structures",
+    "year": 2025,
+    "venue": "Nature Machine Intelligence",
+    "method": "Matbench Discovery",
+    "domain": [
+      "material",
+      "chem",
+      "physics"
+    ],
+    "paper_link": "https://doi.org/10.1038/s42256-025-01055-1",
+    "note": "Matbench Discovery — Simulation-verified Materials Discovery benchmark",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "Matbench Discovery — Simulation-verified Materials Discovery benchmark",
+    "cross_source": false,
+    "type": "benchmark",
+    "bib_only": true,
+    "subsection": "Simulation-verified Materials Discovery"
   },
   {
     "title": "Materials Dual-Source Knowledge Retrieval-Augmented Generation for Local Large Language Models in Photocatalysts",
@@ -3552,6 +3598,29 @@
     "cross_source": false
   },
   {
+    "bib_key": "choudhary2024jarvis",
+    "title": "JARVIS-Leaderboard: ~1500 Tasks × 11 Categories Multi-modal Materials Benchmark",
+    "year": 2024,
+    "venue": "npj Computational Materials",
+    "method": "JARVIS-Leaderboard",
+    "domain": [
+      "material",
+      "chem",
+      "physics"
+    ],
+    "paper_link": "https://doi.org/10.1038/s41524-024-01259-w",
+    "note": "JARVIS-Leaderboard — Simulation-verified Materials Discovery benchmark",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "JARVIS-Leaderboard — Simulation-verified Materials Discovery benchmark",
+    "cross_source": false,
+    "type": "benchmark",
+    "bib_only": true,
+    "subsection": "Simulation-verified Materials Discovery"
+  },
+  {
     "title": "Language Agents Achieve Superhuman Synthesis of Scientific Knowledge",
     "year": 2024,
     "venue": "arXiv",
@@ -4000,6 +4069,31 @@
     "cross_source": false
   },
   {
+    "bib_key": "DBLP:journals/corr/abs-2410-05080",
+    "title": "ScienceAgentBench: 102 Tasks × 44 Pubs × API+E2E Code Success",
+    "year": 2024,
+    "venue": "ICLR / arXiv",
+    "method": "ScienceAgentBench",
+    "domain": [
+      "bio",
+      "chem",
+      "material",
+      "physics",
+      "general"
+    ],
+    "paper_link": "https://arxiv.org/abs/2410.05080",
+    "note": "ScienceAgentBench — Simulation-verified Materials Discovery benchmark",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "ScienceAgentBench — Simulation-verified Materials Discovery benchmark",
+    "cross_source": false,
+    "type": "benchmark",
+    "bib_only": true,
+    "subsection": "Simulation-verified Materials Discovery"
+  },
+  {
     "bib_key": "zdrazil2024chembl",
     "title": "The ChEMBL Database in 2023: a drug discovery platform spanning multiple bioactivity data types and time periods",
     "year": 2024,
@@ -4163,6 +4257,28 @@
     "ko_primary": null,
     "ko_note": "",
     "cross_source": false
+  },
+  {
+    "bib_key": "lan2023adsorbml",
+    "title": "AdsorbML: 1000 Adsorbate-Surface DFT-Success Benchmark",
+    "year": 2023,
+    "venue": "npj Computational Materials",
+    "method": "AdsorbML",
+    "domain": [
+      "material",
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1038/s41524-023-01121-5",
+    "note": "AdsorbML — Simulation-verified Materials Discovery benchmark",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "AdsorbML — Simulation-verified Materials Discovery benchmark",
+    "cross_source": false,
+    "type": "benchmark",
+    "bib_only": true,
+    "subsection": "Simulation-verified Materials Discovery"
   },
   {
     "bib_key": "DBLP:journals/corr/abs-2303-01229",
