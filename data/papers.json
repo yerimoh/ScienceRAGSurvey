@@ -712,7 +712,10 @@
     "ko_primary": "K1.O1",
     "ko_note": "main.tex: K=-; O=O1,O2",
     "cross_source": false,
-    "subsection": "Text-only Long-form Citation"
+    "subsection": [
+      "Text-only Long-form Citation",
+      "Aggregative Synthesis"
+    ]
   },
   {
     "title": "TaLiRAGen: target-aware ligand generation via RAG LLMs",
@@ -3933,8 +3936,7 @@
     ],
     "ko_primary": "O2",
     "ko_note": "main.tex: K=-; O=O2",
-    "cross_source": false,
-    "subsection": "Aggregative Synthesis"
+    "cross_source": false
   },
   {
     "bib_key": "navas2024review",
@@ -7962,8 +7964,7 @@
     "ko_note": "HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 76%; outperforms PubMedGPT and GPT-4; scales to thousands of GPUs",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true,
-    "subsection": "Aggregative Synthesis"
+    "bib_only": true
   },
   {
     "bib_key": "DBLP:journals/corr/abs-2408-01107",
@@ -8017,8 +8018,7 @@
     "ko_note": "Multimodal RAG fusing PubMed text+figures via cross-modal attention; evaluated on BioASQ and PubMedQA; low hallucination rate; non-inferior to human accuracy",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true,
-    "subsection": "Aggregative Synthesis"
+    "bib_only": true
   },
   {
     "title": "MTsamples (Web Dataset)",

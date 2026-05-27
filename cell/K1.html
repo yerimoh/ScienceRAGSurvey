@@ -134,7 +134,9 @@
       btn.classList.add('active');
       var sub = btn.dataset.sub;
       document.querySelectorAll('.card').forEach(function(card){
-        card.style.display = (sub === '' || card.dataset.sub === sub) ? '' : 'none';
+        var cardSub = card.dataset.sub || '';
+        var cardSubs = cardSub.split(' | ');
+        card.style.display = (sub === '' || cardSubs.indexOf(sub) >= 0) ? '' : 'none';
       });
     });
   });

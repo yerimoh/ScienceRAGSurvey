@@ -137,8 +137,7 @@
     ],
     "K": "",
     "O": "O2",
-    "note": "main.tex: K=-; O=O2",
-    "subsection": "Aggregative Synthesis"
+    "note": "main.tex: K=-; O=O2"
   },
   "DBLP:journals/corr/abs-2509-09686": {
     "cells": [
@@ -191,7 +190,10 @@
     "K": "",
     "O": "O1",
     "note": "main.tex: K=-; O=O1,O2",
-    "subsection": "Text-only Long-form Citation"
+    "subsection": [
+      "Text-only Long-form Citation",
+      "Aggregative Synthesis"
+    ]
   },
   "auer2023sciqa": {
     "cells": [
@@ -1160,8 +1162,7 @@
     ],
     "K": "K1",
     "O": "O2",
-    "note": "Multimodal RAG fusing PubMed text+figures via cross-modal attention; evaluated on BioASQ and PubMedQA; low hallucination rate; non-inferior to human accuracy",
-    "subsection": "Aggregative Synthesis"
+    "note": "Multimodal RAG fusing PubMed text+figures via cross-modal attention; evaluated on BioASQ and PubMedQA; low hallucination rate; non-inferior to human accuracy"
   },
   "krithara2023bioasq": {
     "cells": [
@@ -1244,8 +1245,7 @@
     ],
     "K": "K1",
     "O": "O2",
-    "note": "HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 76%; outperforms PubMedGPT and GPT-4; scales to thousands of GPUs",
-    "subsection": "Aggregative Synthesis"
+    "note": "HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 76%; outperforms PubMedGPT and GPT-4; scales to thousands of GPUs"
   },
   "DBLP:journals/corr/abs-2403-15729": {
     "cells": [

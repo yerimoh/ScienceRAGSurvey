@@ -51,7 +51,15 @@ def subsec_filter_html(papers_list, prefix=''):
     prefix: CSS class prefix to avoid ID collisions between pages.
     """
     from collections import Counter
-    counts = Counter(p.get('subsection', '') for p in papers_list if p.get('subsection'))
+    counts = Counter()
+    for p in papers_list:
+        subs = p.get('subsection') or ''
+        if isinstance(subs, list):
+            for s in subs:
+                if s:
+                    counts[s] += 1
+        elif subs:
+            counts[subs] += 1
     if len(counts) < 2:
         return ''
     total = len(papers_list)
@@ -70,7 +78,9 @@ def subsec_filter_html(papers_list, prefix=''):
       btn.classList.add('active');
       var sub = btn.dataset.sub;
       document.querySelectorAll('.card').forEach(function(card){{
-        card.style.display = (sub === '' || card.dataset.sub === sub) ? '' : 'none';
+        var cardSub = card.dataset.sub || '';
+        var cardSubs = cardSub.split(' | ');
+        card.style.display = (sub === '' || cardSubs.indexOf(sub) >= 0) ? '' : 'none';
       }});
     }});
   }});
@@ -297,7 +307,10 @@ def paper_card(p, base=''):
         tag_html.append(f'<a href="{base}cell/{c}.html" class="tag tag-cell" title="{c}">{cell_label(c)}</a>')
     subsec = p.get('subsection')
     if subsec:
-        tag_html.append(f'<span class="tag tag-sub">{esc(subsec)}</span>')
+        subs_list = subsec if isinstance(subsec, list) else [subsec]
+        for s in subs_list:
+            if s:
+                tag_html.append(f'<span class="tag tag-sub">{esc(s)}</span>')
     for d in domains:
         tag_html.append(f'<a href="{base}domain/{d}.html" class="tag tag-domain">{DOMAIN_EMOJI.get(d, "")}{esc(DOMAIN_LABELS.get(d, d))}</a>')
     if typ and typ != 'unknown':
@@ -311,7 +324,10 @@ def paper_card(p, base=''):
     summary_link = (f'<a href="{base}papers/{paper_fn}" class="card-summary-link">Summary →</a>'
                     if has_summary else '')
 
-    subsec_attr = f' data-sub="{esc(p.get("subsection",""))}"'
+    _subsec_val = p.get("subsection", "") or ""
+    if isinstance(_subsec_val, list):
+        _subsec_val = " | ".join(s for s in _subsec_val if s)
+    subsec_attr = f' data-sub="{esc(_subsec_val)}"'
     return f'''<article class="card"{subsec_attr}>
   <h3 class="card-title">{title_html}</h3>
   {f'<div class="card-meta">{meta}</div>' if meta else ''}
@@ -676,7 +692,14 @@ def render_browse():
     type_opts = '\n'.join(f'<option value="{t}">{esc(TYPE_LABELS[t])} ({len(by_type[t])})</option>' for t in TYPE_LABELS if t in by_type)
     cell_opts = '\n'.join(f'<option value="{K}.{O}">[{K}.{O}] {esc(K_LABELS[K][0])} × {esc(O_LABELS[O][0])} ({len(by_cell.get(K+"."+O, []))})</option>' for K in ['K1','K2','K3','K4'] for O in ['O1','O2','O3'])
     from collections import Counter
-    sub_counts = Counter(p.get('subsection','') for p in papers if p.get('subsection'))
+    sub_counts = Counter()
+    for p in papers:
+        s = p.get('subsection') or ''
+        if isinstance(s, list):
+            for v in s:
+                if v: sub_counts[v] += 1
+        elif s:
+            sub_counts[s] += 1
     sub_opts = '\n'.join(f'<option value="{esc(s)}">{esc(s)} ({n})</option>' for s, n in sorted(sub_counts.items(), key=lambda x: -x[1]))
     body = f'''
 <section class="browse-hero">
