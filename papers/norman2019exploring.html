@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exploring genetic interaction manifolds constructed from rich single-cell phenotypes — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779888591">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">11</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">8</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">21</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">4</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">3</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">7</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">27</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">88</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">133</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">14</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">176</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">106</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">17</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Exploring genetic interaction manifolds constructed from rich single-cell phenotypes</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Science</span>
+      <span class="meta-year">2019</span>
+      <a href="https://doi.org/10.1126/science.aax4438" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Observational & Experimental</a><span class="tag tag-sub">Weakly-verified Hypothesis Generation</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>Norman 2019: 287 dual-CRISPRi pair × K562 — canonical GI manifold substrate</h1>
+<blockquote>
+<p>Science 365(6455):786-793 | 2019 | Dataset (dual-CRISPRi Perturb-seq for genetic interaction analysis) | bio
+Thomas M. Norman, Max A. Horlbeck, Joseph M. Replogle, Alex Y. Ge, Albert Xu, Marco Jost, Luke A. Gilbert, Jonathan S. Weissman — UCSF / Whitehead Institute
+DOI: <a href="https://doi.org/10.1126/science.aax4438">10.1126/science.aax4438</a></p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p><strong>287 dual-CRISPRi (CRISPR interference) gene-pair × K562 erythroleukemia cells</strong>에서 측정한 <strong>Perturb-seq atlas</strong>. 각 dual perturbation은 두 sgRNA를 동일 세포에 발현시켜 두 유전자를 동시 knockdown. <strong>rich single-cell transcriptomic phenotype</strong> 기반으로 <strong>genetic interaction manifold</strong>를 구성, 유전자 쌍의 <strong>synergy / suppression / redirection / neomorphism</strong> 등 GI subtype을 phenotype 공간에서 직접 분류. 이후 GEARS / PerturBench / scGPT 등 <strong>모든 dual-gene perturbation prediction 모델의 표준 substrate</strong>.</p>
+<hr />
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>Step 1 — 동기: GI 측정의 한계
+  ┌──────────────────────────────────────────────┐
+  │ 전통 GI 측정 (epistasis):                    │
+  │   · single readout (성장률, 사멸 등)         │
+  │   · scalar GI score만 산출                   │
+  │   · 같은 score여도 분자적 기전 다름           │
+  │ → rich phenotype (전사체) 기반 GI 필요       │
+  └──────────────────────────────────────────────┘
+
+Step 2 — Cell line + perturbation library 구축
+  ┌──────────────────────────────────────────────┐
+  │ Cell line: K562 (erythroleukemia)            │
+  │ CRISPRi machinery: dCas9-KRAB stable line   │
+  │ sgRNA library:                                │
+  │   · 단일 유전자 sgRNA pool                    │
+  │   · 모든 페어 조합 → dual sgRNA constructs   │
+  │ Pair selection: TF + cell-fate regulator     │
+  │   focus (myeloid/erythroid lineage 관련)    │
+  └──────────────────────────────────────────────┘
+
+Step 3 — Perturb-seq 실험 규모
+  ┌──────────────────────────────────────────────┐
+  │ Single-gene perturbations:     ~107–155 게놈  │
+  │ Dual-gene combinations:        ~131–287 쌍   │
+  │ (보고된 값은 분석 단계 / 필터링에 따라 변동)  │
+  │ Per-perturbation cell count:   ~수백          │
+  │ Total cells profiled:          ~수십만        │
+  │ Readout: 10x Chromium single-cell RNA-seq    │
+  └──────────────────────────────────────────────┘
+
+Step 4 — GI manifold 분석
+  · 각 perturbation의 mean transcriptomic delta 계산
+  · UMAP/PCA로 perturbation 임베딩 시각화
+  · single + dual perturbation을 동일 공간에 배치
+  · dual의 위치를 single 두 점의 선형/비선형 조합과
+    비교 → GI subtype 분류
+
+Step 5 — GI subtype 분류 체계
+  ┌──────────────────────────────────────────────┐
+  │ NEOMORPHIC: dual이 single 어느 것과도 다름  │
+  │ REDUNDANT:  dual ≈ single A ≈ single B      │
+  │ SUPPRESSOR: dual ≈ control (B가 A 억제)     │
+  │ EPISTASIS_A: dual ≈ single A (A 우세)       │
+  │ POTENTIATION: dual &gt;&gt; single A + single B   │
+  │ ADDITIVE: dual ≈ single A + single B (선형) │
+  └──────────────────────────────────────────────┘
+</code></pre>
+<hr />
+<h2>실제 데이터 형식 예시 (논문 §Methods + Supplementary)</h2>
+<h3>유형 A — Single-gene CRISPRi perturbation record</h3>
+<blockquote>
+<pre><code>Cell:        K562 (CRISPRi-ready, dCas9-KRAB stable)
+sgRNA:       targeting CEBPA promoter (TSS-proximal)
+Knockdown:   transcriptional repression (~80-95% of WT)
+Readout:     scRNA-seq (10x Chromium)
+Cell count:  ~500-2000 cells per perturbation
+Gene exp:    raw UMI count matrix (cells × genes)
+</code></pre>
+</blockquote>
+<h3>유형 B — Dual-gene combinatorial perturbation</h3>
+<blockquote>
+<pre><code>Dual sgRNA construct: sgRNA-A (targets CEBPA)
+                    + sgRNA-B (targets CEBPB)
+Co-infection:        single cell gets both sgRNAs
+Verification:        sgRNA capture or barcoding
+Phenotype:           cell expression vector under
+                    simultaneous CEBPA + CEBPB KD
+</code></pre>
+</blockquote>
+<h3>유형 C — GI manifold input/output</h3>
+<blockquote>
+<p><strong>Input</strong>:</p>
+<pre><code>Single A perturbation embedding (e.g., CEBPA)
+Single B perturbation embedding (e.g., CEBPB)
+Dual (A+B) perturbation embedding (observed)
+</code></pre>
+<p><strong>Analysis</strong>:</p>
+<pre><code>Predicted additive: linear sum of single deltas
+Compute: |dual - predicted_additive|
+        → magnitude of nonlinear GI effect
+Direction: projection of dual onto control axis,
+          single A axis, single B axis
+        → classify into 6 GI subtypes
+</code></pre>
+</blockquote>
+<h3>유형 D — Downstream ML 사용 예시 (GEARS 기준)</h3>
+<blockquote>
+<pre><code>Standard split (GEARS, PerturBench):
+  Train:  all 155 single + 30% of 131 dual
+  Test:   remaining 70% of dual perturbations
+  Goal:   predict dual response from singles + KG context
+
+Standard evaluation splits introduced by GEARS:
+  Seen-Seen:    both A and B singles in train
+  Seen-Unseen:  only A single in train
+  Unseen-Unseen: neither in train
+</code></pre>
+</blockquote>
+<hr />
+<h2>평가 framework (downstream model이 사용)</h2>
+<table>
+<thead>
+<tr>
+  <th>Metric</th>
+  <th>의미</th>
+  <th>사용처</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>MSE on top-20 DEG</strong></td>
+  <td>DEG에서의 예측 정확도</td>
+  <td>GEARS, PerturBench</td>
+</tr>
+<tr>
+  <td><strong>Pearson correlation</strong></td>
+  <td>전체 Δexpression 상관</td>
+  <td>일반적</td>
+</tr>
+<tr>
+  <td><strong>Precision@10 (GI subtype)</strong></td>
+  <td>상위 10개 예측 GI 분류 정확도</td>
+  <td>GEARS GI head</td>
+</tr>
+<tr>
+  <td><strong>MMD (PCA top-256)</strong></td>
+  <td>분포 일치</td>
+  <td>PerturBench</td>
+</tr>
+<tr>
+  <td><strong>rank metric</strong></td>
+  <td>모든 perturbation 간 순서</td>
+  <td>PerturBench (mode-collapse 탐지)</td>
+</tr>
+</tbody>
+</table>
+<p>→ Norman 2019는 데이터 그 자체로는 metric 없음; downstream model이 위 metric으로 평가.</p>
+<hr />
+<h2>주요 발견 (논문 §Results)</h2>
+<table>
+<thead>
+<tr>
+  <th>발견</th>
+  <th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GI manifold가 cell-fate program으로 정렬</td>
+  <td>erythroid / myeloid lineage 축</td>
+</tr>
+<tr>
+  <td>Suppressor pair 다수 검출</td>
+  <td>scalar GI score로 못 잡던</td>
+</tr>
+<tr>
+  <td>Neomorphic pair (CEBPA+CEBPB 등) 발견</td>
+  <td>새 program 출현</td>
+</tr>
+<tr>
+  <td>Dual phenotype의 ~70%는 가산 (linear)</td>
+  <td>비가산 GI는 30% 정도</td>
+</tr>
+<tr>
+  <td>rich phenotype이 epistasis 분류 가능</td>
+  <td>scalar fitness 한계 극복</td>
+</tr>
+</tbody>
+</table>
+<p>→ <strong>결론</strong>: scRNA-seq 기반 rich phenotype으로 GI analysis 패러다임 전환, 후속 perturbation prediction 모델의 표준 substrate가 됨.</p>
+<hr />
+<h2>한계점</h2>
+<ul>
+<li><strong>K562 cell line만</strong>: 다른 cell type / 1차 세포 미커버</li>
+<li><strong>CRISPRi (knockdown)만</strong>: knockout, overexpression, drug perturbation 별도</li>
+<li><strong>TF + cell-fate regulator 위주 pair 선택</strong>: 다른 pathway 미포함</li>
+<li><strong>단일 시점</strong>: time-course 정보 없음</li>
+<li><strong>287 pair &lt;&lt; 4억 가능 조합</strong>: combinatorial space 극히 일부</li>
+<li><strong>scRNA-seq dropout</strong>: 저발현 유전자 정확도 제한</li>
+</ul>
+<hr />
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문 (Science)</strong>: <a href="https://doi.org/10.1126/science.aax4438">10.1126/science.aax4438</a></li>
+<li><strong>데이터 접근</strong>: GEO + GEARS 전처리 버전 (<code>gears.PertData.load('norman')</code>)</li>
+<li><strong>저자 소속</strong>: UCSF (Weissman lab) / Whitehead Institute</li>
+<li><strong>이 dataset을 사용한 후속 작업</strong>:<ul>
+<li>GEARS [[roohani2024gears]] (102 sg + 131 dg 표준 split)</li>
+<li>PerturBench [[DBLP:journals/corr/abs-2408-10609]] (155 sg + 131 dg, combo prediction task)</li>
+<li>scGPT, scFoundation — Norman19를 fine-tuning benchmark로 사용</li>
+</ul>
+</li>
+<li><strong>선행 연구</strong>: Adamson 2016 (UPR), Dixit 2016 (Perturb-seq 원형), Replogle 2022 (genome-scale Perturb-seq)</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="../llms.txt">llms.txt</a> ·
+      <a href="../llms-full.txt">llms-full.txt</a> ·
+      <a href="../data/papers.json">papers.json</a> ·
+      <a href="../about.html">About</a>
+    </p>
+  </div>
+</footer>
+<script src="../static/footnotes.js?v=1779886412"></script>
+</body>
+</html>

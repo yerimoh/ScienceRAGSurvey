@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PerturBench: Benchmarking Machine Learning Models for Cellular Perturbation Analysis — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779888591">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">11</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">8</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">21</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">4</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">3</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">7</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">27</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">88</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">133</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">14</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">176</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">106</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">17</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>PerturBench: Benchmarking Machine Learning Models for Cellular Perturbation Analysis</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">arXiv</span>
+      <span class="meta-year">2024</span>
+      <a href="https://arxiv.org/abs/2408.10609" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Observational & Experimental × Hypothesis</a><span class="tag tag-sub">Weakly-verified Hypothesis Generation</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>PerturBench: 6-dataset standardized benchmark for single-cell perturbation models</h1>
+<blockquote>
+<p>arXiv 2024 (Altos Labs technical report) | Benchmark (cellular perturbation prediction) | bio
+Yan Wu, Esther Wershof, Sebastian M. Schmon, Marcel Nassar, Błażej Osiński, Ridvan Eksi, Zichao Yan, Rory Stark, Kun Zhang, Thore Graepel — Altos Labs / University College London
+arXiv: <a href="https://arxiv.org/abs/2408.10609">2408.10609</a> · DBLP: <code>journals/corr/abs-2408-10609</code></p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p><strong>단일세포 perturbation response 예측 모델</strong>의 표준 평가를 위한 <strong>6-dataset benchmark</strong> (Srivatsan20 / Frangieh21 / Jiang24 / McFalineFigueroa23 / Norman19 / OP3) 와 <strong>2 task family</strong> (covariate transfer / combo prediction). RMSE + Pearson 같은 fit metric 외에 <strong>rank-based metric</strong> (perturbation 간 순서)을 도입해 mode-collapse 모델을 노출. CPA / SAMS-VAE / BioLord / GEARS / scGPT 등 published model + Latent Additive / Decoder-only baseline 비교.</p>
+<hr />
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>Step 1 — 문제 인식: 기존 perturbation benchmark의 약점
+  ┌──────────────────────────────────────────────┐
+  │ - 데이터셋마다 다른 split / metric           │
+  │ - rank-blind metric (RMSE/Pearson) 위주      │
+  │   → Decoder-Only가 single mean으로 좋은 점수 │
+  │ - 작은 dataset 위주 → real-world 미반영      │
+  │ - scFM (scGPT 등) 평가 일관성 부재          │
+  └──────────────────────────────────────────────┘
+
+Step 2 — 6 dataset 선정 (≥100 perturbations 필수)
+  ┌──────────────────┬──────┬──────┬─────────┬───────────┐
+  │ Dataset           │ Sing │ Dual │ Modality│ Cells     │
+  ├──────────────────┼──────┼──────┼─────────┼───────────┤
+  │ Srivatsan20       │  188 │   0  │ chem    │ 178,213   │
+  │ Frangieh21        │  248 │   0  │ genetic │ 218,331   │
+  │ Jiang24            │  219 │   0  │ genetic │ 1,628,476 │
+  │ McFalineFigueroa23│  525 │   0  │ genetic │ 892,800   │
+  │ Norman19           │  155 │ 131  │ genetic │ 91,168    │
+  │ OP3 (Szałata)      │  144 │   0  │ chem    │ 296,147   │
+  └──────────────────┴──────┴──────┴─────────┴───────────┘
+
+Step 3 — 2 task family 정의
+  · Covariate transfer:
+      train: pert A,B,C in cells X,Y
+      test:  pert A,B,C in cells Z (unseen covariate)
+  · Combo prediction (Norman19 only):
+      train: all single + 30% of duals
+      test:  remaining 70% of dual perturbations
+
+Step 4 — Metric suite (fit + rank + distributional)
+  · Fit metrics:
+      - RMSE on aggregated response
+      - cosine similarity of LogFC
+  · Rank metrics (new contribution):
+      - rank(X) = fraction of perturbations closer to
+        prediction than the ground truth target
+      - 0=perfect, 0.5=random, 1=worst
+  · Distributional:
+      - MMD (gene space + PCA top-256)
+      - DEG recall (top-20 t-score)
+
+Step 5 — Model zoo + baselines
+  Published: CPA*, SAMS-VAE*, BioLord*, GEARS, scGPT
+  Baselines: Latent Additive, Decoder-Only, Decoder(Cov), Linear
+  Ablations: CPA*(noAdv), SAMS-VAE*(S)
+
+Step 6 — Benchmarking rules
+  · Optuna HPO 60+ trials × 6 parallel
+  · Best HP selected on RMSE + 0.1*rankRMSE
+  · 4 seeds × best HP for stability
+</code></pre>
+<hr />
+<h2>실제 데이터 형식 예시 (논문 §2 + Table 1 + Figure 2)</h2>
+<h3>유형 A — Single-cell perturbation dataset record</h3>
+<blockquote>
+<p><strong>Input</strong>: control cell expression vector + perturbation metadata (covariate + pert ID)</p>
+<pre><code>Cell shape:  (cells, genes) ~ (218,331 × ~33,000) for Frangieh21
+Pert metadata: (perturbation ID, target gene(s), covariate cell line)
+Covariate:   batch / cell type / dose
+</code></pre>
+<p><strong>Output / Label</strong>: post-perturbation cell expression vector (same gene shape)</p>
+</blockquote>
+<h3>유형 B — Covariate transfer task (5 datasets)</h3>
+<blockquote>
+<pre><code>Train: cells with covariate C1, C2 — all perturbations A,B,C
+Test:  cells with covariate C3 (unseen) — same perturbations A,B,C
+Model task: predict cell state under perturbation in unseen covariate
+Real-world analog: drug effect in unseen cell line / tissue
+</code></pre>
+</blockquote>
+<h3>유형 C — Combinatorial prediction task (Norman19)</h3>
+<blockquote>
+<pre><code>Train: 155 single + 30% of 131 dual perturbations
+Test:  70% of dual perturbations (held out)
+Model task: predict A+B response from A and B single effects
+</code></pre>
+</blockquote>
+<h3>유형 D — Rank metric calculation (논문 Figure 2)</h3>
+<blockquote>
+<pre><code>Predicted pert X embedding ≈ control population mean
+Compute cosine similarity to all known perturbations
+rank(X) = position of X in sorted list / total perts
+       0 = perfect (X closest to itself)
+       0.5 = random ordering
+       1 = X furthest from its true target
+→ catches mode-collapse: Decoder-only has good RMSE but rank≈0.5
+</code></pre>
+</blockquote>
+<hr />
+<h2>평가 framework 요약</h2>
+<table>
+<thead>
+<tr>
+  <th>Category</th>
+  <th>Metric</th>
+  <th>목적</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Fit</strong></td>
+  <td>RMSE</td>
+  <td>average response 정확도</td>
+</tr>
+<tr>
+  <td>Fit</td>
+  <td>cosine LogFC</td>
+  <td>LogFC 방향 일치</td>
+</tr>
+<tr>
+  <td><strong>Rank</strong></td>
+  <td>rank RMSE</td>
+  <td>mode-collapse 탐지</td>
+</tr>
+<tr>
+  <td>Rank</td>
+  <td>rank cosine</td>
+  <td>specificity 측정</td>
+</tr>
+<tr>
+  <td><strong>Distributional</strong></td>
+  <td>MMD (gene)</td>
+  <td>full distribution 일치</td>
+</tr>
+<tr>
+  <td>Distributional</td>
+  <td>MMD PCA (top-256)</td>
+  <td>latent 분포 일치</td>
+</tr>
+<tr>
+  <td>Distributional</td>
+  <td>DEG recall (top-20 t-score)</td>
+  <td>DEG 회수율</td>
+</tr>
+</tbody>
+</table>
+<p>→ 핵심 contribution: <strong>rank metric</strong> — RMSE만 보면 Decoder-Only가 모든 perturbation을 single mean으로 예측해도 좋게 보이지만, rank ≈ 0.5로 즉시 노출.</p>
+<hr />
+<h2>주요 결과 (논문 §5)</h2>
+<table>
+<thead>
+<tr>
+  <th>발견</th>
+  <th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Adversarial 제거한 CPA<em>(noAdv)가 CPA</em>보다 항상 좋음</td>
+  <td>adversarial component가 도움 안 됨</td>
+</tr>
+<tr>
+  <td>Sparsity 제거한 SAMS-VAE<em>(S)가 SAMS-VAE</em>보다 항상 좋음</td>
+  <td>sparse mask 가정이 오히려 손실</td>
+</tr>
+<tr>
+  <td>Latent Additive baseline이 published 모델과 동등 또는 우위</td>
+  <td>단순 모델이 일반적으로 충분</td>
+</tr>
+<tr>
+  <td>Decoder-Only는 RMSE 양호하나 rank ≈ 0.5</td>
+  <td>mode-collapse, rank metric 필요</td>
+</tr>
+<tr>
+  <td>scGPT 임베딩 사용 시 marginal 개선만</td>
+  <td>scFM가 perturbation에 큰 효과 없음</td>
+</tr>
+<tr>
+  <td>Norman19 combo prediction: linear model도 강함</td>
+  <td>dual 효과가 대부분 linear</td>
+</tr>
+</tbody>
+</table>
+<p>→ <strong>결론</strong>: &quot;no single model architecture clearly outperforms others, simpler architectures are generally competitive and scale well with larger datasets&quot; (논문 §Abstract).</p>
+<hr />
+<h2>한계점</h2>
+<ul>
+<li><strong>단일세포 transcriptomics만</strong>: protein, phosphoproteomics 미커버</li>
+<li><strong>6 dataset 고정</strong>: 더 큰 atlas (CMap, LINCS, scPerturb 50-dataset) 미포함</li>
+<li><strong>Adversarial / sparsity</strong> 같은 모델 구성 비교 위주, novel architecture 평가 부족</li>
+<li><strong>Static benchmark</strong>: 새 dataset 등장 시 update 필요</li>
+<li><strong>HPO compute</strong>: 60+ trials × 6 model × 6 dataset → 막대한 compute</li>
+<li><strong>시간</strong>: 2024 cutoff, 후속 scFoundation/STATE 미반영</li>
+</ul>
+<hr />
+<h2>관련 정보</h2>
+<ul>
+<li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2408.10609">2408.10609</a></li>
+<li><strong>DBLP</strong>: <a href="https://dblp.org/rec/journals/corr/abs-2408-10609.html">journals/corr/abs-2408-10609</a></li>
+<li><strong>저자 소속</strong>: Altos Labs (Cambridge) + University College London</li>
+<li><strong>이 benchmark가 사용한 dataset</strong>: Norman 2019 (canonical combo), Srivatsan 2020 (sci-Plex), Frangieh 2021 (immune + cancer), Jiang 2024, McFaline-Figueroa 2023, OP3 (NeurIPS 2023 challenge)</li>
+<li><strong>이 benchmark가 평가한 모델</strong>: CPA, SAMS-VAE, BioLord, GEARS, scGPT, Latent Additive, Decoder-Only</li>
+<li><strong>관련 benchmark</strong>: scPerturb (Peidli 2024 — data harmonization), NeurIPS 2023 perturbation prediction challenge</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="../llms.txt">llms.txt</a> ·
+      <a href="../llms-full.txt">llms-full.txt</a> ·
+      <a href="../data/papers.json">papers.json</a> ·
+      <a href="../about.html">About</a>
+    </p>
+  </div>
+</footer>
+<script src="../static/footnotes.js?v=1779886412"></script>
+</body>
+</html>

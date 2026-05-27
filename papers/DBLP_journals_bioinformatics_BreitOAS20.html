@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenBioLink: a benchmarking framework for large-scale biomedical link prediction — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1779888591">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">11</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">8</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">21</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">4</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">3</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">7</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">0</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">27</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">88</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">133</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">14</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">176</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">106</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">17</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>OpenBioLink: a benchmarking framework for large-scale biomedical link prediction</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Bioinformatics</span>
+      <span class="meta-year">2020</span>
+      <a href="https://doi.org/10.1093/bioinformatics/btaa274" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Curated Knowledge Base × Hypothesis</a><span class="tag tag-sub">Weakly-verified Hypothesis Generation</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>OpenBioLink: 7-node × 30-edge biomedical KG benchmark with leakage-controlled splits</h1>
+<blockquote>
+<p>Bioinformatics 36(13):4097-4098 | 2020 | Benchmark (biomedical knowledge graph link prediction) | bio · medical
+Anna Breit, Simon Ott, Asan Agibetov, Matthias Samwald — Medical University of Vienna
+DOI: <a href="https://doi.org/10.1093/bioinformatics/btaa274">10.1093/bioinformatics/btaa274</a> · DBLP: <code>journals/bioinformatics/BreitOAS20</code></p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p><strong>Biomedical knowledge graph (KG) link prediction</strong>을 위한 <strong>표준 benchmark framework</strong>. <strong>7 node types × 30 edge types</strong>, 4-tier quality cutoff (high/medium/low/all), <strong>leakage-controlled train-test split</strong> (symmetric reverse edge / inverse relation / super-relation 제거), <strong>typed negative sampling</strong> 으로 task난이도 조절. PyKEEN 인터페이스로 다양한 embedding 모델 비교 가능. <strong>Hits@K / MRR / ROC-AUC / PR-AUC</strong> 표준 metric 제공.</p>
+<hr />
+<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<pre><code>Step 1 — 문제 인식: 기존 link prediction benchmark의 약점
+  ┌──────────────────────────────────────────────┐
+  │ FB15K (Freebase), WN18 (WordNet), UMLS:      │
+  │  · train-test leakage (역방향 edge 등)        │
+  │  · 단일 도메인 / hierarchical taxonomy       │
+  │  · 생의학 특유 heterogeneity 미반영          │
+  │ → 생의학 graph는 7+ node × 30+ relation       │
+  │   typed structure 필요                       │
+  └──────────────────────────────────────────────┘
+
+Step 2 — Graph creation module
+  ┌──────────────────────────────────────────────┐
+  │ Source databases (예시):                      │
+  │  · UniProt, DrugBank, KEGG, Reactome,        │
+  │    DisGeNET, OMIM, STITCH, GO 등              │
+  │ Output: 7 node types × 30 edge types graph  │
+  │   - Gene / Protein / Drug / Disease /        │
+  │     Anatomy / Phenotype / GO term            │
+  │   - drug-target, drug-disease, gene-disease, │
+  │     gene-pathway, etc.                       │
+  └──────────────────────────────────────────────┘
+
+Step 3 — Quality cutoff (4-tier)
+  · all      : 모든 confidence 포함 (noisy)
+  · low      : low confidence filter
+  · medium   : medium confidence filter
+  · high     : high confidence only (smallest, cleanest)
+  → 사용자가 task 난이도 선택
+
+Step 4 — Train-test split module (핵심 contribution)
+  ┌──────────────────────────────────────────────┐
+  │ Robustness 보장:                              │
+  │  · Test entities must appear in train        │
+  │  · Reverse edges of symmetric relations     │
+  │    제거 (e.g., gene-gene interaction)        │
+  │  · Inverse relation 제거                     │
+  │    (e.g., drug-target vs target-drug)        │
+  │  · Super-relation 제거 (subsumption)         │
+  │ Split type: random 또는 time-slice          │
+  └──────────────────────────────────────────────┘
+
+Step 5 — Negative sampling
+  · True negatives from source DBs (e.g., over- vs
+    under-expression in gene-anatomy)
+  · Typed negative sampling for relations without
+    explicit negatives
+
+Step 6 — Training + Evaluation module
+  · External libraries 지원 (PyKEEN 인터페이스)
+  · Metrics: Hits@K, MRR, ROC-AUC, PR-AUC
+  · Baseline 결과 제공 (TransE, ComplEx, RotatE 등)
+</code></pre>
+<hr />
+<h2>실제 데이터 형식 예시 (논문 §2 + Figure 1)</h2>
+<h3>유형 A — Triple format (head, relation, tail)</h3>
+<blockquote>
+<pre><code>(Drug:Aspirin, drug_treats_disease, Disease:Headache)
+(Gene:TP53, gene_associated_disease, Disease:LiFraumeni)
+(Protein:P53, protein_in_pathway, Pathway:Apoptosis)
+(Gene:BRCA1, gene_expressed_in_anatomy, Anatomy:Breast)
+</code></pre>
+<p><strong>Node types</strong> (7개): Gene, Protein, Drug, Disease, Anatomy, Phenotype, GO term</p>
+</blockquote>
+<h3>유형 B — Quality-filtered subset</h3>
+<blockquote>
+<pre><code>High-quality subset:
+  · 노이즈 최소화 (high-confidence edge만)
+  · Smaller graph, faster training
+All subset:
+  · 전체 (most challenging, noisiest)
+  · Larger graph, realistic
+사용자 task: 'OpenBioLink_HQ' vs 'OpenBioLink_All'
+</code></pre>
+</blockquote>
+<h3>유형 C — Leakage-controlled split protocol</h3>
+<blockquote>
+<pre><code>┌──────────────────────────────────────────────┐
+│ For relation R between A and B:               │
+│                                              │
+│ If R is symmetric (e.g., gene-gene int):     │
+│   - Test triple (A, R, B) present →           │
+│     remove (B, R, A) from train               │
+│                                              │
+│ If R has inverse R⁻¹:                         │
+│   - Test (A, R, B) present →                  │
+│     remove (B, R⁻¹, A) from train            │
+│                                              │
+│ If R has super-relation R_super:              │
+│   - Test (A, R, B) present →                  │
+│     remove (A, R_super, B) from train         │
+└──────────────────────────────────────────────┘
+→ &quot;trivially inferred&quot; edges 제거
+</code></pre>
+</blockquote>
+<h3>유형 D — Evaluation metric protocol</h3>
+<blockquote>
+<pre><code>For each test triple (h, r, t):
+  1. Generate corruptions: (h, r, ?) and (?, r, t)
+  2. Score all candidates with model
+  3. Filter known true edges from corruption set
+  4. Compute rank of true (t / h)
+
+Metrics:
+  Hits@K (K=1,3,10) — fraction with rank ≤ K
+  MRR — Mean Reciprocal Rank
+  ROC-AUC — overall edge ranking
+  PR-AUC — precision-recall area
+</code></pre>
+</blockquote>
+<hr />
+<h2>평가 framework 요약</h2>
+<table>
+<thead>
+<tr>
+  <th>Dimension</th>
+  <th>Options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Quality cutoff</strong></td>
+  <td>high / medium / low / all</td>
+</tr>
+<tr>
+  <td><strong>Split type</strong></td>
+  <td>random / time-slice</td>
+</tr>
+<tr>
+  <td><strong>Direction</strong></td>
+  <td>directed / undirected</td>
+</tr>
+<tr>
+  <td><strong>Source filter</strong></td>
+  <td>exclude specific source DBs</td>
+</tr>
+<tr>
+  <td><strong>Edge type filter</strong></td>
+  <td>exclude specific relation types</td>
+</tr>
+<tr>
+  <td><strong>Negatives</strong></td>
+  <td>from-source / typed-random</td>
+</tr>
+<tr>
+  <td><strong>Metrics</strong></td>
+  <td>Hits@K / MRR / ROC-AUC / PR-AUC</td>
+</tr>
+<tr>
+  <td><strong>Models</strong></td>
+  <td>PyKEEN 라이브러리 호환 (TransE, ComplEx, RotatE, etc.)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>주요 활용 (논문 + 후속)</h2>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>표준 biomedical KG benchmark</td>
+  <td>FB15K-237 / WN18RR의 생의학 대응품</td>
+</tr>
+<tr>
+  <td>Leakage 통제</td>
+  <td>KG embedding 평가의 fair comparison</td>
+</tr>
+<tr>
+  <td>PyKEEN 통합</td>
+  <td>다양한 embedding 모델 빠른 비교</td>
+</tr>
+<tr>
+  <td>Bioinformatics application note</td>
+  <td>짧은 (~2 페이지) 형식, 코드/데이터 강조</td>
+</tr>
+<tr>
+  <td>후속 작업</td>
+  <td>OGB-biokg (Hu 2020 NeurIPS), CLADD/MedGraphRAG의 사용 substrate</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>한계점</h2>
+<ul>
+<li><strong>Static dataset</strong>: 데이터 update 시 leaderboard 재계산 필요</li>
+<li><strong>Source DB 의존</strong>: UniProt/DrugBank 등의 라이센스 / coverage 제약</li>
+<li><strong>Confidence cutoff 임의성</strong>: 4-tier 분류 기준이 source-specific</li>
+<li><strong>2020 cutoff</strong>: 최신 DrugBank / DisGeNET 업데이트 미반영</li>
+<li><strong>English-only / public DB만</strong>: 폐쇄 (UpToDate 등) 미커버</li>
+<li><strong>Edge type sparsity</strong>: 일부 type은 sample 수 적음</li>
+<li><strong>Limited expressiveness</strong>: 단순 (h,r,t) 구조 → 시간/조건 정보 없음</li>
+</ul>
+<hr />
+<h2>관련 정보</h2>
+<ul>
+<li><strong>논문 (Bioinformatics)</strong>: <a href="https://doi.org/10.1093/bioinformatics/btaa274">10.1093/bioinformatics/btaa274</a></li>
+<li><strong>DBLP</strong>: <a href="https://dblp.org/rec/journals/bioinformatics/BreitOAS20.html">journals/bioinformatics/BreitOAS20</a></li>
+<li><strong>GitHub</strong>: <a href="https://github.com/OpenBioLink/OpenBioLink">OpenBioLink/OpenBioLink</a></li>
+<li><strong>저자 소속</strong>: Medical University of Vienna — Section for AI and Decision Support</li>
+<li><strong>이 benchmark가 평가한 모델 family</strong>: TransE, ComplEx, RotatE, DistMult, R-GCN 등 (PyKEEN-호환)</li>
+<li><strong>이 benchmark를 사용한 후속 작업</strong>: OGB-biokg [[DBLP:conf/nips/HuFZDRLCL20]], 생의학 KG embedding 논문 다수</li>
+<li><strong>관련 benchmark</strong>: FB15K-237, WN18RR (general), UMLS (KGE 표준), OGB-biokg (heterogeneous)</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="../llms.txt">llms.txt</a> ·
+      <a href="../llms-full.txt">llms-full.txt</a> ·
+      <a href="../data/papers.json">papers.json</a> ·
+      <a href="../about.html">About</a>
+    </p>
+  </div>
+</footer>
+<script src="../static/footnotes.js?v=1779886412"></script>
+</body>
+</html>
