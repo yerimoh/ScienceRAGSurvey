@@ -1523,6 +1523,30 @@
         "bio"
       ],
       "paper_link": "https://doi.org/10.1007/978-3-031-43993-3_51"
+    },
+    "jin-etal-2019-pubmedqa": {
+      "title": "PubMedQA: A Dataset for Biomedical Research Question Answering",
+      "year": 2019,
+      "venue": "EMNLP-IJCNLP",
+      "method": "PubMedQA",
+      "type": "benchmark",
+      "domain": [
+        "medical",
+        "bio"
+      ],
+      "paper_link": "https://aclanthology.org/D19-1259/"
+    },
+    "krithara2023bioasq": {
+      "title": "BioASQ-QA: A manually curated corpus for Biomedical Question Answering",
+      "year": 2023,
+      "venue": "Scientific Data",
+      "method": "BioASQ-QA",
+      "type": "benchmark",
+      "domain": [
+        "medical",
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.1038/s41597-023-02068-4"
     }
   }
 }

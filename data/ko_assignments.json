@@ -123,12 +123,13 @@
   },
   "DBLP:journals/corr/abs-2409-13740": {
     "cells": [
-      "K1.O2"
+      "K1.O2",
+      "K1.O1"
     ],
     "K": "",
     "O": "O2",
     "note": "main.tex: K=-; O=O2",
-    "subsection": "Aggregative Synthesis"
+    "subsection": "Text-only Closed-form QA"
   },
   "DBLP:journals/corr/abs-2410-23902": {
     "cells": [
@@ -1176,7 +1177,8 @@
     ],
     "K": "K1",
     "O": "O1",
-    "note": "1k expert-annotated + 61.2k unlabeled + 211.3k artificially generated QA; Yes/No/Maybe from PubMed abstracts; first QA dataset requiring quantitative reasoning over biomedical texts"
+    "note": "1k expert-annotated + 61.2k unlabeled + 211.3k artificially generated QA; Yes/No/Maybe from PubMed abstracts; first QA dataset requiring quantitative reasoning over biomedical texts",
+    "subsection": "Text-only Closed-form QA"
   },
   "DBLP:conf/nips/LeeKV0RPVN24": {
     "cells": [

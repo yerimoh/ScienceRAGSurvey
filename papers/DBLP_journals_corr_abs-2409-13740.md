@@ -1,9 +1,9 @@
 ---
 notion_id: 355f2dcd-4912-8151-ac54-f3cf4d24cf83
-title: Language Agents Achieve Superhuman Synthesis of Scientific Knowledge
+title: PaperQA2 / LitQA2 - Language Agents Achieve Superhuman Synthesis of Scientific Knowledge
 bib_key: DBLP:journals/corr/abs-2409-13740
 year: 2024
-domain: bio
+domain: bio, medical
 type: Method
 venue: arXiv
 paper_link: https://arxiv.org/abs/2409.13740
@@ -89,6 +89,79 @@ PaperQA2는 과학 문헌 검색·요약·모순탐지 세 가지 실제 태스�
 | Grobid | 섹션·표·인용 파싱 | WikiCrow에 필수; 토큰 44% 절감 |
 | PyMuPDF | 기본 PDF 파싱 | LitQA2 실험 기본값 |
 | OpenAI Embeddings | 임베딩 생성 | text-embedding-3-large |
+
+---
+## LitQA2 벤치마크 상세 (이 논문이 제작한 closed-form QA benchmark)
+
+본 논문은 system(PaperQA2)과 함께 **LitQA2** 벤치마크를 제안. LitQA (PaperQA 원전, 47문항)의 확장판으로, **248개 객관식(MCQ) 생의학 질문**으로 구성. 답은 논문 **본문에만** 등장하고 초록에는 없는 사실에 기반.
+
+### 어떻게 만들었나 (Construction Methodology)
+
+```
+Step 1 — 소스 논문 선정 원칙 (논문 §LitQA2 본문 인용)
+  "LitQA2 questions are designed to have answers that appear in
+   the main body of a paper, but not in the abstract, and ideally
+   appear only once in the set of all scientific literature."
+  → 학습 데이터 cut-off 이후 발표 논문 + 본문 검색이 필요한 사실 위주
+
+Step 2 — 단계적 release (논문 §8.4 본문 인용)
+  "LitQA2 was built up from LitQA (47 questions) in two stages
+   of releases, first 100 questions (147), then an additional 101
+   questions, adding to the original subset to make 248 total
+   questions."
+  ┌──────────────────────────┬──────┐
+  │ Stage                    │ 누적 │
+  ├──────────────────────────┼──────┤
+  │ Original LitQA           │   47 │
+  │ + Stage 1 (development)  │  147 │
+  │ + Stage 2 (held-out new) │  248 │
+  └──────────────────────────┴──────┘
+  Stage 2는 PaperQA2 engineering 변경 이후 새로 작성되어,
+  PaperQA2가 LitQA2에 overfit 안 되었음을 검증.
+
+Step 3 — 평가 metric (논문 §LitQA2 metric 정의)
+  · Accuracy = CorrectAll / All       (전체 정답 비율)
+  · Precision = CorrectSure / AnsweredSure
+    (답한 것 중 정답 비율; "Insufficient information" 옵션 활용)
+  Insufficient-information 옵션이 있어 모름을 인정 가능 → precision/accuracy 분리
+
+Step 4 — 자동 평가 파이프라인 (논문 §8.2 본문 인용)
+  "LitQA2 was automatically evaluated using an evaluation LLM call
+   (GPT-4-0613), which extracted the letter answer from PaperQA2's
+   output."
+  → 추출된 letter answer를 ideal answer와 매칭, "Insufficient information"
+    선택 시 별도 처리 (null 정답에 대해서는 Correct로 채점)
+```
+
+### 실제 LitQA2 문항 형식 (논문 Figure 2A 본문 발췌)
+
+> "LitQA2 questions are MCQ with the option to refuse via 'Insufficient information to answer this question'. Each question has a single correct option, multiple incorrect distractors, and metadata indicating the source DOI."
+
+LitQA2 question은 답이 논문의 **단 한 곳**에만 등장하도록 설계되어, 모델이 단순 키워드 매칭이 아닌 정확한 retrieval+reasoning을 수행해야 함.
+
+### 주요 평가 결과 (논문 본문 Table + Figure 2B 직접 인용)
+
+| 시스템 | LitQA2 Precision | LitQA2 Accuracy |
+|---|---|---|
+| **PaperQA2** | **85.2% ± 1.1%** | **66.0% ± 1.2%** |
+| Human expert (PhD/박사과정, 9명) | 73.8% ± 9.6% | 67.7% ± 11.9% |
+| Perplexity Pro (GPT-4o) | 69.7% | – |
+| Elicit | – | – |
+| GPT-4-Turbo (RAG 없음) | 43.6% | – |
+| Claude-Opus (RAG 없음) | 23.6% | – |
+| PaperQA (구버전) | 76.5% | 36.7% |
+
+**핵심 발견 (논문 §본문 인용)**
+- PaperQA2 precision **인간 전문가 초과**: t(8.6)=3.49, p=0.0036 (통계적 유의)
+- "PaperQA2 outperforms other RAG systems on the LitQA2 benchmark in both precision and accuracy"
+- Stage 1(147) vs Stage 2(101) 결과 차이 없음 → overfit 없음
+
+### LitQA2의 의의
+
+LitQA2는 closed-form benchmark이지만 RAG 시스템의 **전체 파이프라인**(검색 → 본문 발췌 → 추론 → 답변)을 한 번에 평가할 수 있도록 설계됨:
+- 답이 abstract에 없음 → retrieval이 전체 본문을 다뤄야 함
+- 답이 학습 데이터 cut-off 이후 → parametric memory로는 답 불가
+- "Insufficient information" 옵션 → 모름을 인정하는 신중함도 평가
 
 ---
 ## 실험 및 평가

@@ -27,7 +27,7 @@
       <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
-        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">10</span></a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">11</span></a>
 <a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">7</span></a>
 <a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">4</span></a>
 <a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
@@ -68,9 +68,9 @@
       <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
-        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">74</span></a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">76</span></a>
 <a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">42</span></a>
-<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">123</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">125</span></a>
 <a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">21</span></a>
 <a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">36</span></a>
 <a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
@@ -81,8 +81,8 @@
       </div>
     </details>
 
-    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">177</span></a>
-    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">87</span></a>
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">175</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">89</span></a>
     <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">15</span></a>
     <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
 
@@ -110,7 +110,7 @@
       <span class="meta-year">2024</span>
       <a href="https://arxiv.org/abs/2409.13740" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Primary Literature × Synthesis</a><span class="tag tag-sub">Aggregative Synthesis</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a></div>
+    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Primary Literature × Synthesis</a><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a></div>
   </div>
 </section>
 <section class="paper-body">
@@ -268,6 +268,109 @@
 </tr>
 </tbody>
 </table>
+<hr />
+<h2>LitQA2 벤치마크 상세 (이 논문이 제작한 closed-form QA benchmark)</h2>
+<p>본 논문은 system(PaperQA2)과 함께 <strong>LitQA2</strong> 벤치마크를 제안. LitQA (PaperQA 원전, 47문항)의 확장판으로, <strong>248개 객관식(MCQ) 생의학 질문</strong>으로 구성. 답은 논문 <strong>본문에만</strong> 등장하고 초록에는 없는 사실에 기반.</p>
+<h3>어떻게 만들었나 (Construction Methodology)</h3>
+<pre><code>Step 1 — 소스 논문 선정 원칙 (논문 §LitQA2 본문 인용)
+  &quot;LitQA2 questions are designed to have answers that appear in
+   the main body of a paper, but not in the abstract, and ideally
+   appear only once in the set of all scientific literature.&quot;
+  → 학습 데이터 cut-off 이후 발표 논문 + 본문 검색이 필요한 사실 위주
+
+Step 2 — 단계적 release (논문 §8.4 본문 인용)
+  &quot;LitQA2 was built up from LitQA (47 questions) in two stages
+   of releases, first 100 questions (147), then an additional 101
+   questions, adding to the original subset to make 248 total
+   questions.&quot;
+  ┌──────────────────────────┬──────┐
+  │ Stage                    │ 누적 │
+  ├──────────────────────────┼──────┤
+  │ Original LitQA           │   47 │
+  │ + Stage 1 (development)  │  147 │
+  │ + Stage 2 (held-out new) │  248 │
+  └──────────────────────────┴──────┘
+  Stage 2는 PaperQA2 engineering 변경 이후 새로 작성되어,
+  PaperQA2가 LitQA2에 overfit 안 되었음을 검증.
+
+Step 3 — 평가 metric (논문 §LitQA2 metric 정의)
+  · Accuracy = CorrectAll / All       (전체 정답 비율)
+  · Precision = CorrectSure / AnsweredSure
+    (답한 것 중 정답 비율; &quot;Insufficient information&quot; 옵션 활용)
+  Insufficient-information 옵션이 있어 모름을 인정 가능 → precision/accuracy 분리
+
+Step 4 — 자동 평가 파이프라인 (논문 §8.2 본문 인용)
+  &quot;LitQA2 was automatically evaluated using an evaluation LLM call
+   (GPT-4-0613), which extracted the letter answer from PaperQA2's
+   output.&quot;
+  → 추출된 letter answer를 ideal answer와 매칭, &quot;Insufficient information&quot;
+    선택 시 별도 처리 (null 정답에 대해서는 Correct로 채점)
+</code></pre>
+<h3>실제 LitQA2 문항 형식 (논문 Figure 2A 본문 발췌)</h3>
+<blockquote>
+<p>&quot;LitQA2 questions are MCQ with the option to refuse via 'Insufficient information to answer this question'. Each question has a single correct option, multiple incorrect distractors, and metadata indicating the source DOI.&quot;</p>
+</blockquote>
+<p>LitQA2 question은 답이 논문의 <strong>단 한 곳</strong>에만 등장하도록 설계되어, 모델이 단순 키워드 매칭이 아닌 정확한 retrieval+reasoning을 수행해야 함.</p>
+<h3>주요 평가 결과 (논문 본문 Table + Figure 2B 직접 인용)</h3>
+<table>
+<thead>
+<tr>
+  <th>시스템</th>
+  <th>LitQA2 Precision</th>
+  <th>LitQA2 Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>PaperQA2</strong></td>
+  <td><strong>85.2% ± 1.1%</strong></td>
+  <td><strong>66.0% ± 1.2%</strong></td>
+</tr>
+<tr>
+  <td>Human expert (PhD/박사과정, 9명)</td>
+  <td>73.8% ± 9.6%</td>
+  <td>67.7% ± 11.9%</td>
+</tr>
+<tr>
+  <td>Perplexity Pro (GPT-4o)</td>
+  <td>69.7%</td>
+  <td>–</td>
+</tr>
+<tr>
+  <td>Elicit</td>
+  <td>–</td>
+  <td>–</td>
+</tr>
+<tr>
+  <td>GPT-4-Turbo (RAG 없음)</td>
+  <td>43.6%</td>
+  <td>–</td>
+</tr>
+<tr>
+  <td>Claude-Opus (RAG 없음)</td>
+  <td>23.6%</td>
+  <td>–</td>
+</tr>
+<tr>
+  <td>PaperQA (구버전)</td>
+  <td>76.5%</td>
+  <td>36.7%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>핵심 발견 (논문 §본문 인용)</strong></p>
+<ul>
+<li>PaperQA2 precision <strong>인간 전문가 초과</strong>: t(8.6)=3.49, p=0.0036 (통계적 유의)</li>
+<li>&quot;PaperQA2 outperforms other RAG systems on the LitQA2 benchmark in both precision and accuracy&quot;</li>
+<li>Stage 1(147) vs Stage 2(101) 결과 차이 없음 → overfit 없음</li>
+</ul>
+<h3>LitQA2의 의의</h3>
+<p>LitQA2는 closed-form benchmark이지만 RAG 시스템의 <strong>전체 파이프라인</strong>(검색 → 본문 발췌 → 추론 → 답변)을 한 번에 평가할 수 있도록 설계됨:</p>
+<ul>
+<li>답이 abstract에 없음 → retrieval이 전체 본문을 다뤄야 함</li>
+<li>답이 학습 데이터 cut-off 이후 → parametric memory로는 답 불가</li>
+<li>&quot;Insufficient information&quot; 옵션 → 모름을 인정하는 신중함도 평가</li>
+</ul>
 <hr />
 <h2>실험 및 평가</h2>
 <h3>평가 태스크 및 데이터셋</h3>
