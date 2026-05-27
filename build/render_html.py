@@ -44,22 +44,42 @@ TYPE_LABELS = {
     'dataset': 'Datasets', 'summary': 'Surveys',
 }
 
+O_SUBSECTIONS = {
+    'O1': {'Text-only Closed-form QA', 'Text-only Long-form Citation', 'Cross-modal'},
+    'O2': {'Aggregative Synthesis', 'Verificative Synthesis'},
+    'O3': set(),
+}
+K_SUBSECTIONS = {
+    'K1': {'General-purpose literature', 'Domain-specific literature', 'Preprint literature'},
+    'K2': {'Chemistry and drug discovery', 'Biology and genomics', 'Medicine and clinical knowledge', 'Materials science and physics'},
+    'K3': {'Medical imaging and clinical EHR', 'Structural biology', 'Astronomy, earth, and climate', 'Particle and nuclear physics'},
+    'K4': {'Embedded in software', 'Held by institutions', 'Held by individuals and communities'},
+}
 
-def subsec_filter_html(papers_list, prefix=''):
+def axis_subsections(axis_scope):
+    """Return the set of subsections belonging to the given axis scope (O1/O2/O3 or K1-K4)."""
+    if axis_scope in O_SUBSECTIONS:
+        return O_SUBSECTIONS[axis_scope]
+    if axis_scope in K_SUBSECTIONS:
+        return K_SUBSECTIONS[axis_scope]
+    return None  # no filtering
+
+
+def subsec_filter_html(papers_list, prefix='', axis_scope=None):
     """Return filter-chip bar + inline JS for subsection filtering.
     Only emitted when 2+ distinct subsections exist in papers_list.
     prefix: CSS class prefix to avoid ID collisions between pages.
     """
     from collections import Counter
+    allowed = axis_subsections(axis_scope)
     counts = Counter()
     for p in papers_list:
         subs = p.get('subsection') or ''
-        if isinstance(subs, list):
-            for s in subs:
-                if s:
-                    counts[s] += 1
-        elif subs:
-            counts[subs] += 1
+        items = subs if isinstance(subs, list) else [subs]
+        for s in items:
+            if not s: continue
+            if allowed is not None and s not in allowed: continue
+            counts[s] += 1
     if len(counts) < 2:
         return ''
     total = len(papers_list)
@@ -271,7 +291,7 @@ PAGE_FOOT = '''</main>
 '''
 
 
-def paper_card(p, base=''):
+def paper_card(p, base='', axis_scope=None):
     title = esc(p.get('title') or p.get('bib_key', '?'))
     url = p.get('paper_link') or ''
     venue = esc(p.get('venue', ''))
@@ -308,9 +328,11 @@ def paper_card(p, base=''):
     subsec = p.get('subsection')
     if subsec:
         subs_list = subsec if isinstance(subsec, list) else [subsec]
+        allowed = axis_subsections(axis_scope)
         for s in subs_list:
-            if s:
-                tag_html.append(f'<span class="tag tag-sub">{esc(s)}</span>')
+            if not s: continue
+            if allowed is not None and s not in allowed: continue
+            tag_html.append(f'<span class="tag tag-sub">{esc(s)}</span>')
     for d in domains:
         tag_html.append(f'<a href="{base}domain/{d}.html" class="tag tag-domain">{DOMAIN_EMOJI.get(d, "")}{esc(DOMAIN_LABELS.get(d, d))}</a>')
     if typ and typ != 'unknown':
@@ -326,8 +348,15 @@ def paper_card(p, base=''):
 
     _subsec_val = p.get("subsection", "") or ""
     if isinstance(_subsec_val, list):
-        _subsec_val = " | ".join(s for s in _subsec_val if s)
-    subsec_attr = f' data-sub="{esc(_subsec_val)}"'
+        _subsec_items = [s for s in _subsec_val if s]
+    elif _subsec_val:
+        _subsec_items = [_subsec_val]
+    else:
+        _subsec_items = []
+    _allowed = axis_subsections(axis_scope)
+    if _allowed is not None:
+        _subsec_items = [s for s in _subsec_items if s in _allowed]
+    subsec_attr = f' data-sub="{esc(" | ".join(_subsec_items))}"'
     return f'''<article class="card"{subsec_attr}>
   <h3 class="card-title">{title_html}</h3>
   {f'<div class="card-meta">{meta}</div>' if meta else ''}
@@ -752,8 +781,8 @@ def render_cell_pages():
                 for c in [f'{kk}.{oo}' for kk in ['K1','K2','K3','K4'] for oo in ['O1','O2','O3']]
             )
 
-            cards = '\n'.join(paper_card(p, base='../') for p in ps) or '<p class="empty">No verified entries in this cell yet — see <a href="../about.html#methodology">methodology</a> and the survey §11 frontier discussion.</p>'
-            sf = subsec_filter_html(ps, prefix=f'cell{cell}')
+            cards = '\n'.join(paper_card(p, base='../', axis_scope=O) for p in ps) or '<p class="empty">No verified entries in this cell yet — see <a href="../about.html#methodology">methodology</a> and the survey §11 frontier discussion.</p>'
+            sf = subsec_filter_html(ps, prefix=f'cell{cell}', axis_scope=O)
 
             body = f'''
 <section class="cell-hero">
@@ -790,8 +819,8 @@ def render_cell_pages():
     for K in ['K1', 'K2', 'K3', 'K4']:
         ps = sorted(by_cell.get(K, []), key=year_sort)
         kn, kd = K_LABELS[K]
-        cards = '\n'.join(paper_card(p, base='../') for p in ps) or '<p class="empty">No K-only entries yet.</p>'
-        sf = subsec_filter_html(ps, prefix=f'kaxis{K}')
+        cards = '\n'.join(paper_card(p, base='../', axis_scope=K) for p in ps) or '<p class="empty">No K-only entries yet.</p>'
+        sf = subsec_filter_html(ps, prefix=f'kaxis{K}', axis_scope=K)
         body = f'''
 <section class="cell-hero">
   <div class="wrap">
@@ -835,8 +864,8 @@ def render_cell_pages():
                 ps.append(p)
         ps = sorted(ps, key=year_sort)
         on, od = O_LABELS[O]
-        sf = subsec_filter_html(ps, prefix=f'oaxis{O}')
-        cards = '\n'.join(paper_card(p, base='../') for p in ps) or '<p class="empty">No entries yet.</p>'
+        sf = subsec_filter_html(ps, prefix=f'oaxis{O}', axis_scope=O)
+        cards = '\n'.join(paper_card(p, base='../', axis_scope=O) for p in ps) or '<p class="empty">No entries yet.</p>'
         # K-cell breakdown pills
         o_cells_nav = '\n'.join(
             f'<a href="../cell/{K}.{O}.html" class="pill" title="{K}.{O}">{cell_label(K+"."+O)} {len(by_cell.get(K+"."+O, []))}</a>'
