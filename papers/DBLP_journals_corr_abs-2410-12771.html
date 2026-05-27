@@ -176,6 +176,59 @@ Step 6 — 공개 자원
   · Code: github.com/FAIR-Chem/fairchem (MIT)
 </code></pre>
 <hr />
+<h2>실제 데이터 형식 예시 (논문 §2.1 + Table 1)</h2>
+<h3>유형 A — Single-point DFT calculation entry (S2EF 학습 단위)</h3>
+<blockquote>
+<p><strong>Input</strong> (periodic unit cell):</p>
+<pre><code>Structure:    1–100 atoms (majority &lt; 20 atoms)
+Composition:  diverse across periodic table
+              (oxides over-represented per open-data prevalence)
+Configuration: equilibrium + far-from-equilibrium 혼합
+</code></pre>
+<p><strong>Labels (DFT ground truth)</strong>:</p>
+<pre><code>Energy:       eV (per structure)
+Forces:       eV/Å (per atom, 3D vector)
+Cell stress:  eV/Å³ (3×3 tensor)
+</code></pre>
+</blockquote>
+<h3>유형 B — Train / validation / test split</h3>
+<blockquote>
+<pre><code>┌────────────────────────┬──────────────┐
+│ Split                  │ # structures │
+├────────────────────────┼──────────────┤
+│ Training               │  100,000,000 │
+│ Validation             │    5,000,000 │
+│ ID test                │    5,000,000 │
+│ WBM Test (OOD)         │    (subset)  │
+│ OOD-Elemental          │      619,000 │
+│ OOD-Stoichiometry      │    (subset)  │
+├────────────────────────┼──────────────┤
+│ Total OMat24           │  118,000,000 │
+└────────────────────────┴──────────────┘
+</code></pre>
+<p>WBM Test split이 &quot;highest prediction errors → most informative test of model generalization&quot; (논문 §2.1.1)</p>
+</blockquote>
+<h3>유형 C — Source dataset 비교 (compositional/configurational coverage)</h3>
+<blockquote>
+<p>| Dataset | Size (structures) | Configuration | Compositional diversity |
+|---|---|---|---|
+| <strong>OMat24</strong> | 118M | equilibrium + far-from-eq | periodic table 전반, oxide over-represented |
+| MPtrj | 1.6M | near-equilibrium | Materials Project subset |
+| Alexandria | ~5M | equilibrium-only | hypothetical prototyped |
+| OC20 | 130M | catalyst surface only | 적은 chemistry |</p>
+<p>→ OMat24 = <strong>2 orders of magnitude larger</strong> than other open datasets</p>
+</blockquote>
+<h3>유형 D — 다운스트림 평가 task</h3>
+<blockquote>
+<ol>
+<li><strong>Matbench Discovery</strong> — WBM 257K structures, F$_1$ + DAF + MAE</li>
+<li><strong>Phonon prediction</strong> — force-derivative properties (newly added benchmark)</li>
+<li><strong>Thermal conductivity</strong> — transport properties (newly added benchmark)</li>
+<li><strong>Softening bias 측정</strong> — energy/force/phonon 체계적 underestimation 정량화</li>
+</ol>
+<p>→ OMat24-trained model: F$_1$ &gt; 0.9, formation E MAE = 20 meV/atom, <strong>모든 Matbench Discovery top model이 OMat24 채택</strong>.</p>
+</blockquote>
+<hr />
 <h2>원문 직접 인용 (arXiv:2410.12771 §Abstract + §1 + §2)</h2>
 <blockquote>
 <p>&quot;we present the <strong>Open Materials 2024 (OMat24) dataset, comprising over 110M DFT calculations</strong> across diverse chemistries, materials, and configurations.&quot;</p>

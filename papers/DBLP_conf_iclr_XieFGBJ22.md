@@ -70,6 +70,71 @@ Step 5 — Baselines 비교
 
 ---
 
+## 실제 데이터 형식 예시 (논문 §5 + Figure 3)
+
+### 유형 A — Perov-5 (페로브스카이트 5-atom unit cell)
+
+> **Composition**: ABX₃ 페로브스카이트 구조 (모두 동일한 cubic perovskite 구조, 조성만 다름)
+>
+> **예시 entry** (논문 Figure 3 Ground Truth):
+> ```
+> Formula:    F-N-V-Rh-O-O      (5 atoms)
+> Structure:  cubic perovskite (5-atom unit cell)
+> # elements: 4  (F, N, V, Rh, O 중 4종)
+> ```
+>
+> 총 **18,928 materials × 56 elements** — 모두 동일 구조, 조성 다양성만 평가.
+
+### 유형 B — Carbon-24 (탄소-only allotrope)
+
+> **Composition**: 순수 탄소 (1 element)만 사용
+>
+> **예시 entry** (논문 Figure 3 Ground Truth):
+> ```
+> Formula:    C₂₄        (또는 6 ≤ N ≤ 24 atoms)
+> Structure:  diamond, graphite, lonsdaleite, 등 다양한 allotrope
+> Constraint: 모두 carbon, 다양한 3D bonding network
+> ```
+>
+> 총 **10,153 materials × 1 element** — 동일 조성, 구조 다양성만 평가.
+
+### 유형 C — MP-20 (Materials Project ≤ 20 atoms)
+
+> **Composition**: Materials Project 전체에서 unit cell ≤ 20 atoms인 entry
+>
+> **예시 entries** (논문 Figure 3 Ground Truth):
+> ```
+> Sn-Zr-O-F-O              (5 atoms, mixed cation+anion)
+> Ba-Ru-O                  (3 atoms, perovskite-like)
+> Ti-V-S × N (TiTiS + Na-S) (다중 cation sulfide)
+> Eu-O-Sb-O × N            (rare-earth oxide)
+> Mg-Al-Si-Si-Al-Al        (intermetallic)
+> ```
+>
+> 총 **~45,000 materials** — 조성·구조·element 다양성 모두 평가 (가장 도전적인 dataset).
+
+### 평가 sample 규모 (validity / coverage / property statistics)
+
+> **Validity & Coverage 측정**:
+> ```
+> Sample: 10,000 materials randomly sampled from N(0, I) latent
+> Validity 기준:
+>   - Structure: min pairwise atom distance > 0.5 Å
+>   - Composition: SMACT charge neutrality
+> ```
+>
+> **Property statistics 측정**:
+> ```
+> Sample: 1,000 valid materials (validity test pass한 것 중 random)
+> EMD over: density ρ (g/cm³), GNN-predicted E (eV/atom), # elements
+> ```
+>
+> Ground truth validity baseline:
+> - structure: 100.0% (모든 dataset)
+> - composition: Perov-5 98.60%, Carbon-24 100.0%, MP-20 91.13%
+
+---
+
 ## 원문 직접 인용 (arXiv:2110.06197 §Abstract + §1 + §5)
 
 > "We also provide several **standard datasets and evaluation metrics** for the broader machine learning community."

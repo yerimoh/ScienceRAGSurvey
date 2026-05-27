@@ -86,6 +86,76 @@ Step 7 — Promising MOF 식별 (downstream verification)
 
 ---
 
+## 실제 데이터 형식 예시 (논문 §Tasks + §Results + Table S3)
+
+### 유형 A — S2EF input/output (Structure → Energy + Forces)
+
+> **Input** (periodic unit cell):
+> ```
+> MOF (e.g., CoRE-MOF 코드 ZIDBEV, IMAGAG, IPIDUH)
+>   + adsorbate placement: 1 × CO2 또는 1 × H2O 또는 1 × CO2 + 1 × H2O
+>   + initial positions from classical FF + Monte Carlo
+> ```
+>
+> **Output** (DFT ground truth, PBE-D3 functional):
+> ```
+> Ẽ_ads (non-relaxed adsorption energy, eV)
+> Forces per atom (eV/Å, 3D vector)
+> ```
+>
+> **Adsorption energy 정의**:
+> ```
+> Ẽ_ads = E_system − E_MOF − n_CO2·E_CO2 − n_H2O·E_H2O
+> ```
+
+### 유형 B — IS2RE / IS2RS (Initial → Relaxed)
+
+> **IS2RE**: initial placement → final relaxed adsorption energy E_ads
+> **IS2RS**: initial placement → final relaxed 3D coordinates of all atoms
+>
+> 표준 OC20-style train/test split, MOF framework로 stratified
+> (pristine 구조와 그 defective version이 같은 split에 배치)
+
+### 유형 C — Promising DAC MOF 예시 (논문 Table S3 / Fig. 3)
+
+> Top promising MOFs identified directly in ODAC23 by DFT:
+>
+> | CSD code | E_ads(CO₂) − E_ads(H₂O) | Adsorbate-adsorbate E |
+> |---|---|---|
+> | **ZIDBEV** | 강한 CO₂ binding | E_inter_mol ≈ 0 eV (separate adsorption OK) |
+> | **IMAGAG** | favors CO₂+H₂O 공존 | E_inter_mol = −0.64 eV |
+> | **IPIDUH** | CO₂+H₂O 비호환 | E_inter_mol = +1.04 eV |
+> | **TUGTAR** | CO₂+H₂O 비호환 | E_inter_mol = +0.51 eV |
+> | **KOQLUZ** | 강한 MOF 재배열 | E_inter_mol = −2.31 eV |
+> | **LEWZET** | 두 번째 H₂O 흡착 시 distortion | 2nd E_inter_mol = −5.48 eV |
+>
+> **선별 기준** (Findley & Sholl):
+> - E_ads(CO₂) < −0.5 eV (sufficient binding at dilute DAC conditions)
+> - E_ads(CO₂) 가 E_ads(H₂O) 보다 favorable (CO₂ over water)
+>
+> → 5,079 pristine MOF 중 **135개**가 두 기준 모두 충족 (classical FF로는 0개)
+
+### 유형 D — Dataset 규모 분포 (논문 §Methods)
+
+> ```
+> ┌──────────────────────────┬───────────┐
+> │ Pristine MOFs            │   4,942   │
+> │ Defective MOFs (1–16%)   │   3,470   │
+> │ Ultrastable (Nandy frag) │     114   │
+> ├──────────────────────────┼───────────┤
+> │ Total MOFs               │   8,400+  │
+> │ Adsorbate placements/MOF │   2–6     │
+> │ Converged adsorption E   │ 170,000+  │
+> │ Single-point DFT calc    │  38M+     │
+> │ Compute (core-hours)     │ 400M+     │
+> └──────────────────────────┴───────────┘
+> ```
+>
+> Metals: 57 species · monometallic 89% / bimetallic 10.7% / trimetallic <1%
+> Most common: Zn, Cu, Cd
+
+---
+
 ## 원문 직접 인용 (arXiv:2311.00341 / ACS Central Sci. §Abstract + §본문)
 
 > "We explore a computational approach benefiting from recent innovations in machine learning (ML) and present a dataset named **Open DAC 2023 (ODAC23) consisting of more than 38M density functional theory (DFT) calculations on more than 8,400 MOF materials containing adsorbed CO₂ and/or H₂O**."

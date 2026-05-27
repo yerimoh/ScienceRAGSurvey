@@ -73,6 +73,66 @@ Step 6 — 공개 자원
 
 ---
 
+## 실제 데이터 형식 예시 (논문 §2.1 + Table 1)
+
+### 유형 A — Single-point DFT calculation entry (S2EF 학습 단위)
+
+> **Input** (periodic unit cell):
+> ```
+> Structure:    1–100 atoms (majority < 20 atoms)
+> Composition:  diverse across periodic table
+>               (oxides over-represented per open-data prevalence)
+> Configuration: equilibrium + far-from-equilibrium 혼합
+> ```
+>
+> **Labels (DFT ground truth)**:
+> ```
+> Energy:       eV (per structure)
+> Forces:       eV/Å (per atom, 3D vector)
+> Cell stress:  eV/Å³ (3×3 tensor)
+> ```
+
+### 유형 B — Train / validation / test split
+
+> ```
+> ┌────────────────────────┬──────────────┐
+> │ Split                  │ # structures │
+> ├────────────────────────┼──────────────┤
+> │ Training               │  100,000,000 │
+> │ Validation             │    5,000,000 │
+> │ ID test                │    5,000,000 │
+> │ WBM Test (OOD)         │    (subset)  │
+> │ OOD-Elemental          │      619,000 │
+> │ OOD-Stoichiometry      │    (subset)  │
+> ├────────────────────────┼──────────────┤
+> │ Total OMat24           │  118,000,000 │
+> └────────────────────────┴──────────────┘
+> ```
+>
+> WBM Test split이 "highest prediction errors → most informative test of model generalization" (논문 §2.1.1)
+
+### 유형 C — Source dataset 비교 (compositional/configurational coverage)
+
+> | Dataset | Size (structures) | Configuration | Compositional diversity |
+> |---|---|---|---|
+> | **OMat24** | 118M | equilibrium + far-from-eq | periodic table 전반, oxide over-represented |
+> | MPtrj | 1.6M | near-equilibrium | Materials Project subset |
+> | Alexandria | ~5M | equilibrium-only | hypothetical prototyped |
+> | OC20 | 130M | catalyst surface only | 적은 chemistry |
+>
+> → OMat24 = **2 orders of magnitude larger** than other open datasets
+
+### 유형 D — 다운스트림 평가 task
+
+> 1. **Matbench Discovery** — WBM 257K structures, F$_1$ + DAF + MAE
+> 2. **Phonon prediction** — force-derivative properties (newly added benchmark)
+> 3. **Thermal conductivity** — transport properties (newly added benchmark)
+> 4. **Softening bias 측정** — energy/force/phonon 체계적 underestimation 정량화
+>
+> → OMat24-trained model: F$_1$ > 0.9, formation E MAE = 20 meV/atom, **모든 Matbench Discovery top model이 OMat24 채택**.
+
+---
+
 ## 원문 직접 인용 (arXiv:2410.12771 §Abstract + §1 + §2)
 
 > "we present the **Open Materials 2024 (OMat24) dataset, comprising over 110M DFT calculations** across diverse chemistries, materials, and configurations."
