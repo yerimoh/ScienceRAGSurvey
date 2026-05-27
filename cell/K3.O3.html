@@ -147,7 +147,29 @@
 
 <section class="cell-list">
   <div class="wrap">
-    
+    <div class="subsec-filter" id="cellK3.O3subf">
+<button class="subsec-btn active" data-sub="">All <span class="subsec-n">3</span></button>
+<button class="subsec-btn" data-sub="Weakly-verified Hypothesis Generation">Weakly-verified Hypothesis Generation <span class="subsec-n">2</span></button>
+</div>
+<script>
+(function(){
+  var bar = document.getElementById('cellK3.O3subf');
+  if (!bar) return;
+  bar.querySelectorAll('.subsec-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      bar.querySelectorAll('.subsec-btn').forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      var sub = btn.dataset.sub;
+      document.querySelectorAll('.card').forEach(function(card){
+        var cardSub = card.dataset.sub || '';
+        var cardSubs = cardSub.split(' | ');
+        card.style.display = (sub === '' || cardSubs.indexOf(sub) >= 0) ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+
     <div class="card-grid"><article class="card" data-sub="">
   <h3 class="card-title"><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/c6c31413d5c53b7d1c343c1498734b0f-Abstract-Datasets_and_Benchmarks_Track.html" target="_blank" rel="noopener">MassSpecGym: A benchmark for the discovery and identification of molecules ↗</a></h3>
   <div class="card-meta"><span class="meta-method">MassSpecGym</span> · <span class="meta-venue">NeurIPS</span> · <span class="meta-year">2024</span></div>
@@ -156,19 +178,19 @@
   <a href="../papers/DBLP_conf_nips_BushuievBJYKSHW24.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card" data-sub="">
+<article class="card" data-sub="Weakly-verified Hypothesis Generation">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2408.10609" target="_blank" rel="noopener">PerturBench: Benchmarking Machine Learning Models for Cellular Perturbation Analysis ↗</a></h3>
   <div class="card-meta"><span class="meta-method">PerturBench</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2024</span></div>
   <p class="card-note">PerturBench — cellular perturbation analysis benchmark with 4 generalization regimes</p>
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Observational & Experimental × Hypothesis</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
+  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Observational & Experimental × Hypothesis</a><span class="tag tag-sub">Weakly-verified Hypothesis Generation</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   
 </article>
 
-<article class="card" data-sub="">
+<article class="card" data-sub="Weakly-verified Hypothesis Generation">
   <h3 class="card-title"><a href="https://doi.org/10.1038/s41587-023-01905-6" target="_blank" rel="noopener">Predicting transcriptional outcomes of novel multigene perturbations with GEARS ↗</a></h3>
   <div class="card-meta"><span class="meta-method">GEARS</span> · <span class="meta-venue">Nature Biotechnology</span> · <span class="meta-year">2024</span></div>
   <p class="card-note">GEARS — held-out perturbation evaluation protocol on Norman 2019 dual-gene combinations</p>
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Observational & Experimental × Hypothesis</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Observational & Experimental × Hypothesis</a><span class="tag tag-sub">Weakly-verified Hypothesis Generation</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   
 </article>
 </div>
