@@ -777,6 +777,21 @@ def render_browse():
 
 # ---------- cell/<K>.<O>.html ----------
 SECTION_OVERVIEWS = {
+    'K3.O3': {
+        'subsection': 'Weakly-verified Hypothesis Generation',
+        'subsubsec_id': 'subsubsec:o3-weakverifier',
+        'paragraph': r'''A final form of hypothesis is one in which the system generates a candidate that no strong external verifier can directly check, so that evaluation falls back to downstream task accuracy, expert validation, or recovery against a held-out reference rather than to docking, database lookup, or simulation. The output is typically a literature-derived hypothesis, such as a cellular-response prediction, a biomedical link prediction, or a molecular structure inferred from a non-textual signal, and the absence of an in-loop verifier means that novelty and plausibility carry more of the evaluation burden than physical correctness does. Evaluation in this setting consists of distributional similarity for predicted perturbation responses, held-out edge recovery for link-prediction tasks, and Top-K accuracy or Tanimoto similarity against held-out reference structures for measurement-derived candidates, instantiated on retrieval-augmented gene-perturbation cellular response prediction~\cite{DBLP:journals/corr/abs-2603-07233} over the Replogle-Nadig single-gene perturbation subset~\cite{replogle2022mapping} of the Perturb-seq atlas, against the PerturBench benchmark~\cite{DBLP:journals/corr/abs-2408-10609} which standardizes four generalization regimes for cellular perturbation analysis and against the held-out perturbation evaluation protocol introduced by GEARS~\cite{roohani2024gears} on Norman 2019 dual-gene combinations~\cite{norman2019exploring}, on biomedical link prediction over OpenBioLink~\cite{DBLP:journals/bioinformatics/BreitOAS20} and OGB-biokg~\cite{DBLP:conf/nips/HuFZDRLCL20}, and on MS/MS-driven molecular discovery in the MassSpecGym benchmark~\cite{DBLP:conf/nips/BushuievBJYKSHW24} with three challenges spanning de novo molecular structure generation, molecule retrieval, and spectrum simulation. These metrics certify that the generated hypotheses recover known cases or align with expert intuition, but the absence of a strong external verifier leaves the K3.O3 and K4.O3 cells of the catalog largely empty, a sparsity we revisit in \S\ref{sec:frontiers} as a concrete frontier for future scientific RAG.''',
+        'evidence': {
+            'DBLP:journals/corr/abs-2603-07233': 'PT-RAG (Perturbation-aware Two-stage RAG): GenePT semantic retrieval + Gumbel-Softmax cell-type-aware selection. Outperforms STATE and vanilla RAG on Replogle-Nadig single-gene perturbation in distributional similarity W1, W2 (arXiv:2603.07233 §Abstract).',
+            'replogle2022mapping': 'Genome-scale Perturb-seq atlas — foundational single-cell perturbation dataset across thousands of essential genes; substrate for PT-RAG (Replogle et al., Cell 2022).',
+            'DBLP:journals/corr/abs-2408-10609': 'PerturBench: "comprehensive framework for modeling single cell transcriptomic responses to perturbations, aimed at standardizing benchmarking in this rapidly evolving field" with RMSE + rank metrics across four generalization regimes (arXiv:2408.10609 §Abstract).',
+            'roohani2024gears': 'GEARS: GNN integrating gene-gene knowledge graph with perturbation embedding. Trained on Norman 2019 (102 single + 131 two-gene). Metrics: MSE on top-20 DEGs, Pearson correlation, Precision@10 for GI prediction (Nat. Biotechnol. 42:927-935, 2024).',
+            'norman2019exploring': 'Norman et al. 2019 Science: 287 dual-CRISPRi gene-pair perturbations in K562 cells. Defined "GI manifold" via rich single-cell phenotypes — the canonical dual-gene held-out evaluation substrate (Science 365:786-793, 2019).',
+            'DBLP:journals/bioinformatics/BreitOAS20': 'OpenBioLink: "a large-scale, high-quality and highly challenging biomedical link prediction benchmark to transparently and reproducibly evaluate" embedding methods. Leakage-controlled held-out edge recovery (Bioinformatics 36:4097-4098, 2020).',
+            'DBLP:conf/nips/HuFZDRLCL20': 'OGB suite (NeurIPS 2020) — includes ogbl-biokg for biomedical KG link prediction (drug-disease-protein edges) with hits@K public leaderboard. Same authors as GEARS (Leskovec lab).',
+            'DBLP:conf/nips/BushuievBJYKSHW24': 'MassSpecGym: 231K MS/MS spectra of 29K molecules with leakage-controlled MCES splits. Three challenges: de novo molecular structure generation, molecule retrieval, spectrum simulation (NeurIPS 2024 / arXiv:2410.23326 §Intro).',
+        },
+    },
     'K2.O3': {
         'subsection': 'Simulation-verified Materials Discovery',
         'subsubsec_id': 'subsubsec:o3-simulation',
@@ -830,7 +845,12 @@ def render_overview_section(cell_key, papers_by_key, base='../'):
         body += '</p>'
         if ev:
             body += f'<p>{esc(ev)}</p>'
-        body += f'<p><a href="{base}papers/{safe_key}.html">Full summary →</a></p>'
+        # Prefer in-site summary if a .md/.html exists; otherwise external paper link
+        summary_path = ROOT / 'papers' / f'{safe_key}.html'
+        if summary_path.exists():
+            body += f'<p><a href="{base}papers/{safe_key}.html">Full summary &rarr;</a></p>'
+        elif p.get('paper_link'):
+            body += f'<p><a href="{esc(p["paper_link"])}" target="_blank" rel="noopener">Source &uarr;</a></p>'
         fn_items.append(f'<li id="fn-ov{i}">{body}</li>')
 
     fn_html = '<section class="footnotes overview-fns"><h3>Citations</h3><ol>' + ''.join(fn_items) + '</ol></section>'

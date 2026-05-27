@@ -1545,5 +1545,50 @@
     "O": "O3",
     "note": "ODAC23 — 8,400+ MOFs × 38M DFT for DAC sorbent discovery; OC20-style S2EF/IS2RE/IS2RS tasks",
     "subsection": "Simulation-verified Materials Discovery"
+  },
+  "DBLP:journals/corr/abs-2408-10609": {
+    "cells": [
+      "K3.O3"
+    ],
+    "K": "K3",
+    "O": "O3",
+    "note": "PerturBench — cellular perturbation analysis benchmark with 4 generalization regimes",
+    "subsection": "Weakly-verified Hypothesis Generation"
+  },
+  "roohani2024gears": {
+    "cells": [
+      "K3.O3"
+    ],
+    "K": "K3",
+    "O": "O3",
+    "note": "GEARS — held-out perturbation evaluation protocol on Norman 2019 dual-gene combinations",
+    "subsection": "Weakly-verified Hypothesis Generation"
+  },
+  "norman2019exploring": {
+    "cells": [
+      "K3"
+    ],
+    "K": "K3",
+    "O": "",
+    "note": "Norman 2019 — 287 dual-CRISPRi gene interaction dataset, foundational substrate for GEARS",
+    "subsection": "Weakly-verified Hypothesis Generation"
+  },
+  "DBLP:journals/bioinformatics/BreitOAS20": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "OpenBioLink — biomedical link prediction benchmark with leakage-controlled held-out edge recovery",
+    "subsection": "Weakly-verified Hypothesis Generation"
+  },
+  "DBLP:conf/nips/HuFZDRLCL20": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "OGB-biokg — biomedical knowledge graph link prediction with hits@K public leaderboard",
+    "subsection": "Weakly-verified Hypothesis Generation"
   }
 }

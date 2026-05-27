@@ -3971,6 +3971,48 @@
     "cross_source": false
   },
   {
+    "bib_key": "DBLP:journals/corr/abs-2408-10609",
+    "title": "PerturBench: Benchmarking Machine Learning Models for Cellular Perturbation Analysis",
+    "year": 2024,
+    "venue": "arXiv",
+    "method": "PerturBench",
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://arxiv.org/abs/2408.10609",
+    "note": "PerturBench — cellular perturbation analysis benchmark with 4 generalization regimes",
+    "ko_cells": [
+      "K3.O3"
+    ],
+    "ko_primary": "K3.O3",
+    "ko_note": "PerturBench — cellular perturbation analysis benchmark with 4 generalization regimes",
+    "cross_source": false,
+    "type": "benchmark",
+    "bib_only": true,
+    "subsection": "Weakly-verified Hypothesis Generation"
+  },
+  {
+    "bib_key": "roohani2024gears",
+    "title": "Predicting transcriptional outcomes of novel multigene perturbations with GEARS",
+    "year": 2024,
+    "venue": "Nature Biotechnology",
+    "method": "GEARS",
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1038/s41587-023-01905-6",
+    "note": "GEARS — held-out perturbation evaluation protocol on Norman 2019 dual-gene combinations",
+    "ko_cells": [
+      "K3.O3"
+    ],
+    "ko_primary": "K3.O3",
+    "ko_note": "GEARS — held-out perturbation evaluation protocol on Norman 2019 dual-gene combinations",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Weakly-verified Hypothesis Generation"
+  },
+  {
     "title": "RSWFormer: A multi-scale fusion network from local to global with multiple stages for regional geological mapping",
     "year": 2024,
     "venue": "Remote Sensing",
@@ -5895,6 +5937,50 @@
     "cross_source": false
   },
   {
+    "bib_key": "DBLP:conf/nips/HuFZDRLCL20",
+    "title": "Open Graph Benchmark: Datasets for Machine Learning on Graphs",
+    "year": 2020,
+    "venue": "NeurIPS",
+    "method": "OGB / OGB-biokg",
+    "domain": [
+      "bio",
+      "general"
+    ],
+    "paper_link": "https://proceedings.neurips.cc/paper/2020/hash/fb60d411a5c5b72b2e7d3527cfc84fd0-Abstract.html",
+    "note": "OGB-biokg — biomedical knowledge graph link prediction with hits@K public leaderboard",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "OGB-biokg — biomedical knowledge graph link prediction with hits@K public leaderboard",
+    "cross_source": false,
+    "type": "benchmark",
+    "bib_only": true,
+    "subsection": "Weakly-verified Hypothesis Generation"
+  },
+  {
+    "bib_key": "DBLP:journals/bioinformatics/BreitOAS20",
+    "title": "OpenBioLink: a benchmarking framework for large-scale biomedical link prediction",
+    "year": 2020,
+    "venue": "Bioinformatics",
+    "method": "OpenBioLink",
+    "domain": [
+      "bio",
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1093/bioinformatics/btaa274",
+    "note": "OpenBioLink — biomedical link prediction benchmark with leakage-controlled held-out edge recovery",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "OpenBioLink — biomedical link prediction benchmark with leakage-controlled held-out edge recovery",
+    "cross_source": false,
+    "type": "benchmark",
+    "bib_only": true,
+    "subsection": "Weakly-verified Hypothesis Generation"
+  },
+  {
     "title": "PathVQA: 30000+ Questions for Medical Visual Question Answering",
     "year": 2020,
     "venue": "arXiv",
@@ -6149,6 +6235,27 @@
     "ko_primary": null,
     "ko_note": "",
     "cross_source": false
+  },
+  {
+    "bib_key": "norman2019exploring",
+    "title": "Exploring genetic interaction manifolds constructed from rich single-cell phenotypes",
+    "year": 2019,
+    "venue": "Science",
+    "method": "Norman 2019",
+    "domain": [
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1126/science.aax4438",
+    "note": "Norman 2019 — 287 dual-CRISPRi gene interaction dataset, foundational substrate for GEARS",
+    "ko_cells": [
+      "K3"
+    ],
+    "ko_primary": "K3",
+    "ko_note": "Norman 2019 — 287 dual-CRISPRi gene interaction dataset, foundational substrate for GEARS",
+    "cross_source": false,
+    "type": "dataset",
+    "bib_only": true,
+    "subsection": "Weakly-verified Hypothesis Generation"
   },
   {
     "bib_key": "PhysioNet-mimic-cxr-2.1.0",

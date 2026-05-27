@@ -1738,6 +1738,63 @@
       ],
       "type": "benchmark",
       "paper_link": "https://doi.org/10.1021/acscentsci.3c01629"
+    },
+    "DBLP:journals/corr/abs-2408-10609": {
+      "title": "PerturBench: Benchmarking Machine Learning Models for Cellular Perturbation Analysis",
+      "year": 2024,
+      "venue": "arXiv",
+      "method": "PerturBench",
+      "domain": [
+        "bio"
+      ],
+      "type": "benchmark",
+      "paper_link": "https://arxiv.org/abs/2408.10609"
+    },
+    "roohani2024gears": {
+      "title": "Predicting transcriptional outcomes of novel multigene perturbations with GEARS",
+      "year": 2024,
+      "venue": "Nature Biotechnology",
+      "method": "GEARS",
+      "domain": [
+        "bio"
+      ],
+      "type": "Method",
+      "paper_link": "https://doi.org/10.1038/s41587-023-01905-6"
+    },
+    "norman2019exploring": {
+      "title": "Exploring genetic interaction manifolds constructed from rich single-cell phenotypes",
+      "year": 2019,
+      "venue": "Science",
+      "method": "Norman 2019",
+      "domain": [
+        "bio"
+      ],
+      "type": "dataset",
+      "paper_link": "https://doi.org/10.1126/science.aax4438"
+    },
+    "DBLP:journals/bioinformatics/BreitOAS20": {
+      "title": "OpenBioLink: a benchmarking framework for large-scale biomedical link prediction",
+      "year": 2020,
+      "venue": "Bioinformatics",
+      "method": "OpenBioLink",
+      "domain": [
+        "bio",
+        "medical"
+      ],
+      "type": "benchmark",
+      "paper_link": "https://doi.org/10.1093/bioinformatics/btaa274"
+    },
+    "DBLP:conf/nips/HuFZDRLCL20": {
+      "title": "Open Graph Benchmark: Datasets for Machine Learning on Graphs",
+      "year": 2020,
+      "venue": "NeurIPS",
+      "method": "OGB / OGB-biokg",
+      "domain": [
+        "bio",
+        "general"
+      ],
+      "type": "benchmark",
+      "paper_link": "https://proceedings.neurips.cc/paper/2020/hash/fb60d411a5c5b72b2e7d3527cfc84fd0-Abstract.html"
     }
   }
 }
