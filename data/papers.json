@@ -1784,7 +1784,6 @@
     "ko_primary": "K2.O1",
     "ko_note": "main.tex: K=-; O=O1",
     "cross_source": false,
-    "subsection": "KB-entry",
     "flagship": true
   },
   {
@@ -3510,8 +3509,7 @@
     "ko_note": "Materials science and physics — MatSciKB curated literature knowledge base for materials RAG",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true,
-    "subsection": "KB-entry"
+    "bib_only": true
   },
   {
     "title": "HoneyComb: Materials Science Agent",
@@ -6217,7 +6215,7 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
-    "subsection": "KB-entry"
+    "subsection": "Closed-form QA"
   },
   {
     "bib_key": "eartharxiv",

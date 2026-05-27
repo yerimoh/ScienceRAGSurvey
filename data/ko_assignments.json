@@ -26,7 +26,7 @@
     "K": "",
     "O": "O1",
     "note": "main.tex: K=-; O=O1",
-    "subsection": "KB-entry"
+    "subsection": "Closed-form QA"
   },
   "DBLP:conf/cikm/BesrourHS025": {
     "cells": [
@@ -43,8 +43,7 @@
     ],
     "K": "",
     "O": "O1",
-    "note": "main.tex: K=-; O=O1",
-    "subsection": "KB-entry"
+    "note": "main.tex: K=-; O=O1"
   },
   "DBLP:conf/emnlp/WaddenLKCBWH22": {
     "cells": [
@@ -850,8 +849,7 @@
     ],
     "K": "K2",
     "O": "",
-    "note": "Materials science and physics — MatSciKB curated literature knowledge base for materials RAG",
-    "subsection": "KB-entry"
+    "note": "Materials science and physics — MatSciKB curated literature knowledge base for materials RAG"
   },
   "navas2024review": {
     "cells": [
