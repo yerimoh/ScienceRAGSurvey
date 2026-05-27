@@ -808,6 +808,20 @@ def render_browse():
 
 # ---------- cell/<K>.<O>.html ----------
 SECTION_OVERVIEWS = {
+    'K1.O1': {
+        'subsection': 'Literature-grounded Answering',
+        'subsubsec_id': 'subsubsec:kxo_k1o1',
+        'paragraph': r'''A system operating under the \textcolor{Oaxis}{\textsc{Ground}} objective retrieves information over PubMed~\cite{canese2013pubmed}, full-text articles, or open-access corpora to utilize \textcolor{Kaxis}{\textsc{Primary Literature}}, producing either a closed-form verdict or a cited paragraph anchored to the retrieved sources so that its factual accuracy and citation fidelity can be rigorously evaluated. The methodologies developed for this intersection include retrieval-augmented generation (RAG) frameworks such as MEDRAG~\cite{DBLP:conf/acl/Xiong0LZ24}, BioRAG~\cite{DBLP:journals/corr/abs-2408-01107}, and RAG$^2$~\cite{DBLP:conf/naacl/SohnPYPHSKK25} on the closed-form side, alongside PaperQA~\cite{DBLP:journals/corr/abs-2312-07559}, OpenScholar~\cite{asai2026synthesizing}, and Clinfo.ai~\cite{DBLP:journals/corr/abs-2310-16146} on the long-form citation side. Activity within this domain follows from the parallel growth of multiple-choice and short-answer benchmarks, dense and hybrid retrievers optimized for scientific text, and citation-based evaluations that facilitate automated verification.''',
+        'evidence': {
+            'canese2013pubmed': 'PubMed — NCBI biomedical literature index (≈36M citations). Foundational substrate for medical/biological RAG: free-text abstracts indexed under MeSH, with ~1M new papers/year.',
+            'DBLP:conf/acl/Xiong0LZ24': 'MEDRAG / MIRAGE: "Benchmarking Retrieval-Augmented Generation for Medicine" — 7,663 multiple-choice questions across 5 medical QA datasets (MMLU-Med, MedQA-US, MedMCQA, PubMedQA, BioASQ-Y/N); zero-shot + question-only retrieval (ACL Findings 2024 pp.6233-6251).',
+            'DBLP:journals/corr/abs-2408-01107': 'BioRAG: "A RAG-LLM Framework for Biological Question Reasoning" — 22M+ PubMed abstracts + MeSH classifier + 5-step iterative RAG with 10 external sources. Evaluated on GeneTuring 9 sub-tasks + MedMCQA + College Biology/Medicine (arXiv:2408.01107).',
+            'DBLP:conf/naacl/SohnPYPHSKK25': 'RAG² (Rationale-Guided RAG): perplexity-trained filtering model + LLM-generated rationale queries + balanced retrieval over 4 corpora (PubMed/PMC/textbooks/guidelines). Evaluated on three closed-book medical QA benchmarks: MedQA, MedMCQA, MMLU-Med (NAACL 2025 pp.12739-12753).',
+            'DBLP:journals/corr/abs-2312-07559': 'PaperQA (Lála et al., FutureHouse): agent-based RAG over full-text scientific articles, sentence-level claim attribution. Beats GPT-4 by 30 points on closed-book PubMedQA (86.3% vs 57.9%); introduces LitQA benchmark requiring full-text synthesis (arXiv:2312.07559).',
+            'asai2026synthesizing': 'OpenScholar (Asai et al., Nature 2026 / arXiv:2411.14199): retrieval-augmented LM over 45M open-access papers; SCHOLARQABENCH with 2,967 expert queries + 208 long-form answers. GPT-4o hallucinates citations 78-90%, OPENSCHOLAR-8B beats GPT-4o by 5% in correctness with human-expert citation accuracy.',
+            'DBLP:journals/corr/abs-2310-16146': 'Clinfo.ai (Lozano, Fleming, Chiang, Shah — Stanford): open-source clinical QA WebApp + abstractive summarization task. Releases PubMedRS-200: 200 questions + answers derived from published systematic reviews (arXiv:2310.16146).',
+        },
+    },
     'K3.O3': {
         'subsection': 'Weakly-verified Hypothesis Generation',
         'subsubsec_id': 'subsubsec:o3-weakverifier',
