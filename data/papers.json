@@ -224,7 +224,6 @@
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
-    "subsection": "Retrieval-quality",
     "flagship": true
   },
   {
@@ -678,8 +677,7 @@
     ],
     "ko_primary": "K4.O1",
     "ko_note": "Local RAG QA over arXiv EIC papers; open-source LLaMA for answer generation; cost-effective, data-privacy preserving alternative to cloud-hosted RAGS4EIC; extension of RAGS4EIC proceeding application",
-    "cross_source": false,
-    "subsection": "Retrieval-quality"
+    "cross_source": false
   },
   {
     "title": "Synthesizing Scientific Literature with Retrieval-Augmented Language Models",
@@ -836,8 +834,7 @@
     ],
     "ko_primary": "K4.O1",
     "ko_note": "main.tex: K=K4; O=-",
-    "cross_source": false,
-    "subsection": "Retrieval-quality"
+    "cross_source": false
   },
   {
     "title": "AlzheimerRAG: Multimodal RAG for Clinical Use Cases",
@@ -1347,8 +1344,7 @@
     "ko_note": "RAG over DUNE DocDB + Indico + internal wikis; multi-qa-mpnet + FAISS; ~70% retrieval accuracy (preliminary); Fermilab on-premise",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true,
-    "subsection": "Retrieval-quality"
+    "bib_only": true
   },
   {
     "title": "DUNE-GPT (LLM Integration for DUNE Experiment)",
@@ -1586,7 +1582,6 @@
     "ko_primary": "O1",
     "ko_note": "Open-ended geoscience RAG benchmark; metric = Answer Recall + Top-K Recall; not closed-form MC",
     "cross_source": false,
-    "subsection": "Retrieval-quality",
     "footnote": true
   },
   {
@@ -2894,8 +2889,7 @@
     ],
     "ko_primary": "K4.O1",
     "ko_note": "SciTreeRAG+SciGraphRAG over LHCb internal corpus (K4 institutional tacit knowledge)",
-    "cross_source": false,
-    "subsection": "Retrieval-quality"
+    "cross_source": false
   },
   {
     "title": "Spatial-RAG: Spatial Retrieval Augmented Generation for Real-World Geospatial Reasoning Questions",
@@ -3792,8 +3786,7 @@
     ],
     "ko_primary": "K4.O1",
     "ko_note": "cmbagent: multi-agent RAG over cobaya/classy_sz/cosmocnc software docs (K4 software-embedded knowledge)",
-    "cross_source": false,
-    "subsection": "Retrieval-quality"
+    "cross_source": false
   },
   {
     "title": "OmniMedVQA: A New Large-Scale Comprehensive Evaluation Benchmark for Medical LVLM",
@@ -4121,8 +4114,7 @@
     "ko_note": "RAG-based summarization AI for EIC institutional documents; LangChain + vector DB; RAGAs evaluation; prompt template instruction-tuning; Streamlit web app; serves 1,400+ physicists in 38 countries",
     "cross_source": false,
     "type": "Method",
-    "bib_only": true,
-    "subsection": "Retrieval-quality"
+    "bib_only": true
   },
   {
     "title": "f-RAG: Molecule Generation with Fragment Retrieval Augmentation",
