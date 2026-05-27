@@ -3236,6 +3236,28 @@
     "flagship": true
   },
   {
+    "bib_key": "DBLP:journals/corr/abs-2408-01107",
+    "title": "BioRAG: A RAG-LLM Framework for Biological Question Reasoning",
+    "year": 2024,
+    "venue": "arXiv 2024",
+    "method": "BIORAG",
+    "domain": [
+      "bio",
+      "medical"
+    ],
+    "paper_link": "https://arxiv.org/abs/2408.01107",
+    "note": "22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, College Biology/Medicine; outperforms BioLLMs, GPT-3.5, NewBing",
+    "ko_cells": [
+      "K1.O1"
+    ],
+    "ko_primary": "K1.O1",
+    "ko_note": "22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, College Biology/Medicine; outperforms BioLLMs, GPT-3.5, NewBing",
+    "cross_source": false,
+    "type": "Method",
+    "bib_only": true,
+    "subsection": "Text-only Closed-form QA"
+  },
+  {
     "title": "CLINFO.AI: AN OPEN-SOURCE RETRIEVAL-AUGMENTED LARGE LANGUAGE MODEL SYSTEM FOR ANSWERING MEDICAL QUESTIONS USING SCIENTIFIC LITERATURE",
     "year": 2024,
     "venue": "PSB",
@@ -8428,25 +8450,6 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "Aggregative Synthesis"
-  },
-  {
-    "bib_key": "DBLP:journals/corr/abs-2408-01107",
-    "title": "DBLP:journals/corr/abs-2408-01107",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, College Biology/Medicine; outperforms BioLLMs, GPT-3.5, NewBing",
-    "ko_cells": [
-      "K1.O1"
-    ],
-    "ko_primary": "K1.O1",
-    "ko_note": "22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, College Biology/Medicine; outperforms BioLLMs, GPT-3.5, NewBing",
-    "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Text-only Closed-form QA"
   },
   {
     "bib_key": "DBLP:journals/corr/abs-2603-15712",

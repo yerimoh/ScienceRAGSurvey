@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Methods — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1779890597">
+<link rel="stylesheet" href="../static/style.css?v=1779891385">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -68,9 +68,9 @@
       <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
-        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">88</span></a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">89</span></a>
 <a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
-<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">133</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">134</span></a>
 <a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
 <a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
 <a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
@@ -565,6 +565,14 @@
   <p class="card-note">★ Cross-source K1+K2. MeSH hierarchical filter + dense retrieval. Self-eval loop. SOTA on GeneTuring.</p>
   <div class="card-tags"><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   
+</article>
+
+<article class="card" data-sub="Text-only Closed-form QA">
+  <h3 class="card-title"><a href="https://arxiv.org/abs/2408.01107" target="_blank" rel="noopener">BioRAG: A RAG-LLM Framework for Biological Question Reasoning ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">BIORAG</span> · <span class="meta-venue">arXiv 2024</span> · <span class="meta-year">2024</span></div>
+  <p class="card-note">22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, College Biology/Medicine; outperforms BioLLMs, GPT-3.5, NewBing</p>
+  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <a href="../papers/DBLP_journals_corr_abs-2408-01107.html" class="card-summary-link">Summary →</a>
 </article>
 
 <article class="card" data-sub="Astronomy, earth, and climate">
@@ -1485,14 +1493,6 @@
   <p class="card-note">HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 76%; outperforms PubMedGPT and GPT-4; scales to thousands of GPUs</p>
   <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Primary Literature × Synthesis</a><span class="tag tag-sub">Aggregative Synthesis</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_pasc_GokdemirSBWHHSA25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Text-only Closed-form QA">
-  <h3 class="card-title">DBLP:journals/corr/abs-2408-01107</h3>
-  
-  <p class="card-note">22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, College Biology/Medicine; outperforms BioLLMs, GPT-3.5, NewBing</p>
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2408-01107.html" class="card-summary-link">Summary →</a>
 </article>
 
 <article class="card" data-sub="Simulation-verified Materials Discovery">

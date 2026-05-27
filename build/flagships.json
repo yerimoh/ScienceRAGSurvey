@@ -1795,6 +1795,18 @@
       ],
       "type": "benchmark",
       "paper_link": "https://proceedings.neurips.cc/paper/2020/hash/fb60d411a5c5b72b2e7d3527cfc84fd0-Abstract.html"
+    },
+    "DBLP:journals/corr/abs-2408-01107": {
+      "title": "BioRAG: A RAG-LLM Framework for Biological Question Reasoning",
+      "year": 2024,
+      "venue": "arXiv 2024",
+      "method": "BIORAG",
+      "domain": [
+        "bio",
+        "medical"
+      ],
+      "type": "Method",
+      "paper_link": "https://arxiv.org/abs/2408.01107"
     }
   }
 }

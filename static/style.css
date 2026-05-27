@@ -668,7 +668,8 @@ main.with-sidebar {
 .tag-o      { background: var(--o-50);  color: var(--o-700); font-family: var(--font-display); font-weight: 600; font-size: .74rem; letter-spacing: 0; }
 .tag-domain { background: var(--bg-subtle); color: var(--fg-muted); }
 .tag-type   { background: var(--bg-accent); color: var(--fg-muted); border: 1px solid var(--line); }
-.tag-mod    { background: transparent; color: var(--fg-faint); border: 1px dashed var(--line-strong); }
+.tag-mod    { background: transparent; color: var(--fg-faint); border: 1px dashed var(--line-strong); font-size: 0.62rem; opacity: 0.65; padding: 1px 5px; text-transform: lowercase; letter-spacing: 0.02em; }
+.tag-mod::before { content: '◇ '; }
 .tag-xs     { background: var(--k-100); color: var(--k-700); }
 
 /* ----- Cell page ----- */
