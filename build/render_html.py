@@ -55,9 +55,39 @@ K_SUBSECTIONS = {
     'K3': {'Medical imaging and clinical EHR', 'Structural biology', 'Astronomy, earth, and climate', 'Particle and nuclear physics'},
     'K4': {'Embedded in software', 'Held by institutions', 'Held by individuals and communities'},
 }
+# Per-cell allow-list of O-side subsection chips. Overrides axis_subsections() when the
+# cell key is present. Use it to suppress subsections that the cell's overview paragraph
+# explicitly assigns to a different cell (e.g. Weakly-verified is a K3.O3/K4.O3 frontier
+# concept, so it shouldn't appear as a chip on K2.O3 even when a paper carries that tag
+# because of its substrate cell).
+CELL_SUBSECTIONS = {
+    'K2.O3': {'Docking-verified Hypothesis', 'Database-verified Prediction', 'Simulation-verified Materials Discovery'},
+    'K3.O3': {'Weakly-verified Hypothesis Generation'},
+    'K4.O3': {'Weakly-verified Hypothesis Generation'},
+}
+# Cell-tier labels (§4 K×O Cross-Tab Analysis).
+# (tier, subsection_name, label_for_hero_chip)
+CELL_TIERS = {
+    'K1.O1': ('Active',   'Literature-grounded Answering'),
+    'K1.O2': ('Active',   'Literature Synthesis'),
+    'K2.O1': ('Active',   'Knowledge-base Lookup'),
+    'K3.O1': ('Emerging', 'Cross-modal Grounding'),
+    'K2.O2': ('Emerging', 'Knowledge-graph Synthesis'),
+    'K1.O3': ('Emerging', 'Strong-verifier Hypothesis'),
+    'K4.O1': ('Emerging', 'Private-document Retrieval'),
+    'K2.O3': ('Frontier', 'Simulation-verified Materials Discovery'),
+    'K3.O3': ('Frontier', 'Weakly-verified Hypothesis Generation'),
+    'K4.O2': ('Frontier', 'Tacit Synthesis (open)'),
+    'K4.O3': ('Frontier', 'Tacit Hypothesis (open)'),
+    'K1.O3.weak': ('Frontier', 'Weak-verifier Hypothesis'),
+}
 
-def axis_subsections(axis_scope):
-    """Return the set of subsections belonging to the given axis scope (O1/O2/O3 or K1-K4)."""
+def axis_subsections(axis_scope, cell_key=None):
+    """Return the set of subsections to render as filter chips.
+    If cell_key has a CELL_SUBSECTIONS entry, use that allow-list; otherwise fall
+    back to the axis (O1/O2/O3 or K1-K4) default."""
+    if cell_key and cell_key in CELL_SUBSECTIONS:
+        return CELL_SUBSECTIONS[cell_key]
     if axis_scope in O_SUBSECTIONS:
         return O_SUBSECTIONS[axis_scope]
     if axis_scope in K_SUBSECTIONS:
@@ -65,13 +95,14 @@ def axis_subsections(axis_scope):
     return None  # no filtering
 
 
-def subsec_filter_html(papers_list, prefix='', axis_scope=None):
+def subsec_filter_html(papers_list, prefix='', axis_scope=None, cell_key=None):
     """Return filter-chip bar + inline JS for subsection filtering.
     Only emitted when 2+ distinct subsections exist in papers_list.
     prefix: CSS class prefix to avoid ID collisions between pages.
+    cell_key: full cell ID (e.g. 'K2.O3') for per-cell chip allow-list override.
     """
     from collections import Counter
-    allowed = axis_subsections(axis_scope)
+    allowed = axis_subsections(axis_scope, cell_key=cell_key)
     counts = Counter()
     for p in papers_list:
         subs = p.get('subsection') or ''
@@ -882,14 +913,23 @@ def render_cell_pages():
             )
 
             cards = '\n'.join(paper_card(p, base='../', axis_scope=O) for p in ps) or '<p class="empty">No verified entries in this cell yet — see <a href="../about.html#methodology">methodology</a> and the survey §11 frontier discussion.</p>'
-            sf = subsec_filter_html(ps, prefix=f'cell{cell}', axis_scope=O)
+            sf = subsec_filter_html(ps, prefix=f'cell{cell}', axis_scope=O, cell_key=cell)
             overview_html = render_overview_section(cell, papers_by_key, base='../')
+
+            # Cell-tier badge (Active / Emerging / Frontier) from §4 K×O Cross-Tab Analysis
+            tier_info = CELL_TIERS.get(cell)
+            tier_badge = ''
+            if tier_info:
+                tier, tier_name = tier_info
+                tier_class = f'cell-tier-{tier.lower()}'
+                tier_badge = f'<div class="cell-tier-row"><span class="cell-tier {tier_class}">{tier} cell</span> <span class="cell-tier-name">{esc(tier_name)}</span></div>'
 
             body = f'''
 <section class="cell-hero">
   <div class="wrap">
     <p class="eyebrow"><a href="../index.html#grid">← K×O Grid</a></p>
     <h1><span class="cell-id-big">[{cell}]</span> {esc(kn)} <span class="times">×</span> {esc(on)}</h1>
+    {tier_badge}
     <p class="lede"><strong>{len(ps)}</strong> entries.</p>
     <div class="cell-axis-pair">
       <div class="axis-card axis-k">
