@@ -1560,6 +1560,80 @@
         "chem"
       ],
       "paper_link": "https://arxiv.org/abs/2102.09548"
+    },
+    "tatonetti2012twosides": {
+      "title": "TWOSIDES & OFFSIDES: Data-driven Prediction of Drug Effects and Interactions",
+      "year": 2012,
+      "venue": "Science Translational Medicine",
+      "method": "TWOSIDES",
+      "type": "benchmark",
+      "domain": [
+        "medical",
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.1126/scitranslmed.3003377"
+    },
+    "davis2011kinase": {
+      "title": "Comprehensive Analysis of Kinase Inhibitor Selectivity (Davis Kd Matrix)",
+      "year": 2011,
+      "venue": "Nature Biotechnology",
+      "method": "Davis Kd Matrix",
+      "type": "benchmark",
+      "domain": [
+        "chem",
+        "bio",
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.1038/nbt.1990"
+    },
+    "tang2014kiba": {
+      "title": "KIBA: Integrated Kinase Inhibitor Bioactivity Score",
+      "year": 2014,
+      "venue": "J. Chem. Inf. Model.",
+      "method": "KIBA",
+      "type": "benchmark",
+      "domain": [
+        "chem",
+        "bio",
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.1021/ci400709d"
+    },
+    "himmelstein2017hetionet": {
+      "title": "Hetionet: Systematic Integration of Biomedical Knowledge for Drug Repurposing",
+      "year": 2017,
+      "venue": "eLife",
+      "method": "Hetionet",
+      "type": "benchmark",
+      "domain": [
+        "medical",
+        "bio"
+      ],
+      "paper_link": "https://doi.org/10.7554/eLife.26726"
+    },
+    "zhou2019cafa": {
+      "title": "CAFA3: Critical Assessment of Function Annotation",
+      "year": 2019,
+      "venue": "Genome Biology",
+      "method": "CAFA3",
+      "type": "benchmark",
+      "domain": [
+        "bio",
+        "medical"
+      ],
+      "paper_link": "https://doi.org/10.1186/s13059-019-1835-8"
+    },
+    "corsello2017drhub": {
+      "title": "Drug Repurposing Hub: Hand-curated 4,707-Compound Library",
+      "year": 2017,
+      "venue": "Nature Medicine",
+      "method": "Drug Repurposing Hub",
+      "type": "benchmark",
+      "domain": [
+        "medical",
+        "chem"
+      ],
+      "paper_link": "https://doi.org/10.1038/nm.4306"
     }
   }
 }

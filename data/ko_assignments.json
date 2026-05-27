@@ -1419,5 +1419,59 @@
     "O": "O3",
     "note": "66 AI-ready datasets × 22 tasks × 29 leaderboards — Database-verified Prediction umbrella benchmark for drug discovery",
     "subsection": "Database-verified Prediction"
+  },
+  "tatonetti2012twosides": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "TWOSIDES — Database-verified Prediction benchmark",
+    "subsection": "Database-verified Prediction"
+  },
+  "davis2011kinase": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "Davis Kd Matrix — Database-verified Prediction benchmark",
+    "subsection": "Database-verified Prediction"
+  },
+  "tang2014kiba": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "KIBA — Database-verified Prediction benchmark",
+    "subsection": "Database-verified Prediction"
+  },
+  "himmelstein2017hetionet": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "Hetionet — Database-verified Prediction benchmark",
+    "subsection": "Database-verified Prediction"
+  },
+  "zhou2019cafa": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "CAFA3 — Database-verified Prediction benchmark",
+    "subsection": "Database-verified Prediction"
+  },
+  "corsello2017drhub": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "Drug Repurposing Hub — Database-verified Prediction benchmark",
+    "subsection": "Database-verified Prediction"
   }
 }

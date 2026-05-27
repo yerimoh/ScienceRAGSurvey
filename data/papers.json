@@ -5874,6 +5874,28 @@
     "subsection": "Medicine and clinical knowledge"
   },
   {
+    "bib_key": "zhou2019cafa",
+    "title": "CAFA3: Critical Assessment of Function Annotation",
+    "year": 2019,
+    "venue": "Genome Biology",
+    "method": "CAFA3",
+    "domain": [
+      "bio",
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1186/s13059-019-1835-8",
+    "note": "CAFA3 — Database-verified Prediction benchmark",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "CAFA3 — Database-verified Prediction benchmark",
+    "cross_source": false,
+    "type": "benchmark",
+    "bib_only": true,
+    "subsection": "Database-verified Prediction"
+  },
+  {
     "bib_key": "DBLP:journals/nar/TateBJSBBBCCDFH19",
     "title": "COSMIC: the Catalogue Of Somatic Mutations In Cancer",
     "year": 2019,
@@ -6309,6 +6331,28 @@
     "subsection": "Text-only Closed-form QA"
   },
   {
+    "bib_key": "corsello2017drhub",
+    "title": "Drug Repurposing Hub: Hand-curated 4,707-Compound Library",
+    "year": 2017,
+    "venue": "Nature Medicine",
+    "method": "Drug Repurposing Hub",
+    "domain": [
+      "medical",
+      "chem"
+    ],
+    "paper_link": "https://doi.org/10.1038/nm.4306",
+    "note": "Drug Repurposing Hub — Database-verified Prediction benchmark",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "Drug Repurposing Hub — Database-verified Prediction benchmark",
+    "cross_source": false,
+    "type": "benchmark",
+    "bib_only": true,
+    "subsection": "Database-verified Prediction"
+  },
+  {
     "bib_key": "eartharxiv",
     "title": "EarthArXiv",
     "year": 2017,
@@ -6349,6 +6393,28 @@
     "type": "Method",
     "bib_only": true,
     "subsection": "Particle and nuclear physics"
+  },
+  {
+    "bib_key": "himmelstein2017hetionet",
+    "title": "Hetionet: Systematic Integration of Biomedical Knowledge for Drug Repurposing",
+    "year": 2017,
+    "venue": "eLife",
+    "method": "Hetionet",
+    "domain": [
+      "medical",
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.7554/eLife.26726",
+    "note": "Hetionet — Database-verified Prediction benchmark",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "Hetionet — Database-verified Prediction benchmark",
+    "cross_source": false,
+    "type": "benchmark",
+    "bib_only": true,
+    "subsection": "Database-verified Prediction"
   },
   {
     "bib_key": "drew2017integration",
@@ -6851,6 +6917,29 @@
     "subsection": "Particle and nuclear physics"
   },
   {
+    "bib_key": "tang2014kiba",
+    "title": "KIBA: Integrated Kinase Inhibitor Bioactivity Score",
+    "year": 2014,
+    "venue": "J. Chem. Inf. Model.",
+    "method": "KIBA",
+    "domain": [
+      "chem",
+      "bio",
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1021/ci400709d",
+    "note": "KIBA — Database-verified Prediction benchmark",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "KIBA — Database-verified Prediction benchmark",
+    "cross_source": false,
+    "type": "benchmark",
+    "bib_only": true,
+    "subsection": "Database-verified Prediction"
+  },
+  {
     "bib_key": "ramakrishnan2014quantum",
     "title": "Quantum chemistry structures and properties of 134 kilo molecules",
     "year": 2014,
@@ -7197,6 +7286,28 @@
     "subsection": "General-purpose literature"
   },
   {
+    "bib_key": "tatonetti2012twosides",
+    "title": "TWOSIDES & OFFSIDES: Data-driven Prediction of Drug Effects and Interactions",
+    "year": 2012,
+    "venue": "Science Translational Medicine",
+    "method": "TWOSIDES",
+    "domain": [
+      "medical",
+      "bio"
+    ],
+    "paper_link": "https://doi.org/10.1126/scitranslmed.3003377",
+    "note": "TWOSIDES — Database-verified Prediction benchmark",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "TWOSIDES — Database-verified Prediction benchmark",
+    "cross_source": false,
+    "type": "benchmark",
+    "bib_only": true,
+    "subsection": "Database-verified Prediction"
+  },
+  {
     "bib_key": "irwin2012zinc",
     "title": "ZINC: a free tool to discover chemistry for biology",
     "year": 2012,
@@ -7246,6 +7357,29 @@
     "ko_primary": null,
     "ko_note": "",
     "cross_source": false
+  },
+  {
+    "bib_key": "davis2011kinase",
+    "title": "Comprehensive Analysis of Kinase Inhibitor Selectivity (Davis Kd Matrix)",
+    "year": 2011,
+    "venue": "Nature Biotechnology",
+    "method": "Davis Kd Matrix",
+    "domain": [
+      "chem",
+      "bio",
+      "medical"
+    ],
+    "paper_link": "https://doi.org/10.1038/nbt.1990",
+    "note": "Davis Kd Matrix — Database-verified Prediction benchmark",
+    "ko_cells": [
+      "K2.O3"
+    ],
+    "ko_primary": "K2.O3",
+    "ko_note": "Davis Kd Matrix — Database-verified Prediction benchmark",
+    "cross_source": false,
+    "type": "benchmark",
+    "bib_only": true,
+    "subsection": "Database-verified Prediction"
   },
   {
     "bib_key": "DBLP:journals/corr/abs-1108-2700",
