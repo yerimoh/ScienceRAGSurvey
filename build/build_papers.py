@@ -121,7 +121,7 @@ for bk, a in ko.items():
         'ko_primary': a.get('cells', [None])[0] if a.get('cells') else None,
         'ko_note': a.get('note', ''),
         'cross_source': a.get('cross_source', False),
-        'type': 'Method',
+        'type': enrich.get('type', 'Method'),
         'bib_only': True,
     }
     if a.get('secondary'):

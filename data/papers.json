@@ -5877,24 +5877,23 @@
   },
   {
     "bib_key": "PhysioNet-mimic-cxr-2.1.0",
-    "title": "MIMIC-CXR: A De-identified Publicly Available Database of Chest Radiographs with Free-text Reports",
+    "title": "MIMIC-CXR: A De-identified Publicly Available Database of Chest Radiographs",
     "year": 2019,
-    "venue": "Sci Data",
+    "venue": "Scientific Data",
     "method": "MIMIC-CXR",
     "domain": [
       "medical"
     ],
-    "paper_link": "https://physionet.org/content/mimic-cxr/2.1.0/",
+    "paper_link": "https://www.nature.com/articles/s41597-019-0322-0",
     "note": "377,110 chest X-ray images; 227,835 studies; 65,379 patients; radiology report generation benchmark",
     "ko_cells": [
-      "K3.O1"
+      "K3"
     ],
-    "ko_primary": "K3.O1",
+    "ko_primary": "K3",
     "ko_note": "377,110 chest X-ray images; 227,835 studies; 65,379 patients; radiology report generation benchmark",
     "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Cross-modal"
+    "type": "dataset",
+    "bib_only": true
   },
   {
     "title": "PubMedQA: A Dataset for Biomedical Research Question Answering",
@@ -6521,7 +6520,7 @@
   },
   {
     "bib_key": "demner2016preparing",
-    "title": "Preparing a Collection of Radiology Examinations for Distribution and Retrieval",
+    "title": "Preparing a Collection of Radiology Examinations for Distribution and Retrieval (IU-Xray / Open-i)",
     "year": 2016,
     "venue": "JAMIA",
     "method": "IU-Xray",
@@ -6531,14 +6530,13 @@
     "paper_link": "https://doi.org/10.1093/jamia/ocv080",
     "note": "3,955 chest X-ray reports + 7,470 DICOM images; Indiana University chest X-ray collection (IU-Xray)",
     "ko_cells": [
-      "K3.O1"
+      "K3"
     ],
-    "ko_primary": "K3.O1",
+    "ko_primary": "K3",
     "ko_note": "3,955 chest X-ray reports + 7,470 DICOM images; Indiana University chest X-ray collection (IU-Xray)",
     "cross_source": false,
-    "type": "Method",
-    "bib_only": true,
-    "subsection": "Cross-modal"
+    "type": "dataset",
+    "bib_only": true
   },
   {
     "bib_key": "DBLP:journals/nar/KimTBCFGHHHSWYZ16",

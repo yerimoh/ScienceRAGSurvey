@@ -490,20 +490,22 @@
       "paper_link": ""
     },
     "PhysioNet-mimic-cxr-2.1.0": {
-      "title": "MIMIC-CXR: A De-identified Publicly Available Database of Chest Radiographs with Free-text Reports",
+      "title": "MIMIC-CXR: A De-identified Publicly Available Database of Chest Radiographs",
       "year": 2019,
-      "venue": "Sci Data",
+      "venue": "Scientific Data",
       "method": "MIMIC-CXR",
+      "type": "dataset",
       "domain": [
         "medical"
       ],
-      "paper_link": "https://physionet.org/content/mimic-cxr/2.1.0/"
+      "paper_link": "https://www.nature.com/articles/s41597-019-0322-0"
     },
     "demner2016preparing": {
-      "title": "Preparing a Collection of Radiology Examinations for Distribution and Retrieval",
+      "title": "Preparing a Collection of Radiology Examinations for Distribution and Retrieval (IU-Xray / Open-i)",
       "year": 2016,
       "venue": "JAMIA",
       "method": "IU-Xray",
+      "type": "dataset",
       "domain": [
         "medical"
       ],
