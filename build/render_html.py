@@ -310,7 +310,7 @@ def page_foot(base=''):
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the TPAMI 2026 survey
+      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
@@ -418,7 +418,7 @@ def render_index():
       <strong>{len(papers)}</strong> methods, benchmarks, and datasets across
       <strong>{len(by_dom)}</strong> scientific domains —
       classified by a dual-axis taxonomy of Knowledge Source (K) × Operational Objective (O).
-      Companion to the TPAMI 2026 survey by Oh et al.
+      Companion to the upcoming survey by Oh et al.
     </p>
     <div class="hero-search">
       <input id="q" type="search" placeholder="Search by title, method, dataset, venue, or tag…" autofocus>
@@ -573,7 +573,7 @@ def render_about():
     <h1>About Scientific RAG Hub</h1>
     <p class="lede">
       A curated catalog of <strong>{len(papers)} retrieval-augmented generation</strong> systems,
-      benchmarks, and datasets across the sciences — the companion resource to the TPAMI 2026 survey
+      benchmarks, and datasets across the sciences — the companion resource to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission."</em>
     </p>
 
@@ -716,7 +716,7 @@ def render_about():
         </div>
         <div class="pipe-node pipe-node-out">
           <div class="pipe-icon">📖</div>
-          <div class="pipe-label">TPAMI Survey<br><span class="pipe-sub">Oh et al. 2026</span></div>
+          <div class="pipe-label">Survey<br><span class="pipe-sub">Oh et al. 2026</span></div>
         </div>
         <div class="pipe-node pipe-node-out">
           <div class="pipe-icon">📄</div>
@@ -745,8 +745,8 @@ def render_about():
   title   = {{Scientific Retrieval-Augmented Generation: A Survey through
              Knowledge Source and Scientific Mission}},
   author  = {{Oh, Yerim and others}},
-  journal = {{IEEE Transactions on Pattern Analysis and Machine Intelligence}},
-  year    = {{2026}}
+  journal = {{TBD}},
+  year    = {{TBD}}
 }}</code></pre>
   </div>
 </section>

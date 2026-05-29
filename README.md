@@ -2,7 +2,7 @@
 
 A curated catalog of **retrieval-augmented generation (RAG) systems for scientific discovery**, organized by a dual-axis **Knowledge Source × Operational Objective** taxonomy.
 
-Companion site to the TPAMI 2026 survey *"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"* (Oh et al., Vision and Learning Lab, Seoul National University).
+Companion site to the upcoming survey *"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"* (Oh et al., Vision and Learning Lab, Seoul National University).
 
 🌐 **Live site:** _(set after enabling GitHub Pages — see below)_
 
@@ -64,8 +64,8 @@ The site is fully static (no build step required by GitHub) — `.nojekyll` is p
   title   = {Scientific Retrieval-Augmented Generation: A Survey through
              Knowledge Source and Scientific Mission},
   author  = {Oh, Yerim and others},
-  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
-  year    = {2026}
+  journal = {TBD},
+  year    = {TBD}
 }
 ```
 

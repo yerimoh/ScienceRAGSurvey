@@ -2,40 +2,44 @@
 
 A curated catalog of Retrieval-Augmented Generation (RAG) systems, benchmarks, and datasets
 across nine scientific domains, organized by a dual-axis Knowledge Source × Operational Objective
-taxonomy. 27 entries; 28 K×O cell assignments across 12 cells.
+taxonomy. 301 entries; 179 K×O cell assignments across 12 cells.
 
-Companion to the TPAMI 2026 survey "Scientific Retrieval-Augmented Generation: A Survey through
+Companion to the upcoming survey "Scientific Retrieval-Augmented Generation: A Survey through
 Knowledge Source and Scientific Mission" (Oh et al., Vision and Learning Lab, Seoul National University).
 
 ## Browse by K×O cell (12 cells)
 
-- [/cell/K1.O1.md](K1.O1.md) — Primary Literature × Ground (6 entries)
-- [/cell/K1.O2.md](K1.O2.md) — Primary Literature × Synthesis (5 entries)
-- [/cell/K1.O3.md](K1.O3.md) — Primary Literature × Hypothesis (3 entries)
-- [/cell/K2.O1.md](K2.O1.md) — Curated Knowledge Base × Ground (1 entries)
+- [/cell/K1.O1.md](K1.O1.md) — Primary Literature × Ground (11 entries)
+- [/cell/K1.O2.md](K1.O2.md) — Primary Literature × Synthesis (7 entries)
+- [/cell/K1.O3.md](K1.O3.md) — Primary Literature × Hypothesis (2 entries)
+- [/cell/K2.O1.md](K2.O1.md) — Curated Knowledge Base × Ground (3 entries)
 - [/cell/K2.O2.md](K2.O2.md) — Curated Knowledge Base × Synthesis (1 entries)
-- [/cell/K2.O3.md](K2.O3.md) — Curated Knowledge Base × Hypothesis (0 entries)
-- [/cell/K3.O1.md](K3.O1.md) — Observational & Experimental × Ground (1 entries)
+- [/cell/K2.O3.md](K2.O3.md) — Curated Knowledge Base × Hypothesis (21 entries)
+- [/cell/K3.O1.md](K3.O1.md) — Observational & Experimental × Ground (4 entries)
 - [/cell/K3.O2.md](K3.O2.md) — Observational & Experimental × Synthesis (0 entries)
-- [/cell/K3.O3.md](K3.O3.md) — Observational & Experimental × Hypothesis (1 entries)
-- [/cell/K4.O1.md](K4.O1.md) — Tacit Knowledge × Ground (1 entries)
+- [/cell/K3.O3.md](K3.O3.md) — Observational & Experimental × Hypothesis (3 entries)
+- [/cell/K4.O1.md](K4.O1.md) — Tacit Knowledge × Ground (7 entries)
 - [/cell/K4.O2.md](K4.O2.md) — Tacit Knowledge × Synthesis (0 entries)
 - [/cell/K4.O3.md](K4.O3.md) — Tacit Knowledge × Hypothesis (0 entries)
 
 ## Browse by scientific domain
 
-- [/domain/bio.md](bio.md) — Biology (16 entries)
-- [/domain/chem.md](chem.md) — Chemistry (9 entries)
-- [/domain/medical.md](medical.md) — Medicine (14 entries)
-- [/domain/material.md](material.md) — Materials Science (3 entries)
-- [/domain/physics.md](physics.md) — Physics (6 entries)
-- [/domain/earth.md](earth.md) — Earth Science (3 entries)
+- [/domain/bio.md](bio.md) — Biology (89 entries)
+- [/domain/chem.md](chem.md) — Chemistry (54 entries)
+- [/domain/medical.md](medical.md) — Medicine (134 entries)
+- [/domain/material.md](material.md) — Materials Science (29 entries)
+- [/domain/physics.md](physics.md) — Physics (42 entries)
+- [/domain/earth.md](earth.md) — Earth Science (34 entries)
+- [/domain/astronomy.md](astronomy.md) — Astronomy (14 entries)
+- [/domain/Quantum.md](Quantum.md) — Quantum (2 entries)
+- [/domain/general.md](general.md) — General Science (8 entries)
 
 ## Browse by resource type
 
-- [/topics/method.md](method.md) — Methods (13 entries)
-- [/topics/benchmark.md](benchmark.md) — Benchmarks (12 entries)
-- [/topics/dataset.md](dataset.md) — Datasets (2 entries)
+- [/topics/method.md](method.md) — Methods (176 entries)
+- [/topics/benchmark.md](benchmark.md) — Benchmarks (106 entries)
+- [/topics/dataset.md](dataset.md) — Datasets (17 entries)
+- [/topics/summary.md](summary.md) — Surveys (2 entries)
 
 ## Knowledge Source axis (K1-K4)
 

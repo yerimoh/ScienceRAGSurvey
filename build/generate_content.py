@@ -121,7 +121,7 @@ llms_lines = [
     'across nine scientific domains, organized by a dual-axis Knowledge Source × Operational Objective',
     f'taxonomy. {len(papers)} entries; {sum(len(v) for v in by_cell.values())} K×O cell assignments across 12 cells.',
     '',
-    'Companion to the TPAMI 2026 survey "Scientific Retrieval-Augmented Generation: A Survey through',
+    'Companion to the upcoming survey "Scientific Retrieval-Augmented Generation: A Survey through',
     'Knowledge Source and Scientific Mission" (Oh et al., Vision and Learning Lab, Seoul National University).',
     '',
     '## Browse by K×O cell (12 cells)',
