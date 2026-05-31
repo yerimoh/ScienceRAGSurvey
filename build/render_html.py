@@ -104,8 +104,8 @@ CELL_PAPERS = {
     'K3.O2': [],
     'K3.O3': ['DBLP:conf/iclr/WangCLH25', 'DBLP:conf/nips/BushuievBJYKSHW24'],
     'K4.O1': ['DBLP:journals/corr/abs-2603-09800', 'rafique2025large', 'DBLP:journals/corr/abs-2509-09688', 'DBLP:journals/corr/abs-2406-12881', 'mehta2023copilots', 'rehm2025accgpt'],
-    'K4.O2': ['zhang2026matclaw'],
-    'K4.O3': ['zhang2026matclaw'],
+    'K4.O2': [],
+    'K4.O3': [],
 }
 
 # Full-text fact-check of the systems cited in each cell's main.tex paragraph.
