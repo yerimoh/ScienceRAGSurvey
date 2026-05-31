@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CG-RAG: Research Question Answering by Citation Graph Retrieval-Augmented LLMs — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1780206607">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">11</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">6</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">6</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">2</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">2</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">27</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">92</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">137</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">15</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">9</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">184</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">104</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">16</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>CG-RAG: Research Question Answering by Citation Graph Retrieval-Augmented LLMs</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">SIGIR</span>
+      <span class="meta-year">2025</span>
+      <a href="https://doi.org/10.1145/3726302.3729920" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><span class="tag tag-sub">Text-only Long-form Citation</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>CG-RAG: Citation-Graph Retrieval-Augmented LLMs for Research QA</h1>
+<blockquote>
+<p>SIGIR 2025 | Method | general (scientific research)</p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>연구 논문을 청크(chunk) 단위로 분해해 인용 관계로 연결한 계층적 인용 그래프(hierarchical citation graph)를 구축하고, sparse(어휘)·dense(의미) 신호를 그래프 위에서 얽힘 융합(entangled fusion)하는 검색기 <strong>LeSeGR</strong>를 제안하여, 검색된 근거 청크의 문맥 이웃까지 LLM에 제공해 grounded 답변을 생성하는 연구 QA 프레임워크.</p>
+<h2>시스템 구조 (CG-RAG Architecture)</h2>
+<p>CG-RAG는 (1) 계층적 인용 그래프 구성, (2) LeSeGR 검색기, (3) 문맥 인지 답변 생성기의 세 부분으로 이루어진다.</p>
+<p><strong>계층적 인용 그래프 (논문 청크 노드 + 인용 엣지).</strong> 논문 본문은 related work / method / experiment 등 섹션마다 역할이 다른 이질적 정보를 담으므로, 논문 단위가 아니라 고정 길이 청크 단위로 분해한다(최대 청크 길이 8,192 토큰). 엣지는 두 종류다.</p>
+<ul>
+<li><strong>문서 내(intra-document) 엣지:</strong> 순차적 인접(adjacency)과 명시적 상호참조(cross-reference).</li>
+<li><strong>문서 간(inter-document) 엣지:</strong> 두 논문에 인용 관계가 있을 때, 한 청크에 대해 상대 논문에서 가장 관련 높은 Top-n 청크를 연결한다(관련도는 sparse·dense 점수의 합).</li>
+</ul>
+<p><strong>LeSeGR (Lexical-Semantic Graph Retrieval) — sparse+dense의 그래프 상 통합.</strong> 기존 hybrid 검색이 두 신호를 검색 후 단순 결합(post-retrieval)하는 것과 달리, LeSeGR는 그래프 위상 안에서 두 신호를 얽어 융합한다.</p>
+<ul>
+<li><strong>Sparse 신호:</strong> 질의–청크 어휘 관련도(코사인/내적).</li>
+<li><strong>Dense 신호:</strong> 청크 간 의미 유사도(MLP로 청크 임베딩 차이를 변환).</li>
+<li><strong>GNN 메시지 패싱:</strong> 각 층에서 &quot;질의-청크 sparse 점수 × 청크 간 dense 점수&quot; 곱이 메시지 흐름을 게이팅(gating)하여 관련 정보만 이웃으로 전파한다. K층을 거친 최종 얽힘 표현으로 모든 청크를 점수화한다.</li>
+<li><strong>이론적 일반성:</strong> 이웃이 없고 집계가 mean/sum이면 LeSeGR 점수가 &quot;log(sparse) + log(dense)&quot;로 환원되어, 기존 post-retrieval hybrid 융합이 LeSeGR의 특수 경우임을 보인다(그래프 DB로 hybrid 검색을 일반화).</li>
+</ul>
+<h2>동작 파이프라인 (inference)</h2>
+<ol>
+<li>계층적 인용 그래프 구성.</li>
+<li>sparse·dense 인코더로 질의·청크 인코딩, 질의-청크 어휘 관련도와 청크 간 의미 유사도 계산.</li>
+<li>K층 메시지 패싱으로 두 신호를 얽혀 전파, 최종 표현으로 청크 점수화.</li>
+<li><strong>서브그래프 검색:</strong> Top-N 청크와 그 문맥 이웃을 합쳐 유도 부분그래프를 추출.</li>
+<li><strong>grounded 생성:</strong> 각 문맥 서브그래프를 LLM이 요약한 뒤, 질의와 함께 최종 답변을 생성.</li>
+</ol>
+<p>구현: 생성 LLM은 GPT-4o(2024-05-13), sparse 신호 BGE-M3, dense 신호 MiniLM, 그래프 인코더는 2층·4헤드·은닉차원 1024의 Graph Transformer.</p>
+<h2>주요 결과</h2>
+<p><strong>데이터셋:</strong> PubMedQA-1k(QA 1,000쌍, 논문 7,849편), PapersWithCodeQA(질문 924개, 논문 12,171편).</p>
+<p>PapersWithCodeQA</p>
+<table>
+<thead>
+<tr>
+  <th>Method</th>
+  <th>Acc</th>
+  <th>F1</th>
+  <th>MRR</th>
+  <th>Hit@1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>BM25</td>
+  <td>0.689</td>
+  <td>0.617</td>
+  <td>0.765</td>
+  <td>0.736</td>
+</tr>
+<tr>
+  <td>ColBERT (best hybrid)</td>
+  <td>0.769</td>
+  <td>0.661</td>
+  <td>0.827</td>
+  <td>0.778</td>
+</tr>
+<tr>
+  <td><strong>LeSeGR (ours)</strong></td>
+  <td><strong>0.835</strong></td>
+  <td><strong>0.703</strong></td>
+  <td><strong>0.884</strong></td>
+  <td><strong>0.827</strong></td>
+</tr>
+</tbody>
+</table>
+<p>PubMedQA — QA / 검색(Hit@1)</p>
+<table>
+<thead>
+<tr>
+  <th>Method</th>
+  <th>Acc</th>
+  <th>F1</th>
+  <th>Hit@1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>BM25</td>
+  <td>0.662</td>
+  <td>0.604</td>
+  <td>0.835</td>
+</tr>
+<tr>
+  <td>ColBERT</td>
+  <td>0.724</td>
+  <td>0.642</td>
+  <td>0.913</td>
+</tr>
+<tr>
+  <td><strong>LeSeGR</strong></td>
+  <td><strong>0.778</strong></td>
+  <td><strong>0.685</strong></td>
+  <td><strong>0.961</strong></td>
+</tr>
+</tbody>
+</table>
+<p>효율(PapersWithCodeQA): LeSeGR는 GPU 메모리 1,921MB / 질의 지연 403.94ms로 ColBERT(12,674MB / 561.91ms)보다 메모리·지연 모두 우수. Ablation: 문맥 이웃 수 n=4가 최적, 그래프 인코더는 Graph Transformer &gt; GCN &gt; GAT.</p>
+<h2>한계점</h2>
+<p>논문에 명시적 Limitations 절은 없다. (요약자 주: 검증 도메인이 PubMed·PapersWithCode 두 과학 코퍼스에 한정, 생성에 GPT-4o API 의존, Top-n 등 그래프 구성 하이퍼파라미터 민감성은 ablation에서만 다룸.)</p>
+<h2>관련 정보</h2>
+<ul>
+<li>arXiv: 2501.15067 (<a href="https://arxiv.org/abs/2501.15067">https://arxiv.org/abs/2501.15067</a>)</li>
+<li>DOI: <a href="https://doi.org/10.1145/3726302.3729920">https://doi.org/10.1145/3726302.3729920</a> (SIGIR 2025, pp. 678–687)</li>
+<li>저자: Yuntong Hu, Zhihan Lei, Zhongjie Dai, Allen Zhang, Abhinav Angirekula, Zhengwu Zhang, Liang Zhao</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="../llms.txt">llms.txt</a> ·
+      <a href="../llms-full.txt">llms-full.txt</a> ·
+      <a href="../data/papers.json">papers.json</a> ·
+      <a href="../about.html">About</a>
+    </p>
+  </div>
+</footer>
+<script src="../static/footnotes.js?v=1779886412"></script>
+</body>
+</html>

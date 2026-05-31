@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Improving medical reasoning through retrieval and self-reflection with retrieval-augmented large language models — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1780206607">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">11</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">6</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">6</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">2</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">2</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">27</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">92</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">137</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">15</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">9</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">184</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">104</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">16</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Improving medical reasoning through retrieval and self-reflection with retrieval-augmented large language models</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Bioinformatics (ISMB)</span>
+      <span class="meta-year">2024</span>
+      <a href="https://doi.org/10.1093/bioinformatics/btae238" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>Self-BioRAG: Retrieval + Self-Reflection for Medical Reasoning</h1>
+<blockquote>
+<p>Bioinformatics (ISMB) 2024 | Method | medical · bio</p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>Self-BioRAG는 &quot;언제 검색할지&quot;를 모델 스스로 판단하고(adaptive retrieval), MedCPT로 생의학 코퍼스에서 근거를 검색한 뒤, reflection token(RET/REL/SUP/USE)으로 근거의 관련성·지지 여부·유용성을 self-critique하여 최적 근거를 골라 답하는, Self-RAG를 생의학 도메인에 특화시킨 7B(및 13B) 의료 추론 프레임워크다.</p>
+<h2>시스템 구조 (Self-BioRAG Architecture)</h2>
+<p>Self-BioRAG는 세 가지 핵심 요소로 구성된다.</p>
+<p><strong>(1) When-to-retrieve 판단 (Adaptive Retrieval).</strong> 생성기 모델이 retrieval token(RET)을 직접 생성하여 검색 필요 여부를 결정한다. 정규화 확률 <code>p(retrieve=Yes) / (p(retrieve=Yes) + p(retrieve=No))</code> 가 임계값 δ=0.2를 넘으면 검색한다. 이를 통해 파라미터 지식만으로 답할 수 있는 질문에서는 검색을 건너뛰고, 필요한 경우에만 검색을 수행한다.</p>
+<p><strong>(2) MedCPT Retriever + 생의학 코퍼스.</strong> 검색기는 MedCPT로, PubMed 검색 로그의 255M query–article 쌍으로 대조학습(contrastive)된 생의학 전용 검색기다. 인덱싱 대상은 네 종류 생의학 코퍼스다(문서는 128단어 청크, 32단어 overlap으로 분할).</p>
+<table>
+<thead>
+<tr>
+  <th>Corpus</th>
+  <th>문서 수</th>
+  <th>청크 수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>PubMed</td>
+  <td>36,533,377</td>
+  <td>69,743,442</td>
+</tr>
+<tr>
+  <td>PMC Full-text</td>
+  <td>1,060,173</td>
+  <td>46,294,271</td>
+</tr>
+<tr>
+  <td>Clinical Practice Guidelines</td>
+  <td>35,733</td>
+  <td>606,785</td>
+</tr>
+<tr>
+  <td>Medical Textbooks</td>
+  <td>18</td>
+  <td>133,875</td>
+</tr>
+</tbody>
+</table>
+<p>각 소스에서 top-k(k=10)씩 검색해 총 4k개 근거를 모은 뒤, reranking 모듈로 질의에 가장 관련 있는 최종 top-k 근거를 선별한다.</p>
+<p><strong>(3) Reflection / Critique 토큰 (4종).</strong> 모델이 생성하는 특수 토큰으로, 검색·근거평가·자기평가를 제어한다.</p>
+<table>
+<thead>
+<tr>
+  <th>Token</th>
+  <th>입력</th>
+  <th>출력값</th>
+  <th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>RET</strong> (Retrieve)</td>
+  <td>instruction (+output)</td>
+  <td>yes / no / continue</td>
+  <td>검색이 필요한가</td>
+</tr>
+<tr>
+  <td><strong>REL</strong> (IsRel)</td>
+  <td>instruction, evidence</td>
+  <td>relevant / irrelevant</td>
+  <td>근거가 유용한 정보를 담았는가</td>
+</tr>
+<tr>
+  <td><strong>SUP</strong> (IsSup)</td>
+  <td>instruction, evidence, output</td>
+  <td>fully / partially / no support</td>
+  <td>답변 진술이 근거로 지지되는가</td>
+</tr>
+<tr>
+  <td><strong>USE</strong> (IsUse)</td>
+  <td>instruction, output</td>
+  <td>5 / 4 / 3 / 2 / 1</td>
+  <td>출력이 질문에 얼마나 유용한가</td>
+</tr>
+</tbody>
+</table>
+<p><strong>(4) 생성기(Generator).</strong> LLaMA2 백본 기반의 Self-RAG 가중치를 초기값으로 fine-tuning한 7B 모델(및 13B 버전). 직접 LLaMA2를 학습시키는 것보다 Self-RAG 가중치에서 출발할 때 성능이 더 좋았다고 보고한다.</p>
+<h2>동작 파이프라인 (inference)</h2>
+<ol>
+<li><strong>입력:</strong> instruction을 받는다.</li>
+<li><strong>검색 필요 판단:</strong> 모델이 RET 토큰을 생성, δ=0.2 기준으로 검색 여부 결정.</li>
+<li><strong>조건부 검색:</strong> 필요 시 MedCPT가 네 코퍼스 각각에서 top-10(총 4k개) 근거를 검색하고 reranking으로 최종 top-k 선별.</li>
+<li><strong>문단별 critique / self-reflection:</strong> 각 근거 후보에 대해 REL(관련성), SUP(지지도), USE(유용성) 토큰을 평가.</li>
+<li><strong>근거 선택:</strong> REL·SUP·USE의 정규화 확률을 가중합한 critique 점수가 가장 높은 근거를 선택(가중치는 추론 시 조정 가능).</li>
+<li><strong>답변 생성:</strong> 선택된 근거와 파라미터 지식을 결합하여 답을 생성.</li>
+</ol>
+<h2>학습 (Training)</h2>
+<p><strong>(1) Critic 모델 학습 (reflection 데이터 생성).</strong> 약 120k 생의학 instruction 중 5,000개 샘플에 대해 GPT-4 API로 reflective token을 어노테이션하여 학습 데이터를 만든다(epoch 3, lr 2e-5). 이후 이 critic으로 전체 instruction에 reflection token을 자동 부착한다.</p>
+<p><strong>(2) Generator 모델 학습 (instruction tuning).</strong> Critic이 라벨링한 instruction을 필터링한 84,728개로 생성기를 학습한다. 답변과 reflection token을 함께 생성하도록 학습(epoch 5, lr 2e-5, A100 80GB×8, DeepSpeed stage 3, FlashAttention).</p>
+<p><strong>(3) Instruction 데이터.</strong> Mol-Instructions, MedInstruct, 자체 생성 생의학 instruction을 결합. 원본 122,349개를 필터링하여 최종 84,728개 사용.</p>
+<h2>주요 결과</h2>
+<p><strong>객관식(Multiple-Choice) QA — Accuracy(%)</strong></p>
+<table>
+<thead>
+<tr>
+  <th>Model</th>
+  <th>Params</th>
+  <th>MedQA</th>
+  <th>MedMCQA</th>
+  <th>MMLU-Med</th>
+  <th>Avg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>LLaMA2</td>
+  <td>7B</td>
+  <td>35.2</td>
+  <td>36.3</td>
+  <td>46.3</td>
+  <td>39.3</td>
+</tr>
+<tr>
+  <td>RAG</td>
+  <td>7B</td>
+  <td>36.2</td>
+  <td>38.3</td>
+  <td>47.7</td>
+  <td>40.7</td>
+</tr>
+<tr>
+  <td>Self-RAG</td>
+  <td>7B</td>
+  <td>31.2</td>
+  <td>36.5</td>
+  <td>45.7</td>
+  <td>37.8</td>
+</tr>
+<tr>
+  <td><strong>Self-BioRAG</strong></td>
+  <td><strong>7B</strong></td>
+  <td><strong>43.6</strong></td>
+  <td><strong>42.1</strong></td>
+  <td><strong>53.9</strong></td>
+  <td><strong>46.5</strong></td>
+</tr>
+<tr>
+  <td>Self-BioRAG</td>
+  <td>13B</td>
+  <td>48.6</td>
+  <td>44.0</td>
+  <td>57.2</td>
+  <td>49.9</td>
+</tr>
+</tbody>
+</table>
+<p>7B 오픈 모델 대비 평균 약 7.2%p 절대 향상.</p>
+<p><strong>장문(Long-Form) QA — ROUGE (R1/R2/RL)</strong></p>
+<table>
+<thead>
+<tr>
+  <th>Model</th>
+  <th>LiveQA</th>
+  <th>MedicationQA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>LLaMA2</td>
+  <td>8.8 / 1.9 / 6.2</td>
+  <td>5.7 / 1.2 / 4.4</td>
+</tr>
+<tr>
+  <td>RAG</td>
+  <td>11.5 / 2.3 / 11.1</td>
+  <td>9.8 / 1.3 / 4.8</td>
+</tr>
+<tr>
+  <td><strong>Self-BioRAG</strong></td>
+  <td><strong>19.7 / 3.1 / 13.4</strong></td>
+  <td><strong>17.6 / 3.3 / 13.5</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ablation (평균 정확도 영향).</strong> reflection token 제거 −1.3%p, 생의학 코퍼스 제거 −2.9%p, MedCPT 검색기 제거 −4.4%p, 생의학 instruction 제거 −7.3%p(가장 큰 영향).</p>
+<p><strong>Adaptive vs. 고정 전략(객관식 평균).</strong> No-retrieval 44.8 / Always-retrieve 46.2 / <strong>Adaptive 46.5</strong>.</p>
+<h2>한계점</h2>
+<ul>
+<li>검색 코퍼스가 영어 PubMed/PMC/가이드라인/교과서에 한정되어 도메인·언어 일반화가 제한적이다.</li>
+<li>Critic 학습·평가가 GPT-4 어노테이션을 정답으로 삼아, GPT-4의 편향·오류가 reflection 품질에 전파될 수 있다.</li>
+<li>객관식에서 7B는 GPT-4 등 대형 폐쇄형 모델에는 여전히 못 미치며, 검색 이득이 질문 유형에 따라 균일하지 않다.</li>
+<li>ROUGE 기반 장문 평가는 사실성·임상적 정확성을 직접 측정하지 못한다.</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li>arXiv: 2401.15269 (<a href="https://arxiv.org/abs/2401.15269">https://arxiv.org/abs/2401.15269</a>)</li>
+<li>DOI: <a href="https://doi.org/10.1093/bioinformatics/btae238">https://doi.org/10.1093/bioinformatics/btae238</a></li>
+<li>GitHub: <a href="https://github.com/dmis-lab/self-biorag">https://github.com/dmis-lab/self-biorag</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="../llms.txt">llms.txt</a> ·
+      <a href="../llms-full.txt">llms-full.txt</a> ·
+      <a href="../data/papers.json">papers.json</a> ·
+      <a href="../about.html">About</a>
+    </p>
+  </div>
+</footer>
+<script src="../static/footnotes.js?v=1779886412"></script>
+</body>
+</html>

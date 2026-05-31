@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BioRAGent: A Retrieval-Augmented Generation System for Showcasing Generative Query Expansion and Domain-Specific Search for Scientific Q&amp;amp;A — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1780206607">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">11</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">6</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">6</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">2</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">2</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">27</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">92</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">137</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">15</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">9</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">184</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">104</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">16</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>BioRAGent: A Retrieval-Augmented Generation System for Showcasing Generative Query Expansion and Domain-Specific Search for Scientific Q&amp;A</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">ECIR</span>
+      <span class="meta-year">2025</span>
+      <a href="https://doi.org/10.1007/978-3-031-88720-8_1" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><span class="tag tag-sub">Text-only Long-form Citation</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>BioRAGent: Generative Query Expansion RAG for Biomedical Q&amp;A</h1>
+<blockquote>
+<p>ECIR 2025 | Method | bio · medical</p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>LLM 기반 생성형 query expansion과 PubMed 검색(Elasticsearch/BM25)을 결합한 생물의학 RAG 데모 시스템으로, 검색 과정을 투명하게(확장 쿼리 편집 가능) 노출하고 PubMed ID 인용을 문장 단위로 부착하는 대화형 Q&amp;A 인터페이스를 보여준다. BioASQ 2024 챌린지 참가 경험을 바탕으로 구축되었다.</p>
+<h2>시스템 구조 (BioRAGent Architecture)</h2>
+<p>Gradio 기반 웹 애플리케이션이며 네 가지 구성요소로 이루어진다.</p>
+<ul>
+<li><strong>Generative query expansion (LLM):</strong> LLM이 few-shot(3-shot)으로 원 질문에 동의어·연관어를 포함한 확장 쿼리를 생성한다. 사용자는 실행 후 확장 쿼리를 검사·수정할 수 있어 검색이 투명하고 제어 가능하다.</li>
+<li><strong>Document retrieval &amp; snippet extraction:</strong> Elasticsearch를 검색 엔진으로 쓰며 인덱스는 2023 snapshot의 PubMed 기사(초록·제목)이다. 기본 BM25로 상위 50개 기사를 검색한 뒤, LLM이 few-shot으로 관련 snippet을 추출하고 다시 few-shot으로 질문 관련성에 따라 rerank한다.</li>
+<li><strong>Answer generation:</strong> 검색된 snippet을 근거로 답변을 생성한다(아래 두 형식).</li>
+<li><strong>User interface (대화형 UI):</strong> 질문 입력창·검색 버튼, 편집 가능한 확장 쿼리 박스, 인용 유무 두 답변 박스, PubMed 링크가 달린 snippet 목록을 표시한다.</li>
+</ul>
+<p>few-shot 예시는 BioASQ training set에서 가져오며, query expansion에서는 highest F1 기준으로 예시를 샘플링한다.</p>
+<h2>동작 파이프라인 (inference)</h2>
+<ol>
+<li>사용자가 질문 입력 → LLM이 3-shot으로 확장 쿼리 생성(사용자 편집 가능).</li>
+<li>확장 쿼리로 Elasticsearch(BM25) 검색 → 상위 50개 PubMed 기사 획득.</li>
+<li>LLM이 few-shot으로 snippet 추출 → 다시 few-shot으로 질문 관련성에 따라 snippet rerank.</li>
+<li>snippet에 grounding하여 두 가지 답변 생성:<ul>
+<li><strong>짧은 단락형 답변</strong> — 검색 정보로 grounding(이 형식이 BioASQ 챌린지에서 사용됨).</li>
+<li><strong>인용 포함 단락형 답변</strong> — 문장마다 PubMed ID 형태의 inline citation 부착.</li>
+</ul>
+</li>
+<li>UI에 확장 쿼리, 두 답변(인용 유/무), PubMed 직링크가 달린 snippet 목록 표시.</li>
+</ol>
+<h2>평가/구성</h2>
+<ul>
+<li><strong>BioASQ 2024(12th BioASQ challenge)</strong> 참가에서 상용·오픈소스 LLM 모두로 경쟁력 있는 성능을 보였고 여러 1·2위를 차지했다(질의응답 12B Phase A+/Phase B에서 가장 경쟁력). RAG 접근 자체의 평가/공개는 저자들의 BioASQ 2024 참가 선행 연구에 근거한다.</li>
+<li>사용 LLM: Google <strong>Gemini 1.5 flash 002</strong>(속도·저비용 이유).</li>
+<li>본 논문은 시스템을 시연하는 <strong>데모 논문</strong>으로, 별도의 정량 수치를 새로 제시하지는 않는다.</li>
+</ul>
+<h2>한계점</h2>
+<ul>
+<li>정량 평가 결과를 새로 제시하지 않는 데모 시스템 논문이다(성능 근거는 BioASQ 2024 선행 참가에 의존).</li>
+<li>단일 LLM(Gemini 1.5 flash 002) 고정, 라이브 평가/할루시네이션 검증 미내장, 템플릿 정적 구성이 현재 제약(향후 prompt 라이브 편집, hallucination 탐지, 다중 LLM 선택 지원 계획).</li>
+<li>단일 PubMed 스냅샷(2023)에 한정되며 BM25 + LLM rerank 외 별도 dense retrieval은 사용하지 않는다.</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li>arXiv: 2412.12358 (<a href="https://arxiv.org/abs/2412.12358">https://arxiv.org/abs/2412.12358</a>)</li>
+<li>DOI: <a href="https://doi.org/10.1007/978-3-031-88720-8_1">https://doi.org/10.1007/978-3-031-88720-8_1</a> (ECIR 2025)</li>
+<li>Demo: <a href="https://bioragent.samyateia.de/">https://bioragent.samyateia.de/</a> · GitHub: <a href="https://github.com/SamyAteia/BioRAGent">https://github.com/SamyAteia/BioRAGent</a></li>
+<li>저자: Samy Ateia, Udo Kruschwitz</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="../llms.txt">llms.txt</a> ·
+      <a href="../llms-full.txt">llms-full.txt</a> ·
+      <a href="../data/papers.json">papers.json</a> ·
+      <a href="../about.html">About</a>
+    </p>
+  </div>
+</footer>
+<script src="../static/footnotes.js?v=1779886412"></script>
+</body>
+</html>
