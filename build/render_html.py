@@ -83,6 +83,29 @@ CELL_TIERS = {
     'K1.O3.weak': ('Frontier', 'Weak-verifier Hypothesis'),
 }
 
+# Per-cell paper allow-list — the bib_keys actually CITED in each K×O subsubsection of
+# the survey draft (ver/2/main.tex, latest prose revision). Comment blocks and %-comments
+# were excluded, so e.g. PhoPile (only in a \begin{comment} block) is NOT here.
+# When a cell appears here, the cell page renders ONLY these papers, in main.tex citation
+# order, instead of every Notion-DB-tagged paper. Keys absent from papers.json (software /
+# infra refs such as pymatgen, atomate2) are silently skipped at render time.
+# K4.O2 and K4.O3 share the combined "Tacit-driven Synthesis and Hypothesis" paragraph;
+# K1.O3 merges the strong- and weak-verifier paragraphs. K3.O2 has no draft paragraph (empty).
+CELL_PAPERS = {
+    'K1.O1': ['DBLP:conf/acl/Xiong0LZ24', 'DBLP:journals/corr/abs-2408-01107', 'DBLP:conf/naacl/SohnPYPHSKK25', 'DBLP:journals/corr/abs-2312-07559', 'asai2026synthesizing', 'DBLP:journals/corr/abs-2310-16146'],
+    'K1.O2': ['asai2026synthesizing', 'DBLP:journals/corr/abs-2409-13740', 'DBLP:conf/pasc/GokdemirSBWHHSA25', 'DBLP:conf/cikm/BesrourHS025', 'DBLP:conf/emnlp/WaddenLLWZCH20', 'DBLP:conf/emnlp/WaddenLKCBWH22'],
+    'K1.O3': ['DBLP:conf/nips/LeeKV0RPVN24', 'DBLP:journals/bib/ZhangPHCM25', 'nan2026taliragen', 'DBLP:conf/aaai/LeeBHBPS26', 'xiao2024repurposing', 'bicerano2024polymer'],
+    'K2.O1': ['DBLP:conf/emnlp/ChiangHCR25', 'DBLP:conf/emnlp/ZhangSHML24', 'DBLP:conf/acl/ChenLJWG0025'],
+    'K2.O2': ['DBLP:conf/acl/WuZQCXMJG25', 'DBLP:journals/corr/abs-2601-06519'],
+    'K2.O3': ['DBLP:journals/corr/abs-2603-15712', 'zhang2026matclaw', 'ong2013python', 'ganose2025_atomate2', 'rosen2024jobflow', 'doi:10.1021/acs.jcim.5c01767', 'Wang_ComputPhysCommun_2018_v228_p178'],
+    'K3.O1': ['DBLP:conf/iclr/0005ZLWSWZ0Y25', 'DBLP:conf/aaai/ZhangGZZCZZYB26', 'DBLP:journals/make/LahiriH25'],
+    'K3.O2': [],
+    'K3.O3': ['DBLP:conf/nips/BushuievBJYKSHW24'],
+    'K4.O1': ['DBLP:journals/corr/abs-2603-09800', 'rafique2025large', 'DBLP:journals/corr/abs-2509-09688'],
+    'K4.O2': ['zhang2026matclaw'],
+    'K4.O3': ['zhang2026matclaw'],
+}
+
 def axis_subsections(axis_scope, cell_key=None):
     """Return the set of subsections to render as filter chips.
     If cell_key has a CELL_SUBSECTIONS entry, use that allow-list; otherwise fall
@@ -169,6 +192,15 @@ for p in papers:
     by_type[p.get('type', 'unknown')].append(p)
 
 
+def cell_count(c):
+    """Number of papers shown on a K×O cell page. Uses the main.tex citation
+    allow-list (CELL_PAPERS) when present so sidebar/grid counts match the page,
+    otherwise falls back to the full Notion-DB tagging."""
+    if c in CELL_PAPERS:
+        return sum(1 for k in CELL_PAPERS[c] if k in papers_by_key)
+    return len(by_cell.get(c, []))
+
+
 def esc(s):
     if s is None:
         return ''
@@ -196,7 +228,7 @@ def sidebar(base='', current=''):
     for K in ['K1', 'K2', 'K3', 'K4']:
         for O in ['O1', 'O2', 'O3']:
             c = f'{K}.{O}'
-            n = len(by_cell.get(c, []))
+            n = cell_count(c)
             cell_items += f'<a href="{base}cell/{c}.html" class="sb-sub{cls(f"cell/{c}")}">{cell_label(c)} <span class="sb-count">{n}</span></a>\n'
 
     # K-only axis pages (K1-K4)
@@ -456,10 +488,14 @@ def render_index():
         parts.append(f'        <tr>\n          <th class="k-head"><span class="cell-axis">{K}</span> {esc(kn)}<span class="cell-axis-desc">{esc(kd)}</span></th>\n')
         for O in ['O1', 'O2', 'O3']:
             cell = f'{K}.{O}'
-            ps = by_cell.get(cell, [])
+            if cell in CELL_PAPERS:
+                ps = [papers_by_key[k] for k in CELL_PAPERS[cell] if k in papers_by_key]
+                top = ps[:3]
+            else:
+                ps = by_cell.get(cell, [])
+                top = sorted(ps, key=year_sort)[:3]
             n = len(ps)
             heat = 'heat-zero' if n == 0 else 'heat-low' if n < 5 else 'heat-mid' if n < 20 else 'heat-high'
-            top = sorted(ps, key=year_sort)[:3]
             top_html = '\n'.join(
                 f'<li>{esc((p.get("method") or p.get("title") or "?")[:60])}</li>' for p in top
             )
@@ -565,7 +601,7 @@ document.getElementById('q')?.addEventListener('keydown', e => {
 # ---------- about.html ----------
 def render_about():
     cell_counts = '\n'.join(
-        f'    <tr><th>{c}</th><td>{len(by_cell.get(c, []))}</td><td>{esc(K_LABELS[c.split(".")[0]][0])} × {esc(O_LABELS[c.split(".")[1]][0])}</td></tr>'
+        f'    <tr><th>{c}</th><td>{cell_count(c)}</td><td>{esc(K_LABELS[c.split(".")[0]][0])} × {esc(O_LABELS[c.split(".")[1]][0])}</td></tr>'
         for K in ['K1', 'K2', 'K3', 'K4'] for O in ['O1', 'O2', 'O3'] for c in [f'{K}.{O}']
     )
     body = f'''
@@ -692,9 +728,9 @@ def render_about():
           <div class="pipe-label"><strong>12-Cell K×O Taxonomy</strong></div>
           <div class="pipe-mini-grid">
             {"".join(
-              f'<a href="cell/{K}.{O}.html" class="pipe-cell pipe-cell-{"h" if len(by_cell.get(f"{K}.{O}",[]))>=10 else "m" if len(by_cell.get(f"{K}.{O}",[]))>=3 else "l"}" title="{K}.{O}: {len(by_cell.get(f"{K}.{O}",[])) } entries">'
+              f'<a href="cell/{K}.{O}.html" class="pipe-cell pipe-cell-{"h" if cell_count(f"{K}.{O}")>=10 else "m" if cell_count(f"{K}.{O}")>=3 else "l"}" title="{K}.{O}: {cell_count(f"{K}.{O}")} entries">'
               f'<span class="pipe-cell-id">{K}·{O}</span>'
-              f'<span class="pipe-cell-n">{len(by_cell.get(f"{K}.{O}",[]))}</span>'
+              f'<span class="pipe-cell-n">{cell_count(f"{K}.{O}")}</span>'
               f'</a>'
               for K in ["K1","K2","K3","K4"] for O in ["O1","O2","O3"]
             )}
@@ -759,7 +795,7 @@ def render_about():
 def render_browse():
     domain_opts = '\n'.join(f'<option value="{d}">{esc(DOMAIN_LABELS[d])} ({len(by_dom[d])})</option>' for d in DOMAIN_LABELS if d in by_dom)
     type_opts = '\n'.join(f'<option value="{t}">{esc(TYPE_LABELS[t])} ({len(by_type[t])})</option>' for t in TYPE_LABELS if t in by_type)
-    cell_opts = '\n'.join(f'<option value="{K}.{O}">[{K}.{O}] {esc(K_LABELS[K][0])} × {esc(O_LABELS[O][0])} ({len(by_cell.get(K+"."+O, []))})</option>' for K in ['K1','K2','K3','K4'] for O in ['O1','O2','O3'])
+    cell_opts = '\n'.join(f'<option value="{K}.{O}">[{K}.{O}] {esc(K_LABELS[K][0])} × {esc(O_LABELS[O][0])} ({cell_count(K+"."+O)})</option>' for K in ['K1','K2','K3','K4'] for O in ['O1','O2','O3'])
     from collections import Counter
     sub_counts = Counter()
     for p in papers:
@@ -989,7 +1025,12 @@ def render_cell_pages():
     for K in ['K1', 'K2', 'K3', 'K4']:
         for O in ['O1', 'O2', 'O3']:
             cell = f'{K}.{O}'
-            ps = sorted(by_cell.get(cell, []), key=year_sort)
+            if cell in CELL_PAPERS:
+                # Restrict to papers actually cited in this cell's main.tex subsubsection,
+                # preserving main.tex citation order. Keys not in papers.json are skipped.
+                ps = [papers_by_key[k] for k in CELL_PAPERS[cell] if k in papers_by_key]
+            else:
+                ps = sorted(by_cell.get(cell, []), key=year_sort)
             kn, kd = K_LABELS[K]
             on, od = O_LABELS[O]
 
@@ -1095,7 +1136,7 @@ def render_cell_pages():
         cards = '\n'.join(paper_card(p, base='../', axis_scope=O) for p in ps) or '<p class="empty">No entries yet.</p>'
         # K-cell breakdown pills
         o_cells_nav = '\n'.join(
-            f'<a href="../cell/{K}.{O}.html" class="pill" title="{K}.{O}">{cell_label(K+"."+O)} {len(by_cell.get(K+"."+O, []))}</a>'
+            f'<a href="../cell/{K}.{O}.html" class="pill" title="{K}.{O}">{cell_label(K+"."+O)} {cell_count(K+"."+O)}</a>'
             for K in ['K1', 'K2', 'K3', 'K4']
         )
         body = f'''
