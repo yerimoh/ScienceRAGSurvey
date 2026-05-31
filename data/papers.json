@@ -2735,7 +2735,7 @@
     "db_open": "Open",
     "retriever_train": false,
     "generator_train": false,
-    "method": "unarXive (Simple, Expert)",
+    "method": "SQuAI",
     "paper_link": "https://doi.org/10.1145/3746252.3761471",
     "bib_key": "DBLP:conf/cikm/BesrourHS025",
     "bib_ver": "v2",
@@ -8601,5 +8601,89 @@
     "subsection": "Text-only Long-form Citation",
     "paper_link": "https://doi.org/10.3847/1538-4365/ad7c43",
     "note": "천문학 문헌(ADS·arXiv 약 35만 편)에 대한 semantic search + RAG + ReAct 프레임워크. 의미 기반 검색으로 관련 논문을 모아 인용을 단 장문 답변을 생성하여 키워드 검색의 한계를 보완한다."
+  },
+  {
+    "bib_key": "DBLP:conf/nips/WangGYZZ0ZD0W0Z24",
+    "title": "AutoSurvey: Large Language Models Can Automatically Write Surveys",
+    "method": "AutoSurvey",
+    "venue": "NeurIPS",
+    "year": 2024,
+    "type": "Method",
+    "domain": [
+      "general"
+    ],
+    "modality": [
+      "Text"
+    ],
+    "ko_cells": [
+      "K1.O2"
+    ],
+    "ko_primary": "K1.O2",
+    "subsection": "Aggregative Synthesis",
+    "paper_link": "https://arxiv.org/abs/2406.10252",
+    "note": "주제 논문 검색 → 개요 생성 → 섹션 병렬 초안 → 인용 인지 통합·정제로 완전한 학술 서베이를 자동 작성. arXiv CS 53만 편 검색, Multi-LLM-judge로 후보 중 선택. citation recall 82%로 인간(86%)에 근접."
+  },
+  {
+    "bib_key": "DBLP:conf/acl/YanFYX00Z25",
+    "title": "SurveyForge: On the Outline Heuristics, Memory-Driven Generation, and Multi-dimensional Evaluation for Automated Survey Writing",
+    "method": "SurveyForge",
+    "venue": "ACL",
+    "year": 2025,
+    "type": "Method",
+    "domain": [
+      "general"
+    ],
+    "modality": [
+      "Text"
+    ],
+    "ko_cells": [
+      "K1.O2"
+    ],
+    "ko_primary": "K1.O2",
+    "subsection": "Aggregative Synthesis",
+    "paper_link": "https://arxiv.org/abs/2503.04629",
+    "note": "인간 서베이에서 개요 휴리스틱 학습 + 메모리 기반 scholar-navigation 검색 에이전트(SANA: 서브쿼리 분해·메모리 검색·시간 인지 재랭킹)로 섹션별 문헌 확보해 서베이 생성. SurveyBench에서 AutoSurvey 능가."
+  },
+  {
+    "bib_key": "DBLP:journals/corr/abs-2402-01788",
+    "title": "LitLLM: A Toolkit for Scientific Literature Review",
+    "method": "LitLLM",
+    "venue": "arXiv",
+    "year": 2024,
+    "type": "Method",
+    "domain": [
+      "general"
+    ],
+    "modality": [
+      "Text"
+    ],
+    "ko_cells": [
+      "K1.O2"
+    ],
+    "ko_primary": "K1.O2",
+    "subsection": "Aggregative Synthesis",
+    "paper_link": "https://arxiv.org/abs/2402.01788",
+    "note": "사용자 abstract를 키워드로 검색(Semantic Scholar/OpenAlex) → LLM permutation 재랭킹 → plan 기반(문장수·줄별 인용 제어) related work를 생성하는 모듈식 RAG 툴킷."
+  },
+  {
+    "bib_key": "wang2025trialmind",
+    "title": "Accelerating clinical evidence synthesis with large language models",
+    "method": "TrialMind",
+    "venue": "npj Digital Medicine",
+    "year": 2025,
+    "type": "Method",
+    "domain": [
+      "medical"
+    ],
+    "modality": [
+      "Text"
+    ],
+    "ko_cells": [
+      "K1.O2"
+    ],
+    "ko_primary": "K1.O2",
+    "subsection": "Aggregative Synthesis",
+    "paper_link": "https://doi.org/10.1038/s41746-025-01840-7",
+    "note": "임상 근거 합성 파이프라인: PICO 기반 PubMed 검색 → 스크리닝 → 데이터 추출 → 표준화·메타분석(forest plot). human-in-the-loop. 검색 recall 0.78(GPT-4 0.07), 결과 추출 GPT-4 대비 중앙값 1.5배."
   }
 ]

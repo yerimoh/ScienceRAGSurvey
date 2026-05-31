@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SurveyForge: On the Outline Heuristics, Memory-Driven Generation, and Multi-dimensional Evaluation for Automated Survey Writing — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1780206607">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">12</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">7</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">6</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">2</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">2</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">27</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">92</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">138</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">15</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">12</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">187</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">104</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">16</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>SurveyForge: On the Outline Heuristics, Memory-Driven Generation, and Multi-dimensional Evaluation for Automated Survey Writing</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">ACL</span>
+      <span class="meta-year">2025</span>
+      <a href="https://arxiv.org/abs/2503.04629" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Primary Literature × Synthesis</a><span class="tag tag-sub">Aggregative Synthesis</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>SurveyForge: Outline-Heuristic, Memory-Driven Survey Generation</h1>
+<blockquote>
+<p>ACL 2025 | Method | general</p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>SurveyForge는 인간이 쓴 서베이의 구조를 휴리스틱으로 학습해 개요를 생성하고, 메모리 기반 검색 에이전트(SANA)로 고품질 참고문헌을 확보한 뒤 섹션을 병렬 생성·정제해 자동으로 학술 서베이를 작성하는 프레임워크다.</p>
+<h2>시스템 구조 (SurveyForge Architecture)</h2>
+<p>두 개의 지식 베이스를 사용한다: arXiv CS 약 600,000편(제목·초록)의 Research Paper DB와, 약 20,000편 리뷰에서 추출한 계층 개요의 Survey Outline DB.</p>
+<ul>
+<li><strong>(A) Outline Heuristics — 인간 서베이에서 구조 학습:</strong> 주제 T에 대해 관련 논문과 인간 서베이 개요를 함께 검색하고, 인간 개요를 데모로 제공해 1차 개요 생성 → 섹션별 재검색으로 2차 개요 생성 → 병합. (개요 품질: 휴리스틱 미사용 81.78 → 도메인 특화 개요 사용 86.67.)</li>
+<li><strong>(B) Memory-driven Scholar Navigation Agent (SANA):</strong> ① Memory for Sub-query(MS) — 메모리를 컨텍스트로 복잡 쿼리를 서브쿼리로 분해, ② Memory for Retrieval(MR) — 전체 DB 대신 개요 연관 메모리로 후보 검색(섹션 간 고립·중복 방지), ③ Temporal-aware Reranking(TRE) — 관련성·인용 영향력·최신성을 2년 버킷으로 균형 재랭킹.</li>
+<li><strong>섹션 생성:</strong> 재랭킹된 문헌으로 서브섹션을 병렬 생성 → 초안 결합 → LLM 정제로 중복 제거·통합.</li>
+</ul>
+<h2>동작 파이프라인 (inference)</h2>
+<ol>
+<li>주제 입력 → 논문·인간 개요 검색.</li>
+<li>휴리스틱으로 1차 개요 → 섹션별 재검색 후 2차 개요 → 병합.</li>
+<li>SANA: 서브쿼리 분해(MS) → 메모리 기반 검색(MR) → 시간·인용·관련성 재랭킹(TRE).</li>
+<li>서브섹션 병렬 생성 → 결합 → 정제 → 최종 서베이.</li>
+</ol>
+<ul>
+<li>효율(GPT-4o mini): 약 $0.43/서베이, 약 10분.</li>
+</ul>
+<h2>주요 결과</h2>
+<p>평가 벤치마크 <strong>SurveyBench</strong>(CS 10개 주제, 인간 서베이 ~100편), 지표 SAM-R/O/C.</p>
+<table>
+<thead>
+<tr>
+  <th>Model</th>
+  <th>Method</th>
+  <th>Reference Cov.</th>
+  <th>Outline</th>
+  <th>Content Avg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPT-4o mini</td>
+  <td>AutoSurvey</td>
+  <td>0.2035</td>
+  <td>83.10</td>
+  <td>75.05</td>
+</tr>
+<tr>
+  <td>GPT-4o mini</td>
+  <td><strong>SurveyForge</strong></td>
+  <td><strong>0.4236</strong></td>
+  <td><strong>86.62</strong></td>
+  <td><strong>77.06</strong></td>
+</tr>
+<tr>
+  <td>Human</td>
+  <td>—</td>
+  <td>0.6294</td>
+  <td>87.62</td>
+  <td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Win-rate(vs AutoSurvey): Outline 73~75%, Content 69~70%(PhD 20인 평가, Cohen's κ 0.65~0.72). Ablation: MR+MS+TRE가 최고(Reference Cov. 0.397).</p>
+<h2>한계점</h2>
+<ul>
+<li>여러 출처 간 관계 분석·종합 능력이 부족(요약은 강하나 비교·진화 분석 약함).</li>
+<li>LLM 환각으로 부정확 인용·주장이 간헐 발생.</li>
+<li>인간 저자 특유의 비판적 사고·독창성 결여.</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li>arXiv: 2503.04629 (<a href="https://arxiv.org/abs/2503.04629">https://arxiv.org/abs/2503.04629</a>) · ACL 2025</li>
+<li>코드: <a href="https://github.com/Alpha-Innovator/SurveyForge">https://github.com/Alpha-Innovator/SurveyForge</a> · 데이터 SurveyBench(HuggingFace U4R/SurveyBench)</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="../llms.txt">llms.txt</a> ·
+      <a href="../llms-full.txt">llms-full.txt</a> ·
+      <a href="../data/papers.json">papers.json</a> ·
+      <a href="../about.html">About</a>
+    </p>
+  </div>
+</footer>
+<script src="../static/footnotes.js?v=1779886412"></script>
+</body>
+</html>
