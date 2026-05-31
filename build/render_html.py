@@ -94,10 +94,11 @@ CELL_TIERS = {
 CELL_PAPERS = {
     'K1.O1': ['DBLP:conf/acl/Xiong0LZ24', 'DBLP:journals/corr/abs-2408-01107', 'DBLP:conf/naacl/SohnPYPHSKK25', 'DBLP:conf/emnlp/FrisoniMMV22', 'DBLP:journals/bioinformatics/JeongSSK24', 'DBLP:conf/pasc/GokdemirSBWHHSA25', 'DBLP:journals/corr/abs-2312-07559', 'asai2026synthesizing', 'DBLP:journals/corr/abs-2310-16146', 'DBLP:conf/ecir/AteiaK25', 'DBLP:conf/sigir/HuLD0A0025', 'iyer2024pathfinder', 'DBLP:conf/aaai/ZhangGZZCZZYB26', 'DBLP:journals/make/LahiriH25'],
     'K1.O2': ['asai2026synthesizing', 'DBLP:journals/corr/abs-2409-13740', 'DBLP:conf/cikm/BesrourHS025', 'DBLP:conf/nips/WangGYZZ0ZD0W0Z24', 'DBLP:conf/acl/YanFYX00Z25', 'DBLP:journals/corr/abs-2402-01788', 'wang2025trialmind'],
-    'K1.O3': ['DBLP:conf/nips/LeeKV0RPVN24', 'DBLP:journals/bib/ZhangPHCM25', 'nan2026taliragen', 'DBLP:conf/aaai/LeeBHBPS26', 'xiao2024repurposing', 'bicerano2024polymer'],
-    'K2.O1': ['DBLP:conf/emnlp/ChiangHCR25', 'DBLP:conf/emnlp/ZhangSHML24', 'DBLP:conf/acl/ChenLJWG0025', 'DBLP:journals/bioinformatics/JinYCL24', 'DBLP:journals/bioinformatics/SomanRMASPVCSRI24', 'DBLP:conf/acl/0006WS24', 'DBLP:conf/iclr/00010GLGCZ25'],
-    'K2.O2': ['DBLP:conf/acl/WuZQCXMJG25', 'DBLP:journals/corr/abs-2601-06519'],
-    'K2.O3': ['DBLP:journals/corr/abs-2603-15712', 'zhang2026matclaw', 'ong2013python', 'ganose2025_atomate2', 'rosen2024jobflow', 'doi:10.1021/acs.jcim.5c01767', 'Wang_ComputPhysCommun_2018_v228_p178'],
+    # f-RAG/Rag2Mol/TaLiRAGen/CLADD moved to K2.O3 (full-text verified 2026-05-31: all retrieve from Curated KBs, not primary literature). See ver/2/factcheck_kxo_k1o3.md.
+    'K1.O3': ['xiao2024repurposing', 'bicerano2024polymer'],
+    'K2.O1': ['DBLP:conf/emnlp/ChiangHCR25', 'DBLP:conf/emnlp/ZhangSHML24', 'DBLP:conf/acl/ChenLJWG0025', 'DBLP:journals/bioinformatics/JinYCL24', 'DBLP:journals/bioinformatics/SomanRMASPVCSRI24', 'DBLP:conf/iclr/00010GLGCZ25'],
+    'K2.O2': ['DBLP:conf/acl/WuZQCXMJG25', 'DBLP:conf/acl/Jiang0XQFWTDC0W25', 'DBLP:conf/bionlp/YangLMZKLCCCML24', 'DBLP:conf/acl/0006WS24', 'DBLP:conf/naacl/LiCJ25'],
+    'K2.O3': ['DBLP:conf/nips/LeeKV0RPVN24', 'DBLP:journals/bib/ZhangPHCM25', 'nan2026taliragen', 'DBLP:conf/aaai/LeeBHBPS26', 'DBLP:journals/corr/abs-2603-15712', 'zhang2026matclaw', 'ong2013python', 'ganose2025_atomate2', 'rosen2024jobflow', 'doi:10.1021/acs.jcim.5c01767', 'Wang_ComputPhysCommun_2018_v228_p178'],
     'K3.O1': ['DBLP:conf/iclr/0005ZLWSWZ0Y25', 'DBLP:conf/emnlp/XiaZLZLLZY24', 'DBLP:conf/naacl/SunZHX25', 'DBLP:journals/corr/abs-2411-16523', 'DBLP:journals/corr/abs-2510-01558'],
     'K3.O2': [],
     'K3.O3': ['DBLP:conf/nips/BushuievBJYKSHW24'],
@@ -142,11 +143,27 @@ FACTCHECK = {
         'evidence': 'Clinfo.ai is “an open-source WebApp that answers clinical questions based on dynamically retrieved scientific literature” (PubMed), producing a “Literature Summary” whose “ordered list, with each number … corresponding to a citation” attributes each finding to its source; releases PubMedRS-200. (Caveat: answer scored by summarization metrics, not citation precision/recall.)',
         'source': 'CoRR 2023 · arXiv:2310.16146 · PSB 2024',
     },
+    # --- K4.O1 (Private-document Retrieval) — verified 2026-05-31 against full bodies. See factcheck_kxo_k4o1.md ---
+    'DBLP:journals/corr/abs-2603-09800': {
+        'verdict': '✅ Accurate — retrieval-grounded',
+        'evidence': 'MITRA is “a Retrieval-Augmented Generation (RAG) based system” over the “Compact Muon Solenoid (CMS) … internal documentation,” “hosted on-premise” for privacy. It explicitly beats an “Okapi BM25” baseline on paraphrased queries by wide margins (P@1 0.75 vs 0.13, MRR 0.81 vs 0.35, NDCG@5 0.88 vs 0.59); generation-step evaluation is left to future work.',
+        'source': 'CoRR 2026 · arXiv:2603.09800 (DBLP-verified)',
+    },
+    'rafique2025large': {
+        'verdict': '⚠️ Name/corpus accurate — no BM25 comparison',
+        'evidence': 'DUNE-GPT is “a prototype framework that leverages LLMs and RAG” for “natural-language querying of DUNE’s internal documentation and technical resources” (Fermilab on-premise). It reports only a single preliminary figure — “retrieves relevant documentation with high accuracy (∼70%)” — and makes NO BM25/sparse-baseline comparison. ⚠️ Paper is real on arXiv (2601.05278) but NOT indexed by DBLP; bib key is a hand-made arXiv entry.',
+        'source': 'arXiv:2601.05278 (2026) · not in DBLP',
+    },
+    'DBLP:journals/corr/abs-2509-09688': {
+        'verdict': '⚠️ Reports deployment + qualitative QA, not retrieval metrics',
+        'evidence': 'The RHIC “Data and Analysis Preservation Plan (DAPP)” assistant (the paper names the plan DAPP; the assistant itself is unnamed) indexes “documentation, workflows, and software” (~1 ExaByte) via RAG + Model Context Protocol. It reports “deployment, computational performance” and a QUALITATIVE expert-grounded comparison of Llama3.3-70B / Mistral-Large / ChatGPT-o3 — NO retrieval-quality metrics and NO BM25 comparison; a formal benchmark “is currently in progress.”',
+        'source': 'CoRR 2025 · arXiv:2509.09688 (DBLP-verified)',
+    },
 }
 # Cells whose papers show the fact-check footnote chip on the cell page.
 # Emptied per user request (chip removed from the UI); FACTCHECK data above is
 # retained for the report / future use. Add a cell key here to re-enable its chips.
-FACTCHECKED_CELLS = set()
+FACTCHECKED_CELLS = {'K4.O1'}
 
 
 def axis_subsections(axis_scope, cell_key=None):

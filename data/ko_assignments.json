@@ -102,11 +102,11 @@
   },
   "DBLP:journals/bib/ZhangPHCM25": {
     "cells": [
-      "K1.O3"
+      "K2.O3"
     ],
-    "K": "",
+    "K": "K2",
     "O": "O3",
-    "note": "main.tex: K=-; O=O3",
+    "note": "Full-text verified 2026-05-31: retrieves a database of small molecules matched to the pocket (Curated KB, K2), not primary literature; verified via Glide/Vina docking. Corrected from K1.O3.",
     "subsection": "Docking-verified Hypothesis"
   },
   "DBLP:journals/corr/abs-2310-16146": {
@@ -215,11 +215,11 @@
   },
   "nan2026taliragen": {
     "cells": [
-      "K1.O3"
+      "K2.O3"
     ],
-    "K": "",
+    "K": "K2",
     "O": "O3",
-    "note": "main.tex: K=-; O=O3",
+    "note": "Full-text verified 2026-05-31: retrieves protein-ligand contexts from repositories (Curated KB, K2), not primary literature; refines via docking feedback. Not DBLP-indexed. Corrected from K1.O3.",
     "subsection": "Docking-verified Hypothesis"
   },
   "replogle2022mapping": {

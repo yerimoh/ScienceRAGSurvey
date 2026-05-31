@@ -11,10 +11,10 @@ Knowledge Source and Scientific Mission" (Oh et al., Vision and Learning Lab, Se
 
 - [/cell/K1.O1.md](K1.O1.md) — Primary Literature × Ground (11 entries)
 - [/cell/K1.O2.md](K1.O2.md) — Primary Literature × Synthesis (7 entries)
-- [/cell/K1.O3.md](K1.O3.md) — Primary Literature × Hypothesis (2 entries)
+- [/cell/K1.O3.md](K1.O3.md) — Primary Literature × Hypothesis (0 entries)
 - [/cell/K2.O1.md](K2.O1.md) — Curated Knowledge Base × Ground (3 entries)
 - [/cell/K2.O2.md](K2.O2.md) — Curated Knowledge Base × Synthesis (1 entries)
-- [/cell/K2.O3.md](K2.O3.md) — Curated Knowledge Base × Hypothesis (21 entries)
+- [/cell/K2.O3.md](K2.O3.md) — Curated Knowledge Base × Hypothesis (23 entries)
 - [/cell/K3.O1.md](K3.O1.md) — Observational & Experimental × Ground (4 entries)
 - [/cell/K3.O2.md](K3.O2.md) — Observational & Experimental × Synthesis (0 entries)
 - [/cell/K3.O3.md](K3.O3.md) — Observational & Experimental × Hypothesis (3 entries)

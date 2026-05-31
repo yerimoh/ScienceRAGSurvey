@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KG-Rank: Enhancing Large Language Models for Medical QA with Knowledge Graphs and Ranking Techniques — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1780206607">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">14</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">7</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">2</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">6</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">5</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">6</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">5</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">57</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">27</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">97</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">148</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">15</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">12</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">197</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">104</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">16</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>KG-Rank: Enhancing Large Language Models for Medical QA with Knowledge Graphs and Ranking Techniques</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">BioNLP@ACL</span>
+      <span class="meta-year">2024</span>
+      <a href="https://aclanthology.org/2024.bionlp-1.13/" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.O2.html" class="tag tag-cell" title="K2.O2">Curated Knowledge Base × Synthesis</a><span class="tag tag-sub">Aggregative Synthesis</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>KG-Rank: Knowledge-Graph + Ranking for Long-form Medical QA</h1>
+<blockquote>
+<p>BioNLP@ACL 2024 | Method | medical</p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>KG-Rank는 의학 질문에서 의료 엔티티를 추출해 UMLS에서 one-hop 트리플(사실)을 가져온 뒤, IR의 ranking/re-ranking 기법(유사도·Answer Expansion·MMR·MedCPT 재랭킹)으로 가장 관련성 높은 사실만 추려 LLM에 주입함으로써, 파인튜닝 없이 장문(long-form) 의료 답변의 사실성·품질을 높이는 프레임워크다.</p>
+<h2>시스템 구조 (KG-Rank Architecture)</h2>
+<ol>
+<li><strong>의료 NER:</strong> 프롬프트로 LLM이 질문에서 의료 엔티티를 추출, UMLS 엔티티로 매핑.</li>
+<li><strong>UMLS one-hop 검색:</strong> 엔티티별 one-hop 관계 트리플 (e_i', r, e_j') 수집(한 엔티티가 수천 관계 → ranking 필수).</li>
+<li><strong>Ranking/Re-ranking(핵심):</strong> UmlsBERT 임베딩으로 질문-트리플 정렬. 4가지 변형 — Similarity / Answer Expansion(가짜 답변 생성 후 [Q,A]로 검색) / MMR(관련성+다양성, 선택 수에 따라 다양성 페널티 증가) / Re-ranking(MedCPT cross-encoder).</li>
+<li><strong>장문 합성:</strong> 상위 트리플 + task 프롬프트를 LLM에 주입해 free-text 답변 생성.</li>
+</ol>
+<h2>동작 파이프라인 (inference)</h2>
+<ol>
+<li>질문 → 의료 엔티티 추출 → UMLS 매핑.</li>
+<li>one-hop 트리플 검색.</li>
+<li>Similarity/AE/MMR/Re-ranking으로 트리플 정렬.</li>
+<li>상위 트리플 + 프롬프트 → LLM 장문 답변.</li>
+</ol>
+<h2>주요 결과</h2>
+<p>백본 GPT-4 등, 데이터셋 ExpertQA-Bio/Med, LiveQA, MedicationQA. GPT-4 기준 Zero-Shot→KG-Rank ROUGE-L: ExpertQA-Bio 23.00→<strong>27.20</strong>, ExpertQA-Med 25.45→<strong>28.08</strong>, MedicationQA 14.41→<strong>16.19</strong>; BERTScore도 일관 향상. 일반 도메인(Law/Business/Music/History)에서도 ROUGE-L 향상으로 확장성 시사.</p>
+<h2>한계점</h2>
+<ul>
+<li>사실성에 대한 physician 평가는 향후 과제(현재 미수행).</li>
+<li>의료 특화 base model 평가 부족.</li>
+<li>ranking 단계가 추가 연산 시간 증가.</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li>arXiv: 2403.05881 · BioNLP@ACL 2024 (Yang et al.)</li>
+<li>코드: <a href="https://github.com/YangRui525/KG-Rank">https://github.com/YangRui525/KG-Rank</a> · 소스 UMLS, 임베딩 UmlsBERT, 재랭커 MedCPT</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="../llms.txt">llms.txt</a> ·
+      <a href="../llms-full.txt">llms-full.txt</a> ·
+      <a href="../data/papers.json">papers.json</a> ·
+      <a href="../about.html">About</a>
+    </p>
+  </div>
+</footer>
+<script src="../static/footnotes.js?v=1779886412"></script>
+</body>
+</html>

@@ -317,9 +317,7 @@
       "PubMedQA"
     ],
     "type": "Method",
-    "ko_cells": [
-      "K2.O2"
-    ],
+    "ko_cells": [],
     "ko_primary": "K2.O2",
     "ko_note": "main.tex: K=-; O=O2",
     "cross_source": false,
@@ -2202,14 +2200,14 @@
     "paper_link": "",
     "note": "Medicine and clinical knowledge — UMLS-aligned retrieval substrate",
     "ko_cells": [
-      "K2"
+      "K2.O2"
     ],
-    "ko_primary": "K2",
+    "ko_primary": "K2.O2",
     "ko_note": "Medicine and clinical knowledge — UMLS-aligned retrieval substrate",
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
-    "subsection": "Medicine and clinical knowledge",
+    "subsection": "Aggregative Synthesis",
     "flagship": true
   },
   {
@@ -8753,10 +8751,10 @@
       "Text"
     ],
     "ko_cells": [
-      "K2.O1"
+      "K2.O2"
     ],
-    "ko_primary": "K2.O1",
-    "subsection": "Text-only Closed-form QA",
+    "ko_primary": "K2.O2",
+    "subsection": "Aggregative Synthesis",
     "paper_link": "https://arxiv.org/abs/2308.09729",
     "note": "큐레이티드 임상 KG(질병-증상-약물)에서 path/neighbor 증거 서브그래프를 검색해 graph-of-thoughts 추론 경로로 통합하는 진단 QA. GPT-3.5 backbone으로 일부 baseline에서 GPT-4 능가."
   },
@@ -8846,5 +8844,68 @@
     "subsection": "Cross-modal",
     "paper_link": "https://arxiv.org/abs/2510.01558",
     "note": "과거 ECG 사례 DB(VAE 잠재표현+임상특징+라벨)에서 잠재-신호 유사도로 유사 사례 검색→소형 LLM이 Chagas 진단을 grounding. RAG로 recall 49→90%."
+  },
+  {
+    "bib_key": "DBLP:conf/acl/Jiang0XQFWTDC0W25",
+    "title": "HyKGE: A Hypothesis Knowledge Graph Enhanced RAG Framework for Accurate and Reliable Medical LLMs Responses",
+    "method": "HyKGE",
+    "venue": "ACL",
+    "year": 2025,
+    "type": "Method",
+    "domain": [
+      "medical"
+    ],
+    "modality": [
+      "Text"
+    ],
+    "ko_cells": [
+      "K2.O2"
+    ],
+    "ko_primary": "K2.O2",
+    "subsection": "Aggregative Synthesis",
+    "paper_link": "https://aclanthology.org/2025.acl-long.580/",
+    "note": "LLM 가설(HO)로 검색을 시드해 융합 큐레이티드 의료 KG(CMeKG·CPubMed-KG·Disease-KG, ~129만 엔티티)에서 멀티홉 추론 체인을 검색, HO fragment 재랭킹으로 노이즈를 걸러 종합 답변 합성. LLM 호출 2회."
+  },
+  {
+    "bib_key": "DBLP:conf/bionlp/YangLMZKLCCCML24",
+    "title": "KG-Rank: Enhancing Large Language Models for Medical QA with Knowledge Graphs and Ranking Techniques",
+    "method": "KG-Rank",
+    "venue": "BioNLP@ACL",
+    "year": 2024,
+    "type": "Method",
+    "domain": [
+      "medical"
+    ],
+    "modality": [
+      "Text"
+    ],
+    "ko_cells": [
+      "K2.O2"
+    ],
+    "ko_primary": "K2.O2",
+    "subsection": "Aggregative Synthesis",
+    "paper_link": "https://aclanthology.org/2024.bionlp-1.13/",
+    "note": "질문 엔티티의 UMLS one-hop 트리플을 검색하고 ranking/re-ranking(유사도·Answer Expansion·MMR·MedCPT)으로 추려 장문 의료 답변으로 합성. 파인튜닝 불필요."
+  },
+  {
+    "bib_key": "DBLP:conf/naacl/LiCJ25",
+    "title": "GraPPI: A Retrieve-Divide-Solve GraphRAG Framework for Large-scale Protein-protein Interaction Exploration",
+    "method": "GraPPI",
+    "venue": "NAACL",
+    "year": 2025,
+    "type": "Method",
+    "domain": [
+      "bio"
+    ],
+    "modality": [
+      "Text"
+    ],
+    "ko_cells": [
+      "K2.O2"
+    ],
+    "ko_primary": "K2.O2",
+    "subsection": "Aggregative Synthesis",
+    "paper_link": "https://aclanthology.org/2025.findings-naacl.201/",
+    "note": "큐레이티드 STRING PPI 그래프(18,767노드/295만엣지)를 Retrieve-Divide-Solve로 순회 — 경로를 엣지로 분할 병렬 설명 후 경로 수준으로 합성·재정렬해 약물 타깃 신호전달 경로 분석 생성."
   }
 ]
