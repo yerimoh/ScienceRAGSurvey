@@ -106,6 +106,48 @@ CELL_PAPERS = {
     'K4.O3': ['zhang2026matclaw'],
 }
 
+# Full-text fact-check of the systems cited in each cell's main.tex paragraph.
+# Verified 2026-05-31 against paper bodies (arXiv HTML / ACL / Crossref), NOT abstracts.
+# bib_key -> {verdict, evidence (verbatim-quote-grounded), source}. Rendered as a clickable
+# footnote on the cell page (popover via static/footnotes.js) so the claim's original-text
+# evidence is one click away instead of the raw paper link. See ver/2/factcheck_kxo_k1o1.md.
+FACTCHECK = {
+    'DBLP:conf/acl/Xiong0LZ24': {
+        'verdict': '✅ Accurate — closed-form',
+        'evidence': 'MEDRAG is “a toolkit with systematic implementations of RAG for medical QA” (§4); its evaluation “tasks are all composed of multi-choice questions” (§3.2), retrieving over PubMed, StatPearls, textbooks and Wikipedia. (MEDRAG = the system; MIRAGE = its benchmark.)',
+        'source': 'ACL Findings 2024, pp. 6233–6251 · arXiv:2402.13178',
+    },
+    'DBLP:journals/corr/abs-2408-01107': {
+        'verdict': '✅ Accurate — closed-form',
+        'evidence': 'BioRAG is “a novel Retrieval-Augmented Generation (RAG) with the Large Language Models (LLMs) framework” (§2) retrieving over “a corpus of 22,371,343 high-quality, processed PubMed abstracts” (§2.1) for closed-form biological QA (GeneTuring, MedMCQA, College Biology/Medicine).',
+        'source': 'CoRR 2024 · arXiv:2408.01107',
+    },
+    'DBLP:conf/naacl/SohnPYPHSKK25': {
+        'verdict': '✅ Accurate — closed-form',
+        'evidence': 'RAG² (“RAtionale-Guided Retrieval Augmented Generation”) uses LLM-generated rationales as retrieval queries plus a perplexity-trained filter, for multiple-choice medical QA (MedQA, MedMCQA, MMLU-Med) over four balanced corpora — PubMed, PMC, textbooks, clinical guidelines (§3.4).',
+        'source': 'NAACL 2025, pp. 12739–12753 · arXiv:2411.00300',
+    },
+    'DBLP:journals/corr/abs-2312-07559': {
+        'verdict': '✅ Accurate — long-form citation',
+        'evidence': 'PaperQA “performs information retrieval across full-text scientific articles” and, via a “map summarization step … followed by a reduce step,” returns cited long-form answers with per-sentence “citation markers” (§3); LitQA is its separate “50 multiple-choice” eval benchmark (§4).',
+        'source': 'CoRR 2023 · arXiv:2312.07559',
+    },
+    'asai2026synthesizing': {
+        'verdict': '✅ Accurate — long-form citation',
+        'evidence': 'OpenScholar is a “retrieval-augmented LM that answers scientific queries by identifying relevant passages from 45 million open-access papers and synthesizing citation-backed responses,” evaluated on ScholarQABench (2,967 expert queries, 208 long-form answers). Cite key is for the Nature 2026 version (not DBLP-indexed; arXiv = 2411.14199).',
+        'source': 'Nature 650:857–863, 2026 · DOI 10.1038/s41586-025-10072-4',
+    },
+    'DBLP:journals/corr/abs-2310-16146': {
+        'verdict': '✅ Accurate — long-form citation (output form)',
+        'evidence': 'Clinfo.ai is “an open-source WebApp that answers clinical questions based on dynamically retrieved scientific literature” (PubMed), producing a “Literature Summary” whose “ordered list, with each number … corresponding to a citation” attributes each finding to its source; releases PubMedRS-200. (Caveat: answer scored by summarization metrics, not citation precision/recall.)',
+        'source': 'CoRR 2023 · arXiv:2310.16146 · PSB 2024',
+    },
+}
+# Cells whose papers have been full-text fact-checked (footnotes shown only here, so we
+# never imply a verification we haven't done). Add cells as they are checked.
+FACTCHECKED_CELLS = {'K1.O1'}
+
+
 def axis_subsections(axis_scope, cell_key=None):
     """Return the set of subsections to render as filter chips.
     If cell_key has a CELL_SUBSECTIONS entry, use that allow-list; otherwise fall
@@ -363,7 +405,7 @@ def page_foot(base=''):
 PAGE_FOOT = page_foot()  # back-compat for callers that still use the constant
 
 
-def paper_card(p, base='', axis_scope=None):
+def paper_card(p, base='', axis_scope=None, factcheck_id=None):
     title = esc(p.get('title') or p.get('bib_key', '?'))
     url = p.get('paper_link') or ''
     venue = esc(p.get('venue', ''))
@@ -429,10 +471,18 @@ def paper_card(p, base='', axis_scope=None):
     if _allowed is not None:
         _subsec_items = [s for s in _subsec_items if s in _allowed]
     subsec_attr = f' data-sub="{esc(" | ".join(_subsec_items))}"'
+    # Fact-check footnote chip — clicking opens a popover with verbatim original-text
+    # evidence (footnotes.js), instead of jumping to the raw paper link.
+    fc_html = ''
+    if factcheck_id and bib_key in FACTCHECK:
+        verdict = esc(FACTCHECK[bib_key]['verdict'])
+        fc_html = (f'<p class="card-factcheck"><a class="footnote-ref" '
+                   f'href="#{factcheck_id}" title="원문 근거 보기">{verdict} · 원문 근거 ⌖</a></p>')
     return f'''<article class="card"{subsec_attr}>
   <h3 class="card-title">{title_html}</h3>
   {f'<div class="card-meta">{meta}</div>' if meta else ''}
   {f'<p class="card-note">{note}</p>' if note else ''}
+  {fc_html}
   <div class="card-tags">{''.join(tag_html)}</div>
   {summary_link}
 </article>
@@ -1039,9 +1089,27 @@ def render_cell_pages():
                 for c in [f'{kk}.{oo}' for kk in ['K1','K2','K3','K4'] for oo in ['O1','O2','O3']]
             )
 
-            cards = '\n'.join(paper_card(p, base='../', axis_scope=O) for p in ps) or '<p class="empty">No verified entries in this cell yet — see <a href="../about.html#methodology">methodology</a> and the survey §11 frontier discussion.</p>'
+            # Build cards, attaching a fact-check footnote to any paper with FACTCHECK data.
+            cell_safe = cell.replace('.', '').lower()
+            card_list, fn_items = [], []
+            for i, p in enumerate(ps, 1):
+                bk = p.get('bib_key', '')
+                fc_id = None
+                if cell in FACTCHECKED_CELLS and bk in FACTCHECK:
+                    fc_id = f'fn-{cell_safe}-{i}'
+                    fc = FACTCHECK[bk]
+                    label = esc(p.get('method') or p.get('title') or bk)
+                    fn_items.append(
+                        f'<li id="{fc_id}"><p><strong>{label} — {esc(fc["verdict"])}</strong></p>'
+                        f'<p>{esc(fc["evidence"])}</p>'
+                        f'<p class="fn-src">원문: {esc(fc["source"])} · full-text verified</p></li>'
+                    )
+                card_list.append(paper_card(p, base='../', axis_scope=O, factcheck_id=fc_id))
+            cards = '\n'.join(card_list) or '<p class="empty">No verified entries in this cell yet — see <a href="../about.html#methodology">methodology</a> and the survey §11 frontier discussion.</p>'
+            # Hidden footnote targets (popover source for footnotes.js)
+            factcheck_fns = (f'<section class="footnotes overview-fns" aria-hidden="true"><ol>{"".join(fn_items)}</ol></section>'
+                             if fn_items else '')
             sf = subsec_filter_html(ps, prefix=f'cell{cell}', axis_scope=O, cell_key=cell)
-            overview_html = render_overview_section(cell, papers_by_key, papers_in_cell=ps, base='../')
 
             # Cell-tier badge (Active / Emerging / Frontier) from §4 K×O Cross-Tab Analysis
             tier_info = CELL_TIERS.get(cell)
@@ -1080,6 +1148,7 @@ def render_cell_pages():
     <div class="card-grid">{cards}</div>
   </div>
 </section>
+{factcheck_fns}
 '''
             (ROOT / 'cell' / f'{cell}.html').write_text(page_head(f'[{cell}] {kn} × {on}', base='../', current=f'cell/{cell}') + body + page_foot('../'))
 

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[O1] Ground — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1780203761">
+<link rel="stylesheet" href="../static/style.css?v=1780206607">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -149,8 +149,9 @@
 
     <div class="card-grid"><article class="card" data-sub="Text-only Long-form Citation">
   <h3 class="card-title"><a href="https://doi.org/10.1038/s41586-025-10072-4" target="_blank" rel="noopener">Synthesizing Scientific Literature with Retrieval-Augmented Language Models ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">ScholarQABench</span> · <span class="meta-venue">Nature</span> · <span class="meta-year">2026</span></div>
-  <p class="card-note">OpenScholar의 다학제 장문 합성 벤치마크.</p>
+  <div class="card-meta"><span class="meta-method">OpenScholar</span> · <span class="meta-venue">Nature</span> · <span class="meta-year">2026</span></div>
+  <p class="card-note">오픈액세스 논문 4,500만 건에서 검색해 인용 기반 장문 답변을 합성하는 RAG LM. 전문가 질의 2,967개·장문 답변 208개로 구성된 ScholarQABench로 평가. GPT-4는 인용을 78–90% 환각하지만 OpenScholar는 전문가 수준 인용 정확도 달성. (Nature 2026)</p>
+  
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Primary Literature × Synthesis</a><span class="tag tag-sub">Text-only Long-form Citation</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   <a href="../papers/asai2026synthesizing.html" class="card-summary-link">Summary →</a>
 </article>
@@ -159,6 +160,7 @@
   <h3 class="card-title">Patho-AgenticRAG: Pathology Agentic RAG with Textbook-aligned Multimodal Knowledge</h3>
   <div class="card-meta"><span class="meta-method">Patho-AgenticRAG</span> · <span class="meta-venue">AAAI</span> · <span class="meta-year">2026</span></div>
   <p class="card-note">Multimodal agentic RAG for pathology VLMs; retrieves over pathology-specific image patches + text (K3.O1 cross-modal grounding)</p>
+  
   <div class="card-tags"><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Observational & Experimental × Ground</a><span class="tag tag-sub">Cross-modal</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_aaai_ZhangGZZCZZYB26.html" class="card-summary-link">Summary →</a>
 </article>
@@ -167,6 +169,7 @@
   <h3 class="card-title">MITRA: Knowledge Retrieval over Physics Collaborations&#x27; Tacit Memory</h3>
   <div class="card-meta"><span class="meta-method">MITRA</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2026</span></div>
   <p class="card-note">RAG over CMS internal documents; DPR + cross-encoder reranker + 4-bit Mistral-7B; P@1 ~5.8x over BM25 on paraphrased queries (Set 2: 0.75 vs 0.13)</p>
+  
   <div class="card-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Tacit Knowledge × Ground</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_corr_abs-2603-09800.html" class="card-summary-link">Summary →</a>
 </article>
@@ -175,6 +178,7 @@
   <h3 class="card-title"><a href="https://arxiv.org/abs/2604.02259" target="_blank" rel="noopener">Retrieval-Augmented Question Answering over Scientific Literature for the Electron-Ion Collider ↗</a></h3>
   <div class="card-meta"><span class="meta-method">EIC RAG Q&amp;A application</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2026</span></div>
   <p class="card-note">EIC 로컬 RAG. 청크 180+Cosine 최적.</p>
+  
   <div class="card-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Tacit Knowledge × Ground</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/jat2026retrieval.html" class="card-summary-link">Summary →</a>
 </article>
@@ -183,6 +187,7 @@
   <h3 class="card-title"><a href="https://aclanthology.org/2025.findings-emnlp.1196/" target="_blank" rel="noopener">Benchmarking Foundation Models with Retrieval-Augmented Generation in Olympic-Level Physics Problem Solving ↗</a></h3>
   <div class="card-meta"><span class="meta-method">PhoPile RAG Framework</span> · <span class="meta-venue">EMNLP (Findings)</span> · <span class="meta-year">2025</span></div>
   <p class="card-note">Physics Olympiad 멀티모달 RAG 첫 벤치마크. 4 retriever × 3 multimodal × 8 모델 비교. retrieval 노이즈 문제 존재.</p>
+  
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">Image</span></div>
   <a href="../papers/DBLP_conf_emnlp_ZhengZFZWPC25.html" class="card-summary-link">Summary →</a>
 </article>
@@ -190,7 +195,8 @@
 <article class="card" data-sub="Text-only Closed-form QA">
   <h3 class="card-title">Rationale-Guided Retrieval Augmented Generation for Medical Question Answering</h3>
   <div class="card-meta"><span class="meta-method">RAG²</span> · <span class="meta-venue">NAACL</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">perplexity-차이 자동 라벨링으로 소형 필터 모델 학습 + rationale 쿼리 + 균등검색. SOTA on MedQA.</p>
+  <p class="card-note">신뢰도 향상을 위한 rationale 유도 RAG(RAG²). LLM이 만든 rationale을 검색 쿼리로 쓰고, perplexity 차이로 학습한 필터로 무관 스니펫을 제거하며 PubMed·PMC·교과서·가이드라인 4개 코퍼스에서 균등 검색. MedQA·MedMCQA·MMLU-Med 객관식 의료 QA에서 SOTA.</p>
+  
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_naacl_SohnPYPHSKK25.html" class="card-summary-link">Summary →</a>
 </article>
@@ -199,6 +205,7 @@
   <h3 class="card-title"><a href="https://github.com/Jack-ZC8/Omni-RAG-Medical" target="_blank" rel="noopener">Towards Omni-RAG: Comprehensive Retrieval-Augmented Generation for Large Language Models in Medical Applications ↗</a></h3>
   <div class="card-meta"><span class="meta-method">Source Planning Optimisation (SPO)</span> · <span class="meta-venue">ACL</span> · <span class="meta-year">2025</span></div>
   <p class="card-note">5개 다중 구조 의료 KB(MedOmniKB) 구축 + SPO 기법. 소형 Planner가 10배 큰 모델 능가.</p>
+  
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Curated Knowledge Base × Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">KG</span></div>
   <a href="../papers/DBLP_conf_acl_ChenLJWG0025.html" class="card-summary-link">Summary →</a>
 </article>
@@ -207,6 +214,7 @@
   <h3 class="card-title"><a href="https://arxiv.org/abs/2401.17244" target="_blank" rel="noopener">LLaMP: Large Language Model Made Powerful for High-fidelity Materials Knowledge Retrieval ↗</a></h3>
   <div class="card-meta"><span class="meta-method">LLaMP MP Property Benchmark</span> · <span class="meta-venue">EMNLP</span> · <span class="meta-year">2025</span></div>
   <p class="card-note">main.tex: K=-; O=O1</p>
+  
   <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Curated Knowledge Base × Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">Structured Table</span><span class="tag tag-mod">3D Structure</span></div>
   <a href="../papers/DBLP_conf_emnlp_ChiangHCR25.html" class="card-summary-link">Summary →</a>
 </article>
@@ -215,6 +223,7 @@
   <h3 class="card-title">MMed-RAG: Versatile Multimodal RAG System for Medical VLMs</h3>
   <div class="card-meta"><span class="meta-method">MMed-RAG</span> · <span class="meta-venue">ICLR</span> · <span class="meta-year">2025</span></div>
   <p class="card-note">★ K3 multimodal. Domain-aware retriever (radiology/pathology/ophthalmology). DPO-based RAG-PT for cross-modal alignment.</p>
+  
   <div class="card-tags"><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Observational & Experimental × Ground</a><span class="tag tag-sub">Cross-modal</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">Image</span></div>
   <a href="../papers/DBLP_conf_iclr_0005ZLWSWZ0Y25.html" class="card-summary-link">Summary →</a>
 </article>
@@ -223,6 +232,7 @@
   <h3 class="card-title">AI-Powered Assistant for Long-Term Access to RHIC Knowledge</h3>
   <div class="card-meta"><span class="meta-method">RHIC DAPP</span> · <span class="meta-venue">New York Scientific Data Summit</span> · <span class="meta-year">2025</span></div>
   <p class="card-note">★ FLAGSHIP K4 EXAMPLE. ~1 ExaByte institutional memory. MCP-RAG. Demonstrates commercial AI&#x27;s blindness to non-public scientific tacit knowledge.</p>
+  
   <div class="card-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Tacit Knowledge × Ground</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">Structured Table</span></div>
   <a href="../papers/DBLP_journals_corr_abs-2509-09688.html" class="card-summary-link">Summary →</a>
 </article>
@@ -231,6 +241,7 @@
   <h3 class="card-title">DUNE Knowledge Retrieval: Large-scale Indexing of Fermilab Collaboration Documents</h3>
   <div class="card-meta"><span class="meta-method">DUNE-GPT</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2025</span></div>
   <p class="card-note">RAG over DUNE DocDB + Indico + internal wikis; multi-qa-mpnet + FAISS; ~70% retrieval accuracy (preliminary); Fermilab on-premise</p>
+  
   <div class="card-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Tacit Knowledge × Ground</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/rafique2025large.html" class="card-summary-link">Summary →</a>
 </article>
@@ -239,6 +250,7 @@
   <h3 class="card-title"><a href="https://arxiv.org/abs/2509.06855" target="_blank" rel="noopener">Seeing the Forest Through the Trees: Knowledge Retrieval for Streamlining Particle Physics Analysis ↗</a></h3>
   <div class="card-meta"><span class="meta-method">HFLAV-QA</span> · <span class="meta-venue">ML4PS @ NeurIPS</span> · <span class="meta-year">2025</span></div>
   <p class="card-note">SciTreeRAG+SciGraphRAG over LHCb internal corpus (K4 institutional tacit knowledge)</p>
+  
   <div class="card-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Tacit Knowledge × Ground</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">Structured Table</span></div>
   <a href="../papers/mcgreivy2025seeing.html" class="card-summary-link">Summary →</a>
 </article>
@@ -247,6 +259,7 @@
   <h3 class="card-title"><a href="https://arxiv.org/abs/2509.09686v2" target="_blank" rel="noopener">GeoGPT-RAG Technical Report ↗</a></h3>
   <div class="card-meta"><span class="meta-method">GeoRAG-QA</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2025</span></div>
   <p class="card-note">Open-ended geoscience RAG benchmark; metric = Answer Recall + Top-K Recall; not closed-form MC</p>
+  
   <div class="card-tags"><a href="../cell/O1.html" class="tag tag-cell" title="O1">Ground</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   <a href="../papers/DBLP_journals_corr_abs-2509-09686.html" class="card-summary-link">Summary →</a>
 </article>
@@ -254,7 +267,8 @@
 <article class="card" data-sub="Text-only Closed-form QA">
   <h3 class="card-title"><a href="https://aclanthology.org/2024.findings-acl.372" target="_blank" rel="noopener">Benchmarking Retrieval-Augmented Generation for Medicine ↗</a></h3>
   <div class="card-meta"><span class="meta-method">MEDRAG</span> · <span class="meta-venue">ACL (Findings)</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">의료 QA 전용 RAG 툴킷+벤치마크. PubMed+RRF-4 최적. GPT-3.5+MEDRAG가 CoT GPT-4에 근접.</p>
+  <p class="card-note">의료 QA용 RAG 툴킷(MedRAG)과 평가 벤치마크(MIRAGE; 5개 데이터셋 7,663 객관식 문항)를 함께 제안. PubMed·StatPearls·교과서·Wikipedia(MedCorp 약 30M)에서 검색하며 RRF 결합이 최적. closed-form(객관식) 정답 정확도로 평가.</p>
+  
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
   <a href="../papers/DBLP_conf_acl_Xiong0LZ24.html" class="card-summary-link">Summary →</a>
 </article>
@@ -262,15 +276,17 @@
 <article class="card" data-sub="Text-only Closed-form QA">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2408.01107" target="_blank" rel="noopener">BioRAG: A RAG-LLM Framework for Biological Question Reasoning ↗</a></h3>
   <div class="card-meta"><span class="meta-method">BIORAG</span> · <span class="meta-venue">arXiv 2024</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, College Biology/Medicine; outperforms BioLLMs, GPT-3.5, NewBing</p>
+  <p class="card-note">생물학 질문 추론용 RAG-LLM 프레임워크. 정제된 PubMed 초록 약 2,237만 건 + 도메인 지식 계층 + 미세조정 임베딩에 검색엔진 기반 반복 검색을 결합. GeneTuring·MedMCQA·College Biology/Medicine 등 closed-form QA에서 BioLLM·GPT-3.5 능가.</p>
+  
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_corr_abs-2408-01107.html" class="card-summary-link">Summary →</a>
 </article>
 
 <article class="card" data-sub="Text-only Long-form Citation">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2310.16146" target="_blank" rel="noopener">CLINFO.AI: AN OPEN-SOURCE RETRIEVAL-AUGMENTED LARGE LANGUAGE MODEL SYSTEM FOR ANSWERING MEDICAL QUESTIONS USING SCIENTIFIC LITERATURE ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">PubMedRS-200</span> · <span class="meta-venue">PSB</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">PubMed SR 의료 QA 벤치마크. Clinfo.ai PSB 2024.</p>
+  <h3 class="card-title"><a href="https://arxiv.org/abs/2310.16146" target="_blank" rel="noopener">Clinfo.ai: An Open-Source Retrieval-Augmented Large Language Model System for Answering Medical Questions using Scientific Literature ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">Clinfo.AI</span> · <span class="meta-venue">PSB</span> · <span class="meta-year">2024</span></div>
+  <p class="card-note">과학 문헌(PubMed)을 동적으로 검색해 임상 질문에 답하는 오픈소스 RAG 시스템. 각 근거에 번호 인용을 단 &#x27;Literature Summary&#x27; 장문 합성을 생성. 체계적 문헌고찰 기반 200문항 PubMedRS-200 벤치마크 공개. (답변은 요약 품질 지표로 평가, 인용 P/R은 검색 단계만)</p>
+  
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><span class="tag tag-sub">Text-only Long-form Citation</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   <a href="../papers/DBLP_journals_corr_abs-2310-16146.html" class="card-summary-link">Summary →</a>
 </article>
@@ -279,6 +295,7 @@
   <h3 class="card-title"><a href="https://arxiv.org/abs/2409.13740" target="_blank" rel="noopener">Language Agents Achieve Superhuman Synthesis of Scientific Knowledge ↗</a></h3>
   <div class="card-meta"><span class="meta-method">PaperQA2</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2024</span></div>
   <p class="card-note">인간 전문가 초과 RAG. PaperQA2 85.2% &gt; 인간 73.8%. RCS + Citation Traversal.</p>
+  
   <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Primary Literature × Synthesis</a><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_corr_abs-2409-13740.html" class="card-summary-link">Summary →</a>
 </article>
@@ -287,6 +304,7 @@
   <h3 class="card-title"><a href="https://doi.org/10.18653/v1/2024.findings-emnlp.192" target="_blank" rel="noopener">HoneyComb: A Flexible LLM-Based Agent System for Materials Science ↗</a></h3>
   <div class="card-meta"><span class="meta-venue">EMNLP 2024 Findings</span> · <span class="meta-year">2024</span></div>
   <p class="card-note">Materials science and physics — MatSciKB curated literature knowledge base for materials RAG</p>
+  
   <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Curated Knowledge Base × Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_emnlp_ZhangSHML24.html" class="card-summary-link">Summary →</a>
 </article>
@@ -295,6 +313,7 @@
   <h3 class="card-title"><a href="https://arxiv.org/abs/2403.19949" target="_blank" rel="noopener">FairCLIP: Harnessing Fairness in Vision-Language Learning ↗</a></h3>
   <div class="card-meta"><span class="meta-method">FairCLIP / Harvard-FairVLMed</span> · <span class="meta-venue">CVPR</span> · <span class="meta-year">2024</span></div>
   <p class="card-note">10,000 SLO fundus images + clinical notes; glaucoma classification; ophthalmology fairness benchmark</p>
+  
   <div class="card-tags"><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Observational & Experimental × Ground</a><span class="tag tag-sub">Cross-modal</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/luo2024fairclip.html" class="card-summary-link">Summary →</a>
 </article>
@@ -303,6 +322,7 @@
   <h3 class="card-title"><a href="https://arxiv.org/abs/2412.00431" target="_blank" rel="noopener">Multi-Agent System for Cosmological Parameter Analysis ↗</a></h3>
   <div class="card-meta"><span class="meta-method">cmbagent</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2024</span></div>
   <p class="card-note">3종 전문 RAG 에이전트 + 멀티에이전트로 ACT DR6 우주론 파라미터 분석을 40분·코드 0줄에 자동 재현.</p>
+  
   <div class="card-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Tacit Knowledge × Ground</a><a href="../domain/astronomy.html" class="tag tag-domain">🔭Astronomy</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/sarkar2024multi.html" class="card-summary-link">Summary →</a>
 </article>
@@ -311,6 +331,7 @@
   <h3 class="card-title">Towards a RAG-based Summarization for the Electron-Ion Collider</h3>
   <div class="card-meta"><span class="meta-method">EIC RAG</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2024</span></div>
   <p class="card-note">RAG-based summarization AI for EIC institutional documents; LangChain + vector DB; RAGAs evaluation; prompt template instruction-tuning; Streamlit web app; serves 1,400+ physicists in 38 countries</p>
+  
   <div class="card-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Tacit Knowledge × Ground</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_corr_abs-2403-15729.html" class="card-summary-link">Summary →</a>
 </article>
@@ -319,6 +340,7 @@
   <h3 class="card-title"><a href="https://pubs.rsc.org/en/content/articlelanding/2024/dd/d3dd00188a" target="_blank" rel="noopener">MaScQA: Investigating Materials Science Knowledge of Large Language Models ↗</a></h3>
   <div class="card-meta"><span class="meta-method">MaScQA</span> · <span class="meta-venue">Digital Discovery (RSC)</span> · <span class="meta-year">2024</span></div>
   <p class="card-note">HoneyComb 평가에 사용. GATE 시험 기반 650개. GPT-4 ~62%.</p>
+  
   <div class="card-tags"><a href="../cell/O1.html" class="tag tag-cell" title="O1">Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   <a href="../papers/zaki2024mascqa.html" class="card-summary-link">Summary →</a>
 </article>
@@ -327,6 +349,7 @@
   <h3 class="card-title"><a href="https://doi.org/10.1038/s41597-023-02068-4" target="_blank" rel="noopener">BioASQ-QA: A manually curated corpus for Biomedical Question Answering ↗</a></h3>
   <div class="card-meta"><span class="meta-method">BioASQ-QA</span> · <span class="meta-venue">Scientific Data</span> · <span class="meta-year">2023</span></div>
   <p class="card-note">4,721 expert-annotated biomedical QA pairs; running since 2012; combines exact answer + ideal summary; used for evaluation in cross-modal grounding section</p>
+  
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Primary Literature × Synthesis</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   <a href="../papers/krithara2023bioasq.html" class="card-summary-link">Summary →</a>
 </article>
@@ -334,7 +357,8 @@
 <article class="card" data-sub="Text-only Long-form Citation">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2312.07559v2" target="_blank" rel="noopener">PaperQA: Retrieval-Augmented Generative Agent for Scientific Research ↗</a></h3>
   <div class="card-meta"><span class="meta-method">PaperQA</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2023</span></div>
-  <p class="card-note">Map-Reduce 환각 0% 인용 답변. LitQA 신규 벤치마크.</p>
+  <p class="card-note">전문(full-text) 논문을 검색하는 RAG 에이전트. map-reduce로 근거를 모은 뒤 문장마다 인용을 단 장문 답변을 생성하며 환각 인용 0건 보고. 평가용으로 50문항 객관식 LitQA 벤치마크를 함께 제안(시스템 출력 자체는 장문·인용형).</p>
+  
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><span class="tag tag-sub">Text-only Long-form Citation</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_corr_abs-2312-07559.html" class="card-summary-link">Summary →</a>
 </article>
@@ -343,6 +367,7 @@
   <h3 class="card-title"><a href="https://doi.org/10.1007/978-3-031-43993-3_51" target="_blank" rel="noopener">PMC-CLIP: Contrastive Language-Image Pre-training Using Biomedical Documents ↗</a></h3>
   <div class="card-meta"><span class="meta-method">PMC-CLIP / PMC-OA</span> · <span class="meta-venue">MICCAI</span> · <span class="meta-year">2023</span></div>
   <p class="card-note">PMC-OA: 1.65M biomedical image-text pairs (PubMed Central OA); cited in §o1-crossmodal as evidence for cross-modal grounding</p>
+  
   <div class="card-tags"><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Observational & Experimental × Ground</a><span class="tag tag-sub">Cross-modal</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
   <a href="../papers/10.1007_978-3-031-43993-3_51.html" class="card-summary-link">Summary →</a>
 </article>
@@ -351,6 +376,7 @@
   <h3 class="card-title"><a href="https://doi.org/10.1038/s41598-023-33607-z" target="_blank" rel="noopener">The SciQA Scientific Question Answering Benchmark for Scholarly Knowledge ↗</a></h3>
   <div class="card-meta"><span class="meta-method">SciQA</span> · <span class="meta-venue">Scientific Reports</span> · <span class="meta-year">2023</span></div>
   <p class="card-note">ORKG 기반 학술 지식 QA. ChatGPT 100개 중 14개만 정답.</p>
+  
   <div class="card-tags"><a href="../cell/O1.html" class="tag tag-cell" title="O1">Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">KG</span></div>
   <a href="../papers/auer2023sciqa.html" class="card-summary-link">Summary →</a>
 </article>
@@ -359,6 +385,7 @@
   <h3 class="card-title"><a href="https://aclanthology.org/D19-1259/" target="_blank" rel="noopener">PubMedQA: A Dataset for Biomedical Research Question Answering ↗</a></h3>
   <div class="card-meta"><span class="meta-method">PubMedQA</span> · <span class="meta-venue">EMNLP-IJCNLP</span> · <span class="meta-year">2019</span></div>
   <p class="card-note">1k expert-annotated + 61.2k unlabeled + 211.3k artificially generated QA; Yes/No/Maybe from PubMed abstracts; first QA dataset requiring quantitative reasoning over biomedical texts</p>
+  
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   <a href="../papers/jin-etal-2019-pubmedqa.html" class="card-summary-link">Summary →</a>
 </article>
@@ -367,6 +394,7 @@
   <h3 class="card-title"><a href="https://aclanthology.org/W17-4413/" target="_blank" rel="noopener">Crowdsourcing Multiple Choice Science Questions (SciQ) ↗</a></h3>
   <div class="card-meta"><span class="meta-method">SciQ</span> · <span class="meta-venue">W-NUT @ EMNLP</span> · <span class="meta-year">2017</span></div>
   <p class="card-note">main.tex: K=-; O=O1</p>
+  
   <div class="card-tags"><a href="../cell/O1.html" class="tag tag-cell" title="O1">Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/welbl-etal-2017-crowdsourcing.html" class="card-summary-link">Summary →</a>
 </article>

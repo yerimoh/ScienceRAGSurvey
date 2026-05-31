@@ -691,9 +691,9 @@
     "generator_train": false,
     "eval_task": "ScholarQABench",
     "eval_metric": "Rubric, Citation F1, Prometheus v2, Expert pairwise",
-    "method": "ScholarQABench",
+    "method": "OpenScholar",
     "paper_link": "https://doi.org/10.1038/s41586-025-10072-4",
-    "note": "OpenScholar의 다학제 장문 합성 벤치마크.",
+    "note": "오픈액세스 논문 4,500만 건에서 검색해 인용 기반 장문 답변을 합성하는 RAG LM. 전문가 질의 2,967개·장문 답변 208개로 구성된 ScholarQABench로 평가. GPT-4는 인용을 78–90% 환각하지만 OpenScholar는 전문가 수준 인용 정확도 달성. (Nature 2026)",
     "bib_key": "asai2026synthesizing",
     "bib_ver": "v2",
     "domain": [
@@ -2641,7 +2641,7 @@
     "eval_task": "MedQA, MedMCQA, MMLU-Med",
     "eval_metric": "Accuracy",
     "method": "RAG²",
-    "note": "perplexity-차이 자동 라벨링으로 소형 필터 모델 학습 + rationale 쿼리 + 균등검색. SOTA on MedQA.",
+    "note": "신뢰도 향상을 위한 rationale 유도 RAG(RAG²). LLM이 만든 rationale을 검색 쿼리로 쓰고, perplexity 차이로 학습한 필터로 무관 스니펫을 제거하며 PubMed·PMC·교과서·가이드라인 4개 코퍼스에서 균등 검색. MedQA·MedMCQA·MMLU-Med 객관식 의료 QA에서 SOTA.",
     "bib_key": "DBLP:conf/naacl/SohnPYPHSKK25",
     "bib_ver": "v2",
     "domain": [
@@ -3203,7 +3203,7 @@
     "eval_task": "MIRAGE (MMLU-Med, MedQA-US, MedMCQA, PubMedQA*, BioASQ-Y/N)",
     "eval_metric": "Accuracy",
     "method": "MEDRAG",
-    "note": "의료 QA 전용 RAG 툴킷+벤치마크. PubMed+RRF-4 최적. GPT-3.5+MEDRAG가 CoT GPT-4에 근접.",
+    "note": "의료 QA용 RAG 툴킷(MedRAG)과 평가 벤치마크(MIRAGE; 5개 데이터셋 7,663 객관식 문항)를 함께 제안. PubMed·StatPearls·교과서·Wikipedia(MedCorp 약 30M)에서 검색하며 RRF 결합이 최적. closed-form(객관식) 정답 정확도로 평가.",
     "bib_key": "DBLP:conf/acl/Xiong0LZ24",
     "bib_ver": "v2",
     "domain": [
@@ -3246,7 +3246,7 @@
       "medical"
     ],
     "paper_link": "https://arxiv.org/abs/2408.01107",
-    "note": "22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, College Biology/Medicine; outperforms BioLLMs, GPT-3.5, NewBing",
+    "note": "생물학 질문 추론용 RAG-LLM 프레임워크. 정제된 PubMed 초록 약 2,237만 건 + 도메인 지식 계층 + 미세조정 임베딩에 검색엔진 기반 반복 검색을 결합. GeneTuring·MedMCQA·College Biology/Medicine 등 closed-form QA에서 BioLLM·GPT-3.5 능가.",
     "ko_cells": [
       "K1.O1"
     ],
@@ -3258,7 +3258,7 @@
     "subsection": "Text-only Closed-form QA"
   },
   {
-    "title": "CLINFO.AI: AN OPEN-SOURCE RETRIEVAL-AUGMENTED LARGE LANGUAGE MODEL SYSTEM FOR ANSWERING MEDICAL QUESTIONS USING SCIENTIFIC LITERATURE",
+    "title": "Clinfo.ai: An Open-Source Retrieval-Augmented Large Language Model System for Answering Medical Questions using Scientific Literature",
     "year": 2024,
     "venue": "PSB",
     "venue_type": "AI",
@@ -3269,9 +3269,9 @@
     "generator_train": false,
     "eval_task": "PubMedRS-200",
     "eval_metric": "UniEval, COMET, CTC, BERTScore, ROUGE-L, METEOR",
-    "method": "PubMedRS-200",
+    "method": "Clinfo.AI",
     "paper_link": "https://arxiv.org/abs/2310.16146",
-    "note": "PubMed SR 의료 QA 벤치마크. Clinfo.ai PSB 2024.",
+    "note": "과학 문헌(PubMed)을 동적으로 검색해 임상 질문에 답하는 오픈소스 RAG 시스템. 각 근거에 번호 인용을 단 'Literature Summary' 장문 합성을 생성. 체계적 문헌고찰 기반 200문항 PubMedRS-200 벤치마크 공개. (답변은 요약 품질 지표로 평가, 인용 P/R은 검색 단계만)",
     "bib_key": "DBLP:journals/corr/abs-2310-16146",
     "bib_ver": "v2",
     "domain": [
@@ -4879,7 +4879,7 @@
     "eval_metric": "Accuracy, Precision",
     "method": "PaperQA",
     "paper_link": "https://arxiv.org/abs/2312.07559v2",
-    "note": "Map-Reduce 환각 0% 인용 답변. LitQA 신규 벤치마크.",
+    "note": "전문(full-text) 논문을 검색하는 RAG 에이전트. map-reduce로 근거를 모은 뒤 문장마다 인용을 단 장문 답변을 생성하며 환각 인용 0건 보고. 평가용으로 50문항 객관식 LitQA 벤치마크를 함께 제안(시스템 출력 자체는 장문·인용형).",
     "bib_key": "DBLP:journals/corr/abs-2312-07559",
     "bib_ver": "v2",
     "domain": [
