@@ -811,6 +811,8 @@ SECTION_OVERVIEWS = {
     'K1.O1': {
         'subsection': 'Literature-grounded Answering',
         'subsubsec_id': 'subsubsec:kxo_k1o1',
+        # Short 1-2 sentence summary of what the cell IS — distilled from main.tex §4.1.1
+        'description': 'A system operating under the Ground objective retrieves information over PubMed, full-text articles, or open-access corpora to utilize Primary Literature, producing either a closed-form verdict or a cited paragraph anchored to the retrieved sources so that its factual accuracy and citation fidelity can be rigorously evaluated.',
         # Abstracted paragraph — concrete system names dropped; the cited papers are
         # surfaced visually as card grid below the paragraph.
         'paragraph': r'''A system operating under the \textcolor{Oaxis}{\textsc{Ground}} objective retrieves information over PubMed~\cite{canese2013pubmed}, full-text articles, or open-access corpora to utilize \textcolor{Kaxis}{\textsc{Primary Literature}}, producing either a closed-form verdict or a cited paragraph anchored to the retrieved sources so that its factual accuracy and citation fidelity can be rigorously evaluated. The methodologies developed for this intersection include retrieval-augmented generation (RAG) frameworks~\cite{DBLP:conf/acl/Xiong0LZ24}\cite{DBLP:journals/corr/abs-2408-01107}\cite{DBLP:conf/naacl/SohnPYPHSKK25}\cite{DBLP:journals/corr/abs-2312-07559}\cite{asai2026synthesizing}\cite{DBLP:journals/corr/abs-2310-16146} that span both closed-form and long-form citation regimes. Activity within this domain follows from the parallel growth of multiple-choice and short-answer benchmarks, dense and hybrid retrievers optimized for scientific text, and citation-based evaluations that facilitate automated verification.''',
@@ -827,6 +829,7 @@ SECTION_OVERVIEWS = {
     'K3.O3': {
         'subsection': 'Weakly-verified Hypothesis Generation',
         'subsubsec_id': 'subsubsec:o3-weakverifier',
+        'description': 'A final form of hypothesis is one in which the system generates a candidate that no strong external verifier can directly check, so that evaluation falls back to downstream task accuracy, expert validation, or recovery against a held-out reference rather than to docking, database lookup, or simulation.',
         'paragraph': r'''A final form of hypothesis is one in which the system generates a candidate that no strong external verifier can directly check, so that evaluation falls back to downstream task accuracy, expert validation, or recovery against a held-out reference rather than to docking, database lookup, or simulation. The output is typically a literature-derived hypothesis, such as a cellular-response prediction, a biomedical link prediction, or a molecular structure inferred from a non-textual signal, and the absence of an in-loop verifier means that novelty and plausibility carry more of the evaluation burden than physical correctness does. Evaluation in this setting consists of distributional similarity for predicted perturbation responses, held-out edge recovery for link-prediction tasks, and Top-K accuracy or Tanimoto similarity against held-out reference structures for measurement-derived candidates, instantiated across retrieval-augmented perturbation prediction~\cite{DBLP:journals/corr/abs-2603-07233}\cite{replogle2022mapping}\cite{DBLP:journals/corr/abs-2408-10609}\cite{roohani2024gears}\cite{norman2019exploring}, biomedical link prediction~\cite{DBLP:journals/bioinformatics/BreitOAS20}\cite{DBLP:conf/nips/HuFZDRLCL20}, and MS/MS-driven molecular discovery~\cite{DBLP:conf/nips/BushuievBJYKSHW24}. These metrics certify that the generated hypotheses recover known cases or align with expert intuition, but the absence of a strong external verifier leaves the K3.O3 and K4.O3 cells of the catalog largely empty, a sparsity we revisit in \S\ref{sec:frontiers} as a concrete frontier for future scientific RAG.''',
         'evidence': {
             'DBLP:journals/corr/abs-2603-07233': 'PT-RAG (Perturbation-aware Two-stage RAG): GenePT semantic retrieval + Gumbel-Softmax cell-type-aware selection. Outperforms STATE and vanilla RAG on Replogle-Nadig single-gene perturbation in distributional similarity W1, W2 (arXiv:2603.07233 §Abstract).',
@@ -842,6 +845,7 @@ SECTION_OVERVIEWS = {
     'K2.O3': {
         'subsection': 'Simulation-verified Materials Discovery',
         'subsubsec_id': 'subsubsec:o3-simulation',
+        'description': 'A third form of hypothesis is one in which the system proposes new material candidates and a physics-based simulator serves as the external verifier, returning thermodynamic stability and reaction-energy profiles through density functional theory or end-to-end computational results through executed scientific code.',
         'paragraph': r'''A third form of hypothesis is one in which the system proposes new material candidates and a physics-based simulator serves as the external verifier, returning thermodynamic stability and reaction-energy profiles through density functional theory or end-to-end computational results through executed scientific code. The output is either a candidate crystal, a relaxed adsorbate-surface configuration, or a metal-organic framework selected for a sorbent target, and novelty is measured against an existing materials database while validity is measured against the simulator's physical predictions. Evaluation in this setting consists of stable-crystal classification with \(F_1\) and discovery-acceleration factor, validity and coverage of generated crystals, lowest-energy adsorbate-surface identification rate against orders-of-magnitude simulator-time speedup, sorbent-screening targets, foundation MLIP training and evaluation splits, physics-aware tests beyond DFT-error metrics, multi-verifier coverage across thousands of tasks, and executable-code tasks drawn from peer-reviewed publications~\cite{riebesell2025matbench}\cite{DBLP:conf/iclr/XieFGBJ22}\cite{lan2023adsorbml}\cite{sriram2024odac23}\cite{DBLP:journals/corr/abs-2410-12771}\cite{DBLP:journals/corr/abs-2509-20630}\cite{choudhary2024jarvis}\cite{DBLP:journals/corr/abs-2410-05080}. These benchmarks certify that proposed candidates pass simulation-based checks at orders-of-magnitude greater throughput than traditional high-throughput screening, but density functional theory and code execution themselves rely on functionals, parameter choices, and software assumptions whose limits the simulator cannot diagnose from within.''',
         'evidence': {
             'riebesell2025matbench': 'WBM 215,488 unique prototypes after cleaning, 32,942 stable. Top model eqV2 S DeNS reaches F1=0.815 with DAF=5.042 (arXiv:2308.14920 §2.1 + Table 1).',
@@ -857,12 +861,18 @@ SECTION_OVERVIEWS = {
 }
 
 
-def render_overview_section(cell_key, papers_by_key, base='../'):
-    """Render a survey section overview paragraph with footnote-popover citations."""
+def render_overview_section(cell_key, papers_by_key, papers_in_cell=None, base='../'):
+    """Render a short section description + sub-subsection-grouped paper cards.
+
+    papers_in_cell: list of papers in this cell (for grouping by subsection).
+                    If None, falls back to legacy citation-list-based rendering.
+    """
     o = SECTION_OVERVIEWS.get(cell_key)
     if not o:
         return ''
-    text = o['paragraph']
+    description = o.get('description', '')
+    # Legacy paragraph path (only used if no description provided)
+    text = o.get('paragraph', '') if not description else ''
     evidence_map = o.get('evidence', {})
     cite_order = []
 
@@ -905,6 +915,54 @@ def render_overview_section(cell_key, papers_by_key, base='../'):
         if p:
             card_html.append(paper_card(p, base=base, axis_scope=axis_scope))
 
+    # If a short `description` is set, build sub-subsection grouped card view (preferred).
+    if description:
+        from collections import OrderedDict
+        groups = OrderedDict()  # subsection name → list of cards
+        allowed_subs = axis_subsections(axis_scope, cell_key=cell_key) or set()
+        no_sub_cards = []
+        for p in (papers_in_cell or []):
+            subs = p.get('subsection') or ''
+            sub_list = subs if isinstance(subs, list) else [subs]
+            sub_list = [s for s in sub_list if s and (not allowed_subs or s in allowed_subs)]
+            card_h = paper_card(p, base=base, axis_scope=axis_scope)
+            if sub_list:
+                # Place card under each matching sub-subsection
+                for s in sub_list:
+                    groups.setdefault(s, []).append(card_h)
+            else:
+                no_sub_cards.append(card_h)
+        # Sort groups by member count descending so the most populated appears first
+        sorted_groups = sorted(groups.items(), key=lambda kv: -len(kv[1]))
+        group_html_parts = []
+        for sub_name, cards in sorted_groups:
+            n = len(cards)
+            group_html_parts.append(
+                f'<div class="ov-group">'
+                f'  <h3 class="ov-group-title">{esc(sub_name)} <span class="ov-group-count">{n}</span></h3>'
+                f'  <div class="card-grid">{"".join(cards)}</div>'
+                f'</div>'
+            )
+        if no_sub_cards:
+            group_html_parts.append(
+                f'<div class="ov-group">'
+                f'  <h3 class="ov-group-title ov-group-other">Other <span class="ov-group-count">{len(no_sub_cards)}</span></h3>'
+                f'  <div class="card-grid">{"".join(no_sub_cards)}</div>'
+                f'</div>'
+            )
+        groups_html = '\n'.join(group_html_parts) or ''
+        return f'''
+<section class="cell-overview">
+  <div class="wrap">
+    <h2 class="ov-title">Section overview &mdash; § {esc(o['subsection'])}</h2>
+    <div class="ov-paragraph">
+      <p>{esc(description)}</p>
+    </div>
+    {groups_html}
+  </div>
+</section>'''
+
+    # ----- Legacy paragraph + footnote-popover path (unused once all overviews have descriptions) -----
     # Hidden popover-target list (visually hidden but in DOM for footnotes.js)
     fn_html = ('<section class="footnotes overview-fns" aria-hidden="true">'
                '<ol>' + ''.join(fn_items) + '</ol></section>')
@@ -940,7 +998,7 @@ def render_cell_pages():
 
             cards = '\n'.join(paper_card(p, base='../', axis_scope=O) for p in ps) or '<p class="empty">No verified entries in this cell yet — see <a href="../about.html#methodology">methodology</a> and the survey §11 frontier discussion.</p>'
             sf = subsec_filter_html(ps, prefix=f'cell{cell}', axis_scope=O, cell_key=cell)
-            overview_html = render_overview_section(cell, papers_by_key, base='../')
+            overview_html = render_overview_section(cell, papers_by_key, papers_in_cell=ps, base='../')
 
             # Cell-tier badge (Active / Emerging / Frontier) from §4 K×O Cross-Tab Analysis
             tier_info = CELL_TIERS.get(cell)

@@ -1456,3 +1456,40 @@ sup.footnote-ref a:focus {
   color: var(--fg, #1a1a1a);
   font-weight: 600;
 }
+
+/* ============= Cell overview — sub-subsection grouped cards ============= */
+.cell-overview .ov-group {
+  margin-top: 1.5rem;
+}
+.cell-overview .ov-group + .ov-group {
+  margin-top: 2rem;
+}
+.cell-overview .ov-group-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--fg, #1a1a1a);
+  margin: 0 0 0.8rem 0;
+  padding: 0.4rem 0.8rem;
+  background: var(--bg, #fff);
+  border-left: 3px solid var(--accent, #005faf);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.cell-overview .ov-group-count {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent, #005faf);
+  background: rgba(0, 95, 175, 0.08);
+  padding: 1px 8px;
+  border-radius: 10px;
+}
+.cell-overview .ov-group-other {
+  border-left-color: var(--fg-muted, #999);
+}
+.cell-overview .ov-group-other .ov-group-count {
+  color: var(--fg-muted, #777);
+  background: rgba(0, 0, 0, 0.06);
+}
