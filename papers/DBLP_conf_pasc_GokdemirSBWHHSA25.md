@@ -2,52 +2,40 @@
 title: "HiPerRAG: High-Performance Retrieval Augmented Generation for Scientific Insights"
 bib_key: "DBLP:conf/pasc/GokdemirSBWHHSA25"
 year: 2025
-domain: general
+domain: bio, medical, chem, physics
 type: Method
-venue: PASC 2025
-paper_link: https://doi.org/10.1145/3732775.3733586
+venue: PASC
+paper_link: https://arxiv.org/abs/2505.04846
 ---
-# HiPerRAG: High-Performance Retrieval Augmented Generation for Scientific Insights
+# HiPerRAG: HPC-Scale RAG for Scientific QA
+> PASC 2025 | Method | bio · medical · chem · physics
 
-DBLP:conf/pasc/GokdemirSBWHHSA25 | 2025 | PASC 2025 | Method | [general] | [paper](https://doi.org/10.1145/3732775.3733586)
+## 한 줄 요약
+HiPerRAG는 고성능 컴퓨팅(HPC)으로 360만 편 이상의 과학 논문을 색인·검색해 객관식 과학 QA에 답하는 RAG 인프라다. 멀티모달 문서 파서 Oreo와 질의 인지 인코더 미세조정 ColTrast를 핵심으로, Polaris·Sunspot·Frontier 슈퍼컴퓨터의 수천 GPU로 백만 문서 규모 RAG를 가능하게 한다. (출력은 합성이 아니라 검색-답변형 closed-form QA이므로 K1.O1로 분류.)
 
-**Retriever**: ColTrast (query-aware encoder fine-tuning, contrastive + late-interaction)
-**Eval Task**: SciQ, PubMedQA, ProteinInteractionQA, ProteinFunctionQA, BioSynthQP
-**Eval Metric**: Accuracy (SciQ: 90%, PubMedQA: 76%)
-**Method Name**: HiPerRAG
-**Modality**: Text, Multimodal documents (Oreo: high-throughput multimodal parsing)
+## 시스템 구조 (HiPerRAG Architecture)
+- **코퍼스:** 360만 편 이상의 과학 논문을 색인·검색.
+- **Oreo (멀티모달 문서 파싱):** 대규모 과학 문헌을 고처리량으로 파싱하는 모델. 기존 파서 대비 약 4.5배 빠름.
+- **ColTrast (검색기 미세조정):** 질의 인지(query-aware) 인코더를 contrastive + late-interaction 방식으로 미세조정해 검색 정확도를 높이는 알고리즘.
+- **생성기:** 검색된 패시지를 LLM에 전달해 객관식 답을 생성.
+- **HPC 스택:** Polaris·Sunspot·Frontier에서 수천 GPU로 확장하는 인프라(독립 모델이 아니라 백만 문서 규모 RAG를 떠받치는 소프트웨어 스택).
 
-> PASC 2025 | 2025 | Method | general (cross-domain science)
-#### 📌 한 줄 요약
-HPC(고성능 컴퓨팅)를 활용하여 360만 편 이상의 과학 논문을 인덱싱하고, Oreo 멀티모달 문서 파싱 모델과 ColTrast 쿼리 인식 인코더 파인튜닝으로 SciQ 90%, PubMedQA 76% 정확도를 달성하며 GPT-4 및 도메인 특화 모델을 능가하는 대규모 과학 RAG 워크플로이다.
+## 동작 파이프라인 (inference)
+1. 질문 입력 → ColTrast로 미세조정된 인코더로 360만+ 논문 색인에서 관련 패시지 검색.
+2. 검색된 패시지를 LLM 생성기에 전달.
+3. 객관식/단답 형태의 답을 생성하고 정확도로 평가.
 
-#### 🎯 개발/구축 배경
-**기존 접근법의 한계**
-- RAG를 수백만 편 논문으로 확장하면 문서 파싱 및 임베딩 계산 비용이 급증
-- 과학 콘텐츠의 미묘한 의미론(수식, 그림, 표)을 표현 정렬하는 알고리즘 복잡성 높음
+## 주요 결과
+- 기존 과학 QA 벤치마크에서 **SciQ 90%, PubMedQA 76% 정확도**.
+- 자체 제작 단백질 QA 벤치마크(ProteinInteractionQA, ProteinFunctionQA) 도입.
+- 핵심 기여: 백만 문서 규모로의 RAG 확장(파싱·임베딩 비용 문제 해결)과 검색 정확도 향상.
 
-**이 시스템이 필요한 이유**
-- 과학 출판물이 지수적으로 증가하는 환경에서 유사 발견 방지 및 학제간 협력 촉진을 위한 대규모 RAG 필요
-- PubMed에서 연간 169만 편, 분당 3편 이상 등록되는 의생명 논문 처리 인프라 필요
-
-#### 🔨 시스템 구성
-**Oreo**: 멀티모달 문서 파싱 고처리량 모델 (텍스트, 그림, 표, 수식 통합 처리). **ColTrast**: 대조 학습과 late-interaction 기법을 결합한 쿼리 인식 인코더 파인튜닝 알고리즘 (다양한 모델 크기, 손실 함수 비교). Polaris, Sunspot, Frontier 수천 대 GPU로 분산 확장. HPC 기반 warmstart 최적화로 효율적 인덱싱.
-
-#### 📊 주요 결과
-| 항목 | 수치 |
-|---|---|
-| 인덱싱 규모 | 3.6M 이상 과학 논문 |
-| SciQ 정확도 | 90% |
-| PubMedQA 정확도 | 76% |
-| 비교 대상 능가 | PubMedGPT (도메인 특화), GPT-4 (상용) |
-| 신규 벤치마크 | ProteinInteractionQA, ProteinFunctionQA, BioSynthQP |
-| HPC 플랫폼 | Polaris, Sunspot, Frontier (수천 GPU) |
-
-#### ⚠️ 한계점
-- 수천 대 GPU 인프라가 필요하여 일반 연구자의 접근성 제한
-- Oreo 파싱 정확도는 문서 레이아웃 복잡도에 따라 달라짐
-- 학제간 의미론 정렬(cross-domain semantic alignment)의 어려움 남아 있음
+## 한계점
+- 출력이 객관식 QA에 한정되어 다중 출처 통합(synthesis)이나 장문 합성은 다루지 않음.
+- 슈퍼컴퓨터급 자원을 전제로 한 인프라라 재현·접근성이 제한적.
+- 단백질 QA 벤치마크가 LLM 생성으로 만들어져 품질 편향 가능.
 
 ## 관련 정보
-- **논문 (ACM DL)**: [https://doi.org/10.1145/3732775.3733586](https://doi.org/10.1145/3732775.3733586)
-- **arXiv preprint**: [https://arxiv.org/abs/2505.04846](https://arxiv.org/abs/2505.04846)
+- arXiv: 2505.04846 (https://arxiv.org/abs/2505.04846)
+- DOI: https://doi.org/10.1145/3732775.3733586 (PASC 2025)
+- Argonne National Laboratory · University of Chicago 외

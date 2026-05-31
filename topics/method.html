@@ -27,8 +27,8 @@
       <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
-        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">11</span></a>
-<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">6</span></a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">12</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">5</span></a>
 <a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">6</span></a>
 <a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">3</span></a>
 <a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">2</span></a>
@@ -81,7 +81,7 @@
       </div>
     </details>
 
-    <a href="../topics/method.html" class="sb-item active"><span class="sb-icon">⚙</span> Methods <span class="sb-count">184</span></a>
+    <a href="../topics/method.html" class="sb-item active"><span class="sb-icon">⚙</span> Methods <span class="sb-count">183</span></a>
     <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">104</span></a>
     <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">16</span></a>
     <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
@@ -105,7 +105,7 @@
   <div class="wrap">
     <p class="eyebrow"><a href="../index.html">← Home</a></p>
     <h1>Methods</h1>
-    <p class="lede"><strong>184</strong> entries of type <code>Method</code>.</p>
+    <p class="lede"><strong>183</strong> entries of type <code>Method</code>.</p>
   </div>
 </section>
 
@@ -400,15 +400,6 @@
 </article>
 
 <article class="card" data-sub="">
-  <h3 class="card-title">HiPerRAG: High-Performance RAG for Scientific Insights</h3>
-  <div class="card-meta"><span class="meta-method">HiPerRAG</span> · <span class="meta-venue">PASC</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">HPC-scale (Polaris/Sunspot/Frontier). Oreo parser 4.5x faster. ProteinInteractionQA/FunctionQA/BioSynthQP self-made.</p>
-  
-  <div class="card-tags"><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">Image</span><span class="tag tag-mod">Structured Table</span></div>
-  
-</article>
-
-<article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2408.00727" target="_blank" rel="noopener">Improving Retrieval-Augmented Generation in Medicine with Iterative Follow-up Questions ↗</a></h3>
   <div class="card-meta"><span class="meta-method">i-MedRAG</span> · <span class="meta-venue">PSB</span> · <span class="meta-year">2025</span></div>
   <p class="card-note">의료 RAG 후속 쿼리 반복 생성. MedQA Zero-shot GPT-3.5 69.68% SOTA.</p>
@@ -613,6 +604,15 @@
   
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Curated Knowledge Base × Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">KG</span></div>
   <a href="../papers/DBLP_conf_acl_ChenLJWG0025.html" class="card-summary-link">Summary →</a>
+</article>
+
+<article class="card" data-sub="Text-only Closed-form QA">
+  <h3 class="card-title"><a href="https://arxiv.org/abs/2505.04846" target="_blank" rel="noopener">HiPerRAG: High-Performance Retrieval Augmented Generation for Scientific Insights ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">HiPerRAG</span> · <span class="meta-venue">PASC</span> · <span class="meta-year">2025</span></div>
+  <p class="card-note">HPC 기반 RAG로 360만+ 과학 논문을 색인(Oreo 멀티모달 파서 + ColTrast 검색기 미세조정)해 객관식 과학 QA에 답하는 시스템. SciQ 90%·PubMedQA 76%. Polaris·Sunspot·Frontier 슈퍼컴 수천 GPU로 백만 문서 규모 RAG를 확장.</p>
+  
+  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Primary Literature × Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <a href="../papers/DBLP_conf_pasc_GokdemirSBWHHSA25.html" class="card-summary-link">Summary →</a>
 </article>
 
 <article class="card" data-sub="Text-only Long-form Citation">
@@ -1729,15 +1729,6 @@
   
   <div class="card-tags"><a href="../cell/K4.html" class="tag tag-cell" title="K4">Tacit Knowledge</a><span class="tag tag-sub">Embedded in software</span><a href="../domain/chemistry.html" class="tag tag-domain">chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/proii.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Aggregative Synthesis">
-  <h3 class="card-title">DBLP:conf/pasc/GokdemirSBWHHSA25</h3>
-  
-  <p class="card-note">HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 76%; outperforms PubMedGPT and GPT-4; scales to thousands of GPUs</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Primary Literature × Synthesis</a><span class="tag tag-sub">Aggregative Synthesis</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_pasc_GokdemirSBWHHSA25.html" class="card-summary-link">Summary →</a>
 </article>
 
 <article class="card" data-sub="Simulation-verified Materials Discovery">

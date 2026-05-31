@@ -1675,49 +1675,6 @@
     "cross_source": false
   },
   {
-    "title": "HiPerRAG: High-Performance RAG for Scientific Insights",
-    "year": 2025,
-    "venue": "PASC",
-    "venue_type": "AI",
-    "db_name": "Scientific Literature Corpus (SLC) + Protein Literature Corpus (PLC)",
-    "db_size": "3.6M+ docs (SLC), 10,124 (PLC)",
-    "db_open": "Partial",
-    "chunk": "semantic chunking (SFR-Embedding-Mistral cosine sim)",
-    "retriever": "ColTrast",
-    "retriever_base": "SFR-Embedding-Mistral, BERT-base",
-    "pre_retrieval": "N/A",
-    "generator": "Mistral, Mixtral8x7B",
-    "generator_base": "Mistral-7B, Mixtral-8x7B",
-    "eval_task": "SciQ, PubMedQA, LitQA, ProteinInteractionQA, ProteinFunctionQA, BioSynthQP",
-    "eval_metric": "Accuracy, P@10, MRR@10",
-    "method": "HiPerRAG",
-    "note": "HPC-scale (Polaris/Sunspot/Frontier). Oreo parser 4.5x faster. ProteinInteractionQA/FunctionQA/BioSynthQP self-made.",
-    "domain": [
-      "bio",
-      "medical",
-      "chem",
-      "physics"
-    ],
-    "modality": [
-      "Text",
-      "Image",
-      "Structured Table"
-    ],
-    "evaluated_on": [
-      "SciQ",
-      "PubMedQA",
-      "LitQA",
-      "ProteinInteractionQA",
-      "ProteinFunctionQA",
-      "BioSynthQP"
-    ],
-    "type": "Method",
-    "ko_cells": [],
-    "ko_primary": null,
-    "ko_note": "",
-    "cross_source": false
-  },
-  {
     "title": "Improving Retrieval-Augmented Generation in Medicine with Iterative Follow-up Questions",
     "year": 2025,
     "venue": "PSB",
@@ -8434,22 +8391,30 @@
   },
   {
     "bib_key": "DBLP:conf/pasc/GokdemirSBWHHSA25",
-    "title": "DBLP:conf/pasc/GokdemirSBWHHSA25",
-    "year": null,
-    "venue": null,
-    "method": null,
-    "domain": [],
-    "paper_link": "",
-    "note": "HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 76%; outperforms PubMedGPT and GPT-4; scales to thousands of GPUs",
-    "ko_cells": [
-      "K1.O2"
+    "title": "HiPerRAG: High-Performance Retrieval Augmented Generation for Scientific Insights",
+    "year": 2025,
+    "venue": "PASC",
+    "method": "HiPerRAG",
+    "domain": [
+      "bio",
+      "medical",
+      "chem",
+      "physics"
     ],
-    "ko_primary": "K1.O2",
+    "paper_link": "https://arxiv.org/abs/2505.04846",
+    "note": "HPC 기반 RAG로 360만+ 과학 논문을 색인(Oreo 멀티모달 파서 + ColTrast 검색기 미세조정)해 객관식 과학 QA에 답하는 시스템. SciQ 90%·PubMedQA 76%. Polaris·Sunspot·Frontier 슈퍼컴 수천 GPU로 백만 문서 규모 RAG를 확장.",
+    "ko_cells": [
+      "K1.O1"
+    ],
+    "ko_primary": "K1.O1",
     "ko_note": "HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 76%; outperforms PubMedGPT and GPT-4; scales to thousands of GPUs",
     "cross_source": false,
     "type": "Method",
     "bib_only": true,
-    "subsection": "Aggregative Synthesis"
+    "subsection": "Text-only Closed-form QA",
+    "modality": [
+      "Text"
+    ]
   },
   {
     "bib_key": "DBLP:journals/corr/abs-2603-15712",
