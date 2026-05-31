@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Biomedical knowledge graph-optimized prompt generation for large language models — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1780206607">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">12</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">7</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">6</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">7</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">2</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">2</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">27</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">95</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">142</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">15</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">12</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">191</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">104</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">16</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>Biomedical knowledge graph-optimized prompt generation for large language models</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Bioinformatics</span>
+      <span class="meta-year">2024</span>
+      <a href="https://arxiv.org/abs/2311.17330" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Curated Knowledge Base × Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>KG-RAG: Biomedical Knowledge-Graph-Optimized Prompting (SPOKE)</h1>
+<blockquote>
+<p>Bioinformatics 2024 | Method | bio · medical</p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>SPOKE 생의학 지식그래프에서 질병 중심 서브그래프를 minimal graph schema로 추출하고, 임베딩 기반 context pruning으로 프롬프트와 의미적으로 가장 관련 있는 트리플만 골라 LLM 프롬프트에 주입하는 토큰 최적화 KG-RAG 프레임워크. 전체 스키마를 넣는 Cypher-RAG 대비 토큰을 평균 54% 줄이면서 검색 정확도·강건성을 높인다.</p>
+<h2>시스템 구조 (KG-RAG Architecture)</h2>
+<ul>
+<li><strong>SPOKE KG:</strong> 41개 큐레이티드 생의학 DB를 통합한 property graph(28종 노드 타입 ~4,200만 노드, 91종 엣지 타입 ~1.6억 엣지). 대부분 체계적 실험 측정 기반 큐레이션.</li>
+<li><strong>Minimal-schema 서브그래프:</strong> 질병 노드의 이웃 트리플 (S,P,O)만 가져오고, SPOKE의 predicate 네이밍 규칙으로 스키마 없이 트리플을 영어 문장으로 변환(예: &quot;Disease hypertension associates Gene VHL&quot;).</li>
+<li><strong>임베딩 기반 pruning:</strong> 추출 트리플과 프롬프트를 같은 벡터공간에 임베딩, 코사인 유사도 75퍼센타일 초과 &amp; ≥0.5인 것만 선택. context embedding은 PubMedBert.</li>
+<li><strong>프롬프트 생성:</strong> 정제 컨텍스트를 자연어로 변환 + provenance(옵션: p-value 등 evidence) 첨부해 enriched prompt 구성.</li>
+<li>하이퍼파라미터: context volume(100–200), context embedding model. 개체 인식은 GPT-3.5 추출 + MiniLM으로 SPOKE 질병 노드 매칭(99.7% 정확).</li>
+</ul>
+<h2>동작 파이프라인 (inference)</h2>
+<ol>
+<li>질병 개체 인식(GPT-3.5 추출 → MiniLM 임베딩으로 SPOKE 노드 매칭).</li>
+<li>매칭 노드의 이웃 트리플 fetch.</li>
+<li>트리플·프롬프트 임베딩 → 코사인 pruning으로 prompt-aware context 선택.</li>
+<li>자연어 변환 + provenance 첨부 → enriched prompt 조립.</li>
+<li>LLM(Llama-2-13b/GPT-3.5/GPT-4, temp 0)으로 답 생성.</li>
+</ol>
+<h2>주요 결과</h2>
+<p><strong>RAG 비교(KG-RAG vs Cypher-RAG, 100문항):</strong> 검색 정확도 75%→<strong>97%</strong>; 개체명 소문자 perturbation 시 Cypher-RAG 0%로 붕괴, KG-RAG 97% 유지; 토큰 8006→<strong>3693(−54%)</strong>.
+<strong>True/False·MCQ(정확도):</strong> MCQ에서 Llama-2 0.31→<strong>0.53</strong>, GPT-3.5 0.63→<strong>0.79</strong>, GPT-4 0.68→0.74. 세 LLM 모두 일관 향상.</p>
+<h2>한계점</h2>
+<ul>
+<li>현재 질병 중심 개체만 임베딩 → 질병 중심 질문에 한정(전체 노드로 확장은 future work).</li>
+<li>성능이 SPOKE 정보 품질에 의존(KG 자체의 엄밀 평가는 범위 밖).</li>
+<li>SPOKE에 구현됨 — 타 KG/도메인 일반화는 향후 과제.</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li>arXiv: 2311.17330 · Bioinformatics 2024 (Soman et al., UCSF)</li>
+<li>코드: <a href="https://github.com/BaranziniLab/KG_RAG">https://github.com/BaranziniLab/KG_RAG</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="../llms.txt">llms.txt</a> ·
+      <a href="../llms-full.txt">llms-full.txt</a> ·
+      <a href="../data/papers.json">papers.json</a> ·
+      <a href="../about.html">About</a>
+    </p>
+  </div>
+</footer>
+<script src="../static/footnotes.js?v=1779886412"></script>
+</body>
+</html>

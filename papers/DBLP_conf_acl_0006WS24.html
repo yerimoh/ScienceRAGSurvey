@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MindMap: Knowledge Graph Prompting Sparks Graph of Thoughts in Large Language Models — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1780206607">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">12</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">7</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">6</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">7</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">2</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">2</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">27</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">95</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">142</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">15</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">12</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">191</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">104</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">16</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>MindMap: Knowledge Graph Prompting Sparks Graph of Thoughts in Large Language Models</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">ACL</span>
+      <span class="meta-year">2024</span>
+      <a href="https://arxiv.org/abs/2308.09729" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Curated Knowledge Base × Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>MindMap: Knowledge Graph Prompting for Medical QA</h1>
+<blockquote>
+<p>ACL 2024 | Method | medical</p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>MindMap는 큐레이티드 임상 지식그래프(질병-증상-약물-검사)에서 질의 관련 증거 서브그래프를 검색하고, 이를 자연어 추론 경로(&quot;graph of thoughts&quot;)로 통합하여 LLM이 명시적 KG 지식과 암묵 지식을 결합한 근거 답변 + 추론 경로(mind map)를 생성하도록 프롬프팅하는 KG-프롬프팅 프레임워크다.</p>
+<h2>시스템 구조 (MindMap Architecture)</h2>
+<ul>
+<li><strong>큐레이티드 임상 KG:</strong> EMCKG(영어, 1,122 노드 / 5,802 트리플 / 6 관계)와 CMCKG(중국어, 62,282 노드 / 506,490 트리플 / 12 관계). 증상→질병→검사/약물 임상 흐름.</li>
+<li><strong>증거 서브그래프 검색(상보적 2종):</strong> LLM으로 질의 엔티티 추출 + BERT 유사도로 KG 노드 매칭 → ① path-based(질의 엔티티를 ≤k hop 경로로 연결), ② neighbor-based(경로 노드의 1-hop 이웃 확장). 클러스터링·샘플링으로 pruning.</li>
+<li><strong>Graph-of-thoughts:</strong> 검색 서브그래프의 엔티티 체인을 LLM이 자연어로 변환·집계해 단일 추론 그래프로 통합.</li>
+<li><strong>프롬프트:</strong> system instruction + question + 증거 그래프 + graph-of-thought instruction + exemplars.</li>
+</ul>
+<h2>동작 파이프라인 (inference)</h2>
+<ol>
+<li><strong>Evidence graph mining:</strong> 엔티티 인식(LLM+BERT) → path/neighbor 서브그래프 검색.</li>
+<li><strong>Aggregation:</strong> 서브그래프들을 단일 추론 그래프로 통합·정제.</li>
+<li><strong>Reasoning:</strong> 프롬프트로 LLM이 그래프와 암묵 지식을 결합 → (a) 요약 답변, (b) 추론 과정, (c) mind map(구조화 텍스트) 출력.</li>
+</ol>
+<h2>주요 결과</h2>
+<p>backbone GPT-3.5로 일부 baseline에서 GPT-4 능가. 데이터셋: GenMedGPT-5k, CMCQA, ExplainCPE.</p>
+<ul>
+<li>GenMedGPT-5k BERTScore F1: MindMap <strong>0.7954</strong> &gt; KG Retriever 0.7868 &gt; GPT-4 0.7786. GPT-4 평가 ranking에서 MindMap 1.87 vs GPT-4 4.18.</li>
+<li>쌍대 비교(MindMap vs GPT-4 승률): diversity/integrity 100%, 약물 추천 83%, 진단 73%.</li>
+<li>ExplainCPE 정확도 61.7%. Ablation: path+neighbor 결합이 단일 대비 우수.</li>
+</ul>
+<h2>한계점</h2>
+<ul>
+<li>성능이 큐레이티드 임상 KG의 완전성·정확성에 의존, KG 없는 영역 일반화 제한.</li>
+<li>엔티티 인식·매칭 오류 시 서브그래프 오염 가능.</li>
+<li>평가가 GPT-4 심판·BERTScore에 의존(편향 가능), 의료 3개 데이터셋에 국한.</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li>arXiv: 2308.09729 · ACL 2024 (Wen, Wang, Sun)</li>
+<li>코드: <a href="https://github.com/wyl-willing/MindMap">https://github.com/wyl-willing/MindMap</a></li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="../llms.txt">llms.txt</a> ·
+      <a href="../llms-full.txt">llms-full.txt</a> ·
+      <a href="../data/papers.json">papers.json</a> ·
+      <a href="../about.html">About</a>
+    </p>
+  </div>
+</footer>
+<script src="../static/footnotes.js?v=1779886412"></script>
+</body>
+</html>

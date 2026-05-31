@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GeneGPT: augmenting large language models with domain tools for improved access to biomedical information — Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1780206607">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Primary Literature × Ground <span class="sb-count">12</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Primary Literature × Synthesis <span class="sb-count">7</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Primary Literature × Hypothesis <span class="sb-count">6</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Curated Knowledge Base × Ground <span class="sb-count">7</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Curated Knowledge Base × Synthesis <span class="sb-count">2</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Curated Knowledge Base × Hypothesis <span class="sb-count">2</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Observational & Experimental × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Observational & Experimental × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Observational & Experimental × Hypothesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Tacit Knowledge × Ground <span class="sb-count">3</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Tacit Knowledge × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Tacit Knowledge × Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/K1.html" class="sb-sub">Primary Literature <span class="sb-count">21</span></a>
+<a href="../cell/K2.html" class="sb-sub">Curated Knowledge Base <span class="sb-count">58</span></a>
+<a href="../cell/K3.html" class="sb-sub">Observational & Experimental <span class="sb-count">27</span></a>
+<a href="../cell/K4.html" class="sb-sub">Tacit Knowledge <span class="sb-count">8</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/O1.html" class="sb-sub">Ground <span class="sb-count">4</span></a>
+<a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/O3.html" class="sb-sub">Hypothesis <span class="sb-count">1</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">95</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">54</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">142</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">29</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">15</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">12</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">191</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">104</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">16</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="paper-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
+    <h1>GeneGPT: augmenting large language models with domain tools for improved access to biomedical information</h1>
+    <div class="paper-hero-meta">
+      <span class="meta-venue">Bioinformatics</span>
+      <span class="meta-year">2024</span>
+      <a href="https://arxiv.org/abs/2304.09667" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
+    </div>
+    <div class="paper-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Curated Knowledge Base × Ground</a><span class="tag tag-sub">Text-only Closed-form QA</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+  </div>
+</section>
+<section class="paper-body">
+  <div class="wrap">
+    <article class="paper-markdown">
+      <h1>GeneGPT: LLMs Calling NCBI Web APIs for Genomics QA</h1>
+<blockquote>
+<p>Bioinformatics 2024 | Method | bio · medical</p>
+</blockquote>
+<h2>한 줄 요약</h2>
+<p>GeneGPT는 Codex(code-davinci-002)에게 in-context learning으로 NCBI Web API(E-utils + BLAST) 사용법을 가르치고, 디코딩 중 API 호출을 감지·실행해 그 raw 결과를 생성 텍스트에 다시 끼워넣는(augmented decoding) 방식으로 유전체 QA를 수행한다. GeneTuring 9개 태스크 평균 0.83으로 직전 최고 New Bing(0.44)을 크게 능가한다.</p>
+<h2>시스템 구조 (GeneGPT Architecture)</h2>
+<ul>
+<li><strong>NCBI Web APIs:</strong> ① E-utils(<code>esearch</code>/<code>efetch</code>/<code>esummary</code>) — <code>gene</code>/<code>snp</code>/<code>omim</code> DB에서 식별자·요약 조회. ② BLAST URL API(<code>CMD=Put</code>→<code>Get</code>, <code>blastn</code>, <code>nt</code> DB) — 서열 정렬.</li>
+<li><strong>In-context prompt(4부):</strong> instruction + documentation(API 문법) + demonstration(NCBI API로 푸는 예시 4개; URL/결과를 <code>[ ]</code>로 감싸고 <code>-&gt;</code>를 호출 indicator로 사용) + test question. (전부 사용=full, Dm.1+Dm.4만=slim)</li>
+<li><strong>Augmented decoding:</strong> 생성 중 <code>-&gt;</code> 토큰을 만나면 마지막 URL을 추출해 NCBI API를 호출하고 raw 결과를 텍스트에 삽입한 뒤 생성을 재개. <code>\n\n</code>이면 종료하고 &quot;Answer:&quot; 이후를 답으로 추출.</li>
+</ul>
+<h2>동작 파이프라인 (inference)</h2>
+<ol>
+<li>prompt(instruction+doc+demo+질문) 구성, Codex(temperature 0)로 생성.</li>
+<li><code>-&gt;</code> 감지 → URL 추출 → E-utils/BLAST 호출 → 결과 삽입 → 재개.</li>
+<li>한 질문에 여러 API를 연쇄(esearch→efetch; BLAST Put→Get). multi-hop(GeneHop)은 CoT로 서브질문 분해.</li>
+<li><code>\n\n</code> → 종료 → 답 추출.</li>
+</ol>
+<h2>주요 결과</h2>
+<p>GeneTuring(12 태스크 중 NCBI 관련 9개, 각 50문항):</p>
+<table>
+<thead>
+<tr>
+  <th>모델</th>
+  <th>Overall avg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPT-3 (davinci-003)</td>
+  <td>0.16</td>
+</tr>
+<tr>
+  <td>ChatGPT</td>
+  <td>0.12</td>
+</tr>
+<tr>
+  <td>New Bing</td>
+  <td>0.44</td>
+</tr>
+<tr>
+  <td><strong>GeneGPT-slim</strong></td>
+  <td><strong>0.83</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>직전 SOTA New Bing(0.44) 대비 큰 폭 향상. Sequence alignment(BLAST)에서 다른 모든 모델은 ~0.00, GeneGPT 0.66.</li>
+<li>GeneHop(multi-hop, 신규) 평균: GeneGPT 0.50 vs New Bing 0.24.</li>
+<li>Ablation: API demonstration이 documentation보다 in-context 학습에 유용, cross-task 일반화 강함.</li>
+</ul>
+<h2>한계점</h2>
+<ul>
+<li>자동 exact-match 평가(비교군은 원 벤치마크 수동 평가)라 기준이 동일하지 않음.</li>
+<li>일부 질문은 NCBI DB만으로 답 불가(E4 오류), 인자 오류(E2)·결과 추출 실패(E3) 존재.</li>
+<li>Codex(8k context·코드 이해) 의존, NCBI 서버 접근 필요.</li>
+</ul>
+<h2>관련 정보</h2>
+<ul>
+<li>arXiv: 2304.09667 · Bioinformatics 2024 (Jin, Yang, Chen, Lu; NCBI/NLM)</li>
+<li>도구: NCBI E-utils(gene/snp/omim) + BLAST(blastn, nt)</li>
+</ul>
+
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="../llms.txt">llms.txt</a> ·
+      <a href="../llms-full.txt">llms-full.txt</a> ·
+      <a href="../data/papers.json">papers.json</a> ·
+      <a href="../about.html">About</a>
+    </p>
+  </div>
+</footer>
+<script src="../static/footnotes.js?v=1779886412"></script>
+</body>
+</html>

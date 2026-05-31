@@ -1722,7 +1722,7 @@
     "db_open": "Open",
     "retriever_train": false,
     "generator_train": false,
-    "method": "LLaMP MP Property Benchmark",
+    "method": "LLaMP",
     "paper_link": "https://arxiv.org/abs/2401.17244",
     "bib_key": "DBLP:conf/emnlp/ChiangHCR25",
     "bib_ver": "v2",
@@ -2988,7 +2988,7 @@
     "generator_train": true,
     "eval_task": "MedQA, MedMCQA, MMLU-Med, PubMedQA, BioASQ, SEER, DDXPlus, MIMIC-IV-ED, LiveQA, MedicationQA, ExpertQA-Biomed",
     "eval_metric": "Accuracy + 인간 평가",
-    "method": "Source Planning Optimisation (SPO)",
+    "method": "Omni-RAG",
     "paper_link": "https://github.com/Jack-ZC8/Omni-RAG-Medical",
     "note": "5개 다중 구조 의료 KB(MedOmniKB) 구축 + SPO 기법. 소형 Planner가 10배 큰 모델 능가.",
     "bib_key": "DBLP:conf/acl/ChenLJWG0025",
@@ -3525,7 +3525,7 @@
     "title": "HoneyComb: A Flexible LLM-Based Agent System for Materials Science",
     "year": 2024,
     "venue": "EMNLP 2024 Findings",
-    "method": null,
+    "method": "HoneyComb",
     "domain": [
       "material"
     ],
@@ -8685,5 +8685,92 @@
     "subsection": "Aggregative Synthesis",
     "paper_link": "https://doi.org/10.1038/s41746-025-01840-7",
     "note": "임상 근거 합성 파이프라인: PICO 기반 PubMed 검색 → 스크리닝 → 데이터 추출 → 결과지표 표준화 → 인간이 검증하는 메타분석(forest plot). human-in-the-loop. 검색 recall 0.78(GPT-4 0.07), 결과 추출 GPT-4 대비 중앙값 1.5배."
+  },
+  {
+    "bib_key": "DBLP:journals/bioinformatics/JinYCL24",
+    "title": "GeneGPT: augmenting large language models with domain tools for improved access to biomedical information",
+    "method": "GeneGPT",
+    "venue": "Bioinformatics",
+    "year": 2024,
+    "type": "Method",
+    "domain": [
+      "bio",
+      "medical"
+    ],
+    "modality": [
+      "Text"
+    ],
+    "ko_cells": [
+      "K2.O1"
+    ],
+    "ko_primary": "K2.O1",
+    "subsection": "Text-only Closed-form QA",
+    "paper_link": "https://arxiv.org/abs/2304.09667",
+    "note": "Codex가 in-context로 NCBI Web API(E-utils·BLAST) 사용법을 배워, 디코딩 중 API 호출을 감지·실행해 raw 결과를 삽입(augmented decoding). GeneTuring 9개 태스크 평균 0.83으로 New Bing(0.44) 능가."
+  },
+  {
+    "bib_key": "DBLP:journals/bioinformatics/SomanRMASPVCSRI24",
+    "title": "Biomedical knowledge graph-optimized prompt generation for large language models",
+    "method": "KG-RAG",
+    "venue": "Bioinformatics",
+    "year": 2024,
+    "type": "Method",
+    "domain": [
+      "bio",
+      "medical"
+    ],
+    "modality": [
+      "Text"
+    ],
+    "ko_cells": [
+      "K2.O1"
+    ],
+    "ko_primary": "K2.O1",
+    "subsection": "Text-only Closed-form QA",
+    "paper_link": "https://arxiv.org/abs/2311.17330",
+    "note": "SPOKE 생의학 KG(41 DB, 약 4,200만 노드)에서 질병 중심 minimal-schema 서브그래프를 추출하고 임베딩 pruning으로 핵심 트리플만 프롬프트에 주입. Cypher-RAG 대비 토큰 54%↓·검색정확도 75→97%."
+  },
+  {
+    "bib_key": "DBLP:conf/acl/0006WS24",
+    "title": "MindMap: Knowledge Graph Prompting Sparks Graph of Thoughts in Large Language Models",
+    "method": "MindMap",
+    "venue": "ACL",
+    "year": 2024,
+    "type": "Method",
+    "domain": [
+      "medical"
+    ],
+    "modality": [
+      "Text"
+    ],
+    "ko_cells": [
+      "K2.O1"
+    ],
+    "ko_primary": "K2.O1",
+    "subsection": "Text-only Closed-form QA",
+    "paper_link": "https://arxiv.org/abs/2308.09729",
+    "note": "큐레이티드 임상 KG(질병-증상-약물)에서 path/neighbor 증거 서브그래프를 검색해 graph-of-thoughts 추론 경로로 통합하는 진단 QA. GPT-3.5 backbone으로 일부 baseline에서 GPT-4 능가."
+  },
+  {
+    "bib_key": "DBLP:conf/iclr/00010GLGCZ25",
+    "title": "KGARevion: An AI Agent for Knowledge-Intensive Biomedical QA",
+    "method": "KGARevion",
+    "venue": "ICLR",
+    "year": 2025,
+    "type": "Method",
+    "domain": [
+      "medical",
+      "bio"
+    ],
+    "modality": [
+      "Text"
+    ],
+    "ko_cells": [
+      "K2.O1"
+    ],
+    "ko_primary": "K2.O1",
+    "subsection": "Text-only Closed-form QA",
+    "paper_link": "https://arxiv.org/abs/2410.04660",
+    "note": "후보 triplet 생성→KG(PrimeKG/biokg) 검증→수정→답의 에이전트 루프. LLM 잠재지식을 KG에 검증(사실오류 제거)해 medical QA 신뢰도 향상."
   }
 ]
