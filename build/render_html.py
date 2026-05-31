@@ -72,6 +72,7 @@ CELL_TIERS = {
     'K1.O2': ('Active',   'Literature Synthesis'),
     'K2.O1': ('Active',   'Knowledge-base Lookup'),
     'K3.O1': ('Emerging', 'Cross-modal Grounding'),
+    'K3.O2': ('Frontier', 'Cross-modal Synthesis (open)'),
     'K2.O2': ('Emerging', 'Knowledge-graph Synthesis'),
     'K1.O3': ('Emerging', 'Strong-verifier Hypothesis'),
     'K4.O1': ('Emerging', 'Private-document Retrieval'),
@@ -808,55 +809,56 @@ def render_browse():
 
 # ---------- cell/<K>.<O>.html ----------
 SECTION_OVERVIEWS = {
+    # cell_key: { 'subsection': <section title, matches CELL_TIERS>, 'description': <brief 1-2 sentence summary> }
+    # The cell hero already prints the K-axis and O-axis definitions; this description
+    # adds only what is specific to the intersection. Cards below are grouped automatically.
     'K1.O1': {
         'subsection': 'Literature-grounded Answering',
-        'subsubsec_id': 'subsubsec:kxo_k1o1',
-        # Short 1-2 sentence summary of what the cell IS — distilled from main.tex §4.1.1
-        'description': 'A system operating under the Ground objective retrieves information over PubMed, full-text articles, or open-access corpora to utilize Primary Literature, producing either a closed-form verdict or a cited paragraph anchored to the retrieved sources so that its factual accuracy and citation fidelity can be rigorously evaluated.',
-        # Abstracted paragraph — concrete system names dropped; the cited papers are
-        # surfaced visually as card grid below the paragraph.
-        'paragraph': r'''A system operating under the \textcolor{Oaxis}{\textsc{Ground}} objective retrieves information over PubMed~\cite{canese2013pubmed}, full-text articles, or open-access corpora to utilize \textcolor{Kaxis}{\textsc{Primary Literature}}, producing either a closed-form verdict or a cited paragraph anchored to the retrieved sources so that its factual accuracy and citation fidelity can be rigorously evaluated. The methodologies developed for this intersection include retrieval-augmented generation (RAG) frameworks~\cite{DBLP:conf/acl/Xiong0LZ24}\cite{DBLP:journals/corr/abs-2408-01107}\cite{DBLP:conf/naacl/SohnPYPHSKK25}\cite{DBLP:journals/corr/abs-2312-07559}\cite{asai2026synthesizing}\cite{DBLP:journals/corr/abs-2310-16146} that span both closed-form and long-form citation regimes. Activity within this domain follows from the parallel growth of multiple-choice and short-answer benchmarks, dense and hybrid retrievers optimized for scientific text, and citation-based evaluations that facilitate automated verification.''',
-        'evidence': {
-            'canese2013pubmed': 'PubMed — NCBI biomedical literature index (≈36M citations). Foundational substrate for medical/biological RAG: free-text abstracts indexed under MeSH, with ~1M new papers/year.',
-            'DBLP:conf/acl/Xiong0LZ24': 'MEDRAG / MIRAGE: "Benchmarking Retrieval-Augmented Generation for Medicine" — 7,663 multiple-choice questions across 5 medical QA datasets (MMLU-Med, MedQA-US, MedMCQA, PubMedQA, BioASQ-Y/N); zero-shot + question-only retrieval (ACL Findings 2024 pp.6233-6251).',
-            'DBLP:journals/corr/abs-2408-01107': 'BioRAG: "A RAG-LLM Framework for Biological Question Reasoning" — 22M+ PubMed abstracts + MeSH classifier + 5-step iterative RAG with 10 external sources. Evaluated on GeneTuring 9 sub-tasks + MedMCQA + College Biology/Medicine (arXiv:2408.01107).',
-            'DBLP:conf/naacl/SohnPYPHSKK25': 'RAG² (Rationale-Guided RAG): perplexity-trained filtering model + LLM-generated rationale queries + balanced retrieval over 4 corpora (PubMed/PMC/textbooks/guidelines). Evaluated on three closed-book medical QA benchmarks: MedQA, MedMCQA, MMLU-Med (NAACL 2025 pp.12739-12753).',
-            'DBLP:journals/corr/abs-2312-07559': 'PaperQA (Lála et al., FutureHouse): agent-based RAG over full-text scientific articles, sentence-level claim attribution. Beats GPT-4 by 30 points on closed-book PubMedQA (86.3% vs 57.9%); introduces LitQA benchmark requiring full-text synthesis (arXiv:2312.07559).',
-            'asai2026synthesizing': 'OpenScholar (Asai et al., Nature 2026 / arXiv:2411.14199): retrieval-augmented LM over 45M open-access papers; SCHOLARQABENCH with 2,967 expert queries + 208 long-form answers. GPT-4o hallucinates citations 78-90%, OPENSCHOLAR-8B beats GPT-4o by 5% in correctness with human-expert citation accuracy.',
-            'DBLP:journals/corr/abs-2310-16146': 'Clinfo.ai (Lozano, Fleming, Chiang, Shah — Stanford): open-source clinical QA WebApp + abstractive summarization task. Releases PubMedRS-200: 200 questions + answers derived from published systematic reviews (arXiv:2310.16146).',
-        },
+        'description': 'Answers scientific questions directly over primary literature — PubMed, arXiv, and full-text papers — by retrieving, citing, and grounding each answer in a single corpus. Spans short closed-form QA and long-form cited generation, judged on factual accuracy and citation fidelity.',
     },
-    'K3.O3': {
-        'subsection': 'Weakly-verified Hypothesis Generation',
-        'subsubsec_id': 'subsubsec:o3-weakverifier',
-        'description': 'A final form of hypothesis is one in which the system generates a candidate that no strong external verifier can directly check, so that evaluation falls back to downstream task accuracy, expert validation, or recovery against a held-out reference rather than to docking, database lookup, or simulation.',
-        'paragraph': r'''A final form of hypothesis is one in which the system generates a candidate that no strong external verifier can directly check, so that evaluation falls back to downstream task accuracy, expert validation, or recovery against a held-out reference rather than to docking, database lookup, or simulation. The output is typically a literature-derived hypothesis, such as a cellular-response prediction, a biomedical link prediction, or a molecular structure inferred from a non-textual signal, and the absence of an in-loop verifier means that novelty and plausibility carry more of the evaluation burden than physical correctness does. Evaluation in this setting consists of distributional similarity for predicted perturbation responses, held-out edge recovery for link-prediction tasks, and Top-K accuracy or Tanimoto similarity against held-out reference structures for measurement-derived candidates, instantiated across retrieval-augmented perturbation prediction~\cite{DBLP:journals/corr/abs-2603-07233}\cite{replogle2022mapping}\cite{DBLP:journals/corr/abs-2408-10609}\cite{roohani2024gears}\cite{norman2019exploring}, biomedical link prediction~\cite{DBLP:journals/bioinformatics/BreitOAS20}\cite{DBLP:conf/nips/HuFZDRLCL20}, and MS/MS-driven molecular discovery~\cite{DBLP:conf/nips/BushuievBJYKSHW24}. These metrics certify that the generated hypotheses recover known cases or align with expert intuition, but the absence of a strong external verifier leaves the K3.O3 and K4.O3 cells of the catalog largely empty, a sparsity we revisit in \S\ref{sec:frontiers} as a concrete frontier for future scientific RAG.''',
-        'evidence': {
-            'DBLP:journals/corr/abs-2603-07233': 'PT-RAG (Perturbation-aware Two-stage RAG): GenePT semantic retrieval + Gumbel-Softmax cell-type-aware selection. Outperforms STATE and vanilla RAG on Replogle-Nadig single-gene perturbation in distributional similarity W1, W2 (arXiv:2603.07233 §Abstract).',
-            'replogle2022mapping': 'Genome-scale Perturb-seq atlas — foundational single-cell perturbation dataset across thousands of essential genes; substrate for PT-RAG (Replogle et al., Cell 2022).',
-            'DBLP:journals/corr/abs-2408-10609': 'PerturBench: "comprehensive framework for modeling single cell transcriptomic responses to perturbations, aimed at standardizing benchmarking in this rapidly evolving field" with RMSE + rank metrics across four generalization regimes (arXiv:2408.10609 §Abstract).',
-            'roohani2024gears': 'GEARS: GNN integrating gene-gene knowledge graph with perturbation embedding. Trained on Norman 2019 (102 single + 131 two-gene). Metrics: MSE on top-20 DEGs, Pearson correlation, Precision@10 for GI prediction (Nat. Biotechnol. 42:927-935, 2024).',
-            'norman2019exploring': 'Norman et al. 2019 Science: 287 dual-CRISPRi gene-pair perturbations in K562 cells. Defined "GI manifold" via rich single-cell phenotypes — the canonical dual-gene held-out evaluation substrate (Science 365:786-793, 2019).',
-            'DBLP:journals/bioinformatics/BreitOAS20': 'OpenBioLink: "a large-scale, high-quality and highly challenging biomedical link prediction benchmark to transparently and reproducibly evaluate" embedding methods. Leakage-controlled held-out edge recovery (Bioinformatics 36:4097-4098, 2020).',
-            'DBLP:conf/nips/HuFZDRLCL20': 'OGB suite (NeurIPS 2020) — includes ogbl-biokg for biomedical KG link prediction (drug-disease-protein edges) with hits@K public leaderboard. Same authors as GEARS (Leskovec lab).',
-            'DBLP:conf/nips/BushuievBJYKSHW24': 'MassSpecGym: 231K MS/MS spectra of 29K molecules with leakage-controlled MCES splits. Three challenges: de novo molecular structure generation, molecule retrieval, spectrum simulation (NeurIPS 2024 / arXiv:2410.23326 §Intro).',
-        },
+    'K1.O2': {
+        'subsection': 'Literature Synthesis',
+        'description': 'Integrates evidence across many papers into one coherent answer, aggregating retrieved passages and resolving contradictions between them. The difficulty shifts from citing a single source to verifying each claim against a whole set of sources.',
+    },
+    'K1.O3': {
+        'subsection': 'Strong-verifier Hypothesis',
+        'description': 'Uses the primary literature as a generative prior to propose new scientific candidates, in settings where a strong external verifier — an assay, a database, or a simulator — can directly test each proposal. The literature suggests; the verifier confirms.',
+    },
+    'K2.O1': {
+        'subsection': 'Knowledge-base Lookup',
+        'description': 'Grounds answers in community-curated structured records — PubChem, RCSB PDB, ChEMBL, UMLS, Materials Project — where retrieval targets canonical database entries rather than free text. Evaluation rewards exact, up-to-date lookup over authoritative fields.',
+    },
+    'K2.O2': {
+        'subsection': 'Knowledge-graph Synthesis',
+        'description': 'Synthesizes across structured knowledge bases and graphs, traversing entities and relations (for example drug–gene–disease links) to combine several curated sources into one verified answer.',
     },
     'K2.O3': {
         'subsection': 'Simulation-verified Materials Discovery',
-        'subsubsec_id': 'subsubsec:o3-simulation',
-        'description': 'A third form of hypothesis is one in which the system proposes new material candidates and a physics-based simulator serves as the external verifier, returning thermodynamic stability and reaction-energy profiles through density functional theory or end-to-end computational results through executed scientific code.',
-        'paragraph': r'''A third form of hypothesis is one in which the system proposes new material candidates and a physics-based simulator serves as the external verifier, returning thermodynamic stability and reaction-energy profiles through density functional theory or end-to-end computational results through executed scientific code. The output is either a candidate crystal, a relaxed adsorbate-surface configuration, or a metal-organic framework selected for a sorbent target, and novelty is measured against an existing materials database while validity is measured against the simulator's physical predictions. Evaluation in this setting consists of stable-crystal classification with \(F_1\) and discovery-acceleration factor, validity and coverage of generated crystals, lowest-energy adsorbate-surface identification rate against orders-of-magnitude simulator-time speedup, sorbent-screening targets, foundation MLIP training and evaluation splits, physics-aware tests beyond DFT-error metrics, multi-verifier coverage across thousands of tasks, and executable-code tasks drawn from peer-reviewed publications~\cite{riebesell2025matbench}\cite{DBLP:conf/iclr/XieFGBJ22}\cite{lan2023adsorbml}\cite{sriram2024odac23}\cite{DBLP:journals/corr/abs-2410-12771}\cite{DBLP:journals/corr/abs-2509-20630}\cite{choudhary2024jarvis}\cite{DBLP:journals/corr/abs-2410-05080}. These benchmarks certify that proposed candidates pass simulation-based checks at orders-of-magnitude greater throughput than traditional high-throughput screening, but density functional theory and code execution themselves rely on functionals, parameter choices, and software assumptions whose limits the simulator cannot diagnose from within.''',
-        'evidence': {
-            'riebesell2025matbench': 'WBM 215,488 unique prototypes after cleaning, 32,942 stable. Top model eqV2 S DeNS reaches F1=0.815 with DAF=5.042 (arXiv:2308.14920 §2.1 + Table 1).',
-            'DBLP:conf/iclr/XieFGBJ22': 'Three datasets: Perov-5 (18,928 perovskites, 56 elements, 5 atoms/cell), Carbon-24 (10,153 C-only, 6-24 atoms), MP-20. Metrics: Validity (>0.5 Å), COV-R/COV-P, EMD (arXiv:2110.06197 §5).',
-            'lan2023adsorbml': 'Open Catalyst Dense: 989 unique adsorbate-surface systems × 105,714 configurations. Balanced ML+SP (k=3, eSCN-MD-Large): 87.36% success × 2,290× DFT speedup (arXiv:2211.16486 §Abstract + Fig. 3).',
-            'sriram2024odac23': '4,942 pristine + 3,470 defective + 114 ultrastable MOFs. 170K converged adsorption energies, 38M+ single-point DFT, 400M core-hours. OC20-style S2EF/IS2RE/IS2RS tasks (arXiv:2311.00341 §Methods).',
-            'DBLP:journals/corr/abs-2410-12771': '118M structures total: 100M train / 5M val / 5M ID-test + WBM-disjoint test + OOD-Elemental 619K. F1 > 0.9 stability, MAE 20 meV/atom formation energy. All top Matbench leaderboard models adopted OMat24 (arXiv:2410.12771 §2).',
-            'DBLP:journals/corr/abs-2509-20630': 'Four physics-aware categories: Asymptotic (EOS on 1,000 WBM + diatomic PEC), Stability & Reactivity (NVT/NPT MD on RM24, H2 combustion), Distribution Shifts, Thermodynamic Properties (arXiv:2509.20630 §2 + Fig. 1).',
-            'choudhary2024jarvis': '274 benchmarks, 1,281 contributions, 152 methods, 8M+ data points across AI/ES/FF/QC/EXP categories. Naming convention: Category-Subcategory-Target-Dataset-Split-Metric (arXiv:2306.11688 §Abstract).',
-            'DBLP:journals/corr/abs-2410-05080': '102 tasks from 44 peer-reviewed publications across 4 disciplines (Bioinformatics, Computational Chemistry, GIS, Psychology). Each task: instruction + dataset + expert knowledge + annotated program. Best agent: 32.4% independent (arXiv:2410.05080 §2).',
-        },
+        'description': 'Proposes new material or molecular candidates against curated databases, with a physics-based simulator — DFT, machine-learning interatomic potentials, or executed code — acting as the external verifier. Novelty is measured against existing databases and validity against the simulator’s stability and reaction-energy predictions.',
+    },
+    'K3.O1': {
+        'subsection': 'Cross-modal Grounding',
+        'description': 'Grounds answers in raw experimental modalities — images, spectra, sequences, time-series (cryo-EM, mass spec, telescope archives, EHR images) — where retrieval must bridge a non-textual signal to a textual question.',
+    },
+    'K3.O2': {
+        'subsection': 'Cross-modal Synthesis (open)',
+        'description': 'Integrates and cross-checks several observational or experimental modalities into a single verified answer. A near-empty frontier: few systems yet synthesize across heterogeneous raw-signal sources.',
+    },
+    'K3.O3': {
+        'subsection': 'Weakly-verified Hypothesis Generation',
+        'description': 'Generates hypotheses from observational and experimental data when no strong external verifier can check them, so evaluation falls back to downstream accuracy, expert judgement, or held-out recovery (perturbation response, link prediction, MS/MS-driven structure). One of the sparsest cells — a concrete frontier for future scientific RAG.',
+    },
+    'K4.O1': {
+        'subsection': 'Private-document Retrieval',
+        'description': 'Grounds answers in tacit and institutional sources that no public model can access — big-science institutional memory (RHIC, DUNE), lab protocols, private EHRs, and industry process docs — typically retrieved on-premise over confidential corpora.',
+    },
+    'K4.O2': {
+        'subsection': 'Tacit Synthesis (open)',
+        'description': 'Synthesizes across tacit and institutional knowledge sources. An open frontier: integrating and verifying across private, undocumented, or apprenticeship-held knowledge is still largely unaddressed.',
+    },
+    'K4.O3': {
+        'subsection': 'Tacit Hypothesis (open)',
+        'description': 'Generates new scientific hypotheses grounded in tacit and institutional knowledge — the hardest knowledge source paired with the hardest objective. The emptiest cell in the grid, with no established systems yet.',
     },
 }
 
@@ -1030,8 +1032,6 @@ def render_cell_pages():
     <div class="cell-nav">{other_cells_nav}</div>
   </div>
 </section>
-
-{overview_html}
 
 <section class="cell-list">
   <div class="wrap">
