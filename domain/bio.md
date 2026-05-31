@@ -1,6 +1,6 @@
 # Biology
 
-_89 entries in the biology domain._
+_90 entries in the biology domain._
 
 ---
 
@@ -29,6 +29,7 @@ _89 entries in the biology domain._
 - **[BioRAG: A RAG-LLM Framework for Biological Question Reasoning](https://arxiv.org/abs/2408.01107)** — BIORAG · arXiv 2024 · 2024 — 22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, Coll…  `[K1.O1, Biology, Medicine, Methods]`
 - **[Europe PMC in 2023](https://doi.org/10.1093/nar/gkad1085)** — Europe PMC REST API · Nucleic Acids Research · 2024 — K1 domain-specific (biomedical): open full text + preprint integration. bib title says 'in 2024' but actual paper is 'in 2023'  `[K1, Medicine, Biology, Datasets]`
 - **[GPQA: A graduate-level google-proof q&a benchmark](https://arxiv.org/abs/2311.12022)** — GPQA · COLM · 2024 — PhD 수준 물리·화학·생물 MCQ. 비전문가 Google 사용 22.1%. 전문가 81.3%  `[Physics, Chemistry, Biology, Benchmarks]`
+- **[Interaction-based Retrieval-augmented Diffusion Models for Protein-specific 3D Molecule Generation](https://proceedings.mlr.press/v235/huang24ab.html)** — IRDiff · ICML · 2024 — Full-text verified 2026-05-31: retrieves high-affinity ligand references via a protein-molecule interaction network to steer a target-aware diffusion model; SOTA binding affinit…  `[K2.O3, Chemistry, Biology, Methods]`
 - **[Language Agents Achieve Superhuman Synthesis of Scientific Knowledge](https://arxiv.org/abs/2409.13740)** — PaperQA2 · arXiv · 2024 — 인간 전문가 초과 RAG. PaperQA2 85.2% > 인간 73.8%. RCS + Citation Traversal  `[K1.O2, K1.O1, Biology, Methods]`
 - **[LitSearch: A Retrieval Benchmark for Scientific Literature Search](https://doi.org/10.18653/v1/2024.emnlp-main.840)** — LitSearch · EMNLP · 2024  `[Biology, Chemistry, Physics, Benchmarks]`
 - **[OpenFold: Retraining AlphaFold2 yields new insights into its learning mechanisms and capacity for generalization](https://doi.org/10.1038/s41592-024-02272-z)** — Nature Methods · 2024 — Open-source trainable AlphaFold2 reimplementation; OpenProteinSet MSA data backbone; enables new tasks (protein-ligand) and open re-implementations  `[K3, Biology, Methods]`

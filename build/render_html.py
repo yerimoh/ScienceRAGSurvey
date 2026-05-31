@@ -74,7 +74,7 @@ CELL_TIERS = {
     'K3.O1': ('Emerging', 'Cross-modal Grounding'),
     'K3.O2': ('Frontier', 'Cross-modal Synthesis (open)'),
     'K2.O2': ('Emerging', 'Knowledge-graph Synthesis'),
-    'K1.O3': ('Emerging', 'Strong-verifier Hypothesis'),
+    'K1.O3': ('Frontier', 'Weak-verifier Hypothesis'),
     'K4.O1': ('Emerging', 'Private-document Retrieval'),
     'K2.O3': ('Frontier', 'Simulation-verified Materials Discovery'),
     'K3.O3': ('Frontier', 'Weakly-verified Hypothesis Generation'),
@@ -95,14 +95,15 @@ CELL_PAPERS = {
     'K1.O1': ['DBLP:conf/acl/Xiong0LZ24', 'DBLP:journals/corr/abs-2408-01107', 'DBLP:conf/naacl/SohnPYPHSKK25', 'DBLP:conf/emnlp/FrisoniMMV22', 'DBLP:journals/bioinformatics/JeongSSK24', 'DBLP:conf/pasc/GokdemirSBWHHSA25', 'DBLP:journals/corr/abs-2312-07559', 'asai2026synthesizing', 'DBLP:journals/corr/abs-2310-16146', 'DBLP:conf/ecir/AteiaK25', 'DBLP:conf/sigir/HuLD0A0025', 'iyer2024pathfinder', 'DBLP:conf/aaai/ZhangGZZCZZYB26', 'DBLP:journals/make/LahiriH25'],
     'K1.O2': ['asai2026synthesizing', 'DBLP:journals/corr/abs-2409-13740', 'DBLP:conf/cikm/BesrourHS025', 'DBLP:conf/nips/WangGYZZ0ZD0W0Z24', 'DBLP:conf/acl/YanFYX00Z25', 'DBLP:journals/corr/abs-2402-01788', 'wang2025trialmind'],
     # f-RAG/Rag2Mol/TaLiRAGen/CLADD moved to K2.O3 (full-text verified 2026-05-31: all retrieve from Curated KBs, not primary literature). See ver/2/factcheck_kxo_k1o3.md.
-    'K1.O3': ['xiao2024repurposing', 'bicerano2024polymer'],
-    'K2.O1': ['DBLP:conf/emnlp/ChiangHCR25', 'DBLP:conf/emnlp/ZhangSHML24', 'DBLP:conf/acl/ChenLJWG0025', 'DBLP:journals/bioinformatics/JinYCL24', 'DBLP:journals/bioinformatics/SomanRMASPVCSRI24', 'DBLP:conf/iclr/00010GLGCZ25'],
+    'K1.O3': ['DBLP:conf/iclr/0001LGXLOPCZ25', 'DBLP:conf/acl/0005DJH24', 'DBLP:conf/naacl/BaekJCH25', 'DBLP:conf/emnlp/LiXGZLYZJXDRZFB25'],
+    'K2.O1': ['DBLP:conf/emnlp/ChiangHCR25', 'DBLP:conf/emnlp/ZhangSHML24', 'DBLP:conf/acl/ChenLJWG0025', 'DBLP:journals/bioinformatics/JinYCL24', 'DBLP:journals/bioinformatics/SomanRMASPVCSRI24', 'DBLP:conf/iclr/00010GLGCZ25', 'DBLP:conf/aaai/LeeBHBPS26'],
     'K2.O2': ['DBLP:conf/acl/WuZQCXMJG25', 'DBLP:conf/acl/Jiang0XQFWTDC0W25', 'DBLP:conf/bionlp/YangLMZKLCCCML24', 'DBLP:conf/acl/0006WS24', 'DBLP:conf/naacl/LiCJ25'],
-    'K2.O3': ['DBLP:conf/nips/LeeKV0RPVN24', 'DBLP:journals/bib/ZhangPHCM25', 'nan2026taliragen', 'DBLP:conf/aaai/LeeBHBPS26', 'DBLP:journals/corr/abs-2603-15712', 'zhang2026matclaw', 'ong2013python', 'ganose2025_atomate2', 'rosen2024jobflow', 'doi:10.1021/acs.jcim.5c01767', 'Wang_ComputPhysCommun_2018_v228_p178'],
+    # CLADD (LeeBHBPS26) moved to K2.O1 — full-text verified: prediction/QA agent, not de novo generation, circular verification. RetMol/IRDiff/READ added (docking-verified molecule generation). See ver/2/factcheck_kxo_k1o3.md.
+    'K2.O3': ['DBLP:conf/nips/LeeKV0RPVN24', 'DBLP:journals/bib/ZhangPHCM25', 'nan2026taliragen', 'DBLP:conf/iclr/0001NQXBA23', 'DBLP:conf/icml/Huang0ZQYZZZWY24', 'DBLP:journals/corr/abs-2506-14488', 'DBLP:journals/corr/abs-2603-15712', 'zhang2026matclaw', 'ong2013python', 'ganose2025_atomate2', 'rosen2024jobflow', 'doi:10.1021/acs.jcim.5c01767', 'Wang_ComputPhysCommun_2018_v228_p178'],
     'K3.O1': ['DBLP:conf/iclr/0005ZLWSWZ0Y25', 'DBLP:conf/emnlp/XiaZLZLLZY24', 'DBLP:conf/naacl/SunZHX25', 'DBLP:journals/corr/abs-2411-16523', 'DBLP:journals/corr/abs-2510-01558'],
     'K3.O2': [],
-    'K3.O3': ['DBLP:conf/nips/BushuievBJYKSHW24'],
-    'K4.O1': ['DBLP:journals/corr/abs-2603-09800', 'rafique2025large', 'DBLP:journals/corr/abs-2509-09688'],
+    'K3.O3': ['DBLP:conf/iclr/WangCLH25', 'DBLP:conf/nips/BushuievBJYKSHW24'],
+    'K4.O1': ['DBLP:journals/corr/abs-2603-09800', 'rafique2025large', 'DBLP:journals/corr/abs-2509-09688', 'DBLP:journals/corr/abs-2406-12881', 'mehta2023copilots', 'rehm2025accgpt'],
     'K4.O2': ['zhang2026matclaw'],
     'K4.O3': ['zhang2026matclaw'],
 }
@@ -159,11 +160,88 @@ FACTCHECK = {
         'evidence': 'The RHIC “Data and Analysis Preservation Plan (DAPP)” assistant (the paper names the plan DAPP; the assistant itself is unnamed) indexes “documentation, workflows, and software” (~1 ExaByte) via RAG + Model Context Protocol. It reports “deployment, computational performance” and a QUALITATIVE expert-grounded comparison of Llama3.3-70B / Mistral-Large / ChatGPT-o3 — NO retrieval-quality metrics and NO BM25 comparison; a formal benchmark “is currently in progress.”',
         'source': 'CoRR 2025 · arXiv:2509.09688 (DBLP-verified)',
     },
+    'DBLP:journals/corr/abs-2406-12881': {
+        'verdict': '✅ Accurate — retrieval-grounded',
+        'evidence': 'A multi-facility study: “Electronic logbooks contain valuable information about activities and events concerning their associated particle accelerator facilities” (DESY, BESSY, Fermilab’s ADEL, BNL, SLAC, LBNL, CERN). It implements RAG (“q→retrieve(q)→generate(q,𝒟)→a”) to ground answers in these institution-private operational logbooks.',
+        'source': 'CoRR 2024 · arXiv:2406.12881 (DBLP-verified)',
+    },
+    'mehta2023copilots': {
+        'verdict': '✅ Accurate — retrieval-grounded',
+        'evidence': 'An operational copilot using “Retrieval-Augmented Generation (RAG)” over institution-private text logs from the DIII-D and Alcator C-Mod tokamak fusion experiments; it “answers operator queries using retrieved experimental logs rather than generating hypothetical decisions” — i.e. grounding, not action/hypothesis generation. ⚠️ NeurIPS 2023 AI4Science workshop paper, NOT indexed by DBLP.',
+        'source': 'NeurIPS 2023 Workshop AI4Science · OpenReview yGVChrbJ4E · not in DBLP',
+    },
+    'rehm2025accgpt': {
+        'verdict': '✅ Accurate — retrieval-grounded',
+        'evidence': 'AccGPT is an on-premise “knowledge retrieval chatbot” that lets an LLM “reference an external knowledge base, such as CERN’s internal documentation” (e5-large-v2 embeddings) before answering — single-corpus grounding over institution-private docs. ⚠️ EPJ Web of Conferences (CHEP 2024) proceedings, NOT indexed by DBLP.',
+        'source': 'EPJ Web Conf 337:01279, 2025 · DOI 10.1051/epjconf/202533701279 · not in DBLP',
+    },
+    'DBLP:conf/nips/BushuievBJYKSHW24': {
+        'verdict': '⚠️ Accurate on facts, but it is a benchmark — not a framework, and de novo generation is generation, not retrieval',
+        'evidence': 'MassSpecGym is “the first comprehensive benchmark for the discovery and identification of molecules from MS/MS data” — a dataset (231k spectra over 29k structures), NOT a RAG method/framework. It defines three challenges: “de novo molecular structure generation, molecule retrieval, and spectrum simulation”; only the second is retrieval-based, so the de novo task the paragraph foregrounds generates (does not “retrieve across spectra”) a structure from one spectrum. De novo generation is scored by Top-k accuracy, Top-k MCES and Top-k Tanimoto; published baselines reach Top-1 accuracy 0.00 (“none of the baselines achieve an accuracy above zero”).',
+        'source': 'NeurIPS 2024 Datasets & Benchmarks · arXiv:2410.23326 (DBLP-verified)',
+    },
+    # --- K2.O3 (Simulation-verified Materials Design) — verified 2026-05-31 against full bodies. See factcheck_kxo_k2o3.md ---
+    'DBLP:journals/corr/abs-2603-15712': {
+        'verdict': '✅ Accurate — strong K2.O3 fit',
+        'evidence': 'Grounds an LLM on “a curated database of 50,000+ validated materials” (Materials Project + NOMAD + OC20; two-stage cosine + chemical-filter retrieval, k=20), “generated over 250 catalyst candidates with an 82% thermodynamic stability rate,” verified by DFT (VASP 6.3 PBE+U, convex hull E_hull<50 meV/atom). Best composition “Fe0.2Co0.2Ni0.2Ir0.1Ru0.3 achieves 0.285V limiting potential.” Genuine RAG → new candidates → DFT-verified. (Byline “AI Scientists” is a genuine DBLP-registered autonomous-agent author, not a fabrication.)',
+        'source': 'CoRR 2026 · arXiv:2603.15712 (DBLP-verified)',
+    },
+    'zhang2026matclaw': {
+        'verdict': '⚠️ Misclassified — real K2 code-RAG, but NOT O3 / not simulation-verified',
+        'evidence': 'MatClaw genuinely uses RAG over the source code of pymatgen, atomate2, jobflow, dpdata, DeePMD-kit (BM25 + 3-query RRF), “rais[ing] per-step API-call accuracy to ~99%.” BUT it generates NO new material candidates (full-text counts: candidate=0, novel=0) — all demos run on the existing material CuInP2S6 — and it does NOT verify with external simulation: “All three tasks use the pre-trained DeePMD model … rather than DFT calculations.” The phrase “workflow success rate” does not appear (per-task Success/Failure table only). → fails the O3 (new-candidate) and simulation-verified axes; belongs in a K2 code-library-RAG / agentic-workflow class, not K2.O3.',
+        'source': 'CoRR 2026 · arXiv:2604.02688 (DBLP-verified)',
+    },
+    'ong2013python': {
+        'verdict': '✅ Real software citation — metadata correct',
+        'evidence': 'pymatgen: Ong et al., “Python Materials Genomics (pymatgen)…”, Computational Materials Science 68:314–319 (2013), doi 10.1016/j.commatsci.2012.10.028. Verified via ScienceDirect; title/venue/volume/pages/year/DOI all match.',
+        'source': 'Comput. Mater. Sci. 68:314–319, 2013 (software ref; not in DBLP)',
+    },
+    'ganose2025_atomate2': {
+        'verdict': '✅ Real software citation — metadata correct',
+        'evidence': 'atomate2: Ganose et al., “Atomate2: modular workflows for materials science”, Digital Discovery 4:1944–1973 (2025), doi 10.1039/D5DD00019J. Verified via RSC; title/venue/year/DOI match.',
+        'source': 'Digital Discovery 4:1944–1973, 2025 (software ref; not in DBLP)',
+    },
+    'rosen2024jobflow': {
+        'verdict': '✅ Real software citation — metadata correct',
+        'evidence': 'jobflow: Rosen et al., “Jobflow: Computational Workflows Made Simple”, JOSS 9(93):5995 (2024), doi 10.21105/joss.05995. Verified via JOSS; all fields match.',
+        'source': 'JOSS 9(93):5995, 2024 (software ref; not in DBLP)',
+    },
+    'doi:10.1021/acs.jcim.5c01767': {
+        'verdict': '✅ Real software citation — metadata correct',
+        'evidence': 'dpdata: Zeng et al., “dpdata: A Scalable Python Toolkit for Atomistic Machine Learning Data Sets”, J. Chem. Inf. Model. 65(21):11497–11504 (2025), doi 10.1021/acs.jcim.5c01767. Verified via ACS/PubMed; all fields match.',
+        'source': 'J. Chem. Inf. Model. 65(21):11497–11504, 2025 (software ref; not in DBLP)',
+    },
+    'Wang_ComputPhysCommun_2018_v228_p178': {
+        'verdict': '✅ Real software citation — metadata correct',
+        'evidence': 'DeePMD-kit: Wang, Zhang, Han, E, “DeePMD-kit: A deep learning package for many-body potential energy representation and molecular dynamics”, Comput. Phys. Comm. 228:178–184 (2018), doi 10.1016/j.cpc.2018.03.016. Verified via ScienceDirect/arXiv:1712.03641; all fields match.',
+        'source': 'Comput. Phys. Comm. 228:178–184, 2018 (software ref; not in DBLP)',
+    },
+    # --- K1.O3 (Weak-verifier Hypothesis) — verified 2026-06-01 against full bodies + real DBLP. See factcheck below ---
+    'DBLP:conf/iclr/0001LGXLOPCZ25': {
+        'verdict': '✅ Accurate — K1.O3 weak-verifier',
+        'evidence': 'MOOSE-Chem retrieves inspiration papers from a chemistry-literature corpus (“3000 most cited chemistry papers published in Nature”) — K1, not a curated KB. Retrieval is one of three core subtasks (retrieve inspirations / compose / rank). It GENERATES novel chemistry hypotheses, judged by rediscovering held-out high-impact 2024 findings (TOMATO-Chem) — a weak verifier, no docking/sim. Method-primary (benchmark is enabling infrastructure).',
+        'source': 'ICLR 2025 · OpenReview X9OfMNNepI (DBLP-verified)',
+    },
+    'DBLP:conf/acl/0005DJH24': {
+        'verdict': '✅ Accurate — K1.O3 weak-verifier',
+        'evidence': 'SciMON retrieves “inspirations” from a paper corpus (“67,408 ACL Anthology papers”) plus citation/KG neighbors built from that corpus (K1). Retrieval is the core input stage (genuine RAG). It generates new ideas grounded in literature and “iteratively optimizes for novelty against prior work” — weak verifier. Method paper.',
+        'source': 'ACL 2024, pp. 279–299 · doi 10.18653/v1/2024.acl-long.18 (DBLP-verified)',
+    },
+    'DBLP:conf/naacl/BaekJCH25': {
+        'verdict': '✅ Accurate — K1.O3 weak-verifier',
+        'evidence': 'ResearchAgent augments a core paper with “relevant publications by connecting information over an academic graph” plus “entities … from a knowledge store derived from … concepts mined across numerous papers” — both literature-derived (K1, not an external curated KB). It “defines novel problems, proposes methods and designs experiments,” refined by LLM ReviewingAgents (weak verifier, no external confirmation). Method paper.',
+        'source': 'NAACL 2025, pp. 6709–6738 · doi 10.18653/v1/2025.naacl-long.342 (DBLP-verified)',
+    },
+    'DBLP:conf/emnlp/LiXGZLYZJXDRZFB25': {
+        'verdict': '✅ Accurate — K1.O3 weak-verifier',
+        'evidence': 'Chain-of-Ideas retrieves papers via the Semantic Scholar API and organizes citations into a forward/backward “evolution chain” (K1 literature), then extrapolates the next research idea (genuine RAG, improving on vanilla RAG). Evaluated with “Idea Arena,” a human-preference-aligned novelty protocol — weak verifier. Method-primary (Idea Arena is the secondary contribution).',
+        'source': 'EMNLP 2025 Findings, pp. 8971–9004 · ACL Anthology 2025.findings-emnlp.477 (DBLP-verified)',
+    },
 }
 # Cells whose papers show the fact-check footnote chip on the cell page.
 # Emptied per user request (chip removed from the UI); FACTCHECK data above is
 # retained for the report / future use. Add a cell key here to re-enable its chips.
-FACTCHECKED_CELLS = {'K4.O1'}
+FACTCHECKED_CELLS = {'K4.O1', 'K3.O3', 'K2.O3', 'K1.O3'}
 
 
 def axis_subsections(axis_scope, cell_key=None):
@@ -937,8 +1015,8 @@ SECTION_OVERVIEWS = {
         'description': 'Synthesizes across structured knowledge bases and graphs, traversing entities and relations (for example drug–gene–disease links) to combine several curated sources into one verified answer.',
     },
     'K2.O3': {
-        'subsection': 'Simulation-verified Materials Discovery',
-        'description': 'Proposes new material or molecular candidates against curated databases, with a physics-based simulator — DFT, machine-learning interatomic potentials, or executed code — acting as the external verifier. Novelty is measured against existing databases and validity against the simulator’s stability and reaction-energy predictions.',
+        'subsection': 'Strong-verifier Hypothesis',
+        'description': 'Retrieves over curated knowledge bases — molecular fragment libraries, small-molecule and protein-ligand databases, or materials databases — to propose novel candidates, then confirms each proposal with a strong external verifier that lies outside the retrieved corpus: molecular docking for ligands, or a physics-based simulator (DFT, machine-learning interatomic potentials, executed code) for materials. Novelty is measured against existing databases and validity against the verifier; the gap to wet-lab or experimental confirmation remains the open challenge.',
     },
     'K3.O1': {
         'subsection': 'Cross-modal Grounding',
@@ -950,7 +1028,7 @@ SECTION_OVERVIEWS = {
     },
     'K3.O3': {
         'subsection': 'Weakly-verified Hypothesis Generation',
-        'description': 'Generates hypotheses from observational and experimental data when no strong external verifier can check them, so evaluation falls back to downstream accuracy, expert judgement, or held-out recovery (perturbation response, link prediction, MS/MS-driven structure). One of the sparsest cells — a concrete frontier for future scientific RAG.',
+        'description': 'Generates hypotheses directly from raw observational and experimental signals when no strong verifier can check them, so validity rests on held-out recovery (Top-k accuracy, Tanimoto similarity). Genuine retrieval-augmented methods are rare here: MADGEN retrieves a molecular scaffold keyed on an MS/MS spectrum and then generates the full structure, whereas most spectrum-to-structure models generate without any retrieval. One of the sparsest cells — a concrete frontier for scientific RAG.',
     },
     'K4.O1': {
         'subsection': 'Private-document Retrieval',

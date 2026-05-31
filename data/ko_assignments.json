@@ -1,4 +1,40 @@
 {
+  "DBLP:conf/iclr/WangCLH25": {
+    "cells": [
+      "K3.O3"
+    ],
+    "K": "K3",
+    "O": "O3",
+    "note": "Full-text verified 2026-06-01: MADGEN (ICLR 2025) — the sole genuine retrieval-augmented de novo method for spectrum-to-molecule. Retrieves a molecular scaffold keyed on the MS/MS spectrum (contrastive spectrum-to-scaffold ranking, signal-keyed = K3) then generates the full structure conditioned on the spectrum. Weakly verified by Top-k accuracy / Tanimoto on held-out. (MARASON = spectrum prediction/retrieval, not de novo; FOAM = genetic optimization, not RAG; DiffMS/FlowMS/etc. = no retrieval.)",
+    "subsection": "Weakly-verified Hypothesis Generation"
+  },
+  "DBLP:conf/iclr/0001NQXBA23": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "Full-text verified 2026-05-31: retrieves exemplar molecules from ZINC/ChEMBL to steer a frozen generator without fine-tuning; verified by AutoDock on SARS-CoV-2 main protease binding. Curated KB (K2), strong external verifier (docking).",
+    "subsection": "Docking-verified Hypothesis"
+  },
+  "DBLP:conf/icml/Huang0ZQYZZZWY24": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "Full-text verified 2026-05-31: retrieves high-affinity ligand references via a protein-molecule interaction network to steer a target-aware diffusion model; SOTA binding affinity on CrossDocked2020 (Vina). Curated ligand KB, docking-verified.",
+    "subsection": "Docking-verified Hypothesis"
+  },
+  "DBLP:journals/corr/abs-2506-14488": {
+    "cells": [
+      "K2.O3"
+    ],
+    "K": "K2",
+    "O": "O3",
+    "note": "Full-text verified 2026-05-31: first retrieval-augmented diffusion framework for de novo ligand design; retrieves cognate ligands through a pocket-ligand bipartite graph; validated with AutoDock Vina (Score/Minimize/Dock). Curated KB, docking-verified.",
+    "subsection": "Docking-verified Hypothesis"
+  },
   "DBLP:conf/acl/LoWNKW20": {
     "cells": [
       "K1"
@@ -1206,12 +1242,12 @@
   },
   "DBLP:conf/aaai/LeeBHBPS26": {
     "cells": [
-      "K2.O3"
+      "K2.O1"
     ],
     "K": "K2",
-    "O": "O3",
-    "note": "RAG-empowered agentic system; Drug Repurposing Hub + DrugBank + STITCH for DTI (13,688 molecules); BBBP/Sider/ClinTox/BACE for toxicity; no domain fine-tuning; outperforms GNNs and LLMs",
-    "subsection": "Database-verified Prediction"
+    "O": "O1",
+    "note": "Full-text verified 2026-05-31: a RAG QA/prediction agent system (DTI ranking, toxicity classification, molecular captioning) over biomedical KBs (PubChem, PrimeKG, DrugBank, STITCH) — it does NOT generate de novo molecules, and its verification sources overlap its retrieval (circular). Reclassified from K2.O3 (Strong-verifier Hypothesis) to K2.O1 (KB-grounded prediction).",
+    "subsection": "Knowledge-base grounded Prediction"
   },
   "DBLP:journals/corr/abs-2603-15712": {
     "cells": [
@@ -1265,34 +1301,32 @@
   },
   "DBLP:journals/corr/abs-2403-15729": {
     "cells": [
-      "K4.O1"
+      "K4.O2"
     ],
     "K": "K4",
-    "O": "O1",
+    "O": "O2",
     "note": "RAG-based summarization AI for EIC institutional documents; LangChain + vector DB; RAGAs evaluation; prompt template instruction-tuning; Streamlit web app; serves 1,400+ physicists in 38 countries"
   },
   "jat2026retrieval": {
     "cells": [
-      "K4.O1"
+      "K1.O1"
     ],
-    "K": "K4",
+    "K": "K1",
     "O": "O1",
     "note": "Local RAG QA over arXiv EIC papers; open-source LLaMA for answer generation; cost-effective, data-privacy preserving alternative to cloud-hosted RAGS4EIC; extension of RAGS4EIC proceeding application"
   },
   "mcgreivy2025seeing": {
     "cells": [
-      "K4.O1"
+      "K1.O2"
     ],
-    "K": "K4",
-    "O": "O1",
+    "K": "K1",
+    "O": "O2",
     "note": "SciTreeRAG+SciGraphRAG over LHCb internal corpus (K4 institutional tacit knowledge)"
   },
   "sarkar2024multi": {
-    "cells": [
-      "K4.O1"
-    ],
-    "K": "K4",
-    "O": "O1",
+    "cells": [],
+    "K": "K1",
+    "O": "O3",
     "note": "cmbagent: multi-agent RAG over cobaya/classy_sz/cosmocnc software docs (K4 software-embedded knowledge)"
   },
   "scopus": {
@@ -1600,5 +1634,61 @@
     "O": "O3",
     "note": "OGB-biokg — biomedical knowledge graph link prediction with hits@K public leaderboard",
     "subsection": "Weakly-verified Hypothesis Generation"
+  },
+  "DBLP:journals/corr/abs-2406-12881": {
+    "cells": [
+      "K4.O1"
+    ],
+    "K": "K4",
+    "O": "O1",
+    "note": "RAG over particle-accelerator electronic logbooks across DESY, BESSY, Fermilab (ADEL), BNL, SLAC, LBNL, CERN; grounded QA over internal operational records"
+  },
+  "mehta2023copilots": {
+    "cells": [
+      "K4.O1"
+    ],
+    "K": "K4",
+    "O": "O1",
+    "note": "RAG over DIII-D and Alcator C-Mod tokamak text logs; grounded operator QA with references rather than action generation. Not indexed by DBLP."
+  },
+  "rehm2025accgpt": {
+    "cells": [
+      "K4.O1"
+    ],
+    "K": "K4",
+    "O": "O1",
+    "note": "On-premise RAG chatbot over CERN internal documentation; e5-large-v2 embeddings. Not indexed by DBLP."
+  },
+  "DBLP:conf/iclr/0001LGXLOPCZ25": {
+    "cells": [
+      "K1.O3"
+    ],
+    "K": "K1",
+    "O": "O3",
+    "note": "Retrieves inspiration papers from chemistry literature (3000 most-cited Nature papers); composes & ranks novel hypotheses; evaluated by rediscovering held-out high-impact 2024 findings (TOMATO-Chem)."
+  },
+  "DBLP:conf/acl/0005DJH24": {
+    "cells": [
+      "K1.O3"
+    ],
+    "K": "K1",
+    "O": "O3",
+    "note": "Retrieves inspirations from 67K ACL Anthology papers + citation/KG neighbors built from the corpus; iteratively optimizes generated idea for novelty against prior work."
+  },
+  "DBLP:conf/naacl/BaekJCH25": {
+    "cells": [
+      "K1.O3"
+    ],
+    "K": "K1",
+    "O": "O3",
+    "note": "Expands a core paper with academic-graph literature + a paper-mined entity store; proposes problems/methods/experiments, refined by ReviewingAgents."
+  },
+  "DBLP:conf/emnlp/LiXGZLYZJXDRZFB25": {
+    "cells": [
+      "K1.O3"
+    ],
+    "K": "K1",
+    "O": "O3",
+    "note": "Organizes Semantic Scholar citation chains into an evolution chain and extrapolates the next idea; evaluated with Idea Arena (human-preference-aligned)."
   }
 }

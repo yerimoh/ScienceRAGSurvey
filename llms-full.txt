@@ -1,6 +1,6 @@
 # Scientific RAG Hub — Full Catalog
 
-301 retrieval-augmented generation systems, benchmarks, and datasets for scientific discovery.
+312 retrieval-augmented generation systems, benchmarks, and datasets for scientific discovery.
 Organized by the K × O dual-axis taxonomy (Knowledge Source × Operational Objective).
 
 Each entry carries tags `[K.O cell(s), domain(s), type]`. Cross-source papers appear in multiple cells.
@@ -9,9 +9,10 @@ Each entry carries tags `[K.O cell(s), domain(s), type]`. Cross-source papers ap
 
 _Peer-reviewed papers, preprints, scientific corpora (PubMed, arXiv, S2ORC, ChemRxiv)._
 
-### K1.O1  ·  Primary Literature × Ground  (11)
+### K1.O1  ·  Primary Literature × Ground  (12)
 _Single-source grounding: retrieve, cite, answer._
 
+- **[Retrieval-Augmented Question Answering over Scientific Literature for the Electron-Ion Collider](https://arxiv.org/abs/2604.02259)** — EIC RAG Q&A application · arXiv · 2026 — EIC 로컬 RAG. 청크 180+Cosine 최적  `[K1.O1, Physics, Methods]`
 - **[Synthesizing Scientific Literature with Retrieval-Augmented Language Models](https://doi.org/10.1038/s41586-025-10072-4)** — ScholarQABench · Nature · 2026 — OpenScholar의 다학제 장문 합성 벤치마크  `[K1.O1, K1.O2, Biology, Medicine, Physics, Benchmarks]`
 - **[Benchmarking Foundation Models with Retrieval-Augmented Generation in Olympic-Level Physics Problem Solving](https://aclanthology.org/2025.findings-emnlp.1196/)** — PhoPile RAG Framework · EMNLP (Findings) · 2025 — Physics Olympiad 멀티모달 RAG 첫 벤치마크. 4 retriever × 3 multimodal × 8 모델 비교. retrieval 노이즈 문제 존재  `[K1.O1, Physics, Methods]`
 - **Rationale-Guided Retrieval Augmented Generation for Medical Question Answering** — RAG² · NAACL · 2025 — perplexity-차이 자동 라벨링으로 소형 필터 모델 학습 + rationale 쿼리 + 균등검색. SOTA on MedQA  `[K1.O1, Medicine, Methods]`
@@ -24,28 +25,34 @@ _Single-source grounding: retrieve, cite, answer._
 - **[PaperQA: Retrieval-Augmented Generative Agent for Scientific Research](https://arxiv.org/abs/2312.07559v2)** — PaperQA · arXiv · 2023 — Map-Reduce 환각 0% 인용 답변. LitQA 신규 벤치마크  `[K1.O1, Biology, Medicine, Methods]`
 - **[PubMedQA: A Dataset for Biomedical Research Question Answering](https://aclanthology.org/D19-1259/)** — PubMedQA · EMNLP-IJCNLP · 2019 — 1k expert-annotated + 61.2k unlabeled + 211.3k artificially generated QA; Yes/No/Maybe from PubMed abstracts; first QA dataset requiring quantitative reasoning over biomedical t…  `[K1.O1, Medicine, Biology, Benchmarks]`
 
-### K1.O2  ·  Primary Literature × Synthesis  (7)
+### K1.O2  ·  Primary Literature × Synthesis  (8)
 _Multi-source integration, claim verification._
 
 - **[Synthesizing Scientific Literature with Retrieval-Augmented Language Models](https://doi.org/10.1038/s41586-025-10072-4)** — ScholarQABench · Nature · 2026 — OpenScholar의 다학제 장문 합성 벤치마크  `[K1.O1, K1.O2, Biology, Medicine, Physics, Benchmarks]`
 - **[SQuAI: Scientific Question-Answering with Multi-Agent Retrieval-Augmented Generation](https://doi.org/10.1145/3746252.3761471)** — unarXive (Simple, Expert) · CIKM · 2025 — main.tex: K=-; O=O2  `[K1.O2, Biology, Chemistry, Physics, Benchmarks]`
+- **[Seeing the Forest Through the Trees: Knowledge Retrieval for Streamlining Particle Physics Analysis](https://arxiv.org/abs/2509.06855)** — HFLAV-QA · ML4PS @ NeurIPS · 2025 — SciTreeRAG+SciGraphRAG over LHCb internal corpus (K4 institutional tacit knowledge)  `[K1.O2, Physics, Benchmarks]`
 - **[Language Agents Achieve Superhuman Synthesis of Scientific Knowledge](https://arxiv.org/abs/2409.13740)** — PaperQA2 · arXiv · 2024 — 인간 전문가 초과 RAG. PaperQA2 85.2% > 인간 73.8%. RCS + Citation Traversal  `[K1.O2, K1.O1, Biology, Methods]`
 - **[BioASQ-QA: A manually curated corpus for Biomedical Question Answering](https://doi.org/10.1038/s41597-023-02068-4)** — BioASQ-QA · Scientific Data · 2023 — 4,721 expert-annotated biomedical QA pairs; running since 2012; combines exact answer + ideal summary; used for evaluation in cross-modal grounding section  `[K1.O1, K1.O2, Medicine, Biology, Benchmarks]`
 - **[SCIFACT-OPEN: Towards open-domain scientific claim verification](https://arxiv.org/abs/2210.13777)** — SCIFACT-OPEN · EMNLP (Findings) · 2022 — 50만 문서 오픈 도메인. SOTA F1 15-30 하락 일반화 한계  `[K1.O2, Medicine, Biology, Benchmarks]`
 - **[Fact or Fiction: Verifying Scientific Claims](https://aclanthology.org/2020.emnlp-main.609/)** — VERISCI · EMNLP · 2020 — 과학적 클레임 검증 첫 공식화. Citance 1.4K SCIFACT. TF-IDF + RoBERTa 3단계  `[K1.O2, Biology, Medicine, Methods]`
 - **DBLP:conf/pasc/GokdemirSBWHHSA25** — HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 7…  `[K1.O2, Methods]`
 
-### K1.O3  ·  Primary Literature × Hypothesis  (0)
+### K1.O3  ·  Primary Literature × Hypothesis  (4)
 _Generate new candidates — molecules, mechanisms, parameters._
 
+- **[MOOSE-Chem: Large Language Models for Rediscovering Unseen Chemistry Scientific Hypotheses](https://openreview.net/forum?id=X9OfMNNepI)** — MOOSE-Chem · ICLR · 2025 — Retrieves inspiration papers from chemistry literature (3000 most-cited Nature papers); composes & ranks novel hypotheses; evaluated by rediscovering held-out high-impact 2024 f…  `[K1.O3, Chemistry, Methods]`
+- **[ResearchAgent: Iterative Research Idea Generation over Scientific Literature with Large Language Models](https://doi.org/10.18653/v1/2025.naacl-long.342)** — ResearchAgent · NAACL · 2025 — Expands a core paper with academic-graph literature + a paper-mined entity store; proposes problems/methods/experiments, refined by ReviewingAgents  `[K1.O3, General Science, Methods]`
+- **[Chain of Ideas: Revolutionizing Research Via Novel Idea Development with LLM Agents](https://aclanthology.org/2025.findings-emnlp.477/)** — Chain-of-Ideas · EMNLP Findings · 2025 — Organizes Semantic Scholar citation chains into an evolution chain and extrapolates the next idea; evaluated with Idea Arena (human-preference-aligned)  `[K1.O3, General Science, Methods]`
+- **[SciMON: Scientific Inspiration Machines Optimized for Novelty](https://doi.org/10.18653/v1/2024.acl-long.18)** — SciMON · ACL · 2024 — Retrieves inspirations from 67K ACL Anthology papers + citation/KG neighbors built from the corpus; iteratively optimizes generated idea for novelty against prior work  `[K1.O3, General Science, Methods]`
 
 ## K2 — Curated Knowledge Base
 
 _Community-maintained structured records (PubChem, RCSB PDB, AlphaFold DB, ChEMBL, UMLS, PrimeKG, Materials Project)._
 
-### K2.O1  ·  Curated Knowledge Base × Ground  (3)
+### K2.O1  ·  Curated Knowledge Base × Ground  (4)
 _Single-source grounding: retrieve, cite, answer._
 
+- **CLADD: RAG-Enhanced Collaborative LLM Agents for Drug Discovery** — CLADD · AAAI · 2026 — Full-text verified 2026-05-31: a RAG QA/prediction agent system (DTI ranking, toxicity classification, molecular captioning) over biomedical KBs (PubChem, PrimeKG, DrugBank, STI…  `[K2.O1, Chemistry, Methods]`
 - **[LLaMP: Large Language Model Made Powerful for High-fidelity Materials Knowledge Retrieval](https://arxiv.org/abs/2401.17244)** — LLaMP MP Property Benchmark · EMNLP · 2025 — main.tex: K=-; O=O1  `[K2.O1, Materials Science, Chemistry, Benchmarks]`
 - **[Towards Omni-RAG: Comprehensive Retrieval-Augmented Generation for Large Language Models in Medical Applications](https://github.com/Jack-ZC8/Omni-RAG-Medical)** — Source Planning Optimisation (SPO) · ACL · 2025 — 5개 다중 구조 의료 KB(MedOmniKB) 구축 + SPO 기법. 소형 Planner가 10배 큰 모델 능가  `[K1.O1, K2.O1, Medicine, Methods]`
 - **[HoneyComb: A Flexible LLM-Based Agent System for Materials Science](https://doi.org/10.18653/v1/2024.findings-emnlp.192)** — EMNLP 2024 Findings · 2024 — Materials science and physics — MatSciKB curated literature knowledge base for materials RAG  `[K2.O1, Materials Science, Methods]`
@@ -55,21 +62,23 @@ _Multi-source integration, claim verification._
 
 - **[MedRAGChecker: Claim-Level Verification for Biomedical Retrieval-Augmented Generation](https://arxiv.org/abs/2601.06519v1)** — MedRAGChecker · arXiv · 2026 — Atomic Claim 분해 + NLI + KG 융합. GPT-4.1 → 소형 모델 distill  `[K2.O2, Medicine, Biology, Methods]`
 
-### K2.O3  ·  Curated Knowledge Base × Hypothesis  (23)
+### K2.O3  ·  Curated Knowledge Base × Hypothesis  (25)
 _Generate new candidates — molecules, mechanisms, parameters._
 
-- **CLADD: RAG-Enhanced Collaborative LLM Agents for Drug Discovery** — CLADD · AAAI · 2026 — RAG-empowered agentic system; Drug Repurposing Hub + DrugBank + STITCH for DTI (13,688 molecules); BBBP/Sider/ClinTox/BACE for toxicity; no domain fine-tuning; outperforms GNNs …  `[K2.O3, Chemistry, Methods]`
 - **MatClaw: Autonomous Code-First Agent for Materials Science** — MatClaw · arXiv · 2026 — Code-first LLM agent; RAG over domain source code (pymatgen, atomate2, jobflow, dpdata, DeePMD-kit); ~99% API-call accuracy; 4-layer memory; 3 end-to-end demonstrations on CuInP…  `[K2.O3, Materials Science, Methods]`
 - **TaLiRAGen: target-aware ligand generation via RAG LLMs** — TaLiRAGen · Molecular Diversity · 2026 — ★ K2.O3 EXEMPLAR. No-training RAG+LLM SBDD. Evidence-theoretic norm metric  `[K2.O3, Chemistry, Biology, Medicine, Methods]`
 - **[MLIP Arena: Physics-aware MLIP Benchmark Platform](https://arxiv.org/abs/2509.20630)** — MLIP Arena · NeurIPS D&B 2025 · 2025 — MLIP Arena — Simulation-verified Materials Discovery benchmark  `[K2.O3, Materials Science, Chemistry, Physics, Benchmarks]`
 - **[Matbench Discovery: ML Crystal Stability Benchmark on 257K WBM Structures](https://doi.org/10.1038/s42256-025-01055-1)** — Matbench Discovery · Nature Machine Intelligence · 2025 — Matbench Discovery — Simulation-verified Materials Discovery benchmark  `[K2.O3, Materials Science, Chemistry, Physics, Benchmarks]`
 - **Rag2Mol: structure-based drug design based on RAG** — Rag2Mol · Briefings in Bioinformatics · 2025 — ★ K2.O3. Cross-KNN graph fusion. PTPN2 undruggable target case validated  `[K2.O3, Biology, Medicine, Chemistry, Methods]`
+- **[Reimagining Target-Aware Molecular Generation through Retrieval-Enhanced Aligned Diffusion](https://arxiv.org/abs/2506.14488)** — READ · arXiv · 2025 — Full-text verified 2026-05-31: first retrieval-augmented diffusion framework for de novo ligand design; retrieves cognate ligands through a pocket-ligand bipartite graph; valida…  `[K2.O3, Chemistry, Methods]`
+- **[Interaction-based Retrieval-augmented Diffusion Models for Protein-specific 3D Molecule Generation](https://proceedings.mlr.press/v235/huang24ab.html)** — IRDiff · ICML · 2024 — Full-text verified 2026-05-31: retrieves high-affinity ligand references via a protein-molecule interaction network to steer a target-aware diffusion model; SOTA binding affinit…  `[K2.O3, Chemistry, Biology, Methods]`
 - **[JARVIS-Leaderboard: ~1500 Tasks × 11 Categories Multi-modal Materials Benchmark](https://doi.org/10.1038/s41524-024-01259-w)** — JARVIS-Leaderboard · npj Computational Materials · 2024 — JARVIS-Leaderboard — Simulation-verified Materials Discovery benchmark  `[K2.O3, Materials Science, Chemistry, Physics, Benchmarks]`
 - **Molecule Generation with Fragment Retrieval Augmentation** — f-RAG · NeurIPS · 2024 — Fragment-based drug discovery with retrieval augmentation; hard/soft fragment retrieval; iterative refinement + genetic fragment modification; evaluated on PMO benchmark 23 task…  `[K2.O3, Chemistry, Methods]`
 - **[Open Materials 2024 (OMat24) Inorganic Materials Dataset and Models](https://arxiv.org/abs/2410.12771)** — OMat24 · arXiv (Meta FAIR) · 2024 — OMat24 — 110M+ DFT inorganic-materials dataset + EquiformerV2/eSEN MLIP models; Matbench Discovery F1 > 0.9  `[K2.O3, Materials Science, Chemistry, Physics, Benchmarks]`
 - **[ScienceAgentBench: 102 Tasks × 44 Pubs × API+E2E Code Success](https://arxiv.org/abs/2410.05080)** — ScienceAgentBench · ICLR / arXiv · 2024 — ScienceAgentBench — Simulation-verified Materials Discovery benchmark  `[K2.O3, Biology, Chemistry, Materials Science, Physics, General Science, Benchmarks]`
 - **[The Open DAC 2023 Dataset and Challenges for Sorbent Discovery in Direct Air Capture](https://doi.org/10.1021/acscentsci.3c01629)** — ODAC23 · ACS Central Science · 2024 — ODAC23 — 8,400+ MOFs × 38M DFT for DAC sorbent discovery; OC20-style S2EF/IS2RE/IS2RS tasks  `[K2.O3, Materials Science, Chemistry, Benchmarks]`
 - **[AdsorbML: 1000 Adsorbate-Surface DFT-Success Benchmark](https://doi.org/10.1038/s41524-023-01121-5)** — AdsorbML · npj Computational Materials · 2023 — AdsorbML — Simulation-verified Materials Discovery benchmark  `[K2.O3, Materials Science, Chemistry, Benchmarks]`
+- **[Retrieval-based Controllable Molecule Generation](https://openreview.net/forum?id=vDFA1tpuLvk)** — RetMol · ICLR · 2023 — Full-text verified 2026-05-31: retrieves exemplar molecules from ZINC/ChEMBL to steer a frozen generator without fine-tuning; verified by AutoDock on SARS-CoV-2 main protease bi…  `[K2.O3, Chemistry, Methods]`
 - **[Crystal Diffusion Variational Autoencoder for Periodic Material Generation](https://arxiv.org/abs/2110.06197)** — CDVAE · ICLR 2022 · 2022 — CDVAE — 3-dataset crystal generation benchmark (Perov-5 / Carbon-24 / MP-20) with Validity / Coverage / Property statistics  `[K2.O3, Materials Science, Chemistry, Physics, Benchmarks]`
 - **[Therapeutics Data Commons: Machine Learning Datasets and Tasks for Drug Discovery and Development](https://arxiv.org/abs/2102.09548)** — TDC · NeurIPS D&B 2021 · 2021 — 66 AI-ready datasets × 22 tasks × 29 leaderboards — Database-verified Prediction umbrella benchmark for drug discovery  `[K2.O3, Medicine, Biology, Chemistry, Benchmarks]`
 - **[Open Graph Benchmark: Datasets for Machine Learning on Graphs](https://proceedings.neurips.cc/paper/2020/hash/fb60d411a5c5b72b2e7d3527cfc84fd0-Abstract.html)** — OGB / OGB-biokg · NeurIPS · 2020 — OGB-biokg — biomedical knowledge graph link prediction with hits@K public leaderboard  `[K2.O3, Biology, General Science, Benchmarks]`
@@ -98,9 +107,10 @@ _Single-source grounding: retrieve, cite, answer._
 _Multi-source integration, claim verification._
 
 
-### K3.O3  ·  Observational & Experimental × Hypothesis  (3)
+### K3.O3  ·  Observational & Experimental × Hypothesis  (4)
 _Generate new candidates — molecules, mechanisms, parameters._
 
+- **[MADGEN: Mass-Spec attends to De Novo Molecular generation](https://openreview.net/forum?id=78tc3EiUrN)** — MADGEN · ICLR · 2025 — Full-text verified 2026-06-01: MADGEN (ICLR 2025) — the sole genuine retrieval-augmented de novo method for spectrum-to-molecule. Retrieves a molecular scaffold keyed on the MS/…  `[K3.O3, Chemistry, Methods]`
 - **[MassSpecGym: A benchmark for the discovery and identification of molecules](https://proceedings.neurips.cc/paper_files/paper/2024/hash/c6c31413d5c53b7d1c343c1498734b0f-Abstract-Datasets_and_Benchmarks_Track.html)** — MassSpecGym · NeurIPS · 2024 — main.tex: K=-; O=O3  `[K3.O3, Chemistry, Benchmarks]`
 - **[PerturBench: Benchmarking Machine Learning Models for Cellular Perturbation Analysis](https://arxiv.org/abs/2408.10609)** — PerturBench · arXiv · 2024 — PerturBench — cellular perturbation analysis benchmark with 4 generalization regimes  `[K3.O3, Biology, Benchmarks]`
 - **[Predicting transcriptional outcomes of novel multigene perturbations with GEARS](https://doi.org/10.1038/s41587-023-01905-6)** — GEARS · Nature Biotechnology · 2024 — GEARS — held-out perturbation evaluation protocol on Norman 2019 dual-gene combinations  `[K3.O3, Biology, Methods]`
@@ -109,20 +119,20 @@ _Generate new candidates — molecules, mechanisms, parameters._
 
 _Institutional memory (RHIC, DUNE, CMS), lab protocols, private EHRs, governmental/industry process docs. ★ Novelty axis._
 
-### K4.O1  ·  Tacit Knowledge × Ground  (7)
+### K4.O1  ·  Tacit Knowledge × Ground  (6)
 _Single-source grounding: retrieve, cite, answer._
 
 - **MITRA: Knowledge Retrieval over Physics Collaborations' Tacit Memory** — MITRA · arXiv · 2026 — RAG over CMS internal documents; DPR + cross-encoder reranker + 4-bit Mistral-7B; P@1 ~5.8x over BM25 on paraphrased queries (Set 2: 0.75 vs 0.13)  `[K4.O1, Physics, Methods]`
-- **[Retrieval-Augmented Question Answering over Scientific Literature for the Electron-Ion Collider](https://arxiv.org/abs/2604.02259)** — EIC RAG Q&A application · arXiv · 2026 — EIC 로컬 RAG. 청크 180+Cosine 최적  `[K4.O1, Physics, Methods]`
 - **AI-Powered Assistant for Long-Term Access to RHIC Knowledge** — RHIC DAPP · New York Scientific Data Summit · 2025 — ★ FLAGSHIP K4 EXAMPLE. ~1 ExaByte institutional memory. MCP-RAG. Demonstrates commercial AI's blindness to non-public scientific tacit knowledge  `[K4.O1, Physics, Methods]`
 - **DUNE Knowledge Retrieval: Large-scale Indexing of Fermilab Collaboration Documents** — DUNE-GPT · arXiv · 2025 — RAG over DUNE DocDB + Indico + internal wikis; multi-qa-mpnet + FAISS; ~70% retrieval accuracy (preliminary); Fermilab on-premise  `[K4.O1, Physics, Methods]`
-- **[Seeing the Forest Through the Trees: Knowledge Retrieval for Streamlining Particle Physics Analysis](https://arxiv.org/abs/2509.06855)** — HFLAV-QA · ML4PS @ NeurIPS · 2025 — SciTreeRAG+SciGraphRAG over LHCb internal corpus (K4 institutional tacit knowledge)  `[K4.O1, Physics, Benchmarks]`
-- **[Multi-Agent System for Cosmological Parameter Analysis](https://arxiv.org/abs/2412.00431)** — cmbagent · arXiv · 2024 — 3종 전문 RAG 에이전트 + 멀티에이전트로 ACT DR6 우주론 파라미터 분석을 40분·코드 0줄에 자동 재현  `[K4.O1, Astronomy, Methods]`
-- **Towards a RAG-based Summarization for the Electron-Ion Collider** — EIC RAG · arXiv · 2024 — RAG-based summarization AI for EIC institutional documents; LangChain + vector DB; RAGAs evaluation; prompt template instruction-tuning; Streamlit web app; serves 1,400+ physici…  `[K4.O1, Physics, Methods]`
+- **DBLP:journals/corr/abs-2406-12881** — RAG over particle-accelerator electronic logbooks across DESY, BESSY, Fermilab (ADEL), BNL, SLAC, LBNL, CERN; grounded QA over internal operational records  `[K4.O1, Methods]`
+- **mehta2023copilots** — RAG over DIII-D and Alcator C-Mod tokamak text logs; grounded operator QA with references rather than action generation. Not indexed by DBLP  `[K4.O1, Methods]`
+- **rehm2025accgpt** — On-premise RAG chatbot over CERN internal documentation; e5-large-v2 embeddings. Not indexed by DBLP  `[K4.O1, Methods]`
 
-### K4.O2  ·  Tacit Knowledge × Synthesis  (0)
+### K4.O2  ·  Tacit Knowledge × Synthesis  (1)
 _Multi-source integration, claim verification._
 
+- **Towards a RAG-based Summarization for the Electron-Ion Collider** — EIC RAG · arXiv · 2024 — RAG-based summarization AI for EIC institutional documents; LangChain + vector DB; RAGAs evaluation; prompt template instruction-tuning; Streamlit web app; serves 1,400+ physici…  `[K4.O2, Physics, Methods]`
 
 ### K4.O3  ·  Tacit Knowledge × Hypothesis  (0)
 _Generate new candidates — molecules, mechanisms, parameters._
@@ -130,7 +140,7 @@ _Generate new candidates — molecules, mechanisms, parameters._
 
 ## Unassigned (K×O pending)
 
-126 entries from the Notion catalog without verified K×O assignment yet.
+127 entries from the Notion catalog without verified K×O assignment yet.
 
 - **[BioModelsRAG: A Biological Modeling Assistant Using RAG (Retrieval Augmented Generation)](https://arxiv.org/abs/2601.22684)** — BioModels Custom QA · arXiv · 2026  `[Biology, Benchmarks]`
 - **BioModelsRAG: Biological Modeling Assistant** — BioModelsRAG · arXiv · 2026 — K2 EXEMPLAR — curated systems-biology DB. SBML→Antimony→LLM-summary→ChromaDB pipeline  `[Biology, Methods]`
@@ -205,6 +215,7 @@ _Generate new candidates — molecules, mechanisms, parameters._
 - **HoneyComb: Materials Science Agent** — HoneyComb · EMNLP (Findings) · 2024 — ★ Cross-source: K2 (MP DB)+K1 (papers)+tool use. ReAct agent  `[Materials Science, Methods]`
 - **[Leveraging Chemistry Foundation Models to Facilitate Structure Focused Retrieval Augmented Generation in Multi-Agent Workflows for Catalyst and Materials Design](https://arxiv.org/pdf/2408.11793)** — Hierarchical multi-agent adaptive self-reflective RAG · arXiv · 2024 — MoLFormer + OpenCLIP. 화학 멀티에이전트 RAG. IBM 특허  `[Chemistry, Materials Science, Methods]`
 - **[LitSearch: A Retrieval Benchmark for Scientific Literature Search](https://doi.org/10.18653/v1/2024.emnlp-main.840)** — LitSearch · EMNLP · 2024  `[Biology, Chemistry, Physics, Benchmarks]`
+- **[Multi-Agent System for Cosmological Parameter Analysis](https://arxiv.org/abs/2412.00431)** — cmbagent · arXiv · 2024 — 3종 전문 RAG 에이전트 + 멀티에이전트로 ACT DR6 우주론 파라미터 분석을 40분·코드 0줄에 자동 재현  `[Astronomy, Methods]`
 - **OmniMedVQA: A New Large-Scale Comprehensive Evaluation Benchmark for Medical LVLM** — OmniMedVQA · CVPR · 2024 — 의료 LVLM 종합. Patho-AgenticRAG 90.11%  `[Medicine, Benchmarks]`
 - **PathMMU: A Massive Multimodal Expert-Level Benchmark for Understanding and Reasoning in Pathology** — PathMMU · ECCV · 2024 — 5개 다중 출처 기반의 전문가 수준 병리학 Multimodal MCQ 벤치마크. 8,454문항 (Test). SocialPath는 게시물 삭제 시 데이터 유실이 한계점  `[Medicine, Biology, Benchmarks]`
 - **[RSWFormer: A multi-scale fusion network from local to global with multiple stages for regional geological mapping](https://doi.org/10.3390/rs16142548)** — Multi-GL9 · Remote Sensing · 2024 — GF-2 + Landsat 8 다중 해상도 지질 분류. Geo-MMRAG 79.7%  `[Earth Science, Benchmarks]`

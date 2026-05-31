@@ -1,10 +1,13 @@
 # General Science
 
-_8 entries in the general science domain._
+_11 entries in the general science domain._
 
 ---
 
+- **[ResearchAgent: Iterative Research Idea Generation over Scientific Literature with Large Language Models](https://doi.org/10.18653/v1/2025.naacl-long.342)** — ResearchAgent · NAACL · 2025 — Expands a core paper with academic-graph literature + a paper-mined entity store; proposes problems/methods/experiments, refined by ReviewingAgents  `[K1.O3, General Science, Methods]`
+- **[Chain of Ideas: Revolutionizing Research Via Novel Idea Development with LLM Agents](https://aclanthology.org/2025.findings-emnlp.477/)** — Chain-of-Ideas · EMNLP Findings · 2025 — Organizes Semantic Scholar citation chains into an evolution chain and extrapolates the next idea; evaluated with Idea Arena (human-preference-aligned)  `[K1.O3, General Science, Methods]`
 - **[ScienceAgentBench: 102 Tasks × 44 Pubs × API+E2E Code Success](https://arxiv.org/abs/2410.05080)** — ScienceAgentBench · ICLR / arXiv · 2024 — ScienceAgentBench — Simulation-verified Materials Discovery benchmark  `[K2.O3, Biology, Chemistry, Materials Science, Physics, General Science, Benchmarks]`
+- **[SciMON: Scientific Inspiration Machines Optimized for Novelty](https://doi.org/10.18653/v1/2024.acl-long.18)** — SciMON · ACL · 2024 — Retrieves inspirations from 67K ACL Anthology papers + citation/KG neighbors built from the corpus; iteratively optimizes generated idea for novelty against prior work  `[K1.O3, General Science, Methods]`
 - **[The SciQA Scientific Question Answering Benchmark for Scholarly Knowledge](https://doi.org/10.1038/s41598-023-33607-z)** — SciQA · Scientific Reports · 2023 — ORKG 기반 학술 지식 QA. ChatGPT 100개 중 14개만 정답  `[O1, General Science, Benchmarks]`
 - **[OpenAlex: A fully-open index of scholarly works, authors, venues, institutions, and concepts](https://arxiv.org/abs/2205.01833)** — OpenAlex REST API · arXiv (CoRR) · 2022 — K1 infrastructure: fully-open scholarly graph, MAG successor. REST API: no rate limits, no registration  `[K1, General Science, Datasets]`
 - **[Crossref: The sustainable source of community-owned scholarly metadata](https://doi.org/10.1162/qss_a_00022)** — Crossref REST API · Quantitative Science Studies · 2020 — K1 infrastructure: DOI registry, 106M records, community-owned scholarly metadata. Growing 11%/yr  `[K1, General Science, Datasets]`

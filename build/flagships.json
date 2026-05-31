@@ -178,6 +178,38 @@
     }
   ],
   "bib_only_titles": {
+    "DBLP:conf/iclr/WangCLH25": {
+      "title": "MADGEN: Mass-Spec attends to De Novo Molecular generation",
+      "year": 2025,
+      "venue": "ICLR",
+      "method": "MADGEN",
+      "domain": ["chem"],
+      "paper_link": "https://openreview.net/forum?id=78tc3EiUrN"
+    },
+    "DBLP:conf/iclr/0001NQXBA23": {
+      "title": "Retrieval-based Controllable Molecule Generation",
+      "year": 2023,
+      "venue": "ICLR",
+      "method": "RetMol",
+      "domain": ["chem"],
+      "paper_link": "https://openreview.net/forum?id=vDFA1tpuLvk"
+    },
+    "DBLP:conf/icml/Huang0ZQYZZZWY24": {
+      "title": "Interaction-based Retrieval-augmented Diffusion Models for Protein-specific 3D Molecule Generation",
+      "year": 2024,
+      "venue": "ICML",
+      "method": "IRDiff",
+      "domain": ["chem", "bio"],
+      "paper_link": "https://proceedings.mlr.press/v235/huang24ab.html"
+    },
+    "DBLP:journals/corr/abs-2506-14488": {
+      "title": "Reimagining Target-Aware Molecular Generation through Retrieval-Enhanced Aligned Diffusion",
+      "year": 2025,
+      "venue": "arXiv",
+      "method": "READ",
+      "domain": ["chem"],
+      "paper_link": "https://arxiv.org/abs/2506.14488"
+    },
     "DBLP:conf/aaai/LeeBHBPS26": {
       "title": "CLADD: RAG-Enhanced Collaborative LLM Agents for Drug Discovery",
       "year": 2026,
