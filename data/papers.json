@@ -704,7 +704,7 @@
     "modality": [
       "Text"
     ],
-    "type": "benchmark",
+    "type": "Method",
     "ko_cells": [
       "K1.O1",
       "K1.O2"
@@ -3223,7 +3223,7 @@
       "PubMedQA",
       "BioASQ"
     ],
-    "type": "dataset",
+    "type": "Method",
     "ko_cells": [
       "K1.O1"
     ],
@@ -3280,7 +3280,7 @@
     "modality": [
       "Text"
     ],
-    "type": "benchmark",
+    "type": "Method",
     "ko_cells": [
       "K1.O1"
     ],
