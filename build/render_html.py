@@ -93,7 +93,7 @@ CELL_TIERS = {
 # K1.O3 merges the strong- and weak-verifier paragraphs. K3.O2 has no draft paragraph (empty).
 CELL_PAPERS = {
     'K1.O1': ['DBLP:conf/acl/Xiong0LZ24', 'DBLP:journals/corr/abs-2408-01107', 'DBLP:conf/naacl/SohnPYPHSKK25', 'DBLP:conf/emnlp/FrisoniMMV22', 'DBLP:journals/bioinformatics/JeongSSK24', 'DBLP:conf/pasc/GokdemirSBWHHSA25', 'DBLP:journals/corr/abs-2312-07559', 'asai2026synthesizing', 'DBLP:journals/corr/abs-2310-16146', 'DBLP:conf/ecir/AteiaK25', 'DBLP:conf/sigir/HuLD0A0025', 'iyer2024pathfinder'],
-    'K1.O2': ['asai2026synthesizing', 'DBLP:journals/corr/abs-2409-13740', 'DBLP:conf/cikm/BesrourHS025', 'DBLP:conf/emnlp/WaddenLLWZCH20', 'DBLP:conf/emnlp/WaddenLKCBWH22'],
+    'K1.O2': ['asai2026synthesizing', 'DBLP:journals/corr/abs-2409-13740', 'DBLP:conf/cikm/BesrourHS025'],
     'K1.O3': ['DBLP:conf/nips/LeeKV0RPVN24', 'DBLP:journals/bib/ZhangPHCM25', 'nan2026taliragen', 'DBLP:conf/aaai/LeeBHBPS26', 'xiao2024repurposing', 'bicerano2024polymer'],
     'K2.O1': ['DBLP:conf/emnlp/ChiangHCR25', 'DBLP:conf/emnlp/ZhangSHML24', 'DBLP:conf/acl/ChenLJWG0025'],
     'K2.O2': ['DBLP:conf/acl/WuZQCXMJG25', 'DBLP:journals/corr/abs-2601-06519'],
