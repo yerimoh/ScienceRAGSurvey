@@ -8684,6 +8684,6 @@
     "ko_primary": "K1.O2",
     "subsection": "Aggregative Synthesis",
     "paper_link": "https://doi.org/10.1038/s41746-025-01840-7",
-    "note": "임상 근거 합성 파이프라인: PICO 기반 PubMed 검색 → 스크리닝 → 데이터 추출 → 표준화·메타분석(forest plot). human-in-the-loop. 검색 recall 0.78(GPT-4 0.07), 결과 추출 GPT-4 대비 중앙값 1.5배."
+    "note": "임상 근거 합성 파이프라인: PICO 기반 PubMed 검색 → 스크리닝 → 데이터 추출 → 결과지표 표준화 → 인간이 검증하는 메타분석(forest plot). human-in-the-loop. 검색 recall 0.78(GPT-4 0.07), 결과 추출 GPT-4 대비 중앙값 1.5배."
   }
 ]
