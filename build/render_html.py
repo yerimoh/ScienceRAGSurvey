@@ -143,9 +143,10 @@ FACTCHECK = {
         'source': 'CoRR 2023 · arXiv:2310.16146 · PSB 2024',
     },
 }
-# Cells whose papers have been full-text fact-checked (footnotes shown only here, so we
-# never imply a verification we haven't done). Add cells as they are checked.
-FACTCHECKED_CELLS = {'K1.O1'}
+# Cells whose papers show the fact-check footnote chip on the cell page.
+# Emptied per user request (chip removed from the UI); FACTCHECK data above is
+# retained for the report / future use. Add a cell key here to re-enable its chips.
+FACTCHECKED_CELLS = set()
 
 
 def axis_subsections(axis_scope, cell_key=None):
