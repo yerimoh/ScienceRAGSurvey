@@ -761,6 +761,118 @@ def paper_card(p, base='', axis_scope=None, factcheck_id=None):
 '''
 
 
+# The paper's overview figure (Fig. 1) as the main-page centerpiece: what a system retrieves
+# (substrate) → how it construct/retrieve/generate/verify → what objective it produces.
+PIPELINE_HTML = '''
+<section id="overview" class="flow-section">
+  <div class="wrap">
+    <h2 class="section-title">How a scientific RAG system works</h2>
+    <p class="section-sub">
+      The survey organizes the field not as a grid of cells but as the <em>pipeline</em> a system runs:
+      what knowledge it <strong>retrieves</strong> (the substrate), how it <strong>constructs, retrieves,
+      generates, and verifies</strong>, and what <strong>objective</strong> it produces — scored by evaluation.
+      Science specializes every stage.
+    </p>
+    <div class="flow">
+      <div class="flow-card flow-k">
+        <div class="flow-cap">Knowledge&nbsp;Source · substrate</div>
+        <a class="flow-chip flow-kc" href="cell/K1.html">Textual</a>
+        <a class="flow-chip flow-kc" href="cell/K2.html">Relational</a>
+        <a class="flow-chip flow-kc" href="cell/K3.html">Structured-entity</a>
+        <a class="flow-chip flow-kc" href="cell/K4.html">Perceptual</a>
+      </div>
+      <span class="flow-arrow">&rarr;</span>
+      <div class="flow-stages">
+        <div class="flow-stage"><strong>Construction</strong><span>index each substrate in its own form</span></div>
+        <div class="flow-stage"><strong>Retrieval</strong><span>match the query to the substrate</span></div>
+        <div class="flow-stage"><strong>Generation</strong><span>draft an answer from the evidence</span></div>
+        <div class="flow-stage flow-v"><strong>Verification</strong><span>test the output beyond the corpus</span></div>
+        <div class="flow-loop">&#8635;&nbsp;verifier feedback loop</div>
+      </div>
+      <span class="flow-arrow">&rarr;</span>
+      <div class="flow-card flow-o">
+        <div class="flow-cap">Operational&nbsp;Objective · rung</div>
+        <a class="flow-chip flow-oc" href="cell/O3.html">Discovery</a>
+        <a class="flow-chip flow-oc" href="cell/O2.html">Synthesis</a>
+        <a class="flow-chip flow-oc" href="cell/O1.html">Grounding</a>
+        <div class="flow-axis-note">&uarr; ground truth farther from the corpus</div>
+      </div>
+    </div>
+    <p class="flow-foot">
+      <strong>Evaluation</strong> scores the output against a ground truth that, for discovery, lies outside any corpus.
+      Capability concentrates on the <strong>Textual</strong> substrate and automatically-checkable tasks, and thins
+      toward non-textual, externally-verified discovery.
+    </p>
+  </div>
+</section>
+'''
+
+
+def _growth_chart_html():
+    """Cumulative stacked-area growth of the catalog by year, stacked by resource type.
+    Returns (svg_string, legend_html). Everything <2018 is bucketed as '<=2017'."""
+    from collections import defaultdict, Counter
+    TYPES = [('Method', 'Methods', '#c2185b'),
+             ('benchmark', 'Benchmarks', '#1a73e8'),
+             ('dataset', 'Datasets', '#12805c'),
+             ('summary', 'Surveys', '#e8710a')]
+    yc = defaultdict(Counter)
+    for p in papers:
+        y = p.get('year')
+        if not str(y).isdigit():
+            continue
+        yb = 2017 if int(y) < 2018 else int(y)
+        yc[yb][p.get('type', 'unknown')] += 1
+    years = sorted(yc)
+    n = len(years)
+    running = Counter()
+    upper = {k[0]: [] for k in TYPES}   # cumulative stacked upper boundary per layer
+    for y in years:
+        for key, _, _ in TYPES:
+            running[key] += yc[y].get(key, 0)
+        acc = 0
+        for key, _, _ in TYPES:
+            acc += running[key]
+            upper[key].append(acc)
+    total_max = upper[TYPES[-1][0]][-1] if n else 1
+    W, H = 720, 300
+    ml, mr, mt, mb = 46, 14, 16, 30
+    pw, ph = W - ml - mr, H - mt - mb
+
+    def X(i):
+        return ml + (pw * (i / (n - 1)) if n > 1 else 0)
+
+    def Y(v):
+        return mt + ph * (1 - v / total_max)
+
+    s = []
+    tick = 100
+    t = 0
+    while t <= total_max:
+        yy = Y(t)
+        s.append(f'<line x1="{ml}" y1="{yy:.1f}" x2="{W-mr}" y2="{yy:.1f}" stroke="var(--line)" stroke-width="1"/>')
+        s.append(f'<text x="{ml-6}" y="{yy+3:.1f}" text-anchor="end" font-size="10" fill="var(--fg-faint)">{t}</text>')
+        t += tick
+    lower = [0.0] * n
+    for key, label, color in TYPES:
+        up = upper[key]
+        top = ' '.join(f'{X(i):.1f},{Y(v):.1f}' for i, v in enumerate(up))
+        bot = ' '.join(f'{X(i):.1f},{Y(lower[i]):.1f}' for i in range(n - 1, -1, -1))
+        s.append(f'<polygon points="{top} {bot}" fill="{color}" fill-opacity="0.85"><title>{label}</title></polygon>')
+        lower = up
+    topline = ' '.join(f'{X(i):.1f},{Y(upper[TYPES[-1][0]][i]):.1f}' for i in range(n))
+    s.append(f'<polyline points="{topline}" fill="none" stroke="var(--fg)" stroke-width="1.5"/>')
+    for i, y in enumerate(years):
+        lbl = '≤2017' if y == 2017 else str(y)
+        s.append(f'<text x="{X(i):.1f}" y="{H-8}" text-anchor="middle" font-size="10" fill="var(--fg-muted)">{lbl}</text>')
+    s.append(f'<circle cx="{X(n-1):.1f}" cy="{Y(total_max):.1f}" r="3" fill="var(--fg)"/>')
+    s.append(f'<text x="{X(n-1)-6:.1f}" y="{Y(total_max)-7:.1f}" text-anchor="end" font-size="13" font-weight="700" fill="var(--fg)">{int(total_max)} total</text>')
+    svg = (f'<svg viewBox="0 0 {W} {H}" width="100%" preserveAspectRatio="xMidYMid meet" role="img" '
+           f'aria-label="Cumulative growth of scientific RAG systems by year, stacked by resource type">{"".join(s)}</svg>')
+    legend = ''.join(f'<span class="lg-chip" style="background:{c};color:#fff">{lbl}</span>' for _, lbl, c in TYPES)
+    return svg, legend
+
+
 # ---------- index.html ----------
 def render_index():
     parts = [page_head('Home', base='', current='home')]
@@ -781,35 +893,57 @@ def render_index():
       <span class="hero-search-hint">↵ to filter on <a href="browse.html">Browse</a></span>
     </div>
     <div class="hero-cta">
-      <a href="#grid" class="btn">Explore the grid</a>
+      <a href="#overview" class="btn">See how it works</a>
       <a href="browse.html" class="btn btn-secondary">Browse all {len(papers)}</a>
       <a href="about.html" class="btn btn-ghost">Read about the taxonomy</a>
     </div>
   </div>
 </section>
+''')
 
-<section id="grid" class="ko-grid-section">
+    # --- Centerpiece: the paper's pipeline overview (Fig. 1) ---
+    parts.append(PIPELINE_HTML)
+
+    # --- Cumulative growth chart (stacked area by resource type) ---
+    _gsvg, _gleg = _growth_chart_html()
+    parts.append(f'''
+<section class="growth-section">
   <div class="wrap">
-    <h2 class="section-title">Substrate × Objective — the 12-cell landscape</h2>
+    <h2 class="section-title">A field growing fast</h2>
     <p class="section-sub">
-      Each cell pairs a <em>retrieval substrate</em> (row) with an <em>objective rung</em> (column), and lists the
-      survey's core systems that land there. Capability concentrates on the <strong>Textual</strong> substrate and
-      thins toward non-textual discovery: cells shade <em>active</em> where mature retrieval meets automatic scoring,
-      and mark as <em>frontier</em> where the substrate or the verifier does not yet exist (§8).
+      Cumulative count of every catalogued system — methods, benchmarks, and datasets — by year. Scientific RAG
+      accelerates sharply from 2023 onward, led by <strong style="color:#c2185b">methods</strong> with
+      <strong style="color:#1a73e8">benchmarks</strong> following.
+    </p>
+    <div class="chart-frame">{_gsvg}</div>
+    <p class="chart-legend">{_gleg}</p>
+  </div>
+</section>
+''')
+
+    # --- 12-cell landscape grid, built here but rendered lower as a secondary browse aid ---
+    grid_parts = ['''
+<section id="grid" class="ko-grid-section ko-grid-secondary">
+  <div class="wrap">
+    <h2 class="section-title">Or browse the full landscape grid</h2>
+    <p class="section-sub">
+      A secondary view: each cell pairs a <em>retrieval substrate</em> (row) with an <em>objective rung</em> (column)
+      and lists the survey's core systems that land there. Cells shade <em>active</em> where mature retrieval meets
+      automatic scoring, and are marked <em>frontier</em> where the substrate or the verifier does not yet exist (§8).
     </p>
     <table class="ko-grid">
       <thead>
         <tr>
           <th class="corner"></th>
-''')
+''']
     for O in ['O1', 'O2', 'O3']:
         on, od = O_LABELS[O]
-        parts.append(f'          <th class="o-head"><span class="cell-axis">{O}</span> {esc(on)}<span class="cell-axis-desc">{esc(od)}</span></th>\n')
-    parts.append('        </tr>\n      </thead>\n      <tbody>\n')
+        grid_parts.append(f'          <th class="o-head"><span class="cell-axis">{O}</span> {esc(on)}<span class="cell-axis-desc">{esc(od)}</span></th>\n')
+    grid_parts.append('        </tr>\n      </thead>\n      <tbody>\n')
 
     for K in ['K1', 'K2', 'K3', 'K4']:
         kn, kd = K_LABELS[K]
-        parts.append(f'        <tr>\n          <th class="k-head"><span class="cell-axis">{K}</span> {esc(kn)}<span class="cell-axis-desc">{esc(kd)}</span></th>\n')
+        grid_parts.append(f'        <tr>\n          <th class="k-head"><span class="cell-axis">{K}</span> {esc(kn)}<span class="cell-axis-desc">{esc(kd)}</span></th>\n')
         for O in ['O1', 'O2', 'O3']:
             cell = f'{K}.{O}'
             if cell in CELL_PAPERS:
@@ -824,7 +958,7 @@ def render_index():
                 f'<li>{esc((p.get("method") or p.get("title") or "?")[:60])}</li>' for p in top
             )
             frontier = ' frontier' if CELL_TIERS.get(cell, ('', ''))[0] == 'Frontier' else ''
-            parts.append(f'''          <td class="ko-cell {heat}{frontier}">
+            grid_parts.append(f'''          <td class="ko-cell {heat}{frontier}">
             <a href="cell/{cell}.html" class="cell-link">
               <span class="cell-id">[{cell}]</span>
               <span class="cell-count">{n}</span>
@@ -832,8 +966,9 @@ def render_index():
             </a>
           </td>
 ''')
-        parts.append('        </tr>\n')
-    parts.append('      </tbody>\n    </table>\n  </div>\n</section>\n')
+        grid_parts.append('        </tr>\n')
+    grid_parts.append('      </tbody>\n    </table>\n  </div>\n</section>\n')
+    grid_html = ''.join(grid_parts)
 
     # Domains row
     parts.append('''
@@ -867,6 +1002,9 @@ def render_index():
         n = len(by_type[t])
         parts.append(f'      <a href="topics/{t.lower()}.html" class="type-card"><strong>{esc(label)}</strong><span>{n}</span></a>\n')
     parts.append('    </div>\n  </div>\n</section>\n')
+
+    # 12-cell landscape grid (secondary), rendered after the domain/type quick-nav
+    parts.append(grid_html)
 
     # Flagships strip
     flagships_file = ROOT / 'build/flagships.json'

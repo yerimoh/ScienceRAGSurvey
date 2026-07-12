@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Home — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="static/style.css?v=1780206607">
+<link rel="stylesheet" href="static/style.css?v=1783858719">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -117,21 +117,140 @@
       <span class="hero-search-hint">↵ to filter on <a href="browse.html">Browse</a></span>
     </div>
     <div class="hero-cta">
-      <a href="#grid" class="btn">Explore the grid</a>
+      <a href="#overview" class="btn">See how it works</a>
       <a href="browse.html" class="btn btn-secondary">Browse all 331</a>
       <a href="about.html" class="btn btn-ghost">Read about the taxonomy</a>
     </div>
   </div>
 </section>
 
-<section id="grid" class="ko-grid-section">
+<section id="overview" class="flow-section">
   <div class="wrap">
-    <h2 class="section-title">Substrate × Objective — the 12-cell landscape</h2>
+    <h2 class="section-title">How a scientific RAG system works</h2>
     <p class="section-sub">
-      Each cell pairs a <em>retrieval substrate</em> (row) with an <em>objective rung</em> (column), and lists the
-      survey's core systems that land there. Capability concentrates on the <strong>Textual</strong> substrate and
-      thins toward non-textual discovery: cells shade <em>active</em> where mature retrieval meets automatic scoring,
-      and mark as <em>frontier</em> where the substrate or the verifier does not yet exist (§8).
+      The survey organizes the field not as a grid of cells but as the <em>pipeline</em> a system runs:
+      what knowledge it <strong>retrieves</strong> (the substrate), how it <strong>constructs, retrieves,
+      generates, and verifies</strong>, and what <strong>objective</strong> it produces — scored by evaluation.
+      Science specializes every stage.
+    </p>
+    <div class="flow">
+      <div class="flow-card flow-k">
+        <div class="flow-cap">Knowledge&nbsp;Source · substrate</div>
+        <a class="flow-chip flow-kc" href="cell/K1.html">Textual</a>
+        <a class="flow-chip flow-kc" href="cell/K2.html">Relational</a>
+        <a class="flow-chip flow-kc" href="cell/K3.html">Structured-entity</a>
+        <a class="flow-chip flow-kc" href="cell/K4.html">Perceptual</a>
+      </div>
+      <span class="flow-arrow">&rarr;</span>
+      <div class="flow-stages">
+        <div class="flow-stage"><strong>Construction</strong><span>index each substrate in its own form</span></div>
+        <div class="flow-stage"><strong>Retrieval</strong><span>match the query to the substrate</span></div>
+        <div class="flow-stage"><strong>Generation</strong><span>draft an answer from the evidence</span></div>
+        <div class="flow-stage flow-v"><strong>Verification</strong><span>test the output beyond the corpus</span></div>
+        <div class="flow-loop">&#8635;&nbsp;verifier feedback loop</div>
+      </div>
+      <span class="flow-arrow">&rarr;</span>
+      <div class="flow-card flow-o">
+        <div class="flow-cap">Operational&nbsp;Objective · rung</div>
+        <a class="flow-chip flow-oc" href="cell/O3.html">Discovery</a>
+        <a class="flow-chip flow-oc" href="cell/O2.html">Synthesis</a>
+        <a class="flow-chip flow-oc" href="cell/O1.html">Grounding</a>
+        <div class="flow-axis-note">&uarr; ground truth farther from the corpus</div>
+      </div>
+    </div>
+    <p class="flow-foot">
+      <strong>Evaluation</strong> scores the output against a ground truth that, for discovery, lies outside any corpus.
+      Capability concentrates on the <strong>Textual</strong> substrate and automatically-checkable tasks, and thins
+      toward non-textual, externally-verified discovery.
+    </p>
+  </div>
+</section>
+
+<section class="growth-section">
+  <div class="wrap">
+    <h2 class="section-title">A field growing fast</h2>
+    <p class="section-sub">
+      Cumulative count of every catalogued system — methods, benchmarks, and datasets — by year. Scientific RAG
+      accelerates sharply from 2023 onward, led by <strong style="color:#c2185b">methods</strong> with
+      <strong style="color:#1a73e8">benchmarks</strong> following.
+    </p>
+    <div class="chart-frame"><svg viewBox="0 0 720 300" width="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Cumulative growth of scientific RAG systems by year, stacked by resource type"><line x1="46" y1="270.0" x2="706" y2="270.0" stroke="var(--line)" stroke-width="1"/><text x="40" y="273.0" text-anchor="end" font-size="10" fill="var(--fg-faint)">0</text><line x1="46" y1="191.4" x2="706" y2="191.4" stroke="var(--line)" stroke-width="1"/><text x="40" y="194.4" text-anchor="end" font-size="10" fill="var(--fg-faint)">100</text><line x1="46" y1="112.7" x2="706" y2="112.7" stroke="var(--line)" stroke-width="1"/><text x="40" y="115.7" text-anchor="end" font-size="10" fill="var(--fg-faint)">200</text><line x1="46" y1="34.1" x2="706" y2="34.1" stroke="var(--line)" stroke-width="1"/><text x="40" y="37.1" text-anchor="end" font-size="10" fill="var(--fg-faint)">300</text><polygon points="46.0,221.2 119.3,219.7 192.7,216.5 266.0,211.8 339.3,209.4 412.7,204.7 486.0,193.7 559.3,167.0 632.7,125.3 706.0,113.5 706.0,270.0 632.7,270.0 559.3,270.0 486.0,270.0 412.7,270.0 339.3,270.0 266.0,270.0 192.7,270.0 119.3,270.0 46.0,270.0" fill="#c2185b" fill-opacity="0.85"><title>Methods</title></polygon><polygon points="46.0,208.7 119.3,204.7 192.7,198.4 266.0,186.6 339.3,180.4 412.7,170.9 486.0,147.3 559.3,106.4 632.7,48.2 706.0,30.9 706.0,113.5 632.7,125.3 559.3,167.0 486.0,193.7 412.7,204.7 339.3,209.4 266.0,211.8 192.7,216.5 119.3,219.7 46.0,221.2" fill="#1a73e8" fill-opacity="0.85"><title>Benchmarks</title></polygon><polygon points="46.0,204.7 119.3,200.8 192.7,192.9 266.0,179.6 339.3,173.3 412.7,163.1 486.0,138.7 559.3,94.6 632.7,34.9 706.0,17.6 706.0,30.9 632.7,48.2 559.3,106.4 486.0,147.3 412.7,170.9 339.3,180.4 266.0,186.6 192.7,198.4 119.3,204.7 46.0,208.7" fill="#12805c" fill-opacity="0.85"><title>Datasets</title></polygon><polygon points="46.0,204.7 119.3,200.8 192.7,192.9 266.0,179.6 339.3,173.3 412.7,163.1 486.0,138.7 559.3,94.6 632.7,33.3 706.0,16.0 706.0,17.6 632.7,34.9 559.3,94.6 486.0,138.7 412.7,163.1 339.3,173.3 266.0,179.6 192.7,192.9 119.3,200.8 46.0,204.7" fill="#e8710a" fill-opacity="0.85"><title>Surveys</title></polygon><polyline points="46.0,204.7 119.3,200.8 192.7,192.9 266.0,179.6 339.3,173.3 412.7,163.1 486.0,138.7 559.3,94.6 632.7,33.3 706.0,16.0" fill="none" stroke="var(--fg)" stroke-width="1.5"/><text x="46.0" y="292" text-anchor="middle" font-size="10" fill="var(--fg-muted)">≤2017</text><text x="119.3" y="292" text-anchor="middle" font-size="10" fill="var(--fg-muted)">2018</text><text x="192.7" y="292" text-anchor="middle" font-size="10" fill="var(--fg-muted)">2019</text><text x="266.0" y="292" text-anchor="middle" font-size="10" fill="var(--fg-muted)">2020</text><text x="339.3" y="292" text-anchor="middle" font-size="10" fill="var(--fg-muted)">2021</text><text x="412.7" y="292" text-anchor="middle" font-size="10" fill="var(--fg-muted)">2022</text><text x="486.0" y="292" text-anchor="middle" font-size="10" fill="var(--fg-muted)">2023</text><text x="559.3" y="292" text-anchor="middle" font-size="10" fill="var(--fg-muted)">2024</text><text x="632.7" y="292" text-anchor="middle" font-size="10" fill="var(--fg-muted)">2025</text><text x="706.0" y="292" text-anchor="middle" font-size="10" fill="var(--fg-muted)">2026</text><circle cx="706.0" cy="16.0" r="3" fill="var(--fg)"/><text x="700.0" y="9.0" text-anchor="end" font-size="13" font-weight="700" fill="var(--fg)">323 total</text></svg></div>
+    <p class="chart-legend"><span class="lg-chip" style="background:#c2185b;color:#fff">Methods</span><span class="lg-chip" style="background:#1a73e8;color:#fff">Benchmarks</span><span class="lg-chip" style="background:#12805c;color:#fff">Datasets</span><span class="lg-chip" style="background:#e8710a;color:#fff">Surveys</span></p>
+  </div>
+</section>
+
+<section id="domains" class="domains-section">
+  <div class="wrap">
+    <h2 class="section-title">By scientific domain</h2>
+    <div class="domain-grid">
+      <a href="domain/bio.html" class="domain-card">
+        <span class="domain-emoji">🧬</span>
+        <span class="domain-name">Biology</span>
+        <span class="domain-count">97 entries</span>
+      </a>
+      <a href="domain/chem.html" class="domain-card">
+        <span class="domain-emoji">⚗️</span>
+        <span class="domain-name">Chemistry</span>
+        <span class="domain-count">86 entries</span>
+      </a>
+      <a href="domain/medical.html" class="domain-card">
+        <span class="domain-emoji">🩺</span>
+        <span class="domain-name">Medicine</span>
+        <span class="domain-count">147 entries</span>
+      </a>
+      <a href="domain/material.html" class="domain-card">
+        <span class="domain-emoji">🪨</span>
+        <span class="domain-name">Materials Science</span>
+        <span class="domain-count">32 entries</span>
+      </a>
+      <a href="domain/physics.html" class="domain-card">
+        <span class="domain-emoji">⚛️</span>
+        <span class="domain-name">Physics</span>
+        <span class="domain-count">42 entries</span>
+      </a>
+      <a href="domain/earth.html" class="domain-card">
+        <span class="domain-emoji">🌍</span>
+        <span class="domain-name">Earth Science</span>
+        <span class="domain-count">34 entries</span>
+      </a>
+      <a href="domain/astronomy.html" class="domain-card">
+        <span class="domain-emoji">🔭</span>
+        <span class="domain-name">Astronomy</span>
+        <span class="domain-count">15 entries</span>
+      </a>
+      <a href="domain/Quantum.html" class="domain-card">
+        <span class="domain-emoji">🌀</span>
+        <span class="domain-name">Quantum</span>
+        <span class="domain-count">2 entries</span>
+      </a>
+      <a href="domain/general.html" class="domain-card">
+        <span class="domain-emoji">📚</span>
+        <span class="domain-name">General Science</span>
+        <span class="domain-count">16 entries</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="types-section">
+  <div class="wrap">
+    <h2 class="section-title">By resource type</h2>
+    <div class="type-grid">
+      <a href="topics/method.html" class="type-card"><strong>Methods</strong><span>206</span></a>
+      <a href="topics/benchmark.html" class="type-card"><strong>Benchmarks</strong><span>106</span></a>
+      <a href="topics/dataset.html" class="type-card"><strong>Datasets</strong><span>17</span></a>
+      <a href="topics/summary.html" class="type-card"><strong>Surveys</strong><span>2</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="grid" class="ko-grid-section ko-grid-secondary">
+  <div class="wrap">
+    <h2 class="section-title">Or browse the full landscape grid</h2>
+    <p class="section-sub">
+      A secondary view: each cell pairs a <em>retrieval substrate</em> (row) with an <em>objective rung</em> (column)
+      and lists the survey's core systems that land there. Cells shade <em>active</em> where mature retrieval meets
+      automatic scoring, and are marked <em>frontier</em> where the substrate or the verifier does not yet exist (§8).
     </p>
     <table class="ko-grid">
       <thead>
@@ -256,71 +375,6 @@
         </tr>
       </tbody>
     </table>
-  </div>
-</section>
-
-<section id="domains" class="domains-section">
-  <div class="wrap">
-    <h2 class="section-title">By scientific domain</h2>
-    <div class="domain-grid">
-      <a href="domain/bio.html" class="domain-card">
-        <span class="domain-emoji">🧬</span>
-        <span class="domain-name">Biology</span>
-        <span class="domain-count">97 entries</span>
-      </a>
-      <a href="domain/chem.html" class="domain-card">
-        <span class="domain-emoji">⚗️</span>
-        <span class="domain-name">Chemistry</span>
-        <span class="domain-count">86 entries</span>
-      </a>
-      <a href="domain/medical.html" class="domain-card">
-        <span class="domain-emoji">🩺</span>
-        <span class="domain-name">Medicine</span>
-        <span class="domain-count">147 entries</span>
-      </a>
-      <a href="domain/material.html" class="domain-card">
-        <span class="domain-emoji">🪨</span>
-        <span class="domain-name">Materials Science</span>
-        <span class="domain-count">32 entries</span>
-      </a>
-      <a href="domain/physics.html" class="domain-card">
-        <span class="domain-emoji">⚛️</span>
-        <span class="domain-name">Physics</span>
-        <span class="domain-count">42 entries</span>
-      </a>
-      <a href="domain/earth.html" class="domain-card">
-        <span class="domain-emoji">🌍</span>
-        <span class="domain-name">Earth Science</span>
-        <span class="domain-count">34 entries</span>
-      </a>
-      <a href="domain/astronomy.html" class="domain-card">
-        <span class="domain-emoji">🔭</span>
-        <span class="domain-name">Astronomy</span>
-        <span class="domain-count">15 entries</span>
-      </a>
-      <a href="domain/Quantum.html" class="domain-card">
-        <span class="domain-emoji">🌀</span>
-        <span class="domain-name">Quantum</span>
-        <span class="domain-count">2 entries</span>
-      </a>
-      <a href="domain/general.html" class="domain-card">
-        <span class="domain-emoji">📚</span>
-        <span class="domain-name">General Science</span>
-        <span class="domain-count">16 entries</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="types-section">
-  <div class="wrap">
-    <h2 class="section-title">By resource type</h2>
-    <div class="type-grid">
-      <a href="topics/method.html" class="type-card"><strong>Methods</strong><span>206</span></a>
-      <a href="topics/benchmark.html" class="type-card"><strong>Benchmarks</strong><span>106</span></a>
-      <a href="topics/dataset.html" class="type-card"><strong>Datasets</strong><span>17</span></a>
-      <a href="topics/summary.html" class="type-card"><strong>Surveys</strong><span>2</span></a>
-    </div>
   </div>
 </section>
 

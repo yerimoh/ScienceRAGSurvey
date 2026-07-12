@@ -1529,3 +1529,63 @@ sup.footnote-ref a:focus {
   border-top: 1px solid var(--border, #e2e2e2);
   padding-top: 6px;
 }
+
+/* ============================================================
+   Main-page pipeline overview (paper Fig. 1) + growth chart
+   ============================================================ */
+.flow-section { padding: 3rem 0; border-bottom: 1px solid var(--line); }
+.flow {
+  display: flex; flex-wrap: wrap; align-items: stretch;
+  gap: .55rem; justify-content: center; margin-top: 1.4rem;
+}
+.flow-card {
+  border: 1px solid var(--line-strong); border-radius: 14px;
+  padding: .85rem .9rem; background: var(--bg-accent);
+  min-width: 168px; display: flex; flex-direction: column; gap: .4rem;
+}
+.flow-cap {
+  font-size: .68rem; text-transform: uppercase; letter-spacing: .05em;
+  color: var(--fg-muted); font-weight: 700; margin-bottom: .1rem;
+}
+.flow-chip {
+  display: block; padding: .34rem .6rem; border-radius: 9px;
+  font-size: .85rem; font-weight: 600; text-decoration: none;
+  border: 1px solid transparent; transition: filter .12s ease;
+}
+.flow-k .flow-chip { background: var(--k-50); color: var(--k-700); border-color: var(--k-100); }
+.flow-o .flow-chip { background: var(--o-50); color: var(--o-700); border-color: var(--o-100); }
+.flow-chip:hover { filter: brightness(.965); }
+.flow-axis-note { font-size: .66rem; color: var(--fg-faint); margin-top: .1rem; }
+.flow-stages {
+  display: flex; flex-wrap: wrap; align-items: stretch; gap: .5rem;
+  position: relative; padding-bottom: 1.5rem; flex: 1 1 420px; justify-content: center;
+}
+.flow-stage {
+  flex: 1 1 118px; min-width: 108px; border: 1px solid var(--line-strong);
+  border-radius: 11px; padding: .6rem .65rem; background: var(--bg);
+  display: flex; flex-direction: column; gap: .18rem;
+}
+.flow-stage strong { font-size: .88rem; color: var(--fg); }
+.flow-stage span { font-size: .71rem; color: var(--fg-muted); line-height: 1.32; }
+.flow-stage.flow-v { border-color: var(--k-200); background: var(--k-50); }
+.flow-loop {
+  position: absolute; left: 0; right: 0; bottom: 0; text-align: center;
+  font-size: .72rem; color: var(--k-600); font-weight: 600;
+}
+.flow-arrow { align-self: center; color: var(--fg-faint); font-size: 1.4rem; line-height: 1; }
+.flow-foot {
+  text-align: center; color: var(--fg-muted); font-size: .88rem;
+  margin: 1.4rem auto 0; max-width: 780px; line-height: 1.5;
+}
+@media (max-width: 760px) {
+  .flow { flex-direction: column; align-items: stretch; }
+  .flow-arrow { transform: rotate(90deg); align-self: center; }
+  .flow-stages { flex-basis: auto; }
+}
+
+/* Growth chart section */
+.growth-section { padding: 3rem 0; border-bottom: 1px solid var(--line); }
+
+/* Demoted 12-cell grid (secondary browse aid) */
+.ko-grid-secondary { background: var(--bg-accent); }
+.ko-grid-secondary .section-title { font-size: 1.15rem; }
