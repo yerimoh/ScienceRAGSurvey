@@ -9,22 +9,12 @@ from pathlib import Path
 from collections import defaultdict
 
 ROOT = Path('/gallery_millet/yerim.oh/ScienceRAGServey/site')
-papers = json.loads((ROOT / 'data/papers.json').read_text())
 
-# --- Reference tables ---
-
-K_LABELS = {
-    'K1': ('Primary Literature', 'Peer-reviewed papers, preprints, scientific corpora (PubMed, arXiv, S2ORC, ChemRxiv).'),
-    'K2': ('Curated Knowledge Base', 'Community-maintained structured records (PubChem, RCSB PDB, AlphaFold DB, ChEMBL, UMLS, PrimeKG, Materials Project).'),
-    'K3': ('Observational & Experimental', 'Raw modality data: images, spectra, sequencing, time-series (cryo-EM, mass spec, telescope archives, EHR images).'),
-    'K4': ('Tacit Knowledge', 'Institutional memory (RHIC, DUNE, CMS), lab protocols, private EHRs, governmental/industry process docs. ★ Novelty axis.'),
-}
-
-O_LABELS = {
-    'O1': ('Ground', 'Single-source grounding: retrieve, cite, answer.'),
-    'O2': ('Synthesis', 'Multi-source integration, claim verification.'),
-    'O3': ('Hypothesis', 'Generate new candidates — molecules, mechanisms, parameters.'),
-}
+# Reuse the canonical taxonomy and the already-remapped catalog from the HTML generator, so
+# llms.txt / llms-full.txt describe the same substrate × objective taxonomy as the site.
+# Importing render_html runs its central remap once (its __main__ block is guarded, so no
+# pages are written here).
+from render_html import papers, K_LABELS, O_LABELS  # noqa: E402
 
 DOMAIN_LABELS = {
     'bio': 'Biology',
@@ -118,13 +108,18 @@ llms_lines = [
     '# Scientific RAG Hub — AI for Science Retrieval-Augmented Generation Index',
     '',
     'A curated catalog of Retrieval-Augmented Generation (RAG) systems, benchmarks, and datasets',
-    'across nine scientific domains, organized by a dual-axis Knowledge Source × Operational Objective',
-    f'taxonomy. {len(papers)} entries; {sum(len(v) for v in by_cell.values())} K×O cell assignments across 12 cells.',
+    'across the sciences, organized by the survey\'s two axes: the retrieval SUBSTRATE a system draws',
+    'on (the native form of what it indexes) and the OPERATIONAL OBJECTIVE it serves (the rung, ordered',
+    f'by how far the ground truth sits from the corpus). {len(papers)} entries across a 12-cell landscape.',
     '',
     'Companion to the upcoming survey "Scientific Retrieval-Augmented Generation: A Survey through',
     'Knowledge Source and Scientific Mission" (Oh et al., Vision and Learning Lab, Seoul National University).',
     '',
-    '## Browse by K×O cell (12 cells)',
+    'Axes:',
+    '  K1 Textual · K2 Relational · K3 Structured-entity · K4 Perceptual   (substrate, §4)',
+    '  O1 Grounding · O2 Synthesis · O3 Discovery                          (objective rung, §5)',
+    '',
+    '## Browse by substrate × objective cell (12 cells)',
     '',
 ]
 for K in ['K1', 'K2', 'K3', 'K4']:
@@ -154,14 +149,14 @@ for t, label in TYPE_LABELS.items():
 
 llms_lines += [
     '',
-    '## Knowledge Source axis (K1-K4)',
+    '## Knowledge Source axis — retrieval substrate (K1-K4)',
     '',
 ]
 for K, (n, d) in K_LABELS.items():
     llms_lines.append(f'- **{K} {n}** — {d}')
 llms_lines += [
     '',
-    '## Operational Objective axis (O1-O3)',
+    '## Operational Objective axis — objective rung (O1-O3)',
     '',
 ]
 for O, (n, d) in O_LABELS.items():
@@ -180,7 +175,7 @@ full = [
     '# Scientific RAG Hub — Full Catalog',
     '',
     f'{len(papers)} retrieval-augmented generation systems, benchmarks, and datasets for scientific discovery.',
-    'Organized by the K × O dual-axis taxonomy (Knowledge Source × Operational Objective).',
+    'Organized by the survey\'s two axes: retrieval substrate (Textual/Relational/Structured-entity/Perceptual) × objective rung (Grounding/Synthesis/Discovery).',
     '',
     'Each entry carries tags `[K.O cell(s), domain(s), type]`. Cross-source papers appear in multiple cells.',
     '',
@@ -201,11 +196,20 @@ for K in ['K1', 'K2', 'K3', 'K4']:
         for p in sorted(ps, key=lambda x: -int(x.get('year') or 0) if str(x.get('year', '')).isdigit() else 0):
             full.append(entry_md(p))
         full.append('')
+    # Catalog entries on this substrate that carry no objective rung yet (benchmarks,
+    # datasets, and databases without a resolved task).
+    k_only = by_cell.get(K, [])
+    if k_only:
+        full.append(f'### {K}  ·  {kn} — no objective rung yet  ({len(k_only)})')
+        full.append('')
+        for p in sorted(k_only, key=lambda x: -int(x.get('year') or 0) if str(x.get('year', '')).isdigit() else 0):
+            full.append(entry_md(p))
+        full.append('')
 
 if unassigned:
-    full.append('## Unassigned (K×O pending)')
+    full.append('## Unassigned (no objective rung yet)')
     full.append('')
-    full.append(f'{len(unassigned)} entries from the Notion catalog without verified K×O assignment yet.')
+    full.append(f'{len(unassigned)} catalog entries placed on a substrate but without a resolved objective rung yet.')
     full.append('')
     for p in unassigned:
         full.append(entry_md(p))
@@ -215,7 +219,7 @@ if unassigned:
 print(f'Wrote llms-full.txt ({len(full)} lines)')
 
 
-# --- Per-cell markdown pages: K×O full cells ---
+# --- Per-cell markdown pages: substrate × objective cells ---
 for K in ['K1', 'K2', 'K3', 'K4']:
     for O in ['O1', 'O2', 'O3']:
         cell = f'{K}.{O}'
@@ -315,4 +319,4 @@ for t, label in TYPE_LABELS.items():
 
 k_only_count = sum(1 for k in ['K1','K2','K3','K4'] if (ROOT/'cell'/f'{k}.md').exists())
 o_only_count = sum(1 for o in ['O1','O2','O3'] if (ROOT/'cell'/f'{o}.md').exists())
-print(f'Wrote {len(by_cell)} cell entries (12 K×O + {k_only_count} K-only + {o_only_count} O-only), {len(by_dom)} domain/*.md, {len(by_type)} topics/*.md')
+print(f'Wrote {len(by_cell)} cell entries (12 substrate×objective + {k_only_count} K-only + {o_only_count} O-only), {len(by_dom)} domain/*.md, {len(by_type)} topics/*.md')

@@ -18,35 +18,17 @@ from collections import defaultdict, Counter
 ROOT = Path('/gallery_millet/yerim.oh/ScienceRAGServey/site')
 papers = json.loads((ROOT / 'data/papers.json').read_text())
 
-# ---------- Reference tables ----------
-# Taxonomy mirrors the survey (Oh et al.). The K axis is the *retrieval substrate* — the
-# native form in which a source stores its knowledge, which fixes the retrieval operation it
-# permits (§4). The O axis is the *operational objective*, three rungs ordered by how far the
-# ground truth sits from the corpus (§5). Internal codes K1–K4 / O1–O3 are kept for URL and
-# file-path stability; only their MEANING changed from the earlier epistemic taxonomy.
-#   K1 = Textual · K2 = Relational · K3 = Structured-entity · K4 = Perceptual
-#   O1 = Grounding · O2 = Synthesis · O3 = Discovery
+# ---------- Reference tables (mirror generate_content.py) ----------
 K_LABELS = {
-    'K1': ('Textual', 'Prose record of science — papers, abstracts, clinical notes, guidelines. Matched by embedding or lexical search over passages.'),
-    'K2': ('Relational', 'Curated graphs of scientific relations — UMLS, PrimeKG, DRKG, STRING, KEGG, citation graphs. Reached by entity linking and traversal.'),
-    'K3': ('Structured-entity', 'The objects of science as data — molecules, 3D structures, and property records (ChEMBL, PubChem, PDB, Materials Project). Reached by structural or property query.'),
-    'K4': ('Perceptual', 'Raw instrument output — images, spectra, sequencing, time-series (MIMIC-CXR, MassBank, sky surveys). Reachable only through a learned cross-modal encoder.'),
+    'K1': ('Primary Literature', 'Peer-reviewed papers, preprints, scientific corpora (PubMed, arXiv, S2ORC, ChemRxiv, bioRxiv).'),
+    'K2': ('Curated Knowledge Base', 'Community-maintained structured records (PubChem, RCSB PDB, AlphaFold DB, ChEMBL, UMLS, PrimeKG, Materials Project, OQMD, AFLOW).'),
+    'K3': ('Observational & Experimental', 'Raw modality data: images, spectra, sequencing, time-series (cryo-EM, mass spec, telescope archives, EHR images).'),
+    'K4': ('Tacit Knowledge', 'Institutional memory (RHIC, DUNE, CMS), lab protocols, private EHRs, governmental/industry process docs. ★ Novelty axis.'),
 }
 O_LABELS = {
-    'O1': ('Grounding', 'Answer a question whose gold already lies in the corpus — retrieve, cite, answer. (Question Answering.)'),
-    'O2': ('Synthesis', 'Integrate evidence no single source states — verify claims and synthesize the literature. (Claim Verification, Literature Synthesis.)'),
-    'O3': ('Discovery', 'Propose an output the corpus does not contain, judged by an external verifier. (Property Prediction, Molecular Design, Materials Discovery, Hypothesis Generation.)'),
-}
-# The seven task families of §5, grouped under the three O rungs.
-TASK_RUNG = {
-    'Question Answering': 'O1',
-    'Cross-modal Grounding': 'O1',
-    'Claim Verification': 'O2',
-    'Literature Synthesis': 'O2',
-    'Property Prediction': 'O3',
-    'Molecular Design': 'O3',
-    'Materials Discovery': 'O3',
-    'Hypothesis Generation': 'O3',
+    'O1': ('Ground', 'Single-source grounding: retrieve, cite, answer over one corpus.'),
+    'O2': ('Synthesis', 'Multi-source integration, claim verification across documents.'),
+    'O3': ('Hypothesis', 'Generate new scientific candidates — molecules, mechanisms, parameters.'),
 }
 DOMAIN_LABELS = {
     'bio': 'Biology', 'chem': 'Chemistry', 'medical': 'Medicine',
@@ -57,50 +39,48 @@ DOMAIN_EMOJI = {
     'bio': '🧬', 'chem': '⚗️', 'medical': '🩺', 'material': '🪨',
     'physics': '⚛️', 'earth': '🌍', 'astronomy': '🔭', 'Quantum': '🌀', 'general': '📚',
 }
-# Some catalog entries carry non-canonical domain slugs; fold them onto the slug that has a
-# page so domain tags and links never 404.
-DOMAIN_ALIAS = {'chemistry': 'chem', 'materials': 'material', 'multi': 'general'}
 TYPE_LABELS = {
     'Method': 'Methods', 'benchmark': 'Benchmarks',
     'dataset': 'Datasets', 'summary': 'Surveys',
 }
 
-# O-side subsection chips = the seven task families of §5, grouped by their rung.
 O_SUBSECTIONS = {
-    'O1': {'Question Answering', 'Cross-modal Grounding'},
-    'O2': {'Claim Verification', 'Literature Synthesis'},
-    'O3': {'Property Prediction', 'Molecular Design', 'Materials Discovery', 'Hypothesis Generation'},
+    'O1': {'Text-only Closed-form QA', 'Text-only Long-form Citation', 'Cross-modal'},
+    'O2': {'Aggregative Synthesis', 'Verificative Synthesis'},
+    'O3': {'Docking-verified Hypothesis', 'Database-verified Prediction', 'Simulation-verified Materials Discovery', 'Weakly-verified Hypothesis Generation'},
 }
-# K-side subsection chips = the resource groups within each substrate (§4).
 K_SUBSECTIONS = {
-    'K1': {'General & domain literature', 'Preprint literature', 'Institution-private corpora'},
-    'K2': {'Concept-relation graphs', 'Literature-derived graphs'},
-    'K3': {'Molecule & structure libraries', 'Property databases'},
-    'K4': {'Medical & biological imaging', 'Spectral libraries', 'Instrument arrays & time series'},
+    'K1': {'General-purpose literature', 'Domain-specific literature', 'Preprint literature'},
+    'K2': {'Chemistry and drug discovery', 'Biology and genomics', 'Medicine and clinical knowledge', 'Materials science and physics'},
+    'K3': {'Medical imaging and clinical EHR', 'Structural biology', 'Astronomy, earth, and climate', 'Particle and nuclear physics'},
+    'K4': {'Embedded in software', 'Held by institutions', 'Held by individuals and communities'},
 }
-# Per-cell allow-list of subsection chips, overriding axis_subsections() when present.
-CELL_SUBSECTIONS = {}
-# Cell-tier labels — the maturity landscape of §8 (ssec:kxo_crosstab). Capability is
-# ACTIVE where the substrate admits a mature matching operation and the task an automatic
-# score, EMERGING where a single component lags, and FRONTIER (dormant) where the verifier,
-# retriever, or substrate does not yet exist. (tier, label_for_hero_chip)
+# Per-cell allow-list of O-side subsection chips. Overrides axis_subsections() when the
+# cell key is present. Use it to suppress subsections that the cell's overview paragraph
+# explicitly assigns to a different cell (e.g. Weakly-verified is a K3.O3/K4.O3 frontier
+# concept, so it shouldn't appear as a chip on K2.O3 even when a paper carries that tag
+# because of its substrate cell).
+CELL_SUBSECTIONS = {
+    'K2.O3': {'Docking-verified Hypothesis', 'Database-verified Prediction', 'Simulation-verified Materials Discovery'},
+    'K3.O3': {'Weakly-verified Hypothesis Generation'},
+    'K4.O3': {'Weakly-verified Hypothesis Generation'},
+}
+# Cell-tier labels (§4 K×O Cross-Tab Analysis).
+# (tier, subsection_name, label_for_hero_chip)
 CELL_TIERS = {
-    # Textual (K1)
-    'K1.O1': ('Active',   'Literature Grounding'),
+    'K1.O1': ('Active',   'Literature-grounded Answering'),
     'K1.O2': ('Active',   'Literature Synthesis'),
-    'K1.O3': ('Frontier', 'Literature-grounded Ideation'),
-    # Relational (K2)
-    'K2.O1': ('Active',   'Knowledge-graph QA'),
+    'K2.O1': ('Active',   'Knowledge-base Lookup'),
+    'K3.O1': ('Emerging', 'Cross-modal Grounding'),
+    'K3.O2': ('Frontier', 'Cross-modal Synthesis (open)'),
     'K2.O2': ('Emerging', 'Knowledge-graph Synthesis'),
-    'K2.O3': ('Emerging', 'Relational Hypothesis'),
-    # Structured-entity (K3)
-    'K3.O1': ('Active',   'Structured-entity Lookup'),
-    'K3.O2': ('Frontier', 'Structured Synthesis (open)'),
-    'K3.O3': ('Emerging', 'Structure-based Design'),
-    # Perceptual (K4)
-    'K4.O1': ('Emerging', 'Cross-modal Grounding'),
-    'K4.O2': ('Frontier', 'Perceptual Synthesis (open)'),
-    'K4.O3': ('Frontier', 'Signal-to-structure Discovery'),
+    'K1.O3': ('Frontier', 'Weak-verifier Hypothesis'),
+    'K4.O1': ('Emerging', 'Private-document Retrieval'),
+    'K2.O3': ('Frontier', 'Simulation-verified Materials Discovery'),
+    'K3.O3': ('Frontier', 'Weakly-verified Hypothesis Generation'),
+    'K4.O2': ('Frontier', 'Tacit Synthesis (open)'),
+    'K4.O3': ('Frontier', 'Tacit Hypothesis (open)'),
+    'K1.O3.weak': ('Frontier', 'Weak-verifier Hypothesis'),
 }
 
 # Per-cell paper allow-list — the bib_keys actually CITED in each K×O subsubsection of
@@ -111,64 +91,21 @@ CELL_TIERS = {
 # infra refs such as pymatgen, atomate2) are silently skipped at render time.
 # K4.O2 and K4.O3 share the combined "Tacit-driven Synthesis and Hypothesis" paragraph;
 # K1.O3 merges the strong- and weak-verifier paragraphs. K3.O2 has no draft paragraph (empty).
-# Per-cell authoritative system lists, transcribed directly from the survey's assembly
-# figure (Fig. 2), which is the paper's own substrate × task grid. Keys are (substrate, rung):
-#   K1 Textual · K2 Relational · K3 Structured-entity · K4 Perceptual
-#   O1 Grounding · O2 Synthesis · O3 Discovery
-# Where a cell holds more than one task family, the tasks are noted in a comment. Keys absent
-# from papers.json (bib-only refs) are silently skipped at render time.
 CELL_PAPERS = {
-    # Textual — Question Answering / Literature Synthesis / Hypothesis Generation
-    'K1.O1': ['DBLP:conf/acl/Xiong0LZ24', 'DBLP:conf/pasc/GokdemirSBWHHSA25', 'DBLP:conf/emnlp/FrisoniMMV22', 'DBLP:journals/corr/abs-2603-09800', 'DBLP:journals/bioinformatics/JeongSSK24', 'DBLP:journals/corr/abs-2408-01107', 'DBLP:conf/naacl/SohnPYPHSKK25', 'DBLP:journals/corr/abs-2312-07559', 'DBLP:conf/acl/ChenLJWG0025', 'DBLP:conf/ecir/AteiaK25', 'zhang2024honeycomb'],
-    'K1.O2': ['DBLP:journals/corr/abs-2402-01788', 'iyer2024pathfinder', 'DBLP:conf/nips/WangGYZZ0ZD0W0Z24', 'DBLP:conf/cikm/BesrourHS025', 'DBLP:journals/corr/abs-2310-16146', 'DBLP:conf/acl/YanFYX00Z25', 'DBLP:journals/corr/abs-2409-13740', 'asai2026synthesizing', 'asai2024openscholar', 'wang2025accelerating'],
-    'K1.O3': ['DBLP:conf/acl/0005DJH24', 'DBLP:conf/naacl/BaekJCH25', 'DBLP:conf/iclr/0001LGXLOPCZ25', 'DBLP:conf/emnlp/LiXGZLYZJXDRZFB25'],
-    # Relational — Question Answering / Literature Synthesis / Hypothesis Generation
-    'K2.O1': ['DBLP:journals/bioinformatics/SomanRMASPVCSRI24', 'DBLP:conf/acl/0006WS24', 'DBLP:conf/bionlp/YangLMZKLCCCML24', 'DBLP:conf/acl/WuZQCXMJG25', 'DBLP:conf/acl/Jiang0XQFWTDC0W25', 'DBLP:conf/iclr/00010GLGCZ25', 'DBLP:conf/aaai/LeeBHBPS26'],
-    'K2.O2': ['DBLP:conf/sigir/HuLD0A0025'],
-    'K2.O3': ['DBLP:conf/naacl/LiCJ25'],
-    # Structured-entity — Question Answering (O1) / Molecular Design + Materials Discovery (O3)
-    'K3.O1': ['DBLP:journals/bioinformatics/JinYCL24', 'DBLP:conf/emnlp/ChiangHCR25'],
+    'K1.O1': ['DBLP:conf/acl/Xiong0LZ24', 'DBLP:journals/corr/abs-2408-01107', 'DBLP:conf/naacl/SohnPYPHSKK25', 'DBLP:conf/emnlp/FrisoniMMV22', 'DBLP:journals/bioinformatics/JeongSSK24', 'DBLP:conf/pasc/GokdemirSBWHHSA25', 'DBLP:journals/corr/abs-2312-07559', 'asai2026synthesizing', 'DBLP:journals/corr/abs-2310-16146', 'DBLP:conf/ecir/AteiaK25', 'DBLP:conf/sigir/HuLD0A0025', 'iyer2024pathfinder', 'DBLP:conf/aaai/ZhangGZZCZZYB26', 'DBLP:journals/make/LahiriH25'],
+    'K1.O2': ['asai2026synthesizing', 'DBLP:journals/corr/abs-2409-13740', 'DBLP:conf/cikm/BesrourHS025', 'DBLP:conf/nips/WangGYZZ0ZD0W0Z24', 'DBLP:conf/acl/YanFYX00Z25', 'DBLP:journals/corr/abs-2402-01788', 'wang2025trialmind'],
+    # f-RAG/Rag2Mol/TaLiRAGen/CLADD moved to K2.O3 (full-text verified 2026-05-31: all retrieve from Curated KBs, not primary literature). See ver/2/factcheck_kxo_k1o3.md.
+    'K1.O3': ['DBLP:conf/iclr/0001LGXLOPCZ25', 'DBLP:conf/acl/0005DJH24', 'DBLP:conf/naacl/BaekJCH25', 'DBLP:conf/emnlp/LiXGZLYZJXDRZFB25'],
+    'K2.O1': ['DBLP:conf/emnlp/ChiangHCR25', 'DBLP:conf/emnlp/ZhangSHML24', 'DBLP:conf/acl/ChenLJWG0025', 'DBLP:journals/bioinformatics/JinYCL24', 'DBLP:journals/bioinformatics/SomanRMASPVCSRI24', 'DBLP:conf/iclr/00010GLGCZ25', 'DBLP:conf/aaai/LeeBHBPS26'],
+    'K2.O2': ['DBLP:conf/acl/WuZQCXMJG25', 'DBLP:conf/acl/Jiang0XQFWTDC0W25', 'DBLP:conf/bionlp/YangLMZKLCCCML24', 'DBLP:conf/acl/0006WS24', 'DBLP:conf/naacl/LiCJ25'],
+    # CLADD (LeeBHBPS26) moved to K2.O1 — full-text verified: prediction/QA agent, not de novo generation, circular verification. RetMol/IRDiff/READ added (docking-verified molecule generation). See ver/2/factcheck_kxo_k1o3.md.
+    'K2.O3': ['DBLP:conf/nips/LeeKV0RPVN24', 'DBLP:journals/bib/ZhangPHCM25', 'nan2026taliragen', 'DBLP:conf/iclr/0001NQXBA23', 'DBLP:conf/icml/Huang0ZQYZZZWY24', 'DBLP:journals/corr/abs-2506-14488', 'DBLP:journals/corr/abs-2603-15712', 'zhang2026matclaw', 'ong2013python', 'ganose2025_atomate2', 'rosen2024jobflow', 'doi:10.1021/acs.jcim.5c01767', 'Wang_ComputPhysCommun_2018_v228_p178'],
+    'K3.O1': ['DBLP:conf/iclr/0005ZLWSWZ0Y25', 'DBLP:conf/emnlp/XiaZLZLLZY24', 'DBLP:conf/naacl/SunZHX25', 'DBLP:journals/corr/abs-2411-16523', 'DBLP:journals/corr/abs-2510-01558'],
     'K3.O2': [],
-    'K3.O3': ['DBLP:conf/nips/LeeKV0RPVN24', 'DBLP:journals/bib/ZhangPHCM25', 'nan2026taliragen', 'DBLP:conf/iclr/0001NQXBA23', 'DBLP:journals/corr/abs-2603-15712'],
-    # Perceptual — Cross-modal QA (O1) / Molecular Design + Property Prediction (O3)
-    'K4.O1': ['DBLP:journals/corr/abs-2411-16523', 'DBLP:journals/corr/abs-2510-01558', 'DBLP:conf/iclr/0005ZLWSWZ0Y25', 'DBLP:conf/emnlp/XiaZLZLLZY24', 'DBLP:conf/naacl/SunZHX25', 'DBLP:conf/aaai/ZhangGZZCZZYB26'],
+    'K3.O3': ['DBLP:conf/iclr/WangCLH25', 'DBLP:conf/nips/BushuievBJYKSHW24'],
+    'K4.O1': ['DBLP:journals/corr/abs-2603-09800', 'rafique2025large', 'DBLP:journals/corr/abs-2509-09688', 'DBLP:journals/corr/abs-2406-12881', 'mehta2023copilots', 'rehm2025accgpt'],
     'K4.O2': [],
-    'K4.O3': ['DBLP:conf/icml/Huang0ZQYZZZWY24', 'DBLP:journals/corr/abs-2506-14488', 'DBLP:conf/iclr/WangCLH25'],
-}
-# Per-system task family (one of the seven of §5), for the assembly-figure core systems.
-# Drives the O-side subsection chip and the correct rung during the central remap.
-CORE_SYSTEM_TASK = {
-    # Textual
-    'DBLP:conf/acl/Xiong0LZ24': 'Question Answering', 'DBLP:conf/pasc/GokdemirSBWHHSA25': 'Question Answering',
-    'DBLP:conf/emnlp/FrisoniMMV22': 'Question Answering', 'DBLP:journals/corr/abs-2603-09800': 'Question Answering',
-    'DBLP:journals/bioinformatics/JeongSSK24': 'Question Answering', 'DBLP:journals/corr/abs-2408-01107': 'Question Answering',
-    'DBLP:conf/naacl/SohnPYPHSKK25': 'Question Answering', 'DBLP:journals/corr/abs-2312-07559': 'Question Answering',
-    'DBLP:conf/acl/ChenLJWG0025': 'Question Answering', 'DBLP:conf/ecir/AteiaK25': 'Question Answering',
-    'zhang2024honeycomb': 'Question Answering',
-    'DBLP:journals/corr/abs-2402-01788': 'Literature Synthesis', 'iyer2024pathfinder': 'Literature Synthesis',
-    'DBLP:conf/nips/WangGYZZ0ZD0W0Z24': 'Literature Synthesis', 'DBLP:conf/cikm/BesrourHS025': 'Literature Synthesis',
-    'DBLP:journals/corr/abs-2310-16146': 'Literature Synthesis', 'DBLP:conf/acl/YanFYX00Z25': 'Literature Synthesis',
-    'DBLP:journals/corr/abs-2409-13740': 'Literature Synthesis', 'asai2026synthesizing': 'Literature Synthesis',
-    'wang2025accelerating': 'Literature Synthesis',
-    'DBLP:conf/acl/0005DJH24': 'Hypothesis Generation', 'DBLP:conf/naacl/BaekJCH25': 'Hypothesis Generation',
-    'DBLP:conf/iclr/0001LGXLOPCZ25': 'Hypothesis Generation', 'DBLP:conf/emnlp/LiXGZLYZJXDRZFB25': 'Hypothesis Generation',
-    # Relational
-    'DBLP:journals/bioinformatics/SomanRMASPVCSRI24': 'Question Answering', 'DBLP:conf/acl/0006WS24': 'Question Answering',
-    'DBLP:conf/bionlp/YangLMZKLCCCML24': 'Question Answering', 'DBLP:conf/acl/WuZQCXMJG25': 'Question Answering',
-    'DBLP:conf/acl/Jiang0XQFWTDC0W25': 'Question Answering', 'DBLP:conf/iclr/00010GLGCZ25': 'Question Answering',
-    'DBLP:conf/sigir/HuLD0A0025': 'Literature Synthesis', 'DBLP:conf/naacl/LiCJ25': 'Hypothesis Generation',
-    # Structured-entity
-    'DBLP:journals/bioinformatics/JinYCL24': 'Question Answering', 'DBLP:conf/emnlp/ChiangHCR25': 'Question Answering',
-    'DBLP:conf/aaai/LeeBHBPS26': 'Question Answering', 'asai2024openscholar': 'Literature Synthesis',
-    'DBLP:conf/nips/LeeKV0RPVN24': 'Molecular Design', 'DBLP:journals/bib/ZhangPHCM25': 'Molecular Design',
-    'nan2026taliragen': 'Molecular Design', 'DBLP:conf/iclr/0001NQXBA23': 'Molecular Design',
-    'DBLP:journals/corr/abs-2603-15712': 'Materials Discovery',
-    # Perceptual
-    'DBLP:journals/corr/abs-2411-16523': 'Cross-modal Grounding', 'DBLP:journals/corr/abs-2510-01558': 'Cross-modal Grounding',
-    'DBLP:conf/iclr/0005ZLWSWZ0Y25': 'Cross-modal Grounding', 'DBLP:conf/emnlp/XiaZLZLLZY24': 'Cross-modal Grounding',
-    'DBLP:conf/naacl/SunZHX25': 'Cross-modal Grounding', 'DBLP:conf/aaai/ZhangGZZCZZYB26': 'Cross-modal Grounding',
-    'DBLP:conf/icml/Huang0ZQYZZZWY24': 'Molecular Design', 'DBLP:journals/corr/abs-2506-14488': 'Molecular Design',
-    'DBLP:conf/iclr/WangCLH25': 'Property Prediction',
+    'K4.O3': [],
 }
 
 # Full-text fact-check of the systems cited in each cell's main.tex paragraph.
@@ -304,9 +241,7 @@ FACTCHECK = {
 # Cells whose papers show the fact-check footnote chip on the cell page.
 # Emptied per user request (chip removed from the UI); FACTCHECK data above is
 # retained for the report / future use. Add a cell key here to re-enable its chips.
-# Fact-check footnotes were tied to the earlier epistemic cell meanings; disabled under the
-# substrate × objective taxonomy until re-verified against the new cell definitions.
-FACTCHECKED_CELLS = set()
+FACTCHECKED_CELLS = {'K4.O1', 'K3.O3', 'K2.O3', 'K1.O3'}
 
 
 def axis_subsections(axis_scope, cell_key=None):
@@ -380,109 +315,6 @@ def cell_label(code):
         return O_LABELS[code][0]
     return code
 
-# ---------- Central taxonomy remap ----------
-# Every paper carries an assignment from the earlier epistemic taxonomy (Primary Literature /
-# Curated KB / Observational / Tacit  ×  Ground / Synthesis / Hypothesis). We remap each paper
-# onto the survey's published taxonomy — retrieval SUBSTRATE (§4) × OBJECTIVE rung (§5) — once,
-# in place, so every downstream aggregation (grid, cell pages, browse, insights) reflects it.
-#   Substrate: K1 Textual · K2 Relational · K3 Structured-entity · K4 Perceptual
-#   Rung:      O1 Grounding · O2 Synthesis · O3 Discovery
-# The assembly-figure core systems (CELL_PAPERS / CORE_SYSTEM_TASK) are authoritative and pin
-# their own substrate, rung, and task; the long tail is mapped by modality, then by the old tag.
-CORE_CELL = {}
-for _cell, _keys in CELL_PAPERS.items():
-    for _k in _keys:
-        CORE_CELL.setdefault(_k, _cell)
-
-MODALITY_SUBSTRATE = {
-    'KG': 'K2',
-    'SMILES': 'K3', '3D Structure': 'K3', 'Structured Table': 'K3',
-    'Image': 'K4', 'CSV': 'K4',
-    'Text': 'K1',
-}
-# When a paper mixes modalities, the harder-to-index (non-textual) substrate defines it.
-SUBSTRATE_PRIORITY = ['K4', 'K3', 'K2', 'K1']
-
-
-def _substrate_for(p):
-    subs = {MODALITY_SUBSTRATE[m] for m in (p.get('modality') or []) if m in MODALITY_SUBSTRATE}
-    for s in SUBSTRATE_PRIORITY:
-        if s in subs:
-            return s
-    old = (p.get('ko_primary') or '')
-    oldK = old.split('.')[0] if old else ''
-    doms = p.get('domain') or []
-    if oldK == 'K3':   # old Observational & Experimental -> Perceptual
-        return 'K4'
-    if oldK == 'K4':   # old Tacit corpora are textual documents -> Textual
-        return 'K1'
-    if oldK == 'K2':   # old Curated KB -> Structured-entity for physical-science DBs, else Relational
-        return 'K3' if any(d in ('chem', 'material', 'physics') for d in doms) else 'K2'
-    return 'K1'
-
-
-def _rung_for(p):
-    for c in (p.get('ko_cells') or []):
-        if '.O' in c:
-            return 'O' + c.split('.O', 1)[1][0]
-    prim = p.get('ko_primary') or ''
-    if '.O' in prim:
-        return 'O' + prim.split('.O', 1)[1][0]
-    if prim[:1] == 'O' and prim[1:2].isdigit():
-        return prim[:2]
-    return None
-
-
-def _task_for(substrate, rung, p):
-    old_subs = p.get('subsection') or []
-    if isinstance(old_subs, str):
-        old_subs = [old_subs]
-    j = ' '.join(old_subs).lower()
-    if rung == 'O1':
-        return 'Cross-modal Grounding' if substrate == 'K4' else 'Question Answering'
-    if rung == 'O2':
-        return 'Claim Verification' if ('verif' in j or 'claim' in j or 'contra' in j) else 'Literature Synthesis'
-    if rung == 'O3':
-        if 'docking' in j or 'molecul' in j:
-            return 'Molecular Design'
-        if 'material' in j or 'simulation' in j or 'dft' in j or 'catalyst' in j:
-            return 'Materials Discovery'
-        if 'prediction' in j or 'database-verified' in j or 'property' in j:
-            return 'Property Prediction'
-        if 'hypothesis' in j or 'weak' in j or 'idea' in j:
-            return 'Hypothesis Generation'
-        return {'K3': 'Molecular Design', 'K4': 'Property Prediction'}.get(substrate, 'Hypothesis Generation')
-    return None
-
-
-for p in papers:
-    # Normalize domain slugs onto their canonical page (dedup, preserve order).
-    if p.get('domain'):
-        _seen_dom = set()
-        _norm = []
-        for _d in p['domain']:
-            _d = DOMAIN_ALIAS.get(_d, _d)
-            if _d and _d not in _seen_dom:
-                _seen_dom.add(_d)
-                _norm.append(_d)
-        p['domain'] = _norm
-    bib = p.get('bib_key')
-    if bib in CORE_CELL:
-        substrate, rung = CORE_CELL[bib].split('.')
-        task = CORE_SYSTEM_TASK.get(bib)
-    else:
-        substrate = _substrate_for(p)
-        rung = _rung_for(p)
-        task = _task_for(substrate, rung, p) if rung else None
-    if rung:
-        newcell = f'{substrate}.{rung}'
-        p['ko_cells'] = [newcell]
-        p['ko_primary'] = newcell
-    else:
-        p['ko_cells'] = [substrate]
-        p['ko_primary'] = substrate
-    p['subsection'] = [task] if task else []
-
 # ---------- Group ----------
 by_cell = defaultdict(list)
 by_dom = defaultdict(list)
@@ -491,16 +323,8 @@ papers_by_key = {}
 for p in papers:
     if p.get('bib_key'):
         papers_by_key[p['bib_key']] = p
-    _axis_seen = set()
     for c in p.get('ko_cells', []):
         by_cell[c].append(p)
-        # Also populate the single-axis buckets (K-only / O-only) so those pages and the
-        # sidebar counts show every paper of a substrate or rung, not only the cell it lands in.
-        if '.' in c:
-            for part in c.split('.'):
-                if part and part not in _axis_seen:
-                    _axis_seen.add(part)
-                    by_cell[part].append(p)
     for d in p.get('domain', []):
         by_dom[d].append(p)
     by_type[p.get('type', 'unknown')].append(p)
@@ -582,7 +406,7 @@ def sidebar(base='', current=''):
     <a href="{base}about.html" class="sb-item{cls("about")}"><span class="sb-icon">🚀</span> Getting Started</a>
 
     <details class="sb-group"{cell_open}>
-      <summary class="sb-item"><span class="sb-icon">▦</span> Substrate × Objective <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">▦</span> K×O Grid <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="{base}index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
         {cell_items}
@@ -590,14 +414,14 @@ def sidebar(base='', current=''):
     </details>
 
     <details class="sb-group"{cell_open}>
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (K-only) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         {k_axis_items}
       </div>
     </details>
 
     <details class="sb-group"{cell_open}>
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (O-only) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         {o_axis_items}
       </div>
@@ -624,7 +448,7 @@ def sidebar(base='', current=''):
     <hr class="sb-rule">
 
     <a href="{base}llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
-    <a href="https://github.com/yerimoh/ScienceRAGSurvey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+    <a href="https://github.com/yerimoh/ScienceRAGServey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
   </nav>
 </aside>
 '''
@@ -664,7 +488,7 @@ def page_foot(base=''):
     <p class="links">
       <a href="{base}llms.txt">llms.txt</a> ·
       <a href="{base}llms-full.txt">llms-full.txt</a> ·
-      <a href="{base}data/catalog.json">catalog.json</a> ·
+      <a href="{base}data/papers.json">papers.json</a> ·
       <a href="{base}about.html">About</a>
     </p>
   </div>
@@ -768,20 +592,19 @@ def render_index():
 <section class="hero">
   <div class="wrap">
     <p class="eyebrow">AI for Science · Retrieval-Augmented Generation</p>
-    <h1>The catalog of scientific RAG, organized by what it retrieves and what it must produce.</h1>
+    <h1>The catalog of scientific RAG systems, organized by Knowledge × Mission.</h1>
     <p class="lede">
       <strong>{len(papers)}</strong> methods, benchmarks, and datasets across
-      <strong>{len(by_dom)}</strong> scientific domains — mapped onto the survey's two axes:
-      the <em>retrieval substrate</em> a system draws on (Textual · Relational · Structured-entity · Perceptual)
-      and the <em>operational objective</em> it serves, rising from grounding a known answer to proposing a discovery.
-      Companion catalog to the survey by Oh et al.
+      <strong>{len(by_dom)}</strong> scientific domains —
+      classified by a dual-axis taxonomy of Knowledge Source (K) × Operational Objective (O).
+      Companion to the upcoming survey by Oh et al.
     </p>
     <div class="hero-search">
       <input id="q" type="search" placeholder="Search by title, method, dataset, venue, or tag…" autofocus>
       <span class="hero-search-hint">↵ to filter on <a href="browse.html">Browse</a></span>
     </div>
     <div class="hero-cta">
-      <a href="#grid" class="btn">Explore the grid</a>
+      <a href="#grid" class="btn">Explore K×O grid</a>
       <a href="browse.html" class="btn btn-secondary">Browse all {len(papers)}</a>
       <a href="about.html" class="btn btn-ghost">Read about the taxonomy</a>
     </div>
@@ -790,12 +613,11 @@ def render_index():
 
 <section id="grid" class="ko-grid-section">
   <div class="wrap">
-    <h2 class="section-title">Substrate × Objective — the 12-cell landscape</h2>
+    <h2 class="section-title">The K×O Grid — 12 cells</h2>
     <p class="section-sub">
-      Each cell pairs a <em>retrieval substrate</em> (row) with an <em>objective rung</em> (column), and lists the
-      survey's core systems that land there. Capability concentrates on the <strong>Textual</strong> substrate and
-      thins toward non-textual discovery: cells shade <em>active</em> where mature retrieval meets automatic scoring,
-      and mark as <em>frontier</em> where the substrate or the verifier does not yet exist (§8).
+      Each cell pairs a <em>knowledge source</em> (K, row) with an <em>operational objective</em> (O, column).
+      Cell counts include cross-listed cross-source papers. Sparse cells <strong>[K3.O3]</strong> and
+      <strong>[K4.O3]</strong> are explicit frontier opportunities in §11.
     </p>
     <table class="ko-grid">
       <thead>
@@ -823,7 +645,7 @@ def render_index():
             top_html = '\n'.join(
                 f'<li>{esc((p.get("method") or p.get("title") or "?")[:60])}</li>' for p in top
             )
-            frontier = ' frontier' if CELL_TIERS.get(cell, ('', ''))[0] == 'Frontier' else ''
+            frontier = ' frontier' if (n <= 3 and K in ('K3', 'K4') and O == 'O3') else ''
             parts.append(f'''          <td class="ko-cell {heat}{frontier}">
             <a href="cell/{cell}.html" class="cell-link">
               <span class="cell-id">[{cell}]</span>
@@ -885,12 +707,11 @@ def render_index():
         big = f['headline_stats'][0]
         title = esc(p.get('title') or f['name'])
         title_link = f'<a href="{esc(url)}" target="_blank" rel="noopener">{title}</a>' if url else title
-        fcell = p.get('ko_primary') if (p.get('ko_primary') and '.' in p.get('ko_primary')) else f['cell']
         parts.append(f'''      <article class="fl-mini">
         <div class="fl-mini-big"><span class="fl-mini-num">{esc(big[0])}</span><span class="fl-mini-label">{esc(big[1])}</span></div>
         <h3 class="fl-mini-name">{esc(f['name'])}</h3>
         <p class="fl-mini-tag">{esc(f['tagline'])}</p>
-        <div class="fl-mini-meta"><a href="cell/{fcell}.html" class="tag tag-cell" title="{fcell}">{cell_label(fcell)}</a> <span class="muted">{esc(f['venue'])}</span></div>
+        <div class="fl-mini-meta"><a href="cell/{f['cell']}.html" class="tag tag-cell" title="{f['cell']}">{cell_label(f['cell'])}</a> <span class="muted">{esc(f['venue'])}</span></div>
         <p class="fl-mini-cite">{title_link}</p>
       </article>
 ''')
@@ -939,66 +760,59 @@ def render_about():
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission."</em>
     </p>
 
-    <h2>The taxonomy: substrate × objective</h2>
+    <h2>The K×O taxonomy</h2>
     <p>
-      Scientific RAG is not general-purpose RAG applied to technical text. It is a constraint-bound system
-      answerable to physical laws, stoichiometric exactness, and experimental protocols rather than to the
-      approximate semantic proximity on which general RAG depends. Within an embedding space, <em>pH&nbsp;7.2</em>
-      and <em>pH&nbsp;7.4</em>, or <em>10&nbsp;mg</em> and <em>100&nbsp;mg</em>, sit next to each other, yet in
-      physical execution the difference is decisive. Two demands shape such a system: the knowledge it retrieves
-      and the task it must answer.
+      We argue that scientific RAG is a <em>deterministic engine</em> constrained by physical laws,
+      stoichiometric exactness, and experimental protocols — not by the probabilistic semantic proximity
+      on which general-purpose RAG depends. Two axes capture what most shapes a scientific RAG system:
     </p>
-    <h3>Knowledge Source (K) — the retrieval substrate</h3>
-    <p>A source's native form fixes the retrieval operation it permits. General RAG stays almost entirely on the first substrate; scientific RAG must reach the other three, each costlier to index.</p>
+    <h3>Knowledge Source (K) — what you draw upon</h3>
     <ul>
-      <li><strong>K1 Textual</strong> — the prose record of science: papers, abstracts, clinical notes, guidelines. Matched by embedding or lexical search over passages.</li>
-      <li><strong>K2 Relational</strong> — curated graphs of scientific relations (UMLS, PrimeKG, DRKG, STRING, KEGG, citation graphs). Knowledge lives in the edges, reached by entity linking and traversal.</li>
-      <li><strong>K3 Structured-entity</strong> — the objects of science held as data: molecules, 3D structures, and property records (ChEMBL, PubChem, PDB, Materials Project). Reached by structural or property query, not by words.</li>
-      <li><strong>K4 Perceptual</strong> — raw instrument output: images, spectra, sequencing, time-series (MIMIC-CXR, MassBank, sky surveys). Nothing is retrievable until a cross-modal encoder connects the signal to a text query.</li>
+      <li><strong>K1 Primary Literature</strong> — peer-reviewed papers, preprints, scientific corpora.</li>
+      <li><strong>K2 Curated Knowledge Base</strong> — community-maintained structured records (PubChem, RCSB PDB, Materials Project…).</li>
+      <li><strong>K3 Observational & Experimental</strong> — image, spectra, sequencing, time-series modalities.</li>
+      <li><strong>K4 Tacit Knowledge</strong> — institutional memory, lab protocols, private EHRs, industry process docs. ★ Novelty axis.</li>
     </ul>
-    <h3>Operational Objective (O) — the rung, ordered by distance from the corpus</h3>
+    <h3>Operational Objective (O) — what you do with it</h3>
     <ul>
-      <li><strong>O1 Grounding</strong> — answer a question whose gold already lies in the corpus (Question Answering).</li>
-      <li><strong>O2 Synthesis</strong> — integrate evidence no single source states, verifying claims across documents (Claim Verification, Literature Synthesis).</li>
-      <li><strong>O3 Discovery</strong> — propose an output the corpus does not contain, judged by an external verifier (Property Prediction, Molecular Design, Materials Discovery, Hypothesis Generation).</li>
+      <li><strong>O1 Ground</strong> — single-source grounding (retrieve · cite · answer).</li>
+      <li><strong>O2 Synthesis</strong> — multi-source integration, claim verification.</li>
+      <li><strong>O3 Hypothesis</strong> — generate new candidates (molecules, mechanisms, parameters).</li>
     </ul>
 
     <h2>Why this taxonomy</h2>
     <p>
-      Existing RAG surveys classify systems by retriever–generator pipeline or by application domain. That view
-      misses the two factors that most constrain scientific inquiry: the fidelity of the grounded evidence and the
-      complexity of the scientific objective. Organized by substrate and objective, the field reveals a consistent
-      shape. Capability accumulates where a substrate admits a mature matching operation and a task admits an
-      automatic score — literature grounding and synthesis over <strong>Textual</strong>, lookup over
-      <strong>Relational</strong> and <strong>Structured-entity</strong> — and thins toward non-textual evidence and
-      externally verified discovery, where the retriever or the verifier does not yet exist.
+      Existing RAG surveys classify systems by retriever-generator pipeline. That view misses what most
+      shapes a <em>scientific</em> RAG system: the epistemic tier of the source and the scientific operation
+      performed on it. The K×O grid surfaces structural patterns invisible to pipeline-centric views —
+      dense cells (e.g. <strong>[K1.O1]</strong> medical QA, <strong>[K2.O3]</strong> drug/catalyst generation),
+      and frontier cells (<strong>[K3.O3]</strong>, <strong>[K4.O3]</strong>) where opportunity remains.
     </p>
 
-    <h2>The landscape — 12 cells</h2>
+    <h2>Cell distribution</h2>
     <table class="ko-stat">
-      <thead><tr><th>Cell</th><th>Core systems</th><th>Substrate × Objective</th></tr></thead>
+      <thead><tr><th>Cell</th><th>Count</th><th>K × O</th></tr></thead>
       <tbody>
 {cell_counts}
       </tbody>
     </table>
 
-    <h2>What makes retrieval scientific</h2>
-    <p>Five demands separate a scientific RAG system from general RAG that ranks by semantic proximity alone:</p>
+    <h2>Five Unique Requirements of Scientific RAG</h2>
     <ol>
-      <li><strong>Traceable attribution</strong> — every claim must trace to a specific source unit, sentence-level, page-level, or as a claim graph.</li>
-      <li><strong>Heterogeneous, multi-substrate retrieval</strong> — the corpus spans literature, curated graphs, structured entities, and raw signals, each with its own format and reliability.</li>
-      <li><strong>Domain-native representation</strong> — SMILES, InChI, FASTA, CIF, DICOM carry meaning no flattening to text preserves; retrieval must recognize identity across surface forms.</li>
-      <li><strong>Protocol-level reproducibility</strong> — an output must carry enough method detail for a domain expert to reproduce it, not merely summarize it.</li>
-      <li><strong>External verifier coupling</strong> — for discovery, a docking simulator or DFT calculation, not the language model, decides whether a proposal survives.</li>
+      <li><strong>Mandatory Claim Attribution</strong> — every claim traceable to source unit.</li>
+      <li><strong>Relational Knowledge Coupling</strong> — facts in webs (PDB ↔ UniProt ↔ ChEMBL); traverse couplings.</li>
+      <li><strong>Source Reliability Tiering</strong> — paper / preprint / curated / lab-note carry different epistemic weight.</li>
+      <li><strong>Protocol-level Reproducibility</strong> — enough method detail for expert to reproduce.</li>
+      <li><strong>Domain-Native Representations</strong> — SMILES, InChI, FASTA, LaTeX, CIF, DICOM — no text flattening.</li>
     </ol>
 
     <h2>How to use the catalog</h2>
     <ul>
-      <li><a href="index.html#grid">Substrate × Objective grid</a> — pick a cell to see the core systems landing there.</li>
+      <li><a href="index.html#grid">K×O Grid</a> — pick a cell to see all systems landing there.</li>
       <li><a href="index.html#domains">Domains</a> — browse by scientific field.</li>
       <li><a href="browse.html">Browse</a> — full searchable, filterable catalog.</li>
       <li><a href="llms.txt">/llms.txt</a> · <a href="llms-full.txt">/llms-full.txt</a> — LLM-friendly indices.</li>
-      <li><a href="data/catalog.json">catalog.json</a> — full machine-readable dump, remapped to the substrate × objective taxonomy (raw source stays at <a href="data/papers.json">papers.json</a>).</li>
+      <li><a href="data/papers.json">papers.json</a> — full machine-readable dump (one JSON, all metadata).</li>
     </ul>
 
     <h2>Survey Construction Pipeline</h2>
@@ -1027,24 +841,24 @@ def render_about():
       <div class="pipe-row pipe-row-classify">
         <div class="pipe-node pipe-node-classify pipe-wide">
           <div class="pipe-icon">🔬</div>
-          <div class="pipe-label"><strong>Substrate × Objective Classification</strong></div>
+          <div class="pipe-label"><strong>K × O Dual-Axis Classification</strong></div>
           <div class="pipe-classify-grid">
             <div class="pipe-axis pipe-axis-k">
-              <div class="pipe-axis-label">K — Retrieval Substrate</div>
+              <div class="pipe-axis-label">K — Knowledge Source</div>
               <div class="pipe-axis-items">
-                <span class="pipe-pill pipe-k1">K1 Textual</span>
-                <span class="pipe-pill pipe-k2">K2 Relational</span>
-                <span class="pipe-pill pipe-k3">K3 Structured-entity</span>
-                <span class="pipe-pill pipe-k4">K4 Perceptual</span>
+                <span class="pipe-pill pipe-k1">K1 Primary Lit</span>
+                <span class="pipe-pill pipe-k2">K2 Curated KB</span>
+                <span class="pipe-pill pipe-k3">K3 Obs/Exp</span>
+                <span class="pipe-pill pipe-k4">K4 Tacit</span>
               </div>
             </div>
             <div class="pipe-axis-times">×</div>
             <div class="pipe-axis pipe-axis-o">
               <div class="pipe-axis-label">O — Operational Objective</div>
               <div class="pipe-axis-items">
-                <span class="pipe-pill pipe-o1">O1 Grounding</span>
+                <span class="pipe-pill pipe-o1">O1 Ground</span>
                 <span class="pipe-pill pipe-o2">O2 Synthesis</span>
-                <span class="pipe-pill pipe-o3">O3 Discovery</span>
+                <span class="pipe-pill pipe-o3">O3 Hypothesis</span>
               </div>
             </div>
           </div>
@@ -1057,7 +871,7 @@ def render_about():
       <div class="pipe-row pipe-row-grid">
         <div class="pipe-node pipe-node-grid pipe-wide">
           <div class="pipe-icon">▦</div>
-          <div class="pipe-label"><strong>12-Cell Landscape</strong></div>
+          <div class="pipe-label"><strong>12-Cell K×O Taxonomy</strong></div>
           <div class="pipe-mini-grid">
             {"".join(
               f'<a href="cell/{K}.{O}.html" class="pipe-cell pipe-cell-{"h" if cell_count(f"{K}.{O}")>=10 else "m" if cell_count(f"{K}.{O}")>=3 else "l"}" title="{K}.{O}: {cell_count(f"{K}.{O}")} entries">'
@@ -1089,19 +903,17 @@ def render_about():
         </div>
         <div class="pipe-node pipe-node-out">
           <div class="pipe-icon">📄</div>
-          <div class="pipe-label">catalog.json<br><span class="pipe-sub">machine-readable</span></div>
+          <div class="pipe-label">papers.json<br><span class="pipe-sub">machine-readable</span></div>
         </div>
       </div>
     </div>
 
     <h2>Methodology</h2>
     <p>
-      Entries are curated by the Vision and Learning Lab and cross-referenced against the survey's master
-      bibliography. Each system is placed by its <em>retrieval substrate</em> — the native form of what it
-      indexes — and by its <em>objective rung</em>. The survey's core systems are pinned to the exact cell they
-      occupy in the assembly figure; the wider catalog is mapped by the modality it retrieves over. A system that
-      commits to a single substrate occupies a single cell, which is the common case: almost every surveyed system
-      retrieves from just one substrate, and cross-substrate retrieval is itself an open frontier (§8).
+      Entries are sourced from a Notion-tracked literature database curated by the Vision and Learning Lab,
+      cross-referenced against the survey's master bibliography. K×O assignments are author-verified for
+      138 papers via full Notion fetch; the remaining ~44 are tagged provisionally pending re-verification.
+      Cross-source papers (e.g. <strong>MedGraphRAG</strong> spanning K1+K2+K4) appear in multiple cells.
     </p>
 
     <h2>Contributing</h2>
@@ -1144,10 +956,10 @@ def render_browse():
 <section class="browse-hero">
   <div class="wrap">
     <h1>Browse all {len(papers)} entries</h1>
-    <p class="lede">Filter by substrate × objective cell, task, domain, type, or year.</p>
+    <p class="lede">Filter by K×O cell, subsection, domain, type, or year.</p>
     <div class="filters">
       <input id="q" type="search" placeholder="Search…" autofocus>
-      <select id="f-cell"><option value="">All cells</option>{cell_opts}</select>
+      <select id="f-cell"><option value="">All K×O cells</option>{cell_opts}</select>
       <select id="f-sub"><option value="">All subsections</option>{sub_opts}</select>
       <select id="f-domain"><option value="">All domains</option>{domain_opts}</select>
       <select id="f-type"><option value="">All types</option>{type_opts}</select>
@@ -1183,52 +995,52 @@ SECTION_OVERVIEWS = {
     # The cell hero already prints the K-axis and O-axis definitions; this description
     # adds only what is specific to the intersection. Cards below are grouped automatically.
     'K1.O1': {
-        'subsection': 'Literature Grounding',
-        'description': 'Answers a question directly over the textual record of science — PubMed, arXiv, full-text papers — by retrieving passages, citing them, and grounding the answer in the corpus that already holds it. The most mature capability in the field: mature retrievers meet automatic scoring, so open generation and light self-checking suffice.',
+        'subsection': 'Literature-grounded Answering',
+        'description': 'Answers scientific questions directly over primary literature — PubMed, arXiv, and full-text papers — by retrieving, citing, and grounding each answer in a single corpus. Spans short closed-form QA and long-form cited generation, judged on factual accuracy and citation fidelity.',
     },
     'K1.O2': {
         'subsection': 'Literature Synthesis',
-        'description': 'Integrates evidence that no single paper states into one cited answer, resolving contradictions across many textual sources. The difficulty shifts from citing one source to verifying every claim against a set of them, so faithfulness and coverage — not exact match — become the score.',
+        'description': 'Integrates evidence across many papers into one coherent answer, aggregating retrieved passages and resolving contradictions between them. The difficulty shifts from citing a single source to verifying each claim against a whole set of sources.',
     },
     'K1.O3': {
-        'subsection': 'Literature-grounded Ideation',
-        'description': 'Uses the literature as a generative prior to propose research ideas, mechanisms, and hypotheses. The dormant rung of the textual substrate: no docking program, simulator, or database can confirm a proposed idea, so systems are judged only by novelty or expert preference — signals that language-model judges themselves overrate.',
+        'subsection': 'Strong-verifier Hypothesis',
+        'description': 'Uses the primary literature as a generative prior to propose new scientific candidates, in settings where a strong external verifier — an assay, a database, or a simulator — can directly test each proposal. The literature suggests; the verifier confirms.',
     },
     'K2.O1': {
-        'subsection': 'Knowledge-graph QA',
-        'description': 'Answers by linking a query to entities in a curated relational graph — UMLS, PrimeKG, DRKG, biomedical ontologies — and traversing its typed edges, so the answer lives in the couplings between nodes rather than in any single passage.',
+        'subsection': 'Knowledge-base Lookup',
+        'description': 'Grounds answers in community-curated structured records — PubChem, RCSB PDB, ChEMBL, UMLS, Materials Project — where retrieval targets canonical database entries rather than free text. Evaluation rewards exact, up-to-date lookup over authoritative fields.',
     },
     'K2.O2': {
         'subsection': 'Knowledge-graph Synthesis',
-        'description': 'Combines several curated relational sources into one verified answer by walking multi-hop paths across entities and relations (for example drug–gene–disease links). Emerging: retrieval is mature but multi-source graph synthesis under a reliability check is still being built.',
+        'description': 'Synthesizes across structured knowledge bases and graphs, traversing entities and relations (for example drug–gene–disease links) to combine several curated sources into one verified answer.',
     },
     'K2.O3': {
-        'subsection': 'Relational Hypothesis',
-        'description': 'Proposes new links or candidates over a relational graph — for example ranking protein–protein interaction pathways for a therapeutic target. Emerging: the graph supplies structure, but the verifier that would confirm a proposed relation beyond the graph is rarely available.',
+        'subsection': 'Strong-verifier Hypothesis',
+        'description': 'Retrieves over curated knowledge bases — molecular fragment libraries, small-molecule and protein-ligand databases, or materials databases — to propose novel candidates, then confirms each proposal with a strong external verifier that lies outside the retrieved corpus: molecular docking for ligands, or a physics-based simulator (DFT, machine-learning interatomic potentials, executed code) for materials. Novelty is measured against existing databases and validity against the verifier; the gap to wet-lab or experimental confirmation remains the open challenge.',
     },
     'K3.O1': {
-        'subsection': 'Structured-entity Lookup',
-        'description': 'Grounds an answer in the objects of science held as data — molecules, 3D structures, and property records (ChEMBL, PubChem, PDB, Materials Project) — reached by structural or property query and returned as an exact, up-to-date value from an authoritative field.',
+        'subsection': 'Cross-modal Grounding',
+        'description': 'Grounds answers in raw experimental modalities — images, spectra, sequences, time-series (cryo-EM, mass spec, telescope archives, EHR images) — where retrieval must bridge a non-textual signal to a textual question.',
     },
     'K3.O2': {
-        'subsection': 'Structured Synthesis (open)',
-        'description': 'Integrates and cross-checks several structured-entity databases into one answer. A near-empty frontier: few systems yet reconcile heterogeneous structure and property records under a single verified synthesis.',
+        'subsection': 'Cross-modal Synthesis (open)',
+        'description': 'Integrates and cross-checks several observational or experimental modalities into a single verified answer. A near-empty frontier: few systems yet synthesize across heterogeneous raw-signal sources.',
     },
     'K3.O3': {
-        'subsection': 'Structure-based Design',
-        'description': 'Retrieves exemplar molecules, fragments, or crystal structures to steer a generative model toward novel candidates, then confirms each with a strong external verifier outside the corpus — molecular docking for ligands, DFT or an ML interatomic potential for materials. The clearest case of a verifier coupled into the loop; the gap to wet-lab confirmation remains the open challenge.',
+        'subsection': 'Weakly-verified Hypothesis Generation',
+        'description': 'Generates hypotheses directly from raw observational and experimental signals when no strong verifier can check them, so validity rests on held-out recovery (Top-k accuracy, Tanimoto similarity). Genuine retrieval-augmented methods are rare here: MADGEN retrieves a molecular scaffold keyed on an MS/MS spectrum and then generates the full structure, whereas most spectrum-to-structure models generate without any retrieval. One of the sparsest cells — a concrete frontier for scientific RAG.',
     },
     'K4.O1': {
-        'subsection': 'Cross-modal Grounding',
-        'description': 'Grounds an answer in a raw instrument signal — chest X-rays, pathology slides, ECG traces — where retrieval must bridge a non-textual modality to a textual question through a learned cross-modal encoder. Emerging: the encoder that connects signal to text is the component that still lags.',
+        'subsection': 'Private-document Retrieval',
+        'description': 'Grounds answers in tacit and institutional sources that no public model can access — big-science institutional memory (RHIC, DUNE), lab protocols, private EHRs, and industry process docs — typically retrieved on-premise over confidential corpora.',
     },
     'K4.O2': {
-        'subsection': 'Perceptual Synthesis (open)',
-        'description': 'Integrates and reconciles several observational or experimental modalities into one verified answer. Dormant: raw-signal archives are almost never indexed as a retrieval corpus, so there is no substrate over which to synthesize.',
+        'subsection': 'Tacit Synthesis (open)',
+        'description': 'Synthesizes across tacit and institutional knowledge sources. An open frontier: integrating and verifying across private, undocumented, or apprenticeship-held knowledge is still largely unaddressed.',
     },
     'K4.O3': {
-        'subsection': 'Signal-to-structure Discovery',
-        'description': 'Proposes a scientific object directly from a raw signal — a molecule from an MS/MS spectrum, a diagnosis-hypothesis from an image. One of the sparsest cells: MADGEN retrieves a scaffold keyed on the spectrum and then generates the full structure, but almost all spectrum-to-structure models generate with no retrieval at all. A concrete frontier for scientific RAG.',
+        'subsection': 'Tacit Hypothesis (open)',
+        'description': 'Generates new scientific hypotheses grounded in tacit and institutional knowledge — the hardest knowledge source paired with the hardest objective. The emptiest cell in the grid, with no established systems yet.',
     },
 }
 
@@ -1406,7 +1218,7 @@ def render_cell_pages():
             body = f'''
 <section class="cell-hero">
   <div class="wrap">
-    <p class="eyebrow"><a href="../index.html#grid">← Landscape grid</a></p>
+    <p class="eyebrow"><a href="../index.html#grid">← K×O Grid</a></p>
     <h1><span class="cell-id-big">[{cell}]</span> {esc(kn)} <span class="times">×</span> {esc(on)}</h1>
     {tier_badge}
     <p class="lede"><strong>{len(ps)}</strong> entries.</p>
@@ -1445,7 +1257,7 @@ def render_cell_pages():
         body = f'''
 <section class="cell-hero">
   <div class="wrap">
-    <p class="eyebrow"><a href="../index.html#grid">← Landscape grid</a></p>
+    <p class="eyebrow"><a href="../index.html#grid">← K×O Grid</a></p>
     <h1><span class="cell-id-big">[{K}]</span> {esc(kn)}</h1>
     <p class="lede"><strong>{len(ps)}</strong> K-axis-only entries (datasets / knowledge sources without paired O).</p>
     <div class="cell-axis-pair">
@@ -1495,7 +1307,7 @@ def render_cell_pages():
         body = f'''
 <section class="cell-hero">
   <div class="wrap">
-    <p class="eyebrow"><a href="../index.html#grid">← Landscape grid</a></p>
+    <p class="eyebrow"><a href="../index.html#grid">← K×O Grid</a></p>
     <h1><span class="cell-id-big">[{O}]</span> {esc(on)}</h1>
     <p class="lede"><strong>{len(ps)}</strong> entries with <strong>{esc(on)}</strong> objective (all K sources).</p>
     <div class="cell-axis-pair">
@@ -1541,7 +1353,7 @@ def render_domain_pages():
     <p class="eyebrow"><a href="../index.html#domains">← Domains</a></p>
     <h1>{DOMAIN_EMOJI.get(d, "")} {esc(label)}</h1>
     <p class="lede"><strong>{len(ps)}</strong> entries in the {esc(label.lower())} domain.</p>
-    {f'<div class="cell-breakdown"><span class="muted">Substrate × Objective:</span> {breakdown}</div>' if breakdown else ''}
+    {f'<div class="cell-breakdown"><span class="muted">K×O distribution:</span> {breakdown}</div>' if breakdown else ''}
   </div>
 </section>
 
@@ -1637,7 +1449,7 @@ def render_insights():
     chart_w = len(years) * (bar_w + gap) + 60
     bars = []
     K_COLORS = {'K1': '#b8431f', 'K2': '#1f7a4d', 'K3': '#6a3acb', 'K4': '#d4992a', '?': '#999'}
-    K_COLOR_LABELS = {'K1': 'Textual', 'K2': 'Relational', 'K3': 'Structured-entity', 'K4': 'Perceptual', '?': 'Unassigned'}
+    K_COLOR_LABELS = {'K1': 'Primary Lit', 'K2': 'Curated KB', 'K3': 'Obs/Exp', 'K4': 'Tacit', '?': 'Unassigned'}
     x = 50
     for y in years:
         total = sum(yc[y].values())
@@ -1663,12 +1475,12 @@ def render_insights():
         url = p.get('paper_link') or ''
         stats_html = ''.join(f'<div class="fl-stat"><span class="fl-num">{esc(s[0])}</span><span class="fl-label">{esc(s[1])}</span></div>' for s in f['headline_stats'])
         title_link = f'<a href="{esc(url)}" target="_blank" rel="noopener">{esc(p.get("title","") or f["name"])} ↗</a>' if url else esc(p.get('title','') or f['name'])
-        cell = p.get('ko_primary') if (p.get('ko_primary') and '.' in p.get('ko_primary')) else f['cell']
+        cell = f['cell']
         fl_cards.append(f'''
         <article class="fl-card">
           <div class="fl-head">
             <h3 class="fl-name">{esc(f['name'])}</h3>
-            <a href="cell/{cell}.html" class="tag tag-cell" title="{esc(cell_label(cell))}">{cell}</a>
+            <a href="cell/{cell}.html" class="tag tag-cell">{cell}</a>
           </div>
           <p class="fl-tagline">{esc(f['tagline'])}</p>
           <div class="fl-stats">{stats_html}</div>
@@ -1677,21 +1489,13 @@ def render_insights():
           <p class="fl-cite">{title_link} · <span class="muted">{esc(f['venue'])}</span></p>
         </article>''')
 
-    # Cross-substrate papers — systems whose retrieved evidence spans more than one substrate
-    # (by modality), the §8 cross-substrate-retrieval frontier. The survey's marquee bridges
-    # (MedGraphRAG, Omni-RAG, LLaMP) are pinned first.
-    def _n_substrates(p):
-        return len({MODALITY_SUBSTRATE[mo] for mo in (p.get('modality') or []) if mo in MODALITY_SUBSTRATE})
-    _pinned = ['DBLP:conf/acl/WuZQCXMJG25', 'DBLP:conf/acl/ChenLJWG0025', 'DBLP:conf/emnlp/ChiangHCR25']
-    xs_papers = [papers_by_key[k] for k in _pinned if k in papers_by_key]
-    _seen = {p.get('bib_key') for p in xs_papers}
-    xs_papers += [p for p in papers if _n_substrates(p) > 1 and p.get('bib_key') not in _seen]
+    # Cross-source papers
+    xs_papers = [p for p in papers if p.get('cross_source') or len(p.get('ko_cells', [])) > 1]
     xs_cards = '\n'.join(paper_card(p) for p in xs_papers[:12])
 
-    # Frontier cells — the survey's white space (§8): dormant literature-grounded ideation and
-    # the near-empty signal-to-structure discovery cell.
-    frontier_K3O3 = by_cell.get('K1.O3', [])   # Textual × Discovery — ideation, weak verifier
-    frontier_K4O3 = by_cell.get('K4.O3', [])   # Perceptual × Discovery — signal-to-structure
+    # Frontier cells
+    frontier_K3O3 = by_cell.get('K3.O3', [])
+    frontier_K4O3 = by_cell.get('K4.O3', [])
     f33 = '\n'.join(paper_card(p) for p in frontier_K3O3) or '<p class="empty">No verified entries — this cell is a structural gap.</p>'
     f43 = '\n'.join(paper_card(p) for p in frontier_K4O3) or '<p class="empty">No verified entries — this cell is a structural gap.</p>'
 
@@ -1701,18 +1505,18 @@ def render_insights():
     <p class="eyebrow">Insights · The shape of scientific RAG</p>
     <h1>What the {len(papers)}-paper catalog reveals.</h1>
     <p class="lede">
-      Six lenses on the field — the systems that set the bar, the five demands that make retrieval
-      <em>scientific</em>, how the substrates have grown, where each one lives across domains,
-      where the white space is, and the challenges the survey lays out as the road ahead.
+      Six lenses on the field — flagship demonstrations, the unique requirements that distinguish
+      scientific from general RAG, where coverage is dense, where the white space is,
+      and the seven directions where the next breakthroughs are most likely.
     </p>
     <nav class="insights-toc">
       <a href="#flagships">Flagships</a>
-      <a href="#requirements">5 Demands</a>
+      <a href="#requirements">5 Requirements</a>
       <a href="#growth">Growth</a>
-      <a href="#kd">Substrate×Domain</a>
-      <a href="#bridges">Cross-substrate</a>
+      <a href="#kd">K×Domain</a>
+      <a href="#bridges">Cross-source</a>
       <a href="#frontiers">Frontiers</a>
-      <a href="#directions">Challenges</a>
+      <a href="#directions">Future</a>
     </nav>
   </div>
 </section>
@@ -1727,38 +1531,38 @@ def render_insights():
 
 <section id="requirements" class="prose-section alt-bg">
   <div class="wrap">
-    <h2 class="section-title">Five demands that make retrieval scientific</h2>
-    <p class="section-sub">General RAG ranks web text by semantic proximity. Science is governed by physical law, not linguistic flexibility — a transposed digit that merely dents fluency in prose can turn a benign compound toxic. Five demands follow.</p>
+    <h2 class="section-title">The 5 unique requirements of scientific RAG</h2>
+    <p class="section-sub">General-purpose RAG ranks by semantic proximity. Scientific RAG must obey stricter, often quantitative, demands.</p>
     <div class="req-grid">
       <div class="req-card req-1">
         <div class="req-num">1</div>
-        <h3>Traceable attribution</h3>
-        <p>Every claim must trace to a specific source unit — sentence-level, page-level, or as a claim graph — because fluency alone cannot be trusted.</p>
-        <p class="req-evidence">OpenScholar 0% citation hallucination · PaperQA sentence-level attribution</p>
+        <h3>Mandatory Claim Attribution</h3>
+        <p>Every claim traceable to a source unit — sentence-level, page-level, or claim-graph.</p>
+        <p class="req-evidence">OpenScholar 0% hallucination · PaperQA sentence-level citing · R2AG-Climate 4-dim faithfulness</p>
       </div>
       <div class="req-card req-2">
         <div class="req-num">2</div>
-        <h3>Heterogeneous, multi-substrate retrieval</h3>
-        <p>The corpus is not uniform web text but literature, curated graphs, structured entities, and raw signals — each with its own format and reliability, each reached by a different operation.</p>
-        <p class="req-evidence">Textual · Relational · Structured-entity · Perceptual substrates (§4)</p>
+        <h3>Relational Knowledge Coupling</h3>
+        <p>Facts live in webs (PDB ↔ UniProt ↔ ChEMBL). Retrieval must traverse couplings, not just rank entities.</p>
+        <p class="req-evidence">CLADD 2-hop PrimeKG · MedGraphRAG 3-tier · BIORAG NCBI cross-DB</p>
       </div>
       <div class="req-card req-3">
         <div class="req-num">3</div>
-        <h3>Domain-native representation</h3>
-        <p>SMILES, InChI, FASTA, CIF, DICOM carry meaning no flattening to text preserves. Retrieval must recognize a molecule's identity across every surface form it takes.</p>
-        <p class="req-evidence">f-RAG / Rag2Mol / RetMol SMILES+3D · MMed-RAG DICOM · LLaMP CIF</p>
+        <h3>Source Reliability Tiering</h3>
+        <p>Papers, preprints, curated DBs, lab notes — each carries different epistemic weight. RAG must reflect this.</p>
+        <p class="req-evidence">MEDRAG RRF over 4 corpora · Rationale-Guided RAG balanced retrieval · MITRA 2-tier abstracts→full-text</p>
       </div>
       <div class="req-card req-4">
         <div class="req-num">4</div>
-        <h3>Protocol-level reproducibility</h3>
-        <p>An output must carry enough method detail for a domain expert to reproduce it — not merely a readable summary of what was done.</p>
-        <p class="req-evidence">MITRA full-method docs · executable / API-grounded pipelines</p>
+        <h3>Protocol-level Reproducibility</h3>
+        <p>Outputs must include enough method detail for an expert to reproduce — not just a summary.</p>
+        <p class="req-evidence">AP Lab Protocols · RHIC DAPP · MatClaw 99% API-call accuracy · MITRA full-method docs</p>
       </div>
       <div class="req-card req-5">
         <div class="req-num">5</div>
-        <h3>External verifier coupling</h3>
-        <p>For discovery, a docking simulator or a DFT calculation — not the language model — decides whether a proposal survives. How deeply the verifier is coupled bounds how far a system can reach.</p>
-        <p class="req-evidence">f-RAG → docking loop · HEA-catalyst → DFT · IRDiff/Rag2Mol external docking</p>
+        <h3>Domain-Native Representations</h3>
+        <p>SMILES, InChI, FASTA, LaTeX, CIF, DICOM. No flattening to text — the chemistry of the structure matters.</p>
+        <p class="req-evidence">Rag2Mol/TaLiRAGen/f-RAG SMILES+3D · HoneyComb CIF · MMed-RAG DICOM</p>
       </div>
     </div>
   </div>
@@ -1766,13 +1570,11 @@ def render_insights():
 
 <section id="growth" class="prose-section">
   <div class="wrap">
-    <h2 class="section-title">Growth by year, stacked by retrieval substrate</h2>
+    <h2 class="section-title">Growth by year, stacked by Knowledge Source</h2>
     <p class="section-sub">
-      The 2024–2025 surge is led by <strong style="color:#b8431f">Textual</strong> systems (medical QA, literature
-      synthesis), with <strong style="color:#6a3acb">Structured-entity</strong> and
-      <strong style="color:#1f7a4d">Relational</strong> work following. <strong style="color:#d4992a">Perceptual</strong>
-      retrieval — the substrate that needs a learned cross-modal encoder — arrives later and stays thinner, tracking
-      the field's concentration on text.
+      The 2024–2025 explosion is dominated by <strong style="color:#b8431f">K1 primary-literature</strong> systems
+      (medical QA, scientific synthesis). <strong style="color:#1f7a4d">K2 curated-KB</strong> work follows, while
+      <strong style="color:#d4992a">K4 tacit</strong> systems remain rare — most are 2025–2026 firsts.
     </p>
     <div class="chart-frame">{timeline_svg}</div>
     <p class="chart-legend">{legend}</p>
@@ -1781,12 +1583,10 @@ def render_insights():
 
 <section id="kd" class="prose-section alt-bg">
   <div class="wrap">
-    <h2 class="section-title">Substrate × Domain — where each substrate lives</h2>
+    <h2 class="section-title">K × Domain — where each Knowledge Source lives</h2>
     <p class="section-sub">
-      Medicine spreads across all four substrates. Chemistry and materials lean on the Structured-entity databases
-      of molecules and properties. Biology mixes Textual literature with Relational graphs. Physics, earth science,
-      and astronomy are Textual- and Perceptual-heavy — instrument archives no one has yet indexed. Cells link to a
-      filtered Browse view.
+      Medicine spans all four K tiers. Chemistry leans on K2 curated KBs. Physics is K1+K4 (institutional memory).
+      Earth science is K1-heavy. Cells link to a filtered Browse view.
     </p>
     <table class="kd-grid">
       <thead>{kd_head}</thead>
@@ -1797,17 +1597,14 @@ def render_insights():
 
 <section id="bridges" class="prose-section">
   <div class="wrap">
-    <h2 class="section-title">Cross-substrate systems — the retrieval frontier</h2>
+    <h2 class="section-title">Cross-source bridges — papers that span multiple K tiers</h2>
     <p class="section-sub">
-      Nearly every surveyed system commits to a single substrate, yet a real scientific question often spans
-      several at once — linking a molecule's structure to the literature that discusses it and to the graph
-      relations it takes part in. The <strong>{len(xs_papers)}</strong> systems below reach across substrates:
-      MedGraphRAG links documents, literature, and a controlled vocabulary into one graph, and Omni-RAG routes a
-      query across several heterogeneous stores. None yet matches a query expressed in one substrate against
-      evidence keyed in another — the open challenge of §8.
+      <strong>{len(xs_papers)}</strong> systems bridge multiple knowledge sources. The most ambitious — MedGraphRAG —
+      stitches K1 (MedC-K papers) + K2 (UMLS/ICD ontology) + K4 (MIMIC IV private EHR) in one pipeline.
+      These prove that the K axis is not a partition but a graph.
     </p>
     <div class="card-grid">{xs_cards}</div>
-    <p class="see-more"><a href="browse.html" class="btn btn-secondary">Browse all cross-substrate systems →</a></p>
+    <p class="see-more"><a href="browse.html" class="btn btn-secondary">Browse all cross-source systems →</a></p>
   </div>
 </section>
 
@@ -1815,19 +1612,18 @@ def render_insights():
   <div class="wrap">
     <h2 class="section-title">Frontier cells — where the white space is</h2>
     <p class="section-sub">
-      Capability concentrates on the Textual substrate and thins toward discovery. The grid surfaces two dormant
-      cells where the verifier or the substrate simply does not exist yet — the operations an autonomous AI
-      scientist depends on most. A third, Perceptual × Synthesis, has no retrievable substrate at all and is empty.
+      The K×O grid surfaces two near-empty cells. Both involve the most ambitious operation (O3 Hypothesis)
+      paired with the harder-to-access sources (K3 raw modalities, K4 tacit knowledge).
     </p>
     <div class="frontier-pair">
       <div class="frontier-col">
-        <h3><span class="cell-id-big">[K1.O3]</span> Textual × Discovery <span class="muted">({len(frontier_K3O3)} systems)</span></h3>
-        <p>Literature-grounded ideation. Systems propose mechanisms and hypotheses from the literature, but no docking program, simulator, or database can confirm an idea — so they are judged only by novelty or expert preference, signals that language-model judges overrate. The one Discovery rung that coupling a verifier cannot yet close.</p>
+        <h3><span class="cell-id-big">[K3.O3]</span> Observational × Hypothesis <span class="muted">({len(frontier_K3O3)} entry)</span></h3>
+        <p>Spectra → molecule, imaging → diagnosis-hypothesis, sequencing → mechanism. Today, only mass-spectrometry-to-molecule attempts exist.</p>
         <div class="card-grid">{f33}</div>
       </div>
       <div class="frontier-col">
-        <h3><span class="cell-id-big">[K4.O3]</span> Perceptual × Discovery <span class="muted">({len(frontier_K4O3)} systems)</span></h3>
-        <p>Signal-to-structure discovery — a molecule from a spectrum, a diagnosis-hypothesis from an image. MADGEN retrieves a scaffold keyed on an MS/MS spectrum and generates the full structure, but almost every other spectrum-to-structure model generates with no retrieval at all. The sparsest inhabited cell in the grid.</p>
+        <h3><span class="cell-id-big">[K4.O3]</span> Tacit × Hypothesis <span class="muted">({len(frontier_K4O3)} entries)</span></h3>
+        <p>Hypothesis generation grounded in lab logs, internal collaboration notes, or industry process databases. Nearly virgin territory.</p>
         <div class="card-grid">{f43}</div>
       </div>
     </div>
@@ -1836,53 +1632,56 @@ def render_insights():
 
 <section id="directions" class="prose-section">
   <div class="wrap">
-    <h2 class="section-title">The road ahead — three causes of the gaps</h2>
-    <p class="section-sub">The survey (§8) reads the thin cells not as one problem but three. Some gaps are already solved in general RAG and only await adaptation; others need components built for science; the rest cannot be closed by architecture at all. The work ahead is less a search for better retrievers than making more of science <em>retrievable</em> and more of its outputs <em>verifiable</em>.</p>
+    <h2 class="section-title">Seven directions for the next scientific RAG generation</h2>
+    <p class="section-sub">Each entry is a "From → To" transition the field is starting to make. Drawn from §11 of the survey.</p>
     <div class="dir-grid">
       <div class="dir-card">
-        <span class="dir-num">A1</span>
-        <h3>Adapt · Reasoning-aware retrieval &amp; reranking</h3>
-        <p>Forced retrieval can inject stale or superseded facts, and standard rerankers reward passages that are semantically similar but logically irrelevant. Adapting when-to-retrieve and relevance to scientific epistemology, not surface overlap, is the near-term win.</p>
-        <p class="dir-ev">adaptive retrieval · reasoning-utility reranking (SciRerankBench)</p>
+        <span class="dir-num">1</span>
+        <h3>Underutilized → Activated Authoritative Sources <span class="dir-star">★ main insight</span></h3>
+        <p>Dozens of authoritative DBs (Reaxys, Aspen, NIST Mass Spec, ChemProt) are <em>indexed nowhere</em> for RAG. Activating them is the single largest unclaimed win.</p>
+        <p class="dir-ev">RHIC DAPP · MITRA · DUNE-GPT show the playbook for physics; chemistry/materials lag.</p>
       </div>
       <div class="dir-card">
-        <span class="dir-num">A2</span>
-        <h3>Adapt · Contamination &amp; discovery evaluation</h3>
-        <p>Scientific literature is finite, so test items and retrievable documents share one narrow corpus and science cannot fabricate fresh questions. Discovery is always scored against a proxy — a proxy that marks genuinely novel-but-correct output as wrong.</p>
-        <p class="dir-ev">post-cutoff contamination control · staged simulation / wet-lab confirmation</p>
+        <span class="dir-num">2</span>
+        <h3>Primary Literature → Tacit Sources</h3>
+        <p>Most domains lack a single K4 system. The institutional memory of labs, collaborations, and industry holds 10×+ more knowledge than papers.</p>
+        <p class="dir-ev">K4 is ~9 papers today out of 138 — likely 50-65 once private datasets are surveyed.</p>
       </div>
       <div class="dir-card">
-        <span class="dir-num">B1</span>
-        <h3>Build · Retrievable substrates <span class="dir-star">★ largest unclaimed win</span></h3>
-        <p>Large authoritative archives (AFLOW, OQMD, HEPData, sky surveys) have no query layer for RAG. Activating them needs specialized intermediary layers that encode database schemas and measurement metadata — plus a path from live findings to a queryable index.</p>
-        <p class="dir-ev">indexing non-textual archives · streaming, not snapshotting</p>
+        <span class="dir-num">3</span>
+        <h3>Ground → Hypothesis</h3>
+        <p>From "answer with citations" to "propose a molecule and have the docking score verify it." Generate-then-verify closed loops.</p>
+        <p class="dir-ev">f-RAG → Vina · Rag2Mol → docking · CLADD agent verifier · HEA → DFT.</p>
       </div>
       <div class="dir-card">
-        <span class="dir-num">B2</span>
-        <h3>Build · Cross-modal identity &amp; cross-substrate retrieval</h3>
-        <p>A molecule is a SMILES string, an IUPAC name, and a 3D structure at once; a question in one substrate is often answered by evidence keyed in another. Retrieval must recognize scientific identity across surface forms and fuse matches across all four substrates.</p>
-        <p class="dir-ev">modality-spanning encoders · one retriever over Textual+Relational+Structured+Perceptual</p>
+        <span class="dir-num">4</span>
+        <h3>Closed → Sandboxed Sources</h3>
+        <p>HIPAA, IP, and security forbid sending corpora to commercial LLMs. On-prem RAG with 4-bit local models is the only path.</p>
+        <p class="dir-ev">MITRA 4-bit · DUNE-GPT Fermilab intranet · MedRAG-CPDD private EHR.</p>
       </div>
       <div class="dir-card">
-        <span class="dir-num">B3</span>
-        <h3>Build · Scientific verifiers &amp; executable RAG</h3>
-        <p>Outside molecular docking, verifiers for physical validity barely exist. Reaching discovery needs domain verifiers coupled into generation, uncertainty preserved rather than collapsed, and closed loops that execute tools, fail, and retrieve to recover.</p>
-        <p class="dir-ev">constraint checkers · retrieval-augmented error recovery · verifier-free ideation</p>
+        <span class="dir-num">5</span>
+        <h3>Static → Streaming Living Sources</h3>
+        <p>PubMed adds 1M papers/year. Crystal structure DBs update daily. Indices must stream, not snapshot.</p>
+        <p class="dir-ev">BIORAG NCBI live API · OpenScholar Semantic Scholar live.</p>
       </div>
       <div class="dir-card">
-        <span class="dir-num">C</span>
-        <h3>Beyond technique · Tacit knowledge &amp; access</h3>
-        <p>The intuition a scientist acquires at the bench is never written down, and much empirical data is locked behind licensing and privacy law. Better architecture cannot manufacture ground truth that was never recorded or that no system is permitted to read.</p>
-        <p class="dir-ev">approximating unrecorded intuition · the human-vs-system access asymmetry</p>
+        <span class="dir-num">6</span>
+        <h3>Synthetic Contamination → Synthetic Grounding</h3>
+        <p>Generated content is poisoning future corpora. The defense: use synthetic data as <em>training scaffolding</em>, not retrieval ground truth.</p>
+        <p class="dir-ev">OpenScholar synthetic SFT (clean) · LitQA anti-contamination post-cutoff papers.</p>
+      </div>
+      <div class="dir-card">
+        <span class="dir-num">7</span>
+        <h3>Single-Modality → Multi-Modality Fusion</h3>
+        <p>Real scientific reasoning interleaves text, equations, structures, images. Multimodal retrieval over scientific media is the bottleneck.</p>
+        <p class="dir-ev">MMed-RAG · Patho-AgenticRAG · AlzheimerRAG · RS-RAG span the modality bridge.</p>
       </div>
     </div>
-    <p class="section-sub" style="margin-top:1.4rem">
-      <strong>Outlook.</strong> Evidence grounding is the foundation an autonomous AI scientist must stand on, and the cells it depends on most — synthesis and verified discovery — are the least mature. Closing them turns partly on industry: self-driving labs generate the missing data (including negative results), while general RAG infrastructure makes closed corpora searchable in place.
-    </p>
   </div>
 </section>
 '''
-    (ROOT / 'insights.html').write_text(page_head('Insights', base='', desc='Flagship systems, the five demands of scientific RAG, substrate growth over time, the substrate×domain map, cross-substrate systems, frontier cells, and the road ahead.', current='insights') + body + PAGE_FOOT)
+    (ROOT / 'insights.html').write_text(page_head('Insights', base='', desc='The five requirements of scientific RAG, K×Domain coverage map, paper growth timeline, cross-source bridges, and frontier opportunities.', current='insights') + body + PAGE_FOOT)
 
 
 def _clean_prop_val(val):
@@ -2011,14 +1810,6 @@ def render_paper_pages():
     print(f'  papers/*.html ({count} summaries)')
 
 
-def write_catalog():
-    """Write the remapped catalog (data/papers.json re-tagged onto the survey's substrate ×
-    objective taxonomy) to data/catalog.json, which the client-side Browse page consumes.
-    data/papers.json stays the untouched source."""
-    (ROOT / 'data/catalog.json').write_text(json.dumps(papers, ensure_ascii=False, indent=1))
-    print(f'  data/catalog.json ({len(papers)} entries, remapped)')
-
-
 if __name__ == '__main__':
     render_paper_pages()   # First, so paper_card() can detect summary pages
     render_index()
@@ -2028,7 +1819,6 @@ if __name__ == '__main__':
     render_cell_pages()
     render_domain_pages()
     render_type_pages()
-    write_catalog()
     print('Wrote all HTML pages.')
     print(f'  index.html, about.html, browse.html, insights.html')
     print(f'  cell/*.html ({len(by_cell)} cells)')

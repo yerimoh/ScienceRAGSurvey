@@ -1,57 +1,62 @@
 # Scientific RAG Hub — AI for Science Retrieval-Augmented Generation Index
 
 A curated catalog of Retrieval-Augmented Generation (RAG) systems, benchmarks, and datasets
-across nine scientific domains, organized by a dual-axis Knowledge Source × Operational Objective
-taxonomy. 312 entries; 189 K×O cell assignments across 12 cells.
+across the sciences, organized by the survey's two axes: the retrieval SUBSTRATE a system draws
+on (the native form of what it indexes) and the OPERATIONAL OBJECTIVE it serves (the rung, ordered
+by how far the ground truth sits from the corpus). 331 entries across a 12-cell landscape.
 
 Companion to the upcoming survey "Scientific Retrieval-Augmented Generation: A Survey through
 Knowledge Source and Scientific Mission" (Oh et al., Vision and Learning Lab, Seoul National University).
 
-## Browse by K×O cell (12 cells)
+Axes:
+  K1 Textual · K2 Relational · K3 Structured-entity · K4 Perceptual   (substrate, §4)
+  O1 Grounding · O2 Synthesis · O3 Discovery                          (objective rung, §5)
 
-- [/cell/K1.O1.md](K1.O1.md) — Primary Literature × Ground (12 entries)
-- [/cell/K1.O2.md](K1.O2.md) — Primary Literature × Synthesis (8 entries)
-- [/cell/K1.O3.md](K1.O3.md) — Primary Literature × Hypothesis (4 entries)
-- [/cell/K2.O1.md](K2.O1.md) — Curated Knowledge Base × Ground (4 entries)
-- [/cell/K2.O2.md](K2.O2.md) — Curated Knowledge Base × Synthesis (1 entries)
-- [/cell/K2.O3.md](K2.O3.md) — Curated Knowledge Base × Hypothesis (25 entries)
-- [/cell/K3.O1.md](K3.O1.md) — Observational & Experimental × Ground (4 entries)
-- [/cell/K3.O2.md](K3.O2.md) — Observational & Experimental × Synthesis (0 entries)
-- [/cell/K3.O3.md](K3.O3.md) — Observational & Experimental × Hypothesis (4 entries)
-- [/cell/K4.O1.md](K4.O1.md) — Tacit Knowledge × Ground (6 entries)
-- [/cell/K4.O2.md](K4.O2.md) — Tacit Knowledge × Synthesis (1 entries)
-- [/cell/K4.O3.md](K4.O3.md) — Tacit Knowledge × Hypothesis (0 entries)
+## Browse by substrate × objective cell (12 cells)
+
+- [/cell/K1.O1.md](K1.O1.md) — Textual × Grounding (20 entries)
+- [/cell/K1.O2.md](K1.O2.md) — Textual × Synthesis (14 entries)
+- [/cell/K1.O3.md](K1.O3.md) — Textual × Discovery (4 entries)
+- [/cell/K2.O1.md](K2.O1.md) — Relational × Grounding (8 entries)
+- [/cell/K2.O2.md](K2.O2.md) — Relational × Synthesis (2 entries)
+- [/cell/K2.O3.md](K2.O3.md) — Relational × Discovery (7 entries)
+- [/cell/K3.O1.md](K3.O1.md) — Structured-entity × Grounding (4 entries)
+- [/cell/K3.O2.md](K3.O2.md) — Structured-entity × Synthesis (1 entries)
+- [/cell/K3.O3.md](K3.O3.md) — Structured-entity × Discovery (19 entries)
+- [/cell/K4.O1.md](K4.O1.md) — Perceptual × Grounding (9 entries)
+- [/cell/K4.O2.md](K4.O2.md) — Perceptual × Synthesis (0 entries)
+- [/cell/K4.O3.md](K4.O3.md) — Perceptual × Discovery (5 entries)
 
 ## Browse by scientific domain
 
-- [/domain/bio.md](bio.md) — Biology (90 entries)
-- [/domain/chem.md](chem.md) — Chemistry (59 entries)
-- [/domain/medical.md](medical.md) — Medicine (134 entries)
-- [/domain/material.md](material.md) — Materials Science (29 entries)
+- [/domain/bio.md](bio.md) — Biology (97 entries)
+- [/domain/chem.md](chem.md) — Chemistry (86 entries)
+- [/domain/medical.md](medical.md) — Medicine (147 entries)
+- [/domain/material.md](material.md) — Materials Science (32 entries)
 - [/domain/physics.md](physics.md) — Physics (42 entries)
 - [/domain/earth.md](earth.md) — Earth Science (34 entries)
-- [/domain/astronomy.md](astronomy.md) — Astronomy (14 entries)
+- [/domain/astronomy.md](astronomy.md) — Astronomy (15 entries)
 - [/domain/Quantum.md](Quantum.md) — Quantum (2 entries)
-- [/domain/general.md](general.md) — General Science (11 entries)
+- [/domain/general.md](general.md) — General Science (16 entries)
 
 ## Browse by resource type
 
-- [/topics/method.md](method.md) — Methods (187 entries)
+- [/topics/method.md](method.md) — Methods (206 entries)
 - [/topics/benchmark.md](benchmark.md) — Benchmarks (106 entries)
 - [/topics/dataset.md](dataset.md) — Datasets (17 entries)
 - [/topics/summary.md](summary.md) — Surveys (2 entries)
 
-## Knowledge Source axis (K1-K4)
+## Knowledge Source axis — retrieval substrate (K1-K4)
 
-- **K1 Primary Literature** — Peer-reviewed papers, preprints, scientific corpora (PubMed, arXiv, S2ORC, ChemRxiv).
-- **K2 Curated Knowledge Base** — Community-maintained structured records (PubChem, RCSB PDB, AlphaFold DB, ChEMBL, UMLS, PrimeKG, Materials Project).
-- **K3 Observational & Experimental** — Raw modality data: images, spectra, sequencing, time-series (cryo-EM, mass spec, telescope archives, EHR images).
-- **K4 Tacit Knowledge** — Institutional memory (RHIC, DUNE, CMS), lab protocols, private EHRs, governmental/industry process docs. ★ Novelty axis.
+- **K1 Textual** — Prose record of science — papers, abstracts, clinical notes, guidelines. Matched by embedding or lexical search over passages.
+- **K2 Relational** — Curated graphs of scientific relations — UMLS, PrimeKG, DRKG, STRING, KEGG, citation graphs. Reached by entity linking and traversal.
+- **K3 Structured-entity** — The objects of science as data — molecules, 3D structures, and property records (ChEMBL, PubChem, PDB, Materials Project). Reached by structural or property query.
+- **K4 Perceptual** — Raw instrument output — images, spectra, sequencing, time-series (MIMIC-CXR, MassBank, sky surveys). Reachable only through a learned cross-modal encoder.
 
-## Operational Objective axis (O1-O3)
+## Operational Objective axis — objective rung (O1-O3)
 
-- **O1 Ground** — Single-source grounding: retrieve, cite, answer.
-- **O2 Synthesis** — Multi-source integration, claim verification.
-- **O3 Hypothesis** — Generate new candidates — molecules, mechanisms, parameters.
+- **O1 Grounding** — Answer a question whose gold already lies in the corpus — retrieve, cite, answer. (Question Answering.)
+- **O2 Synthesis** — Integrate evidence no single source states — verify claims and synthesize the literature. (Claim Verification, Literature Synthesis.)
+- **O3 Discovery** — Propose an output the corpus does not contain, judged by an external verifier. (Property Prediction, Molecular Design, Materials Discovery, Hypothesis Generation.)
 
 For the full catalog with descriptions, see /llms-full.txt

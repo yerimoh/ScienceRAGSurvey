@@ -14,8 +14,8 @@
   const DOMAIN_LABELS = {bio:'Biology', chem:'Chemistry', medical:'Medicine', material:'Materials Science', physics:'Physics', earth:'Earth Science', astronomy:'Astronomy', Quantum:'Quantum', general:'General Science'};
   const DOMAIN_EMOJI  = {bio:'🧬', chem:'⚗️', medical:'🩺', material:'🪨', physics:'⚛️', earth:'🌍', astronomy:'🔭', Quantum:'🌀', general:'📚'};
   const TYPE_LABELS = {Method:'Methods', benchmark:'Benchmarks', dataset:'Datasets', summary:'Surveys'};
-  const K_LABELS = {'K1':'Primary Literature','K2':'Curated Knowledge Base','K3':'Observational & Experimental','K4':'Tacit Knowledge'};
-  const O_LABELS = {'O1':'Ground','O2':'Synthesis','O3':'Hypothesis'};
+  const K_LABELS = {'K1':'Textual','K2':'Relational','K3':'Structured-entity','K4':'Perceptual'};
+  const O_LABELS = {'O1':'Grounding','O2':'Synthesis','O3':'Discovery'};
   function cellLabel(code) {
     if (code.includes('.')) {
       const [k, o] = code.split('.');
@@ -62,10 +62,13 @@
 
   let allPapers = [];
   try {
-    const res = await fetch('data/papers.json');
+    // catalog.json = the catalog remapped onto the survey's substrate × objective taxonomy
+    // (data/papers.json remains the raw source). Fall back to papers.json if absent.
+    let res = await fetch('data/catalog.json');
+    if (!res.ok) res = await fetch('data/papers.json');
     allPapers = await res.json();
   } catch (e) {
-    cardsEl.innerHTML = `<p class="empty">Failed to load papers.json: ${esc(e.message)}</p>`;
+    cardsEl.innerHTML = `<p class="empty">Failed to load catalog.json: ${esc(e.message)}</p>`;
     return;
   }
 
