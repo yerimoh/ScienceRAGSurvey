@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Biology — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783858719">
+<link rel="stylesheet" href="../static/style.css?v=1783916062">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -142,7 +142,7 @@
 <article class="card" data-sub="Claim Verification">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2601.06519v1" target="_blank" rel="noopener">MedRAGChecker: Claim-Level Verification for Biomedical Retrieval-Augmented Generation ↗</a></h3>
   <div class="card-meta"><span class="meta-method">MedRAGChecker</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2026</span></div>
-  <p class="card-note">Atomic Claim 분해 + NLI + KG 융합. GPT-4.1 → 소형 모델 distill.</p>
+  <p class="card-note">Atomic-claim decomposition + NLI + KG fusion. GPT-4.1 distilled into a small model.</p>
   
   <div class="card-tags"><a href="../cell/K2.O2.html" class="tag tag-cell" title="K2.O2">Relational × Synthesis</a><span class="tag tag-sub">Claim Verification</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">KG</span></div>
   <a href="../papers/DBLP_journals_corr_abs-2601-06519.html" class="card-summary-link">Summary →</a>
@@ -178,7 +178,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2603.07233" target="_blank" rel="noopener">Retrieval-Augmented Generation for Predicting Cellular Responses to Gene Perturbation ↗</a></h3>
   <div class="card-meta"><span class="meta-method">PT-RAG</span> · <span class="meta-venue">Gen2 @ ICLR</span> · <span class="meta-year">2026</span></div>
-  <p class="card-note">PT-RAG: 단일 세포 생물학에 RAG 최초 적용. naive RAG가 성능 저하 (W2: 1189.5 vs STATE 646.1). GenePT + Gumbel-Softmax 2단계 미분 가능 검색.</p>
+  <p class="card-note">PT-RAG: first application of RAG to single-cell biology. Naive RAG hurts performance (W2: 1189.5 vs STATE 646.1). GenePT + a two-stage differentiable Gumbel-Softmax retrieval.</p>
   
   <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Structured-entity</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">Structured Table</span></div>
   <a href="../papers/DBLP_journals_corr_abs-2603-07233.html" class="card-summary-link">Summary →</a>
@@ -187,7 +187,7 @@
 <article class="card" data-sub="Literature Synthesis">
   <h3 class="card-title"><a href="https://doi.org/10.1038/s41586-025-10072-4" target="_blank" rel="noopener">Synthesizing Scientific Literature with Retrieval-Augmented Language Models ↗</a></h3>
   <div class="card-meta"><span class="meta-method">ScholarQABench</span> · <span class="meta-venue">Nature</span> · <span class="meta-year">2026</span></div>
-  <p class="card-note">OpenScholar의 다학제 장문 합성 벤치마크.</p>
+  <p class="card-note">OpenScholar&#x27;s multidisciplinary long-form synthesis benchmark.</p>
   
   <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   <a href="../papers/asai2026synthesizing.html" class="card-summary-link">Summary →</a>
@@ -205,7 +205,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2405.00465" target="_blank" rel="noopener">BiomedRAG: A Retrieval Augmented Large Language Model for Biomedicine ↗</a></h3>
   <div class="card-meta"><span class="meta-method">BiomedRAG</span> · <span class="meta-venue">Journal of Biomedical Informatics</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">Tailored Chunk Scorer로 LLM Perplexity 학습. GIT +22.43%p F1.</p>
+  <p class="card-note">Trains a tailored chunk scorer on LLM perplexity. +22.43pp F1 on GIT.</p>
   
   <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   
@@ -214,7 +214,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://aclanthology.org/2025.emnlp-industry.3/" target="_blank" rel="noopener">CRAB: A Benchmark for Evaluating Curation of Retrieval-Augmented LLMs in Biomedicine ↗</a></h3>
   <div class="card-meta"><span class="meta-method">CRAB</span> · <span class="meta-venue">EMNLP (Industry Track)</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">생의학 다국어 큐레이션 벤치마크. 추론특화 LLM에서 과도한 추론 현상 발견.</p>
+  <p class="card-note">Curated multilingual biomedical benchmark; reveals over-reasoning in reasoning-specialized LLMs.</p>
   
   <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   
@@ -223,7 +223,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2512.16802" target="_blank" rel="noopener">Exploration of Augmentation Strategies in Multi-modal Retrieval-Augmented Generation for the Biomedical Domain ↗</a></h3>
   <div class="card-meta"><span class="meta-method">OCR-free vs Text MM-RAG</span> · <span class="meta-venue">IEEE BigData</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">중간모델은 텍스트변환, GPT-5는 OCR-free 우세. ColFlor 174M 5.25배 빠름.</p>
+  <p class="card-note">Mid-size models favor text conversion while GPT-5 is best OCR-free; ColFlor (174M) is 5.25x faster.</p>
   
   <div class="card-tags"><a href="../cell/K4.html" class="tag tag-cell" title="K4">Perceptual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">Structured Table</span><span class="tag tag-mod">Image</span></div>
   
@@ -241,7 +241,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://openreview.net/forum?id=2Xwa540MzD" target="_blank" rel="noopener">RAISE: Enhancing Scientific Reasoning in LLMs via Step-by-Step Retrieval ↗</a></h3>
   <div class="card-meta"><span class="meta-method">RAISE</span> · <span class="meta-venue">MATH-AI @ NeurIPS</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">문제 분해+논리적 쿼리로 in-the-wild 코퍼스 검색. Step-by-Step.</p>
+  <p class="card-note">Decomposes the problem and issues logical queries to search an in-the-wild corpus, step by step.</p>
   
   <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   
@@ -268,7 +268,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2508.08742" target="_blank" rel="noopener">SciRerankBench: Benchmarking Rerankers Towards Scientific Retrieval-Augmented Generated LLMs ↗</a></h3>
   <div class="card-meta"><span class="meta-method">SciRerankBench</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">과학 RAG Reranker 첫 평가 벤치마크. Reranker가 Top-10에 정답 올려도 LLM 추론 한계.</p>
+  <p class="card-note">First benchmark for evaluating scientific-RAG rerankers; even when the reranker puts the answer in the top-10, LLM reasoning is the bottleneck.</p>
   
   <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   
@@ -277,7 +277,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2502.14739" target="_blank" rel="noopener">SuperGPQA: Scaling LLM Evaluation Across 285 Graduate Disciplines ↗</a></h3>
   <div class="card-meta"><span class="meta-method">SuperGPQA</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">13개 학문, 72개 분야, 285개 대학원 수준 세부 전공. Human-LLM Collaborative Filtering.</p>
+  <p class="card-note">13 disciplines, 72 fields, 285 graduate-level subfields; human-LLM collaborative filtering.</p>
   
   <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../domain/astronomy.html" class="tag tag-domain">🔭Astronomy</a><a href="../domain/Quantum.html" class="tag tag-domain">🌀Quantum</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   
@@ -286,7 +286,7 @@
 <article class="card" data-sub="Question Answering">
   <h3 class="card-title"><a href="https://doi.org/10.1007/978-3-031-88720-8_1" target="_blank" rel="noopener">BioRAGent: A Retrieval-Augmented Generation System for Showcasing Generative Query Expansion and Domain-Specific Search for Scientific Q&amp;A ↗</a></h3>
   <div class="card-meta"><span class="meta-method">BioRAGent</span> · <span class="meta-venue">ECIR</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">LLM 기반 generative query expansion으로 PubMed 초록·제목을 검색하고, 검색된 논문에 인용을 달아 답하는 대화형 생의학 RAG 시스템(데모). BioASQ 2024 태스크에서 상위 성적을 보고.</p>
+  <p class="card-note">A conversational biomedical RAG demo that searches PubMed abstracts and titles via LLM-based generative query expansion and answers with citations to the retrieved papers. Reports top results on the BioASQ 2024 task.</p>
   
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_ecir_AteiaK25.html" class="card-summary-link">Summary →</a>
@@ -295,7 +295,7 @@
 <article class="card" data-sub="Question Answering">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2410.04660" target="_blank" rel="noopener">KGARevion: An AI Agent for Knowledge-Intensive Biomedical QA ↗</a></h3>
   <div class="card-meta"><span class="meta-method">KGARevion</span> · <span class="meta-venue">ICLR</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">후보 triplet 생성→KG(PrimeKG/biokg) 검증→수정→답의 에이전트 루프. LLM 잠재지식을 KG에 검증(사실오류 제거)해 medical QA 신뢰도 향상.</p>
+  <p class="card-note">An agent loop of generating candidate triples, verifying them against a KG (PrimeKG/biokg), revising, and answering. Verifying the LLM&#x27;s latent knowledge against the KG removes factual errors and improves medical-QA reliability.</p>
   
   <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_iclr_00010GLGCZ25.html" class="card-summary-link">Summary →</a>
@@ -304,7 +304,7 @@
 <article class="card" data-sub="Hypothesis Generation">
   <h3 class="card-title"><a href="https://aclanthology.org/2025.findings-naacl.201/" target="_blank" rel="noopener">GraPPI: A Retrieve-Divide-Solve GraphRAG Framework for Large-scale Protein-protein Interaction Exploration ↗</a></h3>
   <div class="card-meta"><span class="meta-method">GraPPI</span> · <span class="meta-venue">NAACL</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">큐레이티드 STRING PPI 그래프(18,767노드/295만엣지)를 Retrieve-Divide-Solve로 순회 — 경로를 엣지로 분할 병렬 설명 후 경로 수준으로 합성·재정렬해 약물 타깃 신호전달 경로 분석 생성.</p>
+  <p class="card-note">Traverses the curated STRING PPI graph (18,767 nodes / 2.95M edges) with a Retrieve-Divide-Solve scheme, splitting each path into edges, explaining them in parallel, then synthesizing and re-ranking at the path level to generate drug-target signaling-pathway analyses.</p>
   
   <div class="card-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Relational × Discovery</a><span class="tag tag-sub">Hypothesis Generation</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_naacl_LiCJ25.html" class="card-summary-link">Summary →</a>
@@ -331,7 +331,7 @@
 <article class="card" data-sub="Question Answering">
   <h3 class="card-title"><a href="https://aclanthology.org/2024.findings-acl.372" target="_blank" rel="noopener">Benchmarking Retrieval-Augmented Generation for Medicine ↗</a></h3>
   <div class="card-meta"><span class="meta-method">MEDRAG</span> · <span class="meta-venue">ACL (Findings)</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">의료 QA 전용 RAG 툴킷+벤치마크. PubMed+RRF-4 최적. GPT-3.5+MEDRAG가 CoT GPT-4에 근접.</p>
+  <p class="card-note">A RAG toolkit and benchmark for medical QA. PubMed + RRF over 4 corpora is optimal; GPT-3.5+MEDRAG approaches CoT GPT-4.</p>
   
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
   <a href="../papers/DBLP_conf_acl_Xiong0LZ24.html" class="card-summary-link">Summary →</a>
@@ -358,7 +358,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2311.12022" target="_blank" rel="noopener">GPQA: A graduate-level google-proof q&amp;a benchmark ↗</a></h3>
   <div class="card-meta"><span class="meta-method">GPQA</span> · <span class="meta-venue">COLM</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">PhD 수준 물리·화학·생물 MCQ. 비전문가 Google 사용 22.1%. 전문가 81.3%.</p>
+  <p class="card-note">PhD-level physics/chemistry/biology MCQs. Non-experts with Google score 22.1%; experts 81.3%.</p>
   
   <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   
@@ -376,7 +376,7 @@
 <article class="card" data-sub="Literature Synthesis">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2409.13740" target="_blank" rel="noopener">Language Agents Achieve Superhuman Synthesis of Scientific Knowledge ↗</a></h3>
   <div class="card-meta"><span class="meta-method">PaperQA2</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">인간 전문가 초과 RAG. PaperQA2 85.2% &gt; 인간 73.8%. RCS + Citation Traversal.</p>
+  <p class="card-note">RAG that surpasses human experts: PaperQA2 85.2% vs humans 73.8%. RCS + citation traversal.</p>
   
   <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_corr_abs-2409-13740.html" class="card-summary-link">Summary →</a>
@@ -403,7 +403,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title">PathMMU: A Massive Multimodal Expert-Level Benchmark for Understanding and Reasoning in Pathology</h3>
   <div class="card-meta"><span class="meta-method">PathMMU</span> · <span class="meta-venue">ECCV</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">5개 다중 출처 기반의 전문가 수준 병리학 Multimodal MCQ 벤치마크. 8,454문항 (Test). SocialPath는 게시물 삭제 시 데이터 유실이 한계점.</p>
+  <p class="card-note">Expert-level pathology multimodal MCQ benchmark from 5 sources; 8,454 test items. SocialPath&#x27;s limitation is data loss when posts are deleted.</p>
   
   <div class="card-tags"><a href="../cell/K4.html" class="tag tag-cell" title="K4">Perceptual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">Image</span></div>
   
@@ -457,7 +457,7 @@
 <article class="card" data-sub="Question Answering">
   <h3 class="card-title"><a href="https://doi.org/10.1093/bioinformatics/btae238" target="_blank" rel="noopener">Improving medical reasoning through retrieval and self-reflection with retrieval-augmented large language models ↗</a></h3>
   <div class="card-meta"><span class="meta-method">Self-BioRAG</span> · <span class="meta-venue">Bioinformatics (ISMB)</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">검색 필요 여부를 스스로 판단하고 self-reflection 토큰으로 근거를 평가하는 self-reflective 의료 RAG. MedCPT로 PubMed 초록·PMC 전문·교과서·가이드라인을 검색하고, 7B 모델로 MedQA·MedMCQA·MMLU-Med(객관식)와 LiveQA·MedicationQA(장문)에서 동급 베이스라인을 능가.</p>
+  <p class="card-note">A self-reflective medical RAG that decides on its own whether to retrieve and rates evidence with self-reflection tokens. It retrieves PubMed abstracts, PMC full text, textbooks, and guidelines with MedCPT, and a 7B model beats comparable baselines on MedQA/MedMCQA/MMLU-Med (M…</p>
   
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_bioinformatics_JeongSSK24.html" class="card-summary-link">Summary →</a>
@@ -466,7 +466,7 @@
 <article class="card" data-sub="Question Answering">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2304.09667" target="_blank" rel="noopener">GeneGPT: augmenting large language models with domain tools for improved access to biomedical information ↗</a></h3>
   <div class="card-meta"><span class="meta-method">GeneGPT</span> · <span class="meta-venue">Bioinformatics</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">Codex가 in-context로 NCBI Web API(E-utils·BLAST) 사용법을 배워, 디코딩 중 API 호출을 감지·실행해 raw 결과를 삽입(augmented decoding). GeneTuring 9개 태스크 평균 0.83으로 New Bing(0.44) 능가.</p>
+  <p class="card-note">Codex learns to use the NCBI Web APIs (E-utils, BLAST) in context, detecting and executing API calls during decoding and inserting raw results (augmented decoding). It averages 0.83 across 9 GeneTuring tasks, beating New Bing (0.44).</p>
   
   <div class="card-tags"><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Structured-entity × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_bioinformatics_JinYCL24.html" class="card-summary-link">Summary →</a>
@@ -475,7 +475,7 @@
 <article class="card" data-sub="Question Answering">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2311.17330" target="_blank" rel="noopener">Biomedical knowledge graph-optimized prompt generation for large language models ↗</a></h3>
   <div class="card-meta"><span class="meta-method">KG-RAG</span> · <span class="meta-venue">Bioinformatics</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">SPOKE 생의학 KG(41 DB, 약 4,200만 노드)에서 질병 중심 minimal-schema 서브그래프를 추출하고 임베딩 pruning으로 핵심 트리플만 프롬프트에 주입. Cypher-RAG 대비 토큰 54%↓·검색정확도 75→97%.</p>
+  <p class="card-note">Extracts a disease-centric minimal-schema subgraph from the SPOKE biomedical KG (41 databases, ~42M nodes) and injects only the key triples via embedding pruning. Versus Cypher-RAG: 54% fewer tokens and retrieval accuracy from 75% to 97%.</p>
   
   <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_bioinformatics_SomanRMASPVCSRI24.html" class="card-summary-link">Summary →</a>
@@ -502,7 +502,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title">GeneTuring tests GPT models in genomics</h3>
   <div class="card-meta"><span class="meta-method">GeneTuring</span> · <span class="meta-venue">bioRxiv</span> · <span class="meta-year">2023</span></div>
-  <p class="card-note">유전체학 LLM 평가 벤치마크. NCBI 12개 서브태스크. GeneGPT/BIORAG 일반 LLM 압도.</p>
+  <p class="card-note">Genomics LLM evaluation benchmark; 12 NCBI subtasks. GeneGPT/BIORAG dominate general LLMs.</p>
   
   <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   
@@ -529,7 +529,7 @@
 <article class="card" data-sub="Question Answering">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2312.07559v2" target="_blank" rel="noopener">PaperQA: Retrieval-Augmented Generative Agent for Scientific Research ↗</a></h3>
   <div class="card-meta"><span class="meta-method">PaperQA</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2023</span></div>
-  <p class="card-note">Map-Reduce 환각 0% 인용 답변. LitQA 신규 벤치마크.</p>
+  <p class="card-note">Map-reduce answers with cited evidence and 0% citation hallucination; introduces the LitQA benchmark.</p>
   
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_corr_abs-2312-07559.html" class="card-summary-link">Summary →</a>
@@ -538,7 +538,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2303.00534" target="_blank" rel="noopener">RAMM: Retrieval-augmented Biomedical Visual Question Answering with Multi-modal Pre-training ↗</a></h3>
   <div class="card-meta"><span class="meta-method">RAMM</span> · <span class="meta-venue">ACM MM</span> · <span class="meta-year">2023</span></div>
-  <p class="card-note">PubMed Case Report PMCPM 398K + Retrieval-Attention. 4 벤치마크 SOTA.</p>
+  <p class="card-note">PMCPM: 398K PubMed case reports + retrieval-attention. SOTA on 4 benchmarks.</p>
   
   <div class="card-tags"><a href="../cell/K4.html" class="tag tag-cell" title="K4">Perceptual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">Image</span></div>
   
@@ -547,7 +547,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2211.13308" target="_blank" rel="noopener">SciRepEval: A Multi-Format Benchmark for Scientific Document Representations ↗</a></h3>
   <div class="card-meta"><span class="meta-method">SciRepEval</span> · <span class="meta-venue">EMNLP</span> · <span class="meta-year">2023</span></div>
-  <p class="card-note">4 포맷 24 태스크 SPECTER2.</p>
+  <p class="card-note">SPECTER2 across 4 formats and 24 tasks.</p>
   
   <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   
@@ -601,7 +601,7 @@
 <article class="card" data-sub="Claim Verification">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2210.13777" target="_blank" rel="noopener">SCIFACT-OPEN: Towards open-domain scientific claim verification ↗</a></h3>
   <div class="card-meta"><span class="meta-method">SCIFACT-OPEN</span> · <span class="meta-venue">EMNLP (Findings)</span> · <span class="meta-year">2022</span></div>
-  <p class="card-note">50만 문서 오픈 도메인. SOTA F1 15-30 하락 일반화 한계.</p>
+  <p class="card-note">Open-domain over 500K documents; SOTA F1 drops 15-30, exposing a generalization limit.</p>
   
   <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Claim Verification</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   <a href="../papers/DBLP_conf_emnlp_WaddenLKCBWH22.html" class="card-summary-link">Summary →</a>
@@ -610,7 +610,7 @@
 <article class="card" data-sub="Question Answering">
   <h3 class="card-title"><a href="https://doi.org/10.18653/v1/2022.emnlp-main.390" target="_blank" rel="noopener">BioReader: a Retrieval-Enhanced Text-to-Text Transformer for Biomedical Literature ↗</a></h3>
   <div class="card-meta"><span class="meta-method">BioReader</span> · <span class="meta-venue">EMNLP</span> · <span class="meta-year">2022</span></div>
-  <p class="card-note">최초의 retrieval-enhanced 생의학 T5. 약 6,000만 토큰 규모 PubMed 중심 neural DB에서 관련 청크를 fetch해 chunked cross-attention으로 주입한다. 파라미터를 3배 적게 쓰고도 여러 생의학 NLP/QA에서 기존 SOTA를 넘어선다.</p>
+  <p class="card-note">The first retrieval-enhanced biomedical T5. It fetches relevant chunks from a ~60M-token PubMed-centric neural database and injects them via chunked cross-attention, surpassing prior SOTA on several biomedical NLP/QA tasks with 3x fewer parameters.</p>
   
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_emnlp_FrisoniMMV22.html" class="card-summary-link">Summary →</a>
@@ -619,7 +619,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://openreview.net/forum?id=d7KBjmI3GmQ" target="_blank" rel="noopener">Measuring Massive Multitask Language Understanding ↗</a></h3>
   <div class="card-meta"><span class="meta-method">MMLU</span> · <span class="meta-venue">ICLR</span> · <span class="meta-year">2021</span></div>
-  <p class="card-note">57개 과목 15,908문항 대규모 다중작업 언어 이해. 6.5% Ground-truth 오류.</p>
+  <p class="card-note">Massive multitask language understanding: 57 subjects, 15,908 items; ~6.5% ground-truth errors.</p>
   
   <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../domain/astronomy.html" class="tag tag-domain">🔭Astronomy</a><a href="../domain/Quantum.html" class="tag tag-domain">🌀Quantum</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   
@@ -655,7 +655,7 @@
 <article class="card" data-sub="Claim Verification">
   <h3 class="card-title"><a href="https://aclanthology.org/2020.emnlp-main.609/" target="_blank" rel="noopener">Fact or Fiction: Verifying Scientific Claims ↗</a></h3>
   <div class="card-meta"><span class="meta-method">VERISCI</span> · <span class="meta-venue">EMNLP</span> · <span class="meta-year">2020</span></div>
-  <p class="card-note">과학적 클레임 검증 첫 공식화. Citance 1.4K SCIFACT. TF-IDF + RoBERTa 3단계.</p>
+  <p class="card-note">First formalization of scientific claim verification; SCIFACT with 1.4K citances. A 3-stage TF-IDF + RoBERTa pipeline.</p>
   
   <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Claim Verification</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_emnlp_WaddenLLWZCH20.html" class="card-summary-link">Summary →</a>
@@ -682,7 +682,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title">PathVQA: 30000+ Questions for Medical Visual Question Answering</h3>
   <div class="card-meta"><span class="meta-method">Path-VQA</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2020</span></div>
-  <p class="card-note">병리학 교과서 기반 VQA. 3만개+ 질문, Yes/No + Open-ended. Patho-AgenticRAG에서 Yes/No 서브셋(3,362문항)으로 평가. 80.34% Accuracy.</p>
+  <p class="card-note">VQA from pathology textbooks; 30K+ questions, yes/no + open-ended. Evaluated on the yes/no subset (3,362 items) in Patho-AgenticRAG at 80.34% accuracy.</p>
   
   <div class="card-tags"><a href="../cell/K4.html" class="tag tag-cell" title="K4">Perceptual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">Image</span></div>
   
@@ -691,7 +691,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/1911.02782" target="_blank" rel="noopener">S2ORC: The Semantic Scholar Open Research Corpus ↗</a></h3>
   <div class="card-meta"><span class="meta-method">S2ORC</span> · <span class="meta-venue">ACL</span> · <span class="meta-year">2020</span></div>
-  <p class="card-note">81M 학술 코퍼스. S2ORC-SCIBERT.</p>
+  <p class="card-note">81M-paper scholarly corpus. S2ORC-SciBERT.</p>
   
   <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Structured-entity</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a><span class="tag tag-mod">Structured Table</span></div>
   <a href="../papers/DBLP_conf_acl_LoWNKW20.html" class="card-summary-link">Summary →</a>
@@ -727,7 +727,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://aclanthology.org/D19-1259" target="_blank" rel="noopener">PubMedQA: A Dataset for Biomedical Research Question Answering ↗</a></h3>
   <div class="card-meta"><span class="meta-method">PubMedQA</span> · <span class="meta-venue">EMNLP</span> · <span class="meta-year">2019</span></div>
-  <p class="card-note">생의학 yes/no/maybe QA 첫 데이터셋. 인간 78.0% vs 모델 68.1%.</p>
+  <p class="card-note">First biomedical yes/no/maybe QA dataset. Humans 78.0% vs models 68.1%.</p>
   
   <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   
@@ -754,7 +754,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://doi.org/10.1039/C7SC02664A" target="_blank" rel="noopener">MoleculeNet: a benchmark for molecular machine learning ↗</a></h3>
   <div class="card-meta"><span class="meta-method">MoleculeNet</span> · <span class="meta-venue">Chemical Science (RSC)</span> · <span class="meta-year">2018</span></div>
-  <p class="card-note">분자 ML 표준 벤치마크. 4 카테고리 17 데이터셋. CLADD 사용.</p>
+  <p class="card-note">Standard molecular-ML benchmark; 4 categories, 17 datasets. Used by CLADD.</p>
   
   <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Structured-entity</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">SMILES</span><span class="tag tag-mod">Structured Table</span></div>
   
@@ -763,7 +763,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://aclanthology.org/W17-4413/" target="_blank" rel="noopener">Crowdsourcing Multiple Choice Science Questions ↗</a></h3>
   <div class="card-meta"><span class="meta-method">SciQ</span> · <span class="meta-venue">Workshop on Noisy User-generated Text (WNUT)</span> · <span class="meta-year">2017</span></div>
-  <p class="card-note">HoneyComb 평가에 사용. 13.7K 크라우드소싱 과학 객관식 (물리, 화학, 생물). AllenAI 오픈 데이터셋.</p>
+  <p class="card-note">Used to evaluate HoneyComb; 13.7K crowd-sourced science MCQs (physics, chemistry, biology). Open AllenAI dataset.</p>
   
   <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   
@@ -799,7 +799,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://link.springer.com/chapter/10.1007/978-3-319-30671-1_73" target="_blank" rel="noopener">A full-text learning to rank dataset for medical information retrieval ↗</a></h3>
   <div class="card-meta"><span class="meta-method">NFCorpus</span> · <span class="meta-venue">ECIR</span> · <span class="meta-year">2016</span></div>
-  <p class="card-note">의학 도메인 Full-Text Learning-to-Rank 벤치마크. NutritionFacts.org 기반. MedBioRAG(2025)에서 Semantic Search가 BM25 대비 NDCG@10 37.91% 달성.</p>
+  <p class="card-note">Full-text learning-to-rank benchmark in the medical domain, from NutritionFacts.org. In MedBioRAG (2025), semantic search reaches NDCG@10 37.91% vs BM25.</p>
   
   <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   
@@ -853,7 +853,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-015-0564-6" target="_blank" rel="noopener">BioASQ: A challenge on large-scale biomedical semantic indexing and question answering ↗</a></h3>
   <div class="card-meta"><span class="meta-method">BioASQ</span> · <span class="meta-venue">AAAI Fall Symposium Series</span> · <span class="meta-year">2012</span></div>
-  <p class="card-note">MEDLINE 의생명 IR+QA+요약 챌린지. 전문가 수동. MedBioRAG 98%.</p>
+  <p class="card-note">MEDLINE biomedical IR + QA + summarization challenge, expert-annotated. MedBioRAG 98%.</p>
   
   <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   
@@ -889,7 +889,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://doi.org/10.1093/nar/gkq906" target="_blank" rel="noopener">ChemProt: a disease chemical biology database ↗</a></h3>
   <div class="card-meta"><span class="meta-method">ChemProt</span> · <span class="meta-venue">Nucleic Acids Research</span> · <span class="meta-year">2011</span></div>
-  <p class="card-note">화학물질-단백질 상호작용 관계 추출 벤치마크. PubMed 초록 2,432편. 5개 CPR 라벨. BiomedRAG에서 LLaMA2 13B F1 향상.</p>
+  <p class="card-note">Chemical-protein interaction relation-extraction benchmark; 2,432 PubMed abstracts, 5 CPR labels. Improves LLaMA2-13B F1 in BiomedRAG.</p>
   
   <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   
@@ -907,7 +907,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title">Overview of BioCreative II gene mention recognition</h3>
   <div class="card-meta"><span class="meta-method">BC2GM</span> · <span class="meta-venue">Genome biology</span> · <span class="meta-year">2008</span></div>
-  <p class="card-note">BioCreative II Gene Mention. PubMed 초록 NER. MMRAG Top+Llama-3 F1 0.978.</p>
+  <p class="card-note">BioCreative II Gene Mention; NER over PubMed abstracts. MMRAG Top + Llama-3 F1 0.978.</p>
   
   <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   

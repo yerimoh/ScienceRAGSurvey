@@ -749,7 +749,7 @@ def paper_card(p, base='', axis_scope=None, factcheck_id=None):
     if factcheck_id and bib_key in FACTCHECK:
         verdict = esc(FACTCHECK[bib_key]['verdict'])
         fc_html = (f'<p class="card-factcheck"><a class="footnote-ref" '
-                   f'href="#{factcheck_id}" title="원문 근거 보기">{verdict} · 원문 근거 ⌖</a></p>')
+                   f'href="#{factcheck_id}" title="source evidence">{verdict} · source ⌖</a></p>')
     return f'''<article class="card"{subsec_attr}>
   <h3 class="card-title">{title_html}</h3>
   {f'<div class="card-meta">{meta}</div>' if meta else ''}
@@ -783,10 +783,11 @@ PIPELINE_HTML = '''
       </div>
       <span class="flow-arrow">&rarr;</span>
       <div class="flow-stages">
-        <div class="flow-stage"><strong>Construction</strong><span>index each substrate in its own form</span></div>
-        <div class="flow-stage"><strong>Retrieval</strong><span>match the query to the substrate</span></div>
-        <div class="flow-stage"><strong>Generation</strong><span>draft an answer from the evidence</span></div>
-        <div class="flow-stage flow-v"><strong>Verification</strong><span>test the output beyond the corpus</span></div>
+        <a class="flow-stage" href="about.html#construction"><strong>Construction</strong><span>index each substrate in its own form</span></a>
+        <a class="flow-stage" href="about.html#retrieval"><strong>Retrieval</strong><span>match the query to the substrate</span></a>
+        <a class="flow-stage" href="about.html#generation"><strong>Generation</strong><span>draft an answer from the evidence</span></a>
+        <a class="flow-stage flow-v" href="about.html#verification"><strong>Verification</strong><span>test the output beyond the corpus</span></a>
+        <a class="flow-stage flow-e" href="about.html#evaluation"><strong>Evaluation</strong><span>score against ground truth</span></a>
         <div class="flow-loop">&#8635;&nbsp;verifier feedback loop</div>
       </div>
       <span class="flow-arrow">&rarr;</span>
@@ -799,9 +800,8 @@ PIPELINE_HTML = '''
       </div>
     </div>
     <p class="flow-foot">
-      <strong>Evaluation</strong> scores the output against a ground truth that, for discovery, lies outside any corpus.
-      Capability concentrates on the <strong>Textual</strong> substrate and automatically-checkable tasks, and thins
-      toward non-textual, externally-verified discovery.
+      Every stage links to its explanation. Capability concentrates on the <strong>Textual</strong> substrate and
+      automatically-checkable tasks, and thins toward non-textual, externally-verified discovery.
     </p>
   </div>
 </section>
@@ -1119,6 +1119,20 @@ def render_about():
 {cell_counts}
       </tbody>
     </table>
+
+    <h2 id="pipeline">The scientific RAG pipeline</h2>
+    <p>
+      Connecting substrate to objective is the method: the pipeline a system runs, specialized to science at
+      every stage. A query is turned into a trusted output through five stages, and a verifier can loop the
+      output back for another round.
+    </p>
+    <ul>
+      <li id="construction"><strong>Construction</strong> — build the index. Each substrate is indexed in its own form: passages as embeddings, graphs as nodes and edges, molecules as structural fingerprints, signals through a learned encoder.</li>
+      <li id="retrieval"><strong>Retrieval</strong> — match the query to the substrate. Relevance is a domain judgment, not topical resemblance: the right passage, the right scaffold, the record whose peaks match.</li>
+      <li id="generation"><strong>Generation</strong> — draft an output from the query, the retrieved evidence, and any verifier feedback, in the formats a domain requires.</li>
+      <li id="verification"><strong>Verification</strong> — test the output against a signal from beyond the corpus. Systems differ by how deeply the verifier is coupled, from a single unchecked pass to a closed loop that refines against a docking score or a DFT calculation every round.</li>
+      <li id="evaluation"><strong>Evaluation</strong> — score the result against ground truth: a fixed gold for grounding, a reference for synthesis, and for discovery an external verifier whose ground truth lies outside any corpus.</li>
+    </ul>
 
     <h2>What makes retrieval scientific</h2>
     <p>Five demands separate a scientific RAG system from general RAG that ranks by semantic proximity alone:</p>
@@ -1524,7 +1538,7 @@ def render_cell_pages():
                     fn_items.append(
                         f'<li id="{fc_id}"><p><strong>{label} — {esc(fc["verdict"])}</strong></p>'
                         f'<p>{esc(fc["evidence"])}</p>'
-                        f'<p class="fn-src">원문: {esc(fc["source"])} · full-text verified</p></li>'
+                        f'<p class="fn-src">Source: {esc(fc["source"])} · full-text verified</p></li>'
                     )
                 card_list.append(paper_card(p, base='../', axis_scope=O, factcheck_id=fc_id))
             cards = '\n'.join(card_list) or '<p class="empty">No verified entries in this cell yet — see <a href="../about.html#methodology">methodology</a> and the survey §11 frontier discussion.</p>'

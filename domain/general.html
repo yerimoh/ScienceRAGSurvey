@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>General Science — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783858719">
+<link rel="stylesheet" href="../static/style.css?v=1783916062">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -133,7 +133,7 @@
 <article class="card" data-sub="Literature Synthesis">
   <h3 class="card-title"><a href="https://doi.org/10.1145/3726302.3729920" target="_blank" rel="noopener">CG-RAG: Research Question Answering by Citation Graph Retrieval-Augmented LLMs ↗</a></h3>
   <div class="card-meta"><span class="meta-method">CG-RAG</span> · <span class="meta-venue">SIGIR</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">논문 인용 그래프(citation graph) 위에서 검색하는 LeSeGR 기법 제안. 논문 청크를 인용 관계로 연결해 sparse·dense 신호를 통합 검색하고, 검색된 근거에 기반해 연구 질의에 답한다.</p>
+  <p class="card-note">Proposes LeSeGR, which retrieves over a paper citation graph: it links paper chunks by citation relations to fuse sparse and dense signals, and answers research queries grounded in the retrieved evidence.</p>
   
   <div class="card-tags"><a href="../cell/K2.O2.html" class="tag tag-cell" title="K2.O2">Relational × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_sigir_HuLD0A0025.html" class="card-summary-link">Summary →</a>
@@ -142,7 +142,7 @@
 <article class="card" data-sub="Literature Synthesis">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2503.04629" target="_blank" rel="noopener">SurveyForge: On the Outline Heuristics, Memory-Driven Generation, and Multi-dimensional Evaluation for Automated Survey Writing ↗</a></h3>
   <div class="card-meta"><span class="meta-method">SurveyForge</span> · <span class="meta-venue">ACL</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">인간 서베이에서 개요 휴리스틱 학습 + 메모리 기반 scholar-navigation 검색 에이전트(SANA: 서브쿼리 분해·메모리 검색·시간 인지 재랭킹)로 섹션별 문헌 확보해 서베이 생성. SurveyBench에서 AutoSurvey 능가.</p>
+  <p class="card-note">Learns outline heuristics from human surveys and uses a memory-based scholar-navigation retrieval agent (SANA: subquery decomposition, memory retrieval, time-aware reranking) to gather per-section literature and generate surveys. Beats AutoSurvey on SurveyBench.</p>
   
   <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_acl_YanFYX00Z25.html" class="card-summary-link">Summary →</a>
@@ -169,7 +169,7 @@
 <article class="card" data-sub="Literature Synthesis">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2406.10252" target="_blank" rel="noopener">AutoSurvey: Large Language Models Can Automatically Write Surveys ↗</a></h3>
   <div class="card-meta"><span class="meta-method">AutoSurvey</span> · <span class="meta-venue">NeurIPS</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">주제 논문 검색 → 개요 생성 → 섹션 병렬 초안 → 인용 인지 통합·정제로 완전한 학술 서베이를 자동 작성. arXiv CS 53만 편 검색, Multi-LLM-judge로 후보 중 선택. citation recall 82%로 인간(86%)에 근접.</p>
+  <p class="card-note">Automatically writes a full academic survey by retrieving topic papers, drafting an outline, generating sections in parallel, and integrating and refining with citation awareness. It searches 530K arXiv CS papers and selects among candidates with a multi-LLM judge; citation re…</p>
   
   <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_nips_WangGYZZ0ZD0W0Z24.html" class="card-summary-link">Summary →</a>
@@ -178,7 +178,7 @@
 <article class="card" data-sub="Literature Synthesis">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2402.01788" target="_blank" rel="noopener">LitLLM: A Toolkit for Scientific Literature Review ↗</a></h3>
   <div class="card-meta"><span class="meta-method">LitLLM</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">사용자 abstract를 키워드로 검색(Semantic Scholar/OpenAlex) → LLM permutation 재랭킹 → plan 기반(문장수·줄별 인용 제어) related work를 생성하는 모듈식 RAG 툴킷.</p>
+  <p class="card-note">A modular RAG toolkit that searches from the user&#x27;s abstract as a query (Semantic Scholar/OpenAlex), reranks by LLM permutation, and generates a plan-based related-work section with sentence-count and per-line citation control.</p>
   
   <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_corr_abs-2402-01788.html" class="card-summary-link">Summary →</a>
@@ -187,7 +187,7 @@
 <article class="card" data-sub="Question Answering">
   <h3 class="card-title"><a href="https://doi.org/10.1038/s41598-023-33607-z" target="_blank" rel="noopener">The SciQA Scientific Question Answering Benchmark for Scholarly Knowledge ↗</a></h3>
   <div class="card-meta"><span class="meta-method">SciQA</span> · <span class="meta-venue">Scientific Reports</span> · <span class="meta-year">2023</span></div>
-  <p class="card-note">ORKG 기반 학술 지식 QA. ChatGPT 100개 중 14개만 정답.</p>
+  <p class="card-note">Scholarly-knowledge QA over the ORKG; ChatGPT answers only 14 of 100 correctly.</p>
   
   <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">KG</span></div>
   <a href="../papers/auer2023sciqa.html" class="card-summary-link">Summary →</a>

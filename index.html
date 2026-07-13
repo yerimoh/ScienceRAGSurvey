@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Home — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="static/style.css?v=1783858719">
+<link rel="stylesheet" href="static/style.css?v=1783916062">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -143,10 +143,11 @@
       </div>
       <span class="flow-arrow">&rarr;</span>
       <div class="flow-stages">
-        <div class="flow-stage"><strong>Construction</strong><span>index each substrate in its own form</span></div>
-        <div class="flow-stage"><strong>Retrieval</strong><span>match the query to the substrate</span></div>
-        <div class="flow-stage"><strong>Generation</strong><span>draft an answer from the evidence</span></div>
-        <div class="flow-stage flow-v"><strong>Verification</strong><span>test the output beyond the corpus</span></div>
+        <a class="flow-stage" href="about.html#construction"><strong>Construction</strong><span>index each substrate in its own form</span></a>
+        <a class="flow-stage" href="about.html#retrieval"><strong>Retrieval</strong><span>match the query to the substrate</span></a>
+        <a class="flow-stage" href="about.html#generation"><strong>Generation</strong><span>draft an answer from the evidence</span></a>
+        <a class="flow-stage flow-v" href="about.html#verification"><strong>Verification</strong><span>test the output beyond the corpus</span></a>
+        <a class="flow-stage flow-e" href="about.html#evaluation"><strong>Evaluation</strong><span>score against ground truth</span></a>
         <div class="flow-loop">&#8635;&nbsp;verifier feedback loop</div>
       </div>
       <span class="flow-arrow">&rarr;</span>
@@ -159,9 +160,8 @@
       </div>
     </div>
     <p class="flow-foot">
-      <strong>Evaluation</strong> scores the output against a ground truth that, for discovery, lies outside any corpus.
-      Capability concentrates on the <strong>Textual</strong> substrate and automatically-checkable tasks, and thins
-      toward non-textual, externally-verified discovery.
+      Every stage links to its explanation. Capability concentrates on the <strong>Textual</strong> substrate and
+      automatically-checkable tasks, and thins toward non-textual, externally-verified discovery.
     </p>
   </div>
 </section>
@@ -489,7 +489,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2603.17765" target="_blank" rel="noopener">Grounded Multimodal Retrieval-Augmented Drafting of Radiology Impressions Using Case-Based Similarity ↗</a></h3>
   <div class="card-meta"><span class="meta-method">Grounded Multimodal RAG</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2026</span></div>
-  <p class="card-note">이미지+텍스트 Late Fusion (a=0.5). Recall@5 0.975.</p>
+  <p class="card-note">Image+text late fusion (a=0.5). Recall@5 0.975.</p>
   
   <div class="card-tags"><a href="cell/K4.html" class="tag tag-cell" title="K4">Perceptual</a><a href="domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">Image</span></div>
   
@@ -497,7 +497,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2602.17687" target="_blank" rel="noopener">IRPAPERS: A VISUAL DOCUMENT BENCHMARK FOR SCIENTIFIC RETRIEVAL AND QUESTION ANSWERING ↗</a></h3>
   <div class="card-meta"><span class="meta-method">IRPAPERS</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2026</span></div>
-  <p class="card-note">166 IR 논문 시각 문서 RAG 벤치마크. Hybrid Search Recall@20 95%.</p>
+  <p class="card-note">Visual-document RAG benchmark over 166 IR papers. Hybrid search Recall@20 95%.</p>
   
   <div class="card-tags"><a href="cell/K4.html" class="tag tag-cell" title="K4">Perceptual</a><a href="topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">Image</span></div>
   

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[K3] Structured-entity — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783858719">
+<link rel="stylesheet" href="../static/style.css?v=1783916062">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -149,7 +149,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2603.07233" target="_blank" rel="noopener">Retrieval-Augmented Generation for Predicting Cellular Responses to Gene Perturbation ↗</a></h3>
   <div class="card-meta"><span class="meta-method">PT-RAG</span> · <span class="meta-venue">Gen2 @ ICLR</span> · <span class="meta-year">2026</span></div>
-  <p class="card-note">PT-RAG: 단일 세포 생물학에 RAG 최초 적용. naive RAG가 성능 저하 (W2: 1189.5 vs STATE 646.1). GenePT + Gumbel-Softmax 2단계 미분 가능 검색.</p>
+  <p class="card-note">PT-RAG: first application of RAG to single-cell biology. Naive RAG hurts performance (W2: 1189.5 vs STATE 646.1). GenePT + a two-stage differentiable Gumbel-Softmax retrieval.</p>
   
   <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Structured-entity</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">Structured Table</span></div>
   <a href="../papers/DBLP_journals_corr_abs-2603-07233.html" class="card-summary-link">Summary →</a>
@@ -176,7 +176,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title">Benchmarking Retrieval-Augmented Generation for Chemistry</h3>
   <div class="card-meta"><span class="meta-method">ChemRAG (Bench + Toolkit)</span> · <span class="meta-venue">COLM</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">화학 RAG 첫 대규모 벤치마크. 6 corpus × 5 retrievers × 8 LLMs. RAG +17.4% 평균 향상. ChemLLM은 RAG 효과 미미.</p>
+  <p class="card-note">First large-scale chemistry RAG benchmark. 6 corpora × 5 retrievers × 8 LLMs. RAG improves accuracy by +17.4% on average; ChemLLM barely benefits.</p>
   
   <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Structured-entity</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">SMILES</span></div>
   
@@ -194,7 +194,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2508.03489" target="_blank" rel="noopener">CF-RAG: A Dataset and Method for Carbon Footprint QA Using Retrieval-Augmented Generation ↗</a></h3>
   <div class="card-meta"><span class="meta-method">CarbonPDF-QA</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">PCF PDF 1,735개 탄소 발자국 QA. 4가지 유형. 4명 학생 검수.</p>
+  <p class="card-note">Carbon-footprint QA over 1,735 PCF PDFs, 4 question types, checked by 4 students.</p>
   
   <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Structured-entity</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">Structured Table</span></div>
   
@@ -221,7 +221,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://doi.org/10.1038/s44168-025-00254-1" target="_blank" rel="noopener">MARSHA: multi-agent RAG system for hazard adaptation ↗</a></h3>
   <div class="card-meta"><span class="meta-method">WildfireGPT</span> · <span class="meta-venue">npj Climate Action</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">산불 특화 멀티에이전트 RAG. ChatClimate/Perplexity 대비 우수.</p>
+  <p class="card-note">Wildfire-specialized multi-agent RAG; outperforms ChatClimate and Perplexity.</p>
   
   <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Structured-entity</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">Structured Table</span></div>
   
@@ -248,7 +248,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://proceedings.mlr.press/v267/wang25dg.html" target="_blank" rel="noopener">Neural Graph Matching Improves Retrieval Augmented Generation in Molecular Machine Learning ↗</a></h3>
   <div class="card-meta"><span class="meta-method">MARASON</span> · <span class="meta-venue">ICML</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">분자 RAG: Naive RAG 성능 저하 → neural graph matching이 핵심. 19% → 28% (+45% 상대).</p>
+  <p class="card-note">Molecular RAG: naive RAG hurts performance, so neural graph matching is key. 19% -&gt; 28% (+45% relative).</p>
   
   <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Structured-entity</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">SMILES</span><span class="tag tag-mod">Structured Table</span></div>
   
@@ -275,7 +275,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2502.18470" target="_blank" rel="noopener">Spatial-RAG: Spatial Retrieval Augmented Generation for Real-World Geospatial Reasoning Questions ↗</a></h3>
   <div class="card-meta"><span class="meta-method">TourismQA</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">TripAdvisor 도시 관광 지리공간 추론. NYC + Miami.</p>
+  <p class="card-note">Geospatial reasoning for urban tourism from TripAdvisor data (NYC + Miami).</p>
   
   <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Structured-entity</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">Structured Table</span></div>
   
@@ -284,7 +284,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2412.00532" target="_blank" rel="noopener">ChemTEB: Chemical Text Embedding Benchmark, an Overview of Embedding Models Performance &amp; Efficiency on a Specific Domain ↗</a></h3>
   <div class="card-meta"><span class="meta-method">ChemTEB</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">화학 도메인 텍스트 및 SMILES 특화 최초의 포괄적 텍스트 임베딩 벤치마크. 35개 서브데이터셋, 5가지 태스크. OpenAI text-embedding-3-large가 1위, Nomic Embedding v1.5가 2위.</p>
+  <p class="card-note">First comprehensive text-embedding benchmark specialized for chemistry text and SMILES. 35 sub-datasets, 5 tasks. OpenAI text-embedding-3-large ranks 1st, Nomic Embedding v1.5 2nd.</p>
   
   <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Structured-entity</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">SMILES</span></div>
   
@@ -401,7 +401,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2304.09667" target="_blank" rel="noopener">GeneGPT: augmenting large language models with domain tools for improved access to biomedical information ↗</a></h3>
   <div class="card-meta"><span class="meta-method">GeneGPT</span> · <span class="meta-venue">Bioinformatics</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">Codex가 in-context로 NCBI Web API(E-utils·BLAST) 사용법을 배워, 디코딩 중 API 호출을 감지·실행해 raw 결과를 삽입(augmented decoding). GeneTuring 9개 태스크 평균 0.83으로 New Bing(0.44) 능가.</p>
+  <p class="card-note">Codex learns to use the NCBI Web APIs (E-utils, BLAST) in context, detecting and executing API calls during decoding and inserting raw results (augmented decoding). It averages 0.83 across 9 GeneTuring tasks, beating New Bing (0.44).</p>
   
   <div class="card-tags"><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Structured-entity × Grounding</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_bioinformatics_JinYCL24.html" class="card-summary-link">Summary →</a>
@@ -527,7 +527,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/1911.02782" target="_blank" rel="noopener">S2ORC: The Semantic Scholar Open Research Corpus ↗</a></h3>
   <div class="card-meta"><span class="meta-method">S2ORC</span> · <span class="meta-venue">ACL</span> · <span class="meta-year">2020</span></div>
-  <p class="card-note">81M 학술 코퍼스. S2ORC-SCIBERT.</p>
+  <p class="card-note">81M-paper scholarly corpus. S2ORC-SciBERT.</p>
   
   <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Structured-entity</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a><span class="tag tag-mod">Structured Table</span></div>
   <a href="../papers/DBLP_conf_acl_LoWNKW20.html" class="card-summary-link">Summary →</a>
@@ -563,7 +563,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://doi.org/10.1039/C7SC02664A" target="_blank" rel="noopener">MoleculeNet: a benchmark for molecular machine learning ↗</a></h3>
   <div class="card-meta"><span class="meta-method">MoleculeNet</span> · <span class="meta-venue">Chemical Science (RSC)</span> · <span class="meta-year">2018</span></div>
-  <p class="card-note">분자 ML 표준 벤치마크. 4 카테고리 17 데이터셋. CLADD 사용.</p>
+  <p class="card-note">Standard molecular-ML benchmark; 4 categories, 17 datasets. Used by CLADD.</p>
   
   <div class="card-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Structured-entity</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">SMILES</span><span class="tag tag-mod">Structured Table</span></div>
   

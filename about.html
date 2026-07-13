@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>About — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="static/style.css?v=1783858719">
+<link rel="stylesheet" href="static/style.css?v=1783916062">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -163,6 +163,20 @@
     <tr><th>K4.O3</th><td>3</td><td>Perceptual × Discovery</td></tr>
       </tbody>
     </table>
+
+    <h2 id="pipeline">The scientific RAG pipeline</h2>
+    <p>
+      Connecting substrate to objective is the method: the pipeline a system runs, specialized to science at
+      every stage. A query is turned into a trusted output through five stages, and a verifier can loop the
+      output back for another round.
+    </p>
+    <ul>
+      <li id="construction"><strong>Construction</strong> — build the index. Each substrate is indexed in its own form: passages as embeddings, graphs as nodes and edges, molecules as structural fingerprints, signals through a learned encoder.</li>
+      <li id="retrieval"><strong>Retrieval</strong> — match the query to the substrate. Relevance is a domain judgment, not topical resemblance: the right passage, the right scaffold, the record whose peaks match.</li>
+      <li id="generation"><strong>Generation</strong> — draft an output from the query, the retrieved evidence, and any verifier feedback, in the formats a domain requires.</li>
+      <li id="verification"><strong>Verification</strong> — test the output against a signal from beyond the corpus. Systems differ by how deeply the verifier is coupled, from a single unchecked pass to a closed loop that refines against a docking score or a DFT calculation every round.</li>
+      <li id="evaluation"><strong>Evaluation</strong> — score the result against ground truth: a fixed gold for grounding, a reference for synthesis, and for discovery an external verifier whose ground truth lies outside any corpus.</li>
+    </ul>
 
     <h2>What makes retrieval scientific</h2>
     <p>Five demands separate a scientific RAG system from general RAG that ranks by semantic proximity alone:</p>

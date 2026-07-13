@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[K1.O1] Textual × Grounding — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783858719">
+<link rel="stylesheet" href="../static/style.css?v=1783916062">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -162,7 +162,7 @@
     <div class="card-grid"><article class="card" data-sub="Question Answering">
   <h3 class="card-title"><a href="https://aclanthology.org/2024.findings-acl.372" target="_blank" rel="noopener">Benchmarking Retrieval-Augmented Generation for Medicine ↗</a></h3>
   <div class="card-meta"><span class="meta-method">MEDRAG</span> · <span class="meta-venue">ACL (Findings)</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">의료 QA 전용 RAG 툴킷+벤치마크. PubMed+RRF-4 최적. GPT-3.5+MEDRAG가 CoT GPT-4에 근접.</p>
+  <p class="card-note">A RAG toolkit and benchmark for medical QA. PubMed + RRF over 4 corpora is optimal; GPT-3.5+MEDRAG approaches CoT GPT-4.</p>
   
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
   <a href="../papers/DBLP_conf_acl_Xiong0LZ24.html" class="card-summary-link">Summary →</a>
@@ -180,7 +180,7 @@
 <article class="card" data-sub="Question Answering">
   <h3 class="card-title"><a href="https://doi.org/10.18653/v1/2022.emnlp-main.390" target="_blank" rel="noopener">BioReader: a Retrieval-Enhanced Text-to-Text Transformer for Biomedical Literature ↗</a></h3>
   <div class="card-meta"><span class="meta-method">BioReader</span> · <span class="meta-venue">EMNLP</span> · <span class="meta-year">2022</span></div>
-  <p class="card-note">최초의 retrieval-enhanced 생의학 T5. 약 6,000만 토큰 규모 PubMed 중심 neural DB에서 관련 청크를 fetch해 chunked cross-attention으로 주입한다. 파라미터를 3배 적게 쓰고도 여러 생의학 NLP/QA에서 기존 SOTA를 넘어선다.</p>
+  <p class="card-note">The first retrieval-enhanced biomedical T5. It fetches relevant chunks from a ~60M-token PubMed-centric neural database and injects them via chunked cross-attention, surpassing prior SOTA on several biomedical NLP/QA tasks with 3x fewer parameters.</p>
   
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_emnlp_FrisoniMMV22.html" class="card-summary-link">Summary →</a>
@@ -198,7 +198,7 @@
 <article class="card" data-sub="Question Answering">
   <h3 class="card-title"><a href="https://doi.org/10.1093/bioinformatics/btae238" target="_blank" rel="noopener">Improving medical reasoning through retrieval and self-reflection with retrieval-augmented large language models ↗</a></h3>
   <div class="card-meta"><span class="meta-method">Self-BioRAG</span> · <span class="meta-venue">Bioinformatics (ISMB)</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">검색 필요 여부를 스스로 판단하고 self-reflection 토큰으로 근거를 평가하는 self-reflective 의료 RAG. MedCPT로 PubMed 초록·PMC 전문·교과서·가이드라인을 검색하고, 7B 모델로 MedQA·MedMCQA·MMLU-Med(객관식)와 LiveQA·MedicationQA(장문)에서 동급 베이스라인을 능가.</p>
+  <p class="card-note">A self-reflective medical RAG that decides on its own whether to retrieve and rates evidence with self-reflection tokens. It retrieves PubMed abstracts, PMC full text, textbooks, and guidelines with MedCPT, and a 7B model beats comparable baselines on MedQA/MedMCQA/MMLU-Med (M…</p>
   
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_bioinformatics_JeongSSK24.html" class="card-summary-link">Summary →</a>
@@ -216,7 +216,7 @@
 <article class="card" data-sub="Question Answering">
   <h3 class="card-title">Rationale-Guided Retrieval Augmented Generation for Medical Question Answering</h3>
   <div class="card-meta"><span class="meta-method">RAG²</span> · <span class="meta-venue">NAACL</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">perplexity-차이 자동 라벨링으로 소형 필터 모델 학습 + rationale 쿼리 + 균등검색. SOTA on MedQA.</p>
+  <p class="card-note">Trains a small filter model with perplexity-difference auto-labeling + rationale queries + balanced retrieval. SOTA on MedQA.</p>
   
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_naacl_SohnPYPHSKK25.html" class="card-summary-link">Summary →</a>
@@ -225,7 +225,7 @@
 <article class="card" data-sub="Question Answering">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2312.07559v2" target="_blank" rel="noopener">PaperQA: Retrieval-Augmented Generative Agent for Scientific Research ↗</a></h3>
   <div class="card-meta"><span class="meta-method">PaperQA</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2023</span></div>
-  <p class="card-note">Map-Reduce 환각 0% 인용 답변. LitQA 신규 벤치마크.</p>
+  <p class="card-note">Map-reduce answers with cited evidence and 0% citation hallucination; introduces the LitQA benchmark.</p>
   
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_corr_abs-2312-07559.html" class="card-summary-link">Summary →</a>
@@ -234,7 +234,7 @@
 <article class="card" data-sub="Question Answering">
   <h3 class="card-title"><a href="https://github.com/Jack-ZC8/Omni-RAG-Medical" target="_blank" rel="noopener">Towards Omni-RAG: Comprehensive Retrieval-Augmented Generation for Large Language Models in Medical Applications ↗</a></h3>
   <div class="card-meta"><span class="meta-method">Source Planning Optimisation (SPO)</span> · <span class="meta-venue">ACL</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">5개 다중 구조 의료 KB(MedOmniKB) 구축 + SPO 기법. 소형 Planner가 10배 큰 모델 능가.</p>
+  <p class="card-note">Builds MedOmniKB (5 heterogeneous medical KBs) with a Source-Planning-Optimisation method; a small planner beats a 10x larger model.</p>
   
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">KG</span></div>
   <a href="../papers/DBLP_conf_acl_ChenLJWG0025.html" class="card-summary-link">Summary →</a>
@@ -243,7 +243,7 @@
 <article class="card" data-sub="Question Answering">
   <h3 class="card-title"><a href="https://doi.org/10.1007/978-3-031-88720-8_1" target="_blank" rel="noopener">BioRAGent: A Retrieval-Augmented Generation System for Showcasing Generative Query Expansion and Domain-Specific Search for Scientific Q&amp;A ↗</a></h3>
   <div class="card-meta"><span class="meta-method">BioRAGent</span> · <span class="meta-venue">ECIR</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">LLM 기반 generative query expansion으로 PubMed 초록·제목을 검색하고, 검색된 논문에 인용을 달아 답하는 대화형 생의학 RAG 시스템(데모). BioASQ 2024 태스크에서 상위 성적을 보고.</p>
+  <p class="card-note">A conversational biomedical RAG demo that searches PubMed abstracts and titles via LLM-based generative query expansion and answers with citations to the retrieved papers. Reports top results on the BioASQ 2024 task.</p>
   
   <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_ecir_AteiaK25.html" class="card-summary-link">Summary →</a>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[K2] Relational — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783858719">
+<link rel="stylesheet" href="../static/style.css?v=1783916062">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -131,7 +131,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2601.06519v1" target="_blank" rel="noopener">MedRAGChecker: Claim-Level Verification for Biomedical Retrieval-Augmented Generation ↗</a></h3>
   <div class="card-meta"><span class="meta-method">MedRAGChecker</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2026</span></div>
-  <p class="card-note">Atomic Claim 분해 + NLI + KG 융합. GPT-4.1 → 소형 모델 distill.</p>
+  <p class="card-note">Atomic-claim decomposition + NLI + KG fusion. GPT-4.1 distilled into a small model.</p>
   
   <div class="card-tags"><a href="../cell/K2.O2.html" class="tag tag-cell" title="K2.O2">Relational × Synthesis</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">KG</span></div>
   <a href="../papers/DBLP_journals_corr_abs-2601-06519.html" class="card-summary-link">Summary →</a>
@@ -149,7 +149,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://doi.org/10.1016/j.jag.2025.104712" target="_blank" rel="noopener">GeoGraphRAG: A graph-based retrieval-augmented generation approach for empowering large language models in automated geospatial modeling ↗</a></h3>
   <div class="card-meta"><span class="meta-method">GeoGraphRAG</span> · <span class="meta-venue">Int. J. Appl. Earth Obs. Geoinf. (JAG)</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">S-GMKG 그래프 RAG. ICL+그래프 탐색만으로 GEE 코드 생성. Execution-based 평가 미실시.</p>
+  <p class="card-note">S-GMKG graph RAG generates Google Earth Engine code with in-context learning + graph traversal alone; no execution-based evaluation.</p>
   
   <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Relational</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">KG</span></div>
   
@@ -167,7 +167,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2502.04413" target="_blank" rel="noopener">MedRAG: Enhancing Retrieval-augmented Generation with Knowledge Graph-Elicited Reasoning for Healthcare Copilot ↗</a></h3>
   <div class="card-meta"><span class="meta-method">MedRAG</span> · <span class="meta-venue">arXiv</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">EHR + 4계층 KG. 유사 증상 변별 + Proactive Questioning.</p>
+  <p class="card-note">EHR + a 4-tier knowledge graph; discriminates similar symptoms and asks proactive questions.</p>
   
   <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Relational</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">KG</span></div>
   
@@ -185,7 +185,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://doi.org/10.1145/3726302.3729920" target="_blank" rel="noopener">CG-RAG: Research Question Answering by Citation Graph Retrieval-Augmented LLMs ↗</a></h3>
   <div class="card-meta"><span class="meta-method">CG-RAG</span> · <span class="meta-venue">SIGIR</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">논문 인용 그래프(citation graph) 위에서 검색하는 LeSeGR 기법 제안. 논문 청크를 인용 관계로 연결해 sparse·dense 신호를 통합 검색하고, 검색된 근거에 기반해 연구 질의에 답한다.</p>
+  <p class="card-note">Proposes LeSeGR, which retrieves over a paper citation graph: it links paper chunks by citation relations to fuse sparse and dense signals, and answers research queries grounded in the retrieved evidence.</p>
   
   <div class="card-tags"><a href="../cell/K2.O2.html" class="tag tag-cell" title="K2.O2">Relational × Synthesis</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_sigir_HuLD0A0025.html" class="card-summary-link">Summary →</a>
@@ -194,7 +194,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2410.04660" target="_blank" rel="noopener">KGARevion: An AI Agent for Knowledge-Intensive Biomedical QA ↗</a></h3>
   <div class="card-meta"><span class="meta-method">KGARevion</span> · <span class="meta-venue">ICLR</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">후보 triplet 생성→KG(PrimeKG/biokg) 검증→수정→답의 에이전트 루프. LLM 잠재지식을 KG에 검증(사실오류 제거)해 medical QA 신뢰도 향상.</p>
+  <p class="card-note">An agent loop of generating candidate triples, verifying them against a KG (PrimeKG/biokg), revising, and answering. Verifying the LLM&#x27;s latent knowledge against the KG removes factual errors and improves medical-QA reliability.</p>
   
   <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_iclr_00010GLGCZ25.html" class="card-summary-link">Summary →</a>
@@ -203,7 +203,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://aclanthology.org/2025.acl-long.580/" target="_blank" rel="noopener">HyKGE: A Hypothesis Knowledge Graph Enhanced RAG Framework for Accurate and Reliable Medical LLMs Responses ↗</a></h3>
   <div class="card-meta"><span class="meta-method">HyKGE</span> · <span class="meta-venue">ACL</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">LLM 가설(HO)로 검색을 시드해 융합 큐레이티드 의료 KG(CMeKG·CPubMed-KG·Disease-KG, ~129만 엔티티)에서 멀티홉 추론 체인을 검색, HO fragment 재랭킹으로 노이즈를 걸러 종합 답변 합성. LLM 호출 2회.</p>
+  <p class="card-note">Seeds retrieval with an LLM hypothesis (HO) to fetch multi-hop reasoning chains from a fused curated medical KG (CMeKG, CPubMed-KG, Disease-KG; ~1.29M entities), filtering noise by HO-fragment reranking to synthesize a comprehensive answer in 2 LLM calls.</p>
   
   <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_acl_Jiang0XQFWTDC0W25.html" class="card-summary-link">Summary →</a>
@@ -212,7 +212,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://aclanthology.org/2025.findings-naacl.201/" target="_blank" rel="noopener">GraPPI: A Retrieve-Divide-Solve GraphRAG Framework for Large-scale Protein-protein Interaction Exploration ↗</a></h3>
   <div class="card-meta"><span class="meta-method">GraPPI</span> · <span class="meta-venue">NAACL</span> · <span class="meta-year">2025</span></div>
-  <p class="card-note">큐레이티드 STRING PPI 그래프(18,767노드/295만엣지)를 Retrieve-Divide-Solve로 순회 — 경로를 엣지로 분할 병렬 설명 후 경로 수준으로 합성·재정렬해 약물 타깃 신호전달 경로 분석 생성.</p>
+  <p class="card-note">Traverses the curated STRING PPI graph (18,767 nodes / 2.95M edges) with a Retrieve-Divide-Solve scheme, splitting each path into edges, explaining them in parallel, then synthesizing and re-ranking at the path level to generate drug-target signaling-pathway analyses.</p>
   
   <div class="card-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Relational × Discovery</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_naacl_LiCJ25.html" class="card-summary-link">Summary →</a>
@@ -230,7 +230,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2311.17330" target="_blank" rel="noopener">Biomedical knowledge graph-optimized prompt generation for large language models ↗</a></h3>
   <div class="card-meta"><span class="meta-method">KG-RAG</span> · <span class="meta-venue">Bioinformatics</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">SPOKE 생의학 KG(41 DB, 약 4,200만 노드)에서 질병 중심 minimal-schema 서브그래프를 추출하고 임베딩 pruning으로 핵심 트리플만 프롬프트에 주입. Cypher-RAG 대비 토큰 54%↓·검색정확도 75→97%.</p>
+  <p class="card-note">Extracts a disease-centric minimal-schema subgraph from the SPOKE biomedical KG (41 databases, ~42M nodes) and injects only the key triples via embedding pruning. Versus Cypher-RAG: 54% fewer tokens and retrieval accuracy from 75% to 97%.</p>
   
   <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_bioinformatics_SomanRMASPVCSRI24.html" class="card-summary-link">Summary →</a>
@@ -239,7 +239,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2308.09729" target="_blank" rel="noopener">MindMap: Knowledge Graph Prompting Sparks Graph of Thoughts in Large Language Models ↗</a></h3>
   <div class="card-meta"><span class="meta-method">MindMap</span> · <span class="meta-venue">ACL</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">큐레이티드 임상 KG(질병-증상-약물)에서 path/neighbor 증거 서브그래프를 검색해 graph-of-thoughts 추론 경로로 통합하는 진단 QA. GPT-3.5 backbone으로 일부 baseline에서 GPT-4 능가.</p>
+  <p class="card-note">Diagnostic QA that retrieves path/neighbor evidence subgraphs from a curated clinical KG (disease-symptom-drug) and integrates them along graph-of-thoughts reasoning paths. With a GPT-3.5 backbone it beats GPT-4 on some baselines.</p>
   
   <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_acl_0006WS24.html" class="card-summary-link">Summary →</a>
@@ -248,7 +248,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://aclanthology.org/2024.bionlp-1.13/" target="_blank" rel="noopener">KG-Rank: Enhancing Large Language Models for Medical QA with Knowledge Graphs and Ranking Techniques ↗</a></h3>
   <div class="card-meta"><span class="meta-method">KG-Rank</span> · <span class="meta-venue">BioNLP@ACL</span> · <span class="meta-year">2024</span></div>
-  <p class="card-note">질문 엔티티의 UMLS one-hop 트리플을 검색하고 ranking/re-ranking(유사도·Answer Expansion·MMR·MedCPT)으로 추려 장문 의료 답변으로 합성. 파인튜닝 불필요.</p>
+  <p class="card-note">Retrieves one-hop UMLS triples for the question&#x27;s entities and narrows them by ranking/re-ranking (similarity, answer expansion, MMR, MedCPT) to synthesize a long-form medical answer. No fine-tuning needed.</p>
   
   <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_conf_bionlp_YangLMZKLCCCML24.html" class="card-summary-link">Summary →</a>
@@ -293,7 +293,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://doi.org/10.1038/s41598-023-33607-z" target="_blank" rel="noopener">The SciQA Scientific Question Answering Benchmark for Scholarly Knowledge ↗</a></h3>
   <div class="card-meta"><span class="meta-method">SciQA</span> · <span class="meta-venue">Scientific Reports</span> · <span class="meta-year">2023</span></div>
-  <p class="card-note">ORKG 기반 학술 지식 QA. ChatGPT 100개 중 14개만 정답.</p>
+  <p class="card-note">Scholarly-knowledge QA over the ORKG; ChatGPT answers only 14 of 100 correctly.</p>
   
   <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">KG</span></div>
   <a href="../papers/auer2023sciqa.html" class="card-summary-link">Summary →</a>
@@ -464,7 +464,7 @@
 <article class="card" data-sub="">
   <h3 class="card-title"><a href="https://dl.acm.org/doi/10.1145/1273496.1273551" target="_blank" rel="noopener">Statistical Predicate Invention ↗</a></h3>
   <div class="card-meta"><span class="meta-method">UMLS</span> · <span class="meta-venue">ICML</span> · <span class="meta-year">2007</span></div>
-  <p class="card-note">UMLS 의학 개념 관계 링크 예측. BiomedRAG.</p>
+  <p class="card-note">Link prediction over UMLS medical-concept relations. BiomedRAG.</p>
   
   <div class="card-tags"><a href="../cell/K2.html" class="tag tag-cell" title="K2">Relational</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">KG</span></div>
   
