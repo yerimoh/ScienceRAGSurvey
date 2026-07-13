@@ -584,7 +584,7 @@ def sidebar(base='', current=''):
     <details class="sb-group"{cell_open}>
       <summary class="sb-item"><span class="sb-icon">▦</span> Substrate × Objective <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
-        <a href="{base}index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="{base}browse.html" class="sb-sub sb-sub-overview">All 12 cells →</a>
         {cell_items}
       </div>
     </details>
@@ -921,55 +921,6 @@ def render_index():
 </section>
 ''')
 
-    # --- 12-cell landscape grid, built here but rendered lower as a secondary browse aid ---
-    grid_parts = ['''
-<section id="grid" class="ko-grid-section ko-grid-secondary">
-  <div class="wrap">
-    <h2 class="section-title">Or browse the full landscape grid</h2>
-    <p class="section-sub">
-      A secondary view: each cell pairs a <em>retrieval substrate</em> (row) with an <em>objective rung</em> (column)
-      and lists the survey's core systems that land there. Cells shade <em>active</em> where mature retrieval meets
-      automatic scoring, and are marked <em>frontier</em> where the substrate or the verifier does not yet exist (§8).
-    </p>
-    <table class="ko-grid">
-      <thead>
-        <tr>
-          <th class="corner"></th>
-''']
-    for O in ['O1', 'O2', 'O3']:
-        on, od = O_LABELS[O]
-        grid_parts.append(f'          <th class="o-head"><span class="cell-axis">{O}</span> {esc(on)}<span class="cell-axis-desc">{esc(od)}</span></th>\n')
-    grid_parts.append('        </tr>\n      </thead>\n      <tbody>\n')
-
-    for K in ['K1', 'K2', 'K3', 'K4']:
-        kn, kd = K_LABELS[K]
-        grid_parts.append(f'        <tr>\n          <th class="k-head"><span class="cell-axis">{K}</span> {esc(kn)}<span class="cell-axis-desc">{esc(kd)}</span></th>\n')
-        for O in ['O1', 'O2', 'O3']:
-            cell = f'{K}.{O}'
-            if cell in CELL_PAPERS:
-                ps = [papers_by_key[k] for k in CELL_PAPERS[cell] if k in papers_by_key]
-                top = ps[:3]
-            else:
-                ps = by_cell.get(cell, [])
-                top = sorted(ps, key=year_sort)[:3]
-            n = len(ps)
-            heat = 'heat-zero' if n == 0 else 'heat-low' if n < 5 else 'heat-mid' if n < 20 else 'heat-high'
-            top_html = '\n'.join(
-                f'<li>{esc((p.get("method") or p.get("title") or "?")[:60])}</li>' for p in top
-            )
-            frontier = ' frontier' if CELL_TIERS.get(cell, ('', ''))[0] == 'Frontier' else ''
-            grid_parts.append(f'''          <td class="ko-cell {heat}{frontier}">
-            <a href="cell/{cell}.html" class="cell-link">
-              <span class="cell-id">[{cell}]</span>
-              <span class="cell-count">{n}</span>
-              <ul class="cell-top">{top_html}</ul>
-            </a>
-          </td>
-''')
-        grid_parts.append('        </tr>\n')
-    grid_parts.append('      </tbody>\n    </table>\n  </div>\n</section>\n')
-    grid_html = ''.join(grid_parts)
-
     # Domains row
     parts.append('''
 <section id="domains" class="domains-section">
@@ -1002,9 +953,6 @@ def render_index():
         n = len(by_type[t])
         parts.append(f'      <a href="topics/{t.lower()}.html" class="type-card"><strong>{esc(label)}</strong><span>{n}</span></a>\n')
     parts.append('    </div>\n  </div>\n</section>\n')
-
-    # 12-cell landscape grid (secondary), rendered after the domain/type quick-nav
-    parts.append(grid_html)
 
     # Flagships strip
     flagships_file = ROOT / 'build/flagships.json'
@@ -1146,7 +1094,7 @@ def render_about():
 
     <h2>How to use the catalog</h2>
     <ul>
-      <li><a href="index.html#grid">Substrate × Objective grid</a> — pick a cell to see the core systems landing there.</li>
+      <li><a href="browse.html">Browse</a> — filter the full catalog by substrate × objective cell, task, domain, or type.</li>
       <li><a href="index.html#domains">Domains</a> — browse by scientific field.</li>
       <li><a href="browse.html">Browse</a> — full searchable, filterable catalog.</li>
       <li><a href="llms.txt">/llms.txt</a> · <a href="llms-full.txt">/llms-full.txt</a> — LLM-friendly indices.</li>
@@ -1558,7 +1506,7 @@ def render_cell_pages():
             body = f'''
 <section class="cell-hero">
   <div class="wrap">
-    <p class="eyebrow"><a href="../index.html#grid">← Landscape grid</a></p>
+    <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
     <h1><span class="cell-id-big">[{cell}]</span> {esc(kn)} <span class="times">×</span> {esc(on)}</h1>
     {tier_badge}
     <p class="lede"><strong>{len(ps)}</strong> entries.</p>
@@ -1597,7 +1545,7 @@ def render_cell_pages():
         body = f'''
 <section class="cell-hero">
   <div class="wrap">
-    <p class="eyebrow"><a href="../index.html#grid">← Landscape grid</a></p>
+    <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
     <h1><span class="cell-id-big">[{K}]</span> {esc(kn)}</h1>
     <p class="lede"><strong>{len(ps)}</strong> K-axis-only entries (datasets / knowledge sources without paired O).</p>
     <div class="cell-axis-pair">
@@ -1647,7 +1595,7 @@ def render_cell_pages():
         body = f'''
 <section class="cell-hero">
   <div class="wrap">
-    <p class="eyebrow"><a href="../index.html#grid">← Landscape grid</a></p>
+    <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
     <h1><span class="cell-id-big">[{O}]</span> {esc(on)}</h1>
     <p class="lede"><strong>{len(ps)}</strong> entries with <strong>{esc(on)}</strong> objective (all K sources).</p>
     <div class="cell-axis-pair">

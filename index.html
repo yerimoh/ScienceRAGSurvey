@@ -26,7 +26,7 @@
     <details class="sb-group">
       <summary class="sb-item"><span class="sb-icon">▦</span> Substrate × Objective <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
-        <a href="index.html#grid" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="browse.html" class="sb-sub sb-sub-overview">All 12 cells →</a>
         <a href="cell/K1.O1.html" class="sb-sub">Textual × Grounding <span class="sb-count">10</span></a>
 <a href="cell/K1.O2.html" class="sb-sub">Textual × Synthesis <span class="sb-count">9</span></a>
 <a href="cell/K1.O3.html" class="sb-sub">Textual × Discovery <span class="sb-count">4</span></a>
@@ -241,140 +241,6 @@
       <a href="topics/dataset.html" class="type-card"><strong>Datasets</strong><span>17</span></a>
       <a href="topics/summary.html" class="type-card"><strong>Surveys</strong><span>2</span></a>
     </div>
-  </div>
-</section>
-
-<section id="grid" class="ko-grid-section ko-grid-secondary">
-  <div class="wrap">
-    <h2 class="section-title">Or browse the full landscape grid</h2>
-    <p class="section-sub">
-      A secondary view: each cell pairs a <em>retrieval substrate</em> (row) with an <em>objective rung</em> (column)
-      and lists the survey's core systems that land there. Cells shade <em>active</em> where mature retrieval meets
-      automatic scoring, and are marked <em>frontier</em> where the substrate or the verifier does not yet exist (§8).
-    </p>
-    <table class="ko-grid">
-      <thead>
-        <tr>
-          <th class="corner"></th>
-          <th class="o-head"><span class="cell-axis">O1</span> Grounding<span class="cell-axis-desc">Answer a question whose gold already lies in the corpus — retrieve, cite, answer. (Question Answering.)</span></th>
-          <th class="o-head"><span class="cell-axis">O2</span> Synthesis<span class="cell-axis-desc">Integrate evidence no single source states — verify claims and synthesize the literature. (Claim Verification, Literature Synthesis.)</span></th>
-          <th class="o-head"><span class="cell-axis">O3</span> Discovery<span class="cell-axis-desc">Propose an output the corpus does not contain, judged by an external verifier. (Property Prediction, Molecular Design, Materials Discovery, Hypothesis Generation.)</span></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th class="k-head"><span class="cell-axis">K1</span> Textual<span class="cell-axis-desc">Prose record of science — papers, abstracts, clinical notes, guidelines. Matched by embedding or lexical search over passages.</span></th>
-          <td class="ko-cell heat-mid">
-            <a href="cell/K1.O1.html" class="cell-link">
-              <span class="cell-id">[K1.O1]</span>
-              <span class="cell-count">10</span>
-              <ul class="cell-top"><li>MEDRAG</li>
-<li>DBLP:conf/pasc/GokdemirSBWHHSA25</li>
-<li>BioReader</li></ul>
-            </a>
-          </td>
-          <td class="ko-cell heat-mid">
-            <a href="cell/K1.O2.html" class="cell-link">
-              <span class="cell-id">[K1.O2]</span>
-              <span class="cell-count">9</span>
-              <ul class="cell-top"><li>LitLLM</li>
-<li>Pathfinder</li>
-<li>AutoSurvey</li></ul>
-            </a>
-          </td>
-          <td class="ko-cell heat-low frontier">
-            <a href="cell/K1.O3.html" class="cell-link">
-              <span class="cell-id">[K1.O3]</span>
-              <span class="cell-count">4</span>
-              <ul class="cell-top"><li>SciMON</li>
-<li>ResearchAgent</li>
-<li>MOOSE-Chem</li></ul>
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <th class="k-head"><span class="cell-axis">K2</span> Relational<span class="cell-axis-desc">Curated graphs of scientific relations — UMLS, PrimeKG, DRKG, STRING, KEGG, citation graphs. Reached by entity linking and traversal.</span></th>
-          <td class="ko-cell heat-mid">
-            <a href="cell/K2.O1.html" class="cell-link">
-              <span class="cell-id">[K2.O1]</span>
-              <span class="cell-count">7</span>
-              <ul class="cell-top"><li>KG-RAG</li>
-<li>MindMap</li>
-<li>KG-Rank</li></ul>
-            </a>
-          </td>
-          <td class="ko-cell heat-low">
-            <a href="cell/K2.O2.html" class="cell-link">
-              <span class="cell-id">[K2.O2]</span>
-              <span class="cell-count">1</span>
-              <ul class="cell-top"><li>CG-RAG</li></ul>
-            </a>
-          </td>
-          <td class="ko-cell heat-low">
-            <a href="cell/K2.O3.html" class="cell-link">
-              <span class="cell-id">[K2.O3]</span>
-              <span class="cell-count">1</span>
-              <ul class="cell-top"><li>GraPPI</li></ul>
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <th class="k-head"><span class="cell-axis">K3</span> Structured-entity<span class="cell-axis-desc">The objects of science as data — molecules, 3D structures, and property records (ChEMBL, PubChem, PDB, Materials Project). Reached by structural or property query.</span></th>
-          <td class="ko-cell heat-low">
-            <a href="cell/K3.O1.html" class="cell-link">
-              <span class="cell-id">[K3.O1]</span>
-              <span class="cell-count">2</span>
-              <ul class="cell-top"><li>GeneGPT</li>
-<li>LLaMP MP Property Benchmark</li></ul>
-            </a>
-          </td>
-          <td class="ko-cell heat-zero frontier">
-            <a href="cell/K3.O2.html" class="cell-link">
-              <span class="cell-id">[K3.O2]</span>
-              <span class="cell-count">0</span>
-              <ul class="cell-top"></ul>
-            </a>
-          </td>
-          <td class="ko-cell heat-mid">
-            <a href="cell/K3.O3.html" class="cell-link">
-              <span class="cell-id">[K3.O3]</span>
-              <span class="cell-count">5</span>
-              <ul class="cell-top"><li>f-RAG</li>
-<li>Rag2Mol</li>
-<li>TaLiRAGen</li></ul>
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <th class="k-head"><span class="cell-axis">K4</span> Perceptual<span class="cell-axis-desc">Raw instrument output — images, spectra, sequencing, time-series (MIMIC-CXR, MassBank, sky surveys). Reachable only through a learned cross-modal encoder.</span></th>
-          <td class="ko-cell heat-mid">
-            <a href="cell/K4.O1.html" class="cell-link">
-              <span class="cell-id">[K4.O1]</span>
-              <span class="cell-count">6</span>
-              <ul class="cell-top"><li>LaB-RAG</li>
-<li>CardioRAG</li>
-<li>MMed-RAG</li></ul>
-            </a>
-          </td>
-          <td class="ko-cell heat-zero frontier">
-            <a href="cell/K4.O2.html" class="cell-link">
-              <span class="cell-id">[K4.O2]</span>
-              <span class="cell-count">0</span>
-              <ul class="cell-top"></ul>
-            </a>
-          </td>
-          <td class="ko-cell heat-low frontier">
-            <a href="cell/K4.O3.html" class="cell-link">
-              <span class="cell-id">[K4.O3]</span>
-              <span class="cell-count">3</span>
-              <ul class="cell-top"><li>IRDiff</li>
-<li>READ</li>
-<li>MADGEN</li></ul>
-            </a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 </section>
 
