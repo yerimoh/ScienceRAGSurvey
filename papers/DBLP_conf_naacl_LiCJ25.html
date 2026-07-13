@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GraPPI: A Retrieve-Divide-Solve GraphRAG Framework for Large-scale Protein-protein Interaction Exploration — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,21 +108,25 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">NAACL</span>
       <span class="meta-year">2025</span>
-      <a href="https://aclanthology.org/2025.findings-naacl.201/" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Relational × Discovery</a><span class="tag tag-sub">[&#x27;Hypothesis Generation&#x27;]</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a></div>
+    <div class="paper-links"><a href="https://aclanthology.org/2025.findings-naacl.201/" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/AaronLi43/GraPPI" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Relational × Discovery</a><span class="tag tag-sub">Hypothesis Generation</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-grappi-architecture">시스템 구조 (GraPPI Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l2"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>GraPPI: Retrieve-Divide-Solve GraphRAG over STRING PPI</h1>
 <blockquote>
 <p>NAACL 2025 (Findings) | Method | bio</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>GraPPI는 STRING 단백질-단백질 상호작용(PPI) 지식그래프 위에서 동작하는 GraphRAG로, 대규모 신호전달 경로를 Retrieve-Divide-Solve 전략으로 처리한다. 거대한 경로를 개별 PPI 엣지로 분할해 병렬 설명한 뒤 경로 수준으로 합성·재정렬해, 치료 타깃 발굴을 위한 설명 가능·확장 가능한 경로 분석을 생성한다.</p>
-<h2>시스템 구조 (GraPPI Architecture)</h2>
+<h2 id="시스템-구조-grappi-architecture">시스템 구조 (GraPPI Architecture)</h2>
 <ul>
 <li><strong>STRING PPI KG:</strong> 노드 18,767(인간 단백질) / 엣지 2,955,220. 엣지에 combined_score(신뢰도)·상호작용 유형, 노드에 단백질 주석.</li>
 <li><strong>Retrieve:</strong> 이동식 kNN 그래프 윈도로 연결 단백질 노드를 추출해 상호작용 서브그래프 구성(FAISS).</li>
@@ -130,29 +134,56 @@
 <li><strong>Solve:</strong> 경로 설명 에이전트가 PPI 경로 설명을 합성하고 LLM zero-shot 랭킹으로 치료 관련성 평가.</li>
 <li><strong>생성기:</strong> 임베딩 text-embedding-3-small, LLM GPT-4o/4o-mini/4-Turbo + 전문가 공동설계 CoT.</li>
 </ul>
-<h2>동작 파이프라인 (inference)</h2>
+<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
 <ol>
 <li>초기 단백질 입력 → 연결 노드 추출 + kNN 윈도로 상호작용 서브그래프 형성.</li>
 <li>Edge Explanation: 각 PPI 엣지를 양 끝 단백질 주석과 함께 병렬 설명(분할).</li>
 <li>Path Exploration: 엣지 설명을 집계해 다중 PPI 경로 설명 합성.</li>
 <li>Re-rank: LLM 관련성 점수로 경로 정렬 → 상위 n개 경로 제시.</li>
 </ol>
-<h2>주요 결과</h2>
+<h2 id="주요-결과">주요 결과</h2>
 <p>평가: 정확도(의미·어휘 정렬, BERTScore·ROUGE), 확장성(경로 40~160 그래프), 전문가 케이스 스터디. 4개 설정(Baseline / Zero-shot+CoT / RAG w/o CoT / GraPPI)에서 <strong>GraPPI가 모든 LLM·지표 최고</strong>. 예: GPT-4-Turbo ROUGE-1 F1 RAG 38.70 → <strong>GraPPI 42.19</strong>, ROUGE-L 31.93 → <strong>37.47</strong>.</p>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li>STRING이 알려진 모든 PPI를 포괄하지 못함.</li>
 <li>케이스 스터디가 초기 단백질 2개 기반(대표성 제한).</li>
 <li>그래프가 커질수록 이점 감소, 엣지 설명이 LLM 컨텍스트 한계 근접.</li>
 <li>연구용 프로토타입(배포 시스템 아님).</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li>arXiv: 2501.16382 · NAACL 2025 Findings (Li, Chen, Jeon)</li>
 <li>코드: <a href="https://github.com/AaronLi43/GraPPI">https://github.com/AaronLi43/GraPPI</a></li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/naacl/LiCJ25)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@inproceedings{DBLP:conf/naacl/LiCJ25,
+  author       = {Ziwen Li and
+                  Xiang Chen and
+                  Youngseung Jeon},
+  editor       = {Luis Chiruzzo and
+                  Alan Ritter and
+                  Lu Wang},
+  title        = {GraPPI: {A} Retrieve-Divide-Solve GraphRAG Framework for Large-scale
+                  Protein-protein Interaction Exploration},
+  booktitle    = {Findings of the Association for Computational Linguistics: {NAACL}
+                  2025, Albuquerque, New Mexico, USA, April 29 - May 4, 2025},
+  series       = {Findings of {ACL}},
+  pages        = {3635--3648},
+  publisher    = {Association for Computational Linguistics},
+  year         = {2025},
+  url          = {https://doi.org/10.18653/v1/2025.findings-naacl.201},
+  doi          = {10.18653/V1/2025.FINDINGS-NAACL.201},
+  timestamp    = {Tue, 27 Jan 2026 20:27:02 +0100},
+  biburl       = {https://dblp.org/rec/conf/naacl/LiCJ25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

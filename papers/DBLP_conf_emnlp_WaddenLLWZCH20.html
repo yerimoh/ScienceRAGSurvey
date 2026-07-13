@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Fact or Fiction: Verifying Scientific Claims — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">EMNLP</span>
       <span class="meta-year">2020</span>
-      <a href="https://aclanthology.org/2020.emnlp-main.609/" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">[&#x27;Claim Verification&#x27;]</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+    <div class="paper-links"><a href="https://aclanthology.org/2020.emnlp-main.609/" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/allenai/scifact" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Claim Verification</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#원문-직접-인용-arxiv200414974-본문">원문 직접 인용 (arXiv:2004.14974 §본문)</a></li><li class="toc-l2"><a href="#input-output">Input / Output</a></li><li class="toc-l3"><a href="#input">Input</a></li><li class="toc-l3"><a href="#output-evaluation-metrics">Output + Evaluation Metrics</a></li><li class="toc-l2"><a href="#실제-claim-예시-논문-table-1-fig-1-verbatim-covid-19-데모">실제 Claim 예시 (논문 Table 1 + Fig 1 verbatim, COVID-19 데모)</a></li><li class="toc-l3"><a href="#예시-1-동일-claim에-대한-supports-refutes-evidence-양립">예시 1 — 동일 claim에 대한 SUPPORTS / REFUTES evidence 양립</a></li><li class="toc-l3"><a href="#예시-2-기후-의존성-단방향-어휘-검증-필요">예시 2 — 기후 의존성 (단방향 어휘 검증 필요)</a></li><li class="toc-l3"><a href="#예시-3-statistical-reasoning-단방향-검증">예시 3 — Statistical reasoning + 단방향 검증</a></li><li class="toc-l2"><a href="#verisci-베이스라인-저자가-함께-제안한-3-stage-pipeline">VERISCI 베이스라인 (저자가 함께 제안한 3-stage pipeline)</a></li><li class="toc-l2"><a href="#주요-평가-결과-논문-본문-table-34">주요 평가 결과 (논문 본문 Table 3·4)</a></li><li class="toc-l2"><a href="#covid-19-zero-shot-검증-케이스-논문-본문-인용">COVID-19 zero-shot 검증 케이스 (논문 §본문 인용)</a></li><li class="toc-l2"><a href="#핵심-기여">핵심 기여</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>SciFact: 1,409 Expert-Written Scientific Claims with Rationale Annotation</h1>
 <blockquote>
@@ -122,10 +126,10 @@
 David Wadden, Shanchuan Lin, Kyle Lo, Lucy Lu Wang, Madeleine van Zuylen, Arman Cohan, Hannaneh Hajishirzi — AI2 / Univ. of Washington
 DBLP: <code>conf/emnlp/WaddenLLWZCH20</code> · arXiv: <a href="https://arxiv.org/abs/2004.14974">2004.14974</a></p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>과학 문헌에서 단일 atomic claim에 대해 <strong>SUPPORTS / REFUTES / NOINFO</strong> verdict를 부여하고 그 verdict를 정당화하는 <strong>rationale 문장</strong>까지 식별하는 task와, <strong>1,409개 전문가 작성 claim</strong> 으로 구성된 데이터셋. <strong>abstract-level F1 + sentence-level (rationale) F1</strong> 두 단위로 평가하는 verification benchmark의 표준.</p>
 <hr />
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — Citation sentence 수집 (자연 발생 claim 출처)
   └─ S2-ORC corpus의 인용 문장(citation sentence) 추출
   └─ 인용 문장 ≈ 다른 논문의 결과를 진술하는 &quot;natural claim&quot;
@@ -158,7 +162,7 @@ Step 4 — 최종 데이터셋 구성
   └────────────────────┴──────────────────┘
 </code></pre>
 <hr />
-<h2>원문 직접 인용 (arXiv:2004.14974 §본문)</h2>
+<h2 id="원문-직접-인용-arxiv200414974-본문">원문 직접 인용 (arXiv:2004.14974 §본문)</h2>
 <blockquote>
 <p><strong>Task 정의</strong>: <em>&quot;search literature containing evidence that <strong>SUPPORTS or REFUTES</strong> a given scientific claim, and to identify <strong>rationales</strong> justifying each decision&quot;</em></p>
 </blockquote>
@@ -178,8 +182,8 @@ Step 4 — 최종 데이터셋 구성
 <p><strong>FEVER와의 차이</strong>: <em>&quot;claims in the popular FEVER dataset (Thorne et al., 2018) are <strong>synthetic</strong>, since they are created by annotators by mutating sentences from Wikipedia&quot;</em> → SciFact는 자연 발생 citation 활용</p>
 </blockquote>
 <hr />
-<h2>Input / Output</h2>
-<h3>Input</h3>
+<h2 id="input-output">Input / Output</h2>
+<h3 id="input">Input</h3>
 <table>
 <thead>
 <tr>
@@ -202,7 +206,7 @@ Step 4 — 최종 데이터셋 구성
 </tr>
 </tbody>
 </table>
-<h3>Output + Evaluation Metrics</h3>
+<h3 id="output-evaluation-metrics">Output + Evaluation Metrics</h3>
 <table>
 <thead>
 <tr>
@@ -226,20 +230,20 @@ Step 4 — 최종 데이터셋 구성
 </table>
 <p>→ <strong>두 단위 F1을 동시 평가</strong>하는 것이 SciFact의 정체성. 단순 accuracy benchmark와 구분되는 핵심.</p>
 <hr />
-<h2>실제 Claim 예시 (논문 Table 1 + Fig 1 verbatim, COVID-19 데모)</h2>
-<h3>예시 1 — 동일 claim에 대한 SUPPORTS / REFUTES evidence 양립</h3>
+<h2 id="실제-claim-예시-논문-table-1-fig-1-verbatim-covid-19-데모">실제 Claim 예시 (논문 Table 1 + Fig 1 verbatim, COVID-19 데모)</h2>
+<h3 id="예시-1-동일-claim에-대한-supports-refutes-evidence-양립">예시 1 — 동일 claim에 대한 SUPPORTS / REFUTES evidence 양립</h3>
 <blockquote>
 <p><strong>Claim</strong>: <em>&quot;Lopinavir / ritonavir have exhibited favorable clinical responses when used as a treatment for coronavirus.&quot;</em></p>
 <p><strong>Supports (verbatim)</strong>: <em>&quot;...after lopinavir/ritonavir (Kaletra, AbbVie) was administered, β-coronavirus viral loads significantly decreased and no or little coronavirus titers were observed...&quot;</em></p>
 <p><strong>Refutes (verbatim)</strong>: <em>&quot;The focused drug repurposing of known approved drugs (such as lopinavir/ritonavir) has been reported failed for curing SARS-CoV-2 infected patients...&quot;</em></p>
 </blockquote>
-<h3>예시 2 — 기후 의존성 (단방향 어휘 검증 필요)</h3>
+<h3 id="예시-2-기후-의존성-단방향-어휘-검증-필요">예시 2 — 기후 의존성 (단방향 어휘 검증 필요)</h3>
 <blockquote>
 <p><strong>Claim</strong>: <em>&quot;The coronavirus cannot thrive in warmer climates.&quot;</em></p>
 <p><strong>Supports</strong>: <em>&quot;...most outbreaks display a pattern of clustering in relatively cool and dry areas...unsuitable climates can cause the virus to destabilize quickly...&quot;</em></p>
 <p><strong>Refutes</strong>: <em>&quot;...significant cases in the coming months are likely to occur in more humid (warmer) climates, irrespective of the climate-dependence of transmission...&quot;</em></p>
 </blockquote>
-<h3>예시 3 — Statistical reasoning + 단방향 검증</h3>
+<h3 id="예시-3-statistical-reasoning-단방향-검증">예시 3 — Statistical reasoning + 단방향 검증</h3>
 <blockquote>
 <p><strong>Claim</strong>: <em>&quot;Cardiac injury is common in critical cases of COVID-19.&quot;</em></p>
 <p><strong>Rationale 검증 포인트</strong> (논문 §본문 인용):</p>
@@ -249,7 +253,7 @@ Step 4 — 최종 데이터셋 구성
 </ul>
 </blockquote>
 <hr />
-<h2>VERISCI 베이스라인 (저자가 함께 제안한 3-stage pipeline)</h2>
+<h2 id="verisci-베이스라인-저자가-함께-제안한-3-stage-pipeline">VERISCI 베이스라인 (저자가 함께 제안한 3-stage pipeline)</h2>
 <pre><code>[Claim 입력]
      │
      ▼
@@ -275,7 +279,7 @@ Step 4 — 최종 데이터셋 구성
 </code></pre>
 <p><strong>도메인 적응 실험 결과 (논문 §6)</strong>: FEVER (Wikipedia) + Wikipedia 일반 claim 등 추가 학습 시 SciFact 성능 향상 → &quot;simple domain adaptation techniques substantially improve performance&quot; (§Abstract).</p>
 <hr />
-<h2>주요 평가 결과 (논문 본문 Table 3·4)</h2>
+<h2 id="주요-평가-결과-논문-본문-table-34">주요 평가 결과 (논문 본문 Table 3·4)</h2>
 <table>
 <thead>
 <tr>
@@ -305,13 +309,13 @@ Step 4 — 최종 데이터셋 구성
 <p>→ Open setting에서 큰 폭의 성능 저하 → retrieval이 verification 성공의 큰 bottleneck.
 → Label+Rationale F1이 Label-Only F1보다 ~17%p 낮음 → rationale 식별이 label 추론보다 어려운 task.</p>
 <hr />
-<h2>COVID-19 zero-shot 검증 케이스 (논문 §본문 인용)</h2>
+<h2 id="covid-19-zero-shot-검증-케이스-논문-본문-인용">COVID-19 zero-shot 검증 케이스 (논문 §본문 인용)</h2>
 <blockquote>
 <p><em>&quot;We showcase the ability of our model to verify expert-written claims concerning the novel coronavirus COVID-19 against the newly-released <strong>CORD-19 corpus</strong> (Wang et al., 2020). Expert annotators judge retrieved evidence to be plausible for <strong>23 of 36 claims</strong>.&quot;</em></p>
 </blockquote>
 <p>→ 실제 의료 위기 상황에서 zero-shot 일반화 가능성 시연. SciFact 학습 모델이 새 도메인(COVID-19)에 즉시 적용 가능.</p>
 <hr />
-<h2>핵심 기여</h2>
+<h2 id="핵심-기여">핵심 기여</h2>
 <ol>
 <li><strong>Scientific Claim Verification</strong> task 공식화 (claim → abstract → label + rationale)</li>
 <li><strong>1,409개 전문가 주석 claim 데이터셋</strong> (citation sentence 기반의 자연 claim)</li>
@@ -319,7 +323,7 @@ Step 4 — 최종 데이터셋 구성
 <li><strong>Sentence-level + Abstract-level F1 동시 평가</strong> 프로토콜 정립</li>
 </ol>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>소규모</strong>: 1,409 claim, ~5,183 abstract corpus → SciFact-Open (500K)으로 확장됨</li>
 <li><strong>단방향 평가</strong>: 단일 (claim, abstract) 쌍 단위; 다중 abstract 간 모순/통합 미평가</li>
@@ -328,7 +332,7 @@ Step 4 — 최종 데이터셋 구성
 <li><strong>Sentence-level 어려움</strong>: rationale 식별이 abstract-level label 추론보다 더 어려움</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문 (ACL Anthology)</strong>: <a href="https://aclanthology.org/2020.emnlp-main.609/">2020.emnlp-main.609</a></li>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2004.14974">2004.14974</a></li>
@@ -339,7 +343,37 @@ Step 4 — 최종 데이터셋 구성
 <li><strong>이 benchmark를 사용한 후속 작업</strong>: VerT5erini, ParagraphJoint, MultiVerS, OpenScholar (citation F1 평가에도 활용)</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/emnlp/WaddenLLWZCH20)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@inproceedings{DBLP:conf/emnlp/WaddenLLWZCH20,
+  author       = {David Wadden and
+                  Shanchuan Lin and
+                  Kyle Lo and
+                  Lucy Lu Wang and
+                  Madeleine van Zuylen and
+                  Arman Cohan and
+                  Hannaneh Hajishirzi},
+  editor       = {Bonnie Webber and
+                  Trevor Cohn and
+                  Yulan He and
+                  Yang Liu},
+  title        = {Fact or Fiction: Verifying Scientific Claims},
+  booktitle    = {Proceedings of the 2020 Conference on Empirical Methods in Natural
+                  Language Processing, {EMNLP} 2020, Online, November 16-20, 2020},
+  pages        = {7534--7550},
+  publisher    = {Association for Computational Linguistics},
+  year         = {2020},
+  url          = {https://doi.org/10.18653/v1/2020.emnlp-main.609},
+  doi          = {10.18653/V1/2020.EMNLP-MAIN.609},
+  timestamp    = {Sun, 06 Oct 2024 21:00:53 +0200},
+  biburl       = {https://dblp.org/rec/conf/emnlp/WaddenLLWZCH20.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

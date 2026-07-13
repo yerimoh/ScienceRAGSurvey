@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Language Agents Achieve Superhuman Synthesis of Scientific Knowledge — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,22 +108,26 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">arXiv</span>
       <span class="meta-year">2024</span>
-      <a href="https://arxiv.org/abs/2409.13740" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">[&#x27;Literature Synthesis&#x27;]</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a></div>
+    <div class="paper-links"><a href="https://arxiv.org/abs/2409.13740" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/Future-House/paper-qa" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#연구-배경-및-동기">연구 배경 및 동기</a></li><li class="toc-l2"><a href="#시스템-아키텍처">시스템 아키텍처</a></li><li class="toc-l2"><a href="#핵심-모듈-상세-설명">핵심 모듈 상세 설명</a></li><li class="toc-l3"><a href="#rcs-reranking-amp-contextual-summarization">RCS (Reranking &amp;amp; Contextual Summarization)</a></li><li class="toc-l3"><a href="#citation-traversal-tool">Citation Traversal Tool</a></li><li class="toc-l3"><a href="#도구db-연동-테이블">도구·DB 연동 테이블</a></li><li class="toc-l2"><a href="#litqa2-벤치마크-상세-이-논문이-제작한-closed-form-qa-benchmark">LitQA2 벤치마크 상세 (이 논문이 제작한 closed-form QA benchmark)</a></li><li class="toc-l3"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l3"><a href="#실제-litqa2-문항-형식-논문-figure-2a-본문-발췌">실제 LitQA2 문항 형식 (논문 Figure 2A 본문 발췌)</a></li><li class="toc-l3"><a href="#주요-평가-결과-논문-본문-table-figure-2b-직접-인용">주요 평가 결과 (논문 본문 Table + Figure 2B 직접 인용)</a></li><li class="toc-l3"><a href="#litqa2의-의의">LitQA2의 의의</a></li><li class="toc-l2"><a href="#실험-및-평가">실험 및 평가</a></li><li class="toc-l3"><a href="#평가-태스크-및-데이터셋">평가 태스크 및 데이터셋</a></li><li class="toc-l3"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#핵심-기여">핵심 기여</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-연구-및-관련-정보">관련 연구 및 관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>Language Agents Achieve Superhuman Synthesis of Scientific Knowledge</h1>
 <blockquote>
 <p>arXiv | 2024 | Method | bio</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>PaperQA2는 과학 문헌 검색·요약·모순탐지 세 가지 실제 태스크에서 제한 없는 인간 전문가(PhD/박사과정)를 초과하는 성능을 달성한 최초의 RAG 에이전트 시스템이다.</p>
 <hr />
-<h2>연구 배경 및 동기</h2>
+<h2 id="연구-배경-및-동기">연구 배경 및 동기</h2>
 <p><strong>기존 방법의 한계</strong></p>
 <ul>
 <li>LLM은 hallucination(잘못된 정보를 자신 있게 생성) 문제가 있어 과학적 정확성 요구 충족 어려움</li>
@@ -138,7 +142,7 @@
 <li>특히 모순 탐지는 &quot;many vs many&quot; 문제로 인간에게 실현 불가능한 규모에서 동작 가능</li>
 </ul>
 <hr />
-<h2>시스템 아키텍처</h2>
+<h2 id="시스템-아키텍처">시스템 아키텍처</h2>
 <pre><code>[사용자 쿼리]
      ↓
 [PaperQA2 Agent (GPT-4-Turbo, ReAct 패턴)]
@@ -164,8 +168,8 @@
 <p><strong>WikiCrow</strong> (요약 특화): 유전자명 → 구조/기능/상호작용/임상의의 각 섹션별 PaperQA2 호출 4회 + overview LLM 1회 → Python으로 합성</p>
 <p><strong>ContraCrow</strong> (모순탐지 특화): 논문 청크 분할 → LLM 클레임 추출 → 품질 필터링(≥8/10) → PaperQA2로 각 클레임에 모순탐지 쿼리 → 11점 Likert 스코어 출력</p>
 <hr />
-<h2>핵심 모듈 상세 설명</h2>
-<h3>RCS (Reranking &amp; Contextual Summarization)</h3>
+<h2 id="핵심-모듈-상세-설명">핵심 모듈 상세 설명</h2>
+<h3 id="rcs-reranking-amp-contextual-summarization">RCS (Reranking &amp; Contextual Summarization)</h3>
 <table>
 <thead>
 <tr>
@@ -196,7 +200,7 @@
 </tr>
 </tbody>
 </table>
-<h3>Citation Traversal Tool</h3>
+<h3 id="citation-traversal-tool">Citation Traversal Tool</h3>
 <table>
 <thead>
 <tr>
@@ -231,7 +235,7 @@
 </tr>
 </tbody>
 </table>
-<h3>도구·DB 연동 테이블</h3>
+<h3 id="도구db-연동-테이블">도구·DB 연동 테이블</h3>
 <table>
 <thead>
 <tr>
@@ -269,9 +273,9 @@
 </tbody>
 </table>
 <hr />
-<h2>LitQA2 벤치마크 상세 (이 논문이 제작한 closed-form QA benchmark)</h2>
+<h2 id="litqa2-벤치마크-상세-이-논문이-제작한-closed-form-qa-benchmark">LitQA2 벤치마크 상세 (이 논문이 제작한 closed-form QA benchmark)</h2>
 <p>본 논문은 system(PaperQA2)과 함께 <strong>LitQA2</strong> 벤치마크를 제안. LitQA (PaperQA 원전, 47문항)의 확장판으로, <strong>248개 객관식(MCQ) 생의학 질문</strong>으로 구성. 답은 논문 <strong>본문에만</strong> 등장하고 초록에는 없는 사실에 기반.</p>
-<h3>어떻게 만들었나 (Construction Methodology)</h3>
+<h3 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h3>
 <pre><code>Step 1 — 소스 논문 선정 원칙 (논문 §LitQA2 본문 인용)
   &quot;LitQA2 questions are designed to have answers that appear in
    the main body of a paper, but not in the abstract, and ideally
@@ -306,12 +310,12 @@ Step 4 — 자동 평가 파이프라인 (논문 §8.2 본문 인용)
   → 추출된 letter answer를 ideal answer와 매칭, &quot;Insufficient information&quot;
     선택 시 별도 처리 (null 정답에 대해서는 Correct로 채점)
 </code></pre>
-<h3>실제 LitQA2 문항 형식 (논문 Figure 2A 본문 발췌)</h3>
+<h3 id="실제-litqa2-문항-형식-논문-figure-2a-본문-발췌">실제 LitQA2 문항 형식 (논문 Figure 2A 본문 발췌)</h3>
 <blockquote>
 <p>&quot;LitQA2 questions are MCQ with the option to refuse via 'Insufficient information to answer this question'. Each question has a single correct option, multiple incorrect distractors, and metadata indicating the source DOI.&quot;</p>
 </blockquote>
 <p>LitQA2 question은 답이 논문의 <strong>단 한 곳</strong>에만 등장하도록 설계되어, 모델이 단순 키워드 매칭이 아닌 정확한 retrieval+reasoning을 수행해야 함.</p>
-<h3>주요 평가 결과 (논문 본문 Table + Figure 2B 직접 인용)</h3>
+<h3 id="주요-평가-결과-논문-본문-table-figure-2b-직접-인용">주요 평가 결과 (논문 본문 Table + Figure 2B 직접 인용)</h3>
 <table>
 <thead>
 <tr>
@@ -364,7 +368,7 @@ Step 4 — 자동 평가 파이프라인 (논문 §8.2 본문 인용)
 <li>&quot;PaperQA2 outperforms other RAG systems on the LitQA2 benchmark in both precision and accuracy&quot;</li>
 <li>Stage 1(147) vs Stage 2(101) 결과 차이 없음 → overfit 없음</li>
 </ul>
-<h3>LitQA2의 의의</h3>
+<h3 id="litqa2의-의의">LitQA2의 의의</h3>
 <p>LitQA2는 closed-form benchmark이지만 RAG 시스템의 <strong>전체 파이프라인</strong>(검색 → 본문 발췌 → 추론 → 답변)을 한 번에 평가할 수 있도록 설계됨:</p>
 <ul>
 <li>답이 abstract에 없음 → retrieval이 전체 본문을 다뤄야 함</li>
@@ -372,8 +376,8 @@ Step 4 — 자동 평가 파이프라인 (논문 §8.2 본문 인용)
 <li>&quot;Insufficient information&quot; 옵션 → 모름을 인정하는 신중함도 평가</li>
 </ul>
 <hr />
-<h2>실험 및 평가</h2>
-<h3>평가 태스크 및 데이터셋</h3>
+<h2 id="실험-및-평가">실험 및 평가</h2>
+<h3 id="평가-태스크-및-데이터셋">평가 태스크 및 데이터셋</h3>
 <table>
 <thead>
 <tr>
@@ -404,7 +408,7 @@ Step 4 — 자동 평가 파이프라인 (논문 §8.2 본문 인용)
 </tr>
 </tbody>
 </table>
-<h3>주요 결과</h3>
+<h3 id="주요-결과">주요 결과</h3>
 <table>
 <thead>
 <tr>
@@ -484,7 +488,7 @@ Step 4 — 자동 평가 파이프라인 (논문 §8.2 본문 인용)
 </tbody>
 </table>
 <hr />
-<h2>핵심 기여</h2>
+<h2 id="핵심-기여">핵심 기여</h2>
 <ul>
 <li><strong>인간 초과 성능 최초 달성</strong>: 제한 없는 인간 전문가 대비 LitQA2 precision 유의미하게 초과 (p=0.0036)</li>
 <li><strong>RCS 기법</strong>: top-k 검색 후 LLM으로 각 청크를 요약+점수화하여 노이즈 청크 제거 → precision 대폭 향상</li>
@@ -494,7 +498,7 @@ Step 4 — 자동 평가 파이프라인 (논문 §8.2 본문 인용)
 <li><strong>엄격한 인간 비교 방법론</strong>: 인터넷·도구 완전 허용 상태의 PhD 전문가와 동일 조건 비교</li>
 </ul>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>폐쇄 접근 논문 누락</strong>: 라이선스 제약으로 오픈액세스 논문만 사용 가능 → 중요 결과 누락 가능성</li>
 <li><strong>ContraCrow 오버컨피던스</strong>: 인간 간 일치율 75.5% vs ContraCrow-인간 일치율 60.4% → 과도한 확신 경향</li>
@@ -503,7 +507,7 @@ Step 4 — 자동 평가 파이프라인 (논문 §8.2 본문 인용)
 <li><strong>추상적 추론 한계</strong>: LLM 자체의 추론 오류(hallucination) 여전히 존재 (WikiCrow reasoning issue 12개)</li>
 </ul>
 <hr />
-<h2>관련 연구 및 관련 정보</h2>
+<h2 id="관련-연구-및-관련-정보">관련 연구 및 관련 정보</h2>
 <ul>
 <li><strong>원 논문</strong>: <a href="https://arxiv.org/abs/2409.13740">https://arxiv.org/abs/2409.13740</a></li>
 <li><strong>GitHub</strong>: <a href="https://github.com/Future-House/paper-qa">https://github.com/Future-House/paper-qa</a> (paperqa 오픈소스)</li>
@@ -512,7 +516,35 @@ Step 4 — 자동 평가 파이프라인 (논문 §8.2 본문 인용)
 <li><strong>이 논문이 제작한 벤치마크</strong>: LitQA2 (248 MCQ), ContraDetect</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/corr/abs-2409-13740)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{DBLP:journals/corr/abs-2409-13740,
+  author       = {Michael D. Skarlinski and
+                  Sam Cox and
+                  Jon M. Laurent and
+                  James D. Braza and
+                  Michaela M. Hinks and
+                  Michael J. Hammerling and
+                  Manvitha Ponnapati and
+                  Samuel G. Rodriques and
+                  Andrew D. White},
+  title        = {Language agents achieve superhuman synthesis of scientific knowledge},
+  journal      = {CoRR},
+  volume       = {abs/2409.13740},
+  year         = {2024},
+  url          = {https://doi.org/10.48550/arXiv.2409.13740},
+  doi          = {10.48550/ARXIV.2409.13740},
+  eprinttype   = {arXiv},
+  eprint       = {2409.13740},
+  timestamp    = {Tue, 14 Oct 2025 19:42:32 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2409-13740.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

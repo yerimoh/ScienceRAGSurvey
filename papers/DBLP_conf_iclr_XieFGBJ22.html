@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Crystal Diffusion Variational Autoencoder for Periodic Material Generation — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">ICLR 2022</span>
       <span class="meta-year">2022</span>
-      <a href="https://arxiv.org/abs/2110.06197" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">[&#x27;Materials Discovery&#x27;]</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a></div>
+    <div class="paper-links"><a href="https://arxiv.org/abs/2110.06197" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/txie-93/cdvae" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Materials Discovery</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#실제-데이터-형식-예시-논문-5-figure-3">실제 데이터 형식 예시 (논문 §5 + Figure 3)</a></li><li class="toc-l3"><a href="#유형-a-perov-5-페로브스카이트-5-atom-unit-cell">유형 A — Perov-5 (페로브스카이트 5-atom unit cell)</a></li><li class="toc-l3"><a href="#유형-b-carbon-24-탄소-only-allotrope">유형 B — Carbon-24 (탄소-only allotrope)</a></li><li class="toc-l3"><a href="#유형-c-mp-20-materials-project-20-atoms">유형 C — MP-20 (Materials Project ≤ 20 atoms)</a></li><li class="toc-l3"><a href="#평가-sample-규모-validity-coverage-property-statistics">평가 sample 규모 (validity / coverage / property statistics)</a></li><li class="toc-l2"><a href="#평가-framework-요약">평가 framework 요약</a></li><li class="toc-l2"><a href="#주요-결과-논문-5">주요 결과 (논문 §5)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>CDVAE: 3-Dataset Crystal Generation Benchmark (Perov-5 / Carbon-24 / MP-20)</h1>
 <blockquote>
@@ -122,10 +126,10 @@
 Tian Xie, Xiang Fu, Octavian-Eugen Ganea, Regina Barzilay, Tommi Jaakkola — MIT CSAIL
 arXiv: <a href="https://arxiv.org/abs/2110.06197">2110.06197</a> · OpenReview: <a href="https://openreview.net/forum?id=03RLpj-tc_">03RLpj-tc_</a></p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>주기 결정 구조 생성(periodic material generation)을 위한 <strong>3-dataset standard benchmark</strong> (Perov-5 18,928<sup class="footnote-ref" id="fnref-1"><a href="#fn-1">1</a></sup> / Carbon-24 10,153<sup class="footnote-ref" id="fnref-2"><a href="#fn-2">2</a></sup> / MP-20)와 <strong>3-task evaluation suite</strong> (Reconstruction, Generation, Property Optimization)를 제안. 평가 지표로 <strong>Validity, Coverage (COV-R / COV-P), Property statistics (EMD)</strong><sup class="footnote-ref" id="fnref-3"><a href="#fn-3">3</a></sup>를 도입해 이전 method들의 비교 불가능 문제를 해결.</p>
 <hr />
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — 문제 인식: material generation 평가의 비표준
   ┌──────────────────────────────────────────────┐
   │ &quot;Past studies in this field used very       │
@@ -173,8 +177,8 @@ Step 5 — Baselines 비교
   · P-G-SchNet: G-SchNet에 periodicity 추가
 </code></pre>
 <hr />
-<h2>실제 데이터 형식 예시 (논문 §5 + Figure 3)</h2>
-<h3>유형 A — Perov-5 (페로브스카이트 5-atom unit cell)</h3>
+<h2 id="실제-데이터-형식-예시-논문-5-figure-3">실제 데이터 형식 예시 (논문 §5 + Figure 3)</h2>
+<h3 id="유형-a-perov-5-페로브스카이트-5-atom-unit-cell">유형 A — Perov-5 (페로브스카이트 5-atom unit cell)</h3>
 <blockquote>
 <p><strong>Composition</strong>: ABX₃ 페로브스카이트 구조 (모두 동일한 cubic perovskite 구조, 조성만 다름)</p>
 <p><strong>예시 entry</strong> (논문 Figure 3 Ground Truth):</p>
@@ -184,7 +188,7 @@ Structure:  cubic perovskite (5-atom unit cell)
 </code></pre>
 <p>총 <strong>18,928 materials × 56 elements</strong> — 모두 동일 구조, 조성 다양성만 평가.</p>
 </blockquote>
-<h3>유형 B — Carbon-24 (탄소-only allotrope)</h3>
+<h3 id="유형-b-carbon-24-탄소-only-allotrope">유형 B — Carbon-24 (탄소-only allotrope)</h3>
 <blockquote>
 <p><strong>Composition</strong>: 순수 탄소 (1 element)만 사용</p>
 <p><strong>예시 entry</strong> (논문 Figure 3 Ground Truth):</p>
@@ -194,7 +198,7 @@ Constraint: 모두 carbon, 다양한 3D bonding network
 </code></pre>
 <p>총 <strong>10,153 materials × 1 element</strong> — 동일 조성, 구조 다양성만 평가.</p>
 </blockquote>
-<h3>유형 C — MP-20 (Materials Project ≤ 20 atoms)</h3>
+<h3 id="유형-c-mp-20-materials-project-20-atoms">유형 C — MP-20 (Materials Project ≤ 20 atoms)</h3>
 <blockquote>
 <p><strong>Composition</strong>: Materials Project 전체에서 unit cell ≤ 20 atoms인 entry</p>
 <p><strong>예시 entries</strong> (논문 Figure 3 Ground Truth):</p>
@@ -206,7 +210,7 @@ Mg-Al-Si-Si-Al-Al        (intermetallic)
 </code></pre>
 <p>총 <strong>~45,000 materials</strong> — 조성·구조·element 다양성 모두 평가 (가장 도전적인 dataset).</p>
 </blockquote>
-<h3>평가 sample 규모 (validity / coverage / property statistics)</h3>
+<h3 id="평가-sample-규모-validity-coverage-property-statistics">평가 sample 규모 (validity / coverage / property statistics)</h3>
 <blockquote>
 <p><strong>Validity &amp; Coverage 측정</strong>:</p>
 <pre><code>Sample: 10,000 materials randomly sampled from N(0, I) latent
@@ -225,7 +229,7 @@ EMD over: density ρ (g/cm³), GNN-predicted E (eV/atom), # elements
 </ul>
 </blockquote>
 <hr />
-<h2>평가 framework 요약</h2>
+<h2 id="평가-framework-요약">평가 framework 요약</h2>
 <table>
 <thead>
 <tr>
@@ -289,7 +293,7 @@ EMD over: density ρ (g/cm³), GNN-predicted E (eV/atom), # elements
 </table>
 <p>→ ground truth 100% validity vs Perov-5 98.60% / Carbon-24 100.0% / MP-20 91.13% composition validity (training 분포).</p>
 <hr />
-<h2>주요 결과 (논문 §5)</h2>
+<h2 id="주요-결과-논문-5">주요 결과 (논문 §5)</h2>
 <table>
 <thead>
 <tr>
@@ -323,7 +327,7 @@ EMD over: density ρ (g/cm³), GNN-predicted E (eV/atom), # elements
 </table>
 <p>→ &quot;Both G-SchNet and P-G-SchNet are incapable of property optimization&quot; — molecular adapation 한계 노출.</p>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>Validity의 약한 기준</strong>: &quot;0.5 Å&quot; pairwise distance는 &quot;relative weak criterion&quot; (논문 자체 표현)</li>
 <li><strong>EMD-based property statistics</strong>: GNN proxy energy, 실제 DFT 검증 미포함</li>
@@ -332,7 +336,7 @@ EMD over: density ρ (g/cm³), GNN-predicted E (eV/atom), # elements
 <li><strong>시간</strong>: 2022 cutoff, 최신 foundation MLIP 평가 미포함</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>OpenReview</strong>: <a href="https://openreview.net/forum?id=03RLpj-tc_">03RLpj-tc_</a></li>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2110.06197">2110.06197</a></li>
@@ -349,7 +353,26 @@ EMD over: density ρ (g/cm³), GNN-predicted E (eV/atom), # elements
 </ol>
 </section>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/iclr/XieFGBJ22)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@inproceedings{DBLP:conf/iclr/XieFGBJ22,
+  author    = {Tian Xie and Xiang Fu and Octavian{-}Eugen Ganea and Regina Barzilay and Tommi S. Jaakkola},
+  title     = {Crystal Diffusion Variational Autoencoder for Periodic Material Generation},
+  booktitle = {The Tenth International Conference on Learning Representations, {ICLR} 2022,
+               Virtual Event, April 25-29, 2022},
+  publisher = {OpenReview.net},
+  year      = {2022},
+  url       = {https://openreview.net/forum?id=03RLpj-tc_},
+  eprint    = {2110.06197},
+  eprinttype = {arXiv},
+  biburl    = {https://dblp.org/rec/conf/iclr/XieFGBJ22.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Exploring genetic interaction manifolds constructed from rich single-cell phenotypes — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">Science</span>
       <span class="meta-year">2019</span>
-      <a href="https://doi.org/10.1126/science.aax4438" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K4.html" class="tag tag-cell" title="K4">Perceptual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a></div>
+    <div class="paper-links"><a href="https://doi.org/10.1126/science.aax4438" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K4.html" class="tag tag-cell" title="K4">Perceptual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#실제-데이터-형식-예시-논문-methods-supplementary">실제 데이터 형식 예시 (논문 §Methods + Supplementary)</a></li><li class="toc-l3"><a href="#유형-a-single-gene-crispri-perturbation-record">유형 A — Single-gene CRISPRi perturbation record</a></li><li class="toc-l3"><a href="#유형-b-dual-gene-combinatorial-perturbation">유형 B — Dual-gene combinatorial perturbation</a></li><li class="toc-l3"><a href="#유형-c-gi-manifold-inputoutput">유형 C — GI manifold input/output</a></li><li class="toc-l3"><a href="#유형-d-downstream-ml-사용-예시-gears-기준">유형 D — Downstream ML 사용 예시 (GEARS 기준)</a></li><li class="toc-l2"><a href="#평가-framework-downstream-model이-사용">평가 framework (downstream model이 사용)</a></li><li class="toc-l2"><a href="#주요-발견-논문-results">주요 발견 (논문 §Results)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>Norman 2019: 287 dual-CRISPRi pair × K562 — canonical GI manifold substrate</h1>
 <blockquote>
@@ -122,10 +126,10 @@
 Thomas M. Norman, Max A. Horlbeck, Joseph M. Replogle, Alex Y. Ge, Albert Xu, Marco Jost, Luke A. Gilbert, Jonathan S. Weissman — UCSF / Whitehead Institute
 DOI: <a href="https://doi.org/10.1126/science.aax4438">10.1126/science.aax4438</a></p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p><strong>287 dual-CRISPRi (CRISPR interference) gene-pair × K562 erythroleukemia cells</strong>에서 측정한 <strong>Perturb-seq atlas</strong>. 각 dual perturbation은 두 sgRNA를 동일 세포에 발현시켜 두 유전자를 동시 knockdown. <strong>rich single-cell transcriptomic phenotype</strong> 기반으로 <strong>genetic interaction manifold</strong>를 구성, 유전자 쌍의 <strong>synergy / suppression / redirection / neomorphism</strong> 등 GI subtype을 phenotype 공간에서 직접 분류. 이후 GEARS / PerturBench / scGPT 등 <strong>모든 dual-gene perturbation prediction 모델의 표준 substrate</strong>.</p>
 <hr />
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — 동기: GI 측정의 한계
   ┌──────────────────────────────────────────────┐
   │ 전통 GI 측정 (epistasis):                    │
@@ -174,8 +178,8 @@ Step 5 — GI subtype 분류 체계
   └──────────────────────────────────────────────┘
 </code></pre>
 <hr />
-<h2>실제 데이터 형식 예시 (논문 §Methods + Supplementary)</h2>
-<h3>유형 A — Single-gene CRISPRi perturbation record</h3>
+<h2 id="실제-데이터-형식-예시-논문-methods-supplementary">실제 데이터 형식 예시 (논문 §Methods + Supplementary)</h2>
+<h3 id="유형-a-single-gene-crispri-perturbation-record">유형 A — Single-gene CRISPRi perturbation record</h3>
 <blockquote>
 <pre><code>Cell:        K562 (CRISPRi-ready, dCas9-KRAB stable)
 sgRNA:       targeting CEBPA promoter (TSS-proximal)
@@ -185,7 +189,7 @@ Cell count:  ~500-2000 cells per perturbation
 Gene exp:    raw UMI count matrix (cells × genes)
 </code></pre>
 </blockquote>
-<h3>유형 B — Dual-gene combinatorial perturbation</h3>
+<h3 id="유형-b-dual-gene-combinatorial-perturbation">유형 B — Dual-gene combinatorial perturbation</h3>
 <blockquote>
 <pre><code>Dual sgRNA construct: sgRNA-A (targets CEBPA)
                     + sgRNA-B (targets CEBPB)
@@ -195,7 +199,7 @@ Phenotype:           cell expression vector under
                     simultaneous CEBPA + CEBPB KD
 </code></pre>
 </blockquote>
-<h3>유형 C — GI manifold input/output</h3>
+<h3 id="유형-c-gi-manifold-inputoutput">유형 C — GI manifold input/output</h3>
 <blockquote>
 <p><strong>Input</strong>:</p>
 <pre><code>Single A perturbation embedding (e.g., CEBPA)
@@ -211,7 +215,7 @@ Direction: projection of dual onto control axis,
         → classify into 6 GI subtypes
 </code></pre>
 </blockquote>
-<h3>유형 D — Downstream ML 사용 예시 (GEARS 기준)</h3>
+<h3 id="유형-d-downstream-ml-사용-예시-gears-기준">유형 D — Downstream ML 사용 예시 (GEARS 기준)</h3>
 <blockquote>
 <pre><code>Standard split (GEARS, PerturBench):
   Train:  all 155 single + 30% of 131 dual
@@ -225,7 +229,7 @@ Standard evaluation splits introduced by GEARS:
 </code></pre>
 </blockquote>
 <hr />
-<h2>평가 framework (downstream model이 사용)</h2>
+<h2 id="평가-framework-downstream-model이-사용">평가 framework (downstream model이 사용)</h2>
 <table>
 <thead>
 <tr>
@@ -264,7 +268,7 @@ Standard evaluation splits introduced by GEARS:
 </table>
 <p>→ Norman 2019는 데이터 그 자체로는 metric 없음; downstream model이 위 metric으로 평가.</p>
 <hr />
-<h2>주요 발견 (논문 §Results)</h2>
+<h2 id="주요-발견-논문-results">주요 발견 (논문 §Results)</h2>
 <table>
 <thead>
 <tr>
@@ -297,7 +301,7 @@ Standard evaluation splits introduced by GEARS:
 </table>
 <p>→ <strong>결론</strong>: scRNA-seq 기반 rich phenotype으로 GI analysis 패러다임 전환, 후속 perturbation prediction 모델의 표준 substrate가 됨.</p>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>K562 cell line만</strong>: 다른 cell type / 1차 세포 미커버</li>
 <li><strong>CRISPRi (knockdown)만</strong>: knockout, overexpression, drug perturbation 별도</li>
@@ -307,7 +311,7 @@ Standard evaluation splits introduced by GEARS:
 <li><strong>scRNA-seq dropout</strong>: 저발현 유전자 정확도 제한</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문 (Science)</strong>: <a href="https://doi.org/10.1126/science.aax4438">10.1126/science.aax4438</a></li>
 <li><strong>데이터 접근</strong>: GEO + GEARS 전처리 버전 (<code>gears.PertData.load('norman')</code>)</li>
@@ -321,7 +325,27 @@ Standard evaluation splits introduced by GEARS:
 <li><strong>선행 연구</strong>: Adamson 2016 (UPR), Dixit 2016 (Perturb-seq 원형), Replogle 2022 (genome-scale Perturb-seq)</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (norman2019exploring)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{norman2019exploring,
+  author       = {Norman, Thomas M. and Horlbeck, Max A. and Replogle, Joseph M.
+                  and Ge, Alex Y. and Xu, Albert and Jost, Marco and Gilbert, Luke A.
+                  and Weissman, Jonathan S.},
+  title        = {Exploring genetic interaction manifolds constructed from rich single-cell
+                  phenotypes},
+  journal      = {Science},
+  volume       = {365},
+  number       = {6455},
+  pages        = {786--793},
+  year         = {2019},
+  doi          = {10.1126/science.aax4438},
+  url          = {https://doi.org/10.1126/science.aax4438}
+}</code></pre>
   </div>
 </section>
 </main>

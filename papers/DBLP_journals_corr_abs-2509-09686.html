@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GeoGPT-RAG Technical Report — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,21 +108,25 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">arXiv</span>
       <span class="meta-year">2025</span>
-      <a href="https://arxiv.org/abs/2509.09686v2" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">[&#x27;Question Answering&#x27;]</span><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a></div>
+    <div class="paper-links"><a href="https://arxiv.org/abs/2509.09686v2" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://huggingface.co/datasets/GeoGPT-Research-Project/GeoRAG-QA" target="_blank" rel="noopener" class="res-link res-model">🤗 Model / HF ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#input-입력">Input (입력)</a></li><li class="toc-l2"><a href="#output-출력-정답-형식">Output (출력 / 정답 형식)</a></li><li class="toc-l2"><a href="#예시-문항-논문-본문-명시-내용">예시 문항 (논문 본문 명시 내용)</a></li><li class="toc-l3"><a href="#query-generation-prompt-본문-그대로">📘 Query-Generation Prompt (본문 그대로)</a></li><li class="toc-l3"><a href="#query-type-categories-table-6">📘 Query Type Categories (Table 6)</a></li><li class="toc-l3"><a href="#answer-rewriting-prompt">📘 Answer-Rewriting Prompt</a></li><li class="toc-l3"><a href="#전문가-평가-도메인">📘 전문가 평가 도메인</a></li><li class="toc-l2"><a href="#주요-평가-결과">주요 평가 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>GeoGPT-RAG Technical Report</h1>
 <blockquote>
 <p>arXiv | 2025 | Benchmark · Method | earth</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>지구과학 분야 전용 RAG 스택(GeoEmbedding, GeoReranker, RAFT)을 개발하고, GPT-4o + RAGAS 프레임워크로 1,000편 오픈 액세스 지구과학 논문에서 자동 생성한 938개 QA 벤치마크 <strong>GeoRAG-QA</strong>를 공개. Top-1 retrieval recall <strong>0.908</strong>, 전문가 평가 시 <strong>85.7%</strong> 정답 정확도 달성.</p>
-<h2>제작 배경</h2>
+<h2 id="제작-배경">제작 배경</h2>
 <p><strong>기존 벤치마크의 한계</strong></p>
 <ul>
 <li>MTEB·BEIR 등 범용 IR 벤치마크는 지질학·석유 탐사·지구물리학 같이 고도로 특화된 어휘·구조를 가진 지구과학 자료에 부적합</li>
@@ -134,7 +138,7 @@
 <li>GeoGPT는 38개국 1M+ 논문 규모의 지구과학 도메인을 지원해야 하므로, 도메인 적응 embedding/reranker가 핵심</li>
 <li>비전문가·신입 연구자도 RAG로 지구과학 정보를 정확히 검색·합성할 수 있어야 함</li>
 </ul>
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <p><strong>전체 구성</strong>: GeoGPT 라이브러리 → RAGAS 기반 자동 QA 생성 → 수동 검수 → GeoRAG-QA 938 공개</p>
 <pre><code>Step 1 — 소스 코퍼스 구성
   GeoGPT 라이브러리(공공 라이브러리 1,500만 벡터,
@@ -174,7 +178,7 @@ Step 5 — 평가 (GeoRAG-QA 938 / 70 전문가)
 <blockquote>
 <p><strong>주의</strong>: GeoRAG-QA는 <strong>open-ended free-text</strong> 벤치마크입니다. 정답은 MC 선택지가 아니라 자유 문장이고, 평가 메트릭은 RAGAS의 Answer Recall과 Top-K Recall입니다.</p>
 </blockquote>
-<h2>Input (입력)</h2>
+<h2 id="input-입력">Input (입력)</h2>
 <table>
 <thead>
 <tr>
@@ -244,30 +248,30 @@ Step 5 — 평가 (GeoRAG-QA 938 / 70 전문가)
 </tr>
 </tbody>
 </table>
-<h2>Output (출력 / 정답 형식)</h2>
+<h2 id="output-출력-정답-형식">Output (출력 / 정답 형식)</h2>
 <p>모델이 생성한 텍스트 형태의 정답. 평가 지표는 <strong>Answer Recall (RAGAS)</strong> + <strong>Top-K Recall</strong> + <strong>전문가 정답 정확도(70Q)</strong>.</p>
-<h2>예시 문항 (논문 본문 명시 내용)</h2>
+<h2 id="예시-문항-논문-본문-명시-내용">예시 문항 (논문 본문 명시 내용)</h2>
 <blockquote>
 <p>본 논문은 구체적인 QA 인스턴스를 본문에 인용하지 않습니다. 대신 질문 생성에 사용된 <strong>프롬프트 템플릿</strong>과 <strong>유형 카테고리</strong>(Table 6)를 직접 인용합니다. 구체적 Q/A 예시는 HuggingFace 공개 데이터셋(<a href="https://huggingface.co/datasets/GeoGPT-Research-Project/GeoRAG-QA">GeoRAG-QA</a>)에서 확인 가능.</p>
 </blockquote>
-<h3>📘 Query-Generation Prompt (본문 그대로)</h3>
+<h3 id="query-generation-prompt-본문-그대로">📘 Query-Generation Prompt (본문 그대로)</h3>
 <blockquote>
 <p>&quot;Instruction: Given the next [document], create a [question] and [answer] pair that are grounded in the main point of the document, don't add any additional information that is not in the document and [use prompt by different query type of Table 6]. The [question] is by an information-seeking user and the [answer] is provided by a helping AI Agent.&quot;</p>
 </blockquote>
-<h3>📘 Query Type Categories (Table 6)</h3>
+<h3 id="query-type-categories-table-6">📘 Query Type Categories (Table 6)</h3>
 <blockquote>
 <p>&quot;What / Which / Who·Whose / When / Where / How / Why / General question / Imperative question — The question should use [q_word]... to ask. Please ask in general form. Use imperative sentences to prompt the text.&quot;</p>
 </blockquote>
-<h3>📘 Answer-Rewriting Prompt</h3>
+<h3 id="answer-rewriting-prompt">📘 Answer-Rewriting Prompt</h3>
 <blockquote>
 <p>&quot;Your generated answer should contain 6 to 8 sentences. Your generated answer should have exactly the same meaning as the [Short Answer] and must perfectly address the [Query] without deviating. The content of your generated answer should fully utilize the content from the [References], and you must not fabricate any facts.&quot;</p>
 </blockquote>
-<h3>📘 전문가 평가 도메인</h3>
+<h3 id="전문가-평가-도메인">📘 전문가 평가 도메인</h3>
 <blockquote>
 <p>&quot;We further conducted manual evaluation on 70 domain-specific questions related to petroleum exploration. These questions were reviewed by subject matter experts to assess the factual accuracy of the generated answers.&quot;
 → 전문가 평가 정확도: <strong>85.7%</strong> (Table 4)</p>
 </blockquote>
-<h2>주요 평가 결과</h2>
+<h2 id="주요-평가-결과">주요 평가 결과</h2>
 <p><strong>GeoGPT-RAG Top-K Recall on GeoRAG-QA (Table 2)</strong></p>
 <table>
 <thead>
@@ -340,14 +344,14 @@ Step 5 — 평가 (GeoRAG-QA 938 / 70 전문가)
 </tbody>
 </table>
 <p><strong>전문가 평가 (Petroleum 70Q, Table 4)</strong>: <strong>0.857</strong> accuracy</p>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li>GeoRAG-QA는 GPT-4o가 역산 생성한 합성 QA — 실제 도메인 전문가가 즉흥적으로 물어보는 자연 분포와 차이</li>
 <li>오픈 액세스 1,000편만 샘플링 → 접근 제한 학술지 미커버</li>
 <li>Conditional QA 250개의 구체 정의·생성 프로토콜 불명확</li>
 <li>검색 latency·운영 비용에 대한 직접 벤치마크는 미수록</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문</strong>: <a href="https://arxiv.org/abs/2509.09686v2">arXiv:2509.09686v2</a></li>
 <li><strong>GeoRAG-QA 데이터셋</strong>: <a href="https://huggingface.co/datasets/GeoGPT-Research-Project/GeoRAG-QA">HuggingFace</a></li>
@@ -355,7 +359,33 @@ Step 5 — 평가 (GeoRAG-QA 938 / 70 전문가)
 <li><strong>이 벤치마크를 사용한 RAG 시스템</strong>: GeoGPT-RAG 본 논문</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/corr/abs-2509-09686)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{DBLP:journals/corr/abs-2509-09686,
+  author       = {Fei Huang and
+                  Fan Wu and
+                  Zeqing Zhang and
+                  Qihao Wang and
+                  Long Zhang and
+                  Grant Michael Boquet and
+                  Hongyang Chen},
+  title        = {GeoGPT-RAG Technical Report},
+  journal      = {CoRR},
+  volume       = {abs/2509.09686},
+  year         = {2025},
+  url          = {https://doi.org/10.48550/arXiv.2509.09686},
+  doi          = {10.48550/ARXIV.2509.09686},
+  eprinttype   = {arXiv},
+  eprint       = {2509.09686},
+  timestamp    = {Mon, 20 Oct 2025 17:02:02 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2509-09686.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

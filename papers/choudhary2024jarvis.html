@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>JARVIS-Leaderboard: ~1500 Tasks × 11 Categories Multi-modal Materials Benchmark — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">npj Computational Materials</span>
       <span class="meta-year">2024</span>
-      <a href="https://doi.org/10.1038/s41524-024-01259-w" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">[&#x27;Materials Discovery&#x27;]</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a></div>
+    <div class="paper-links"><a href="https://doi.org/10.1038/s41524-024-01259-w" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/usnistgov/jarvis_leaderboard" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Materials Discovery</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#실제-데이터-형식-예시-논문-i-figure-1-abstract">실제 데이터 형식 예시 (논문 §I + Figure 1 + §Abstract)</a></li><li class="toc-l3"><a href="#유형-a-benchmark-task-naming-convention">유형 A — Benchmark task naming convention</a></li><li class="toc-l3"><a href="#유형-b-5-카테고리-coverage">유형 B — 5 카테고리 coverage</a></li><li class="toc-l3"><a href="#유형-c-submission-구조-contribution-단위">유형 C — Submission 구조 (contribution 단위)</a></li><li class="toc-l3"><a href="#유형-d-scale-통계-논문-abstract">유형 D — Scale 통계 (논문 Abstract)</a></li><li class="toc-l2"><a href="#평가-framework">평가 framework</a></li><li class="toc-l2"><a href="#주요-활용">주요 활용</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>JARVIS-Leaderboard: ~1,500 Tasks × 11 Categories Multi-modal Materials Benchmark</h1>
 <blockquote>
@@ -122,10 +126,10 @@
 Kamal Choudhary, Daniel Wines, Kevin F. Garrity, et al. (Maureen Williams, Francesca Tavazza, Kangming Li, Jason Hattrick-Simpers, Vishu Gupta, Aldo H. Romero, Jaron T. Krogel, Kayahan Saritas, Addis Fuhr, Panchapakesan Ganesh, Paul R. C. Kent, Keqiang Yan, Yuchao Lin, Shuiwang Ji, Ben Blaiszik, Patrick Reiser, Pascal Friederich, Ankit Agrawal, ...) — NIST / Argonne / ORNL / Toronto / Texas A&amp;M / KIT
 arXiv: <a href="https://arxiv.org/abs/2306.11688">2306.11688</a> · DOI: <a href="https://doi.org/10.1038/s41524-024-01259-w">10.1038/s41524-024-01259-w</a></p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>NIST에서 운영하는 <strong>AI4Materials 통합 benchmark platform</strong>. <strong>~1,500 tasks × 11 categories</strong> 규모로 <strong>DFT, AIMD, classical force field, 실험적 측정</strong>을 verifier로 포함하는 multi-modality 평가. 152 methods, <strong>8M+ data points</strong> 비교, 지속 확장형 leaderboard.</p>
 <hr />
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — 11 categories of materials design tasks
   ┌──────────────────────────────────────────────┐
   │ 1. Bulk DFT properties (band gap, formation E)│
@@ -163,8 +167,8 @@ Step 4 — User contributions
   └─ Globus 호스팅 (대용량 데이터)
 </code></pre>
 <hr />
-<h2>실제 데이터 형식 예시 (논문 §I + Figure 1 + §Abstract)</h2>
-<h3>유형 A — Benchmark task naming convention</h3>
+<h2 id="실제-데이터-형식-예시-논문-i-figure-1-abstract">실제 데이터 형식 예시 (논문 §I + Figure 1 + §Abstract)</h2>
+<h3 id="유형-a-benchmark-task-naming-convention">유형 A — Benchmark task naming convention</h3>
 <blockquote>
 <p>JARVIS-Leaderboard에서 task는 <code>Category-Subcategory-Target-Dataset-Split-Metric</code> 형식:</p>
 <pre><code>AI-SinglePropertyPrediction-formation_energy_peratom-dft_3d-test-mae
@@ -180,7 +184,7 @@ Step 4 — User contributions
 <li><code>EXP-SinglePropertyPrediction-bandgap-silicon-test-mae</code></li>
 </ul>
 </blockquote>
-<h3>유형 B — 5 카테고리 coverage</h3>
+<h3 id="유형-b-5-카테고리-coverage">유형 B — 5 카테고리 coverage</h3>
 <blockquote>
 <pre><code>┌──────────────────────────────────────────────┐
 │ AI  (Artificial Intelligence)                │
@@ -205,7 +209,7 @@ Step 4 — User contributions
 └──────────────────────────────────────────────┘
 </code></pre>
 </blockquote>
-<h3>유형 C — Submission 구조 (contribution 단위)</h3>
+<h3 id="유형-c-submission-구조-contribution-단위">유형 C — Submission 구조 (contribution 단위)</h3>
 <blockquote>
 <p>각 leaderboard 기여는 다음 4개 파일 묶음:</p>
 <pre><code>contribution_folder/
@@ -216,7 +220,7 @@ Step 4 — User contributions
 </code></pre>
 <p>자동 비교 reference data는 <code>benchmarks/&lt;category&gt;/&lt;target&gt;.json.zip</code> 에 사전 등록.</p>
 </blockquote>
-<h3>유형 D — Scale 통계 (논문 Abstract)</h3>
+<h3 id="유형-d-scale-통계-논문-abstract">유형 D — Scale 통계 (논문 Abstract)</h3>
 <blockquote>
 <pre><code>┌─────────────────────────┬────────────┐
 │ Total benchmarks         │   274      │
@@ -229,7 +233,7 @@ Step 4 — User contributions
 <p>한 task (예: formation energy of silicon)에 17+ ES method 결과가 모두 등록되어 inter-method 비교 가능.</p>
 </blockquote>
 <hr />
-<h2>평가 framework</h2>
+<h2 id="평가-framework">평가 framework</h2>
 <table>
 <thead>
 <tr>
@@ -261,7 +265,7 @@ Step 4 — User contributions
 </tbody>
 </table>
 <hr />
-<h2>주요 활용</h2>
+<h2 id="주요-활용">주요 활용</h2>
 <table>
 <thead>
 <tr>
@@ -285,7 +289,7 @@ Step 4 — User contributions
 </tbody>
 </table>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>Coverage 편향</strong>: bulk crystal 위주, surface/molecular 부족</li>
 <li><strong>DFT functional 비교 어려움</strong>: 다른 functional 결과 직접 비교 시 caveat 필요</li>
@@ -295,7 +299,7 @@ Step 4 — User contributions
 <li><strong>NIST 인프라 의존</strong>: NIST 호스팅 종료 시 데이터 접근 위험</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문 (npj CompMat)</strong>: <a href="https://doi.org/10.1038/s41524-024-01259-w">10.1038/s41524-024-01259-w</a></li>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2306.11688">2306.11688</a></li>
@@ -305,7 +309,31 @@ Step 4 — User contributions
 <li><strong>이 benchmark를 사용한 후속 작업</strong>: 다양한 materials foundation model 평가, MLIP cross-checks</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (choudhary2024jarvis)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{choudhary2024jarvis,
+  author    = {Choudhary, Kamal and Wines, Daniel and Li, Kangming and Garrity, Kevin F.
+               and Gupta, Vishu and Romero, Aldo H. and Krogel, Jaron T. and Saritas, Kayahan
+               and Fuhr, Addis and Ganesh, Panchapakesan and Kent, Paul R. C. and Yan, Keqiang
+               and Lin, Yuchao and Ji, Shuiwang and Blaiszik, Ben and Reiser, Patrick
+               and Friederich, Pascal and Agrawal, Ankit and Tiwary, Pratyush and Beyerle, Eric
+               and Minch, Peter and Rhone, Trevor David and Takeuchi, Ichiro and Wexler, Robert B.
+               and Mannodi-Kanakkithodi, Arun and Ertekin, Elif and Mishra, Avanish
+               and Mathew, Nithin and Wood, Mitchell and Rohskopf, Andrew D. and Hattrick-Simpers, Jason
+               and Wang, Shih-Han and Achenie, Luke E. K. and Xin, Hongliang and Williams, Maureen
+               and Biacchi, Adam J. and Tavazza, Francesca},
+  title     = {{JARVIS}-Leaderboard: a large scale benchmark of materials design methods},
+  journal   = {npj Computational Materials},
+  volume    = {10},
+  pages     = {93},
+  year      = {2024},
+  doi       = {10.1038/s41524-024-01259-w}
+}</code></pre>
   </div>
 </section>
 </main>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PerturBench: Benchmarking Machine Learning Models for Cellular Perturbation Analysis — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">arXiv</span>
       <span class="meta-year">2024</span>
-      <a href="https://arxiv.org/abs/2408.10609" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">[&#x27;Property Prediction&#x27;]</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a></div>
+    <div class="paper-links"><a href="https://arxiv.org/abs/2408.10609" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#실제-데이터-형식-예시-논문-2-table-1-figure-2">실제 데이터 형식 예시 (논문 §2 + Table 1 + Figure 2)</a></li><li class="toc-l3"><a href="#유형-a-single-cell-perturbation-dataset-record">유형 A — Single-cell perturbation dataset record</a></li><li class="toc-l3"><a href="#유형-b-covariate-transfer-task-5-datasets">유형 B — Covariate transfer task (5 datasets)</a></li><li class="toc-l3"><a href="#유형-c-combinatorial-prediction-task-norman19">유형 C — Combinatorial prediction task (Norman19)</a></li><li class="toc-l3"><a href="#유형-d-rank-metric-calculation-논문-figure-2">유형 D — Rank metric calculation (논문 Figure 2)</a></li><li class="toc-l2"><a href="#평가-framework-요약">평가 framework 요약</a></li><li class="toc-l2"><a href="#주요-결과-논문-5">주요 결과 (논문 §5)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>PerturBench: 6-dataset standardized benchmark for single-cell perturbation models</h1>
 <blockquote>
@@ -122,10 +126,10 @@
 Yan Wu, Esther Wershof, Sebastian M. Schmon, Marcel Nassar, Błażej Osiński, Ridvan Eksi, Zichao Yan, Rory Stark, Kun Zhang, Thore Graepel — Altos Labs / University College London
 arXiv: <a href="https://arxiv.org/abs/2408.10609">2408.10609</a> · DBLP: <code>journals/corr/abs-2408-10609</code></p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p><strong>단일세포 perturbation response 예측 모델</strong>의 표준 평가를 위한 <strong>6-dataset benchmark</strong> (Srivatsan20 / Frangieh21 / Jiang24 / McFalineFigueroa23 / Norman19 / OP3) 와 <strong>2 task family</strong> (covariate transfer / combo prediction). RMSE + Pearson 같은 fit metric 외에 <strong>rank-based metric</strong> (perturbation 간 순서)을 도입해 mode-collapse 모델을 노출. CPA / SAMS-VAE / BioLord / GEARS / scGPT 등 published model + Latent Additive / Decoder-only baseline 비교.</p>
 <hr />
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — 문제 인식: 기존 perturbation benchmark의 약점
   ┌──────────────────────────────────────────────┐
   │ - 데이터셋마다 다른 split / metric           │
@@ -178,8 +182,8 @@ Step 6 — Benchmarking rules
   · 4 seeds × best HP for stability
 </code></pre>
 <hr />
-<h2>실제 데이터 형식 예시 (논문 §2 + Table 1 + Figure 2)</h2>
-<h3>유형 A — Single-cell perturbation dataset record</h3>
+<h2 id="실제-데이터-형식-예시-논문-2-table-1-figure-2">실제 데이터 형식 예시 (논문 §2 + Table 1 + Figure 2)</h2>
+<h3 id="유형-a-single-cell-perturbation-dataset-record">유형 A — Single-cell perturbation dataset record</h3>
 <blockquote>
 <p><strong>Input</strong>: control cell expression vector + perturbation metadata (covariate + pert ID)</p>
 <pre><code>Cell shape:  (cells, genes) ~ (218,331 × ~33,000) for Frangieh21
@@ -188,7 +192,7 @@ Covariate:   batch / cell type / dose
 </code></pre>
 <p><strong>Output / Label</strong>: post-perturbation cell expression vector (same gene shape)</p>
 </blockquote>
-<h3>유형 B — Covariate transfer task (5 datasets)</h3>
+<h3 id="유형-b-covariate-transfer-task-5-datasets">유형 B — Covariate transfer task (5 datasets)</h3>
 <blockquote>
 <pre><code>Train: cells with covariate C1, C2 — all perturbations A,B,C
 Test:  cells with covariate C3 (unseen) — same perturbations A,B,C
@@ -196,14 +200,14 @@ Model task: predict cell state under perturbation in unseen covariate
 Real-world analog: drug effect in unseen cell line / tissue
 </code></pre>
 </blockquote>
-<h3>유형 C — Combinatorial prediction task (Norman19)</h3>
+<h3 id="유형-c-combinatorial-prediction-task-norman19">유형 C — Combinatorial prediction task (Norman19)</h3>
 <blockquote>
 <pre><code>Train: 155 single + 30% of 131 dual perturbations
 Test:  70% of dual perturbations (held out)
 Model task: predict A+B response from A and B single effects
 </code></pre>
 </blockquote>
-<h3>유형 D — Rank metric calculation (논문 Figure 2)</h3>
+<h3 id="유형-d-rank-metric-calculation-논문-figure-2">유형 D — Rank metric calculation (논문 Figure 2)</h3>
 <blockquote>
 <pre><code>Predicted pert X embedding ≈ control population mean
 Compute cosine similarity to all known perturbations
@@ -215,7 +219,7 @@ rank(X) = position of X in sorted list / total perts
 </code></pre>
 </blockquote>
 <hr />
-<h2>평가 framework 요약</h2>
+<h2 id="평가-framework-요약">평가 framework 요약</h2>
 <table>
 <thead>
 <tr>
@@ -264,7 +268,7 @@ rank(X) = position of X in sorted list / total perts
 </table>
 <p>→ 핵심 contribution: <strong>rank metric</strong> — RMSE만 보면 Decoder-Only가 모든 perturbation을 single mean으로 예측해도 좋게 보이지만, rank ≈ 0.5로 즉시 노출.</p>
 <hr />
-<h2>주요 결과 (논문 §5)</h2>
+<h2 id="주요-결과-논문-5">주요 결과 (논문 §5)</h2>
 <table>
 <thead>
 <tr>
@@ -301,7 +305,7 @@ rank(X) = position of X in sorted list / total perts
 </table>
 <p>→ <strong>결론</strong>: &quot;no single model architecture clearly outperforms others, simpler architectures are generally competitive and scale well with larger datasets&quot; (논문 §Abstract).</p>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>단일세포 transcriptomics만</strong>: protein, phosphoproteomics 미커버</li>
 <li><strong>6 dataset 고정</strong>: 더 큰 atlas (CMap, LINCS, scPerturb 50-dataset) 미포함</li>
@@ -311,7 +315,7 @@ rank(X) = position of X in sorted list / total perts
 <li><strong>시간</strong>: 2024 cutoff, 후속 scFoundation/STATE 미반영</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2408.10609">2408.10609</a></li>
 <li><strong>DBLP</strong>: <a href="https://dblp.org/rec/journals/corr/abs-2408-10609.html">journals/corr/abs-2408-10609</a></li>
@@ -321,7 +325,36 @@ rank(X) = position of X in sorted list / total perts
 <li><strong>관련 benchmark</strong>: scPerturb (Peidli 2024 — data harmonization), NeurIPS 2023 perturbation prediction challenge</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/corr/abs-2408-10609)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{DBLP:journals/corr/abs-2408-10609,
+  author       = {Yan Wu and
+                  Esther Wershof and
+                  Sebastian M. Schmon and
+                  Marcel Nassar and
+                  Bla{\.{z}}ej Osi{\&#x27;{n}}ski and
+                  Ridvan Eksi and
+                  Zichao Yan and
+                  Rory Stark and
+                  Kun Zhang and
+                  Thore Graepel},
+  title        = {{PerturBench}: Benchmarking Machine Learning Models for Cellular
+                  Perturbation Analysis},
+  journal      = {CoRR},
+  volume       = {abs/2408.10609},
+  year         = {2024},
+  url          = {https://doi.org/10.48550/arXiv.2408.10609},
+  doi          = {10.48550/ARXIV.2408.10609},
+  eprinttype   = {arXiv},
+  eprint       = {2408.10609},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2408-10609.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

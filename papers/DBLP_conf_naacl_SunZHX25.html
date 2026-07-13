@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Fact-Aware Multimodal Retrieval Augmentation for Accurate Medical Radiology Report Generation — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,47 +108,80 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">NAACL</span>
       <span class="meta-year">2025</span>
-      
     </div>
-    <div class="paper-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><span class="tag tag-sub">[&#x27;Cross-modal Grounding&#x27;]</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+    <div class="paper-links"><a href="https://github.com/cxcscmu/FactMM-RAG" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><span class="tag tag-sub">Cross-modal Grounding</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-factmm-rag-architecture">시스템 구조 (FactMM-RAG Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l2"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>FactMM-RAG: Fact-Aware Multimodal RAG for Radiology Reports</h1>
 <blockquote>
 <p>NAACL 2025 | Method | medical</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>RadGraph로 추출한 사실(entity-relation) 일치도를 기준으로 영상-리포트 쌍을 마이닝해 사실 인지형(fact-aware) 멀티모달 retriever를 학습하고, 검색된 참조 리포트를 LLaVA에 조건으로 주입해 사실적으로 정확한 흉부 방사선 리포트를 생성하는 RAG 시스템. 진단 라벨 감독이나 전문가 큐레이션 없이 사실 인지를 생성기까지 전파한다.</p>
-<h2>시스템 구조 (FactMM-RAG Architecture)</h2>
+<h2 id="시스템-구조-factmm-rag-architecture">시스템 구조 (FactMM-RAG Architecture)</h2>
 <ul>
 <li><strong>RadGraph 사실 일치 쌍 마이닝:</strong> ① 같은 증상 라벨로 false negative 제거, ② 엔티티/릴레이션 기반 사실 유사도에 엄격 임계값 δ를 적용해 positive 쌍 선별.</li>
 <li><strong>사실 인지 멀티모달 retriever:</strong> 백본 MARVEL(T5-ANCE 기반). 쿼리=영상, 문서=(리포트,영상) 쌍을 인코딩, 마이닝한 사실 positive로 InfoNCE 대조학습(τ=0.01).</li>
 <li><strong>생성기 조건화:</strong> LLaVA-1.5가 쿼리 X-ray + 검색된 참조 리포트 + 지시 프롬프트로 findings 생성.</li>
 </ul>
-<h2>동작 파이프라인 (inference)</h2>
+<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
 <ol>
 <li>학습된 MARVEL로 쿼리 영상 인코딩.</li>
 <li>학습 코퍼스에서 코사인 유사도 <strong>top-1</strong> 참조 리포트 검색(자기검색·비정상 리포트 제외).</li>
 <li>영상 + 참조 리포트 + 프롬프트를 LLaVA에 입력.</li>
 <li>findings 자기회귀 생성.</li>
 </ol>
-<h2>주요 결과</h2>
+<h2 id="주요-결과">주요 결과</h2>
 <p>데이터: MIMIC-CXR(train 125,417 / val 991 / test 1,624), zero-shot CheXpert(1,000). SOTA retriever 대비 <strong>F1CheXbert 최대 +6.5%, F1RadGraph +2%</strong>. MIMIC-CXR: F1CheXbert 0.602 / F1RadGraph 0.257 / ROUGE-L 0.307 / BERTScore 0.561 (Med-MARVEL·CLIP 등 baseline 상회). Oracle 상한 F1CheXbert 0.992.</p>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li>흉부 방사선에 한정(뇌 스캔·조직병리 일반화 미검증).</li>
 <li>평가 지표가 사실/텍스트 유사도 중심 — 간결성·인간 정합 평가 부재.</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li>arXiv: 2407.15268 · NAACL 2025 (Sun et al.)</li>
 <li>코드: <a href="https://github.com/cxcscmu/FactMM-RAG">https://github.com/cxcscmu/FactMM-RAG</a></li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/naacl/SunZHX25)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@inproceedings{DBLP:conf/naacl/SunZHX25,
+  author       = {Liwen Sun and
+                  James (Jialun) Zhao and
+                  Wenjing Han and
+                  Chenyan Xiong},
+  editor       = {Luis Chiruzzo and
+                  Alan Ritter and
+                  Lu Wang},
+  title        = {Fact-Aware Multimodal Retrieval Augmentation for Accurate Medical
+                  Radiology Report Generation},
+  booktitle    = {Proceedings of the 2025 Conference of the Nations of the Americas
+                  Chapter of the Association for Computational Linguistics: Human Language
+                  Technologies, {NAACL} 2025 - Volume 1: Long Papers, Albuquerque, New
+                  Mexico, USA, April 29 - May 4, 2025},
+  pages        = {643--655},
+  publisher    = {Association for Computational Linguistics},
+  year         = {2025},
+  url          = {https://doi.org/10.18653/v1/2025.naacl-long.28},
+  doi          = {10.18653/V1/2025.NAACL-LONG.28},
+  timestamp    = {Thu, 14 Aug 2025 11:28:41 +0200},
+  biburl       = {https://dblp.org/rec/conf/naacl/SunZHX25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

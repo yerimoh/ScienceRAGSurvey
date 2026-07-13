@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Drug Repurposing Hub: Hand-curated 4,707-Compound Library — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">Nature Medicine</span>
       <span class="meta-year">2017</span>
-      <a href="https://doi.org/10.1038/nm.4306" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Structured-entity</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a></div>
+    <div class="paper-links"><a href="https://doi.org/10.1038/nm.4306" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Structured-entity</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#원문-직접-인용-corsello-2017-nat-med-본문">원문 직접 인용 (Corsello 2017 Nat Med §본문)</a></li><li class="toc-l2"><a href="#주요-활용">주요 활용</a></li><li class="toc-l2"><a href="#데이터셋-통계">데이터셋 통계</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>Drug Repurposing Hub: 4,707 Compounds + Targets Annotation</h1>
 <blockquote>
@@ -122,10 +126,10 @@
 Steven M. Corsello, Joshua A. Bittker, Zihan Liu, Joshua Gould, ..., Aravind Subramanian, Todd R. Golub — Broad Institute of MIT and Harvard
 DOI: <a href="https://doi.org/10.1038/nm.4306">10.1038/nm.4306</a> · PMID 28388612</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>Broad Institute에서 <strong>수작업으로 큐레이션한 4,707개 임상 화합물 라이브러리</strong>. 그 중 <strong>3,422개는 marketed / clinical trial 단계</strong>, 나머지는 도구 화합물·withdrawn drugs. 50+ 화학 벤더에서 입수해 <strong>identity verified + literature target annotated</strong>. CLADD 등 RAG 시스템이 drug-target prediction의 GT로 사용.</p>
 <hr />
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — Compound 큐레이션
   └─ Hand-curated 임상 화합물 list 구축
   └─ 50+ 화학 벤더에서 commercial 입수 (purity 검증)
@@ -157,7 +161,7 @@ Step 4 — Online resource
   └─ Interactive search by compound / target / MOA / indication
 </code></pre>
 <hr />
-<h2>원문 직접 인용 (Corsello 2017 Nat Med §본문)</h2>
+<h2 id="원문-직접-인용-corsello-2017-nat-med-본문">원문 직접 인용 (Corsello 2017 Nat Med §본문)</h2>
 <blockquote>
 <p>&quot;we <strong>hand-curated a collection of 4,707 compounds</strong>, experimentally confirmed their identities, and annotated them with literature-reported targets&quot;</p>
 </blockquote>
@@ -174,7 +178,7 @@ Step 4 — Online resource
 <p>&quot;The final QC-confirmed library contains <strong>1,988 drugs that are approved or marketed</strong> for human use&quot;</p>
 </blockquote>
 <hr />
-<h2>주요 활용</h2>
+<h2 id="주요-활용">주요 활용</h2>
 <table>
 <thead>
 <tr>
@@ -206,7 +210,7 @@ Step 4 — Online resource
 </tbody>
 </table>
 <hr />
-<h2>데이터셋 통계</h2>
+<h2 id="데이터셋-통계">데이터셋 통계</h2>
 <table>
 <thead>
 <tr>
@@ -246,7 +250,7 @@ Step 4 — Online resource
 </tbody>
 </table>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>2017년 cutoff</strong>: 최신 신약 (예: GLP-1 agonists, ADC 등) 일부 미포함</li>
 <li><strong>Literature-derived targets</strong>: 미확인 off-target 미반영</li>
@@ -256,7 +260,7 @@ Step 4 — Online resource
 <li><strong>MOA granularity</strong>: 일부 MOA는 broad/incomplete</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문 (DOI)</strong>: <a href="https://doi.org/10.1038/nm.4306">10.1038/nm.4306</a></li>
 <li><strong>PubMed</strong>: <a href="https://pubmed.ncbi.nlm.nih.gov/28388612/">PMID 28388612</a></li>
@@ -265,7 +269,18 @@ Step 4 — Online resource
 <li><strong>이 자원을 사용한 주요 작업</strong>: CLADD (DTI prediction, AAAI 2026), TDC subset, LINCS L1000 cross-reference</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (corsello2017drhub)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@misc{corsello2017drhub,
+  title = {Drug Repurposing Hub: Hand-curated 4,707-Compound Library},
+  year = {2017},
+  note = {Nature Medicine}
+}</code></pre>
   </div>
 </section>
 </main>

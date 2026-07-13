@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Retrieval-Augmented Generation for Predicting Cellular Responses to Gene Perturbation — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,19 +108,23 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">Gen2 @ ICLR</span>
       <span class="meta-year">2026</span>
-      <a href="https://arxiv.org/abs/2603.07233" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Structured-entity</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a></div>
+    <div class="paper-links"><a href="https://arxiv.org/abs/2603.07233" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/difra100/PT-RAG_ICLR" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Structured-entity</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#연구-배경-및-동기">연구 배경 및 동기</a></li><li class="toc-l3"><a href="#기존-방법의-한계점">기존 방법의 한계점</a></li><li class="toc-l3"><a href="#이-연구가-필요한-이유">이 연구가 필요한 이유</a></li><li class="toc-l2"><a href="#시스템-아키텍처">시스템 아키텍처</a></li><li class="toc-l2"><a href="#핵심-모듈-상세-설명">핵심 모듈 상세 설명</a></li><li class="toc-l3"><a href="#1단계-genept-임베딩-후보-검색">1단계: GenePT 임베딩 후보 검색</a></li><li class="toc-l3"><a href="#2단계-gumbel-softmax-적응적-선택">2단계: Gumbel-Softmax 적응적 선택</a></li><li class="toc-l3"><a href="#context-aggregation">Context Aggregation</a></li><li class="toc-l3"><a href="#generator-state-backbone">Generator (STATE backbone)</a></li><li class="toc-l2"><a href="#실험-및-평가">실험 및 평가</a></li><li class="toc-l3"><a href="#평가-데이터셋">평가 데이터셋</a></li><li class="toc-l3"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#핵심-기여">핵심 기여</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-연구-및-관련-정보">관련 연구 및 관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>Retrieval-Augmented Generation for Predicting Cellular Responses to Gene Perturbation</h1>
 <blockquote>
 <p>Gen2 @ ICLR | 2026 | Method | bio</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>RAG를 유전자 perturbation 세포 반응 예측에 최초로 적용한 프레임워크 PT-RAG. Naive RAG가 오히려 성능을 저하시킨다는 핵심 발견과 함께, GenePT 임베딩 + Gumbel-Softmax 기반 2단계 미분 가능 검색으로 STATE 대비 분포 유사도 지표 개선을 달성.</p>
 <details>
 <summary>사전 지식</summary>
@@ -138,20 +142,20 @@
 한마디로 **"건드려서 어떻게 반응하는지 본다"** 는 개념입니다.
 </details>
 
-<h2>연구 배경 및 동기</h2>
-<h3>기존 방법의 한계점</h3>
+<h2 id="연구-배경-및-동기">연구 배경 및 동기</h2>
+<h3 id="기존-방법의-한계점">기존 방법의 한계점</h3>
 <ul>
 <li>GEARS, scGPT, STATE 등 기존 perturbation 예측 모델들은 cell state와 perturbation identity만을 기반으로 발현 프로파일을 생성하며, <strong>관련 perturbation 간 지식을 활용하지 않음</strong></li>
 <li>언어 도메인의 RAG를 단순 적용(vanilla RAG)할 경우, perturbation 도메인에서는 <strong>유사성 기준이 사전 정의되지 않아</strong> 오히려 성능 저하가 발생함</li>
 <li>perturbation 검색에서 관련성은 <strong>세포 유형(cell type)에 크게 의존</strong>하나, 기존 방법은 이를 고려하지 않음</li>
 </ul>
-<h3>이 연구가 필요한 이유</h3>
+<h3 id="이-연구가-필요한-이유">이 연구가 필요한 이유</h3>
 <ul>
 <li>유전자 perturbation 효과는 같은 유전자라도 세포 유형에 따라 크게 달라지므로, <strong>cell-type-aware 맥락 검색</strong>이 필수적</li>
 <li>이미 관측된 수천 개의 perturbation 실험 데이터를 RAG 방식으로 활용하면 미지 perturbation 예측 일반화 성능 향상 가능</li>
 <li><strong>미분 가능한 검색 메커니즘</strong>을 통해 생성 목표와 검색 목표를 end-to-end로 공동 최적화</li>
 </ul>
-<h2>시스템 아키텍처</h2>
+<h2 id="시스템-아키텍처">시스템 아키텍처</h2>
 <pre><code>입력: (perturbation gene g, cell state c)
        │
        ▼
@@ -176,14 +180,14 @@
        ▼
 출력: 예측 gene expression profile (2,000 HVGs)
 </code></pre>
-<h2>핵심 모듈 상세 설명</h2>
-<h3>1단계: GenePT 임베딩 후보 검색</h3>
+<h2 id="핵심-모듈-상세-설명">핵심 모듈 상세 설명</h2>
+<h3 id="1단계-genept-임베딩-후보-검색">1단계: GenePT 임베딩 후보 검색</h3>
 <ul>
 <li><strong>GenePT</strong>: ChatGPT 기반 유전자 기능 설명 텍스트로 학습된 유전자 임베딩 모델</li>
 <li>입력 perturbation gene을 GenePT 공간에서 인코딩 후 학습 데이터 내 상위 K개 후보 perturbation 검색</li>
 <li>의미 유사도(functional similarity) 기반 — 학습 파라미터 없음</li>
 </ul>
-<h3>2단계: Gumbel-Softmax 적응적 선택</h3>
+<h3 id="2단계-gumbel-softmax-적응적-선택">2단계: Gumbel-Softmax 적응적 선택</h3>
 <ul>
 <li><strong>Straight-Through Gumbel-Softmax estimator</strong> (Jang et al. 2017) 적용</li>
 <li>입력: [cell state embedding; perturbation embedding]</li>
@@ -191,19 +195,19 @@
 <li><strong>Sparsity loss</strong> 추가: 모든 후보 선택하는 mode collapse 방지, 진짜 관련 context만 선택 유도</li>
 <li>세포 유형별 선택된 perturbation 중복률 <strong>19%</strong> → cell-type-aware 특성 정량 검증</li>
 </ul>
-<h3>Context Aggregation</h3>
+<h3 id="context-aggregation">Context Aggregation</h3>
 <ul>
 <li>선택된 perturbation들의 관측 scRNA-seq 발현 벡터를 집계</li>
 <li>Generator(STATE)의 입력 context로 제공</li>
 </ul>
-<h3>Generator (STATE backbone)</h3>
+<h3 id="generator-state-backbone">Generator (STATE backbone)</h3>
 <ul>
 <li>Arc Institute의 STATE: Transformer 기반 다중 세포 유형 perturbation 예측 모델</li>
 <li>Energy distance(MMD 기반 분포 손실)로 학습</li>
 <li>PT-RAG context가 추가된 상태에서 end-to-end 공동 최적화</li>
 </ul>
-<h2>실험 및 평가</h2>
-<h3>평가 데이터셋</h3>
+<h2 id="실험-및-평가">실험 및 평가</h2>
+<h3 id="평가-데이터셋">평가 데이터셋</h3>
 <table>
 <thead>
 <tr>
@@ -238,7 +242,7 @@
 </tr>
 </tbody>
 </table>
-<h3>주요 결과</h3>
+<h3 id="주요-결과">주요 결과</h3>
 <table>
 <thead>
 <tr>
@@ -274,21 +278,21 @@
 <li><strong>핵심 발견</strong>: Vanilla RAG는 STATE baseline 대비 W2에서 약 2배 성능 저하 → 도메인 특화 미분 가능 검색의 절대적 필요성 실증</li>
 <li>PT-RAG는 W1, W2 distributional similarity metrics에서 STATE 대비 유의미한 개선 달성</li>
 </ul>
-<h2>핵심 기여</h2>
+<h2 id="핵심-기여">핵심 기여</h2>
 <ol>
 <li><strong>최초의 생물학적 perturbation 예측 RAG 프레임워크</strong>: 언어 RAG를 단일 세포 생물학으로 확장</li>
 <li><strong>Naive RAG의 실패 자체가 핵심 발견</strong>: perturbation 도메인에서는 사전 정의된 유사도 기준이 없어 naive retrieval이 성능을 심각하게 저하시킴을 정량적으로 실증</li>
 <li><strong>Cell-type-aware 미분 가능 검색</strong>: Gumbel-Softmax 기반 2단계 파이프라인으로 세포 유형별로 다른 최적 context를 학습 가능하게 설계</li>
 <li><strong>분포 수준 성능 향상</strong>: W1, W2 등 distributional metrics에서 기존 SOTA 개선</li>
 </ol>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>단일 데이터셋 평가</strong>: Replogle-Nadig 데이터셋 하나에만 실험 — 다른 Perturb-seq 데이터셋으로의 일반화 불확실</li>
 <li><strong>단일 유전자 perturbation만 지원</strong>: 조합(combination) perturbation 미검증</li>
 <li><strong>End-to-end 학습 비용</strong>: 미분 가능 검색의 공동 최적화는 상당한 컴퓨팅 자원 필요</li>
 <li><strong>텍스트 기반 GenePT 의존성</strong>: 기능 설명이 없는 유전자는 Stage 1 검색 품질 저하 가능</li>
 </ul>
-<h2>관련 연구 및 관련 정보</h2>
+<h2 id="관련-연구-및-관련-정보">관련 연구 및 관련 정보</h2>
 <ul>
 <li><strong>논문 링크</strong>: <a href="https://arxiv.org/abs/2603.07233">https://arxiv.org/abs/2603.07233</a></li>
 <li><strong>코드</strong>: <a href="https://github.com/difra100/PT-RAG_ICLR">https://github.com/difra100/PT-RAG_ICLR</a></li>
@@ -297,7 +301,30 @@
 <li><strong>사용 데이터셋</strong>: Replogle et al. 2022 (Cell), Nadig et al. 2024</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/corr/abs-2603-07233)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{DBLP:journals/corr/abs-2603-07233,
+  author       = {Andrea Giuseppe Di Francesco and
+                  Andrea Rubbi and
+                  Pietro Li{\`{o}}},
+  title        = {Retrieval-Augmented Generation for Predicting Cellular Responses to
+                  Gene Perturbation},
+  journal      = {CoRR},
+  volume       = {abs/2603.07233},
+  year         = {2026},
+  url          = {https://doi.org/10.48550/arXiv.2603.07233},
+  doi          = {10.48550/ARXIV.2603.07233},
+  eprinttype   = {arXiv},
+  eprint       = {2603.07233},
+  timestamp    = {Wed, 08 Apr 2026 10:55:45 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2603-07233.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CAFA3: Critical Assessment of Function Annotation — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">Genome Biology</span>
       <span class="meta-year">2019</span>
-      <a href="https://doi.org/10.1186/s13059-019-1835-8" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">[&#x27;Property Prediction&#x27;]</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+    <div class="paper-links"><a href="https://doi.org/10.1186/s13059-019-1835-8" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-cafa-challenge-methodology">어떻게 만들었나 (CAFA Challenge Methodology)</a></li><li class="toc-l2"><a href="#원문-직접-인용-zhou-2019-genome-biol-title">원문 직접 인용 (Zhou 2019 Genome Biol §Title)</a></li><li class="toc-l2"><a href="#평가-셋업">평가 셋업</a></li><li class="toc-l2"><a href="#주요-평가-결과-논문-본문">주요 평가 결과 (논문 본문)</a></li><li class="toc-l2"><a href="#주요-활용">주요 활용</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>CAFA3: Time-delayed Protein-GO Function Prediction Benchmark</h1>
 <blockquote>
@@ -122,10 +126,10 @@
 Naihui Zhou, Yuxiang Jiang, ... Iddo Friedberg (and ~100 co-authors) — international CAFA consortium
 DOI: <a href="https://doi.org/10.1186/s13059-019-1835-8">10.1186/s13059-019-1835-8</a> · PMID 31744546</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>단백질의 기능(Gene Ontology term)을 시퀀스/구조로부터 예측하는 task의 <strong>국제 challenge benchmark</strong>. CAFA1(2010) → CAFA2(2013) → CAFA3(2017–2019) 3회 cycle 운영. <strong>time-delayed evaluation</strong> 프로토콜로 challenge 시작 시점에 GO annotation이 없는 단백질이 챌린지 기간 동안 실험으로 검증된 결과를 hidden test set으로 사용.</p>
 <hr />
-<h2>어떻게 만들었나 (CAFA Challenge Methodology)</h2>
+<h2 id="어떻게-만들었나-cafa-challenge-methodology">어떻게 만들었나 (CAFA Challenge Methodology)</h2>
 <pre><code>Step 1 — Challenge timeline (3년 주기)
   ┌──────────────────────────────────────────────┐
   │ T0: Challenge 개시 — UniProt-GO annotation   │
@@ -162,7 +166,7 @@ Step 4 — Evaluation metric
   └─ Coverage (얼마나 많은 단백질에 예측 제공)
 </code></pre>
 <hr />
-<h2>원문 직접 인용 (Zhou 2019 Genome Biol §Title)</h2>
+<h2 id="원문-직접-인용-zhou-2019-genome-biol-title">원문 직접 인용 (Zhou 2019 Genome Biol §Title)</h2>
 <blockquote>
 <p>Title: <em>&quot;The <strong>CAFA challenge reports improved protein function prediction</strong> and new functional annotations for hundreds of genes through experimental screens&quot;</em></p>
 </blockquote>
@@ -173,7 +177,7 @@ Step 4 — Evaluation metric
 <p>CAFA series: CAFA1 (2010–2011, 18 species), CAFA2 (2013–2014, ~100,000 proteins), CAFA3 (2016–2018, ~92,000 proteins)</p>
 </blockquote>
 <hr />
-<h2>평가 셋업</h2>
+<h2 id="평가-셋업">평가 셋업</h2>
 <table>
 <thead>
 <tr>
@@ -217,7 +221,7 @@ Step 4 — Evaluation metric
 </tbody>
 </table>
 <hr />
-<h2>주요 평가 결과 (논문 본문)</h2>
+<h2 id="주요-평가-결과-논문-본문">주요 평가 결과 (논문 본문)</h2>
 <table>
 <thead>
 <tr>
@@ -249,7 +253,7 @@ Step 4 — Evaluation metric
 </tbody>
 </table>
 <hr />
-<h2>주요 활용</h2>
+<h2 id="주요-활용">주요 활용</h2>
 <table>
 <thead>
 <tr>
@@ -281,7 +285,7 @@ Step 4 — Evaluation metric
 </tbody>
 </table>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>Sparse annotation</strong>: GO term은 인간조차 부분 annotated, full ground truth 없음</li>
 <li><strong>Bias toward studied proteins</strong>: 잘 연구된 단백질이 over-represented</li>
@@ -291,7 +295,7 @@ Step 4 — Evaluation metric
 <li><strong>Domain bias</strong>: human/model organism 비율 높음, microbial protein 적음</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문 (Genome Biol)</strong>: <a href="https://doi.org/10.1186/s13059-019-1835-8">10.1186/s13059-019-1835-8</a></li>
 <li><strong>PubMed</strong>: <a href="https://pubmed.ncbi.nlm.nih.gov/31744546/">PMID 31744546</a></li>
@@ -301,7 +305,23 @@ Step 4 — Evaluation metric
 <li><strong>이 challenge를 사용한 주요 모델</strong>: DeepGOPlus, NetGO, GOLabeler, Funfams, Argot, INGA, TALE, ProteInfer 등</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (zhou2019cafa)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{zhou2019cafa,
+  title={The CAFA challenge reports improved protein function prediction and new functional annotations for hundreds of genes through experimental screens},
+  author={Zhou, Naihui and Jiang, Yuxiang and Bergquist, Timothy R and Lee, Alexandra J and Kacsoh, Balint Z and Crocker, Alex W and Lewis, Kimberley A and Georghiou, George and Nguyen, Huy N and Hamid, Md Nafiz and others},
+  journal={Genome biology},
+  volume={20},
+  number={1},
+  pages={244},
+  year={2019},
+  publisher={Springer}
+}</code></pre>
   </div>
 </section>
 </main>

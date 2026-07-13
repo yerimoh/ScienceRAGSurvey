@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PMC-CLIP: Contrastive Language-Image Pre-training Using Biomedical Documents — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">MICCAI</span>
       <span class="meta-year">2023</span>
-      <a href="https://doi.org/10.1007/978-3-031-43993-3_51" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><span class="tag tag-sub">[&#x27;Cross-modal Grounding&#x27;]</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a></div>
+    <div class="paper-links"><a href="https://doi.org/10.1007/978-3-031-43993-3_51" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/WeixiongLin/PMC-CLIP" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a><a href="https://huggingface.co/datasets/axiong/pmc_oa" target="_blank" rel="noopener" class="res-link res-model">🤗 Model / HF ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><span class="tag tag-sub">Cross-modal Grounding</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology-6-step-pipeline">어떻게 만들었나 (Construction Methodology — 6-step Pipeline)</a></li><li class="toc-l2"><a href="#input-입력-데이터셋-구성">Input (입력 / 데이터셋 구성)</a></li><li class="toc-l2"><a href="#output-pmc-clip-모델-구조">Output (PMC-CLIP 모델 구조)</a></li><li class="toc-l2"><a href="#예시-사례-논문-figure-2-직접-인용-step-5-caption-distributor-작동-예시">예시 사례 (논문 Figure 2 직접 인용 — Step 5 Caption Distributor 작동 예시)</a></li><li class="toc-l3"><a href="#compound-figure-분리-예시-figure-2-시각-시퀀스-발췌">🔬 Compound Figure 분리 예시 (Figure 2 시각 시퀀스 발췌)</a></li><li class="toc-l3"><a href="#분리-불가-예시-step-5-fail">🌳 분리 불가 예시 (Step 5 fail)</a></li><li class="toc-l3"><a href="#데이터셋-통계-논문-22-발췌">📊 데이터셋 통계 (논문 §2.2 발췌)</a></li><li class="toc-l3"><a href="#alignment-정확도-step-6-발췌">🎯 Alignment 정확도 (Step 6 발췌)</a></li><li class="toc-l2"><a href="#주요-평가-결과">주요 평가 결과</a></li><li class="toc-l3"><a href="#image-text-retrieval-roco-test-2000-samples-zero-shot-setting-table-2">Image-Text Retrieval (ROCO test, 2,000 samples; zero-shot setting — Table 2)</a></li><li class="toc-l3"><a href="#pretrain-dataset-ablation-table-1-pmc-oa의-효과">Pretrain dataset ablation (Table 1) — PMC-OA의 효과</a></li><li class="toc-l3"><a href="#image-classification-medmnist-table-3">Image Classification (MedMNIST, Table 3)</a></li><li class="toc-l3"><a href="#medical-vqa-vqa-rad-slake-table-4">Medical VQA (VQA-RAD / SLAKE, Table 4)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>PMC-OA / PMC-CLIP: Contrastive Language-Image Pre-training Using Biomedical Documents</h1>
 <blockquote>
@@ -122,9 +126,9 @@
 Lin, Zhao, Zhang, Wu, Wu, Zhang, Wang, Xie — Shanghai Jiao Tong University / Shanghai AI Lab
 DBLP: <code>conf/miccai/Lin23</code> · arXiv:2303.07240</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>PubMed Central Open Access subset의 247만 논문에서 자동 파이프라인으로 수집한 <strong>1.65M biomedical image-text pair</strong>. <strong>subfigure-subcaption 단위 fine-grained 정렬</strong>(61.0%)을 통해 기존 MedICaT(217K, 75%가 compound figure 그대로) 대비 <strong>8배 큰 정제 데이터셋</strong>. 동봉된 PMC-CLIP 모델은 PMC-OA로 사전학습 시 ROCO 검색에서 SOTA 대비 <strong>R@10 +8.1%p</strong> 달성.</p>
-<h2>제작 배경</h2>
+<h2 id="제작-배경">제작 배경</h2>
 <p><strong>기존 의료 멀티모달 데이터셋의 한계 (논문 §1 발췌)</strong></p>
 <blockquote>
 <p>&quot;These existing biomedical image-caption datasets are still far from satisfaction for two reasons: First, the size of the existing datasets is limited (e.g., ROCO with 81K, MedICaT with 217K). Second, the existing datasets contain a large portion of compound figures (e.g., 75% in MedICaT) without separating into subfigures and aligning to corresponding subcaptions, resulting in noisy supervision signals.&quot;</p>
@@ -135,7 +139,7 @@ DBLP: <code>conf/miccai/Lin23</code> · arXiv:2303.07240</p>
 <li>기존 데이터셋은 <strong>compound figure 전체에 캡션 전체</strong>를 매칭 → CLIP 학습 시 noise 다대(多大)</li>
 <li>반면 PubMed Central은 247만 논문 + 1,221만 figure-caption 페어 보유 → 자동 파이프라인으로 정제 시 큰 도약 가능</li>
 </ul>
-<h2>어떻게 만들었나 (Construction Methodology — 6-step Pipeline)</h2>
+<h2 id="어떻게-만들었나-construction-methodology-6-step-pipeline">어떻게 만들었나 (Construction Methodology — 6-step Pipeline)</h2>
 <pre><code>Step 1 — PubMed Central에서 figure-caption 수집
   └─ 시점: 2022-09-16
   └─ 2,478,267 papers 커버 (ROCO 1,828,575 / MedICaT 131,410 대비 2~20배)
@@ -180,7 +184,7 @@ Step 6 — Subfigure ↔ Subcaption 정렬
 │ Total PMC-OA                             │ 1,646,592   │ 100% │
 └──────────────────────────────────────────┴─────────────┴──────┘
 </code></pre>
-<h2>Input (입력 / 데이터셋 구성)</h2>
+<h2 id="input-입력-데이터셋-구성">Input (입력 / 데이터셋 구성)</h2>
 <p><strong>기존 데이터셋과의 비교 (논문 Table 1 발췌)</strong></p>
 <table>
 <thead>
@@ -239,7 +243,7 @@ Step 6 — Subfigure ↔ Subcaption 정렬
 </tr>
 </tbody>
 </table>
-<h2>Output (PMC-CLIP 모델 구조)</h2>
+<h2 id="output-pmc-clip-모델-구조">Output (PMC-CLIP 모델 구조)</h2>
 <p><strong>모델 구성:</strong></p>
 <ul>
 <li>Vision encoder: ResNet50 (from scratch)</li>
@@ -253,8 +257,8 @@ Step 6 — Subfigure ↔ Subcaption 정렬
 <p>&quot;Specifically, we denote batch size as b, we calculate the softmax-normalized cross-modality dot product similarity between the current visual/text embedding (v / t) and all samples within the batch, termed as p_{i2t}, p_{t2i} ∈ R^b, and the final ITC loss is:
 L_ITC = E_{(I,T) ∼ D} [ CE(y_{i2t}, p_{i2t}) + CE(y_{t2i}, p_{t2i}) ]&quot;</p>
 </blockquote>
-<h2>예시 사례 (논문 Figure 2 직접 인용 — Step 5 Caption Distributor 작동 예시)</h2>
-<h3>🔬 Compound Figure 분리 예시 (Figure 2 시각 시퀀스 발췌)</h3>
+<h2 id="예시-사례-논문-figure-2-직접-인용-step-5-caption-distributor-작동-예시">예시 사례 (논문 Figure 2 직접 인용 — Step 5 Caption Distributor 작동 예시)</h2>
+<h3 id="compound-figure-분리-예시-figure-2-시각-시퀀스-발췌">🔬 Compound Figure 분리 예시 (Figure 2 시각 시퀀스 발췌)</h3>
 <p>논문 Figure 2의 파이프라인 다이어그램은 <strong>실제 한 compound figure가 PMC-OA에서 처리되는 전체 과정</strong>을 보여준다.</p>
 <p><strong>원본 compound figure caption (Step 5에서 분리된 subcaption 예시):</strong></p>
 <blockquote>
@@ -263,23 +267,23 @@ L_ITC = E_{(I,T) ∼ D} [ CE(y_{i2t}, p_{i2t}) + CE(y_{t2i}, p_{t2i}) ]&quot;</p
 &quot;(C) Microscopic view at ×40 magnification ......&quot;</p>
 </blockquote>
 <p>→ 위 caption은 원본에서는 단일 문자열이었으나 caption distributor가 <code>(A)/(B)/(C)</code> 마커를 인식해 <strong>3개의 subcaption으로 분리</strong>. 동시에 DETR detector가 같은 compound figure에서 3개의 subfigure 박스를 검출 → <strong>fine-tuned CLIP-style aligner</strong>가 (A) ↔ &quot;Macroscopic view of primary lung tumor&quot;, (B) ↔ &quot;H&amp;E stained sections&quot;, (C) ↔ &quot;Microscopic view at ×40&quot; 짝맞춤.</p>
-<h3>🌳 분리 불가 예시 (Step 5 fail)</h3>
+<h3 id="분리-불가-예시-step-5-fail">🌳 분리 불가 예시 (Step 5 fail)</h3>
 <blockquote>
 <p>&quot;Figure 4. Forest Regeneration (A) Dense ...... (B) The almost ......&quot;</p>
 </blockquote>
 <p>→ 일부 caption은 길이가 너무 짧거나 구조가 불분명해 distributor가 separate 못함 (전체 1.65M 중 642,681쌍, 39%). 이 경우 <strong>subfigure + 전체 caption</strong> 형태(coarse pair)로 PMC-OA에 포함.</p>
-<h3>📊 데이터셋 통계 (논문 §2.2 발췌)</h3>
+<h3 id="데이터셋-통계-논문-22-발췌">📊 데이터셋 통계 (논문 §2.2 발췌)</h3>
 <blockquote>
 <p>&quot;Fig. 3(a), PMC-OA covers a wide range of diagnostic procedures, spanning from common (CT, MRI, X-ray) to rare ones (mitotic figure), which is much diverse than before.&quot;</p>
 <p>&quot;In PMC-OA, diseases are given in the free-form text, allowing for elaborate identification and analysis. For instance, eye diseases can be further categorized into Cataracts, Conjunctivitis, Macular degeneration, fish eye disease, etc.&quot;</p>
 <p>&quot;We provide the sex-ratio across ages in Fig. 3(d), as we can see PMC-OA is approximately gender-balanced, with 54% males.&quot;</p>
 </blockquote>
-<h3>🎯 Alignment 정확도 (Step 6 발췌)</h3>
+<h3 id="alignment-정확도-step-6-발췌">🎯 Alignment 정확도 (Step 6 발췌)</h3>
 <blockquote>
 <p>&quot;We split the subset into train and test by 3:1, and the finetuned model achieves alignment accuracy=73% on test set. We finally align 1,003,911 subfigure-subcaption pairs. Along with the remaining 642,681 subfigure-caption pairs, we termed this dataset as PMC-OA.&quot;</p>
 </blockquote>
-<h2>주요 평가 결과</h2>
-<h3>Image-Text Retrieval (ROCO test, 2,000 samples; zero-shot setting — Table 2)</h3>
+<h2 id="주요-평가-결과">주요 평가 결과</h2>
+<h3 id="image-text-retrieval-roco-test-2000-samples-zero-shot-setting-table-2">Image-Text Retrieval (ROCO test, 2,000 samples; zero-shot setting — Table 2)</h3>
 <table>
 <thead>
 <tr>
@@ -353,7 +357,7 @@ L_ITC = E_{(I,T) ∼ D} [ CE(y_{i2t}, p_{i2t}) + CE(y_{t2i}, p_{t2i}) ]&quot;</p
 </tbody>
 </table>
 <p>→ I2T R@10에서 직전 SOTA(ARL) 대비 <strong>+8.1%p</strong> (62.05 → 71.88). 특히 PMC-OA는 ROCO 트레이닝 데이터를 <strong>포함하지 않았는데도</strong> ROCO 평가에서 zero-shot으로 SOTA 달성.</p>
-<h3>Pretrain dataset ablation (Table 1) — PMC-OA의 효과</h3>
+<h3 id="pretrain-dataset-ablation-table-1-pmc-oa의-효과">Pretrain dataset ablation (Table 1) — PMC-OA의 효과</h3>
 <table>
 <thead>
 <tr>
@@ -391,7 +395,7 @@ L_ITC = E_{(I,T) ∼ D} [ CE(y_{i2t}, p_{i2t}) + CE(y_{t2i}, p_{t2i}) ]&quot;</p
 </tbody>
 </table>
 <p>→ Beta(coarse) → Final(fine-grained)으로 가면서 <strong>+1.72%p (I2T), +3.34%p (T2I)</strong> 추가 향상 — subfigure-subcaption 정렬의 가치 확인.</p>
-<h3>Image Classification (MedMNIST, Table 3)</h3>
+<h3 id="image-classification-medmnist-table-3">Image Classification (MedMNIST, Table 3)</h3>
 <table>
 <thead>
 <tr>
@@ -428,7 +432,7 @@ L_ITC = E_{(I,T) ∼ D} [ CE(y_{i2t}, p_{i2t}) + CE(y_{t2i}, p_{t2i}) ]&quot;</p
 </tr>
 </tbody>
 </table>
-<h3>Medical VQA (VQA-RAD / SLAKE, Table 4)</h3>
+<h3 id="medical-vqa-vqa-rad-slake-table-4">Medical VQA (VQA-RAD / SLAKE, Table 4)</h3>
 <table>
 <thead>
 <tr>
@@ -461,7 +465,7 @@ L_ITC = E_{(I,T) ∼ D} [ CE(y_{i2t}, p_{i2t}) + CE(y_{t2i}, p_{t2i}) ]&quot;</p
 </tbody>
 </table>
 <p>→ 6개 metric 중 5개에서 SOTA M3AE 능가.</p>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>Caption distributor의 불완전성</strong>: 239,905 separable caption만 처리 → 나머지 39%는 coarse subfig-cap pair로 유지.</li>
 <li><strong>Alignment 정확도 73%</strong>: subfig↔subcap 매칭이 perfect하지 않음 (CLIP-style finetune 의존).</li>
@@ -470,7 +474,7 @@ L_ITC = E_{(I,T) ∼ D} [ CE(y_{i2t}, p_{i2t}) + CE(y_{t2i}, p_{t2i}) ]&quot;</p
 <li><strong>2022-09-16 snapshot</strong>: 이후 PMC OA 신규 논문은 별도 파이프라인 재실행 필요(논문은 &quot;continuously updatable&quot;이라 명시).</li>
 <li><strong>저작권 우려</strong>: PubMed Central Open Access subset에 한정되어 있으나, 일부 figure는 CC BY-NC 라이선스 — 상업적 활용 제한.</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문 (MICCAI 2023)</strong>: <a href="https://doi.org/10.1007/978-3-031-43993-3_51">Springer — doi:10.1007/978-3-031-43993-3_51</a></li>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2303.07240">2303.07240</a></li>
@@ -480,7 +484,37 @@ L_ITC = E_{(I,T) ∼ D} [ CE(y_{i2t}, p_{i2t}) + CE(y_{t2i}, p_{t2i}) ]&quot;</p
 <li><strong>이 데이터셋/모델 사용 후속 작업</strong>: MMed-RAG / Patho-AgenticRAG / 다양한 medical RAG cross-modal grounding 평가축</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (10.1007/978-3-031-43993-3_51)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@InProceedings{10.1007/978-3-031-43993-3_51,
+author=&quot;Lin, Weixiong
+and Zhao, Ziheng
+and Zhang, Xiaoman
+and Wu, Chaoyi
+and Zhang, Ya
+and Wang, Yanfeng
+and Xie, Weidi&quot;,
+editor=&quot;Greenspan, Hayit
+and Madabhushi, Anant
+and Mousavi, Parvin
+and Salcudean, Septimiu
+and Duncan, James
+and Syeda-Mahmood, Tanveer
+and Taylor, Russell&quot;,
+title=&quot;PMC-CLIP: Contrastive Language-Image Pre-training Using Biomedical Documents&quot;,
+booktitle=&quot;Medical Image Computing and Computer Assisted Intervention -- MICCAI 2023&quot;,
+year=&quot;2023&quot;,
+publisher=&quot;Springer Nature Switzerland&quot;,
+address=&quot;Cham&quot;,
+pages=&quot;525--536&quot;,
+abstract=&quot;Foundation models trained on large-scale dataset gain a recent surge in CV and NLP. In contrast, development in biomedical domain lags far behind due to data scarcity. To address this issue, we build and release PMC-OA, a biomedical dataset with 1.6M image-caption pairs collected from PubMedCentral&#x27;s OpenAccess subset, which is 8 times larger than before, PMC-OA covers diverse modalities or diseases, with majority of the image-caption samples aligned at finer-grained level, i.e., subfigure and subcaption. While pretraining a CLIP-style model on PMC-OA, our model named PMC-CLIP outperform previous state-of-the-art models on various downstream tasks, including image-text retrieval on ROCO, MedMNIST image classification, Medical VQA, for example, +8.1{\%} R@10 on image-text retrieval, +3.9{\%} accuracy on image classification.&quot;,
+isbn=&quot;978-3-031-43993-3&quot;
+}</code></pre>
   </div>
 </section>
 </main>

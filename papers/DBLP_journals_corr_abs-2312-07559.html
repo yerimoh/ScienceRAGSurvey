@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PaperQA: Retrieval-Augmented Generative Agent for Scientific Research — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,23 +108,27 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">arXiv</span>
       <span class="meta-year">2023</span>
-      <a href="https://arxiv.org/abs/2312.07559v2" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">[&#x27;Question Answering&#x27;]</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+    <div class="paper-links"><a href="https://arxiv.org/abs/2312.07559v2" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/Future-House/paper-qa" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#litqa-벤치마크-어떻게-만들었나-construction-methodology">LitQA 벤치마크 — 어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#실제-문항-예시-논문-본문-직접-인용">실제 문항 예시 (논문 본문 직접 인용)</a></li><li class="toc-l3"><a href="#쉬운-문항-yesno">쉬운 문항 (Yes/No)</a></li><li class="toc-l3"><a href="#중간-난이도-3지-선다">중간 난이도 (3지 선다)</a></li><li class="toc-l3"><a href="#어려운-문항-4지-선다-부정형">어려운 문항 (4지 선다, 부정형)</a></li><li class="toc-l2"><a href="#paperqa-시스템-아키텍처">PaperQA 시스템 아키텍처</a></li><li class="toc-l2"><a href="#주요-평가-결과">주요 평가 결과</a></li><li class="toc-l3"><a href="#litqa-정확도-비교">LitQA 정확도 비교</a></li><li class="toc-l3"><a href="#인용-hallucination-비율">인용 Hallucination 비율</a></li><li class="toc-l3"><a href="#표준-벤치마크-ablation-포함">표준 벤치마크 (Ablation 포함)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>PaperQA: Retrieval-Augmented Generative Agent for Scientific Research</h1>
 <blockquote>
 <p>arXiv 2023 | Method + Benchmark | bio · medical
 Jakub Lála, Odhran O'Donoghue, Aleksandar Shtedritski, Sam Cox, Samuel G Rodriques, Andrew D White (Future House / Francis Crick Institute / University of Rochester)</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>과학 문헌을 동적으로 검색·추출·요약하여 인용 hallucination 0%로 전문가 수준의 답변을 생성하는 에이전트 기반 RAG 시스템 <strong>PaperQA</strong>와, 이를 평가하기 위한 <strong>LitQA</strong> 벤치마크(50개 MC 생의학 질문)를 함께 제안.</p>
 <hr />
-<h2>LitQA 벤치마크 — 어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="litqa-벤치마크-어떻게-만들었나-construction-methodology">LitQA 벤치마크 — 어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — 소스 논문 선정
   LLM 학습 데이터 컷오프(2021년 9월) 이후 출판된 생의학 논문만 선택
   → 모델 파라메트릭 메모리에 없는 지식만 질문화
@@ -159,25 +163,25 @@ Step 5 — 최종 구성
   평가 메트릭: Accuracy (Correct/All), Precision (Correct-Sure/Answered-Sure)
 </code></pre>
 <hr />
-<h2>실제 문항 예시 (논문 본문 직접 인용)</h2>
-<h3>쉬운 문항 (Yes/No)</h3>
+<h2 id="실제-문항-예시-논문-본문-직접-인용">실제 문항 예시 (논문 본문 직접 인용)</h2>
+<h3 id="쉬운-문항-yesno">쉬운 문항 (Yes/No)</h3>
 <blockquote>
 <p><strong>Q.</strong> Has anyone performed a base editing screen against splice sites in CD33 before?</p>
 <p><strong>(A) Yes  (B) No</strong></p>
 <p>→ 2021년 9월 이후 출판 논문 본문에서만 답을 찾을 수 있는 사실형 질문</p>
 </blockquote>
-<h3>중간 난이도 (3지 선다)</h3>
+<h3 id="중간-난이도-3지-선다">중간 난이도 (3지 선다)</h3>
 <blockquote>
 <p><strong>Q.</strong> How diffuse are the laminar patterns of the axonal terminations of lower Layer 5/Layer 6 intratelencephalic neurons compared to Layer 2-4 intratelencephalic neurons in mouse cortex?</p>
 <p><strong>(A) More diffuse  (B) About the same  (C) Less diffuse</strong></p>
 </blockquote>
-<h3>어려운 문항 (4지 선다, 부정형)</h3>
+<h3 id="어려운-문항-4지-선다-부정형">어려운 문항 (4지 선다, 부정형)</h3>
 <blockquote>
 <p><strong>Q.</strong> Which of these glycoRNAs does NOT show an increase in M0 macrophages upon stimulation with LPS: U1, U35a, Y5 or U8?</p>
 <p><strong>(A) U8  (B) U1  (C) U35a  (D) Y5</strong></p>
 </blockquote>
 <hr />
-<h2>PaperQA 시스템 아키텍처</h2>
+<h2 id="paperqa-시스템-아키텍처">PaperQA 시스템 아키텍처</h2>
 <pre><code>[사용자 질문]
       │
       ▼
@@ -232,8 +236,8 @@ text-embedding-ada-002 벡터화
 </tbody>
 </table>
 <hr />
-<h2>주요 평가 결과</h2>
-<h3>LitQA 정확도 비교</h3>
+<h2 id="주요-평가-결과">주요 평가 결과</h2>
+<h3 id="litqa-정확도-비교">LitQA 정확도 비교</h3>
 <table>
 <thead>
 <tr>
@@ -283,7 +287,7 @@ text-embedding-ada-002 벡터화
 </tbody>
 </table>
 <p>→ PaperQA ≈ 인간 전문가 (Cramér's V: human-human 0.66±0.03 vs human-PaperQA 0.67±0.02)</p>
-<h3>인용 Hallucination 비율</h3>
+<h3 id="인용-hallucination-비율">인용 Hallucination 비율</h3>
 <table>
 <thead>
 <tr>
@@ -320,7 +324,7 @@ text-embedding-ada-002 벡터화
 </tr>
 </tbody>
 </table>
-<h3>표준 벤치마크 (Ablation 포함)</h3>
+<h3 id="표준-벤치마크-ablation-포함">표준 벤치마크 (Ablation 포함)</h3>
 <table>
 <thead>
 <tr>
@@ -352,21 +356,46 @@ text-embedding-ada-002 벡터화
 </tbody>
 </table>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li>인용된 원본 논문의 정보 자체가 틀린 경우 대처 불가</li>
 <li>최신 사실 업데이트에 따른 답변 유효기간 문제</li>
 <li>질문당 평균 비용 $0.18 (2023년 기준)</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문</strong>: <a href="https://arxiv.org/abs/2312.07559v2">arXiv:2312.07559</a></li>
 <li><strong>GitHub</strong>: <a href="https://github.com/Future-House/paper-qa">Future-House/paper-qa</a></li>
 <li><strong>이 벤치마크(LitQA)를 사용한 논문</strong>: PaperQA2 (arXiv 2409.13740)</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/corr/abs-2312-07559)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{DBLP:journals/corr/abs-2312-07559,
+  author       = {Jakub L{\&#x27;{a}}la and
+                  Odhran O&#x27;Donoghue and
+                  Aleksandar Shtedritski and
+                  Sam Cox and
+                  Samuel G. Rodriques and
+                  Andrew D. White},
+  title        = {PaperQA: Retrieval-Augmented Generative Agent for Scientific Research},
+  journal      = {CoRR},
+  volume       = {abs/2312.07559},
+  year         = {2023},
+  url          = {https://doi.org/10.48550/arXiv.2312.07559},
+  doi          = {10.48550/ARXIV.2312.07559},
+  eprinttype   = {arXiv},
+  eprint       = {2312.07559},
+  timestamp    = {Thu, 04 Jan 2024 17:55:51 +0100},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2312-07559.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

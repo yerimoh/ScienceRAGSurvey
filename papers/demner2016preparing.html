@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Preparing a Collection of Radiology Examinations for Distribution and Retrieval (IU-Xray / Open-i) — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">JAMIA</span>
       <span class="meta-year">2016</span>
-      <a href="https://doi.org/10.1093/jamia/ocv080" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K4.html" class="tag tag-cell" title="K4">Perceptual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+    <div class="paper-links"><a href="https://doi.org/10.1093/jamia/ocv080" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K4.html" class="tag tag-cell" title="K4">Perceptual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#input-입력-데이터셋-구성">Input (입력 / 데이터셋 구성)</a></li><li class="toc-l2"><a href="#output-정답레이블-형식">Output (정답/레이블 형식)</a></li><li class="toc-l2"><a href="#예시-사례-논문-원문-직접-인용">예시 사례 (논문 원문 직접 인용)</a></li><li class="toc-l3"><a href="#수동-어노테이션-사례-impression-meshradlex-변환-논문-본문-발췌">📄 수동 어노테이션 사례 — Impression → MeSH/RadLex 변환 (논문 본문 발췌)</a></li><li class="toc-l3"><a href="#실제-리포트-발췌-figure-1-캡션-의도적으로-인용-가능한-실-예시">🩺 실제 리포트 발췌 (Figure 1 캡션 — 의도적으로 인용 가능한 실 예시)</a></li><li class="toc-l3"><a href="#retrieval-사례-검색기준의-한계-pneumonia-쿼리-discussion-발췌">🔍 Retrieval 사례 — 검색기준의 한계 (pneumonia 쿼리, Discussion 발췌)</a></li><li class="toc-l3"><a href="#relevance-judgement-3-point-scale-예시">⚠️ Relevance Judgement 3-point scale 예시</a></li><li class="toc-l2"><a href="#주요-평가-결과-retrieval-experiment-30-imageclef-queries-20082013">주요 평가 결과 (Retrieval Experiment, 30 ImageCLEF queries 2008–2013)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>IU-Xray / Open-i: Indiana University Chest X-ray Collection</h1>
 <blockquote>
@@ -122,9 +126,9 @@
 Demner-Fushman, Kohli, Rosenman, Shooshan, Rodriguez, Antani, Thoma, McDonald — NLM / Indiana University School of Medicine
 DBLP: <code>journals/jamia/Demner-FushmanK16</code> · PMID 26133894 · PMC4750497</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>인디애나 대학교 병원 시스템에서 수집한 <strong>흉부 X-ray 7,470장 + 방사선과 free-text 리포트 3,955건</strong>을 비식별화·MeSH/RadLex 수동 어노테이션하여 NLM Open-i 플랫폼으로 공개한 최초의 공개 방사선 검사 컬렉션. <strong>MIMIC-CXR와 함께 방사선 보고서 생성·검색 RAG의 표준 평가 쌍</strong>으로 활용된다.</p>
-<h2>제작 배경</h2>
+<h2 id="제작-배경">제작 배경</h2>
 <p><strong>왜 이 데이터셋이 필요했나</strong></p>
 <blockquote>
 <p>&quot;Clinical documents made available for secondary use play an increasingly important role in discovery of clinical knowledge, development of research methods, and education. An important step in facilitating secondary use of clinical document collections is easy access to descriptions and samples that represent the content of the collections.&quot;</p>
@@ -137,7 +141,7 @@ DBLP: <code>journals/jamia/Demner-FushmanK16</code> · PMID 26133894 · PMC47504
 <li>한 연구자의 코멘트(논문 인용): <em>&quot;it would be good to [see] … at least a sample of the documents in the collection to decide if I want to request it.&quot;</em></li>
 </ul>
 <p><strong>해결책</strong>: 텍스트(리포트) + 이미지(DICOM) + 수동 MeSH 코딩을 묶어 <strong>Open-i 검색 인터페이스</strong>로 즉시 브라우징 가능한 형태로 공개.</p>
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — 데이터 수집 (Indiana University Hospitals, IRB 승인 OHSRP# 5357)
   대상: posterior-anterior (PA) chest x-ray 외래 검사
   소스: Indiana Network for Patient Care
@@ -190,7 +194,7 @@ Step 7 — Lucene + UMLS 동의어 확장 인덱싱
   추가로 MTI(Medical Text Indexer) 자동 코딩 병행 (MetaMap + Neg-Ex 음성 필터링)
   Open-i: openi.nlm.nih.gov — 20,000+ 일일 사용자
 </code></pre>
-<h2>Input (입력 / 데이터셋 구성)</h2>
+<h2 id="input-입력-데이터셋-구성">Input (입력 / 데이터셋 구성)</h2>
 <p><strong>기본 통계</strong></p>
 <table>
 <thead>
@@ -311,7 +315,7 @@ Step 7 — Lucene + UMLS 동의어 확장 인덱싱
 </tr>
 </tbody>
 </table>
-<h2>Output (정답/레이블 형식)</h2>
+<h2 id="output-정답레이블-형식">Output (정답/레이블 형식)</h2>
 <p><strong>5개 검색 가능 섹션 (Lucene fields)</strong></p>
 <ol>
 <li><strong>Indications</strong> — 검사 사유 (mean 6 words)</li>
@@ -321,27 +325,27 @@ Step 7 — Lucene + UMLS 동의어 확장 인덱싱
 <li><strong>MTI encoding</strong> — 자동 코드 (MTI + MetaMap + Neg-Ex)</li>
 </ol>
 <p>후처리 표현 예: <code>infiltrate/lung/upper lobe/left</code> (descriptor + qualifier 결합)</p>
-<h2>예시 사례 (논문 원문 직접 인용)</h2>
-<h3>📄 수동 어노테이션 사례 — Impression → MeSH/RadLex 변환 (논문 본문 발췌)</h3>
+<h2 id="예시-사례-논문-원문-직접-인용">예시 사례 (논문 원문 직접 인용)</h2>
+<h3 id="수동-어노테이션-사례-impression-meshradlex-변환-논문-본문-발췌">📄 수동 어노테이션 사례 — Impression → MeSH/RadLex 변환 (논문 본문 발췌)</h3>
 <blockquote>
 <p>&quot;any sentence in Findings or Impression that contains this term, for example, 'Impression: left upper lobe infiltrate,' was coded as <code>infiltrate/lung/upper lobe/left</code>.&quot;</p>
 <p>&quot;We coded old findings if they were discussed in the report. For example, we coded 'Calcified hilar lymph XXXX' as <code>calcinosis/hilum/lymph nodes</code>.&quot;</p>
 </blockquote>
-<h3>🩺 실제 리포트 발췌 (Figure 1 캡션 — 의도적으로 인용 가능한 실 예시)</h3>
+<h3 id="실제-리포트-발췌-figure-1-캡션-의도적으로-인용-가능한-실-예시">🩺 실제 리포트 발췌 (Figure 1 캡션 — 의도적으로 인용 가능한 실 예시)</h3>
 <blockquote>
 <p>Figure 1 caption: &quot;A sample radiology report with manual and MTI annotations. Terms removed by the automatic text scrubber are replaced with XXXX. 'COPD' in the impression section is annotated with the MeSH term 'Pulmonary Disease, Chronic Obstructive.' 'Scarring' is translated to MeSH term 'Cicatrix.'&quot;</p>
 <p>⇒ 즉 <strong>&quot;COPD&quot; → Pulmonary Disease, Chronic Obstructive</strong> / <strong>&quot;Scarring&quot; → Cicatrix</strong> 동의어 매핑이 수동 코더에 의해 명시되어 retrieval expansion이 가능.</p>
 </blockquote>
-<h3>🔍 Retrieval 사례 — 검색기준의 한계 (pneumonia 쿼리, Discussion 발췌)</h3>
+<h3 id="retrieval-사례-검색기준의-한계-pneumonia-쿼리-discussion-발췌">🔍 Retrieval 사례 — 검색기준의 한계 (pneumonia 쿼리, Discussion 발췌)</h3>
 <blockquote>
 <p>&quot;Both judges judged the following impression relevant to pneumonia: 'Focal airspace disease in the right middle lobe. This is most concerning for pneumonia,' but the manual annotation had only one code: Airspace Disease/lung/middle lobe/right/focal. Pneumonia is mentioned only once in this report and in the field that has less weight than the manual codes; therefore the report was ranked too low to contribute to the results of text searches with manual annotation.&quot;</p>
 <p>⇒ <strong>수동 코딩이 만능이 아님</strong>을 보여주는 케이스 — 본문은 hedging(&quot;most concerning for…&quot;)으로 표현되었으나 코더는 단정 가능한 finding만 코딩.</p>
 </blockquote>
-<h3>⚠️ Relevance Judgement 3-point scale 예시</h3>
+<h3 id="relevance-judgement-3-point-scale-예시">⚠️ Relevance Judgement 3-point scale 예시</h3>
 <blockquote>
 <p>&quot;We evaluated relevance on a three-point scale: relevant; maybe relevant (e.g., if it is not clear if the patient has atelectasis: 'patchy left lower lobe airspace disease, possibly atelectasis or pneumonia'); and not relevant (e.g., if the impression stated 'no pneumonia').&quot;</p>
 </blockquote>
-<h2>주요 평가 결과 (Retrieval Experiment, 30 ImageCLEF queries 2008–2013)</h2>
+<h2 id="주요-평가-결과-retrieval-experiment-30-imageclef-queries-20082013">주요 평가 결과 (Retrieval Experiment, 30 ImageCLEF queries 2008–2013)</h2>
 <p><strong>Table 2 발췌</strong> — 30개 쿼리 평균 (841 distinct records retrieved, 쿼리당 2~73건):</p>
 <table>
 <thead>
@@ -390,7 +394,7 @@ Step 7 — Lucene + UMLS 동의어 확장 인덱싱
 <li>3점 척도 (relevant / maybe relevant / not relevant): <strong>Cohen's κ = 0.85</strong></li>
 <li>이진 척도 (relevant vs definitely not): <strong>κ = 0.90</strong></li>
 </ul>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>소규모</strong> (3,955건) — MIMIC-CXR(227,835건)에 비해 약 60배 작음. 학습용보단 evaluation/few-shot용에 적합.</li>
 <li><strong>단일 뷰 유형</strong> (PA + lateral 외래)에 한정.</li>
@@ -399,7 +403,7 @@ Step 7 — Lucene + UMLS 동의어 확장 인덱싱
 <li><strong>원 논문 목적은 정보 검색(IR)</strong> — 자동 보고서 생성·RAG는 후속 연구의 적용. 학습용 train/val/test split은 표준 정의 부재.</li>
 <li><strong>DICOM 비식별화의 픽셀-레벨 잔존 위험</strong>: 0.05% 환자에서 발견된 PII는 모두 <em>스캔된 필름</em> 출처 — 동일 파이프라인이 디지털 원생 이미지에서는 안전.</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문 (JAMIA)</strong>: <a href="https://doi.org/10.1093/jamia/ocv080">doi:10.1093/jamia/ocv080</a></li>
 <li><strong>PMC</strong>: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4750497/">PMC4750497</a></li>
@@ -410,7 +414,23 @@ Step 7 — Lucene + UMLS 동의어 확장 인덱싱
 <li><strong>연관 데이터셋 (MIMIC-CXR)</strong>: Johnson et al. 2019 Sci Data — 방사선 보고서 생성 RAG의 표준 쌍</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (demner2016preparing)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{demner2016preparing,
+  title={Preparing a collection of radiology examinations for distribution and retrieval},
+  author={Demner-Fushman, Dina and Kohli, Marc D and Rosenman, Marc B and Shooshan, Sonya E and Rodriguez, Laritza and Antani, Sameer and Thoma, George R and McDonald, Clement J},
+  journal={Journal of the American Medical Informatics Association},
+  volume={23},
+  number={2},
+  pages={304--310},
+  year={2016},
+  publisher={Oxford University Press}
+}</code></pre>
   </div>
 </section>
 </main>

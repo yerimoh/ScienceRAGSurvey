@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Open DAC 2023 Dataset and Challenges for Sorbent Discovery in Direct Air Capture — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">ACS Central Science</span>
       <span class="meta-year">2024</span>
-      <a href="https://doi.org/10.1021/acscentsci.3c01629" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">[&#x27;Materials Discovery&#x27;]</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a></div>
+    <div class="paper-links"><a href="https://doi.org/10.1021/acscentsci.3c01629" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/Open-Catalyst-Project/ocp" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Materials Discovery</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#실제-데이터-형식-예시-논문-tasks-results-table-s3">실제 데이터 형식 예시 (논문 §Tasks + §Results + Table S3)</a></li><li class="toc-l3"><a href="#유형-a-s2ef-inputoutput-structure-energy-forces">유형 A — S2EF input/output (Structure → Energy + Forces)</a></li><li class="toc-l3"><a href="#유형-b-is2re-is2rs-initial-relaxed">유형 B — IS2RE / IS2RS (Initial → Relaxed)</a></li><li class="toc-l3"><a href="#유형-c-promising-dac-mof-예시-논문-table-s3-fig-3">유형 C — Promising DAC MOF 예시 (논문 Table S3 / Fig. 3)</a></li><li class="toc-l3"><a href="#유형-d-dataset-규모-분포-논문-methods">유형 D — Dataset 규모 분포 (논문 §Methods)</a></li><li class="toc-l2"><a href="#평가-framework">평가 framework</a></li><li class="toc-l2"><a href="#주요-결과-논문-results">주요 결과 (논문 §Results)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>ODAC23: 8,400 MOFs × 38M DFT for Direct-Air-Capture Sorbent Discovery</h1>
 <blockquote>
@@ -122,10 +126,10 @@
 Anuroop Sriram, Sihoon Choi, Xiaohan Yu, Logan M. Brabson, Abhishek Das, Zachary Ulissi, Matt Uyttendaele, Andrew J. Medford, David S. Sholl — Meta FAIR / Georgia Tech / ORNL
 arXiv: <a href="https://arxiv.org/abs/2311.00341">2311.00341</a> · DOI: <a href="https://doi.org/10.1021/acscentsci.3c01629">10.1021/acscentsci.3c01629</a></p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p><strong>직접 공기 포집(Direct Air Capture, DAC)</strong>용 <strong>금속-유기 골격체(MOF)</strong> 후보 탐색을 위한 <strong>38M+ DFT calculation × 8,400+ MOF benchmark</strong>. 입력은 MOF + adsorbate(CO₂, H₂O) 구조이며, <strong>OC20과 동일한 3-task 정의 (S2EF / IS2RE / IS2RS)</strong>로 ML 모델을 평가. MOF adsorption DFT 데이터로는 현재 <strong>가장 큰 공개 데이터셋</strong>.</p>
 <hr />
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — 과학적 동기
   ┌──────────────────────────────────────────────┐
   │ - Annual CO₂ emission ~36B tonnes (2020)     │
@@ -189,8 +193,8 @@ Step 7 — Promising MOF 식별 (downstream verification)
   · Adsorbate-adsorbate interaction energy 계산
 </code></pre>
 <hr />
-<h2>실제 데이터 형식 예시 (논문 §Tasks + §Results + Table S3)</h2>
-<h3>유형 A — S2EF input/output (Structure → Energy + Forces)</h3>
+<h2 id="실제-데이터-형식-예시-논문-tasks-results-table-s3">실제 데이터 형식 예시 (논문 §Tasks + §Results + Table S3)</h2>
+<h3 id="유형-a-s2ef-inputoutput-structure-energy-forces">유형 A — S2EF input/output (Structure → Energy + Forces)</h3>
 <blockquote>
 <p><strong>Input</strong> (periodic unit cell):</p>
 <pre><code>MOF (e.g., CoRE-MOF 코드 ZIDBEV, IMAGAG, IPIDUH)
@@ -205,14 +209,14 @@ Forces per atom (eV/Å, 3D vector)
 <pre><code>Ẽ_ads = E_system − E_MOF − n_CO2·E_CO2 − n_H2O·E_H2O
 </code></pre>
 </blockquote>
-<h3>유형 B — IS2RE / IS2RS (Initial → Relaxed)</h3>
+<h3 id="유형-b-is2re-is2rs-initial-relaxed">유형 B — IS2RE / IS2RS (Initial → Relaxed)</h3>
 <blockquote>
 <p><strong>IS2RE</strong>: initial placement → final relaxed adsorption energy E_ads
 <strong>IS2RS</strong>: initial placement → final relaxed 3D coordinates of all atoms</p>
 <p>표준 OC20-style train/test split, MOF framework로 stratified
 (pristine 구조와 그 defective version이 같은 split에 배치)</p>
 </blockquote>
-<h3>유형 C — Promising DAC MOF 예시 (논문 Table S3 / Fig. 3)</h3>
+<h3 id="유형-c-promising-dac-mof-예시-논문-table-s3-fig-3">유형 C — Promising DAC MOF 예시 (논문 Table S3 / Fig. 3)</h3>
 <blockquote>
 <p>Top promising MOFs identified directly in ODAC23 by DFT:</p>
 </blockquote>
@@ -265,7 +269,7 @@ Forces per atom (eV/Å, 3D vector)
 </ul>
 <p>→ 5,079 pristine MOF 중 <strong>135개</strong>가 두 기준 모두 충족 (classical FF로는 0개)</p>
 </blockquote>
-<h3>유형 D — Dataset 규모 분포 (논문 §Methods)</h3>
+<h3 id="유형-d-dataset-규모-분포-논문-methods">유형 D — Dataset 규모 분포 (논문 §Methods)</h3>
 <blockquote>
 <pre><code>┌──────────────────────────┬───────────┐
 │ Pristine MOFs            │   4,942   │
@@ -283,7 +287,7 @@ Forces per atom (eV/Å, 3D vector)
 Most common: Zn, Cu, Cd</p>
 </blockquote>
 <hr />
-<h2>평가 framework</h2>
+<h2 id="평가-framework">평가 framework</h2>
 <table>
 <thead>
 <tr>
@@ -328,7 +332,7 @@ Most common: Zn, Cu, Cd</p>
 </table>
 <p>→ OC20/OC22 with the <strong>same evaluation protocol</strong> → MOF/DAC domain으로 확장</p>
 <hr />
-<h2>주요 결과 (논문 §Results)</h2>
+<h2 id="주요-결과-논문-results">주요 결과 (논문 §Results)</h2>
 <table>
 <thead>
 <tr>
@@ -361,7 +365,7 @@ Most common: Zn, Cu, Cd</p>
 </table>
 <p>→ <strong>결론</strong>: ML + ODAC23 = DAC sorbent discovery의 <strong>scalable in-silico verification platform</strong></p>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>DFT functional dependence</strong>: PBE-based, 다른 functional과 격차</li>
 <li><strong>OC20-style framework</strong>: liquid/gas phase 외 confined geometry 한정</li>
@@ -372,7 +376,7 @@ Most common: Zn, Cu, Cd</p>
 <li><strong>시간</strong>: 2023 cutoff, 후속 ODAC24/25 등장 시 비교 필요</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문 (ACS Central Sci.)</strong>: <a href="https://doi.org/10.1021/acscentsci.3c01629">10.1021/acscentsci.3c01629</a></li>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2311.00341">2311.00341</a></li>
@@ -383,7 +387,27 @@ Most common: Zn, Cu, Cd</p>
 <li><strong>관련 데이터셋</strong>: OC20 (Chanussot 2021), OC22 (Tran 2023), OMat24 (Barroso-Luque 2024), CoRE MOF database (Chung 2014)</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (sriram2024odac23)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{sriram2024odac23,
+  author       = {Anuroop Sriram and Sihoon Choi and Xiaohan Yu and
+                  Logan M. Brabson and Abhishek Das and Zachary Ulissi and
+                  Matt Uyttendaele and Andrew J. Medford and David S. Sholl},
+  title        = {The Open {DAC} 2023 Dataset and Challenges for Sorbent
+                  Discovery in Direct Air Capture},
+  journal      = {ACS Central Science},
+  volume       = {10},
+  number       = {5},
+  pages        = {923--941},
+  year         = {2024},
+  doi          = {10.1021/acscentsci.3c01629},
+  url          = {https://doi.org/10.1021/acscentsci.3c01629}
+}</code></pre>
   </div>
 </section>
 </main>

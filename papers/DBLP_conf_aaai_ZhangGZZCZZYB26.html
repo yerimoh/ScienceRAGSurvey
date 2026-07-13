@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Patho-AgenticRAG: Pathology Agentic RAG with Textbook-aligned Multimodal Knowledge — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">AAAI</span>
       <span class="meta-year">2026</span>
-      
     </div>
-    <div class="paper-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><span class="tag tag-sub">[&#x27;Cross-modal Grounding&#x27;]</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+    <div class="paper-links"><a href="https://github.com/Wenchuan-Zhang/Patho-AgenticRAG" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a><a href="https://huggingface.co/blackshow/Patho-R1" target="_blank" rel="noopener" class="res-link res-model">🤗 Model / HF ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><span class="tag tag-sub">Cross-modal Grounding</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#input-입력-output-출력">Input (입력) / Output (출력)</a></li><li class="toc-l2"><a href="#예시-사례-논문-figure-2-figure-3-실제-멀티모달-검색-워크플로우-직접-인용">예시 사례 (논문 Figure 2, Figure 3 — 실제 멀티모달 검색 워크플로우 직접 인용)</a></li><li class="toc-l3"><a href="#case-1-multi-turn-retrieval-monophasic-synovial-sarcoma-figure-2-발췌">🔬 Case 1: Multi-turn Retrieval — Monophasic Synovial Sarcoma (Figure 2 발췌)</a></li><li class="toc-l3"><a href="#case-2-학습-데이터-라벨링-예시-appendix-q1-q2-발췌">🧬 Case 2: 학습 데이터 라벨링 예시 (Appendix, Q1-Q2 발췌)</a></li><li class="toc-l3"><a href="#case-3-rag-skip-결정-가이드라인-appendix-prompt-발췌">🧠 Case 3: RAG-skip 결정 가이드라인 (Appendix prompt 발췌)</a></li><li class="toc-l2"><a href="#주요-평가-결과">주요 평가 결과</a></li><li class="toc-l3"><a href="#patho-fusion-리랭킹-성능-table-1">Patho-Fusion 리랭킹 성능 (Table 1)</a></li><li class="toc-l3"><a href="#pathmmu-multiple-choice-qa-table-2-발췌">PathMMU Multiple-Choice QA (Table 2 발췌)</a></li><li class="toc-l3"><a href="#yesno-vqa-및-전문가-qa-table-3-본문-4-직접-인용">Yes/No VQA 및 전문가 QA (Table 3, 본문 §4 직접 인용)</a></li><li class="toc-l3"><a href="#ablation-라우터-학습-전략-quilt-vqa-기준">Ablation — 라우터 학습 전략 (Quilt-VQA 기준)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>Patho-AgenticRAG</h1>
 <blockquote>
@@ -122,9 +126,9 @@
 Zhang, Guo, H.Zhang, P.Zhang, Chen, S.Zhang, Z.Zhang, Yi, Bu
 DBLP: <code>conf/aaai/ZhangGZZCZZYB26</code> · arXiv:2508.02258</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>600권 이상의 권위 있는 병리학 교과서에서 <strong>페이지 단위 멀티모달 임베딩(ColQwen2)</strong>으로 구축한 <strong>20만+ 페이지 규모의 지식 베이스</strong>와, <strong>GRPO 강화학습</strong>으로 훈련한 4-단계 의사결정 아젠틱 라우터(Qwen3-4B)를 결합해 병리 VLM의 환각을 억제하는 멀티모달 RAG 시스템. PathMMU-test에서 78.32%, <strong>MedXpertQA에서 60.00% (+38pp vs base Patho-R1-7B)</strong> 달성.</p>
-<h2>제작 배경</h2>
+<h2 id="제작-배경">제작 배경</h2>
 <p><strong>병리학 VLM의 한계</strong> (논문 §2 발췌)</p>
 <blockquote>
 <p>&quot;Reinforcement learning (RL) provides a promising paradigm for aligning the outputs of VLMs with clinical accuracy requirements, especially in high-risk medical domains where hallucinated descriptions can lead to severe consequences.&quot;</p>
@@ -141,7 +145,7 @@ DBLP: <code>conf/aaai/ZhangGZZCZZYB26</code> · arXiv:2508.02258</p>
 <li><strong>Agentic Router</strong>: 쿼리별로 RAG 호출 여부·검색 깊이·해부학 파티션·조직 분류기 활성화 여부를 동적 결정</li>
 <li><strong>GRPO RL 학습</strong>: SFT만으로 부족한 결정 정확도를 강화학습으로 fine-tune</li>
 </ol>
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — 병리학 교과서 지식 베이스 구축
   600+ 권위 있는 병리학 교과서 → ~300,000 페이지 수집
   커버·서문·목차·참고문헌 제거 → 200,000+ 고품질 페이지 보존
@@ -232,15 +236,15 @@ Step 6 — 평가 벤치마크 7개
   │ OmniMedVQA BRIGHT       │    890   │ VQA           │
   └─────────────────────────┴──────────┴───────────────┘
 </code></pre>
-<h2>Input (입력) / Output (출력)</h2>
+<h2 id="input-입력-output-출력">Input (입력) / Output (출력)</h2>
 <p><strong>Input</strong>: 병리 이미지 (H&amp;E 염색 슬라이드 등) + 자연어 질문 (객관식 또는 Y/N)
 <strong>Output</strong>: 정답 옵션 + (선택적으로) evidence-grounded justification</p>
 <p><strong>Knowledge base</strong>: 200,000+ pathology textbook pages, indexed in Milvus + HNSW
 <strong>Vision encoder for routing</strong>: Qwen3-4B (multimodal)
 <strong>Vision encoder for retrieval</strong>: ColQwen2 (page-level multi-vector)
 <strong>Final VLM (inference engine)</strong>: Patho-R1-7B (pathology-specialized)</p>
-<h2>예시 사례 (논문 Figure 2, Figure 3 — 실제 멀티모달 검색 워크플로우 직접 인용)</h2>
-<h3>🔬 Case 1: Multi-turn Retrieval — Monophasic Synovial Sarcoma (Figure 2 발췌)</h3>
+<h2 id="예시-사례-논문-figure-2-figure-3-실제-멀티모달-검색-워크플로우-직접-인용">예시 사례 (논문 Figure 2, Figure 3 — 실제 멀티모달 검색 워크플로우 직접 인용)</h2>
+<h3 id="case-1-multi-turn-retrieval-monophasic-synovial-sarcoma-figure-2-발췌">🔬 Case 1: Multi-turn Retrieval — Monophasic Synovial Sarcoma (Figure 2 발췌)</h3>
 <p>논문 Figure 2는 실제 query가 시스템 내부에서 어떻게 처리되는지를 단계별로 보여준다.</p>
 <blockquote>
 <p><strong>Original Text Query (PathMMU 객관식 문제, Ground Truth: A)</strong>:</p>
@@ -264,7 +268,7 @@ D. Large polygonal cells with coarse eosinophilic granules.&quot;</p>
 </ul>
 <p><strong>Sub-VRAG agent thought process (논문 Figure 2)</strong>: text retrieval은 <em>Ewing sarcoma</em>를 top1으로 잘못 가져왔으나, image kurtosis term이 <em>synovial sarcoma</em> 페이지를 정확히 rerank → 최종 정답 A 도출.</p>
 </blockquote>
-<h3>🧬 Case 2: 학습 데이터 라벨링 예시 (Appendix, Q1-Q2 발췌)</h3>
+<h3 id="case-2-학습-데이터-라벨링-예시-appendix-q1-q2-발췌">🧬 Case 2: 학습 데이터 라벨링 예시 (Appendix, Q1-Q2 발췌)</h3>
 <p>훈련 데이터의 ground-truth answer 예시:</p>
 <blockquote>
 <p><strong>Q1</strong>: &quot;Histological features of invasive lobular carcinoma of the breast, including Indian-file pattern&quot;
@@ -272,13 +276,13 @@ D. Large polygonal cells with coarse eosinophilic granules.&quot;</p>
 <p><strong>Q2</strong>: &quot;How to differentiate ductal, papillary, and mucinous breast carcinoma histologically&quot;
 <strong>A2</strong>: &quot;Histologically, ductal carcinoma shows glandular, papillary, cribriform, or diffuse growth patterns, often forming nests, trabeculae, or cords. Papillary carcinoma is characterized by prom[inent papillary structures...]&quot;</p>
 </blockquote>
-<h3>🧠 Case 3: RAG-skip 결정 가이드라인 (Appendix prompt 발췌)</h3>
+<h3 id="case-3-rag-skip-결정-가이드라인-appendix-prompt-발췌">🧠 Case 3: RAG-skip 결정 가이드라인 (Appendix prompt 발췌)</h3>
 <blockquote>
 <p>&quot;If the question reflects common knowledge in pathology or histology, such as 'What stain is used for nuclei?' or 'Which cell secretes collagen?', a <code>&lt;think&gt;</code> is sufficient, and no tool needs to be called.&quot;</p>
 </blockquote>
 <p>→ Router는 <em>상식 수준 질문</em>은 RAG 호출 없이 처리, <strong>드문/복잡한 질문</strong>(예: rare 종양 감별)만 vector DB 검색.</p>
-<h2>주요 평가 결과</h2>
-<h3>Patho-Fusion 리랭킹 성능 (Table 1)</h3>
+<h2 id="주요-평가-결과">주요 평가 결과</h2>
+<h3 id="patho-fusion-리랭킹-성능-table-1">Patho-Fusion 리랭킹 성능 (Table 1)</h3>
 <p>100개 전문가 큐레이션 image-question-answer 쌍 기준:</p>
 <table>
 <thead>
@@ -326,7 +330,7 @@ D. Large polygonal cells with coarse eosinophilic granules.&quot;</p>
 </tr>
 </tbody>
 </table>
-<h3>PathMMU Multiple-Choice QA (Table 2 발췌)</h3>
+<h3 id="pathmmu-multiple-choice-qa-table-2-발췌">PathMMU Multiple-Choice QA (Table 2 발췌)</h3>
 <table>
 <thead>
 <tr>
@@ -379,7 +383,7 @@ D. Large polygonal cells with coarse eosinophilic granules.&quot;</p>
 </tbody>
 </table>
 <p>세부 subset (Atlas / EduContent / PathCLS / PubMed / SocialPath)에서도 일관되게 SOTA.</p>
-<h3>Yes/No VQA 및 전문가 QA (Table 3, 본문 §4 직접 인용)</h3>
+<h3 id="yesno-vqa-및-전문가-qa-table-3-본문-4-직접-인용">Yes/No VQA 및 전문가 QA (Table 3, 본문 §4 직접 인용)</h3>
 <blockquote>
 <p>&quot;Patho-AgenticRAG achieves +13.37% improvement on Quilt-VQA (75.80% vs. 64.72%) and +38.00% on MedXpertQA (60.00% vs. 22.00%) over Patho-R1. The largest margin appears on MedXpertQA, highlighting the importance of retrieval-augmented reasoning in knowledge-intensive tasks. On OmniMedVQA Bright Challenge, the model improves from 70.79% (Patho-R1) to 90.11%, a +19.32% increase.&quot;</p>
 </blockquote>
@@ -424,7 +428,7 @@ D. Large polygonal cells with coarse eosinophilic granules.&quot;</p>
 </tr>
 </tbody>
 </table>
-<h3>Ablation — 라우터 학습 전략 (Quilt-VQA 기준)</h3>
+<h3 id="ablation-라우터-학습-전략-quilt-vqa-기준">Ablation — 라우터 학습 전략 (Quilt-VQA 기준)</h3>
 <table>
 <thead>
 <tr>
@@ -459,7 +463,7 @@ D. Large polygonal cells with coarse eosinophilic granules.&quot;</p>
 <blockquote>
 <p>&quot;These results suggest that SFT400 provides an effective 'cold start' that guides the policy initialization without compromising flexibility or generalization.&quot;</p>
 </blockquote>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>평가가 폐쇄형(closed-ended) 태스크에 한정</strong> — Yes/No와 객관식 위주, 개방형 진단 추론(differential diagnosis) 미평가.</li>
 <li><strong>지식 베이스가 교과서 기반</strong> → 최신 임상 가이드라인·연구 논문 미반영 (예: 최근 1년 내 신약).</li>
@@ -469,7 +473,7 @@ D. Large polygonal cells with coarse eosinophilic granules.&quot;</p>
 <li><strong>GRPO 학습의 안정성</strong>: ablation에서 GRPO-only는 base보다 성능 <em>하락</em>하는 경우 확인 — SFT cold-start 의존성 강함.</li>
 <li><strong>VRAG Agent의 multi-turn 호출 수가 가변</strong> → 일관된 latency 보장 어려움.</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문 (arXiv)</strong>: <a href="https://arxiv.org/abs/2508.02258">arXiv:2508.02258</a></li>
 <li><strong>AAAI 2026</strong>: vol. 40, no. 35, pp. 29921–29929</li>
@@ -479,7 +483,41 @@ D. Large polygonal cells with coarse eosinophilic granules.&quot;</p>
 <li><strong>Retrieval encoder</strong>: <a href="https://huggingface.co/vidore/colqwen2-v1.0">ColQwen2 (vidore)</a></li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/aaai/ZhangGZZCZZYB26)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@inproceedings{DBLP:conf/aaai/ZhangGZZCZZYB26,
+  author       = {Wenchuan Zhang and
+                  Jingru Guo and
+                  Hengzhe Zhang and
+                  Penghao Zhang and
+                  Jie Chen and
+                  Shuwan Zhang and
+                  Zhang Zhang and
+                  Yuhao Yi and
+                  Hong Bu},
+  editor       = {Sven Koenig and
+                  Chad Jenkins and
+                  Matthew E. Taylor},
+  title        = {Patho-AgenticRAG: Towards Multimodal Agentic Retrieval-Augmented Generation
+                  for Pathology VLMs via Reinforcement Learning},
+  booktitle    = {Fortieth {AAAI} Conference on Artificial Intelligence, Thirty-Eighth
+                  Conference on Innovative Applications of Artificial Intelligence,
+                  Sixteenth Symposium on Educational Advances in Artificial Intelligence,
+                  {AAAI} 2026, Singapore, January 20-27, 2026},
+  pages        = {29921--29929},
+  publisher    = {{AAAI} Press},
+  year         = {2026},
+  url          = {https://doi.org/10.1609/aaai.v40i35.40239},
+  doi          = {10.1609/AAAI.V40I35.40239},
+  timestamp    = {Mon, 23 Mar 2026 16:31:07 +0100},
+  biburl       = {https://dblp.org/rec/conf/aaai/ZhangGZZCZZYB26.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

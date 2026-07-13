@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MedRAGChecker: Claim-Level Verification for Biomedical Retrieval-Augmented Generation — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,26 +108,30 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">arXiv</span>
       <span class="meta-year">2026</span>
-      <a href="https://arxiv.org/abs/2601.06519v1" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K2.O2.html" class="tag tag-cell" title="K2.O2">Relational × Synthesis</a><span class="tag tag-sub">[&#x27;Claim Verification&#x27;]</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a></div>
+    <div class="paper-links"><a href="https://arxiv.org/abs/2601.06519v1" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K2.O2.html" class="tag tag-cell" title="K2.O2">Relational × Synthesis</a><span class="tag tag-sub">Claim Verification</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#연구-배경-및-동기">연구 배경 및 동기</a></li><li class="toc-l2"><a href="#시스템-아키텍처">시스템 아키텍처</a></li><li class="toc-l2"><a href="#핵심-모듈-상세-설명">핵심 모듈 상세 설명</a></li><li class="toc-l3"><a href="#teacher-student-distillation">Teacher-Student Distillation</a></li><li class="toc-l3"><a href="#f1-weighted-ensemble">F1-Weighted Ensemble</a></li><li class="toc-l3"><a href="#kg-융합-transe-적용">KG 융합 (TransE 적용)</a></li><li class="toc-l2"><a href="#실험-및-평가">실험 및 평가</a></li><li class="toc-l2"><a href="#핵심-기여">핵심 기여</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-연구-및-관련-정보">관련 연구 및 관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>MedRAGChecker: Claim-Level Verification for Biomedical Retrieval-Augmented Generation</h1>
 <blockquote>
 <p>arXiv | 2026 | Method | medical · bio</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>의학 도메인 RAG 시스템이 생성한 긴 답변을 원자적 단위(Atomic Claim)로 쪼개고, 텍스트 기반 NLI과 지식 그래프(DRKG)를 융합하여 사실성과 안전성을 진단하는 검증 프레임워크.</p>
-<h2>연구 배경 및 동기</h2>
+<h2 id="연구-배경-및-동기">연구 배경 및 동기</h2>
 <ul>
 <li><strong>기존 방법의 한계점</strong>: 의학 분야 RAG에서 문단 수준이나 전체 답변(Answer-level) 수준의 평가는 긴 텍스트 속 깊이 숨겨진 치명적인 단일 사실 오류를 잡아내기 힘듦. LLM은 텍스트상으로 그럴듯한 상관관계를 보이면 인과관계나 의학적 금기 사항을 위반하더라도 옳다고 판단하는 경향이 있음.</li>
 <li><strong>이 연구가 필요한 이유</strong>: 약물-질환 처방이나 부작용 같은 안전과 직결된 문제(Safety-critical errors)를 방지하기 위해서는, 텍스트 문맥뿐만 아니라 구조화된 외부 의학 지식(KG)을 이용한 교차 검증이 필수적임.</li>
 </ul>
-<h2>시스템 아키텍처</h2>
+<h2 id="시스템-아키텍처">시스템 아키텍처</h2>
 <pre><code>[LLM 생성 답변 (Raw Answer)]
       ↓
 [Claim Extractor]
@@ -143,17 +147,17 @@ LLM 답변을 SPO(Subject, Relation, Object)
 [Signal Fusion (Logit 공간)]
 Faithfulness, Hallucination, SafetyErr 점수 출력
 </code></pre>
-<h2>핵심 모듈 상세 설명</h2>
-<h3>Teacher-Student Distillation</h3>
+<h2 id="핵심-모듈-상세-설명">핵심 모듈 상세 설명</h2>
+<h3 id="teacher-student-distillation">Teacher-Student Distillation</h3>
 <ul>
 <li>GPT-4.1을 매번 호출하는 대신, GPT-4.1이 생성한 Claim 및 NLI 라벨들을 이용해 7B~13B 오픈소스 의료 LLM(Meditron3-8B, Med42-Llama3-8B 등)을 SFT</li>
 <li>학습 데이터: Cross-entropy over NLI labels (Entail/Neutral/Contradict)</li>
 </ul>
-<h3>F1-Weighted Ensemble</h3>
+<h3 id="f1-weighted-ensemble">F1-Weighted Ensemble</h3>
 <ul>
 <li>증류된 학생 모델들이 특정 클래스(예: 중립, 모순)에서 서로 다른 강점을 보이므로 Dev 세트에서 측정한 클래스별 F1 점수를 가중치로 삼아 예측값을 앙상블</li>
 </ul>
-<h3>KG 융합 (TransE 적용)</h3>
+<h3 id="kg-융합-transe-적용">KG 융합 (TransE 적용)</h3>
 <ul>
 <li>추출된 Claim의 엔티티를 DRKG에 매핑한 후, TransE 임베딩 모델을 사용해 (h, r, t) 트리플의 타당성 점수 $p_{KGE}$를 계산하고 이를 텍스트 신호와 결합</li>
 </ul>
@@ -183,7 +187,7 @@ Faithfulness, Hallucination, SafetyErr 점수 출력
 </tr>
 </tbody>
 </table>
-<h2>실험 및 평가</h2>
+<h2 id="실험-및-평가">실험 및 평가</h2>
 <p><strong>평가 데이터셋</strong>: PubMedQA, MedQuAD, LiveQA, MedRedQA</p>
 <p><strong>주요 결과 (생성 모델별)</strong></p>
 <table>
@@ -223,24 +227,50 @@ Faithfulness, Hallucination, SafetyErr 점수 출력
 </tbody>
 </table>
 <p>→ 단순 텍스트 NLI만 사용했을 때보다 지식 그래프(KG)를 융합했을 때, 안전에 민감한 Claim에 대한 검증 일치도(인간 전문가 기준)가 유의미하게 향상됨.</p>
-<h2>핵심 기여</h2>
+<h2 id="핵심-기여">핵심 기여</h2>
 <ol>
 <li>RAG 결과를 개별 문장도 아닌 더 세밀한 <strong>Atomic Claim 수준</strong>으로 분해하여 세밀하게 진단하는 파이프라인 구축</li>
 <li>환각(Hallucination) 검증을 텍스트 추론에만 맡기지 않고, <strong>비정형 텍스트 검증과 정형 지식 그래프(KG)를 결합</strong>하여 Safety-critical 오류를 잡아내는 방법론 제시</li>
 <li>고비용 API(GPT-4) 의존도를 낮추기 위해 <strong>F1-가중치 앙상블 소형 체커 모델링</strong> 구현</li>
 </ol>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li>지식 그래프(DRKG)에 포함되지 않은 희귀 질환이나 엔티티의 경우 융합 신호 효과를 받지 못하고 텍스트 검증에만 의존해야 함.</li>
 <li>엔티티 링크 과정이 표면적 텍스트 매칭에 의존하고 있어, 다중 홉(Multi-hop) 추론이나 복잡한 문맥에서는 KG 매핑이 실패할 수 있음.</li>
 </ul>
-<h2>관련 연구 및 관련 정보</h2>
+<h2 id="관련-연구-및-관련-정보">관련 연구 및 관련 정보</h2>
 <ul>
 <li><strong>논문</strong>: <a href="https://arxiv.org/abs/2601.06519v1">https://arxiv.org/abs/2601.06519v1</a></li>
 <li><strong>DRKG</strong>: Drug Repurposing Knowledge Graph 연동</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/corr/abs-2601-06519)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{DBLP:journals/corr/abs-2601-06519,
+  author       = {Yuelyu Ji and
+                  Min Gu Kwak and
+                  Hang Zhang and
+                  Xizhi Wu and
+                  Chenyu Li and
+                  Yanshan Wang},
+  title        = {MedRAGChecker: Claim-Level Verification for Biomedical Retrieval-Augmented
+                  Generation},
+  journal      = {CoRR},
+  volume       = {abs/2601.06519},
+  year         = {2026},
+  url          = {https://doi.org/10.48550/arXiv.2601.06519},
+  doi          = {10.48550/ARXIV.2601.06519},
+  eprinttype   = {arXiv},
+  eprint       = {2601.06519},
+  timestamp    = {Wed, 11 Feb 2026 16:57:26 +0100},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2601-06519.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

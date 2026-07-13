@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Therapeutics Data Commons: Machine Learning Datasets and Tasks for Drug Discovery and Development — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">NeurIPS D&amp;B 2021</span>
       <span class="meta-year">2021</span>
-      <a href="https://arxiv.org/abs/2102.09548" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">[&#x27;Property Prediction&#x27;]</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a></div>
+    <div class="paper-links"><a href="https://arxiv.org/abs/2102.09548" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#원문-직접-인용-arxiv210209548-abstract-본문">원문 직접 인용 (arXiv:2102.09548 §Abstract 본문)</a></li><li class="toc-l2"><a href="#input-output-학습-패러다임별">Input / Output (학습 패러다임별)</a></li><li class="toc-l2"><a href="#주요-평가-결과-논문-본문-table">주요 평가 결과 (논문 §본문 + Table)</a></li><li class="toc-l3"><a href="#평가-환경">평가 환경</a></li><li class="toc-l3"><a href="#핵심-발견-논문-본문-인용">핵심 발견 (논문 §본문 인용)</a></li><li class="toc-l2"><a href="#데이터셋-통계-대표-subset">데이터셋 통계 (대표 subset)</a></li><li class="toc-l2"><a href="#한계점-논문-limitations-후속-연구-지적">한계점 (논문 §Limitations + 후속 연구 지적)</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>TDC (Therapeutics Data Commons): 66 AI-ready Datasets × 22 Learning Tasks Umbrella Benchmark</h1>
 <blockquote>
@@ -122,10 +126,10 @@
 Kexin Huang, Tianfan Fu, Wenhao Gao, Yue Zhao, Yusuf H. Roohani, Jure Leskovec, Connor W. Coley, Cao Xiao, Jimeng Sun, Marinka Zitnik — Harvard / Stanford / MIT / Georgia Tech / IBM / UIUC
 DBLP: <code>conf/nips/HuangFG0RLCXSZ21</code> · arXiv: <a href="https://arxiv.org/abs/2102.09548">2102.09548</a> · Web: <a href="https://tdcommons.ai">tdcommons.ai</a></p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>약물 발견·개발 전 범위(small molecule → biologics → clinical trial)에 걸친 <strong>66개 AI-ready 데이터셋 × 22개 learning task</strong> 통합 평가 플랫폼. <strong>29 public leaderboards</strong>, <strong>17 molecule generation oracles</strong>, <strong>23 evaluation 전략</strong>, <strong>33 data 분할/함수</strong>, 오픈 Python 라이브러리 제공. Database-verified Prediction 시스템 (CLADD 등)의 사실상 표준 평가 hub.</p>
 <hr />
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>3개 학습 패러다임 × 22 tasks × 66 datasets 구조
 
 ┌──────────────────────────────────────────────────────────────┐
@@ -178,7 +182,7 @@ Step 4 — Python Library + Documentation
   └─ tdcommons.ai 공식 문서 + Tutorial
 </code></pre>
 <hr />
-<h2>원문 직접 인용 (arXiv:2102.09548 §Abstract 본문)</h2>
+<h2 id="원문-직접-인용-arxiv210209548-abstract-본문">원문 직접 인용 (arXiv:2102.09548 §Abstract 본문)</h2>
 <blockquote>
 <p><em>&quot;Therapeutics machine learning is an emerging field with incredible opportunities for innovation and impact ... we introduce <strong>Therapeutics Data Commons (TDC), the first unifying platform</strong> to systematically access and evaluate machine learning across the entire range of therapeutics. To date, TDC includes <strong>66 AI-ready datasets spread across 22 learning tasks</strong> and spanning the discovery and development of safe and effective medicines.&quot;</em></p>
 </blockquote>
@@ -189,7 +193,7 @@ Step 4 — Python Library + Documentation
 <p><em>&quot;We carry out extensive experiments on selected datasets, demonstrating that even the strongest algorithms <strong>fall short of solving key therapeutics challenges</strong>, including real dataset distributional shifts, multi-scale modeling of heterogeneous data, and robust generalization to novel data points.&quot;</em></p>
 </blockquote>
 <hr />
-<h2>Input / Output (학습 패러다임별)</h2>
+<h2 id="input-output-학습-패러다임별">Input / Output (학습 패러다임별)</h2>
 <table>
 <thead>
 <tr>
@@ -227,14 +231,14 @@ Step 4 — Python Library + Documentation
 <li>Docking 모듈 → Vina score (PMO subset)</li>
 </ul>
 <hr />
-<h2>주요 평가 결과 (논문 §본문 + Table)</h2>
-<h3>평가 환경</h3>
+<h2 id="주요-평가-결과-논문-본문-table">주요 평가 결과 (논문 §본문 + Table)</h2>
+<h3 id="평가-환경">평가 환경</h3>
 <ul>
 <li><strong>29 public leaderboards</strong> 운영 (ADMET Group, Docking Group 등)</li>
 <li><strong>23 evaluation strategies</strong> (AUROC, AUPRC, RMSE, MAE, Top-K Recall, Spearman 등)</li>
 <li><strong>33 data splits</strong> (random, scaffold, cold-start, temporal, lo-shot 등)</li>
 </ul>
-<h3>핵심 발견 (논문 §본문 인용)</h3>
+<h3 id="핵심-발견-논문-본문-인용">핵심 발견 (논문 §본문 인용)</h3>
 <ul>
 <li>&quot;even the <strong>strongest algorithms fall short</strong> of solving key therapeutics challenges&quot;</li>
 <li><strong>Distribution shift</strong> (시계열·실험실 간) 강건성 부족</li>
@@ -242,7 +246,7 @@ Step 4 — Python Library + Documentation
 <li><strong>Novel data points</strong> 일반화 한계</li>
 </ul>
 <hr />
-<h2>데이터셋 통계 (대표 subset)</h2>
+<h2 id="데이터셋-통계-대표-subset">데이터셋 통계 (대표 subset)</h2>
 <table>
 <thead>
 <tr>
@@ -287,7 +291,7 @@ Step 4 — Python Library + Documentation
 </table>
 <p>→ Database-verified Prediction RAG 시스템 (CLADD 등) 평가 시 자주 활용.</p>
 <hr />
-<h2>한계점 (논문 §Limitations + 후속 연구 지적)</h2>
+<h2 id="한계점-논문-limitations-후속-연구-지적">한계점 (논문 §Limitations + 후속 연구 지적)</h2>
 <ul>
 <li><strong>데이터셋 품질 편차</strong>: 일부 small-scale dataset은 충분한 변동 통계 부족</li>
 <li><strong>Distribution shift</strong> 평가가 부족 (시간/실험실/도메인 간 동일성 가정)</li>
@@ -297,7 +301,7 @@ Step 4 — Python Library + Documentation
 <li><strong>Closed-set evaluation</strong>: 미발견 분자/단백질에 대한 generalization 측정 불가</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문 (arXiv)</strong>: <a href="https://arxiv.org/abs/2102.09548">2102.09548</a></li>
 <li><strong>NeurIPS 2021 Datasets and Benchmarks Track</strong>: <a href="https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/4c7a167bb329bd92580a99ce422d6fa6-Abstract-round1.html">Round 1 paper</a></li>
@@ -307,7 +311,37 @@ Step 4 — Python Library + Documentation
 <li><strong>이 benchmark를 사용한 후속 RAG 작업</strong>: CLADD (Database-verified Prediction), PMO (MolOpt subset reuse), Patho-AgenticRAG (Pathology subset), 등 의약 RAG 표준 평가 hub</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/nips/HuangFG0RLCXSZ21)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@inproceedings{DBLP:conf/nips/HuangFG0RLCXSZ21,
+  author       = {Kexin Huang and
+                  Tianfan Fu and
+                  Wenhao Gao and
+                  Yue Zhao and
+                  Yusuf H. Roohani and
+                  Jure Leskovec and
+                  Connor W. Coley and
+                  Cao Xiao and
+                  Jimeng Sun and
+                  Marinka Zitnik},
+  editor       = {Joaquin Vanschoren and
+                  Sai{-}Kit Yeung},
+  title        = {Therapeutics Data Commons: Machine Learning Datasets and Tasks for
+                  Drug Discovery and Development},
+  booktitle    = {Proceedings of the Neural Information Processing Systems Track on
+                  Datasets and Benchmarks 1, NeurIPS Datasets and Benchmarks 2021, December
+                  2021, virtual},
+  year         = {2021},
+  url          = {https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/4c56ff4ce4aaf9573aa5dff913df997a-Abstract-round1.html},
+  timestamp    = {Mon, 23 Dec 2024 09:41:11 +0100},
+  biburl       = {https://dblp.org/rec/conf/nips/HuangFG0RLCXSZ21.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

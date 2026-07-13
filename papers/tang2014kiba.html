@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>KIBA: Integrated Kinase Inhibitor Bioactivity Score — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">J. Chem. Inf. Model.</span>
       <span class="meta-year">2014</span>
-      <a href="https://doi.org/10.1021/ci400709d" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">[&#x27;Property Prediction&#x27;]</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+    <div class="paper-links"><a href="https://doi.org/10.1021/ci400709d" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#원문-직접-인용-tang-2014-jcim-abstract">원문 직접 인용 (Tang 2014 JCIM §Abstract)</a></li><li class="toc-l2"><a href="#주요-활용">주요 활용</a></li><li class="toc-l2"><a href="#데이터셋-통계">데이터셋 통계</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>KIBA: 52,498 compounds × 467 kinases — Integrated Bioactivity Score</h1>
 <blockquote>
@@ -122,10 +126,10 @@
 Jing Tang, Agnieszka Szwajda, Sushil Shakyawar, Tao Xu, Petteri Hintsanen, Krister Wennerberg, Tero Aittokallio — Institute for Molecular Medicine Finland (FIMM), University of Helsinki
 DOI: <a href="https://doi.org/10.1021/ci400709d">10.1021/ci400709d</a> · PMID 24521231</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p><strong>3종의 large-scale 생화학 kinase inhibitor assay</strong> + <strong>ChEMBL</strong> + <strong>STITCH</strong> 데이터를 <strong>52,498 compounds × 467 kinases</strong>의 단일 통합 매트릭스로 합쳐, IC50/Ki/Kd를 <strong>246,088개 KIBA score</strong>로 변환한 대규모 DTI benchmark. Davis (2011)의 대형 짝꿍으로 거의 항상 함께 보고됨.</p>
 <hr />
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — 3개 large-scale kinase assay 소스 통합
   ├─ Anastassiadis et al. 2011 (Nature Biotech) — ~30K activities
   ├─ Davis et al. 2011 (Nat Biotech) — Kd 매트릭스
@@ -159,7 +163,7 @@ Step 4 — 결과 분석
   └─ Drug repositioning 후보 시사
 </code></pre>
 <hr />
-<h2>원문 직접 인용 (Tang 2014 JCIM §Abstract)</h2>
+<h2 id="원문-직접-인용-tang-2014-jcim-abstract">원문 직접 인용 (Tang 2014 JCIM §Abstract)</h2>
 <blockquote>
 <p>&quot;We integrated bioactivity measurements from <strong>three recent large-scale biochemical assays</strong> of kinase inhibitors alongside data from established databases (<strong>ChEMBL</strong> and <strong>STITCH</strong>).&quot;</p>
 </blockquote>
@@ -167,7 +171,7 @@ Step 4 — 결과 분석
 <p>&quot;The study consolidated diverse bioactivity types including <strong>IC50, Ki, and Kd</strong> values across <strong>52,498 compounds</strong> and <strong>467 kinase targets</strong>, generating <strong>246,088 integrated KIBA scores</strong>.&quot;</p>
 </blockquote>
 <hr />
-<h2>주요 활용</h2>
+<h2 id="주요-활용">주요 활용</h2>
 <table>
 <thead>
 <tr>
@@ -203,7 +207,7 @@ Step 4 — 결과 분석
 </tbody>
 </table>
 <hr />
-<h2>데이터셋 통계</h2>
+<h2 id="데이터셋-통계">데이터셋 통계</h2>
 <table>
 <thead>
 <tr>
@@ -235,7 +239,7 @@ Step 4 — 결과 분석
 </tbody>
 </table>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>여전한 sparsity</strong>: 246K scores / (52K × 467) ≈ 1% — matrix completion task로 어려움</li>
 <li><strong>단위 통합 model assumption</strong>: KIBA score 변환 시 정확도 가정 (Kd/Ki/IC50 ≠ 정확히 비교 가능)</li>
@@ -244,7 +248,7 @@ Step 4 — 결과 분석
 <li><strong>단일 통합 score</strong>: type-specific binding mode 정보 손실 (예: type I vs II)</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문 (DOI)</strong>: <a href="https://doi.org/10.1021/ci400709d">10.1021/ci400709d</a></li>
 <li><strong>PubMed</strong>: <a href="https://pubmed.ncbi.nlm.nih.gov/24521231/">PMID 24521231</a></li>
@@ -253,7 +257,18 @@ Step 4 — 결과 분석
 <li><strong>함께 보고되는 짝꿍</strong>: <a href="davis2011kinase.html">Davis</a> (Davis et al. 2011 Nat Biotechnol)</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (tang2014kiba)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@misc{tang2014kiba,
+  title = {KIBA: Integrated Kinase Inhibitor Bioactivity Score},
+  year = {2014},
+  note = {J. Chem. Inf. Model.}
+}</code></pre>
   </div>
 </section>
 </main>

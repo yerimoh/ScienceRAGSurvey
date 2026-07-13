@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MaScQA: Investigating Materials Science Knowledge of Large Language Models — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,28 +108,32 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">Digital Discovery (RSC)</span>
       <span class="meta-year">2024</span>
-      <a href="https://pubs.rsc.org/en/content/articlelanding/2024/dd/d3dd00188a" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">[&#x27;Question Answering&#x27;]</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a></div>
+    <div class="paper-links"><a href="https://pubs.rsc.org/en/content/articlelanding/2024/dd/d3dd00188a" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/M3RG-IITD/MaScQA" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#input-입력">Input (입력)</a></li><li class="toc-l2"><a href="#output-출력-정답-형식">Output (출력 / 정답 형식)</a></li><li class="toc-l2"><a href="#실제-문항-예시-논문-본문-figure-1458-캡션-기반-재구성">실제 문항 예시 (논문 본문 + Figure 1·4·5·8 캡션 기반 재구성)</a></li><li class="toc-l3"><a href="#mcq-개념형-논문-본문-인용">MCQ — 개념형 (논문 본문 인용)</a></li><li class="toc-l3"><a href="#match-응용-분야-매칭-논문-본문-인용">MATCH — 응용 분야 매칭 (논문 본문 인용)</a></li><li class="toc-l3"><a href="#mcqn-수치-다중-선택-논문-본문-인용">MCQN — 수치 + 다중 선택 (논문 본문 인용)</a></li><li class="toc-l3"><a href="#num-수치-직접-입력-논문-본문-인용">NUM — 수치 직접 입력 (논문 본문 인용)</a></li><li class="toc-l2"><a href="#주요-평가-결과-table-1">주요 평가 결과 (Table 1)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>MaScQA: Investigating Materials Science Knowledge of Large Language Models</h1>
 <blockquote>
 <p>Digital Discovery 2024 | Benchmark | material
 Zaki, Mausam, Krishnan — IIT Delhi (M3RG-IITD) · arXiv:2308.09115</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>인도 GATE(Graduate Aptitude Test in Engineering) 재료과학·야금공학 기출문제 <strong>650 문항</strong>을 4가지 문항 구조(MCQ/MATCH/MCQN/NUM) × 14개 재료과학 도메인으로 분류하여 구축한 LLM의 학부 졸업 수준 재료과학 지식 평가 벤치마크. GPT-4-CoT가 62.0%로 최고 성능이며, GPT-4의 conceptual error(64%)가 computational error(36%)를 압도해 도메인 지식 부족이 주요 병목임을 정량화. HoneyComb(GPT-4 + MatSciKB + ToolHub)가 79.07%로 RAG 강화 효과 입증.</p>
-<h2>제작 배경</h2>
+<h2 id="제작-배경">제작 배경</h2>
 <ul>
 <li>화학·생물 분야에는 도메인 특화 LLM(ChemGPT, BioBERT 등)이 다수 존재하나, <strong>재료과학에는 전문 평가 셋이 부재</strong>.</li>
 <li>기존 LLM 벤치마크(MMLU, SciQ 등)는 일반 과학 상식 위주로, 학부 졸업 수준의 thermodynamics·crystallography·phase transition 계산 문제를 포함하지 않음.</li>
 <li>GATE 시험은 인도에서 매년 80만 명 이상이 응시(주요 학과 평균 10만 명)하는 <strong>국가 수준 대학원 입시</strong>로, 재료과학·야금 학부 졸업자의 핵심 역량을 검증하기 위해 IIT 5개 기관이 공동 출제 → 신뢰성 있는 정답 키 보유.</li>
 </ul>
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — 소스 선정
   └─ 인도 IIT 주관 GATE (Graduate Aptitude Test in Engineering)
       재료과학·야금공학(MT) 파트 기출문제 수집
@@ -176,7 +180,7 @@ Step 6 — 공개
   └─ github.com/M3RG-IITD/MaScQA
   └─ 전체 650 문항 (Train/Val/Test 분할 없음)
 </code></pre>
-<h2>Input (입력)</h2>
+<h2 id="input-입력">Input (입력)</h2>
 <ul>
 <li><strong>문항 형식</strong>: 텍스트 기반 자연어 질문 (이미지·그래프 없음)</li>
 <li><strong>문항 수</strong>: 650 (MCQ 285 + MATCH 70 + MCQN 67 + NUM 228)</li>
@@ -184,32 +188,32 @@ Step 6 — 공개
 <li><strong>언어</strong>: 영어</li>
 <li><strong>메타데이터</strong>: question_id, structure_type, domain_label, correct_answer</li>
 </ul>
-<h2>Output (출력 / 정답 형식)</h2>
+<h2 id="output-출력-정답-형식">Output (출력 / 정답 형식)</h2>
 <ul>
 <li><strong>MCQ / MATCH / MCQN</strong>: A/B/C/D 중 한 옵션 (또는 복수 옵션)</li>
 <li><strong>NUM</strong>: 수치 (정수 또는 지정 자릿수의 부동소수점)</li>
 <li><strong>평가 지표</strong>: 정답 일치율 (% accuracy)</li>
 <li><strong>베이스라인</strong>: 무작위 선택 시 MCQ 25%, MATCH 25%, MCQN 25%, NUM 0%</li>
 </ul>
-<h2>실제 문항 예시 (논문 본문 + Figure 1·4·5·8 캡션 기반 재구성)</h2>
-<h3>MCQ — 개념형 (논문 본문 인용)</h3>
+<h2 id="실제-문항-예시-논문-본문-figure-1458-캡션-기반-재구성">실제 문항 예시 (논문 본문 + Figure 1·4·5·8 캡션 기반 재구성)</h2>
+<h3 id="mcq-개념형-논문-본문-인용">MCQ — 개념형 (논문 본문 인용)</h3>
 <blockquote>
 <p>논문 본문에서 GPT-4-CoT가 conceptual error를 보인 사례 중 하나:</p>
 <p><strong>Q (Fig. 4(b)).</strong> Relating lattice parameter (a) and atomic diameter (D) in a given crystal structure.</p>
 <p>GPT-4-CoT는 잘못된 관계식 <code>a = √(8/3) · D</code>를 적용 → 정답인 <code>a = (4/√6) · D</code>와 어긋남.</p>
 <p><em>Atomic structure 영역에서 LLM의 공식 retrieval 오류를 보여주는 대표 사례</em></p>
 </blockquote>
-<h3>MATCH — 응용 분야 매칭 (논문 본문 인용)</h3>
+<h3 id="match-응용-분야-매칭-논문-본문-인용">MATCH — 응용 분야 매칭 (논문 본문 인용)</h3>
 <blockquote>
 <p><strong>Q (Fig. 6).</strong> Match materials to their primary application (missile cone heads, semiconductors, refractory uses 등).</p>
 <p><em>논문 본문(p.18) 분석</em>: &quot;GPT-3.5-CoT was only able to determine the material properties required for the missile cone heads ... [it] tries to arrive at the correct answer by eliminating the options.&quot; → GPT-3.5는 elimination 전략에 의존, GPT-4는 개념적 inter-relating으로 정답 도달.</p>
 </blockquote>
-<h3>MCQN — 수치 + 다중 선택 (논문 본문 인용)</h3>
+<h3 id="mcqn-수치-다중-선택-논문-본문-인용">MCQN — 수치 + 다중 선택 (논문 본문 인용)</h3>
 <blockquote>
 <p><strong>Q (Fig. 7).</strong> A numerical question with four numeric options.</p>
 <p><em>논문 본문</em>: &quot;The GPT-3.5-CoT solution used the correct concept but made calculation errors leading to a final incorrect answer. However, GPT-4-CoT used the correct concept and did not make calculation mistakes.&quot;</p>
 </blockquote>
-<h3>NUM — 수치 직접 입력 (논문 본문 인용)</h3>
+<h3 id="num-수치-직접-입력-논문-본문-인용">NUM — 수치 직접 입력 (논문 본문 인용)</h3>
 <blockquote>
 <p><strong>Q (Fig. 8).</strong> Sample numerical question related to <strong>platinum's crystal structure</strong> (FCC, calculating interplanar distance d).</p>
 <p><em>논문 본문</em>: &quot;Both models applied the correct concept. However, GPT-3.5-CoT made a calculation mistake in obtaining the interplanar distance 'd'...&quot; → 개념은 맞지만 산술 오류로 NUM 정확도가 모든 카테고리 중 가장 낮음.</p>
@@ -217,7 +221,7 @@ Step 6 — 공개
 <blockquote>
 <p>※ 원문 GATE 문제 텍스트는 IIT Kharagpur 공식 question paper PDF에서 확인 가능 (각 fig 캡션은 이미지 형식이라 PDF에서 직접 텍스트 추출 불가).</p>
 </blockquote>
-<h2>주요 평가 결과 (Table 1)</h2>
+<h2 id="주요-평가-결과-table-1">주요 평가 결과 (Table 1)</h2>
 <table>
 <thead>
 <tr>
@@ -317,7 +321,7 @@ Step 6 — 공개
 <li>Thermodynamics · Atomic structure · Phase transition · Transport phenomena · Magnetic properties: 40%+ 오답</li>
 <li><strong>최고 정확도 영역</strong>: Material testing (오답 0건) · Material characterization</li>
 </ul>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>이미지·그래프 없음</strong>: 텍스트 기반 문제만 포함 → multimodal 평가 불가 (실제 GATE는 일부 그림 문제 포함).</li>
 <li><strong>인도 커리큘럼 편향</strong>: GATE 문제 특성상 인도 학부 교과서 기반 → 미국·유럽 커리큘럼과 미세한 강조점 차이 가능.</li>
@@ -326,7 +330,7 @@ Step 6 — 공개
 <li><strong>Train/Val/Test 분할 부재</strong>: 전체 650 문항이 평가 셋으로만 사용 → 학습용 split 따로 필요시 사용자가 직접 구성.</li>
 <li><strong>수치 계산 채점의 모호성</strong>: 부동소수점 반올림 자릿수가 문제별로 다름 → automatic grading 시 tolerance 설정 필요.</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문</strong>: <a href="https://pubs.rsc.org/en/content/articlelanding/2024/dd/d3dd00188a">Digital Discovery, RSC, 2024 (DOI: 10.1039/D3DD00188A)</a></li>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2308.09115">2308.09115</a></li>
@@ -339,7 +343,25 @@ Step 6 — 공개
 </li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (zaki2024mascqa)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{zaki2024mascqa,
+  title={MaScQA: investigating materials science knowledge of large language models},
+  author={Zaki, Mohd and Krishnan, NM Anoop and others},
+  journal={Digital Discovery},
+  volume={3},
+  number={2},
+  pages={313--327},
+  year={2024},
+  url={https://pubs.rsc.org/en/content/articlehtml/2024/dd/d3dd00188a},
+  doi={10.1039/D3DD00188A},
+  publisher={Royal Society of Chemistry}
+}</code></pre>
   </div>
 </section>
 </main>

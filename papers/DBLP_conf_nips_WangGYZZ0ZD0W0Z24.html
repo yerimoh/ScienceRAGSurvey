@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AutoSurvey: Large Language Models Can Automatically Write Surveys — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,21 +108,25 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">NeurIPS</span>
       <span class="meta-year">2024</span>
-      <a href="https://arxiv.org/abs/2406.10252" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">[&#x27;Literature Synthesis&#x27;]</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a></div>
+    <div class="paper-links"><a href="https://arxiv.org/abs/2406.10252" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-autosurvey-architecture">시스템 구조 (AutoSurvey Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l2"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>AutoSurvey: Automatic Survey Writing with LLMs</h1>
 <blockquote>
 <p>NeurIPS 2024 | Method | general</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>AutoSurvey는 (1) 검색 → (2) 개요 생성 → (3) 병렬 섹션 초안 → (4) 인용 인지 통합·정제의 4단계 파이프라인으로, LLM의 컨텍스트 한계와 전문성 부족을 우회해 종합적 학술 서베이를 자동 작성하는 시스템이다.</p>
-<h2>시스템 구조 (AutoSurvey Architecture)</h2>
+<h2 id="시스템-구조-autosurvey-architecture">시스템 구조 (AutoSurvey Architecture)</h2>
 <ul>
 <li><strong>검색(Retrieval):</strong> RAG 방식. arXiv CS 논문 약 530,000편을 코퍼스로 두고, <code>nomic-embed-text-v1.5</code>로 각 논문 제목·초록을 임베딩해 유사도로 랭킹. 초기 1,200편, 서브섹션 단계에서 설명별 60편 검색.</li>
 <li><strong>개요(outline) 생성:</strong> 초기 검색 논문을 30,000 토큰 청크로 나눠 청크별 개요를 만든 뒤 병합. 섹션 수는 8개로 고정.</li>
@@ -130,7 +134,7 @@
 <li><strong>통합·정제(Integration &amp; Refinement):</strong> 인용을 추출해 arXiv 논문에 매핑, 앞뒤 섹션 문맥을 고려해 중복 제거·가독성 향상·인용 정확성 점검.</li>
 <li><strong>평가용 LLM judge:</strong> GPT-4·Claude-3-Haiku·Gemini-1.5-Pro 조합으로 후보 서베이를 평가해 최고본 선택(N=2).</li>
 </ul>
-<h2>동작 파이프라인 (inference)</h2>
+<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
 <ol>
 <li>주제 입력.</li>
 <li>초기 검색(1,200편) + 청크별 개요 생성 → 병합 → 8개 섹션 개요 확정.</li>
@@ -138,7 +142,7 @@
 <li>인용 추출·매핑 → 섹션 정제(중복 제거, 인용 점검).</li>
 <li>Multi-LLM-as-Judge 평가 → 후보 중 최고 서베이 선택.</li>
 </ol>
-<h2>주요 결과</h2>
+<h2 id="주요-결과">주요 결과</h2>
 <p><strong>Citation Quality (64k tokens)</strong></p>
 <table>
 <thead>
@@ -168,20 +172,41 @@
 </table>
 <p><strong>Content Quality (64k, 5점)</strong>: AutoSurvey Coverage 4.73 / Structure 4.33 / Relevance 4.86 (Human 5.00 / 4.66 / 5.00).
 <strong>속도</strong>: AutoSurvey 73.6 surveys/hour vs Human 0.07. 도메인 지식 문제 정확도 직접 답변 대비 +9.2%.</p>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li>인용 recall·content 품질이 인간에 약간 못 미침(특히 recall·structure).</li>
 <li>섹션 수 8개 고정으로 구조 유연성 제한.</li>
 <li>검색 코퍼스가 arXiv CS 약 530K편에 한정(도메인 일반화 미검증).</li>
 <li>초기 단계는 초록만, 초안 단계는 본문 앞부분(~1,500 토큰)만 사용.</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li>arXiv: 2406.10252 (<a href="https://arxiv.org/abs/2406.10252">https://arxiv.org/abs/2406.10252</a>) · NeurIPS 2024</li>
 <li>작성 LLM Claude-3-Haiku / 평가 LLM GPT-4·Claude-3-Haiku·Gemini-1.5-Pro / 임베딩 nomic-embed-text-v1.5</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/nips/WangGYZZ0ZD0W0Z24)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@inproceedings{DBLP:conf/nips/WangGYZZ0ZD0W0Z24,
+  author       = {Yidong Wang and Qi Guo and Wenjin Yao and Hongbo Zhang and Xin Zhang and
+                  Zhen Wu and Meishan Zhang and Xinyu Dai and Min Zhang and Qingsong Wen and
+                  Wei Ye and Shikun Zhang and Yue Zhang},
+  editor       = {Amir Globersons and Lester Mackey and Danielle Belgrave and Angela Fan and
+                  Ulrich Paquet and Jakub M. Tomczak and Cheng Zhang},
+  title        = {AutoSurvey: Large Language Models Can Automatically Write Surveys},
+  booktitle    = {Advances in Neural Information Processing Systems 37: Annual Conference
+                  on Neural Information Processing Systems 2024, NeurIPS 2024, Vancouver,
+                  BC, Canada, December 10 - 15, 2024},
+  year         = {2024},
+  url          = {http://papers.nips.cc/paper\_files/paper/2024/hash/d07a9fc7da2e2ec0574c38d5f504d105-Abstract-Conference.html},
+  biburl       = {https://dblp.org/rec/conf/nips/WangGYZZ0ZD0W0Z24.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

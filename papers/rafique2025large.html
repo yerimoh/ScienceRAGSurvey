@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>DUNE Knowledge Retrieval: Large-scale Indexing of Fermilab Collaboration Documents — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">arXiv</span>
       <span class="meta-year">2025</span>
-      
     </div>
-    <div class="paper-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a></div>
+    
+    <div class="paper-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#input-입력">Input (입력)</a></li><li class="toc-l2"><a href="#output-출력">Output (출력)</a></li><li class="toc-l2"><a href="#예시-문항-논문-본문-명시-내용">예시 문항 (논문 본문 명시 내용)</a></li><li class="toc-l3"><a href="#평가-질의-카테고리-sec-4-본문-그대로">📘 평가 질의 카테고리 (Sec. 4 본문 그대로)</a></li><li class="toc-l3"><a href="#frontend-예시-fig-3-caption">📘 Frontend 예시 (Fig. 3 caption)</a></li><li class="toc-l3"><a href="#데이터-소스-범위">📘 데이터 소스 범위</a></li><li class="toc-l3"><a href="#보안-정책-sec-3-본문">📘 보안 정책 (Sec. 3 본문)</a></li><li class="toc-l2"><a href="#주요-결과-sec-4-preliminary">주요 결과 (Sec. 4 Preliminary)</a></li><li class="toc-l2"><a href="#한계점-저자-명시">한계점 (저자 명시)</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>DUNE-GPT: LLM Integration for Knowledge Retrieval in the DUNE Experiment</h1>
 <blockquote>
@@ -122,9 +126,9 @@
 Rafique, Singh, Srinivas — Argonne National Laboratory (DUNE Collaboration)
 Presented at Lepton Photon 2025, Madison WI</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p><strong>Deep Underground Neutrino Experiment (DUNE)</strong> 의 DocDB·Indico·내부 위키 문서를 Fermilab/ALCF 인프라(Aurora 슈퍼컴퓨터 + Argo + Ollama)에서 검색하는 RAG 프로토타입 시스템. <code>multi-qa-mpnet-base-dot-v1</code> + FAISS로 인덱싱, 다양한 질의 유형에서 <strong>예비 검색 정확도 ~70%</strong> 보고. on-premise · 인증된 DUNE 공동연구자만 접근.</p>
-<h2>제작 배경</h2>
+<h2 id="제작-배경">제작 배경</h2>
 <p><strong>기존 방법의 한계</strong></p>
 <ul>
 <li>DUNE 협업은 DocDB(기술 설계 보고서/TDR, 분석 노트), Indico(미팅·발표), 내부 위키 등 <strong>다수 분산 플랫폼</strong>에 문서 보관</li>
@@ -138,7 +142,7 @@ Presented at Lepton Photon 2025, Madison WI</p>
 <li>Fermilab compliance 내에서 동작해야 함</li>
 <li>인증된 DUNE 협력자만 접근 가능한 secure interface 필요</li>
 </ul>
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — 데이터 소스 수집
   ┌─ DocDB : TDR, 분석 노트, 기술 노트
   ├─ Indico : 회의 발표 자료, 미팅 노트
@@ -175,41 +179,41 @@ Step 6 — 예비 평가 (Sec. 4)
     + physics analysis workflows
   검색 정확도 ~70% (preliminary, 정량 IR 메트릭 미시행)
 </code></pre>
-<h2>Input (입력)</h2>
+<h2 id="input-입력">Input (입력)</h2>
 <ul>
 <li>자연어 질의 (web interface)</li>
 <li>인증된 DUNE 협력자 자격증명</li>
 </ul>
-<h2>Output (출력)</h2>
+<h2 id="output-출력">Output (출력)</h2>
 <ul>
 <li>검색 컨텍스트 기반 답변 + DUNE 내부 출처 인용</li>
 <li>top-3 retrieved references (Fig. 3 frontend 표시)</li>
 </ul>
-<h2>예시 문항 (논문 본문 명시 내용)</h2>
+<h2 id="예시-문항-논문-본문-명시-내용">예시 문항 (논문 본문 명시 내용)</h2>
 <blockquote>
 <p>본 논문은 4쪽 짧은 proceedings로, <strong>구체적인 verbatim Q/A 예시는 본문에 포함되어 있지 않음</strong>. 다만 시스템의 평가 범위와 인터페이스를 다음과 같이 명시:</p>
 </blockquote>
-<h3>📘 평가 질의 카테고리 (Sec. 4 본문 그대로)</h3>
+<h3 id="평가-질의-카테고리-sec-4-본문-그대로">📘 평가 질의 카테고리 (Sec. 4 본문 그대로)</h3>
 <blockquote>
 <p>&quot;Initial benchmarks demonstrate that the RAG-based system retrieves relevant documentation with high accuracy (∼70%) across <strong>diverse query types, including detector specifics, reconstruction algorithms, and physics analysis workflows</strong>.&quot;</p>
 </blockquote>
-<h3>📘 Frontend 예시 (Fig. 3 caption)</h3>
+<h3 id="frontend-예시-fig-3-caption">📘 Frontend 예시 (Fig. 3 caption)</h3>
 <blockquote>
 <p>&quot;Frontend web interface showing a sample question, response, and the <strong>top three retrieved references</strong> used in response generation.&quot;
 <em>(구체 question 텍스트는 figure에만 표시되고 본문에 inline 인용 없음)</em></p>
 </blockquote>
-<h3>📘 데이터 소스 범위</h3>
+<h3 id="데이터-소스-범위">📘 데이터 소스 범위</h3>
 <blockquote>
 <p>&quot;We extracted publicly accessible and internal DUNE documentation, including DUNE documents, presentations, meeting notes, technical design reports, and working group materials from DocDB and Indico.&quot;</p>
 </blockquote>
-<h3>📘 보안 정책 (Sec. 3 본문)</h3>
+<h3 id="보안-정책-sec-3-본문">📘 보안 정책 (Sec. 3 본문)</h3>
 <blockquote>
 <p>&quot;all operations—including embedding generation and LLM inference—are performed within the DUNE internal computing environment. <strong>Only authenticated DUNE collaborators will be able to use this tool.</strong>&quot;</p>
 </blockquote>
 <blockquote>
 <p>본 paper는 system overview proceedings이며, 정량 평가 + 구체 Q/A 케이스 스터디는 follow-up paper에 예정.</p>
 </blockquote>
-<h2>주요 결과 (Sec. 4 Preliminary)</h2>
+<h2 id="주요-결과-sec-4-preliminary">주요 결과 (Sec. 4 Preliminary)</h2>
 <table>
 <thead>
 <tr>
@@ -251,7 +255,7 @@ Step 6 — 예비 평가 (Sec. 4)
 <blockquote>
 <p><strong>비교 기준 없음</strong>: MITRA(CMS, P@1=0.75 on semantic queries) · chATLAS(ATLAS, GPT-4o-mini API) 같은 BM25 baseline 정량 비교 미수행. 저자가 &quot;preliminary&quot; 명시.</p>
 </blockquote>
-<h2>한계점 (저자 명시)</h2>
+<h2 id="한계점-저자-명시">한계점 (저자 명시)</h2>
 <ul>
 <li><strong>프로토타입 단계</strong> — 협업 전체 배포 전, 체계적 벤치마크 부재</li>
 <li><strong>민감 문서 제외</strong>: 협업 정책으로 controlled 자료 인덱싱 불가 → 지식 커버리지 불완전</li>
@@ -261,7 +265,7 @@ Step 6 — 예비 평가 (Sec. 4)
 <li>검색 모델과 LLM 조합의 최적화 실험 미수행</li>
 <li>DUNE 외 LBL/SBN/실험 외부 transferability 미검증</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문</strong>: <a href="https://arxiv.org/abs/2601.05278">arXiv:2601.05278</a> (v2, 13 Jan 2026)</li>
 <li><strong>발표</strong>: 32nd International Symposium on Lepton Photon Interactions at High Energies, Madison WI, Aug 25–29, 2025</li>
@@ -271,7 +275,19 @@ Step 6 — 예비 평가 (Sec. 4)
 <li><strong>그랜트</strong>: U.S. DOE Office of HEP + 다국 funding agencies</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (rafique2025large)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{rafique2025large,
+  title={Large Language Model Integration for Knowledge Retrieval and Interaction for the DUNE Experiment},
+  author={Rafique, A and Singh, A and Srinivas, R},
+  journal={arXiv preprint arXiv:2601.05278},
+  year={2026}
+}</code></pre>
   </div>
 </section>
 </main>

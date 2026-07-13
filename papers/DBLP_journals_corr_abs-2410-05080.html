@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ScienceAgentBench: 102 Tasks × 44 Pubs × API+E2E Code Success — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">ICLR / arXiv</span>
       <span class="meta-year">2024</span>
-      <a href="https://arxiv.org/abs/2410.05080" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">[&#x27;Materials Discovery&#x27;]</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a></div>
+    <div class="paper-links"><a href="https://arxiv.org/abs/2410.05080" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/OSU-NLP-Group/ScienceAgentBench" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Materials Discovery</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#실제-데이터-형식-예시-논문-2-figure-2-table-1">실제 데이터 형식 예시 (논문 §2 + Figure 2 + Table 1)</a></li><li class="toc-l3"><a href="#유형-a-task-4-component-schema-논문-figure-2">유형 A — Task 4-component schema (논문 Figure 2)</a></li><li class="toc-l3"><a href="#유형-b-task-specific-success-criteria-table-1-예시">유형 B — Task-specific Success Criteria (Table 1 예시)</a></li><li class="toc-l3"><a href="#유형-c-4-disciplines-102-tasks-분포">유형 C — 4 disciplines × 102 tasks 분포</a></li><li class="toc-l3"><a href="#유형-d-evaluation-metrics-논문-23">유형 D — Evaluation metrics (논문 §2.3)</a></li><li class="toc-l3"><a href="#유형-e-기존-benchmark-비교-table-2">유형 E — 기존 benchmark 비교 (Table 2)</a></li><li class="toc-l2"><a href="#평가-metric-상세">평가 metric 상세</a></li><li class="toc-l2"><a href="#주요-평가-결과-논문-본문">주요 평가 결과 (논문 본문)</a></li><li class="toc-l2"><a href="#4개-분야-task-분포">4개 분야 task 분포</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>ScienceAgentBench: 102 Tasks × 44 Peer-Reviewed Publications, Per-step API + E2E Code Success</h1>
 <blockquote>
@@ -122,10 +126,10 @@
 Ziru Chen, Shijie Chen, Yuting Ning, Qianheng Zhang, Boshi Wang, Botao Yu, Yifei Li, Zeyi Liao, Chen Liang, Zixuan Tian, Junlin Wang, Xuechen Li, Hua Xu, Zhen Wang, Yu Su, Huan Sun — Ohio State University
 DBLP: <code>journals/corr/abs-2410-05080</code> · arXiv: <a href="https://arxiv.org/abs/2410.05080">2410.05080</a></p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>LLM agent가 과학 데이터 분석 코드를 작성·실행하는 task <strong>102개</strong>를 <strong>44 peer-reviewed publications</strong>에서 추출하고 <strong>9 domain experts</strong>가 검증한 benchmark. 각 task의 출력은 <strong>self-contained Python file</strong>, 평가는 <strong>per-step API-call accuracy + end-to-end executable code success</strong>. 최고 성능 agent도 task의 <strong>32.4% (independent), 34.3% (expert knowledge)</strong> 만 해결.</p>
 <hr />
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — Task 수집 (peer-reviewed publication 기반)
   ┌──────────────────────────────────────────────┐
   │ 44 peer-reviewed publications에서 task 추출  │
@@ -162,8 +166,8 @@ Step 5 — Agent strategies tested
   · 각 3 attempts/task
 </code></pre>
 <hr />
-<h2>실제 데이터 형식 예시 (논문 §2 + Figure 2 + Table 1)</h2>
-<h3>유형 A — Task 4-component schema (논문 Figure 2)</h3>
+<h2 id="실제-데이터-형식-예시-논문-2-figure-2-table-1">실제 데이터 형식 예시 (논문 §2 + Figure 2 + Table 1)</h2>
+<h3 id="유형-a-task-4-component-schema-논문-figure-2">유형 A — Task 4-component schema (논문 Figure 2)</h3>
 <p>각 task는 다음 4개 component로 구성:</p>
 <blockquote>
 <p><strong>(a) Task Instruction</strong>: 자연어 task 명세</p>
@@ -201,7 +205,7 @@ CLINTOX_TASKS = ['FDA_APPROVED', 'CT_TOX']
 test_scores_df.to_csv('pred_results/clintox_test_pred.csv')
 </code></pre>
 </blockquote>
-<h3>유형 B — Task-specific Success Criteria (Table 1 예시)</h3>
+<h3 id="유형-b-task-specific-success-criteria-table-1-예시">유형 B — Task-specific Success Criteria (Table 1 예시)</h3>
 <table>
 <thead>
 <tr>
@@ -233,7 +237,7 @@ test_scores_df.to_csv('pred_results/clintox_test_pred.csv')
 </tr>
 </tbody>
 </table>
-<h3>유형 C — 4 disciplines × 102 tasks 분포</h3>
+<h3 id="유형-c-4-disciplines-102-tasks-분포">유형 C — 4 disciplines × 102 tasks 분포</h3>
 <blockquote>
 <pre><code>┌──────────────────────────────────────────────┬─────┐
 │ Bioinformatics                                │     │
@@ -253,7 +257,7 @@ test_scores_df.to_csv('pred_results/clintox_test_pred.csv')
 <li>Feature Engineering (20), Map Visualization (18), Deep Learning (14)</li>
 </ul>
 </blockquote>
-<h3>유형 D — Evaluation metrics (논문 §2.3)</h3>
+<h3 id="유형-d-evaluation-metrics-논문-23">유형 D — Evaluation metrics (논문 §2.3)</h3>
 <blockquote>
 <pre><code>4 program-level metrics:
   1. VER (Valid Execution Rate)  — binary: program 실행되고 output 저장됨
@@ -270,7 +274,7 @@ test_scores_df.to_csv('pred_results/clintox_test_pred.csv')
 <li>그러나 <strong>10× cost</strong> 증가 → 비용-성능 trade-off 명확</li>
 </ul>
 </blockquote>
-<h3>유형 E — 기존 benchmark 비교 (Table 2)</h3>
+<h3 id="유형-e-기존-benchmark-비교-table-2">유형 E — 기존 benchmark 비교 (Table 2)</h3>
 <table>
 <thead>
 <tr>
@@ -341,7 +345,7 @@ test_scores_df.to_csv('pred_results/clintox_test_pred.csv')
 </tbody>
 </table>
 <hr />
-<h2>평가 metric 상세</h2>
+<h2 id="평가-metric-상세">평가 metric 상세</h2>
 <p>| Metric | 의미 | 단위 |
 |---|---|---|
 | <strong>Execution success</strong> | 코드가 실행 가능한가 | binary (per task) |
@@ -350,7 +354,7 @@ test_scores_df.to_csv('pred_results/clintox_test_pred.csv')
 | <strong>Cost</strong> | API 토큰 사용량 | $ |
 | 3 attempts allowed | best-of-3 평가 |</p>
 <hr />
-<h2>주요 평가 결과 (논문 본문)</h2>
+<h2 id="주요-평가-결과-논문-본문">주요 평가 결과 (논문 본문)</h2>
 <table>
 <thead>
 <tr>
@@ -389,7 +393,7 @@ test_scores_df.to_csv('pred_results/clintox_test_pred.csv')
 </table>
 <p>→ 결론: 현재 LLM agent는 <strong>end-to-end automation 불충분</strong>. &quot;even building a fully automatic AI Scientist is far from complete&quot;</p>
 <hr />
-<h2>4개 분야 task 분포</h2>
+<h2 id="4개-분야-task-분포">4개 분야 task 분포</h2>
 <table>
 <thead>
 <tr>
@@ -417,7 +421,7 @@ test_scores_df.to_csv('pred_results/clintox_test_pred.csv')
 </tbody>
 </table>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>102 tasks 만</strong>: 더 큰 scale benchmark 필요</li>
 <li><strong>4 disciplines 한정</strong>: physics, mathematics 등 미커버</li>
@@ -427,7 +431,7 @@ test_scores_df.to_csv('pred_results/clintox_test_pred.csv')
 <li><strong>시간</strong>: 2024 cutoff, 최신 agent (Claude 3.7 등) 미평가</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2410.05080">2410.05080</a></li>
 <li><strong>DBLP</strong>: <a href="https://dblp.org/rec/journals/corr/abs-2410-05080.html">journals/corr/abs-2410-05080</a></li>
@@ -438,7 +442,26 @@ test_scores_df.to_csv('pred_results/clintox_test_pred.csv')
 <li><strong>관련 작업</strong>: MLAgentBench (Huang et al.), SWE-Bench (Jimenez et al.), MatClaw (Zhang 2026, materials-specific code-as-action)</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/corr/abs-2410-05080)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{DBLP:journals/corr/abs-2410-05080,
+  author    = {Ziru Chen and Shijie Chen and Yuting Ning and Qianheng Zhang and Boshi Wang
+               and Botao Yu and Yifei Li and Zeyi Liao and Chen Liang and Zixuan Tian
+               and Junlin Wang and Xuechen Li and Hua Xu and Zhen Wang and Yu Su and Huan Sun},
+  title     = {ScienceAgentBench: Toward Rigorous Assessment of Language Agents for
+               Data-Driven Scientific Discovery},
+  journal   = {CoRR},
+  volume    = {abs/2410.05080},
+  year      = {2024},
+  url       = {https://doi.org/10.48550/arXiv.2410.05080},
+  eprint    = {2410.05080},
+  eprinttype = {arXiv}
+}</code></pre>
   </div>
 </section>
 </main>

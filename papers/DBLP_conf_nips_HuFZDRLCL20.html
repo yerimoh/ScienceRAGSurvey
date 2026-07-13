@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Open Graph Benchmark: Datasets for Machine Learning on Graphs — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">NeurIPS</span>
       <span class="meta-year">2020</span>
-      <a href="https://proceedings.neurips.cc/paper/2020/hash/fb60d411a5c5b72b2e7d3527cfc84fd0-Abstract.html" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Relational × Discovery</a><span class="tag tag-sub">[&#x27;Property Prediction&#x27;]</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a></div>
+    <div class="paper-links"><a href="https://proceedings.neurips.cc/paper/2020/hash/fb60d411a5c5b72b2e7d3527cfc84fd0-Abstract.html" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/snap-stanford/ogb" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Relational × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#실제-데이터-형식-예시-논문-3-5-table-1-2">실제 데이터 형식 예시 (논문 §3-5 + Table 1-2)</a></li><li class="toc-l3"><a href="#유형-a-ogb-biokg-heterogeneous-biomedical-kg">유형 A — OGB-biokg (heterogeneous biomedical KG)</a></li><li class="toc-l3"><a href="#유형-b-ogb-link-prediction-6-dataset-summary">유형 B — OGB Link prediction 6 dataset summary</a></li><li class="toc-l3"><a href="#유형-c-end-to-end-pipeline-논문-figure-2">유형 C — End-to-end pipeline (논문 Figure 2)</a></li><li class="toc-l3"><a href="#유형-d-평가-protocol-filtered-mrr-for-kg-completion">유형 D — 평가 protocol (Filtered MRR for KG completion)</a></li><li class="toc-l2"><a href="#평가-framework-요약">평가 framework 요약</a></li><li class="toc-l2"><a href="#주요-결과-논문-3-5-table-3">주요 결과 (논문 §3-5 + Table 3)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>OGB / OGB-biokg: 15-dataset graph ML benchmark with realistic splits</h1>
 <blockquote>
@@ -122,10 +126,10 @@
 Weihua Hu, Matthias Fey, Marinka Zitnik, Yuxiao Dong, Hongyu Ren, Bowen Liu, Michele Catasta, Jure Leskovec — Stanford / TU Dortmund / Harvard / Microsoft Research
 DBLP: <a href="https://dblp.org/rec/conf/nips/HuFZDRLCL20.html">conf/nips/HuFZDRLCL20</a></p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p><strong>15개 large-scale graph dataset의 표준 benchmark</strong> (node/link/graph property prediction × Nature/Society/Information 도메인). 핵심 contribution: <strong>realistic application-specific data splits</strong> (random이 아닌 time / scaffold / species 기반) + <strong>표준 evaluator + public leaderboard</strong>. <strong>ogbl-biokg</strong> subset은 heterogeneous biomedical knowledge graph (93,773 nodes / 5,088,434 edges) 위에서 MRR 기반 link prediction을 평가하는 §o3-weakverifier 관련 task.</p>
 <hr />
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — 문제 인식: 기존 graph ML benchmark의 약점
   ┌──────────────────────────────────────────────┐
   │ - CORA/CITESEER/PUBMED: 2,700~20K nodes      │
@@ -171,8 +175,8 @@ Step 5 — End-to-end pipeline
   · Submission via GitHub (코드 필수)
 </code></pre>
 <hr />
-<h2>실제 데이터 형식 예시 (논문 §3-5 + Table 1-2)</h2>
-<h3>유형 A — OGB-biokg (heterogeneous biomedical KG)</h3>
+<h2 id="실제-데이터-형식-예시-논문-3-5-table-1-2">실제 데이터 형식 예시 (논문 §3-5 + Table 1-2)</h2>
+<h3 id="유형-a-ogb-biokg-heterogeneous-biomedical-kg">유형 A — OGB-biokg (heterogeneous biomedical KG)</h3>
 <blockquote>
 <p><strong>Task</strong>: KG completion (link prediction)</p>
 <pre><code>Scale:         93,773 nodes / 5,088,434 edges
@@ -187,7 +191,7 @@ Negative:      filtered evaluation
 <p>Triple example: <code>(Drug:Aspirin, treats, Disease:Headache)</code>
 평가: 각 test (h,r,t)에 대해 head/tail 손상 후 ranking</p>
 </blockquote>
-<h3>유형 B — OGB Link prediction 6 dataset summary</h3>
+<h3 id="유형-b-ogb-link-prediction-6-dataset-summary">유형 B — OGB Link prediction 6 dataset summary</h3>
 <blockquote>
 <p>| Dataset | Domain | Split | Metric | #Nodes | #Edges |
 |---|---|---|---|---|---|
@@ -198,7 +202,7 @@ Negative:      filtered evaluation
 | ogbl-wikikg | Information | Time 94/3/3 | MRR | 2.5M | 17M |
 | <strong>ogbl-biokg</strong> | <strong>Information</strong> | <strong>Random 94/3/3</strong> | <strong>MRR</strong> | <strong>94K</strong> | <strong>5M</strong> |</p>
 </blockquote>
-<h3>유형 C — End-to-end pipeline (논문 Figure 2)</h3>
+<h3 id="유형-c-end-to-end-pipeline-논문-figure-2">유형 C — End-to-end pipeline (논문 Figure 2)</h3>
 <blockquote>
 <pre><code>(a) OGB datasets → (b) OGB data loader →
 (c) User ML model → (d) OGB Evaluator →
@@ -213,7 +217,7 @@ evaluator = Evaluator(name='ogbl-biokg')
 # result_dict = evaluator.eval(input_dict)  # MRR
 </code></pre>
 </blockquote>
-<h3>유형 D — 평가 protocol (Filtered MRR for KG completion)</h3>
+<h3 id="유형-d-평가-protocol-filtered-mrr-for-kg-completion">유형 D — 평가 protocol (Filtered MRR for KG completion)</h3>
 <blockquote>
 <pre><code>For each test triple (h, r, t):
   1. Generate 500 corrupted heads + 500 corrupted tails
@@ -226,7 +230,7 @@ Public leaderboard tracks reproducible submissions
 </code></pre>
 </blockquote>
 <hr />
-<h2>평가 framework 요약</h2>
+<h2 id="평가-framework-요약">평가 framework 요약</h2>
 <table>
 <thead>
 <tr>
@@ -259,7 +263,7 @@ Public leaderboard tracks reproducible submissions
 </table>
 <p>→ ogbl-biokg는 §o3-weakverifier의 KG embedding 평가 substrate; 다른 dataset은 graph ML 일반.</p>
 <hr />
-<h2>주요 결과 (논문 §3-5 + Table 3)</h2>
+<h2 id="주요-결과-논문-3-5-table-3">주요 결과 (논문 §3-5 + Table 3)</h2>
 <table>
 <thead>
 <tr>
@@ -292,7 +296,7 @@ Public leaderboard tracks reproducible submissions
 </table>
 <p>→ <strong>결론</strong>: graph ML 발전에 필수 인프라; 모든 후속 graph ML 논문이 OGB leaderboard에서 비교됨.</p>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>Static benchmark</strong>: 5년 경과로 일부 dataset 포화</li>
 <li><strong>ogbl-biokg는 작은 편</strong>: 다른 KG benchmark (Freebase, Wikidata) 대비</li>
@@ -302,7 +306,7 @@ Public leaderboard tracks reproducible submissions
 <li><strong>Public leaderboard 의존</strong>: dataset/leaderboard 종료 위험 (Stanford 호스팅)</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문 (NeurIPS 2020)</strong>: <a href="https://proceedings.neurips.cc/paper/2020/hash/fb60d411a5c5b72b2e7d3527cfc84fd0-Abstract.html">proceedings.neurips.cc</a></li>
 <li><strong>DBLP</strong>: <a href="https://dblp.org/rec/conf/nips/HuFZDRLCL20.html">conf/nips/HuFZDRLCL20</a></li>
@@ -313,7 +317,31 @@ Public leaderboard tracks reproducible submissions
 <li><strong>관련 benchmark</strong>: [[DBLP:journals/bioinformatics/BreitOAS20]] (OpenBioLink — 같은 도메인, leakage-control 강조), FB15K-237 / WN18RR (general KG)</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/nips/HuFZDRLCL20)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@inproceedings{DBLP:conf/nips/HuFZDRLCL20,
+  author       = {Weihua Hu and
+                  Matthias Fey and
+                  Marinka Zitnik and
+                  Yuxiao Dong and
+                  Hongyu Ren and
+                  Bowen Liu and
+                  Michele Catasta and
+                  Jure Leskovec},
+  title        = {Open Graph Benchmark: Datasets for Machine Learning on Graphs},
+  booktitle    = {Advances in Neural Information Processing Systems 33: Annual Conference
+                  on Neural Information Processing Systems 2020, NeurIPS 2020, December
+                  6-12, 2020, virtual},
+  year         = {2020},
+  url          = {https://proceedings.neurips.cc/paper/2020/hash/fb60d411a5c5b72b2e7d3527cfc84fd0-Abstract.html},
+  biburl       = {https://dblp.org/rec/conf/nips/HuFZDRLCL20.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

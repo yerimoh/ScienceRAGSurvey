@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CG-RAG: Research Question Answering by Citation Graph Retrieval-Augmented LLMs — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,21 +108,25 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">SIGIR</span>
       <span class="meta-year">2025</span>
-      <a href="https://doi.org/10.1145/3726302.3729920" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K2.O2.html" class="tag tag-cell" title="K2.O2">Relational × Synthesis</a><span class="tag tag-sub">[&#x27;Literature Synthesis&#x27;]</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a></div>
+    <div class="paper-links"><a href="https://doi.org/10.1145/3726302.3729920" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K2.O2.html" class="tag tag-cell" title="K2.O2">Relational × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-cg-rag-architecture">시스템 구조 (CG-RAG Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l2"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>CG-RAG: Citation-Graph Retrieval-Augmented LLMs for Research QA</h1>
 <blockquote>
 <p>SIGIR 2025 | Method | general (scientific research)</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>연구 논문을 청크(chunk) 단위로 분해해 인용 관계로 연결한 계층적 인용 그래프(hierarchical citation graph)를 구축하고, sparse(어휘)·dense(의미) 신호를 그래프 위에서 얽힘 융합(entangled fusion)하는 검색기 <strong>LeSeGR</strong>를 제안하여, 검색된 근거 청크의 문맥 이웃까지 LLM에 제공해 grounded 답변을 생성하는 연구 QA 프레임워크.</p>
-<h2>시스템 구조 (CG-RAG Architecture)</h2>
+<h2 id="시스템-구조-cg-rag-architecture">시스템 구조 (CG-RAG Architecture)</h2>
 <p>CG-RAG는 (1) 계층적 인용 그래프 구성, (2) LeSeGR 검색기, (3) 문맥 인지 답변 생성기의 세 부분으로 이루어진다.</p>
 <p><strong>계층적 인용 그래프 (논문 청크 노드 + 인용 엣지).</strong> 논문 본문은 related work / method / experiment 등 섹션마다 역할이 다른 이질적 정보를 담으므로, 논문 단위가 아니라 고정 길이 청크 단위로 분해한다(최대 청크 길이 8,192 토큰). 엣지는 두 종류다.</p>
 <ul>
@@ -136,7 +140,7 @@
 <li><strong>GNN 메시지 패싱:</strong> 각 층에서 &quot;질의-청크 sparse 점수 × 청크 간 dense 점수&quot; 곱이 메시지 흐름을 게이팅(gating)하여 관련 정보만 이웃으로 전파한다. K층을 거친 최종 얽힘 표현으로 모든 청크를 점수화한다.</li>
 <li><strong>이론적 일반성:</strong> 이웃이 없고 집계가 mean/sum이면 LeSeGR 점수가 &quot;log(sparse) + log(dense)&quot;로 환원되어, 기존 post-retrieval hybrid 융합이 LeSeGR의 특수 경우임을 보인다(그래프 DB로 hybrid 검색을 일반화).</li>
 </ul>
-<h2>동작 파이프라인 (inference)</h2>
+<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
 <ol>
 <li>계층적 인용 그래프 구성.</li>
 <li>sparse·dense 인코더로 질의·청크 인코딩, 질의-청크 어휘 관련도와 청크 간 의미 유사도 계산.</li>
@@ -145,7 +149,7 @@
 <li><strong>grounded 생성:</strong> 각 문맥 서브그래프를 LLM이 요약한 뒤, 질의와 함께 최종 답변을 생성.</li>
 </ol>
 <p>구현: 생성 LLM은 GPT-4o(2024-05-13), sparse 신호 BGE-M3, dense 신호 MiniLM, 그래프 인코더는 2층·4헤드·은닉차원 1024의 Graph Transformer.</p>
-<h2>주요 결과</h2>
+<h2 id="주요-결과">주요 결과</h2>
 <p><strong>데이터셋:</strong> PubMedQA-1k(QA 1,000쌍, 논문 7,849편), PapersWithCodeQA(질문 924개, 논문 12,171편).</p>
 <p>PapersWithCodeQA</p>
 <table>
@@ -214,16 +218,40 @@
 </tbody>
 </table>
 <p>효율(PapersWithCodeQA): LeSeGR는 GPU 메모리 1,921MB / 질의 지연 403.94ms로 ColBERT(12,674MB / 561.91ms)보다 메모리·지연 모두 우수. Ablation: 문맥 이웃 수 n=4가 최적, 그래프 인코더는 Graph Transformer &gt; GCN &gt; GAT.</p>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <p>논문에 명시적 Limitations 절은 없다. (요약자 주: 검증 도메인이 PubMed·PapersWithCode 두 과학 코퍼스에 한정, 생성에 GPT-4o API 의존, Top-n 등 그래프 구성 하이퍼파라미터 민감성은 ablation에서만 다룸.)</p>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li>arXiv: 2501.15067 (<a href="https://arxiv.org/abs/2501.15067">https://arxiv.org/abs/2501.15067</a>)</li>
 <li>DOI: <a href="https://doi.org/10.1145/3726302.3729920">https://doi.org/10.1145/3726302.3729920</a> (SIGIR 2025, pp. 678–687)</li>
 <li>저자: Yuntong Hu, Zhihan Lei, Zhongjie Dai, Allen Zhang, Abhinav Angirekula, Zhengwu Zhang, Liang Zhao</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/sigir/HuLD0A0025)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@inproceedings{DBLP:conf/sigir/HuLD0A0025,
+  author       = {Yuntong Hu and Zhihan Lei and Zhongjie Dai and Allen Zhang and
+                  Abhinav Angirekula and Zheng Zhang and Liang Zhao},
+  editor       = {Nicola Ferro and Maria Maistro and Gabriella Pasi and Omar Alonso and
+                  Andrew Trotman and Suzan Verberne},
+  title        = {{CG-RAG:} Research Question Answering by Citation Graph Retrieval-Augmented
+                  LLMs},
+  booktitle    = {Proceedings of the 48th International {ACM} {SIGIR} Conference on Research
+                  and Development in Information Retrieval, {SIGIR} 2025, Padua, Italy,
+                  July 13-18, 2025},
+  pages        = {678--687},
+  publisher    = {{ACM}},
+  year         = {2025},
+  url          = {https://doi.org/10.1145/3726302.3729920},
+  doi          = {10.1145/3726302.3729920},
+  biburl       = {https://dblp.org/rec/conf/sigir/HuLD0A0025.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

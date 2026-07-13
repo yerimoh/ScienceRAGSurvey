@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>HoneyComb: A Flexible LLM-Based Agent System for Materials Science — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,29 +108,33 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">EMNLP 2024 Findings</span>
       <span class="meta-year">2024</span>
-      <a href="https://doi.org/10.18653/v1/2024.findings-emnlp.192" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Structured-entity × Grounding</a><span class="tag tag-sub">[&#x27;Question Answering&#x27;]</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a></div>
+    <div class="paper-links"><a href="https://doi.org/10.18653/v1/2024.findings-emnlp.192" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Structured-entity × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#input-입력">Input (입력)</a></li><li class="toc-l2"><a href="#output-출력-정답-형식">Output (출력 / 정답 형식)</a></li><li class="toc-l2"><a href="#실제-태스크-예시">실제 태스크 예시</a></li><li class="toc-l3"><a href="#mascqa-gate-기출-zaki-et-al-2023-활용-650문항">MaScQA — GATE 기출 (Zaki et al. 2023 활용, 650문항)</a></li><li class="toc-l3"><a href="#sciq-11679-multiple-choice-과학-welbl-et-al-2017-활용-본-논문에서는-sciqa로-표기">SciQ — 11,679 multiple-choice 과학 (Welbl et al. 2017 활용; 본 논문에서는 SciQA로 표기)</a></li><li class="toc-l3"><a href="#real-world-쿼리-시스템-데모">Real-world 쿼리 (시스템 데모)</a></li><li class="toc-l2"><a href="#주요-평가-결과">주요 평가 결과</a></li><li class="toc-l3"><a href="#table-3-honeycomb-통합-효과-accuracy">Table 3 — HoneyComb 통합 효과 (Accuracy %)</a></li><li class="toc-l3"><a href="#table-5-ablation-study-gpt-4-기준">Table 5 — Ablation Study (GPT-4 기준)</a></li><li class="toc-l3"><a href="#table-4-material-category별-성능-예-atomic-structure">Table 4 — Material Category별 성능 (예: Atomic Structure)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>HoneyComb: A Flexible LLM-Based Agent System for Materials Science</h1>
 <blockquote>
 <p>Findings of EMNLP 2024 (pp. 3369–3382) | Method | material
 Zhang, Su, Huang, Ma, Li 외 · DBLP: <code>conf/emnlp/ZhangSHML24</code></p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>재료과학에 특화된 <strong>MatSciKB (38,469 entry KB)</strong> + <strong>ToolHub (general + Inductive Tool Construction 기반 specialized API)</strong> + <strong>하이브리드 Retriever (BM25 + Contriever)</strong>의 3-컴포넌트 LLM 에이전트 시스템. GPT-4 기반 HoneyComb이 <strong>MaScQA 79.07% (vs GPT-4 단독 58.46%, +20.61pp)</strong>, <strong>SciQA 96.54% (vs 90.84%, +5.70pp)</strong> 달성. 16.62% baseline의 HoneyBee-7B를 79.69%로 끌어올려 +63pp 증가의 극적 효과.</p>
-<h2>제작 배경</h2>
+<h2 id="제작-배경">제작 배경</h2>
 <ul>
 <li><strong>재료과학 LLM의 한계</strong>: 기존 모델들은 일반 도메인 학습 데이터에 의존 → 재료과학 특화 (arXiv preprint, Wikipedia 재료 항목, textbook formula 등) 지식 부재.</li>
 <li><strong>Coscientist (Boiko et al. 2023) 등 도메인 agent의 성공</strong>이 재료과학에도 적용 가능함을 시사.</li>
 <li>정적(static) LLM은 PubMed/Materials Project 같이 매일 업데이트되는 데이터 소스를 반영 못함 → real-time tool augmentation 필요.</li>
 <li><strong>MaScQA (Zaki et al. 2023)</strong> 발표로 재료과학 평가 셋이 마련됨 → tool-augmented system을 정량적으로 검증할 기반 마련.</li>
 </ul>
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>HoneyComb 전체 아키텍처 (Fig. 1, p.4)
 
 Query → [Knowledge Retrieval Phase]
@@ -191,7 +195,7 @@ Agent-ToolHub 2-phase Protocol
      ├─ 단일 tool로 해결 가능 → 실행
      └─ 복잡 → multi-tool decompose
 </code></pre>
-<h2>Input (입력)</h2>
+<h2 id="input-입력">Input (입력)</h2>
 <ul>
 <li><strong>사용자 자연어 쿼리</strong> (재료과학 도메인)</li>
 <li><strong>태스크 유형</strong>:<ul>
@@ -201,14 +205,14 @@ Agent-ToolHub 2-phase Protocol
 </ul>
 </li>
 </ul>
-<h2>Output (출력 / 정답 형식)</h2>
+<h2 id="output-출력-정답-형식">Output (출력 / 정답 형식)</h2>
 <ul>
 <li>자연어 답변 (인용 + 출처)</li>
 <li>MaScQA 형식: A/B/C/D 또는 수치</li>
 <li>SciQA 형식: 4지 선다 정답</li>
 </ul>
-<h2>실제 태스크 예시</h2>
-<h3>MaScQA — GATE 기출 (Zaki et al. 2023 활용, 650문항)</h3>
+<h2 id="실제-태스크-예시">실제 태스크 예시</h2>
+<h3 id="mascqa-gate-기출-zaki-et-al-2023-활용-650문항">MaScQA — GATE 기출 (Zaki et al. 2023 활용, 650문항)</h3>
 <blockquote>
 <p><strong>태스크 분포</strong>:
 · MCQ 285 / MATCH 70 / MCQN 67 / NUM 228
@@ -217,20 +221,20 @@ Agent-ToolHub 2-phase Protocol
 · MCQ 개념형 → MatSciKB 검색 → 관련 textbook chunk + Wikipedia 항목 회수 → LLM 답변
 · NUM 계산형 → ToolHub의 Python REPL 또는 specialized formula tool → 수치 산출</p>
 </blockquote>
-<h3>SciQ — 11,679 multiple-choice 과학 (Welbl et al. 2017 활용; 본 논문에서는 SciQA로 표기)</h3>
+<h3 id="sciq-11679-multiple-choice-과학-welbl-et-al-2017-활용-본-논문에서는-sciqa로-표기">SciQ — 11,679 multiple-choice 과학 (Welbl et al. 2017 활용; 본 논문에서는 SciQA로 표기)</h3>
 <blockquote>
 <p><strong>태스크</strong>: 4지 선다 생물·화학·물리 학부 초반 수준 문제
 HoneyComb는 SciQ에 대해 ToolHub만 사용해도 +5.5%p 향상 (Table 5)</p>
 </blockquote>
-<h3>Real-world 쿼리 (시스템 데모)</h3>
+<h3 id="real-world-쿼리-시스템-데모">Real-world 쿼리 (시스템 데모)</h3>
 <blockquote>
 <p><strong>Q (factoid):</strong> &quot;What is the crystal structure of perovskite BaTiO₃?&quot;
 → MatSciKB 검색 → &quot;BaTiO₃: 페로브스카이트 구조, 입방정계, a≈4.01Å&quot; → 답변</p>
 <p><strong>Q (computational):</strong> &quot;What is the formation energy of Fe₂O₃?&quot;
 → ToolHub → Materials Project API → ΔH_f ≈ -2.03 eV/atom → 답변 + DOI</p>
 </blockquote>
-<h2>주요 평가 결과</h2>
-<h3>Table 3 — HoneyComb 통합 효과 (Accuracy %)</h3>
+<h2 id="주요-평가-결과">주요 평가 결과</h2>
+<h3 id="table-3-honeycomb-통합-효과-accuracy">Table 3 — HoneyComb 통합 효과 (Accuracy %)</h3>
 <table>
 <thead>
 <tr>
@@ -292,7 +296,7 @@ HoneyComb는 SciQ에 대해 ToolHub만 사용해도 +5.5%p 향상 (Table 5)</p>
 </tbody>
 </table>
 <p>→ <strong>HoneyBee+HoneyComb이 SciQA에서 +45.73pp 점프</strong> (16.62 → 79.69) — domain-specific SFT 모델에 RAG가 결합되었을 때 가장 큰 효과.</p>
-<h3>Table 5 — Ablation Study (GPT-4 기준)</h3>
+<h3 id="table-5-ablation-study-gpt-4-기준">Table 5 — Ablation Study (GPT-4 기준)</h3>
 <table>
 <thead>
 <tr>
@@ -341,7 +345,7 @@ HoneyComb는 SciQ에 대해 ToolHub만 사용해도 +5.5%p 향상 (Table 5)</p>
 </table>
 <p>→ MaScQA: MatSciKB가 단독 효과 최대 (+16.93pp), ToolHub와 조합 시 +17.69pp 도달.
 → SciQA: ToolHub만으로 96%대 달성 (단순 사실 검증에 일반 도구가 충분).</p>
-<h3>Table 4 — Material Category별 성능 (예: Atomic Structure)</h3>
+<h3 id="table-4-material-category별-성능-예-atomic-structure">Table 4 — Material Category별 성능 (예: Atomic Structure)</h3>
 <table>
 <thead>
 <tr>
@@ -374,7 +378,7 @@ HoneyComb는 SciQ에 대해 ToolHub만 사용해도 +5.5%p 향상 (Table 5)</p>
 </tbody>
 </table>
 <p>→ <strong>LLaMA-3는 Material Testing에서 +33.34pp</strong> 향상. GPT-3.5는 일부 카테고리에서 성능 하락 — domain mismatch 시나리오 존재.</p>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>MaScQA·SciQA 외 generalizability 미검증</strong> (저자 인정, Limitations section).</li>
 <li><strong>MatSciKB curation 비공개 세부</strong>: arXiv 20,384 papers의 선정 기준·중복 처리 절차가 본문에 명시되지 않음.</li>
@@ -384,7 +388,7 @@ HoneyComb는 SciQ에 대해 ToolHub만 사용해도 +5.5%p 향상 (Table 5)</p>
 <li><strong>연구 design·예측 같은 open-ended 태스크 평가 부재</strong> (MCQ/NUM 중심).</li>
 <li><strong>MatSciKB가 정적 스냅샷일 가능성</strong>: 실시간 갱신 메커니즘은 언급되나 평가는 batch.</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문</strong>: <a href="https://doi.org/10.18653/v1/2024.findings-emnlp.192">EMNLP Findings 2024</a></li>
 <li><strong>DBLP</strong>: <a href="https://dblp.org/rec/conf/emnlp/ZhangSHML24">conf/emnlp/ZhangSHML24</a></li>
@@ -396,7 +400,18 @@ HoneyComb는 SciQ에 대해 ToolHub만 사용해도 +5.5%p 향상 (Table 5)</p>
 <li><strong>비교 대상 시스템</strong>: LLaMP (Chiang et al. 2025), Darwin, StructChem, HoneyBee-7B SFT</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/emnlp/ZhangSHML24)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@misc{DBLP:conf/emnlp/ZhangSHML24,
+  title = {HoneyComb: A Flexible LLM-Based Agent System for Materials Science},
+  year = {2024},
+  note = {EMNLP 2024 Findings}
+}</code></pre>
   </div>
 </section>
 </main>

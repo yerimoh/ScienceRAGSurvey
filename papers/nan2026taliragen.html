@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TaLiRAGen: target-aware ligand generation via RAG LLMs — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,22 +108,26 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">Molecular Diversity</span>
       <span class="meta-year">2026</span>
-      
     </div>
-    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">[&#x27;Molecular Design&#x27;]</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+    <div class="paper-links"><a href="https://github.com/yxjacksonyyds/T" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Molecular Design</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">📌 한 줄 요약</a></li><li class="toc-l2"><a href="#연구-배경-및-동기">🎯 연구 배경 및 동기</a></li><li class="toc-l2"><a href="#시스템-아키텍처">🏗️ 시스템 아키텍처</a></li><li class="toc-l2"><a href="#핵심-모듈-상세-설명">🔑 핵심 모듈 상세 설명</a></li><li class="toc-l2"><a href="#실험-및-평가">🧪 실험 및 평가</a></li><li class="toc-l2"><a href="#핵심-기여">💡 핵심 기여</a></li><li class="toc-l2"><a href="#한계점">⚠️ 한계점</a></li><li class="toc-l2"><a href="#관련-연구-및-관련-정보">🔗 관련 연구 및 관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>TaLiRAGen: target-aware ligand generation via RAG LLMs</h1>
 <blockquote>
 <p>Molecular Diversity (Springer Nature) | 2026 | Method | chem · bio · medical</p>
-<h2>📌 한 줄 요약</h2>
+<h2 id="한-줄-요약">📌 한 줄 요약</h2>
 <p>RAG와 LLM을 결합하여, 타겟 특화 학습 없이 단백질 타겟에 맞는 리간드를 생성하는 no-training 프레임워크.</p>
 </blockquote>
 <p>사전지식: 리간드 - 리간드(ligand)는 특정 단백질(주로 수용체나 효소)에 결합하는 작은 분자입니다. 약물 개발에서 핵심 개념인데, 어떤 질병과 관련된 단백질이 있으면, 그 단백질에 딱 맞게 결합해서 기능을 억제하거나 활성화하는 분자를 설계하는 것입니다. TaLiRAGen 논문에서는 바로 이 리간드를 AI로 설계하는 게 목표예요. 특정 타겟 단백질을 주면, 거기에 잘 붙을 것 같은 분자 구조(SMILES 형식)를 LLM+RAG로 생성하는 거죠. 결합 잘 되는지는 AutoDock Vina라는 도킹 소프트웨어로 시뮬레이션해서 점수를 매김.</p>
-<h2>🎯 연구 배경 및 동기</h2>
+<h2 id="연구-배경-및-동기">🎯 연구 배경 및 동기</h2>
 <p><strong>기존 방법의 한계점:</strong></p>
 <ul>
 <li>VAE, 확산 모델(diffusion model) 등 생성 모델은 타겟 특화 학습 데이터에 심하게 의존하여, 데이터가 부족한 새로운 타겟에 적용하기 어려움.</li>
@@ -134,7 +138,7 @@
 <li>구조 기반 신약 설계(Structure-Based Drug Design, SBDD)에서 특정 단백질 타겟에 높은 결합 친화도를 가지는 리간드를 생성하는 것은 핵심 과제임.</li>
 <li>학습 없이도 LLM의 일반 화학 지식과 외부 데이터베이스 검색을 결합하면, 다양한 타겟에 유연하게 적용 가능한 리간드 생성이 가능함.</li>
 </ul>
-<h2>🏗️ 시스템 아키텍처</h2>
+<h2 id="시스템-아키텍처">🏗️ 시스템 아키텍처</h2>
 <pre><code class="language-javascript">[Input: 단백질 타겟 구조 / 서열]
         ↓
 [Retriever] protein-ligand context를 diverse repositories에서 검색
@@ -150,7 +154,7 @@
 [Output: 구조적 제약 조건을 만족하는 최적 리간드 후보]
 </code></pre>
 <p>[image]</p>
-<h2>🔑 핵심 모듈 상세 설명</h2>
+<h2 id="핵심-모듈-상세-설명">🔑 핵심 모듈 상세 설명</h2>
 <p><strong>① RAG 기반 Retrieval</strong></p>
 <ul>
 <li>단백질-리간드 맥락(context)을 다양한 저장소(diverse repositories)에서 검색.</li>
@@ -171,7 +175,7 @@
 <li>결합 친화도(binding affinity)와 약물 유사성(drug-like properties)을 증거 이론적 정규화(evidence-theoretic normalization)로 통합.</li>
 <li>QED(약물 유사성 정량 추정), SA(합성 접근성), Vina docking score를 하나의 지표로 통합 평가.</li>
 </ul>
-<h2>🧪 실험 및 평가</h2>
+<h2 id="실험-및-평가">🧪 실험 및 평가</h2>
 <p><strong>평가 태스크 및 데이터셋:</strong></p>
 <ul>
 <li><strong>CrossDocked2020</strong> test set 사용. 969 target IDs에서 적절성·신뢰성 기준 필터링 후 <strong>908 targets</strong> 최종 사용.</li>
@@ -189,20 +193,20 @@
 <ul>
 <li>기존 VAE 기반, 확산 모델 기반 SBDD 방법 대비 binding affinity 및 drug-likeness 비교 (구체적 수치는 전문 미확인).</li>
 </ul>
-<h2>💡 핵심 기여</h2>
+<h2 id="핵심-기여">💡 핵심 기여</h2>
 <ul>
 <li><strong>No-training 프레임워크</strong>: 타겟 특화 학습 없이 LLM 내장 화학 지식 + RAG로 리간드 생성 → 데이터 부족 타겟에도 적용 가능.</li>
 <li><strong>Evidence-theoretic normalization 통합 지표</strong>: 결합 친화도 + 약물 유사성을 단일 지표로 통합하여 생성 리간드 평가 일관성 향상.</li>
 <li><strong>프롬프트 기반 구조 맞춤화</strong>: LogP, ring count 등 구조 제약 조건을 프롬프트로 유연하게 반영 가능.</li>
 </ul>
-<h2>⚠️ 한계점</h2>
+<h2 id="한계점">⚠️ 한계점</h2>
 <ul>
 <li>논문 전문 미공개로 사용된 specific DB명, LLM 모델명 확인 불가.</li>
 <li>SMILES 유효성(validity) 및 합성 가능성(SA) 검증이 계산적 수준에 머물러, 실험적 검증 부재.</li>
 <li>도킹 기반 결합 친화도 평가는 실제 wet-lab 결합 친화도와 차이가 있을 수 있음.</li>
 <li>생성된 리간드의 다양성(diversity) 및 신규성(novelty) 지표 상세 보고 여부 불명.</li>
 </ul>
-<h2>🔗 관련 연구 및 관련 정보</h2>
+<h2 id="관련-연구-및-관련-정보">🔗 관련 연구 및 관련 정보</h2>
 <ul>
 <li><strong>논문 링크</strong>: <a href="https://doi.org/10.1007/s11030-026-11483-9">https://doi.org/10.1007/s11030-026-11483-9</a></li>
 <li><strong>코드/데이터</strong>: GitHub (<a href="https://github.com/yxjacksonyyds/T">https://github.com/yxjacksonyyds/T</a>), Google Drive 보충자료</li>
@@ -210,7 +214,21 @@
 <li><strong>키워드</strong>: Structure-Based Drug Design (SBDD), Retrieval-Augmented Generation, Chain-of-Thought, AutoDock Vina, evidence-theoretic normalization, no-training ligand generation</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (nan2026taliragen)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{nan2026taliragen,
+  title={TaLiRAGen: target-aware ligand generation via retrieval-augmented large language models},
+  author={Nan, Xiaofei and You, Xing and Liu, Xuezhen and Liu, Hongde and Ji, Chengxiang and Du, Yongsheng and Song, Jinshuai},
+  journal={Molecular Diversity},
+  pages={1--14},
+  year={2026},
+  publisher={Springer}
+}</code></pre>
   </div>
 </section>
 </main>

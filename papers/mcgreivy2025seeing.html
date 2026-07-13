@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Seeing the Forest Through the Trees: Knowledge Retrieval for Streamlining Particle Physics Analysis — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,22 +108,26 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">ML4PS @ NeurIPS</span>
       <span class="meta-year">2025</span>
-      <a href="https://arxiv.org/abs/2509.06855" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K3.O2.html" class="tag tag-cell" title="K3.O2">Structured-entity × Synthesis</a><span class="tag tag-sub">[&#x27;Literature Synthesis&#x27;]</span><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a></div>
+    <div class="paper-links"><a href="https://arxiv.org/abs/2509.06855" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K3.O2.html" class="tag tag-cell" title="K3.O2">Structured-entity × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#input-입력">Input (입력)</a></li><li class="toc-l2"><a href="#output-출력">Output (출력)</a></li><li class="toc-l2"><a href="#예시-문항-논문-본문-appendix-a2b2-직접-인용">예시 문항 (논문 본문 + Appendix A.2·B.2 직접 인용)</a></li><li class="toc-l3"><a href="#hflav-eval-example-query-①-b-hadron-lifetime">📘 HFLAV Eval Example Query ① — b-hadron lifetime</a></li><li class="toc-l3"><a href="#hflav-eval-example-query-②-vcb">📘 HFLAV Eval Example Query ② — |Vcb|</a></li><li class="toc-l3"><a href="#hflav-eval-example-query-③-polarization-fractions">📘 HFLAV Eval Example Query ③ — Polarization fractions</a></li><li class="toc-l3"><a href="#scigraphrag-example-query-γ-sec-4">📘 SCIGRAPHRAG Example — Query γ (Sec. 4)</a></li><li class="toc-l3"><a href="#scigraphrag-example-query-ms-sec-b2">📘 SCIGRAPHRAG Example — Query ∆ms (Sec. B.2)</a></li><li class="toc-l2"><a href="#주요-평가-결과-sec-4-sec-b1">주요 평가 결과 (Sec. 4, Sec. B.1)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>Seeing the Forest Through the Trees: Knowledge Retrieval for Streamlining Particle Physics Analysis</h1>
 <blockquote>
 <p>arXiv:2509.06855 | 2025 | method | physics
 McGreivy, Delaney, Beck, Williams — MIT (NSF AI Institute for AI and Fundamental Interactions, LHCb)</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>LHCb 코퍼스를 대상으로, 표준 RAG의 chunk fragmentation 한계를 극복하는 두 가지 구조화 검색 시스템 제안: <strong>SCITREERAG</strong>(논문 LaTeX 섹션 트리 + recursive attention-weighted 임베딩) + <strong>SCIGRAPHRAG</strong>(LLM-구축 Neo4j Knowledge Graph + NL→CYPHER). HFLAV에서 자동 생성한 <strong>56개 평가 질의</strong>로 검증, SCITREERAG가 baseRAG 대비 &quot;poor&quot; rating을 25% → 10%로 감소.</p>
-<h2>제작 배경</h2>
+<h2 id="제작-배경">제작 배경</h2>
 <p><strong>표준 RAG의 세 가지 한계 (저자 분류, Sec. 1)</strong></p>
 <ol>
 <li><strong>Accidental Semantic Similarity</strong> — 키워드만 공유하는 무관 청크 검색</li>
@@ -136,7 +140,7 @@ McGreivy, Delaney, Beck, Williams — MIT (NSF AI Institute for AI and Fundament
 <li>LHC publications가 INSPIRE-HEP 등에 산재 → 종합적 cross-document synthesis 부재</li>
 <li>신규 PhD 학생의 진입 장벽 완화</li>
 </ul>
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>═══════════════════════════════════════════
 [A] SCITREERAG — Local Knowledge Retrieval
 ═══════════════════════════════════════════
@@ -197,31 +201,31 @@ GPT-5 mini가 각 query에 대해 rubric 생성:
 LLM-as-judge로 grade {poor / satisfactory / good}
 Human expert가 sub-sample 검증
 </code></pre>
-<h2>Input (입력)</h2>
+<h2 id="input-입력">Input (입력)</h2>
 <ul>
 <li>LHCb 코퍼스 (sanitized LaTeX source 사용)</li>
 <li>사용자 자연어 질의 (b-hadron lifetime, Vcb, CP violation phase 등)</li>
 <li>HFLAV reference values (정량 benchmark)</li>
 </ul>
-<h2>Output (출력)</h2>
+<h2 id="output-출력">Output (출력)</h2>
 <ul>
 <li>SCITREERAG: 트리 traversal 결과 청크 + LLM 응답</li>
 <li>SCIGRAPHRAG: KG 서브그래프 + CYPHER 결과 + NL synthesis</li>
 </ul>
-<h2>예시 문항 (논문 본문 + Appendix A.2·B.2 직접 인용)</h2>
-<h3>📘 HFLAV Eval Example Query ① — b-hadron lifetime</h3>
+<h2 id="예시-문항-논문-본문-appendix-a2b2-직접-인용">예시 문항 (논문 본문 + Appendix A.2·B.2 직접 인용)</h2>
+<h3 id="hflav-eval-example-query-①-b-hadron-lifetime">📘 HFLAV Eval Example Query ① — b-hadron lifetime</h3>
 <blockquote>
 <p>&quot;What are the most precise measurements of b-hadron lifetimes performed by LHCb, and how do the systematic uncertainties in these measurements compare across different decay channels and methodologies?&quot;</p>
 </blockquote>
-<h3>📘 HFLAV Eval Example Query ② — |Vcb|</h3>
+<h3 id="hflav-eval-example-query-②-vcb">📘 HFLAV Eval Example Query ② — |Vcb|</h3>
 <blockquote>
 <p>&quot;What is LHCb's most precise measurement of |Vcb| from exclusive semileptonic B decays, and how does it compare to the inclusive determination? What are the dominant sources of theoretical and experimental uncertainty in the exclusive approach?&quot;</p>
 </blockquote>
-<h3>📘 HFLAV Eval Example Query ③ — Polarization fractions</h3>
+<h3 id="hflav-eval-example-query-③-polarization-fractions">📘 HFLAV Eval Example Query ③ — Polarization fractions</h3>
 <blockquote>
 <p>&quot;Which B0 decay mode has been most useful for studying polarization fractions in vector-vector final states, and what are the LHCb results?&quot;</p>
 </blockquote>
-<h3>📘 SCIGRAPHRAG Example — Query γ (Sec. 4)</h3>
+<h3 id="scigraphrag-example-query-γ-sec-4">📘 SCIGRAPHRAG Example — Query γ (Sec. 4)</h3>
 <blockquote>
 <p><strong>Q</strong>: &quot;What decay channel should I use to measure the CP violating phase γ? What sources of systematic uncertainty will dominate my analysis?&quot;</p>
 <p><strong>SCIGRAPHRAG Response (verbatim)</strong>:</p>
@@ -230,12 +234,12 @@ Human expert가 sub-sample 검증
 </blockquote>
 <p><strong>LLM-as-judge 결과</strong>: SCIGRAPHRAG = &quot;good&quot;, SCITREERAG/RAG = &quot;satisfactory&quot; (저자 동의)</p>
 </blockquote>
-<h3>📘 SCIGRAPHRAG Example — Query ∆ms (Sec. B.2)</h3>
+<h3 id="scigraphrag-example-query-ms-sec-b2">📘 SCIGRAPHRAG Example — Query ∆ms (Sec. B.2)</h3>
 <blockquote>
 <p><strong>Q</strong>: &quot;Which decay provides the most precise measurement of the B0s eigenstate oscillation frequency, ∆ms? What are the dominant systematic uncertainties for that measurement?&quot;</p>
 <p><strong>응답 발췌</strong>: <em>&quot;the recent LHCb result quoted in the context gives ∆ms = 17.7683 ± 0.0051 (stat) ± 0.0032 (syst) ps−1 from B0s → D−s π+ [2104.04421]; earlier LHCb measurements on the same channels report compatible values with larger uncertainties (e.g. 17.768 ± 0.023 ± 0.006 [1304.4741])&quot;</em></p>
 </blockquote>
-<h2>주요 평가 결과 (Sec. 4, Sec. B.1)</h2>
+<h2 id="주요-평가-결과-sec-4-sec-b1">주요 평가 결과 (Sec. 4, Sec. B.1)</h2>
 <p><strong>LLM-as-judge Quality Grades (HFLAV 56-Q, context 8k/16k/32k 평균)</strong></p>
 <table>
 <thead>
@@ -271,7 +275,7 @@ Human expert가 sub-sample 검증
 <li>Query γ: 17개 &quot;CKM Angle gamma&quot; entity들이 단일 entity로 올바르게 병합</li>
 <li>Query ∆ms: 4개의 중복 &quot;Delta m_s&quot; entity 발견 → <strong>불완전 entity resolution</strong> 사례 (저자 명시)</li>
 </ul>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>수치 표준 벤치마크 부재</strong>: P@k, MRR 같은 IR metric 미사용 (LLM-as-judge만)</li>
 <li>SCIGRAPHRAG는 <strong>work in progress</strong> — KG 구축·NL→Cypher 신뢰성 미흡</li>
@@ -280,7 +284,7 @@ Human expert가 sub-sample 검증
 <li>LHCb 코퍼스에 한정 — ATLAS/CMS/ALICE로의 transferability 미검증</li>
 <li>KG 구축은 article별 1회성 upfront cost지만 GPT-5 mini API 비용 누적</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문</strong>: <a href="https://arxiv.org/abs/2509.06855">arXiv:2509.06855</a></li>
 <li><strong>저자 소속</strong>: MIT (NSF AI Institute for AI and Fundamental Interactions)</li>
@@ -290,7 +294,19 @@ Human expert가 sub-sample 검증
 <li><strong>코드 공개</strong>: workshop camera-ready 버전에서 공개 예정</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (mcgreivy2025seeing)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{mcgreivy2025seeing,
+  title={Seeing the Forest Through the Trees: Knowledge Retrieval for Streamlining Particle Physics Analysis},
+  author={McGreivy, James and Delaney, Blaise and Beck, Anja and Williams, Mike},
+  journal={arXiv preprint arXiv:2509.06855},
+  year={2025}
+}</code></pre>
   </div>
 </section>
 </main>

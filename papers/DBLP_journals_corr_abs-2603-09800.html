@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MITRA: Knowledge Retrieval over Physics Collaborations&amp;#x27; Tacit Memory — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">arXiv</span>
       <span class="meta-year">2026</span>
-      
     </div>
-    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">[&#x27;Question Answering&#x27;]</span><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a></div>
+    
+    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#input-입력">Input (입력)</a></li><li class="toc-l2"><a href="#output-출력">Output (출력)</a></li><li class="toc-l2"><a href="#예시-문항-논문-본문-verbatim-인용">예시 문항 (논문 본문 verbatim 인용)</a></li><li class="toc-l3"><a href="#cross-analysis-confusion-예시-sec-3-본문">📘 Cross-Analysis Confusion 예시 (Sec. 3 본문)</a></li><li class="toc-l3"><a href="#set-2-semantic-query-sec-4-본문">📘 Set 2 Semantic Query (Sec. 4 본문)</a></li><li class="toc-l3"><a href="#out-of-context-거절-sec-4-정성-테스트-본문">📘 Out-of-Context 거절 (Sec. 4 정성 테스트 본문)</a></li><li class="toc-l2"><a href="#주요-평가-결과-tables-1-2">주요 평가 결과 (Tables 1, 2)</a></li><li class="toc-l2"><a href="#한계점-저자-명시">한계점 (저자 명시)</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>MITRA: An AI Assistant for Knowledge Retrieval in Physics Collaborations</h1>
 <blockquote>
@@ -122,9 +126,9 @@
 University of Wisconsin-Madison (CMS Collaboration) — NeurIPS 2025 ML4PS Workshop
 &quot;MITRA&quot; = Sanskrit &quot;friend&quot;</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>CERN CMS 협업의 방대한 내부 분석 노트·위키·가이드라인을 <strong>on-premise</strong>(NVIDIA Tesla T4, 15GB)에서 검색하는 RAG 시스템. DPR + cross-encoder 재랭킹 + 4-bit Mistral-7B를 결합하고 <strong>2-tier DB</strong>(abstracts → full-text)로 cross-analysis 혼동 방지. <strong>의미론적 질의(Set 2)에서 BM25 대비 P@1 5.8배(0.13 → 0.75)</strong> 향상.</p>
-<h2>제작 배경</h2>
+<h2 id="제작-배경">제작 배경</h2>
 <p><strong>기존 방법의 한계</strong></p>
 <ul>
 <li>CMS 협업: 수천 명 멤버, 수 TB 분석 노트·내부 위키·가이드라인 → 수동 키워드 검색 비효율</li>
@@ -138,7 +142,7 @@ University of Wisconsin-Madison (CMS Collaboration) — NeurIPS 2025 ML4PS Works
 <li>&quot;Higgs→di-muon 분석&quot;의 &quot;the most important background&quot;와 &quot;dark matter search&quot;의 그것은 답이 다름 → context-aware DB 분리 필요</li>
 <li>인스턴스별 키워드보다 <strong>semantic equivalence</strong>가 실사용에서 더 중요</li>
 </ul>
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — 문서 수집 (Offline)
   Selenium 자동화 스크립트 → CMS 내부 DB 로그인 + PDF 다운로드
   OCR + layout parsing (Surya, Tesseract)
@@ -177,36 +181,36 @@ Step 6 — 평가 (전문가 설계 2 쿼리 세트)
   Baselines: BM25 (Okapi)
   Metrics: P@1/3/5, R@1/3/5, MRR, NDCG@3/5
 </code></pre>
-<h2>Input (입력)</h2>
+<h2 id="input-입력">Input (입력)</h2>
 <ul>
 <li>사용자 자연어 질문 (Streamlit UI)</li>
 <li>첫 질의로 분석 선택 후 conversation 락온 (session-bound context)</li>
 </ul>
-<h2>Output (출력)</h2>
+<h2 id="output-출력">Output (출력)</h2>
 <ul>
 <li>검색된 passages + Mistral-7B가 생성한 cited 답변</li>
 <li>Out-of-context 질문에 대한 <strong>거절 능력</strong> (저자가 별도 정성 테스트)</li>
 </ul>
-<h2>예시 문항 (논문 본문 verbatim 인용)</h2>
-<h3>📘 Cross-Analysis Confusion 예시 (Sec. 3 본문)</h3>
+<h2 id="예시-문항-논문-본문-verbatim-인용">예시 문항 (논문 본문 verbatim 인용)</h2>
+<h3 id="cross-analysis-confusion-예시-sec-3-본문">📘 Cross-Analysis Confusion 예시 (Sec. 3 본문)</h3>
 <blockquote>
 <p><strong>Q</strong>: &quot;What is the most important background?&quot;</p>
 <p>저자 분석: <em>&quot;will have a different, and potentially conflicting, answer for a Higgs to di-muon analysis versus a search for dark matter&quot;</em>
 → 2-tier DB로 분석 컨텍스트를 락온함으로써 해결</p>
 </blockquote>
-<h3>📘 Set 2 Semantic Query (Sec. 4 본문)</h3>
+<h3 id="set-2-semantic-query-sec-4-본문">📘 Set 2 Semantic Query (Sec. 4 본문)</h3>
 <blockquote>
 <p><strong>Q (사용자 phrasing)</strong>: &quot;transverse momentum requirement&quot;</p>
 <p><strong>문서 내 표현</strong>: <code>&quot;pT cut&quot;</code></p>
 <p><strong>결과</strong>: BM25 P@1 = 0.13, MITRA P@1 = <strong>0.75</strong> (5.8× 향상)</p>
 </blockquote>
-<h3>📘 Out-of-Context 거절 (Sec. 4 정성 테스트 본문)</h3>
+<h3 id="out-of-context-거절-sec-4-정성-테스트-본문">📘 Out-of-Context 거절 (Sec. 4 정성 테스트 본문)</h3>
 <blockquote>
 <p><strong>세션 컨텍스트</strong>: dark matter search 분석에 락온됨
 <strong>Q</strong>: &quot;How many Higgs bosons were discovered in this search?&quot;
 <strong>MITRA 응답 (저자 인용)</strong>: <em>&quot;it did not hallucinate an answer. Instead, it correctly inferred from the retrieved passages that the document was unrelated to Higgs bosons and informed the user that the analysis in question is a dark matter search.&quot;</em></p>
 </blockquote>
-<h2>주요 평가 결과 (Tables 1, 2)</h2>
+<h2 id="주요-평가-결과-tables-1-2">주요 평가 결과 (Tables 1, 2)</h2>
 <p><strong>Table 1 — Precision / Recall @k</strong></p>
 <table>
 <thead>
@@ -309,7 +313,7 @@ Step 6 — 평가 (전문가 설계 2 쿼리 세트)
 <blockquote>
 <p><strong>핵심 인사이트</strong>: Set 1(정확 키워드)에서는 BM25 = MITRA. Set 2(현실적 paraphrase)에서 MITRA가 압도. &quot;실사용자가 source document 정확 용어를 알고 검색하는 경우는 거의 없다&quot;는 저자 주장.</p>
 </blockquote>
-<h2>한계점 (저자 명시)</h2>
+<h2 id="한계점-저자-명시">한계점 (저자 명시)</h2>
 <ul>
 <li><strong>프로토타입 단계</strong> — CMS 협업 전체 배포 전, multiple document types로 확장 예정</li>
 <li>평가 쿼리 집합이 소규모 (전문가 설계 2세트)</li>
@@ -318,7 +322,7 @@ Step 6 — 평가 (전문가 설계 2 쿼리 세트)
 <li>멀티턴 conversation, vLLM/llama.cpp 등 고성능 inference engine으로의 production 이전 예정</li>
 <li>다른 물리 협업(ATLAS의 chATLAS, ALICE 등) 외부 일반화 미검증</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문</strong>: <a href="https://arxiv.org/abs/2603.09800">arXiv:2603.09800</a></li>
 <li><strong>수락</strong>: NeurIPS 2025 Machine Learning for Physical Sciences Workshop</li>
@@ -327,7 +331,28 @@ Step 6 — 평가 (전문가 설계 2 쿼리 세트)
 <li><strong>비교 시스템</strong>: chATLAS (ATLAS, GPT-4o-mini 기반 API 의존) ↔ MITRA (on-premise 4-bit Mistral-7B)</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/corr/abs-2603-09800)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{DBLP:journals/corr/abs-2603-09800,
+  author       = {Abhishikth Mallampalli and
+                  Sridhara Dasu},
+  title        = {{MITRA:} An {AI} Assistant for Knowledge Retrieval in Physics Collaborations},
+  journal      = {CoRR},
+  volume       = {abs/2603.09800},
+  year         = {2026},
+  url          = {https://doi.org/10.48550/arXiv.2603.09800},
+  doi          = {10.48550/ARXIV.2603.09800},
+  eprinttype   = {arXiv},
+  eprint       = {2603.09800},
+  timestamp    = {Thu, 09 Apr 2026 13:00:56 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2603-09800.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

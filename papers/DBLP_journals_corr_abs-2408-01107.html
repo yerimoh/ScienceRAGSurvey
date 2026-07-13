@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>BioRAG: A RAG-LLM Framework for Biological Question Reasoning — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,21 +108,25 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">arXiv 2024</span>
       <span class="meta-year">2024</span>
-      <a href="https://arxiv.org/abs/2408.01107" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">[&#x27;Question Answering&#x27;]</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+    <div class="paper-links"><a href="https://arxiv.org/abs/2408.01107" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l3"><a href="#핵심-구성-요소">핵심 구성 요소</a></li><li class="toc-l2"><a href="#inputoutput">Input/Output</a></li><li class="toc-l2"><a href="#예시-사례">예시 사례</a></li><li class="toc-l3"><a href="#예시-①-gene-alias-task-geneturing-논문-figure-6">예시 ① — Gene Alias Task (GeneTuring; 논문 Figure 6)</a></li><li class="toc-l3"><a href="#예시-②-multi-hop-gene-disease-reasoning-figure-7">예시 ② — Multi-hop Gene-Disease Reasoning (Figure 7)</a></li><li class="toc-l3"><a href="#예시-③-college-biology-mcq-figure-5">예시 ③ — College Biology MCQ (Figure 5)</a></li><li class="toc-l2"><a href="#주요-평가-결과">주요 평가 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>BioRAG: A RAG-LLM Framework for Biological Question Reasoning</h1>
 <blockquote>
 <p>arXiv 2024 | 2024 | Method | bio · medical</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>22,371,343편의 PubMed 초록을 색인하고, MeSH 분류 모델 + 도메인 임베딩 + 자체 평가(self-evaluation) 루프 + 외부 검색 도구(Gene/dbSNP/Protein/Genome 4개 NCBI API + 검색엔진 등 10개 외부 소스)를 결합한 5단계 반복 RAG 파이프라인. GeneTuring 9개 sub-task와 4개 의생물 QA 벤치마크에서 GeneGPT·NewBing·BioMistral·PMC-Llama 등 기존 BioLLM 및 SciRAG 시스템을 모두 능가한다.</p>
-<h2>제작 배경</h2>
+<h2 id="제작-배경">제작 배경</h2>
 <p><strong>기존 접근법의 한계</strong></p>
 <ul>
 <li>Fine-tuned BioLLM (BioMistral, PMC-Llama 등)은 학습 시점의 지식만 보유 → 빠르게 진화하는 생명과학 분야에서 cutoff 문제 심각</li>
@@ -134,7 +138,7 @@
 <li>학제 융합 연구에서는 분자 → 세포 → 조직 → 개체 수준을 가로지르는 다층 지식이 필요</li>
 <li>단계별 추론(step-by-step reasoning) + 정보 부족 시 자동 외부 검색 전환이 가능한 closed-loop RAG 필요</li>
 </ul>
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <p><strong>전체 5단계 파이프라인 (논문 Figure 2)</strong></p>
 <pre><code>[Input Question]
        │
@@ -162,7 +166,7 @@
  ⑤ Inference and Generation
    - 최종 답변 + 인용 출처 출력
 </code></pre>
-<h3>핵심 구성 요소</h3>
+<h3 id="핵심-구성-요소">핵심 구성 요소</h3>
 <p><strong>Internal Source: PubMed 22M 초록</strong></p>
 <ul>
 <li>2024 PubMed baseline 전체 파싱</li>
@@ -194,7 +198,7 @@
 &quot;Prompt #4: Based on the RETRIEVAL RESULTS from the above steps, please evaluate whether the RESULTS support answering the...&quot;
 &quot;Prompt #5: Based on the RETRIEVAL RESULTS, perform a comprehensive reasoning and provide an answer to the Question.&quot;</p>
 </blockquote>
-<h2>Input/Output</h2>
+<h2 id="inputoutput">Input/Output</h2>
 <p><strong>Input</strong></p>
 <ul>
 <li>Biological question (free-form): nomenclature, genomic location, gene-disease association, functional analysis, protein-coding identification, multiple-choice biology/medicine questions</li>
@@ -204,8 +208,8 @@
 <li>자연어 답변 + (선택) 인용 출처</li>
 <li>9 sub-task의 경우: gene symbol (예: &quot;ARHGEF26&quot;), location (chromosome band), Yes/No 또는 MCQ 정답</li>
 </ul>
-<h2>예시 사례</h2>
-<h3>예시 ① — Gene Alias Task (GeneTuring; 논문 Figure 6)</h3>
+<h2 id="예시-사례">예시 사례</h2>
+<h3 id="예시-①-gene-alias-task-geneturing-논문-figure-6">예시 ① — Gene Alias Task (GeneTuring; 논문 Figure 6)</h3>
 <blockquote>
 <p><strong>Query</strong>: &quot;What is the official gene symbol of SGEF?&quot;</p>
 <p><strong>BioRAG 실행 로그</strong></p>
@@ -223,7 +227,7 @@ Inference and Generation: &quot;The official gene symbol for SGEF is ARHGEF26.&q
 <p><strong>NewBing 비교</strong>: &quot;The official gene symbol for SGEF is SGEF (Src homology 3 domain-containing Guanine nucleotide Exchange Factor).&quot; → <strong>오답</strong> (NewBing은 Wikipedia 스니펫만 조회)</p>
 <p><strong>GeneGPT 비교</strong>: Entrez API 호출은 성공하지만 alias 처리 미흡</p>
 </blockquote>
-<h3>예시 ② — Multi-hop Gene-Disease Reasoning (Figure 7)</h3>
+<h3 id="예시-②-multi-hop-gene-disease-reasoning-figure-7">예시 ② — Multi-hop Gene-Disease Reasoning (Figure 7)</h3>
 <blockquote>
 <p><strong>Query</strong>: &quot;What are genes related to B-cell immunodeficiency?&quot;</p>
 <p><strong>BioRAG 다단계 실행</strong></p>
@@ -235,7 +239,7 @@ MeSH Mapping = Immunoglobulin G1 Fragments
 최종 답변: TOP2B 등 관련 유전자 목록</p>
 </blockquote>
 </blockquote>
-<h3>예시 ③ — College Biology MCQ (Figure 5)</h3>
+<h3 id="예시-③-college-biology-mcq-figure-5">예시 ③ — College Biology MCQ (Figure 5)</h3>
 <blockquote>
 <p><strong>Question (litter size in rodents)</strong> → BioRAG</p>
 <blockquote>
@@ -245,7 +249,7 @@ Self-Evaluation: &quot;Small litter sizes in rodents may be an adaptation to the
 Output: &quot;Option B: High parental investment&quot;</p>
 </blockquote>
 </blockquote>
-<h2>주요 평가 결과</h2>
+<h2 id="주요-평가-결과">주요 평가 결과</h2>
 <p><strong>Table 1 — GeneTuring (9 sub-tasks, accuracy %)</strong></p>
 <table>
 <thead>
@@ -387,7 +391,7 @@ Output: &quot;Option B: High parental investment&quot;</p>
 <li>BioRAG는 nomenclature/genomic location 같은 API 의존 task에서 GeneGPT와 동률 100%</li>
 <li>gene-disease association처럼 reasoning이 필요한 task에서는 GeneGPT(0%) &gt; NewBing(8%) ≪ <strong>BioRAG(71%)</strong></li>
 </ul>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li>Self-evaluation 루프 최대 15회 고정 → 깊은 multi-hop 질의에서 조기 종료 위험</li>
 <li>22M PubMed 인덱싱 + Llama3-70B 추론 비용 매우 큼</li>
@@ -395,7 +399,7 @@ Output: &quot;Option B: High parental investment&quot;</p>
 <li>외부 API 의존 → NCBI/Crossref 가용성 실패 시 fallback 미정의</li>
 <li>추론 chain이 길어질수록 prompt 토큰 비용 폭증</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문 (arXiv)</strong>: <a href="https://arxiv.org/abs/2408.01107">https://arxiv.org/abs/2408.01107</a></li>
 <li><strong>저자 소속</strong>: Zhejiang University, OPPO Research, ETH Zürich</li>
@@ -404,7 +408,34 @@ Output: &quot;Option B: High parental investment&quot;</p>
 <li><strong>K×O 분류</strong>: K1.O1 (PubMed 문헌) + K2.O1 (NCBI 큐레이션 DB) — 다중 소스 결합 패턴</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/corr/abs-2408-01107)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{DBLP:journals/corr/abs-2408-01107,
+  author       = {Chengrui Wang and
+                  Qingqing Long and
+                  Meng Xiao and
+                  Xunxin Cai and
+                  Chengjun Wu and
+                  Zhen Meng and
+                  Xuezhi Wang and
+                  Yuanchun Zhou},
+  title        = {BioRAG: {A} {RAG-LLM} Framework for Biological Question Reasoning},
+  journal      = {CoRR},
+  volume       = {abs/2408.01107},
+  year         = {2024},
+  url          = {https://doi.org/10.48550/arXiv.2408.01107},
+  doi          = {10.48550/ARXIV.2408.01107},
+  eprinttype   = {arXiv},
+  eprint       = {2408.01107},
+  timestamp    = {Mon, 03 Mar 2025 21:34:58 +0100},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2408-01107.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

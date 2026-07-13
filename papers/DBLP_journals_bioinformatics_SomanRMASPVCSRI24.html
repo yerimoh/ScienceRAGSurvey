@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Biomedical knowledge graph-optimized prompt generation for large language models — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,21 +108,25 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">Bioinformatics</span>
       <span class="meta-year">2024</span>
-      <a href="https://arxiv.org/abs/2311.17330" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><span class="tag tag-sub">[&#x27;Question Answering&#x27;]</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+    <div class="paper-links"><a href="https://arxiv.org/abs/2311.17330" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/BaranziniLab/KG_RAG" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-kg-rag-architecture">시스템 구조 (KG-RAG Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l2"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>KG-RAG: Biomedical Knowledge-Graph-Optimized Prompting (SPOKE)</h1>
 <blockquote>
 <p>Bioinformatics 2024 | Method | bio · medical</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>SPOKE 생의학 지식그래프에서 질병 중심 서브그래프를 minimal graph schema로 추출하고, 임베딩 기반 context pruning으로 프롬프트와 의미적으로 가장 관련 있는 트리플만 골라 LLM 프롬프트에 주입하는 토큰 최적화 KG-RAG 프레임워크. 전체 스키마를 넣는 Cypher-RAG 대비 토큰을 평균 54% 줄이면서 검색 정확도·강건성을 높인다.</p>
-<h2>시스템 구조 (KG-RAG Architecture)</h2>
+<h2 id="시스템-구조-kg-rag-architecture">시스템 구조 (KG-RAG Architecture)</h2>
 <ul>
 <li><strong>SPOKE KG:</strong> 41개 큐레이티드 생의학 DB를 통합한 property graph(28종 노드 타입 ~4,200만 노드, 91종 엣지 타입 ~1.6억 엣지). 대부분 체계적 실험 측정 기반 큐레이션.</li>
 <li><strong>Minimal-schema 서브그래프:</strong> 질병 노드의 이웃 트리플 (S,P,O)만 가져오고, SPOKE의 predicate 네이밍 규칙으로 스키마 없이 트리플을 영어 문장으로 변환(예: &quot;Disease hypertension associates Gene VHL&quot;).</li>
@@ -130,7 +134,7 @@
 <li><strong>프롬프트 생성:</strong> 정제 컨텍스트를 자연어로 변환 + provenance(옵션: p-value 등 evidence) 첨부해 enriched prompt 구성.</li>
 <li>하이퍼파라미터: context volume(100–200), context embedding model. 개체 인식은 GPT-3.5 추출 + MiniLM으로 SPOKE 질병 노드 매칭(99.7% 정확).</li>
 </ul>
-<h2>동작 파이프라인 (inference)</h2>
+<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
 <ol>
 <li>질병 개체 인식(GPT-3.5 추출 → MiniLM 임베딩으로 SPOKE 노드 매칭).</li>
 <li>매칭 노드의 이웃 트리플 fetch.</li>
@@ -138,22 +142,43 @@
 <li>자연어 변환 + provenance 첨부 → enriched prompt 조립.</li>
 <li>LLM(Llama-2-13b/GPT-3.5/GPT-4, temp 0)으로 답 생성.</li>
 </ol>
-<h2>주요 결과</h2>
+<h2 id="주요-결과">주요 결과</h2>
 <p><strong>RAG 비교(KG-RAG vs Cypher-RAG, 100문항):</strong> 검색 정확도 75%→<strong>97%</strong>; 개체명 소문자 perturbation 시 Cypher-RAG 0%로 붕괴, KG-RAG 97% 유지; 토큰 8006→<strong>3693(−54%)</strong>.
 <strong>True/False·MCQ(정확도):</strong> MCQ에서 Llama-2 0.31→<strong>0.53</strong>, GPT-3.5 0.63→<strong>0.79</strong>, GPT-4 0.68→0.74. 세 LLM 모두 일관 향상.</p>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li>현재 질병 중심 개체만 임베딩 → 질병 중심 질문에 한정(전체 노드로 확장은 future work).</li>
 <li>성능이 SPOKE 정보 품질에 의존(KG 자체의 엄밀 평가는 범위 밖).</li>
 <li>SPOKE에 구현됨 — 타 KG/도메인 일반화는 향후 과제.</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li>arXiv: 2311.17330 · Bioinformatics 2024 (Soman et al., UCSF)</li>
 <li>코드: <a href="https://github.com/BaranziniLab/KG_RAG">https://github.com/BaranziniLab/KG_RAG</a></li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/bioinformatics/SomanRMASPVCSRI24)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{DBLP:journals/bioinformatics/SomanRMASPVCSRI24,
+  author       = {Karthik Soman and Peter W. Rose and John H. Morris and Rabia E. Akbas and
+                  Brett Smith and Braian Peetoom and Catalina Villouta{-}Reyes and Gabriel Cerono and
+                  Yongmei Shi and Angela Rizk{-}Jackson and Sharat Israni and Charlotte A. Nelson and
+                  Sui Huang and Sergio E. Baranzini},
+  title        = {Biomedical knowledge graph-optimized prompt generation for large language models},
+  journal      = {Bioinform.},
+  volume       = {40},
+  number       = {9},
+  year         = {2024},
+  url          = {https://doi.org/10.1093/bioinformatics/btae560},
+  doi          = {10.1093/BIOINFORMATICS/BTAE560},
+  biburl       = {https://dblp.org/rec/journals/bioinformatics/SomanRMASPVCSRI24.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

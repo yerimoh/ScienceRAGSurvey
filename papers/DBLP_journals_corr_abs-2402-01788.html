@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>LitLLM: A Toolkit for Scientific Literature Review — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,21 +108,25 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">arXiv</span>
       <span class="meta-year">2024</span>
-      <a href="https://arxiv.org/abs/2402.01788" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">[&#x27;Literature Synthesis&#x27;]</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a></div>
+    <div class="paper-links"><a href="https://arxiv.org/abs/2402.01788" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-litllm-architecture">시스템 구조 (LitLLM Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l2"><a href="#주요-결과기능">주요 결과/기능</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>LitLLM: A RAG Toolkit for Scientific Literature Review</h1>
 <blockquote>
 <p>arXiv 2024 | Method | general</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>LitLLM은 사용자 abstract를 입력받아 후보 참고문헌 검색 → 재랭킹 → related work 생성을 수행하는 모듈식 RAG 툴킷으로, 검색 기반 grounding과 plan 기반 제어 생성으로 환각·구식 정보 문제를 완화해 문헌 리뷰 초안 작성을 돕는다.</p>
-<h2>시스템 구조 (LitLLM Architecture)</h2>
+<h2 id="시스템-구조-litllm-architecture">시스템 구조 (LitLLM Architecture)</h2>
 <p>세 모듈로 구성되며 각 컴포넌트의 LLM을 자유롭게 교체할 수 있다.</p>
 <ul>
 <li><strong>(1) Retrieval:</strong> Semantic Scholar API·OpenAlex API 사용. LLM이 입력 abstract를 검색 키워드로 요약(사용자가 키워드·seed paper 추가 가능). 관련도·인용수·연도로 정렬.</li>
@@ -130,7 +134,7 @@
 <li><strong>(3) Plan-based Generation:</strong> zero-shot RAG 생성과, &quot;plan&quot;(문장 수 + 줄별 인용 기술)으로 출력 구조를 제어하는 plan-based 생성 지원.</li>
 <li><strong>(4) Toolkit/UI:</strong> React 인터페이스(초록 입력, 키워드 표시, 재랭킹 결과, sentence plan 입력, related work 출력). LLM은 GPT-3.5-turbo·GPT-4(교체 가능).</li>
 </ul>
-<h2>동작 파이프라인 (inference)</h2>
+<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
 <ol>
 <li>사용자가 abstract 입력.</li>
 <li>LLM이 검색 키워드로 요약(+사용자 키워드/seed paper).</li>
@@ -139,26 +143,45 @@
 <li>(선택) sentence plan 입력.</li>
 <li>zero-shot 또는 plan-based로 related work 초안 생성.</li>
 </ol>
-<h2>주요 결과/기능</h2>
+<h2 id="주요-결과기능">주요 결과/기능</h2>
 <ul>
 <li>정량 벤치마크 수치는 보고되지 않음. 연구자 5인 대상 예비 사용자 연구 수행.</li>
 <li>정성 피드백: zero-shot은 더 풍부, plan-based는 자기 논문에 더 맞춤·접근성 높음.</li>
 <li>검색·재랭킹·생성 각 단계 LLM 교체 가능한 모듈식 설계, 정렬 옵션 제공.</li>
 </ul>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li>질의·검색 논문 모두 초록만 사용(전문 ingest는 향후 과제).</li>
 <li>검색 API 범위 한정(Google Scholar 등 확장 필요).</li>
 <li>5인 규모 예비 연구만, 경쟁 시스템 대비 정량 벤치마크 부재.</li>
 <li>생성 결과의 환각 주의 및 LLM 사용 공개 권고.</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li>arXiv: 2402.01788 (<a href="https://arxiv.org/abs/2402.01788">https://arxiv.org/abs/2402.01788</a>)</li>
 <li>프로젝트: <a href="https://litllm.github.io">https://litllm.github.io</a> · 데모 영상 <a href="https://youtu.be/E2ggOZBAFw0">https://youtu.be/E2ggOZBAFw0</a></li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/corr/abs-2402-01788)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{DBLP:journals/corr/abs-2402-01788,
+  author       = {Shubham Agarwal and Gaurav Sahu and Abhay Puri and Issam H. Laradji and Krishnamurthy Dj Dvijotham and Jason Stanley and Laurent Charlin and Christopher Pal},
+  title        = {LitLLM: {A} Toolkit for Scientific Literature Review},
+  journal      = {CoRR},
+  volume       = {abs/2402.01788},
+  year         = {2024},
+  url          = {https://doi.org/10.48550/arXiv.2402.01788},
+  doi          = {10.48550/ARXIV.2402.01788},
+  eprinttype   = {arXiv},
+  eprint       = {2402.01788},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2402-01788.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

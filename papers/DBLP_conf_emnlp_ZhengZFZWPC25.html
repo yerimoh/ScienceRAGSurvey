@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Benchmarking Foundation Models with Retrieval-Augmented Generation in Olympic-Level Physics Problem Solving — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,21 +108,25 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">EMNLP (Findings)</span>
       <span class="meta-year">2025</span>
-      <a href="https://aclanthology.org/2025.findings-emnlp.1196/" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><span class="tag tag-sub">[&#x27;Cross-modal Grounding&#x27;]</span><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a></div>
+    <div class="paper-links"><a href="https://aclanthology.org/2025.findings-emnlp.1196/" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><span class="tag tag-sub">Cross-modal Grounding</span><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l3"><a href="#generator-prompt-논문-figure-3-그대로-인용">Generator Prompt (논문 Figure 3, 그대로 인용)</a></li><li class="toc-l3"><a href="#reflection-prompt-figure-4">Reflection Prompt (Figure 4)</a></li><li class="toc-l3"><a href="#judge-prompt-figure-5">Judge Prompt (Figure 5)</a></li><li class="toc-l2"><a href="#inputoutput">Input/Output</a></li><li class="toc-l2"><a href="#예시-사례">예시 사례</a></li><li class="toc-l3"><a href="#예시-①-charged-ring-논문-figure-1-retrieval-pipeline-showcase">예시 ① — Charged Ring (논문 Figure 1, retrieval pipeline showcase)</a></li><li class="toc-l3"><a href="#예시-②-error-analysis-저자가-직접-분류한-negative-case-33">예시 ② — Error Analysis (저자가 직접 분류한 negative case, §3.3)</a></li><li class="toc-l2"><a href="#주요-평가-결과">주요 평가 결과</a></li><li class="toc-l2"><a href="#핵심-기여">핵심 기여</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>Benchmarking Foundation Models with Retrieval-Augmented Generation in Olympic-Level Physics Problem Solving</h1>
 <blockquote>
 <p>EMNLP Findings | 2025 | Method | physics</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p><strong>PhoPile</strong> — 7개 국제 Physics Olympiad(IPhO, APhO, EuPhO, NBPhO, RMPh, USAPhO, BPhO)에서 모은 3,052개 올림피아드 문제(2018년 이전 2,662개 retrieval corpus + 2019-2021년 390개 test) 기반 <strong>최초의 멀티모달 RAG 물리 벤치마크</strong>. 텍스트·이미지가 결합된 진정한 olympiad 난이도 문제에 대해 8개 LLM/LMM × 7개 retriever × 1-3 shot × reflection on/off를 종합 평가.</p>
-<h2>제작 배경</h2>
+<h2 id="제작-배경">제작 배경</h2>
 <p><strong>기존 데이터셋의 한계</strong></p>
 <ul>
 <li>SciQ, ScienceQA, TheoremQA 등은 &quot;small number of low-difficulty, text-only physics problems&quot; (논문 §1)</li>
@@ -135,7 +139,7 @@
 <li>Olympiad는 연도 간 개념이 반복 → 과거 문제 retrieval이 효과적일 것이라는 가설 검증 필요</li>
 <li>저자 인용: &quot;competition problems share similar concepts across years, and past problems capture not only the necessary physics knowledge from basic principles, but also problem-solving strategies&quot; (§1)</li>
 </ul>
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <p><strong>Step 1: Data Collection</strong></p>
 <ul>
 <li>7개 대회 공식 PDF에서 2009-2021 문제 수집</li>
@@ -202,7 +206,7 @@
               │    중간단계 비율)                │
               └──────────────────────────────────┘
 </code></pre>
-<h3>Generator Prompt (논문 Figure 3, 그대로 인용)</h3>
+<h3 id="generator-prompt-논문-figure-3-그대로-인용">Generator Prompt (논문 Figure 3, 그대로 인용)</h3>
 <blockquote>
 <p>&quot;Your task is to answer the physics questions. The mathematical formulas are provided in Latex code. There are some related questions and their answers you may find helpful.
 Here are the examples:
@@ -213,7 +217,7 @@ Reference answer: {Reference Answer to Question 2}
 The question that you need to solve is: {Question to be answered}
 Respond with the FINAL answer to the question to get a higher score as possible as you can, rather than only give directions or suggestions for solving the problem. Do NOT use the conditions in the example questions to solve the question.&quot;</p>
 </blockquote>
-<h3>Reflection Prompt (Figure 4)</h3>
+<h3 id="reflection-prompt-figure-4">Reflection Prompt (Figure 4)</h3>
 <blockquote>
 <p>&quot;Your task is to choose the answer with a higher score of the given physics problem.
 Question: {Question to be answered}
@@ -221,16 +225,16 @@ Answer 1: {Candidate answer without RAG}
 Answer 2: {Candidate answer with RAG}
 Please give a reason and output the final answer number in side '##', for example, ##1##.&quot;</p>
 </blockquote>
-<h3>Judge Prompt (Figure 5)</h3>
+<h3 id="judge-prompt-figure-5">Judge Prompt (Figure 5)</h3>
 <blockquote>
 <p>&quot;You are a professional physicist and you will grade answers provided by physics students by reference to standard answers. The full score is 10 points, and the minimum score is 0 points. If the student gives the final answer, full marks will be awarded directly. If the student does not give the final answer or the final answer is incorrect, please score based on the proportion of correct calculation steps given by the student. You only need to output a score number.&quot;</p>
 </blockquote>
-<h2>Input/Output</h2>
+<h2 id="inputoutput">Input/Output</h2>
 <p><strong>Input</strong>: Olympiad 물리 문제 (text + LaTeX + optional image) + (선택) k개 retrieved Q-A pair</p>
 <p><strong>Output</strong>: 단계별 풀이 + 최종 답안 (numerical / symbolic / diagrammatic)</p>
 <p><strong>Evaluation</strong>: GPT-4 grader가 reference answer 대비 0-10점 (Pass Rate = 정답 인정 비율, Average Score = 0-10 평균)</p>
-<h2>예시 사례</h2>
-<h3>예시 ① — Charged Ring (논문 Figure 1, retrieval pipeline showcase)</h3>
+<h2 id="예시-사례">예시 사례</h2>
+<h3 id="예시-①-charged-ring-논문-figure-1-retrieval-pipeline-showcase">예시 ① — Charged Ring (논문 Figure 1, retrieval pipeline showcase)</h3>
 <blockquote>
 <p><strong>New Question (test set)</strong>:</p>
 <blockquote>
@@ -239,7 +243,7 @@ Please give a reason and output the final answer number in side '##', for exampl
 <p><strong>Retrievers tested</strong>: BM25, MiniLM+cosine, Dragon+, Contriever (text-only) 또는 CLIP/VisualBERT/ALIGN (multimodal)
 <strong>Generators tested</strong>: GPT-4, Gemini-Pro, Llama-3, Mistral 등 8종</p>
 </blockquote>
-<h3>예시 ② — Error Analysis (저자가 직접 분류한 negative case, §3.3)</h3>
+<h3 id="예시-②-error-analysis-저자가-직접-분류한-negative-case-33">예시 ② — Error Analysis (저자가 직접 분류한 negative case, §3.3)</h3>
 <blockquote>
 <p>검색이 오히려 성능을 떨어뜨린 3가지 원인 (논문 §3.3):</p>
 <ol>
@@ -248,7 +252,7 @@ Please give a reason and output the final answer number in side '##', for exampl
 <li>&quot;some wrong answers arise from using conditions in the retrieved questions as if they were the known conditions in the current question&quot;</li>
 </ol>
 </blockquote>
-<h2>주요 평가 결과</h2>
+<h2 id="주요-평가-결과">주요 평가 결과</h2>
 <p><strong>Table 4 — PhoPile-Test (text-only, Pass Rate% / Avg Score)</strong></p>
 <table>
 <thead>
@@ -480,21 +484,21 @@ Please give a reason and output the final answer number in side '##', for exampl
 <li>k=1이 종종 k=2,3보다 우수 → &quot;Shot 수 증가가 항상 좋은 것은 아님&quot;</li>
 <li>Open-source FT 모델(Mathstral 29.02)이 GPT-4와 거의 동급</li>
 </ul>
-<h2>핵심 기여</h2>
+<h2 id="핵심-기여">핵심 기여</h2>
 <ol>
 <li><strong>PhoPile</strong> — 7개 대회 기반 최초의 multimodal physics olympiad RAG benchmark</li>
 <li><strong>8 LLM/LMM × 7 retriever × 3 shot × reflection 종합 ablation</strong> — 가장 광범위한 physics RAG 평가</li>
 <li><strong>Step-wise + solution-level GPT-4 judge</strong> — 추론 단계 채점 프레임워크 (tolerance k=3에서 인간 일치율 87%)</li>
 <li><strong>Error taxonomy</strong> — RAG 실패 3가지 원인 분류 (semantic mismatch / format misleading / condition leakage)</li>
 </ol>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li>일반 retriever만 사용 → physics-specific retriever 부재 (&quot;highlights the significance of establishing domain-specific retrievers&quot;, §3.3)</li>
 <li>GPT-4 judge 의존 → judge가 물리 전문성을 보장하지 않음</li>
 <li>영어 문제 중심 (다국어 대회는 영어 번역본)</li>
 <li>검색 노이즈 robustness 미흡 → conditions leakage 빈발</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문 링크</strong>: <a href="https://aclanthology.org/2025.findings-emnlp.1196/">https://aclanthology.org/2025.findings-emnlp.1196/</a></li>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2510.00919">https://arxiv.org/abs/2510.00919</a></li>
@@ -502,7 +506,37 @@ Please give a reason and output the final answer number in side '##', for exampl
 <li><strong>K×O 분류</strong>: K3 (체계적 지식/educational artifacts) × O1 (closed-form QA) — 과거 olympiad Q-A pair를 demonstration으로 활용</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/emnlp/ZhengZFZWPC25)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@inproceedings{DBLP:conf/emnlp/ZhengZFZWPC25,
+  author       = {Shunfeng Zheng and
+                  Yudi Zhang and
+                  Meng Fang and
+                  Zihan Zhang and
+                  Zhitan Wu and
+                  Mykola Pechenizkiy and
+                  Ling Chen},
+  editor       = {Christos Christodoulopoulos and
+                  Tanmoy Chakraborty and
+                  Carolyn Rose and
+                  Violet Peng},
+  title        = {Benchmarking Foundation Models with Retrieval-Augmented Generation
+                  in Olympic-Level Physics Problem Solving},
+  booktitle    = {Findings of the Association for Computational Linguistics: {EMNLP}
+                  2025, Suzhou, China, November 4-9, 2025},
+  pages        = {21927--21956},
+  publisher    = {Association for Computational Linguistics},
+  year         = {2025},
+  url          = {https://aclanthology.org/2025.findings-emnlp.1196/},
+  timestamp    = {Fri, 20 Feb 2026 08:07:45 +0100},
+  biburl       = {https://dblp.org/rec/conf/emnlp/ZhengZFZWPC25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

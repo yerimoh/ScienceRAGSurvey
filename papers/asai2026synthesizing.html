@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Synthesizing Scientific Literature with Retrieval-Augmented Language Models — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,21 +108,25 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">Nature</span>
       <span class="meta-year">2026</span>
-      <a href="https://doi.org/10.1038/s41586-025-10072-4" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">[&#x27;Literature Synthesis&#x27;]</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a></div>
+    <div class="paper-links"><a href="https://doi.org/10.1038/s41586-025-10072-4" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/AkariAsai/OpenScholar" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-openscholar-architecture">시스템 구조 (OpenScholar Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference-iterative-self-feedback-generation">동작 파이프라인 (Inference: iterative self-feedback generation)</a></li><li class="toc-l2"><a href="#학습-training">학습 (Training)</a></li><li class="toc-l2"><a href="#주요-결과-시스템-성능">주요 결과 (시스템 성능)</a></li><li class="toc-l2"><a href="#함께-제안한-벤치마크-scholarqabench-간단히">함께 제안한 벤치마크: ScholarQABench (간단히)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>OpenScholar: Synthesizing Scientific Literature with Retrieval-Augmented LMs</h1>
 <blockquote>
 <p>Nature 2026 | Method | bio · medical · physics</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>OpenScholar는 4,500만 편의 공개 논문으로 구성된 대규모 datastore에서 관련 문헌을 검색하고, 학습된 retriever·reranker와 8B 규모의 전용 생성 LM을 결합하여, 과학적 질문에 대해 <strong>인용이 부착된 장문 답변(synthesis)</strong> 을 생성하는 retrieval-augmented LM 시스템이다. 핵심 특징은 생성 결과를 모델 스스로 평가해 추가 검색·보강을 반복하는 <strong>iterative self-feedback generation</strong> 루프이며, 이를 통해 비교적 작은 OpenScholar-8B가 GPT-4o를 인용 정확도·전문가 선호도에서 능가한다.</p>
-<h2>시스템 구조 (OpenScholar Architecture)</h2>
+<h2 id="시스템-구조-openscholar-architecture">시스템 구조 (OpenScholar Architecture)</h2>
 <p>OpenScholar는 세 가지 핵심 구성요소로 이루어진다.</p>
 <p><strong>1. OpenScholar-DataStore (OSDS) — 검색 대상 코퍼스</strong></p>
 <ul>
@@ -147,7 +151,7 @@
 <li>OpenScholar는 생성 LM을 교체할 수 있는 일반 프레임워크로, 동일 파이프라인에 GPT-4o를 꽂은 <strong>OpenScholar-GPT4o</strong> 구성도 평가된다.</li>
 </ul>
 <p>추론 시 검색 소스는 datastore에 한정되지 않고 세 가지를 병합한다: (1) 학습된 retriever로 peS2o datastore 검색, (2) 생성한 키워드로 <strong>Semantic Scholar API</strong> 의 abstract 검색, (3) <strong>web search engine</strong> 으로 얻은 공개 텍스트.</p>
-<h2>동작 파이프라인 (Inference: iterative self-feedback generation)</h2>
+<h2 id="동작-파이프라인-inference-iterative-self-feedback-generation">동작 파이프라인 (Inference: iterative self-feedback generation)</h2>
 <p>추론은 세 단계로 구성된다: <strong>(1) 초기 응답·피드백 생성, (2) 피드백 기반 반복 보강(추가 검색 포함), (3) citation 검증.</strong></p>
 <ol>
 <li><strong>초기 검색</strong>: 세 소스(peS2o datastore, Semantic Scholar API abstract, web search)에서 passage를 모은 뒤, cross-encoder reranker가 meta-filtering과 함께 최종 top N(통상 10) passage로 좁힌다.</li>
@@ -157,7 +161,7 @@
 <li><strong>Citation 검증 (citation verification)</strong>: 마지막으로 인용이 필요한 모든 과학적 주장(citation-worthy statement)이 검색된 passage로 충분히 뒷받침되는지 확인하고, 근거가 없는 주장에는 LM이 <strong>post-hoc로 인용을 삽입</strong>하여 최종 답변을 완성한다.</li>
 </ol>
 <p>추론 파라미터: temperature 0.7, 응답 최대 3,000 토큰 / 피드백 최대 1,000 토큰.</p>
-<h2>학습 (Training)</h2>
+<h2 id="학습-training">학습 (Training)</h2>
 <p><strong>Generator LM (OpenScholar-8B) distillation</strong></p>
 <ul>
 <li>더 큰 teacher 모델 <strong>Llama 3.1 70B</strong> 로 합성 학습 데이터를 생성(약 10,000편 논문을 샘플링해 쿼리·응답 생성).</li>
@@ -168,7 +172,7 @@
 </ul>
 <p><strong>Retriever (θ_bi)</strong>: Contriever를 peS2o datastore에서 unsupervised로 continual pre-training.</p>
 <p><strong>Reranker (θ_cross)</strong>: peS2o abstract로부터 쿼리를 무작위 생성하고 top 10 passage를 검색한 뒤, <strong>Llama 3 70B Instruct</strong> 가 1–5 관련성 점수를 부여(4–5=positive, 1–2=negative, 3 폐기)하여 합성 학습 데이터를 만들고 BGE-reranker(340M)를 fine-tuning.</p>
-<h2>주요 결과 (시스템 성능)</h2>
+<h2 id="주요-결과-시스템-성능">주요 결과 (시스템 성능)</h2>
 <p>검색이 없는 LLM은 인용을 <strong>78–90%</strong> 빈도로 날조(fabricate)했다. 도메인별로는 CS에서 GPT-4o 78.7% / Llama 3.1 8B 92.1%, biomedicine에서 GPT-4o 94.8% / Llama 3.1 8B 97.6%의 인용 환각률을 보였다.</p>
 <p><strong>Citation F1 (멀티 논문 과제)</strong></p>
 <table>
@@ -252,23 +256,37 @@
 </tbody>
 </table>
 <p>또한 인간 평가에서 OpenScholar-GPT4o는 Overall Usefulness 80%로 GPT-4o(69.7%)를 상회했다. 즉, 작은 8B 모델이라도 OpenScholar 파이프라인을 통하면 인용 정확도와 전문가 선호도에서 GPT-4o를 능가한다.</p>
-<h2>함께 제안한 벤치마크: ScholarQABench (간단히)</h2>
+<h2 id="함께-제안한-벤치마크-scholarqabench-간단히">함께 제안한 벤치마크: ScholarQABench (간단히)</h2>
 <p>ScholarQABench는 OpenScholar 평가를 위해 함께 제안된 벤치마크로, <strong>2,967개 전문가 작성 질의</strong> 와 그중 <strong>208개의 박사급 전문가 장문 답변</strong>(답변당 약 1시간 소요)을 포함하며, computer science·physics·biomedicine·neuroscience 4개 도메인을 다룬다. 평가 지표는 <strong>Citation F1(Precision/Recall 포함)</strong>, correctness(accuracy/ROUGE-L/rubric), 그리고 Coverage·Organization·Relevance·Overall Usefulness 등의 품질 차원이다. (벤치마크 구축 세부는 본 요약에서 생략.)</p>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <p>저자들이 명시한 한계는 크게 세 가지다.</p>
 <ul>
 <li><strong>ScholarQABench</strong>: 박사급 주석의 높은 비용(자원 집약성), 전문가 도메인 장문 응답을 신뢰성 있게 평가하기 어려움.</li>
 <li><strong>OpenScholar 시스템</strong>: 반복적 self-feedback 추론 파이프라인의 효율(비용) 문제, 합성 학습 데이터 품질에 따른 잠재적 한계.</li>
 <li><strong>인간 평가</strong>: 비교적 소규모 전문가 패널, 편향 최소화 노력에도 남는 평가 편향 가능성.</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li>Nature DOI: <a href="https://doi.org/10.1038/s41586-025-10072-4">https://doi.org/10.1038/s41586-025-10072-4</a></li>
 <li>arXiv: 2411.14199 (<a href="https://arxiv.org/abs/2411.14199">https://arxiv.org/abs/2411.14199</a>, full text: <a href="https://arxiv.org/html/2411.14199">https://arxiv.org/html/2411.14199</a>)</li>
 <li>GitHub: <a href="https://github.com/AkariAsai/OpenScholar">https://github.com/AkariAsai/OpenScholar</a> (코드·모델·datastore·벤치마크·공개 데모 제공)</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (asai2026synthesizing)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{asai2026synthesizing,
+  title={Synthesizing scientific literature with retrieval-augmented language models},
+  author={Asai, Akari and He, Jacqueline and Shao, Rulin and Shi, Weijia and Singh, Amanpreet and Chang, Joseph Chee and Lo, Kyle and Soldaini, Luca and Feldman, Sergey and D’Arcy, Mike and others},
+  journal={Nature},
+  pages={1--7},
+  year={2026},
+  publisher={Nature Publishing Group UK London}
+}</code></pre>
   </div>
 </section>
 </main>

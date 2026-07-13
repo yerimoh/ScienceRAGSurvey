@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>DBLP:journals/make/LahiriH25 — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue"></span>
       <span class="meta-year"></span>
-      
     </div>
-    <div class="paper-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a></div>
+    
+    <div class="paper-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#원문-직접-인용-arxiv241216701">원문 직접 인용 (arXiv:2412.16701)</a></li><li class="toc-l2"><a href="#주요-평가-결과">주요 평가 결과</a></li><li class="toc-l2"><a href="#case-study-논문-discussion">Case Study (논문 §Discussion)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>AlzheimerRAG: Cross-modal Attention Fusion for Alzheimer Clinical RAG</h1>
 <blockquote>
@@ -122,10 +126,10 @@
 Aritra Kumar Lahiri, Qinmin Vivian Hu — Toronto Metropolitan University (Canada)
 DBLP: <code>journals/make/LahiriH25</code> · arXiv: <a href="https://arxiv.org/abs/2412.16701">2412.16701</a></p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>PubMed 논문의 텍스트와 추출된 시각 자료(그림·도표)를 <strong>cross-modal attention fusion</strong> 으로 통합하여 알츠하이머 임상 질의응답을 수행하는 멀티모달 RAG 시스템. QLoRA 기반 PEFT로 Llama-2-7b-pubmed를 미세조정하고, <strong>BioASQ + PubMedQA</strong> 벤치마크에서 텍스트 전용 RAG 대비 검색·합성 품질이 개선됨.</p>
 <hr />
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — 데이터 소스 (멀티모달 PubMed)
   PubMed Alzheimer's 관련 논문에서 추출:
     • 텍스트 청크 (introduction, methods, results, discussion)
@@ -162,7 +166,7 @@ Step 5 — 평가
   Metric: retrieval accuracy, hallucination rate, human comparison
 </code></pre>
 <hr />
-<h2>원문 직접 인용 (arXiv:2412.16701)</h2>
+<h2 id="원문-직접-인용-arxiv241216701">원문 직접 인용 (arXiv:2412.16701)</h2>
 <blockquote>
 <p>&quot;incorporates <strong>cross-modal attention fusion techniques</strong> to integrate textual and visual data processing by efficiently indexing and accessing vast amounts of biomedical literature&quot;</p>
 </blockquote>
@@ -176,7 +180,7 @@ Step 5 — 평가
 <p>&quot;fine-tuned the <strong>'Llama-2-7b-pubmed'</strong> model by training it with the PubMedQA dataset from HuggingFace. The fine-tuning used parameter-efficient fine-tuning (PEFT) techniques like <strong>QLoRA</strong>&quot;</p>
 </blockquote>
 <hr />
-<h2>주요 평가 결과</h2>
+<h2 id="주요-평가-결과">주요 평가 결과</h2>
 <table>
 <thead>
 <tr>
@@ -213,7 +217,7 @@ Step 5 — 평가
 </table>
 <p>→ 텍스트 전용 RAG, 비-RAG LLM 모두 대비 일관되게 우위.</p>
 <hr />
-<h2>Case Study (논문 §Discussion)</h2>
+<h2 id="case-study-논문-discussion">Case Study (논문 §Discussion)</h2>
 <ul>
 <li>알츠하이머 진단 보조 시나리오</li>
 <li>임상 의사결정 지원</li>
@@ -221,7 +225,7 @@ Step 5 — 평가
 <li>환자 교육 자료 생성</li>
 </ul>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li>Alzheimer 단일 도메인 특화 → 일반화 범위 제한</li>
 <li>대규모 이미지 인덱싱 계산 비용 증가</li>
@@ -230,7 +234,7 @@ Step 5 — 평가
 <li>이미지 captioning 품질이 fusion 결과에 큰 영향을 미침</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문 (MDPI)</strong>: <a href="https://doi.org/10.3390/make7030089">doi.org/10.3390/make7030089</a></li>
 <li><strong>arXiv preprint</strong>: <a href="https://arxiv.org/abs/2412.16701">arXiv:2412.16701</a></li>
@@ -238,7 +242,29 @@ Step 5 — 평가
 <li><strong>GitHub</strong>: 공개 코드 미확인</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/make/LahiriH25)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{DBLP:journals/make/LahiriH25,
+  author       = {Aritra Kumar Lahiri and
+                  Qinmin Vivian Hu},
+  title        = {AlzheimerRAG: Multimodal Retrieval-Augmented Generation for Clinical
+                  Use Cases},
+  journal      = {Mach. Learn. Knowl. Extr.},
+  volume       = {7},
+  number       = {3},
+  pages        = {89},
+  year         = {2025},
+  url          = {https://doi.org/10.3390/make7030089},
+  doi          = {10.3390/MAKE7030089},
+  timestamp    = {Sat, 11 Oct 2025 10:20:08 +0200},
+  biburl       = {https://dblp.org/rec/journals/make/LahiriH25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

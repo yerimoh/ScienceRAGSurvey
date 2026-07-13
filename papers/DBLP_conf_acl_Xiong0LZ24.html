@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Benchmarking Retrieval-Augmented Generation for Medicine — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,23 +108,27 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">ACL (Findings)</span>
       <span class="meta-year">2024</span>
-      <a href="https://aclanthology.org/2024.findings-acl.372" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">[&#x27;Question Answering&#x27;]</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a></div>
+    <div class="paper-links"><a href="https://aclanthology.org/2024.findings-acl.372" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/Teddy-XiongGZ/MedRAG" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-medrag-architecture">시스템 구조 (MEDRAG Architecture)</a></li><li class="toc-l3"><a href="#1-corpora-medcorp">(1) Corpora — MedCorp</a></li><li class="toc-l3"><a href="#2-retrievers-4종">(2) Retrievers (4종)</a></li><li class="toc-l3"><a href="#3-rrf-reciprocal-rank-fusion">(3) RRF — Reciprocal Rank Fusion</a></li><li class="toc-l3"><a href="#4-llms-6종">(4) LLMs (6종)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l3"><a href="#핵심-평가-설정-두-가지">핵심 평가 설정 두 가지</a></li><li class="toc-l2"><a href="#핵심-방법적-발견">핵심 방법적 발견</a></li><li class="toc-l2"><a href="#함께-제안한-벤치마크-mirage">함께 제안한 벤치마크: MIRAGE</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>MEDRAG: Benchmarking Retrieval-Augmented Generation for Medicine</h1>
 <blockquote>
 <p>ACL Findings 2024 | Method | medical · bio</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p><strong>MEDRAG</strong>는 의학 QA를 위한 first-stage RAG 툴킷/파이프라인으로, 4개 도메인 corpus를 묶은 <strong>MedCorp</strong>에서 4종 retriever(BM25/Contriever/SPECTER/MedCPT)와 RRF fusion으로 관련 snippet을 검색하고, 이를 6종 LLM의 chain-of-thought 프롬프트에 주입해 답을 생성한다. corpus·retriever·LLM을 자유롭게 조합·교체할 수 있는 모듈형 시스템으로, 각 구성요소가 의학 RAG 성능에 미치는 영향을 체계적으로 비교할 수 있게 설계되었다.</p>
-<h2>시스템 구조 (MEDRAG Architecture)</h2>
+<h2 id="시스템-구조-medrag-architecture">시스템 구조 (MEDRAG Architecture)</h2>
 <p>MEDRAG는 <strong>corpus → retriever → LLM</strong> 세 층으로 이루어진 모듈형 파이프라인이며, 각 층의 구성요소를 plug-and-play로 교체할 수 있다.</p>
-<h3>(1) Corpora — MedCorp</h3>
+<h3 id="1-corpora-medcorp">(1) Corpora — MedCorp</h3>
 <p>네 개의 이질적 의학 문서 집합을 통합한 코퍼스. 각 document를 검색 단위인 <strong>snippet</strong>으로 분할해 사용한다.</p>
 <table>
 <thead>
@@ -178,7 +182,7 @@
 <li>StatPearls는 본 논문이 biomedical NLP 커뮤니티에서 <strong>처음 평가</strong>한 corpus다.</li>
 <li>서로 다른 도메인(논문/임상/교과서/일반)을 섞어 질문 유형별로 어떤 출처가 유효한지 비교 가능하게 했다.</li>
 </ul>
-<h3>(2) Retrievers (4종)</h3>
+<h3 id="2-retrievers-4종">(2) Retrievers (4종)</h3>
 <p>서로 다른 매칭 전략을 가진 retriever를 동일 인터페이스로 제공한다.</p>
 <ul>
 <li><strong>BM25</strong> — lexical retriever (bag-of-words + TF-IDF, Pyserini). 정확한 용어 일치에 강함.</li>
@@ -186,14 +190,14 @@
 <li><strong>SPECTER</strong> — 과학 문헌 도메인 dense retriever. 유사 문서를 임베딩 공간에서 가깝게 인코딩.</li>
 <li><strong>MedCPT</strong> — 생의학 특화 dense retriever. 255M PubMed 사용자 click 데이터로 학습, biomedical IR에서 SOTA.</li>
 </ul>
-<h3>(3) RRF — Reciprocal Rank Fusion</h3>
+<h3 id="3-rrf-reciprocal-rank-fusion">(3) RRF — Reciprocal Rank Fusion</h3>
 <p>여러 retriever의 순위를 결합해 공통적으로 상위에 오는 snippet을 우대하는 fusion 기법.</p>
 <ul>
 <li><strong>RRF-2</strong>: BM25 + MedCPT (lexical/dense 한 쌍의 최적 조합)</li>
 <li><strong>RRF-4</strong>: 4개 retriever 전부 결합 (가장 넓은 커버리지)</li>
 <li>단일 retriever 대비 MedCorp에서 평균 성능을 <strong>+1.4% ~ +10.7%</strong> 향상.</li>
 </ul>
-<h3>(4) LLMs (6종)</h3>
+<h3 id="4-llms-6종">(4) LLMs (6종)</h3>
 <p>검색된 context를 받아 답을 생성하는 reader. 범용/생의학, 상용/오픈소스를 망라.</p>
 <table>
 <thead>
@@ -243,7 +247,7 @@
 </tr>
 </tbody>
 </table>
-<h2>동작 파이프라인 (inference)</h2>
+<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
 <p>질문 한 건이 들어오면 다음 단계를 거친다.</p>
 <ol>
 <li><strong>질문 입력</strong> — 객관식 의학 질문을 query로 받는다.</li>
@@ -253,12 +257,12 @@
 <li><strong>생성</strong> — LLM이 검색 context를 바탕으로 <strong>chain-of-thought</strong>로 추론.</li>
 <li><strong>출력</strong> — step-by-step 사고 과정과 선택 답안을 담은 JSON 산출.</li>
 </ol>
-<h3>핵심 평가 설정 두 가지</h3>
+<h3 id="핵심-평가-설정-두-가지">핵심 평가 설정 두 가지</h3>
 <ul>
 <li><strong>Zero-shot (ZSL)</strong>: few-shot 예시 없이 동작. 예시를 구하기 어려운 실제 의료 상황을 반영.</li>
 <li><strong>Question-Only Retrieval (QOR)</strong>: 검색 시 <strong>정답 선택지(options)를 입력으로 주지 않고 질문만</strong> 사용. 선택지를 retriever에 노출해 정답이 새어 나가던 기존 RAG 평가의 누수를 차단하는 설정으로, 의학 QA 평가에서 본 논문이 처음 제안·채택했다.</li>
 </ul>
-<h2>핵심 방법적 발견</h2>
+<h2 id="핵심-방법적-발견">핵심 방법적 발견</h2>
 <table>
 <thead>
 <tr>
@@ -289,14 +293,14 @@
 </tr>
 </tbody>
 </table>
-<h2>함께 제안한 벤치마크: MIRAGE</h2>
+<h2 id="함께-제안한-벤치마크-mirage">함께 제안한 벤치마크: MIRAGE</h2>
 <p>MEDRAG 평가를 위해 함께 공개한 의학 QA 벤치마크.</p>
 <ul>
 <li><strong>5개 데이터셋, 총 7,663개 객관식 문항</strong>: MMLU-Med(1,089), MedQA-US(1,273), MedMCQA(4,183), PubMedQA(500), BioASQ-Y/N(618).</li>
 <li>모두 zero-shot · question-only retrieval 설정에서 평가.</li>
 <li>(자세한 구축 과정은 본 요약에서 생략 — 본 요약은 MEDRAG 시스템 중심.)</li>
 </ul>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <p>저자들이 Limitations에서 명시한 내용.</p>
 <ol>
 <li>최신 RAG 변형이 아닌 <strong>vanilla RAG</strong> 구조에 집중.</li>
@@ -304,14 +308,41 @@
 <li>ground-truth snippet 평가가 <strong>두 개 데이터셋에만</strong> 가능.</li>
 <li><strong>객관식(multiple-choice)</strong> 포맷의 제약 — 생성된 rationale(근거 서술)에 대한 평가 부재.</li>
 </ol>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li>논문: <a href="https://aclanthology.org/2024.findings-acl.372">https://aclanthology.org/2024.findings-acl.372</a> · arXiv: <a href="https://arxiv.org/abs/2402.13178">https://arxiv.org/abs/2402.13178</a> (HTML: <a href="https://arxiv.org/html/2402.13178">https://arxiv.org/html/2402.13178</a>)</li>
 <li>MedRAG 툴킷: <a href="https://github.com/Teddy-XiongGZ/MedRAG">https://github.com/Teddy-XiongGZ/MedRAG</a></li>
 <li>MIRAGE 벤치마크: <a href="https://github.com/Teddy-XiongGZ/MIRAGE">https://github.com/Teddy-XiongGZ/MIRAGE</a></li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/acl/Xiong0LZ24)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@inproceedings{DBLP:conf/acl/Xiong0LZ24,
+  author       = {Guangzhi Xiong and
+                  Qiao Jin and
+                  Zhiyong Lu and
+                  Aidong Zhang},
+  editor       = {Lun{-}Wei Ku and
+                  Andre Martins and
+                  Vivek Srikumar},
+  title        = {Benchmarking Retrieval-Augmented Generation for Medicine},
+  booktitle    = {Findings of the Association for Computational Linguistics, {ACL} 2024,
+                  Bangkok, Thailand and virtual meeting, August 11-16, 2024},
+  series       = {Findings of {ACL}},
+  pages        = {6233--6251},
+  publisher    = {Association for Computational Linguistics},
+  year         = {2024},
+  url          = {https://doi.org/10.18653/v1/2024.findings-acl.372},
+  doi          = {10.18653/V1/2024.FINDINGS-ACL.372},
+  timestamp    = {Mon, 02 Feb 2026 16:08:22 +0100},
+  biburl       = {https://dblp.org/rec/conf/acl/Xiong0LZ24.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

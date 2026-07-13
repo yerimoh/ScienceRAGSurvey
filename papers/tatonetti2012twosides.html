@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TWOSIDES &amp;amp; OFFSIDES: Data-driven Prediction of Drug Effects and Interactions — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">Science Translational Medicine</span>
       <span class="meta-year">2012</span>
-      <a href="https://doi.org/10.1126/scitranslmed.3003377" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Relational × Discovery</a><span class="tag tag-sub">[&#x27;Property Prediction&#x27;]</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a></div>
+    <div class="paper-links"><a href="https://doi.org/10.1126/scitranslmed.3003377" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Relational × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#원문-직접-인용-tatonetti-2012-stm-pmc3382018-body-verbatim">원문 직접 인용 (Tatonetti 2012 STM, PMC3382018 body verbatim)</a></li><li class="toc-l2"><a href="#데이터셋-통계-논문-본문-verbatim">데이터셋 통계 (논문 본문 verbatim)</a></li><li class="toc-l2"><a href="#주요-활용">주요 활용</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>TWOSIDES &amp; OFFSIDES: Data-driven Prediction of Drug Effects and Interactions</h1>
 <blockquote>
@@ -122,10 +126,10 @@
 Nicholas P. Tatonetti, Patrick P. Ye, Roxana Daneshjou, Russ B. Altman — Stanford University
 DOI: <a href="https://doi.org/10.1126/scitranslmed.3003377">10.1126/scitranslmed.3003377</a> · PMID 22422992</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>FDA의 자발적 부작용 보고 시스템(FAERS)에서 측정되지 않은 교란 요인을 보정하는 통계적 접근으로 두 가지 자원을 구축: <strong>OFFSIDES</strong> (단일 약물 부작용 DB)와 <strong>TWOSIDES</strong> (약물 쌍 간 부작용 DB). DDI side-effect 예측 모델 평가의 canonical ground truth로 자리잡음.</p>
 <hr />
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — 데이터 출처: FAERS (FDA Adverse Event Reporting System)
   └─ FDA에 자발 보고된 부작용 신고 raw data (수백만 건)
 
@@ -151,7 +155,7 @@ Step 4 — 외부 검증
   └─ 핵심 발견: SSRI + thiazide → QT prolongation 유의 증가
 </code></pre>
 <hr />
-<h2>원문 직접 인용 (Tatonetti 2012 STM, PMC3382018 body verbatim)</h2>
+<h2 id="원문-직접-인용-tatonetti-2012-stm-pmc3382018-body-verbatim">원문 직접 인용 (Tatonetti 2012 STM, PMC3382018 body verbatim)</h2>
 <blockquote>
 <p>&quot;We developed an adaptive approach to correct for unmeasured confounding factors in spontaneous reporting databases and created two resources: <strong>Offsides (a database of drug effects) and Twosides (a database of drug-drug interaction side effects)</strong>.&quot;</p>
 </blockquote>
@@ -174,7 +178,7 @@ Step 4 — 외부 검증
 <p>SSRI + thiazide QT case: &quot;patients receiving combined thiazides and SSRIs showed <strong>1.5 (95% CI, 1.2 to 1.9) times as likely</strong> to record a prolonged QT interval compared to thiazide-only users&quot;</p>
 </blockquote>
 <hr />
-<h2>데이터셋 통계 (논문 본문 verbatim)</h2>
+<h2 id="데이터셋-통계-논문-본문-verbatim">데이터셋 통계 (논문 본문 verbatim)</h2>
 <table>
 <thead>
 <tr>
@@ -217,7 +221,7 @@ Step 4 — 외부 검증
 </tr>
 </tbody>
 </table>
-<h2>주요 활용</h2>
+<h2 id="주요-활용">주요 활용</h2>
 <table>
 <thead>
 <tr>
@@ -245,7 +249,7 @@ Step 4 — 외부 검증
 </tbody>
 </table>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li>FAERS 자발 보고 의존 → 표본 편향 (under-reporting / over-reporting)</li>
 <li>시간적 cutoff: 2012년까지 데이터, 신약 미반영</li>
@@ -254,7 +258,7 @@ Step 4 — 외부 검증
 <li>약물 쌍에만 적용 (3+ 약물 동시 복용 미지원)</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문 (DOI)</strong>: <a href="https://doi.org/10.1126/scitranslmed.3003377">10.1126/scitranslmed.3003377</a></li>
 <li><strong>PubMed</strong>: <a href="https://pubmed.ncbi.nlm.nih.gov/22422992/">PMID 22422992</a></li>
@@ -262,7 +266,18 @@ Step 4 — 외부 검증
 <li><strong>이 데이터를 사용한 후속 작업</strong>: TDC <code>multi_pred.DDI</code>, Decagon (Zitnik et al. 2018 Bioinformatics), MR-GNN 등 DDI side-effect 예측 표준 GT</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (tatonetti2012twosides)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@misc{tatonetti2012twosides,
+  title = {TWOSIDES &amp; OFFSIDES: Data-driven Prediction of Drug Effects and Interactions},
+  year = {2012},
+  note = {Science Translational Medicine}
+}</code></pre>
   </div>
 </section>
 </main>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MIMIC-CXR: A De-identified Publicly Available Database of Chest Radiographs — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">Scientific Data</span>
       <span class="meta-year">2019</span>
-      <a href="https://www.nature.com/articles/s41597-019-0322-0" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><span class="tag tag-sub">[&#x27;Question Answering&#x27;]</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+    <div class="paper-links"><a href="https://www.nature.com/articles/s41597-019-0322-0" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/MIT-LCP/mimic-cxr" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#input-입력-데이터셋-구성">Input (입력 / 데이터셋 구성)</a></li><li class="toc-l2"><a href="#output-정답레이블-형식">Output (정답/레이블 형식)</a></li><li class="toc-l2"><a href="#예시-사례-논문-원문-직접-인용">예시 사례 (논문 원문 직접 인용)</a></li><li class="toc-l3"><a href="#리포트-형식-section-구조-methods-발췌">📄 리포트 형식 — Section 구조 (Methods 발췌)</a></li><li class="toc-l3"><a href="#비식별화된-리포트-physionet-공식-샘플-mimic-cxr-라이선스-예시">🩺 비식별화된 리포트 (PhysioNet 공식 샘플, MIMIC-CXR 라이선스 예시)</a></li><li class="toc-l3"><a href="#픽셀-비식별화-검증-secondary-review-사유-methods-quotvalidation-of-de-identificationquot-발췌">🔍 픽셀 비식별화 검증 — Secondary review 사유 (Methods §&amp;quot;Validation of de-identification&amp;quot; 발췌)</a></li><li class="toc-l3"><a href="#영상-품질-변동성-technical-validation-발췌-rag-모델이-마주칠-noise">⚠️ 영상 품질 변동성 (Technical Validation 발췌 — RAG 모델이 마주칠 noise)</a></li><li class="toc-l2"><a href="#주요-평가-결과-이-데이터셋이-ragvlm-벤치마크로-쓰인-후속-연구">주요 평가 결과 (이 데이터셋이 RAG·VLM 벤치마크로 쓰인 후속 연구)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>MIMIC-CXR v2.1.0</h1>
 <blockquote>
@@ -122,9 +126,9 @@
 Johnson, Pollard, Berkowitz, Greenbaum, Lungren, Deng, Mark, Horng — MIT / Beth Israel Deaconess Medical Center / Stanford / Harvard
 DOI: <code>10.1038/s41597-019-0322-0</code> · PhysioNet v2.1.0 (Open-access subset: MIMIC-CXR-JPG)</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>Beth Israel Deaconess Medical Center 응급실(2011–2016)에서 수집한 <strong>흉부 X-ray 377,110장 + 방사선과 free-text 리포트 227,835건(고유 환자 65,379명)</strong>을 HIPAA Safe Harbor 규정에 맞게 비식별화하여 공개한 대규모 흉부 영상 데이터셋. 자동 보고서 생성·임상 NLP·멀티모달 RAG 평가의 사실상의 표준 벤치마크.</p>
-<h2>제작 배경</h2>
+<h2 id="제작-배경">제작 배경</h2>
 <p><strong>왜 이 데이터셋이 필요했나</strong></p>
 <ul>
 <li>흉부 X-ray는 전 세계에서 가장 빈번한 의료 영상 검사. 그러나 미국 내 방사선 전문의 비율 감소 추세 + 도시-농촌 분포 편향 → 자동 판독 알고리즘 수요 급증.</li>
@@ -137,7 +141,7 @@ DOI: <code>10.1038/s41597-019-0322-0</code> · PhysioNet v2.1.0 (Open-access sub
 <blockquote>
 <p>&quot;As of 2015, only 11 radiologists served the 12 million people of Rwanda, while the entire country of Liberia, with a population of four million, had only two practicing radiologists.&quot;</p>
 </blockquote>
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <p><strong>전체 구성</strong>: EHR/PACS 추출 → DICOM 비식별화(헤더 + 픽셀) → 리포트 규칙 기반 PHI 제거 → 수동 검증 → PhysioNet 공개</p>
 <pre><code>Step 1 — EHR/PACS에서 코호트 구축
   ┌─ BIDMC EHR에 응급실 흉부 X-ray 요청 쿼리 (2011–2016)
@@ -185,7 +189,7 @@ Step 6 — PhysioNet 공개 (Credentialed access)
   IRB 면제 (BIDMC), CITI 인증 + data use agreement 필요
   GitHub: MIT-LCP/mimic-cxr (loading 코드 only — 비식별화 코드는 PHI 포함으로 비공개)
 </code></pre>
-<h2>Input (입력 / 데이터셋 구성)</h2>
+<h2 id="input-입력-데이터셋-구성">Input (입력 / 데이터셋 구성)</h2>
 <p><strong>기본 통계</strong></p>
 <table>
 <thead>
@@ -293,7 +297,7 @@ Step 6 — PhysioNet 공개 (Credentialed access)
 <li>DICOM filename = 40-char hex UUID with dash separators</li>
 <li>1차 그룹 폴더 <code>p10/</code>, <code>p11/</code>, ... (디렉토리당 파일 수 폭증 방지)</li>
 </ul>
-<h2>Output (정답/레이블 형식)</h2>
+<h2 id="output-정답레이블-형식">Output (정답/레이블 형식)</h2>
 <p><strong>MIMIC-CXR-JPG 부속 CheXpert 자동 NLP 레이블 (14개, Stanford CheXpert + NegBio 앙상블)</strong></p>
 <table>
 <thead>
@@ -350,13 +354,13 @@ Step 6 — PhysioNet 공개 (Credentialed access)
 </tbody>
 </table>
 <p>각 레이블 상태: <strong>Positive / Negative / Uncertain / Disagreement</strong></p>
-<h2>예시 사례 (논문 원문 직접 인용)</h2>
-<h3>📄 리포트 형식 — Section 구조 (Methods 발췌)</h3>
+<h2 id="예시-사례-논문-원문-직접-인용">예시 사례 (논문 원문 직접 인용)</h2>
+<h3 id="리포트-형식-section-구조-methods-발췌">📄 리포트 형식 — Section 구조 (Methods 발췌)</h3>
 <blockquote>
 <p>&quot;Reports are archived with linebreaks to ensure individual lines are no longer than 79 characters, and contain up to four segments delimited by underscores repeated to the width of the page. The four segments are: an optional addendum, a report header with patient information, clinical information imported from the EHR, and the main body of the report. Only the addendum and main segments of the report are written by the radiologist.&quot;</p>
 <p>&quot;PHI of any length was consistently replaced with three underscores ('_ _ _'). Study reports are stored in individual text files named using the anonymous study identifier.&quot;</p>
 </blockquote>
-<h3>🩺 비식별화된 리포트 (PhysioNet 공식 샘플, MIMIC-CXR 라이선스 예시)</h3>
+<h3 id="비식별화된-리포트-physionet-공식-샘플-mimic-cxr-라이선스-예시">🩺 비식별화된 리포트 (PhysioNet 공식 샘플, MIMIC-CXR 라이선스 예시)</h3>
 <blockquote>
 <pre><code>FINAL REPORT
 EXAMINATION:  CHEST (PA AND LAT)
@@ -374,16 +378,16 @@ Large left and small right pleural effusions, new.
 </code></pre>
 <p><code>___</code> = PHI(환자 나이·이름·날짜) 자리. 리포트 구조 = <strong>Indication → Technique → Comparison → Findings → Impression</strong>.</p>
 </blockquote>
-<h3>🔍 픽셀 비식별화 검증 — Secondary review 사유 (Methods §&quot;Validation of de-identification&quot; 발췌)</h3>
+<h3 id="픽셀-비식별화-검증-secondary-review-사유-methods-quotvalidation-of-de-identificationquot-발췌">🔍 픽셀 비식별화 검증 — Secondary review 사유 (Methods §&quot;Validation of de-identification&quot; 발췌)</h3>
 <blockquote>
 <p>&quot;We then manually reviewed the pixel data for 6,900 radiographs. Each image was reviewed by two independent annotators. 180 images were identified for a secondary consensus review; none of which ultimately had PHI. The most common causes for annotators to request consensus review were: (1) existence of a support device such as a pacemaker, (2) text identifying in-hospital location (e.g. 'MICU'), and (3) obscure text relating to radiograph technique (e.g. 'prt rr slot 11').&quot;</p>
 </blockquote>
-<h3>⚠️ 영상 품질 변동성 (Technical Validation 발췌 — RAG 모델이 마주칠 noise)</h3>
+<h3 id="영상-품질-변동성-technical-validation-발췌-rag-모델이-마주칠-noise">⚠️ 영상 품질 변동성 (Technical Validation 발췌 — RAG 모델이 마주칠 noise)</h3>
 <blockquote>
 <p>&quot;Aside from view parsing and de-identification of the dataset, no filtering or processing of the images was performed. Consequently, images exhibit a number of phenomena common in daily practice. The quality of images varies, both in terms of technique and in terms of patient positioning (e.g. not all patients are healthy enough to stand for a posterior-anterior radiograph, or sit upright for an anterior-posterior radiograph). Images may unintentionally omit anatomy present in a standard chest radiograph, or have objects that obstruct important anatomy.&quot;</p>
 <p>Figure 2 캡션: &quot;From left to right: (a) poor patient positioning, (b) black box obscuring potential PHI, (c) secondary collimation to improve image quality, and (d) incorrect image orientation information in the meta-data.&quot;</p>
 </blockquote>
-<h2>주요 평가 결과 (이 데이터셋이 RAG·VLM 벤치마크로 쓰인 후속 연구)</h2>
+<h2 id="주요-평가-결과-이-데이터셋이-ragvlm-벤치마크로-쓰인-후속-연구">주요 평가 결과 (이 데이터셋이 RAG·VLM 벤치마크로 쓰인 후속 연구)</h2>
 <p>MIMIC-CXR 자체는 학습/평가용 데이터로 공개되며 — 별도 leaderboard 운영은 없음. 후속 연구의 표준 분할은 train 368,960 / val 2,991 / test 5,159 (MIMIC-CXR-JPG split).</p>
 <table>
 <thead>
@@ -411,7 +415,7 @@ Large left and small right pleural effusions, new.
 </tr>
 </tbody>
 </table>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>단일 기관</strong>(BIDMC, Boston) → 인종·기기·protocol 편향 가능. CheXpert(Stanford), PadChest(Alicante) 등과의 cross-site 평가 권장.</li>
 <li><strong>응급실 한정</strong> → 외래·routine 검사와 환자 분포 다름.</li>
@@ -420,7 +424,7 @@ Large left and small right pleural effusions, new.
 <li><strong>흉부 X-ray에 한정</strong> — CT, MRI 미포함. PhysioNet의 다른 데이터셋과 결합 필요.</li>
 <li><strong>임상 컨텍스트 segment 제거</strong>됨 → 환자 history 기반 추론 불가능. RAG 시스템이 EHR과 별도 페어링 필요.</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문 (Scientific Data)</strong>: <a href="https://doi.org/10.1038/s41597-019-0322-0">doi:10.1038/s41597-019-0322-0</a></li>
 <li><strong>PhysioNet (DICOM, credentialed)</strong>: <a href="https://physionet.org/content/mimic-cxr/2.1.0/">mimic-cxr v2.1.0</a></li>
@@ -431,7 +435,23 @@ Large left and small right pleural effusions, new.
 <li><strong>연관 데이터셋 (IU-Xray)</strong>: Demner-Fushman et al. 2016 — 방사선 보고서 생성 RAG의 표준 쌍</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (PhysioNet-mimic-cxr-2.1.0)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{PhysioNet-mimic-cxr-2.1.0,
+  author = {Johnson, Alistair and Pollard, Tom and Mark, Roger and Berkowitz, Seth and Horng, Steven},
+  title = {{MIMIC-CXR Database}},
+  journal = {{PhysioNet}},
+  year = {2024},
+  month = jul,
+  note = {Version 2.1.0},
+  doi = {10.13026/4jqj-jw95},
+  url = {https://doi.org/10.13026/4jqj-jw95}
+}</code></pre>
   </div>
 </section>
 </main>

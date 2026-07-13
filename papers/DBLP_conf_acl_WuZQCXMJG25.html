@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Medical Graph RAG: Towards Safe Medical Large Language Model via Graph Retrieval-Augmented Generation — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">ACL</span>
       <span class="meta-year">2025</span>
-      
     </div>
-    <div class="paper-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><span class="tag tag-sub">[&#x27;Question Answering&#x27;]</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+    <div class="paper-links"><a href="https://github.com/MedicineToken/Medical-Graph-RAG" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#평가-셋업-논문-test-data-직접-인용">평가 셋업 (논문 §Test Data 직접 인용)</a></li><li class="toc-l2"><a href="#주요-평가-결과-논문-table-2-발췌">주요 평가 결과 (논문 Table 2 발췌)</a></li><li class="toc-l2"><a href="#ablation-3-tier-증분-영향-논문-fig3">Ablation (3-tier 증분 영향, 논문 Fig.3)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>MedGraphRAG: Evidence-based Medical RAG via Triple Graph Construction + U-Retrieval</h1>
 <blockquote>
@@ -122,10 +126,10 @@
 Junde Wu, Jiayuan Zhu, Yunli Qi, Jingkun Chen, Min Xu, Filippo Menolascina, Yueming Jin, Vicente Grau — Univ. of Oxford / CMU / MBZUAI / Univ. of Edinburgh / NUS
 DBLP: <code>conf/acl/WuZQCXMJG25</code></p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>사용자 의료 문서 → 의학 문헌 → 의학 사전의 <strong>3-tier hierarchical graph</strong> 구조와 <strong>U-Retrieval</strong>(top-down 태그 매칭 + bottom-up 그래프 traversal)을 결합한 evidence-based 의료 RAG 프레임워크. <strong>9개 MultiMedQA MCQ + 2개 fact-verification + DiverseHealth (12개)</strong> 벤치마크에서 GraphRAG·MedRAG·NaiveRAG 등 베이스라인을 일관되게 능가.</p>
 <hr />
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — Triple Graph Construction (3-tier 계층)
   ┌───────────────────────────────┐
   │ Tier 1: User documents        │  ← 환자 기록·임상 노트 등
@@ -151,7 +155,7 @@ Step 4 — Evidence-based response generation
   → &quot;evidence-based responses and official medical term explanation&quot;
 </code></pre>
 <hr />
-<h2>평가 셋업 (논문 §Test Data 직접 인용)</h2>
+<h2 id="평가-셋업-논문-test-data-직접-인용">평가 셋업 (논문 §Test Data 직접 인용)</h2>
 <blockquote>
 <p>&quot;Our test set are the test split of <strong>9 multiple-choice biomedical datasets from the MultiMedQA suite</strong>, 2 fact verification datasets about public health, i.e., FakeHealth and PubHealth, and 1 test set we collected, called DiverseHealth.&quot;</p>
 </blockquote>
@@ -182,7 +186,7 @@ Step 4 — Evidence-based response generation
 </tbody>
 </table>
 <hr />
-<h2>주요 평가 결과 (논문 Table 2 발췌)</h2>
+<h2 id="주요-평가-결과-논문-table-2-발췌">주요 평가 결과 (논문 Table 2 발췌)</h2>
 <table>
 <thead>
 <tr>
@@ -221,7 +225,7 @@ Step 4 — Evidence-based response generation
 </table>
 <p>→ Triple Graph + U-Retrieval 결합 시 단순 GraphRAG 대비 평균 +10%p 향상.</p>
 <hr />
-<h2>Ablation (3-tier 증분 영향, 논문 Fig.3)</h2>
+<h2 id="ablation-3-tier-증분-영향-논문-fig3">Ablation (3-tier 증분 영향, 논문 Fig.3)</h2>
 <table>
 <thead>
 <tr>
@@ -250,7 +254,7 @@ Step 4 — Evidence-based response generation
 </table>
 <p>핵심 발견: 데이터 누적 + 적절한 검색 방법이 함께 작동해야 full potential.</p>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li>UMLS / Medical Dictionary 어휘 범위 밖의 희귀·신흥 의학 용어 처리 제한</li>
 <li>3-tier 그래프 traversal cost가 높아 실시간 임상 응용 시 지연 발생 가능</li>
@@ -258,7 +262,7 @@ Step 4 — Evidence-based response generation
 <li>MultiMedQA의 일부 데이터셋은 LLM 학습 데이터와 중첩 가능성 존재</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문</strong>: <a href="https://aclanthology.org/2025.acl-long.1381/">ACL Anthology 2025.acl-long.1381</a></li>
 <li><strong>DOI</strong>: <a href="https://doi.org/10.18653/v1/2025.acl-long.1381">10.18653/v1/2025.acl-long.1381</a></li>
@@ -266,7 +270,39 @@ Step 4 — Evidence-based response generation
 <li><strong>GitHub (저자 구현 추정)</strong>: <a href="https://github.com/MedicineToken/Medical-Graph-RAG">https://github.com/MedicineToken/Medical-Graph-RAG</a></li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/acl/WuZQCXMJG25)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@inproceedings{DBLP:conf/acl/WuZQCXMJG25,
+  author       = {Junde Wu and
+                  Jiayuan Zhu and
+                  Yunli Qi and
+                  Jingkun Chen and
+                  Min Xu and
+                  Filippo Menolascina and
+                  Yueming Jin and
+                  Vicente Grau},
+  editor       = {Wanxiang Che and
+                  Joyce Nabende and
+                  Ekaterina Shutova and
+                  Mohammad Taher Pilehvar},
+  title        = {Medical Graph {RAG:} Evidence-based Medical Large Language Model via
+                  Graph Retrieval-Augmented Generation},
+  booktitle    = {Proceedings of the 63rd Annual Meeting of the Association for Computational
+                  Linguistics (Volume 1: Long Papers), {ACL} 2025, Vienna, Austria,
+                  July 27 - August 1, 2025},
+  pages        = {28443--28467},
+  publisher    = {Association for Computational Linguistics},
+  year         = {2025},
+  url          = {https://aclanthology.org/2025.acl-long.1381/},
+  timestamp    = {Sun, 02 Nov 2025 21:27:24 +0100},
+  biburl       = {https://dblp.org/rec/conf/acl/WuZQCXMJG25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

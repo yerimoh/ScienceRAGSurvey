@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>pathfinder: A Semantic Framework for Literature Review and Knowledge Discovery in Astronomy — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,21 +108,25 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">ApJS</span>
       <span class="meta-year">2024</span>
-      <a href="https://doi.org/10.3847/1538-4365/ad7c43" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">[&#x27;Literature Synthesis&#x27;]</span><a href="../domain/astronomy.html" class="tag tag-domain">🔭Astronomy</a></div>
+    <div class="paper-links"><a href="https://doi.org/10.3847/1538-4365/ad7c43" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/astronomy.html" class="tag tag-domain">🔭Astronomy</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-pathfinder-architecture">시스템 구조 (Pathfinder Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l2"><a href="#주요-기능결과">주요 기능/결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>Pathfinder: Semantic RAG Framework for Astronomy Literature</h1>
 <blockquote>
 <p>ApJS 275:38, 2024 | Method | astronomy</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>Pathfinder는 약 35만 편의 천문학 논문(ADS+arXiv astro-ph) 초록을 임베딩 기반 의미 검색으로 색인하고, HyDE 질의 확장·reranking·RAG/ReAct 생성을 결합하여 인용을 단 장문 답변을 생성하는 천문학 문헌 리뷰·지식 발견용 시스템(프레임워크)이다. 키워드 일치에 의존하는 기존 검색을 의미 검색으로 대체한 grounded literature QA 도구이며, 벤치마크가 아니라 실제 배포된 시스템이다.</p>
-<h2>시스템 구조 (Pathfinder Architecture)</h2>
+<h2 id="시스템-구조-pathfinder-architecture">시스템 구조 (Pathfinder Architecture)</h2>
 <ul>
 <li><strong>Corpus:</strong> 총 352,194편의 peer-reviewed 천문학 논문(Kaggle arXiv astro-ph 약 27만 편을 ADS 메타데이터로 보강). 현재 버전은 초록(abstract)만 사용하며 향후 full-text 확장 가능.</li>
 <li><strong>Embedding / 벡터 검색:</strong> OpenAI text-embedding-3-small(1536차원)로 임베딩, cosine similarity로 FAISS 인덱싱·검색. 시각화는 UMAP 2D 축소.</li>
@@ -137,7 +141,7 @@
 <li><strong>생성기 (RAG + ReAct):</strong> LangChain으로 RAG 구성. 검색된 초록 청크를 LLM에 전달해 답을 합성하며, 관련 출처가 없으면 &quot;I don't know&quot;로 응답하도록 제약. 복합·반사실 질의에는 ReAct 에이전트가 추론·검색을 반복. 생성·합의 평가에 GPT-4 / GPT-4o mini 사용.</li>
 <li><strong>프론트엔드:</strong> Streamlit UI, HuggingFace Spaces 배포(pathfinder.app). 데이터셋·코드 공개.</li>
 </ul>
-<h2>동작 파이프라인 (inference)</h2>
+<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
 <ol>
 <li>질의 입력 → 질의 유형 분류(단일/다중 논문 사실, 합의 평가, 복합, What-If·반사실 등) 및 NER·전문용어·시간민감 플래그 판별.</li>
 <li><strong>HyDE 질의 확장:</strong> LLM이 &quot;전문 천문학자&quot;로서 질의를 도메인 특화 가상 초록으로 재작성.</li>
@@ -146,14 +150,14 @@
 <li><strong>답변 생성:</strong> 질의 유형별 특화 프롬프트로 RAG 답변 생성(단일=간결, 다중=요약 합성, 넓은 질의=초기답변→자기비판→개선). 복합·반사실은 ReAct 단계로 처리.</li>
 <li><strong>출력:</strong> 답변 + top-k 논문 표 + 질의 유형 + 관련도(0~1) 추정. 합의 질의는 7단계(Strong Agreement … No Clear Consensus … Strong Disagreement)로 평가, 이상치(outlier) 논문도 플래그.</li>
 </ol>
-<h2>주요 기능/결과</h2>
+<h2 id="주요-기능결과">주요 기능/결과</h2>
 <ul>
 <li><strong>활용:</strong> 의미 기반 문헌 리뷰, 지식 발견, 합의 평가, 예상 밖 논문 탐지 등 grounded literature QA 워크플로우.</li>
 <li><strong>단일 논문 합성 벤치마크</strong>(무작위 500편, top-k=10): Bag-of-Words s=0.46, r⁻¹=0.29 → HyDE+reranking s=0.84, r⁻¹=0.74.</li>
 <li><strong>다중 논문 합성 벤치마크</strong>(리뷰 논문 200편, top-k=50): Bag-of-Words recall=0.15, nDCG=0.09 → HyDE+reranking recall=0.29, nDCG=0.19.</li>
 <li><strong>Gold QA 데이터셋:</strong> Slack 봇으로 36명 천문학자가 370개 질문 제출, 전문가 답변 수집. 사용자 긍정 상호작용과 검색 점수가 양의 상관(Spearman ρ=+0.33).</li>
 </ul>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li>초록만 색인 → 본문 깊은 데이터·방법 세부 질의는 자주 놓침.</li>
 <li>매우 최신 논문·일부 niche 저널 미포함(불완전 코퍼스).</li>
@@ -161,7 +165,7 @@
 <li>LLM 편향·환각 가능 → 답변을 top-k 논문과 교차 검증 필요.</li>
 <li>복합·반사실 질의는 ReAct 없이는 직접 답변 불가하며, ReAct도 루프에 빠질 수 있음.</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li>Iyer, Yunus, O'Neill, Ye, et al., ApJS 275:38, 2024.</li>
 <li>arXiv: 2408.01556 (<a href="https://arxiv.org/abs/2408.01556">https://arxiv.org/abs/2408.01556</a>)</li>
@@ -169,7 +173,25 @@
 <li>라이브 도구: pathfinder.app (HuggingFace Spaces 배포), 코드·데이터셋 공개.</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (iyer2024pathfinder)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{iyer2024pathfinder,
+  author  = {Kartheik G. Iyer and Mikaeel Yunus and Charles O&#x27;Neill and Christine Ye and Alina Hyk and Kiera McCormick and Ioana Ciuc{\u{a}} and John F. Wu and Alberto Accomazzi and Simone Astarita and Rishabh Chakrabarty and Jesse Cranney and Anjalie Field and Tirthankar Ghosal and Michele Ginolfi and others},
+  title   = {pathfinder: A Semantic Framework for Literature Review and Knowledge Discovery
+             in Astronomy},
+  journal = {The Astrophysical Journal Supplement Series},
+  volume  = {275},
+  number  = {2},
+  pages   = {38},
+  year    = {2024},
+  doi     = {10.3847/1538-4365/ad7c43},
+  note    = {arXiv:2408.01556}
+}</code></pre>
   </div>
 </section>
 </main>

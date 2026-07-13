@@ -2103,11 +2103,24 @@ def _prop_block_to_table(md_content):
     return '\n'.join(out)
 
 
+def _slugify(text):
+    s = re.sub(r'<[^>]+>', '', text)                      # strip tags
+    s = re.sub(r'[^\w\s가-힣-]', '', s, flags=re.U).strip().lower()
+    s = re.sub(r'[\s_]+', '-', s)
+    return s or 'sec'
+
+
 def render_paper_pages():
-    """Render papers/<bib_key>.html from papers/<bib_key>.md (Notion summaries)."""
+    """Render papers/<bib_key>.html from papers/<bib_key>.md (Notion summaries),
+    with a resource-link row (Paper/GitHub/HF model), a hyperlinked table of contents,
+    and a BibTeX citation box."""
     import mistune
     md_renderer = mistune.create_markdown(escape=False, plugins=['table','strikethrough','footnotes','url'])
     papers_by_key = {p['bib_key']: p for p in papers if p.get('bib_key')}
+    try:
+        BIBTEX = json.loads((ROOT / 'data/bibtex.json').read_text())
+    except Exception:
+        BIBTEX = {}
     papers_dir = ROOT / 'papers'
     if not papers_dir.exists():
         print('  papers/ dir missing — skipping summary pages')
@@ -2121,28 +2134,79 @@ def render_paper_pages():
                 matching = p; break
         if not matching:
             continue
+        bib_key = matching.get('bib_key', '')
         title = matching.get('title') or bib_key_fn
-        md_content = md_file.read_text()
+        raw_md = md_file.read_text()
+        md_content = raw_md
         # Strip YAML frontmatter
         if md_content.startswith('---'):
             end = md_content.find('---', 3)
             if end > 0:
                 md_content = md_content[end+3:].lstrip()
+        # Discover resource links from the summary body (first occurrence of each).
+        gh = re.search(r'https?://github\.com/[^\s)\]<>"]+', md_content)
+        hf = re.search(r'https?://huggingface\.co/[^\s)\]<>"]+', md_content)
         # Convert Notion property block → HTML table
         md_content = _prop_block_to_table(md_content)
-        # Ensure blank lines around HTML block boundaries
         md_content = re.sub(r'(</table>)\s*\n(#)', r'\1\n\n\2', md_content)
         md_content = re.sub(r'(\n#{1,6} [^\n]+)\n(<table)', r'\1\n\n\2', md_content)
         md_content = re.sub(r'(</table>)\s*\n([^\n#<\s-])', r'\1\n\n\2', md_content)
         body_html = md_renderer(md_content)
+
+        # Add ids to h2/h3 headings and collect a table of contents.
+        toc = []
+        _seen = {}
+        def _hrepl(m):
+            lvl, inner = m.group(1), m.group(2)
+            slug = _slugify(inner)
+            if slug in _seen:
+                _seen[slug] += 1; slug = f'{slug}-{_seen[slug]}'
+            else:
+                _seen[slug] = 0
+            toc.append((lvl, slug, re.sub(r'<[^>]+>', '', inner).strip()))
+            return f'<h{lvl} id="{slug}">{inner}</h{lvl}>'
+        body_html = re.sub(r'<h([23])>(.*?)</h\1>', _hrepl, body_html, flags=re.S)
+        toc_html = ''
+        if len(toc) >= 3:
+            items = ''.join(
+                f'<li class="toc-l{lvl}"><a href="#{slug}">{esc(txt)}</a></li>' for lvl, slug, txt in toc)
+            toc_html = f'''<nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul>{items}</ul>
+    </nav>'''
+
         url = matching.get('paper_link') or ''
-        url_link = f'<a href="{esc(url)}" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>' if url else ''
+        links = []
+        if url:
+            links.append(f'<a href="{esc(url)}" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a>')
+        if gh:
+            links.append(f'<a href="{esc(gh.group(0))}" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a>')
+        if hf:
+            links.append(f'<a href="{esc(hf.group(0))}" target="_blank" rel="noopener" class="res-link res-model">🤗 Model / HF ↗</a>')
+        links_html = f'<div class="paper-links">{"".join(links)}</div>' if links else ''
+
         cells = matching.get('ko_cells', [])
         cell_tags = ''.join(f'<a href="../cell/{c}.html" class="tag tag-cell" title="{c}">{cell_label(c)}</a>' for c in cells)
         subsec = matching.get('subsection', '')
+        if isinstance(subsec, list):
+            subsec = ' · '.join(x for x in subsec if x)
         subsec_tag = f'<span class="tag tag-sub">{esc(subsec)}</span>' if subsec else ''
         domains = matching.get('domain', [])
         dom_tags = ''.join(f'<a href="../domain/{d}.html" class="tag tag-domain">{DOMAIN_EMOJI.get(d,"")}{esc(DOMAIN_LABELS.get(d,d))}</a>' for d in domains)
+        typ = matching.get('type', '')
+        type_tag = f'<a href="../topics/{typ.lower()}.html" class="tag tag-type">{esc(TYPE_LABELS.get(typ,typ))}</a>' if typ and typ != 'unknown' else ''
+
+        bibtex = BIBTEX.get(bib_key, '')
+        cite_html = ''
+        if bibtex:
+            cite_html = f'''
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>{esc(bibtex)}</code></pre>
+  </div>
+</section>'''
+
         body = f'''
 <section class="paper-hero">
   <div class="wrap">
@@ -2151,18 +2215,20 @@ def render_paper_pages():
     <div class="paper-hero-meta">
       <span class="meta-venue">{esc(matching.get('venue',''))}</span>
       <span class="meta-year">{esc(matching.get('year',''))}</span>
-      {url_link}
     </div>
-    <div class="paper-tags">{cell_tags}{subsec_tag}{dom_tags}</div>
+    {links_html}
+    <div class="paper-tags">{cell_tags}{subsec_tag}{dom_tags}{type_tag}</div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    {toc_html}
     <article class="paper-markdown">
       {body_html}
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this ({esc(bib_key)})</a></p>
     </article>
   </div>
-</section>
+</section>{cite_html}
 '''
         out_fn = bib_key_fn + '.html'
         (papers_dir / out_fn).write_text(page_head(esc(title), base='../', current=f'papers/{bib_key_fn}') + body + page_foot('../'))

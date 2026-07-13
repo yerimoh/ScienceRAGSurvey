@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>KG-Rank: Enhancing Large Language Models for Medical QA with Knowledge Graphs and Ranking Techniques — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,49 +108,89 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">BioNLP@ACL</span>
       <span class="meta-year">2024</span>
-      <a href="https://aclanthology.org/2024.bionlp-1.13/" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><span class="tag tag-sub">[&#x27;Question Answering&#x27;]</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+    <div class="paper-links"><a href="https://aclanthology.org/2024.bionlp-1.13/" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/YangRui525/KG-Rank" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-kg-rank-architecture">시스템 구조 (KG-Rank Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l2"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>KG-Rank: Knowledge-Graph + Ranking for Long-form Medical QA</h1>
 <blockquote>
 <p>BioNLP@ACL 2024 | Method | medical</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>KG-Rank는 의학 질문에서 의료 엔티티를 추출해 UMLS에서 one-hop 트리플(사실)을 가져온 뒤, IR의 ranking/re-ranking 기법(유사도·Answer Expansion·MMR·MedCPT 재랭킹)으로 가장 관련성 높은 사실만 추려 LLM에 주입함으로써, 파인튜닝 없이 장문(long-form) 의료 답변의 사실성·품질을 높이는 프레임워크다.</p>
-<h2>시스템 구조 (KG-Rank Architecture)</h2>
+<h2 id="시스템-구조-kg-rank-architecture">시스템 구조 (KG-Rank Architecture)</h2>
 <ol>
 <li><strong>의료 NER:</strong> 프롬프트로 LLM이 질문에서 의료 엔티티를 추출, UMLS 엔티티로 매핑.</li>
 <li><strong>UMLS one-hop 검색:</strong> 엔티티별 one-hop 관계 트리플 (e_i', r, e_j') 수집(한 엔티티가 수천 관계 → ranking 필수).</li>
 <li><strong>Ranking/Re-ranking(핵심):</strong> UmlsBERT 임베딩으로 질문-트리플 정렬. 4가지 변형 — Similarity / Answer Expansion(가짜 답변 생성 후 [Q,A]로 검색) / MMR(관련성+다양성, 선택 수에 따라 다양성 페널티 증가) / Re-ranking(MedCPT cross-encoder).</li>
 <li><strong>장문 합성:</strong> 상위 트리플 + task 프롬프트를 LLM에 주입해 free-text 답변 생성.</li>
 </ol>
-<h2>동작 파이프라인 (inference)</h2>
+<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
 <ol>
 <li>질문 → 의료 엔티티 추출 → UMLS 매핑.</li>
 <li>one-hop 트리플 검색.</li>
 <li>Similarity/AE/MMR/Re-ranking으로 트리플 정렬.</li>
 <li>상위 트리플 + 프롬프트 → LLM 장문 답변.</li>
 </ol>
-<h2>주요 결과</h2>
+<h2 id="주요-결과">주요 결과</h2>
 <p>백본 GPT-4 등, 데이터셋 ExpertQA-Bio/Med, LiveQA, MedicationQA. GPT-4 기준 Zero-Shot→KG-Rank ROUGE-L: ExpertQA-Bio 23.00→<strong>27.20</strong>, ExpertQA-Med 25.45→<strong>28.08</strong>, MedicationQA 14.41→<strong>16.19</strong>; BERTScore도 일관 향상. 일반 도메인(Law/Business/Music/History)에서도 ROUGE-L 향상으로 확장성 시사.</p>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li>사실성에 대한 physician 평가는 향후 과제(현재 미수행).</li>
 <li>의료 특화 base model 평가 부족.</li>
 <li>ranking 단계가 추가 연산 시간 증가.</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li>arXiv: 2403.05881 · BioNLP@ACL 2024 (Yang et al.)</li>
 <li>코드: <a href="https://github.com/YangRui525/KG-Rank">https://github.com/YangRui525/KG-Rank</a> · 소스 UMLS, 임베딩 UmlsBERT, 재랭커 MedCPT</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/bionlp/YangLMZKLCCCML24)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@inproceedings{DBLP:conf/bionlp/YangLMZKLCCCML24,
+  author       = {Rui Yang and
+                  Haoran Liu and
+                  Edison Marrese{-}Taylor and
+                  Qingcheng Zeng and
+                  Yuhe Ke and
+                  Wanxin Li and
+                  Lechao Cheng and
+                  Qingyu Chen and
+                  James Caverlee and
+                  Yutaka Matsuo and
+                  Irene Li},
+  editor       = {Dina Demner{-}Fushman and
+                  Sophia Ananiadou and
+                  Makoto Miwa and
+                  Kirk Roberts and
+                  Junichi Tsujii},
+  title        = {KG-Rank: Enhancing Large Language Models for Medical {QA} with Knowledge
+                  Graphs and Ranking Techniques},
+  booktitle    = {Proceedings of the 23rd Workshop on Biomedical Natural Language Processing,
+                  BioNLP@ACL 2024, Bangkok, Thailand, August 16, 2024},
+  pages        = {155--166},
+  publisher    = {Association for Computational Linguistics},
+  year         = {2024},
+  url          = {https://doi.org/10.18653/v1/2024.bionlp-1.13},
+  doi          = {10.18653/V1/2024.BIONLP-1.13},
+  timestamp    = {Tue, 14 Oct 2025 19:33:50 +0200},
+  biburl       = {https://dblp.org/rec/conf/bionlp/YangLMZKLCCCML24.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

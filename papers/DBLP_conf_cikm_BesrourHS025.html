@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SQuAI: Scientific Question-Answering with Multi-Agent Retrieval-Augmented Generation — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">CIKM</span>
       <span class="meta-year">2025</span>
-      <a href="https://doi.org/10.1145/3746252.3761471" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">[&#x27;Literature Synthesis&#x27;]</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a></div>
+    <div class="paper-links"><a href="https://doi.org/10.1145/3746252.3761471" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/faerber-lab/SQuAI" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a><a href="https://huggingface.co/datasets/ines-besrour/unarxive_2024" target="_blank" rel="noopener" class="res-link res-model">🤗 Model / HF ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#squai-system-4-agent-architecture-논문github-직접-인용">SQuAI System: 4-Agent Architecture (논문/GitHub 직접 인용)</a></li><li class="toc-l2"><a href="#예시-q-a-e-트리플렛-논문github-발췌">예시 Q-A-E 트리플렛 (논문/GitHub 발췌)</a></li><li class="toc-l2"><a href="#주요-평가-결과-논문-본문-인용">주요 평가 결과 (논문 본문 인용)</a></li><li class="toc-l3"><a href="#unarxive-simpleexpert-combined-score-01">unarXive Simple/Expert (combined score, 0–1)</a></li><li class="toc-l3"><a href="#faithfulness-개선-github-readme-인용">Faithfulness 개선 (GitHub README 인용)</a></li><li class="toc-l2"><a href="#평가-지표-상세-deepeval">평가 지표 상세 (DeepEval)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>SQuAI: 4-Agent Multi-Agent RAG + Q-A-E 1,000-question Benchmark over unarXive</h1>
 <blockquote>
@@ -122,10 +126,10 @@
 Ines Besrour, Jingbo He, Tobias Schreieder, Michael Färber — TU Dresden (faerber-lab)
 DBLP: <code>conf/cikm/BesrourHS025</code> · DOI: 10.1145/3746252.3761471</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>unarXive 2024 arXiv 풀텍스트 코퍼스 위에서 작동하는 <strong>4-agent multi-agent RAG 시스템</strong> SQuAI와 함께 제안된 <strong>Q-A-E (Question-Answer-Evidence) 트리플렛 1,000문항</strong> 벤치마크. 복합 질문을 <strong>sub-question decomposition</strong> 으로 풀어 단계적 retrieval+합성을 수행하며, faithfulness가 standard RAG 대비 최대 <strong>12%p</strong> 향상.</p>
 <hr />
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — 데이터 출처: unarXive 2024
   └─ arXiv 풀텍스트 (1991-2024, 약 230만 편)
   └─ 분야: CS, 수학, 물리, 생물, 화학 등 전 과학 분야
@@ -155,7 +159,7 @@ Step 4 — 평가 protocol
     (DeepEval framework, 각 0–1)
 </code></pre>
 <hr />
-<h2>SQuAI System: 4-Agent Architecture (논문/GitHub 직접 인용)</h2>
+<h2 id="squai-system-4-agent-architecture-논문github-직접-인용">SQuAI System: 4-Agent Architecture (논문/GitHub 직접 인용)</h2>
 <pre><code>[사용자 복합 질문]
        │
        ▼
@@ -193,7 +197,7 @@ Step 4 — 평가 protocol
 </code></pre>
 <p>→ Aggregative Synthesis의 <strong>&quot;sub-question decomposition&quot;</strong> 메커니즘의 대표 사례.</p>
 <hr />
-<h2>예시 Q-A-E 트리플렛 (논문/GitHub 발췌)</h2>
+<h2 id="예시-q-a-e-트리플렛-논문github-발췌">예시 Q-A-E 트리플렛 (논문/GitHub 발췌)</h2>
 <blockquote>
 <p><strong>Q</strong>: &quot;What is quantum computing and how is it used in cryptography?&quot;</p>
 <p><strong>A</strong>: &quot;Quantum computing uses qubits to perform computations based on quantum mechanics [1]. It has potential applications in cryptography, particularly for breaking classical encryption schemes [2].&quot;</p>
@@ -205,8 +209,8 @@ Step 4 — 평가 protocol
 </blockquote>
 <p>→ 각 인용 <code>[i]</code>이 원문 <code>cited paragraph</code> 와 1:1 매핑되어, faithfulness 평가 가능.</p>
 <hr />
-<h2>주요 평가 결과 (논문 본문 인용)</h2>
-<h3>unarXive Simple/Expert (combined score, 0–1)</h3>
+<h2 id="주요-평가-결과-논문-본문-인용">주요 평가 결과 (논문 본문 인용)</h2>
+<h3 id="unarxive-simpleexpert-combined-score-01">unarXive Simple/Expert (combined score, 0–1)</h3>
 <table>
 <thead>
 <tr>
@@ -233,7 +237,7 @@ Step 4 — 평가 protocol
 </tr>
 </tbody>
 </table>
-<h3>Faithfulness 개선 (GitHub README 인용)</h3>
+<h3 id="faithfulness-개선-github-readme-인용">Faithfulness 개선 (GitHub README 인용)</h3>
 <blockquote>
 <p>&quot;SQuAI improves combined scores by up to <strong>12%</strong> in faithfulness compared to a standard RAG baseline.&quot;</p>
 </blockquote>
@@ -244,7 +248,7 @@ Step 4 — 평가 protocol
 <li>Judge agent의 quality filtering이 hallucination 억제에 기여</li>
 </ul>
 <hr />
-<h2>평가 지표 상세 (DeepEval)</h2>
+<h2 id="평가-지표-상세-deepeval">평가 지표 상세 (DeepEval)</h2>
 <table>
 <thead>
 <tr>
@@ -273,7 +277,7 @@ Step 4 — 평가 protocol
 </table>
 <p>3개 지표 모두 0–1 범위, LLM-as-judge 방식.</p>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>합성 질문</strong>: LLaMA 3.3 70B 로 생성 → 실제 인간 연구자의 복잡한 의도/표현 다양성 부분 미반영</li>
 <li><strong>합성 reference answer</strong>: gold answer가 LLM 생성이라 직접 비교 회피 → 평가가 evidence-answer 관계성에 한정</li>
@@ -281,7 +285,7 @@ Step 4 — 평가 protocol
 <li><strong>CIKM 2025 short/full paper</strong>: arXiv preprint 미확인, ACM DL 게재본만 정식 출처</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문 (ACM DL)</strong>: <a href="https://doi.org/10.1145/3746252.3761471">doi.org/10.1145/3746252.3761471</a></li>
 <li><strong>GitHub</strong>: <a href="https://github.com/faerber-lab/SQuAI">github.com/faerber-lab/SQuAI</a></li>
@@ -291,7 +295,42 @@ Step 4 — 평가 protocol
 <li><strong>이 벤치마크를 사용한 후속 작업</strong>: SQuAI 자체 (CIKM 2025)</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/cikm/BesrourHS025)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@inproceedings{DBLP:conf/cikm/BesrourHS025,
+  author       = {Ines Besrour and
+                  Jingbo He and
+                  Tobias Schreieder and
+                  Michael F{\&quot;{a}}rber},
+  editor       = {Meeyoung Cha and
+                  Chanyoung Park and
+                  Noseong Park and
+                  Carl Yang and
+                  Senjuti Basu Roy and
+                  Jessie Li and
+                  Jaap Kamps and
+                  Kijung Shin and
+                  Bryan Hooi and
+                  Lifang He},
+  title        = {SQuAI: Scientific Question-Answering with Multi-Agent Retrieval-Augmented
+                  Generation},
+  booktitle    = {Proceedings of the 34th {ACM} International Conference on Information
+                  and Knowledge Management, {CIKM} 2025, Seoul, Republic of Korea, November
+                  10-14, 2025},
+  pages        = {6603--6608},
+  publisher    = {{ACM}},
+  year         = {2025},
+  url          = {https://doi.org/10.1145/3746252.3761471},
+  doi          = {10.1145/3746252.3761471},
+  timestamp    = {Wed, 11 Mar 2026 15:53:27 +0100},
+  biburl       = {https://dblp.org/rec/conf/cikm/BesrourHS025.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

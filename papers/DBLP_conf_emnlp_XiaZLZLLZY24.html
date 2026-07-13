@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RULE: Reliable Multimodal RAG for Factuality in Medical Vision Language Models — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,47 +108,83 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">EMNLP</span>
       <span class="meta-year">2024</span>
-      <a href="https://arxiv.org/abs/2407.05131" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><span class="tag tag-sub">[&#x27;Cross-modal Grounding&#x27;]</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+    <div class="paper-links"><a href="https://arxiv.org/abs/2407.05131" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/richard-peng-xia/RULE" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><span class="tag tag-sub">Cross-modal Grounding</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-rule-architecture">시스템 구조 (RULE Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l2"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>RULE: Reliable Multimodal RAG for Medical VLMs</h1>
 <blockquote>
 <p>EMNLP 2024 | Method | medical</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>RULE은 의료 영상-리포트 검색 기반 멀티모달 RAG로, (1) 검색 컨텍스트 개수를 통계적 위험 제어(Factuality Risk Control)로 보정해 사실성 위험을 사용자 지정 상한 이하로 보장하고, (2) 검색 과의존을 줄이는 선호 튜닝(Knowledge-Balanced Preference Tuning)을 결합해 Med-LVLM의 사실 정확도를 평균 47.4% 개선한다.</p>
-<h2>시스템 구조 (RULE Architecture)</h2>
+<h2 id="시스템-구조-rule-architecture">시스템 구조 (RULE Architecture)</h2>
 <ul>
 <li><strong>멀티모달 retriever:</strong> CLIP 스타일 대조학습(ResNet-50 영상 + BioClinicalBERT 텍스트). 입력 영상으로 코사인 유사도 top-K 리포트 검색. 백본 Med-LVLM은 LLaVA-Med-1.5 7B.</li>
 <li><strong>Calibrated context selection (FRC):</strong> 검색 개수 k를 Learn-then-Test 위험제어로 보정 — 사실성 위험 FR(k)이 상한 α를 넘지 않는 k만 채택(확률 1−δ 보장). 너무 많은 검색이 주는 노이즈를 통계적으로 차단.</li>
 <li><strong>RAG-based preference fine-tuning (KBPT):</strong> 검색 없이는 맞히던 문제를 검색 후 틀리는 &quot;과의존&quot; 샘플을 dispreferred로 두는 DPO식 LoRA 선호 학습.</li>
 </ul>
-<h2>동작 파이프라인 (inference)</h2>
+<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
 <ol>
 <li>입력 영상·질의 → retriever가 코사인 유사도 top-K 리포트 검색.</li>
 <li>FRC로 보정된 k개 컨텍스트 선택.</li>
 <li>(질의+선택 리포트+영상)을 KBPT로 튜닝된 LLaVA-Med에 입력.</li>
 <li>사실성 보정된 VQA 답 또는 리포트 생성.</li>
 </ol>
-<h2>주요 결과</h2>
+<h2 id="주요-결과">주요 결과</h2>
 <p>Medical VQA 정확도(%): IU-Xray 75.47→<strong>87.84</strong>, MIMIC-CXR 75.79→<strong>83.92</strong>, Harvard-FairVLMed 63.03→<strong>87.12</strong>. 사실 정확도 평균 +47.4%, 기존 환각완화 대비 +14.46%, 과의존 error/ratio 각각 −42.9%/−47.3%.</p>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li>사실성에 초점 — 안전성·공정성·강건성·프라이버시는 향후 과제.</li>
 <li>retriever 코퍼스(도메인 영상-리포트 쌍) 커버리지 밖 영상에서는 검색 품질 저하 가능.</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li>arXiv: 2407.05131 · EMNLP 2024 (Xia et al.)</li>
 <li>코드: <a href="https://github.com/richard-peng-xia/RULE">https://github.com/richard-peng-xia/RULE</a></li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/emnlp/XiaZLZLLZY24)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@inproceedings{DBLP:conf/emnlp/XiaZLZLLZY24,
+  author       = {Peng Xia and
+                  Kangyu Zhu and
+                  Haoran Li and
+                  Hongtu Zhu and
+                  Yun Li and
+                  Gang Li and
+                  Linjun Zhang and
+                  Huaxiu Yao},
+  editor       = {Yaser Al{-}Onaizan and
+                  Mohit Bansal and
+                  Yun{-}Nung Chen},
+  title        = {{RULE:} Reliable Multimodal {RAG} for Factuality in Medical Vision
+                  Language Models},
+  booktitle    = {Proceedings of the 2024 Conference on Empirical Methods in Natural
+                  Language Processing, {EMNLP} 2024, Miami, FL, USA, November 12-16,
+                  2024},
+  pages        = {1081--1093},
+  publisher    = {Association for Computational Linguistics},
+  year         = {2024},
+  url          = {https://doi.org/10.18653/v1/2024.emnlp-main.62},
+  doi          = {10.18653/V1/2024.EMNLP-MAIN.62},
+  timestamp    = {Wed, 25 Feb 2026 08:24:59 +0100},
+  biburl       = {https://dblp.org/rec/conf/emnlp/XiaZLZLLZY24.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

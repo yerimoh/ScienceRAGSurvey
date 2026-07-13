@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GeneGPT: augmenting large language models with domain tools for improved access to biomedical information — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,34 +108,38 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">Bioinformatics</span>
       <span class="meta-year">2024</span>
-      <a href="https://arxiv.org/abs/2304.09667" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Structured-entity × Grounding</a><span class="tag tag-sub">[&#x27;Question Answering&#x27;]</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+    <div class="paper-links"><a href="https://arxiv.org/abs/2304.09667" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Structured-entity × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-genegpt-architecture">시스템 구조 (GeneGPT Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l2"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>GeneGPT: LLMs Calling NCBI Web APIs for Genomics QA</h1>
 <blockquote>
 <p>Bioinformatics 2024 | Method | bio · medical</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>GeneGPT는 Codex(code-davinci-002)에게 in-context learning으로 NCBI Web API(E-utils + BLAST) 사용법을 가르치고, 디코딩 중 API 호출을 감지·실행해 그 raw 결과를 생성 텍스트에 다시 끼워넣는(augmented decoding) 방식으로 유전체 QA를 수행한다. GeneTuring 9개 태스크 평균 0.83으로 직전 최고 New Bing(0.44)을 크게 능가한다.</p>
-<h2>시스템 구조 (GeneGPT Architecture)</h2>
+<h2 id="시스템-구조-genegpt-architecture">시스템 구조 (GeneGPT Architecture)</h2>
 <ul>
 <li><strong>NCBI Web APIs:</strong> ① E-utils(<code>esearch</code>/<code>efetch</code>/<code>esummary</code>) — <code>gene</code>/<code>snp</code>/<code>omim</code> DB에서 식별자·요약 조회. ② BLAST URL API(<code>CMD=Put</code>→<code>Get</code>, <code>blastn</code>, <code>nt</code> DB) — 서열 정렬.</li>
 <li><strong>In-context prompt(4부):</strong> instruction + documentation(API 문법) + demonstration(NCBI API로 푸는 예시 4개; URL/결과를 <code>[ ]</code>로 감싸고 <code>-&gt;</code>를 호출 indicator로 사용) + test question. (전부 사용=full, Dm.1+Dm.4만=slim)</li>
 <li><strong>Augmented decoding:</strong> 생성 중 <code>-&gt;</code> 토큰을 만나면 마지막 URL을 추출해 NCBI API를 호출하고 raw 결과를 텍스트에 삽입한 뒤 생성을 재개. <code>\n\n</code>이면 종료하고 &quot;Answer:&quot; 이후를 답으로 추출.</li>
 </ul>
-<h2>동작 파이프라인 (inference)</h2>
+<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
 <ol>
 <li>prompt(instruction+doc+demo+질문) 구성, Codex(temperature 0)로 생성.</li>
 <li><code>-&gt;</code> 감지 → URL 추출 → E-utils/BLAST 호출 → 결과 삽입 → 재개.</li>
 <li>한 질문에 여러 API를 연쇄(esearch→efetch; BLAST Put→Get). multi-hop(GeneHop)은 CoT로 서브질문 분해.</li>
 <li><code>\n\n</code> → 종료 → 답 추출.</li>
 </ol>
-<h2>주요 결과</h2>
+<h2 id="주요-결과">주요 결과</h2>
 <p>GeneTuring(12 태스크 중 NCBI 관련 9개, 각 50문항):</p>
 <table>
 <thead>
@@ -168,19 +172,38 @@
 <li>GeneHop(multi-hop, 신규) 평균: GeneGPT 0.50 vs New Bing 0.24.</li>
 <li>Ablation: API demonstration이 documentation보다 in-context 학습에 유용, cross-task 일반화 강함.</li>
 </ul>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li>자동 exact-match 평가(비교군은 원 벤치마크 수동 평가)라 기준이 동일하지 않음.</li>
 <li>일부 질문은 NCBI DB만으로 답 불가(E4 오류), 인자 오류(E2)·결과 추출 실패(E3) 존재.</li>
 <li>Codex(8k context·코드 이해) 의존, NCBI 서버 접근 필요.</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li>arXiv: 2304.09667 · Bioinformatics 2024 (Jin, Yang, Chen, Lu; NCBI/NLM)</li>
 <li>도구: NCBI E-utils(gene/snp/omim) + BLAST(blastn, nt)</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/bioinformatics/JinYCL24)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{DBLP:journals/bioinformatics/JinYCL24,
+  author       = {Qiao Jin and Yifan Yang and Qingyu Chen and Zhiyong Lu},
+  title        = {GeneGPT: augmenting large language models with domain tools for improved
+                  access to biomedical information},
+  journal      = {Bioinform.},
+  volume       = {40},
+  number       = {2},
+  year         = {2024},
+  url          = {https://doi.org/10.1093/bioinformatics/btae075},
+  doi          = {10.1093/BIOINFORMATICS/BTAE075},
+  biburl       = {https://dblp.org/rec/journals/bioinformatics/JinYCL24.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Rationale-Guided Retrieval Augmented Generation for Medical Question Answering — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,21 +108,25 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">NAACL</span>
       <span class="meta-year">2025</span>
-      
     </div>
-    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">[&#x27;Question Answering&#x27;]</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+    <div class="paper-links"><a href="https://github.com/dmis-lab/RAG2" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#시스템-아키텍처-논문-figure-1">시스템 아키텍처 (논문 Figure 1)</a></li><li class="toc-l2"><a href="#핵심-모듈-상세-설명">핵심 모듈 상세 설명</a></li><li class="toc-l3"><a href="#rationale-guided-filtering-핵심-혁신">Rationale-Guided Filtering (핵심 혁신)</a></li><li class="toc-l3"><a href="#rationale-based-query">Rationale-Based Query</a></li><li class="toc-l3"><a href="#balanced-retrieval">Balanced Retrieval</a></li><li class="toc-l2"><a href="#inputoutput">Input/Output</a></li><li class="toc-l2"><a href="#예시-사례">예시 사례</a></li><li class="toc-l3"><a href="#copd-exacerbation-case-medqa-논문-figure-4-전체-인용">COPD Exacerbation Case (MedQA, 논문 Figure 4 — 전체 인용)</a></li><li class="toc-l2"><a href="#주요-평가-결과">주요 평가 결과</a></li><li class="toc-l2"><a href="#핵심-기여">핵심 기여</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>Rationale-Guided Retrieval Augmented Generation for Medical Question Answering (RAG²)</h1>
 <blockquote>
 <p>NAACL | 2025 | Method | medical</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>LLM이 먼저 chain-of-thought rationale을 생성해 이를 검색 쿼리로 활용하고, <strong>PubMed/PMC/Textbooks/Clinical Guidelines</strong> 4개 코퍼스에서 균등 검색하며, perplexity 변화량으로 자동 라벨링된 데이터로 Flan-T5-large 770M 필터링 모델을 학습해 정보성 스니펫만 LLM에 전달. 단일 단계 검색만 사용하면서도 MedQA·MedMCQA·MMLU-Med에서 Llama-3-8B 평균 <strong>+6.1%</strong>, GPT-4o <strong>+0.9%</strong> 향상.</p>
-<h2>제작 배경</h2>
+<h2 id="제작-배경">제작 배경</h2>
 <p><strong>기존 의료 RAG의 한계</strong></p>
 <ul>
 <li>의료 쿼리에 환자 정보 등 광범위한 맥락을 포함하면 검색기가 혼란, 너무 짧으면 암묵적 의료 지식 의존 필요</li>
@@ -136,7 +140,7 @@
 <li>의료 도메인은 어노테이션 비용이 매우 높으므로 perplexity 차이로 자동 라벨링하는 방법이 매력적</li>
 <li>저자 인용: &quot;These rationale-based queries help identify key... and they refine poorly targeted retrieval results&quot; (§1)</li>
 </ul>
-<h2>시스템 아키텍처 (논문 Figure 1)</h2>
+<h2 id="시스템-아키텍처-논문-figure-1">시스템 아키텍처 (논문 Figure 1)</h2>
 <pre><code>                       [Initial Query x]
                             │
                             ▼
@@ -174,8 +178,8 @@
                        ▼
                 [Final LLM Answer]
 </code></pre>
-<h2>핵심 모듈 상세 설명</h2>
-<h3>Rationale-Guided Filtering (핵심 혁신)</h3>
+<h2 id="핵심-모듈-상세-설명">핵심 모듈 상세 설명</h2>
+<h3 id="rationale-guided-filtering-핵심-혁신">Rationale-Guided Filtering (핵심 혁신)</h3>
 <ul>
 <li>훈련 데이터 생성:<ul>
 <li>x: 질의, d: 검색된 문서, r: rationale</li>
@@ -187,14 +191,14 @@
 <li>Flan-T5-large (770M)를 binary classifier로 SFT</li>
 <li>추론 시 각 snippet에 대해 filter 적용 → Helpful만 유지</li>
 </ul>
-<h3>Rationale-Based Query</h3>
+<h3 id="rationale-based-query">Rationale-Based Query</h3>
 <ul>
 <li>CoT prompt로 base LLM이 rationale 생성 (temperature=0)</li>
 <li>Rationale 자체가 검색 쿼리 (초기 쿼리는 reranker에서만 사용)</li>
 <li>이유: &quot;the initial query and the rationale exceeds the maximum length of MedCPT&quot;</li>
 <li>짧은 쿼리는 자동 확장, 긴 쿼리는 핵심 추론 단계만 추출</li>
 </ul>
-<h3>Balanced Retrieval</h3>
+<h3 id="balanced-retrieval">Balanced Retrieval</h3>
 <table>
 <thead>
 <tr>
@@ -230,7 +234,7 @@
 <li>각 corpus에서 동일 개수 retrieval → MedCPT-편향 완화</li>
 <li>&quot;balanced approach consistently outperforms others, highlighting the...&quot; (Appendix Figure A3 캡션)</li>
 </ul>
-<h2>Input/Output</h2>
+<h2 id="inputoutput">Input/Output</h2>
 <p><strong>Input</strong></p>
 <ul>
 <li>USMLE/AIIMS/MMLU 스타일 multi-choice 의료 질의 (4-5 선택지)</li>
@@ -239,8 +243,8 @@
 <ul>
 <li>정답 선택지 + 추론 과정 (rationale)</li>
 </ul>
-<h2>예시 사례</h2>
-<h3>COPD Exacerbation Case (MedQA, 논문 Figure 4 — 전체 인용)</h3>
+<h2 id="예시-사례">예시 사례</h2>
+<h3 id="copd-exacerbation-case-medqa-논문-figure-4-전체-인용">COPD Exacerbation Case (MedQA, 논문 Figure 4 — 전체 인용)</h3>
 <blockquote>
 <p><strong>Initial Query (full case)</strong>:</p>
 <blockquote>
@@ -264,7 +268,7 @@ Model output: &quot;These findings suggest an exacerbation of COPD with respirat
 </blockquote>
 <p><strong>저자 해석 (논문 §5)</strong>: &quot;the initial error stems from the model's distraction by irrelevant information, but proper filtering lead to the correct diagnosis and management plan.&quot;</p>
 </blockquote>
-<h2>주요 평가 결과</h2>
+<h2 id="주요-평가-결과">주요 평가 결과</h2>
 <p><strong>Table 2 — Accuracy on 3 medical QA benchmarks</strong></p>
 <table>
 <thead>
@@ -391,21 +395,21 @@ Model output: &quot;These findings suggest an exacerbation of COPD with respirat
 <li>일부 baseline RAG는 base보다 성능 저하 → &quot;RAG frameworks do not always guarantee improved performance, especially in the medical domain&quot; (§4.3)</li>
 <li>Filtering 모델 ensemble + GPT-4o on MedQA → 91.6 (단일 패스 원칙 위배라 main table 미포함)</li>
 </ul>
-<h2>핵심 기여</h2>
+<h2 id="핵심-기여">핵심 기여</h2>
 <ol>
 <li><strong>Rationale-as-query</strong>: 환자 정보가 검색에 노이즈가 되는 문제를 rationale로 대체 우회</li>
 <li><strong>Perplexity-based 자동 라벨링</strong>: 의료 어노테이션 희소성 문제 해결</li>
 <li><strong>Balanced retrieval</strong>: PubMed 일변도에서 벗어나 4 소스 동등 활용</li>
 <li><strong>소형 필터링 모델</strong>: 770M Flan-T5만으로 RTX 3090 단일 GPU에서 학습 가능</li>
 </ol>
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li>Closed-book 설정에서만 평가 (오라클 문서 없는 환경)</li>
 <li>MMLU-Med 학습 데이터 부재 → MedMCQA로 transfer 학습 (도메인 mismatch 가능)</li>
 <li>Filter 모델은 base LLM에 의존적 → backbone 변경 시 재훈련 필요 (논문 §6 Limitations)</li>
 <li>Rationale가 잘못된 경우 잘못된 검색 → 다만 저자는 &quot;incorrect rationale make up only a small portion&quot; 주장</li>
 </ul>
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>ACL Anthology</strong>: <a href="https://aclanthology.org/2025.naacl-long.635/">https://aclanthology.org/2025.naacl-long.635/</a></li>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2411.00300">https://arxiv.org/abs/2411.00300</a></li>
@@ -415,7 +419,40 @@ Model output: &quot;These findings suggest an exacerbation of COPD with respirat
 <li><strong>K×O 분류</strong>: K1.O1 (PubMed/PMC/교과서/가이드라인 4소스) — multi-source 균등 검색의 대표 사례</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/naacl/SohnPYPHSKK25)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@inproceedings{DBLP:conf/naacl/SohnPYPHSKK25,
+  author       = {Jiwoong Sohn and
+                  Yein Park and
+                  Chanwoong Yoon and
+                  Sihyeon Park and
+                  Hyeon Hwang and
+                  Mujeen Sung and
+                  Hyunjae Kim and
+                  Jaewoo Kang},
+  editor       = {Luis Chiruzzo and
+                  Alan Ritter and
+                  Lu Wang},
+  title        = {Rationale-Guided Retrieval Augmented Generation for Medical Question
+                  Answering},
+  booktitle    = {Proceedings of the 2025 Conference of the Nations of the Americas
+                  Chapter of the Association for Computational Linguistics: Human Language
+                  Technologies, {NAACL} 2025 - Volume 1: Long Papers, Albuquerque, New
+                  Mexico, USA, April 29 - May 4, 2025},
+  pages        = {12739--12753},
+  publisher    = {Association for Computational Linguistics},
+  year         = {2025},
+  url          = {https://doi.org/10.18653/v1/2025.naacl-long.635},
+  doi          = {10.18653/V1/2025.NAACL-LONG.635},
+  timestamp    = {Thu, 25 Dec 2025 12:48:51 +0100},
+  biburl       = {https://dblp.org/rec/conf/naacl/SohnPYPHSKK25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

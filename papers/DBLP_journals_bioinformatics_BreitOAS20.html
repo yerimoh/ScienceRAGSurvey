@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>OpenBioLink: a benchmarking framework for large-scale biomedical link prediction — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">Bioinformatics</span>
       <span class="meta-year">2020</span>
-      <a href="https://doi.org/10.1093/bioinformatics/btaa274" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Relational × Discovery</a><span class="tag tag-sub">[&#x27;Property Prediction&#x27;]</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a></div>
+    <div class="paper-links"><a href="https://doi.org/10.1093/bioinformatics/btaa274" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/OpenBioLink/OpenBioLink" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Relational × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#실제-데이터-형식-예시-논문-2-figure-1">실제 데이터 형식 예시 (논문 §2 + Figure 1)</a></li><li class="toc-l3"><a href="#유형-a-triple-format-head-relation-tail">유형 A — Triple format (head, relation, tail)</a></li><li class="toc-l3"><a href="#유형-b-quality-filtered-subset">유형 B — Quality-filtered subset</a></li><li class="toc-l3"><a href="#유형-c-leakage-controlled-split-protocol">유형 C — Leakage-controlled split protocol</a></li><li class="toc-l3"><a href="#유형-d-evaluation-metric-protocol">유형 D — Evaluation metric protocol</a></li><li class="toc-l2"><a href="#평가-framework-요약">평가 framework 요약</a></li><li class="toc-l2"><a href="#주요-활용-논문-후속">주요 활용 (논문 + 후속)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>OpenBioLink: 7-node × 30-edge biomedical KG benchmark with leakage-controlled splits</h1>
 <blockquote>
@@ -122,10 +126,10 @@
 Anna Breit, Simon Ott, Asan Agibetov, Matthias Samwald — Medical University of Vienna
 DOI: <a href="https://doi.org/10.1093/bioinformatics/btaa274">10.1093/bioinformatics/btaa274</a> · DBLP: <code>journals/bioinformatics/BreitOAS20</code></p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p><strong>Biomedical knowledge graph (KG) link prediction</strong>을 위한 <strong>표준 benchmark framework</strong>. <strong>7 node types × 30 edge types</strong>, 4-tier quality cutoff (high/medium/low/all), <strong>leakage-controlled train-test split</strong> (symmetric reverse edge / inverse relation / super-relation 제거), <strong>typed negative sampling</strong> 으로 task난이도 조절. PyKEEN 인터페이스로 다양한 embedding 모델 비교 가능. <strong>Hits@K / MRR / ROC-AUC / PR-AUC</strong> 표준 metric 제공.</p>
 <hr />
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — 문제 인식: 기존 link prediction benchmark의 약점
   ┌──────────────────────────────────────────────┐
   │ FB15K (Freebase), WN18 (WordNet), UMLS:      │
@@ -179,8 +183,8 @@ Step 6 — Training + Evaluation module
   · Baseline 결과 제공 (TransE, ComplEx, RotatE 등)
 </code></pre>
 <hr />
-<h2>실제 데이터 형식 예시 (논문 §2 + Figure 1)</h2>
-<h3>유형 A — Triple format (head, relation, tail)</h3>
+<h2 id="실제-데이터-형식-예시-논문-2-figure-1">실제 데이터 형식 예시 (논문 §2 + Figure 1)</h2>
+<h3 id="유형-a-triple-format-head-relation-tail">유형 A — Triple format (head, relation, tail)</h3>
 <blockquote>
 <pre><code>(Drug:Aspirin, drug_treats_disease, Disease:Headache)
 (Gene:TP53, gene_associated_disease, Disease:LiFraumeni)
@@ -189,7 +193,7 @@ Step 6 — Training + Evaluation module
 </code></pre>
 <p><strong>Node types</strong> (7개): Gene, Protein, Drug, Disease, Anatomy, Phenotype, GO term</p>
 </blockquote>
-<h3>유형 B — Quality-filtered subset</h3>
+<h3 id="유형-b-quality-filtered-subset">유형 B — Quality-filtered subset</h3>
 <blockquote>
 <pre><code>High-quality subset:
   · 노이즈 최소화 (high-confidence edge만)
@@ -200,7 +204,7 @@ All subset:
 사용자 task: 'OpenBioLink_HQ' vs 'OpenBioLink_All'
 </code></pre>
 </blockquote>
-<h3>유형 C — Leakage-controlled split protocol</h3>
+<h3 id="유형-c-leakage-controlled-split-protocol">유형 C — Leakage-controlled split protocol</h3>
 <blockquote>
 <pre><code>┌──────────────────────────────────────────────┐
 │ For relation R between A and B:               │
@@ -220,7 +224,7 @@ All subset:
 → &quot;trivially inferred&quot; edges 제거
 </code></pre>
 </blockquote>
-<h3>유형 D — Evaluation metric protocol</h3>
+<h3 id="유형-d-evaluation-metric-protocol">유형 D — Evaluation metric protocol</h3>
 <blockquote>
 <pre><code>For each test triple (h, r, t):
   1. Generate corruptions: (h, r, ?) and (?, r, t)
@@ -236,7 +240,7 @@ Metrics:
 </code></pre>
 </blockquote>
 <hr />
-<h2>평가 framework 요약</h2>
+<h2 id="평가-framework-요약">평가 framework 요약</h2>
 <table>
 <thead>
 <tr>
@@ -280,7 +284,7 @@ Metrics:
 </tbody>
 </table>
 <hr />
-<h2>주요 활용 (논문 + 후속)</h2>
+<h2 id="주요-활용-논문-후속">주요 활용 (논문 + 후속)</h2>
 <table>
 <thead>
 <tr>
@@ -312,7 +316,7 @@ Metrics:
 </tbody>
 </table>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>Static dataset</strong>: 데이터 update 시 leaderboard 재계산 필요</li>
 <li><strong>Source DB 의존</strong>: UniProt/DrugBank 등의 라이센스 / coverage 제약</li>
@@ -323,7 +327,7 @@ Metrics:
 <li><strong>Limited expressiveness</strong>: 단순 (h,r,t) 구조 → 시간/조건 정보 없음</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문 (Bioinformatics)</strong>: <a href="https://doi.org/10.1093/bioinformatics/btaa274">10.1093/bioinformatics/btaa274</a></li>
 <li><strong>DBLP</strong>: <a href="https://dblp.org/rec/journals/bioinformatics/BreitOAS20.html">journals/bioinformatics/BreitOAS20</a></li>
@@ -334,7 +338,27 @@ Metrics:
 <li><strong>관련 benchmark</strong>: FB15K-237, WN18RR (general), UMLS (KGE 표준), OGB-biokg (heterogeneous)</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/bioinformatics/BreitOAS20)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{DBLP:journals/bioinformatics/BreitOAS20,
+  author       = {Anna Breit and Simon Ott and Asan Agibetov and Matthias Samwald},
+  title        = {{OpenBioLink}: a benchmarking framework for large-scale biomedical
+                  link prediction},
+  journal      = {Bioinformatics},
+  volume       = {36},
+  number       = {13},
+  pages        = {4097--4098},
+  year         = {2020},
+  url          = {https://doi.org/10.1093/bioinformatics/btaa274},
+  doi          = {10.1093/BIOINFORMATICS/BTAA274},
+  biburl       = {https://dblp.org/rec/journals/bioinformatics/BreitOAS20.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
   </div>
 </section>
 </main>

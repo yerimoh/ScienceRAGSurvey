@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AdsorbML: 1000 Adsorbate-Surface DFT-Success Benchmark — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">npj Computational Materials</span>
       <span class="meta-year">2023</span>
-      <a href="https://doi.org/10.1038/s41524-023-01121-5" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">[&#x27;Materials Discovery&#x27;]</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a></div>
+    <div class="paper-links"><a href="https://doi.org/10.1038/s41524-023-01121-5" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/Open-Catalyst-Project/ocp" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Materials Discovery</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#실제-데이터-형식-예시-논문-methods-table-i-table-ii">실제 데이터 형식 예시 (논문 §Methods + Table I + Table II)</a></li><li class="toc-l3"><a href="#유형-a-inputoutput-schema">유형 A — Input/Output schema</a></li><li class="toc-l3"><a href="#유형-b-oc20-dense-dataset-구조">유형 B — OC20-Dense dataset 구조</a></li><li class="toc-l3"><a href="#유형-c-algorithm-mlsp-mlrx-top-k">유형 C — Algorithm (ML+SP / ML+RX, top-k)</a></li><li class="toc-l3"><a href="#유형-d-model-비교-table-i-oc20-dense-test">유형 D — Model 비교 (Table I, OC20-Dense Test)</a></li><li class="toc-l2"><a href="#주요-평가-결과">주요 평가 결과</a></li><li class="toc-l2"><a href="#평가-단위">평가 단위</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>AdsorbML: 1,000 Adsorbate-Surface Pairs DFT-Success Benchmark</h1>
 <blockquote>
@@ -122,10 +126,10 @@
 Janice Lan, Aini Palizhati, Muhammed Shuaibi, Brandon M. Wood, Brook Wander, Abhishek Das, Matt Uyttendaele, C. Lawrence Zitnick, Zachary W. Ulissi — Meta AI (FAIR) / CMU
 arXiv: <a href="https://arxiv.org/abs/2211.16486">2211.16486</a> · DOI: <a href="https://doi.org/10.1038/s41524-023-01121-5">10.1038/s41524-023-01121-5</a></p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>ML interatomic potential을 사용해 <strong>adsorbate-surface 결합 에너지 계산</strong>을 가속하는 알고리즘 + benchmark. <strong>Open Catalyst Dense</strong> 데이터셋 (~1,000 surfaces × ~100,000 configurations) 위에서 <strong>87.36% 최저-에너지 configuration 식별률</strong>과 <strong>~2000× DFT 대비 속도 향상</strong> 달성.</p>
 <hr />
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — Task 정의
   ┌────────────────────────────────────────────────┐
   │ Input: adsorbate molecule + catalyst surface   │
@@ -156,8 +160,8 @@ Step 4 — Evaluation metrics
   · Trade-off curve: accuracy × efficiency
 </code></pre>
 <hr />
-<h2>실제 데이터 형식 예시 (논문 §Methods + Table I + Table II)</h2>
-<h3>유형 A — Input/Output schema</h3>
+<h2 id="실제-데이터-형식-예시-논문-methods-table-i-table-ii">실제 데이터 형식 예시 (논문 §Methods + Table I + Table II)</h2>
+<h3 id="유형-a-inputoutput-schema">유형 A — Input/Output schema</h3>
 <blockquote>
 <p><strong>Input</strong>: catalyst surface + adsorbate (반응 중간체, *CHO / *CO / *OH 등)</p>
 <pre><code>Surface:    slab with 3D periodic boundary
@@ -173,7 +177,7 @@ Valid 기준:
 Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
 </code></pre>
 </blockquote>
-<h3>유형 B — OC20-Dense dataset 구조</h3>
+<h3 id="유형-b-oc20-dense-dataset-구조">유형 B — OC20-Dense dataset 구조</h3>
 <table>
 <thead>
 <tr>
@@ -204,7 +208,7 @@ Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
 <blockquote>
 <p>각 split은 ~250 systems × 4 subsplits = <strong>ID, OOD-Adsorbate, OOD-Catalyst, OOD-Both</strong></p>
 </blockquote>
-<h3>유형 C — Algorithm (ML+SP / ML+RX, top-k)</h3>
+<h3 id="유형-c-algorithm-mlsp-mlrx-top-k">유형 C — Algorithm (ML+SP / ML+RX, top-k)</h3>
 <blockquote>
 <pre><code>1. Generate initial configs (heuristic + random sampling)
 2. ML potential relaxation → rank by energy (lowest first)
@@ -215,7 +219,7 @@ Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
 </code></pre>
 <p>Trade-off knob: <strong>k = 1, 2, 3, 4, 5</strong> (k↑ → 정확도↑, speedup↓)</p>
 </blockquote>
-<h3>유형 D — Model 비교 (Table I, OC20-Dense Test)</h3>
+<h3 id="유형-d-model-비교-table-i-oc20-dense-test">유형 D — Model 비교 (Table I, OC20-Dense Test)</h3>
 <table>
 <thead>
 <tr>
@@ -280,7 +284,7 @@ Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
 <p>→ AdsorbML (eSCN-MD-Large, k=3, ML+SP): <strong>89.28% success × ~2000× speedup</strong> (논문 Figure 3 balanced point: 87.36% × 2290×)</p>
 </blockquote>
 <hr />
-<h2>주요 평가 결과</h2>
+<h2 id="주요-평가-결과">주요 평가 결과</h2>
 <table>
 <thead>
 <tr>
@@ -309,7 +313,7 @@ Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
 </table>
 <p>→ Accuracy-efficiency trade-off spectrum 제공.</p>
 <hr />
-<h2>평가 단위</h2>
+<h2 id="평가-단위">평가 단위</h2>
 <table>
 <thead>
 <tr>
@@ -341,7 +345,7 @@ Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
 </tbody>
 </table>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>PBE functional 의존</strong>: 다른 functional과 격차</li>
 <li><strong>OC20-trained models 한정</strong>: 다른 chemistry 적용 시 transfer 한계</li>
@@ -351,7 +355,7 @@ Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
 <li><strong>시간</strong>: 2023년 cutoff, 최신 foundation MLIP 미반영</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문 (npj CompMat)</strong>: <a href="https://doi.org/10.1038/s41524-023-01121-5">10.1038/s41524-023-01121-5</a></li>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2211.16486">2211.16486</a></li>
@@ -361,7 +365,25 @@ Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
 <li><strong>이 benchmark를 사용한 후속 작업</strong>: Open Catalyst 2022/2024 (OC22, OC24), MLIP Arena (NeurIPS 2025 D&amp;B), foundation MLIP 평가</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (lan2023adsorbml)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{lan2023adsorbml,
+  author    = {Lan, Janice and Palizhati, Aini and Shuaibi, Muhammed and Wood, Brandon M.
+               and Wander, Brook and Das, Abhishek and Uyttendaele, Matt and Zitnick, C. Lawrence
+               and Ulissi, Zachary W.},
+  title     = {{AdsorbML}: a leap in efficiency for adsorption energy calculations using
+               generalizable machine learning potentials},
+  journal   = {npj Computational Materials},
+  volume    = {9},
+  pages     = {172},
+  year      = {2023},
+  doi       = {10.1038/s41524-023-01121-5}
+}</code></pre>
   </div>
 </section>
 </main>

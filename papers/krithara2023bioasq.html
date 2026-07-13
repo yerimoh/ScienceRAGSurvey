@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>BioASQ-QA: A manually curated corpus for Biomedical Question Answering — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,22 +108,26 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">Scientific Data</span>
       <span class="meta-year">2023</span>
-      <a href="https://doi.org/10.1038/s41597-023-02068-4" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">[&#x27;Literature Synthesis&#x27;]</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a></div>
+    <div class="paper-links"><a href="https://doi.org/10.1038/s41597-023-02068-4" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#데이터-소스-drug-target-disease-triangle">데이터 소스 (Drug-Target-Disease triangle)</a></li><li class="toc-l2"><a href="#데이터셋-누적-성장-bioasq-challenge-110">데이터셋 누적 성장 (BioASQ Challenge 1~10)</a></li><li class="toc-l2"><a href="#도메인-적합성-판단-예시-논문-section-annotation-process-verbatim">도메인 적합성 판단 예시 (논문 Section &#x27;Annotation process&#x27;, verbatim)</a></li><li class="toc-l2"><a href="#검색-단계-verbatim-예시-tables-1-3-in-paper">검색 단계 verbatim 예시 (Tables 1-3 in paper)</a></li><li class="toc-l3"><a href="#step-3-pubmed-query-q-quotdo-cpg-islands-colocalise-with-transcription-start-sitesquot">Step 3 PubMed Query (Q: &amp;quot;Do CpG islands colocalise with transcription start sites?&amp;quot;)</a></li><li class="toc-l3"><a href="#step-5-text-snippet-예시-table-2">Step 5 Text Snippet 예시 (Table 2)</a></li><li class="toc-l3"><a href="#step-8-ideal-answer-table-3-verbatim">Step 8 Ideal Answer (Table 3, verbatim)</a></li><li class="toc-l2"><a href="#실제-인스턴스-예시-json-format">실제 인스턴스 예시 (JSON format)</a></li><li class="toc-l2"><a href="#평가-메트릭-task-b">평가 메트릭 (Task B)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>BioASQ-QA: A manually curated corpus for Biomedical Question Answering</h1>
 <blockquote>
 <p>Scientific Data 2023 | Benchmark + Challenge Infrastructure | medical · bio</p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p>2012년부터 매년 운영되는 <strong>BioASQ Challenge Task B의 누적 QA 데이터셋</strong>. 21명의 생의학 전문가(EU 중심)가 직접 작성한 <strong>4,721개 질문</strong>(2022년 기준)과 함께 <strong>관련 문서·스니펫·온톨로지 개념·RDF 트리플·exact answer·paragraph 단위 ideal answer</strong>를 8단계 annotation 프로토콜로 제공. IR + QA + multi-document summarization을 동시 평가하는 유일한 의생물학 벤치마크.</p>
 <hr />
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>BioASQ 인프라 = 전문가 team + Annotation tool + Assessment tool + Challenge
 
 Step 0 — Expert team 구성 (2012~)
@@ -171,7 +175,7 @@ Step 8 — Ideal answer (1-paragraph)
   → 누락된 relevant doc/snippet은 gold dataset에 추가 → dataset 품질 점진 개선
 </code></pre>
 <hr />
-<h2>데이터 소스 (Drug-Target-Disease triangle)</h2>
+<h2 id="데이터-소스-drug-target-disease-triangle">데이터 소스 (Drug-Target-Disease triangle)</h2>
 <table>
 <thead>
 <tr>
@@ -219,7 +223,7 @@ Step 8 — Ideal answer (1-paragraph)
 </tbody>
 </table>
 <hr />
-<h2>데이터셋 누적 성장 (BioASQ Challenge 1~10)</h2>
+<h2 id="데이터셋-누적-성장-bioasq-challenge-110">데이터셋 누적 성장 (BioASQ Challenge 1~10)</h2>
 <table>
 <thead>
 <tr>
@@ -314,7 +318,7 @@ Step 8 — Ideal answer (1-paragraph)
 <p>⚠ 추세: 평균 doc/snippet 수 점진 감소 — Sufficient set 정책(BioASQ-4부터)으로 &quot;최소한&quot;의 evidence만 요구.</p>
 </blockquote>
 <hr />
-<h2>도메인 적합성 판단 예시 (논문 Section 'Annotation process', verbatim)</h2>
+<h2 id="도메인-적합성-판단-예시-논문-section-annotation-process-verbatim">도메인 적합성 판단 예시 (논문 Section 'Annotation process', verbatim)</h2>
 <blockquote>
 <p><strong>Q1 (REJECTED):</strong> <em>&quot;Which are the differences between Hidden Markov Models (HMMs) and Artificial Neural Networks (ANNs)?&quot;</em>
 · 일반 ML 비교 — 직접적인 biomedical 적용 명시 없음 → 거부.</p>
@@ -322,8 +326,8 @@ Step 8 — Ideal answer (1-paragraph)
 · &quot;gene prediction&quot;이라는 biomedical 응용을 명시 → 채택.</p>
 </blockquote>
 <p>→ BioASQ는 명확한 biomedical 적용이 있는 질문만 허용하며, controversial하거나 답이 없는 의학 논쟁은 회피.</p>
-<h2>검색 단계 verbatim 예시 (Tables 1-3 in paper)</h2>
-<h3>Step 3 PubMed Query (Q: &quot;Do CpG islands colocalise with transcription start sites?&quot;)</h3>
+<h2 id="검색-단계-verbatim-예시-tables-1-3-in-paper">검색 단계 verbatim 예시 (Tables 1-3 in paper)</h2>
+<h3 id="step-3-pubmed-query-q-quotdo-cpg-islands-colocalise-with-transcription-start-sitesquot">Step 3 PubMed Query (Q: &quot;Do CpG islands colocalise with transcription start sites?&quot;)</h3>
 <blockquote>
 <p>관련 용어 추출: &quot;CpG Island&quot;, &quot;transcription start site&quot;, + synonym &quot;Transcription Initiation Site&quot;
 PubMed Advanced Query: <code>&quot;CpG Island&quot; AND &quot;transcription start site&quot;</code></p>
@@ -331,15 +335,15 @@ PubMed Advanced Query: <code>&quot;CpG Island&quot; AND &quot;transcription star
 · <em>&quot;Putative Zinc Finger Protein Binding Sites Are Over-Represented in the Boundaries of Methylation-Resistant CpG Islands in the Human Genome&quot;</em>
 · <em>&quot;CpG Islands: Starting Blocks for Replication and Transcription&quot;</em></p>
 </blockquote>
-<h3>Step 5 Text Snippet 예시 (Table 2)</h3>
+<h3 id="step-5-text-snippet-예시-table-2">Step 5 Text Snippet 예시 (Table 2)</h3>
 <blockquote>
 <p><em>&quot;A common explanation for the G+C rise that is seen here in the mammalian profile in the proximity of the TSS is the presence of CpG islands, ...&quot;</em></p>
 </blockquote>
-<h3>Step 8 Ideal Answer (Table 3, verbatim)</h3>
+<h3 id="step-8-ideal-answer-table-3-verbatim">Step 8 Ideal Answer (Table 3, verbatim)</h3>
 <blockquote>
 <p><em>&quot;Yes. It is generally known that the presence of a CpG island around the TSS is related to the expression pattern of the gene. ...&quot;</em></p>
 </blockquote>
-<h2>실제 인스턴스 예시 (JSON format)</h2>
+<h2 id="실제-인스턴스-예시-json-format">실제 인스턴스 예시 (JSON format)</h2>
 <pre><code class="language-json">{
   &quot;id&quot;: &quot;52bf1b0a03868f1b06000009&quot;,
   &quot;body&quot;: &quot;Do CpG islands colocalise with transcription start sites?&quot;,
@@ -363,7 +367,7 @@ PubMed Advanced Query: <code>&quot;CpG Island&quot; AND &quot;transcription star
 }
 </code></pre>
 <hr />
-<h2>평가 메트릭 (Task B)</h2>
+<h2 id="평가-메트릭-task-b">평가 메트릭 (Task B)</h2>
 <table>
 <thead>
 <tr>
@@ -416,7 +420,7 @@ PubMed Advanced Query: <code>&quot;CpG Island&quot; AND &quot;transcription star
 </tbody>
 </table>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>English only</strong> — 다국어 의생물학 QA 불가.</li>
 <li><strong>연 1회 업데이트</strong> — PubMed에 분당 2편 등록되는 환경에 비해 최신 문헌 반영 지연.</li>
@@ -426,7 +430,7 @@ PubMed Advanced Query: <code>&quot;CpG Island&quot; AND &quot;transcription star
 <li><strong>Controversial 질문 회피 정책</strong>: 명확한 답이 없는 의학 논쟁은 의도적으로 제외 → real-world 임상 의사결정 시나리오 일부 누락.</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>논문</strong>: <a href="https://doi.org/10.1038/s41597-023-02068-4">Scientific Data 10:170 (2023)</a></li>
 <li><strong>공식 사이트</strong>: <a href="http://bioasq.org">bioasq.org</a></li>
@@ -439,7 +443,23 @@ PubMed Advanced Query: <code>&quot;CpG Island&quot; AND &quot;transcription star
 </li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (krithara2023bioasq)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{krithara2023bioasq,
+  title={BioASQ-QA: A manually curated corpus for Biomedical Question Answering},
+  author={Krithara, Anastasia and Nentidis, Anastasios and Bougiatiotis, Konstantinos and Paliouras, Georgios},
+  journal={Scientific data},
+  volume={10},
+  number={1},
+  pages={170},
+  year={2023},
+  publisher={Nature Publishing Group UK London}
+}</code></pre>
   </div>
 </section>
 </main>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MLIP Arena: Physics-aware MLIP Benchmark Platform — Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783916062">
+<link rel="stylesheet" href="../static/style.css?v=1783921725">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -108,13 +108,17 @@
     <div class="paper-hero-meta">
       <span class="meta-venue">NeurIPS D&amp;B 2025</span>
       <span class="meta-year">2025</span>
-      <a href="https://arxiv.org/abs/2509.20630" target="_blank" rel="noopener" class="ext-link">Paper ↗</a>
     </div>
-    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">[&#x27;Materials Discovery&#x27;]</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a></div>
+    <div class="paper-links"><a href="https://arxiv.org/abs/2509.20630" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a><a href="https://github.com/atomind-ai/mlip-arena" target="_blank" rel="noopener" class="res-link res-code">⌥ GitHub ↗</a></div>
+    <div class="paper-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Materials Discovery</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
   </div>
 </section>
 <section class="paper-body">
-  <div class="wrap">
+  <div class="wrap paper-layout">
+    <nav class="paper-toc" aria-label="On this page">
+      <div class="toc-cap">On this page</div>
+      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#실제-데이터-형식-예시-논문-2-figure-1-table-1">실제 데이터 형식 예시 (논문 §2 + Figure 1 + Table 1)</a></li><li class="toc-l3"><a href="#유형-a-asymptotic-behaviors-eos-diatomic-pec">유형 A — Asymptotic Behaviors (EOS + diatomic PEC)</a></li><li class="toc-l3"><a href="#유형-b-stability-amp-reactivity-md-on-rm24">유형 B — Stability &amp;amp; Reactivity (MD on RM24)</a></li><li class="toc-l3"><a href="#유형-c-eos-benchmark-results-table-1">유형 C — EOS Benchmark Results (Table 1)</a></li><li class="toc-l3"><a href="#유형-d-4-category-benchmark-structure">유형 D — 4-category benchmark structure</a></li><li class="toc-l2"><a href="#평가-framework">평가 framework</a></li><li class="toc-l2"><a href="#주요-발견-논문-본문">주요 발견 (논문 본문)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+    </nav>
     <article class="paper-markdown">
       <h1>MLIP Arena: Physics-aware MLIP Benchmark beyond DFT-error Metrics</h1>
 <blockquote>
@@ -122,10 +126,10 @@
 Yuan Chiang, Tobias Kreiman, Christine Zhang, Matthew C. Kuner, Elizabeth Weaver, Ishan Amin, Hyunsoo Park, Yunsung Lim, Jihan Kim, Daryl Chrzan, Aron Walsh, Samuel M. Blau, Mark Asta, Aditi S. Krishnapriyan — UC Berkeley / LBNL / Imperial / KAIST
 DBLP: <code>journals/corr/abs-2509-20630</code> · arXiv: <a href="https://arxiv.org/abs/2509.20630">2509.20630</a></p>
 </blockquote>
-<h2>한 줄 요약</h2>
+<h2 id="한-줄-요약">한 줄 요약</h2>
 <p><strong>Foundation MLIP (machine learning interatomic potential)</strong> 을 <strong>DFT-error metric 기반이 아닌 physics-aware 기반</strong>으로 평가하는 open benchmark platform. <strong>dynamical stability, gas adsorption, phase transition, vacancy migration</strong> 등 downstream 물리 task 중심. Matbench Discovery의 약점 (error metric vulnerable to data leakage) 보완.</p>
 <hr />
-<h2>어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
 <pre><code>Step 1 — 문제 인식: 기존 MLIP benchmark의 약점
   ┌──────────────────────────────────────────────┐
   │ 1. Data leakage (Matbench Discovery 등)       │
@@ -173,8 +177,8 @@ Step 4 — Evaluation philosophy
   · Multi-DFT reference (PBE/SCAN/HSE 등 비교)
 </code></pre>
 <hr />
-<h2>실제 데이터 형식 예시 (논문 §2 + Figure 1 + Table 1)</h2>
-<h3>유형 A — Asymptotic Behaviors (EOS + diatomic PEC)</h3>
+<h2 id="실제-데이터-형식-예시-논문-2-figure-1-table-1">실제 데이터 형식 예시 (논문 §2 + Figure 1 + Table 1)</h2>
+<h3 id="유형-a-asymptotic-behaviors-eos-diatomic-pec">유형 A — Asymptotic Behaviors (EOS + diatomic PEC)</h3>
 <blockquote>
 <p><strong>EOS benchmark</strong>: 1,000 WBM crystal structures, V/V₀ scan</p>
 <pre><code>Input:     periodic crystal at varied volumes
@@ -192,7 +196,7 @@ Metrics (DFT-agnostic):
 <li>Top Matbench Discovery 모델이 종종 실패 → &quot;apparent benchmark success may result from plausible many-body error cancellation&quot;</li>
 </ul>
 </blockquote>
-<h3>유형 B — Stability &amp; Reactivity (MD on RM24)</h3>
+<h3 id="유형-b-stability-amp-reactivity-md-on-rm24">유형 B — Stability &amp; Reactivity (MD on RM24)</h3>
 <blockquote>
 <p><strong>NVT MD</strong>: 120 random amorphous mixture structures (RM24)</p>
 <pre><code>Thermostat: Nosé-Hoover NVT
@@ -213,7 +217,7 @@ H + O system: 300 K → 3000 K → 300 K
 Monitor: # H₂O formed, ΔH, bond breaking/formation
 </code></pre>
 </blockquote>
-<h3>유형 C — EOS Benchmark Results (Table 1)</h3>
+<h3 id="유형-c-eos-benchmark-results-table-1">유형 C — EOS Benchmark Results (Table 1)</h3>
 <blockquote>
 <p>1,000 WBM structures, lower=better (deviation from ideal physics)</p>
 </blockquote>
@@ -298,7 +302,7 @@ Monitor: # H₂O formed, ΔH, bond breaking/formation
 <blockquote>
 <p>→ <strong>Matbench Discovery 상위 모델</strong> ≠ EOS 상위 모델 (force smoothness ≠ energy regression)</p>
 </blockquote>
-<h3>유형 D — 4-category benchmark structure</h3>
+<h3 id="유형-d-4-category-benchmark-structure">유형 D — 4-category benchmark structure</h3>
 <blockquote>
 <pre><code>┌─────────────────────────────────────────────────┐
 │ A. Asymptotic Behaviors                          │
@@ -326,7 +330,7 @@ Monitor: # H₂O formed, ΔH, bond breaking/formation
 Workflow: Prefect orchestration · Parquet/JSON/ASE DB storage · GitHub submission</p>
 </blockquote>
 <hr />
-<h2>평가 framework</h2>
+<h2 id="평가-framework">평가 framework</h2>
 <table>
 <thead>
 <tr>
@@ -359,7 +363,7 @@ Workflow: Prefect orchestration · Parquet/JSON/ASE DB storage · GitHub submiss
 </table>
 <p>→ DFT energy MAE/MAEF 같은 단순 error metric은 <strong>secondary</strong>.</p>
 <hr />
-<h2>주요 발견 (논문 본문)</h2>
+<h2 id="주요-발견-논문-본문">주요 발견 (논문 본문)</h2>
 <table>
 <thead>
 <tr>
@@ -388,7 +392,7 @@ Workflow: Prefect orchestration · Parquet/JSON/ASE DB storage · GitHub submiss
 </table>
 <p>→ <strong>결론</strong>: MLIP foundation model 평가는 <strong>physics-aware task</strong> 기반이어야 함.</p>
 <hr />
-<h2>한계점</h2>
+<h2 id="한계점">한계점</h2>
 <ul>
 <li><strong>2025년 NeurIPS D&amp;B submission</strong>: 최종 leaderboard 진행 중</li>
 <li><strong>Foundation MLIP만 대상</strong>: classical FF, specific-task MLIP 미커버</li>
@@ -398,7 +402,7 @@ Workflow: Prefect orchestration · Parquet/JSON/ASE DB storage · GitHub submiss
 <li><strong>CPU/GPU 다양성</strong>: 다양한 hardware에서 정확도 일관성 검증 필요</li>
 </ul>
 <hr />
-<h2>관련 정보</h2>
+<h2 id="관련-정보">관련 정보</h2>
 <ul>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2509.20630">2509.20630</a></li>
 <li><strong>DBLP</strong>: <a href="https://dblp.org/rec/journals/corr/abs-2509-20630.html">journals/corr/abs-2509-20630</a></li>
@@ -410,7 +414,27 @@ Workflow: Prefect orchestration · Parquet/JSON/ASE DB storage · GitHub submiss
 <li><strong>관련 benchmarks</strong>: Matbench Discovery (Riebesell 2025 NMI, beats), JARVIS-Leaderboard (Choudhary 2024 npj CompMat), AdsorbML (Lan 2023 npj CompMat)</li>
 </ul>
 
+      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/corr/abs-2509-20630)</a></p>
     </article>
+  </div>
+</section>
+<section class="paper-cite" id="cite">
+  <div class="wrap">
+    <h2>Cite</h2>
+    <pre class="bibtex"><code>@article{DBLP:journals/corr/abs-2509-20630,
+  author    = {Yuan Chiang and Tobias Kreiman and Christine Zhang and Matthew C. Kuner
+               and Elizabeth Weaver and Ishan Amin and Hyunsoo Park and Yunsung Lim
+               and Jihan Kim and Daryl Chrzan and Aron Walsh and Samuel M. Blau
+               and Mark Asta and Aditi S. Krishnapriyan},
+  title     = {MLIP Arena: Advancing Fairness and Transparency in Machine Learning
+               Interatomic Potentials via an Open, Accessible Benchmark Platform},
+  journal   = {CoRR},
+  volume    = {abs/2509.20630},
+  year      = {2025},
+  url       = {https://doi.org/10.48550/arXiv.2509.20630},
+  eprint    = {2509.20630},
+  eprinttype = {arXiv}
+}</code></pre>
   </div>
 </section>
 </main>

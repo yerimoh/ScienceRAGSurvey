@@ -1593,3 +1593,49 @@ sup.footnote-ref a:focus {
 /* Demoted 12-cell grid (secondary browse aid) */
 .ko-grid-secondary { background: var(--bg-accent); }
 .ko-grid-secondary .section-title { font-size: 1.15rem; }
+
+/* ============================================================
+   Paper detail page: resource links, table of contents, citation
+   ============================================================ */
+.paper-links { display: flex; flex-wrap: wrap; gap: .55rem; margin: .9rem 0 .2rem; }
+.res-link {
+  display: inline-flex; align-items: center; gap: .35rem;
+  padding: .4rem .8rem; border-radius: 999px; font-size: .85rem; font-weight: 600;
+  text-decoration: none; border: 1px solid var(--line-strong); background: var(--bg);
+  color: var(--fg); transition: border-color .12s ease, background .12s ease;
+}
+.res-link:hover { border-color: var(--o-400); background: var(--o-50); }
+.res-paper { border-color: var(--o-200); }
+.res-code  { border-color: var(--line-strong); }
+.res-model { border-color: #f0c000; }
+
+.paper-layout { display: grid; grid-template-columns: 232px minmax(0,1fr); gap: 2.4rem; align-items: start; }
+.paper-toc {
+  position: sticky; top: 1.2rem; align-self: start; font-size: .84rem;
+  border-left: 2px solid var(--line); padding-left: .9rem; max-height: calc(100vh - 2rem); overflow-y: auto;
+}
+.paper-toc .toc-cap { font-size: .7rem; text-transform: uppercase; letter-spacing: .05em; color: var(--fg-faint); font-weight: 700; margin-bottom: .5rem; }
+.paper-toc ul { list-style: none; margin: 0; padding: 0; }
+.paper-toc li { margin: .12rem 0; }
+.paper-toc a { color: var(--fg-muted); text-decoration: none; display: block; padding: .12rem 0; line-height: 1.35; }
+.paper-toc a:hover { color: var(--link); }
+.paper-toc .toc-l3 { padding-left: .8rem; font-size: .8rem; }
+.paper-markdown { scroll-margin-top: 1rem; min-width: 0; }
+.paper-markdown h2, .paper-markdown h3 { scroll-margin-top: 1rem; }
+
+.paper-cite { border-top: 1px solid var(--line); background: var(--bg-accent); padding: 2rem 0 2.6rem; }
+.paper-cite h2 { margin: 0 0 .8rem; font-size: 1.2rem; }
+.bibtex {
+  background: var(--bg); border: 1px solid var(--line-strong); border-radius: 10px;
+  padding: 1rem 1.1rem; overflow-x: auto; font-size: .82rem; line-height: 1.5;
+  white-space: pre; margin: 0;
+}
+.paper-cite-jump { margin-top: 2rem; font-size: .85rem; }
+.paper-cite-jump a { color: var(--fg-muted); text-decoration: none; }
+.paper-cite-jump a:hover { color: var(--link); }
+
+@media (max-width: 860px) {
+  .paper-layout { grid-template-columns: 1fr; gap: 1rem; }
+  .paper-toc { position: static; max-height: none; border-left: none; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: .8rem 0; }
+  .paper-toc ul { columns: 2; }
+}
