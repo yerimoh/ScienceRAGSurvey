@@ -9,7 +9,7 @@ Each entry carries tags `[K.O cell(s), domain(s), type]`. Cross-source papers ap
 
 _Prose record of science — papers, abstracts, clinical notes, guidelines. Matched by embedding or lexical search over passages._
 
-### K1.O1  ·  Textual × Grounding  (19)
+### K1.O1  ·  Textual × Grounding  (18)
 _Answer a question whose gold already lies in the corpus — retrieve, cite, answer. (Question Answering.)_
 
 - **MITRA: Knowledge Retrieval over Physics Collaborations' Tacit Memory** — MITRA · arXiv · 2026 — RAG over CMS internal documents; DPR + cross-encoder reranker + 4-bit Mistral-7B; P@1 ~5.8x over BM25 on paraphrased queries (Set 2: 0.75 vs 0.13)  `[K1.O1, Physics, Methods]`
@@ -22,7 +22,6 @@ _Answer a question whose gold already lies in the corpus — retrieve, cite, ans
 - **[BioRAG: A RAG-LLM Framework for Biological Question Reasoning](https://arxiv.org/abs/2408.01107)** — BIORAG · arXiv 2024 · 2024 — 22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, Coll…  `[K1.O1, Biology, Medicine, Methods]`
 - **[MaScQA: Investigating Materials Science Knowledge of Large Language Models](https://pubs.rsc.org/en/content/articlelanding/2024/dd/d3dd00188a)** — MaScQA · Digital Discovery (RSC) · 2024 — Used to evaluate HoneyComb; 650 GATE-exam items. GPT-4 ~62%  `[K1.O1, Materials Science, Benchmarks]`
 - **[Improving medical reasoning through retrieval and self-reflection with retrieval-augmented large language models](https://doi.org/10.1093/bioinformatics/btae238)** — Self-BioRAG · Bioinformatics (ISMB) · 2024 — A self-reflective medical RAG that decides on its own whether to retrieve and rates evidence with self-reflection tokens. It retrieves PubMed abstracts, PMC full text, textbooks…  `[K1.O1, Medicine, Biology, Methods]`
-- **[BioASQ-QA: A manually curated corpus for Biomedical Question Answering](https://doi.org/10.1038/s41597-023-02068-4)** — BioASQ-QA · Scientific Data · 2023 — 4,721 expert-annotated biomedical QA pairs; running since 2012; combines exact answer + ideal summary; used for evaluation in cross-modal grounding section  `[K1.O1, Medicine, Biology, Benchmarks]`
 - **[PaperQA: Retrieval-Augmented Generative Agent for Scientific Research](https://arxiv.org/abs/2312.07559v2)** — PaperQA · arXiv · 2023 — Map-reduce answers with cited evidence and 0% citation hallucination; introduces the LitQA benchmark  `[K1.O1, Biology, Medicine, Methods]`
 - **[BioReader: a Retrieval-Enhanced Text-to-Text Transformer for Biomedical Literature](https://doi.org/10.18653/v1/2022.emnlp-main.390)** — BioReader · EMNLP · 2022 — The first retrieval-enhanced biomedical T5. It fetches relevant chunks from a ~60M-token PubMed-centric neural database and injects them via chunked cross-attention, surpassing …  `[K1.O1, Biology, Medicine, Methods]`
 - **[PubMedQA: A Dataset for Biomedical Research Question Answering](https://aclanthology.org/D19-1259/)** — PubMedQA · EMNLP-IJCNLP · 2019 — 1k expert-annotated + 61.2k unlabeled + 211.3k artificially generated QA; Yes/No/Maybe from PubMed abstracts; first QA dataset requiring quantitative reasoning over biomedical t…  `[K1.O1, Medicine, Biology, Benchmarks]`
@@ -32,7 +31,7 @@ _Answer a question whose gold already lies in the corpus — retrieve, cite, ans
 - **mehta2023copilots** — RAG over DIII-D and Alcator C-Mod tokamak text logs; grounded operator QA with references rather than action generation. Not indexed by DBLP  `[K1.O1, Methods]`
 - **rehm2025accgpt** — On-premise RAG chatbot over CERN internal documentation; e5-large-v2 embeddings. Not indexed by DBLP  `[K1.O1, Methods]`
 
-### K1.O2  ·  Textual × Synthesis  (13)
+### K1.O2  ·  Textual × Synthesis  (14)
 _Integrate evidence no single source states — verify claims and synthesize the literature. (Claim Verification, Literature Synthesis.)_
 
 - **[Synthesizing Scientific Literature with Retrieval-Augmented Language Models](https://doi.org/10.1038/s41586-025-10072-4)** — ScholarQABench · Nature · 2026 — OpenScholar's multidisciplinary long-form synthesis benchmark  `[K1.O2, Biology, Medicine, Physics, Benchmarks]`
@@ -46,6 +45,7 @@ _Integrate evidence no single source states — verify claims and synthesize the
 - **[pathfinder: A Semantic Framework for Literature Review and Knowledge Discovery in Astronomy](https://doi.org/10.3847/1538-4365/ad7c43)** — Pathfinder · ApJS · 2024 — A semantic-search + RAG + ReAct framework over the astronomy literature (~350K ADS/arXiv papers). It gathers relevant papers by meaning and generates long-form cited answers, ov…  `[K1.O2, Astronomy, Methods]`
 - **[AutoSurvey: Large Language Models Can Automatically Write Surveys](https://arxiv.org/abs/2406.10252)** — AutoSurvey · NeurIPS · 2024 — Automatically writes a full academic survey by retrieving topic papers, drafting an outline, generating sections in parallel, and integrating and refining with citation awarenes…  `[K1.O2, General Science, Methods]`
 - **[LitLLM: A Toolkit for Scientific Literature Review](https://arxiv.org/abs/2402.01788)** — LitLLM · arXiv · 2024 — A modular RAG toolkit that searches from the user's abstract as a query (Semantic Scholar/OpenAlex), reranks by LLM permutation, and generates a plan-based related-work section …  `[K1.O2, General Science, Methods]`
+- **[BioASQ-QA: A manually curated corpus for Biomedical Question Answering](https://doi.org/10.1038/s41597-023-02068-4)** — BioASQ-QA · Scientific Data · 2023 — 4,721 expert-annotated biomedical QA pairs; running since 2012; combines exact answer + ideal summary; used for evaluation in cross-modal grounding section  `[K1.O2, Medicine, Biology, Benchmarks]`
 - **[SCIFACT-OPEN: Towards open-domain scientific claim verification](https://arxiv.org/abs/2210.13777)** — SCIFACT-OPEN · EMNLP (Findings) · 2022 — Open-domain over 500K documents; SOTA F1 drops 15-30, exposing a generalization limit  `[K1.O2, Medicine, Biology, Benchmarks]`
 - **[Fact or Fiction: Verifying Scientific Claims](https://aclanthology.org/2020.emnlp-main.609/)** — VERISCI · EMNLP · 2020 — First formalization of scientific claim verification; SCIFACT with 1.4K citances. A 3-stage TF-IDF + RoBERTa pipeline  `[K1.O2, Biology, Medicine, Methods]`
 
@@ -270,7 +270,7 @@ _Propose an output the corpus does not contain, judged by an external verifier. 
 - **[Comprehensive Analysis of Kinase Inhibitor Selectivity (Davis Kd Matrix)](https://doi.org/10.1038/nbt.1990)** — Davis Kd Matrix · Nature Biotechnology · 2011 — Davis Kd Matrix — Database-verified Prediction benchmark  `[K3.O3, Chemistry, Biology, Medicine, Benchmarks]`
 - **DBLP:journals/corr/abs-2603-15712** — GPT-4 + RAG over 50,000 materials (Materials Project, NOMAD, OC20); 250+ HEA CO2 reduction catalysts; 82% thermodynamic stability; best alloy Fe0.2Co0.2Ni0.2Ir0.1Ru0.3 at 0.285V…  `[K3.O3, Methods]`
 
-### K3  ·  Structured-entity — no objective rung yet  (46)
+### K3  ·  Structured-entity — no objective rung yet  (47)
 
 - **CLADD: RAG-Enhanced Collaborative LLM Agents for Drug Discovery** — CLADD · AAAI · 2026 — ★ K2.O3 EXEMPLAR. Multi-agent (Planning/KG/MU/Prediction). Anchor drug technique extends KG to novel molecules. CLADD beats fine-tuned baselines without any fine-tuning  `[K3, Biology, Medicine, Chemistry, Methods]`
 - **OER-DFT (HEA) — LLM-Driven Discovery of High-Entropy Catalysts via RAG** — OER-DFT (HEA) · arXiv · 2026 — ★ K2.O3 + Materials. LLM+RAG generates catalysts; VASP PBE+U DFT verifies. Top: Fe0.2Co0.2Ni0.2Ir0.1Ru0.3 ηOER=0.285V (25% improvement over IrO2)  `[K3, Materials Science, Chemistry, Benchmarks]`
@@ -282,6 +282,7 @@ _Propose an output the corpus does not contain, judged by an external verifier. 
 - **[MARSHA: multi-agent RAG system for hazard adaptation](https://doi.org/10.1038/s44168-025-00254-1)** — WildfireGPT · npj Climate Action · 2025 — Wildfire-specialized multi-agent RAG; outperforms ChatClimate and Perplexity  `[K3, Earth Science, Methods]`
 - **[Neural Graph Matching Improves Retrieval Augmented Generation in Molecular Machine Learning](https://proceedings.mlr.press/v267/wang25dg.html)** — MARASON · ICML · 2025 — Molecular RAG: naive RAG hurts performance, so neural graph matching is key. 19% -> 28% (+45% relative)  `[K3, Chemistry, Methods]`
 - **[Spatial-RAG: Spatial Retrieval Augmented Generation for Real-World Geospatial Reasoning Questions](https://arxiv.org/abs/2502.18470)** — TourismQA · arXiv · 2025 — Geospatial reasoning for urban tourism from TripAdvisor data (NYC + Miami)  `[K3, Earth Science, Benchmarks]`
+- **[AlphaFold Protein Structure Database in 2024: providing structure coverage for over 214 million protein sequences](https://doi.org/10.1093/nar/gkad1011)** — Nucleic Acids Res. · 2024 — >214 million predicted structures; ~500x expansion from initial 2021 release; integrated with PDB, UniProt, Ensembl, InterPro, MobiDB  `[K3, Biology, Methods]`
 - **[ChemTEB: Chemical Text Embedding Benchmark, an Overview of Embedding Models Performance & Efficiency on a Specific Domain](https://arxiv.org/abs/2412.00532)** — ChemTEB · arXiv · 2024 — First comprehensive text-embedding benchmark specialized for chemistry text and SMILES. 35 sub-datasets, 5 tasks. OpenAI text-embedding-3-large ranks 1st, Nomic Embedding v1.5 2nd  `[K3, Chemistry, Benchmarks]`
 - **[DrugBank 6.0: the DrugBank knowledgebase for 2024](https://doi.org/10.1093/nar/gkad976)** — Nucleic Acids Res. · 2024 — Chemistry and drug discovery  `[K3, Chemistry, Medicine, Methods]`
 - **HoneyComb: Materials Science Agent** — HoneyComb · EMNLP (Findings) · 2024 — ★ Cross-source: K2 (MP DB)+K1 (papers)+tool use. ReAct agent  `[K3, Materials Science, Methods]`
@@ -351,7 +352,7 @@ _Propose an output the corpus does not contain, judged by an external verifier. 
 - **[Interaction-based Retrieval-augmented Diffusion Models for Protein-specific 3D Molecule Generation](https://proceedings.mlr.press/v235/huang24ab.html)** — IRDiff · ICML · 2024 — Full-text verified 2026-05-31: retrieves high-affinity ligand references via a protein-molecule interaction network to steer a target-aware diffusion model; SOTA binding affinit…  `[K4.O3, Chemistry, Biology, Methods]`
 - **[MassSpecGym: A benchmark for the discovery and identification of molecules](https://proceedings.neurips.cc/paper_files/paper/2024/hash/c6c31413d5c53b7d1c343c1498734b0f-Abstract-Datasets_and_Benchmarks_Track.html)** — MassSpecGym · NeurIPS · 2024 — main.tex: K=-; O=O3  `[K4.O3, Chemistry, Benchmarks]`
 
-### K4  ·  Perceptual — no objective rung yet  (58)
+### K4  ·  Perceptual — no objective rung yet  (57)
 
 - **[Grounded Multimodal Retrieval-Augmented Drafting of Radiology Impressions Using Case-Based Similarity](https://arxiv.org/abs/2603.17765)** — Grounded Multimodal RAG · arXiv · 2026 — Image+text late fusion (a=0.5). Recall@5 0.975  `[K4, Medicine, Methods]`
 - **[IRPAPERS: A VISUAL DOCUMENT BENCHMARK FOR SCIENTIFIC RETRIEVAL AND QUESTION ANSWERING](https://arxiv.org/abs/2602.17687)** — IRPAPERS · arXiv · 2026 — Visual-document RAG benchmark over 166 IR papers. Hybrid search Recall@20 95%  `[K4, Benchmarks]`
@@ -369,7 +370,6 @@ _Propose an output the corpus does not contain, judged by an external verifier. 
 - **[MedXpertQA: Benchmarking Expert-Level Medical Reasoning and Understanding](https://arxiv.org/abs/2501.18362)** — MedXpertQA · ICML · 2025 — Expert-level multi-step medical reasoning MCQ benchmark; evaluated on a 90-item subset in Patho-AgenticRAG, where RAG adds +38pp accuracy  `[K4, Medicine, Benchmarks]`
 - **[Q-FSRU: Quantum-Augmented Frequency-Spectral Fusion for Medical Visual Question Answering](https://arxiv.org/abs/2508.12036)** — Q-FSRU · arXiv · 2025 — FFT frequency domain + quantum fidelity; 91.6% on VQA-RAD. The quantum-inspired mechanism is a classical approximation  `[K4, Medicine, Methods]`
 - **[RAG for Geoscience: What We Expect, Gaps and Opportunities](https://arxiv.org/abs/2508.11246)** — Geo-RAG · arXiv · 2025 — A position paper on the limits of existing RAG for the geosciences, proposing a Geo-RAG paradigm  `[K4, Earth Science, Surveys]`
-- **[AlphaFold Protein Structure Database in 2024: providing structure coverage for over 214 million protein sequences](https://doi.org/10.1093/nar/gkad1011)** — Nucleic Acids Res. · 2024 — >214 million predicted structures; ~500x expansion from initial 2021 release; integrated with PDB, UniProt, Ensembl, InterPro, MobiDB  `[K4, Biology, Methods]`
 - **[BRSET: A Brazilian Multilabel Ophthalmological Dataset of Retina Fundus Photos](https://physionet.org/content/brazilian-ophthalmological/1.0.0/)** — BRSET · PLOS Digital Health · 2024 — 14 retinal pathologies from Brazil. CLARE F1 0.37  `[K4, Medicine, Benchmarks]`
 - **[Climate Policy Radar: A database of climate change laws and policies](https://www.climatepolicyradar.org/)** — Climate Policy Radar · 2024 — 200+ country climate laws, NDCs, LTS documents; text corpus complementing scientific archives  `[K4, Earth Science, Methods]`
 - **[FairCLIP: Harnessing Fairness in Vision-Language Learning](https://arxiv.org/abs/2403.19949)** — Harvard-FairVLMed · CVPR · 2024 — Evaluates demographic bias in medical VLMs; the first fairness-measurement dataset  `[K4, Medicine, Benchmarks]`

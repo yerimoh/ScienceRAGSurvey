@@ -404,9 +404,16 @@ PAPER_BENCH = {
     'DBLP:conf/nips/HuFZDRLCL20': ('K2', 'Property Prediction'),
     'DBLP:conf/nips/BushuievBJYKSHW24': ('K4', 'Property Prediction'),
     'DBLP:journals/jcisd/FrancoeurMSJISK20': ('K3', 'Molecular Design'),
+    'gao2022sample': ('K3', 'Molecular Design'),
     'lan2023adsorbml': ('K3', 'Materials Discovery'),
     'DBLP:journals/corr/abs-2509-20630': ('K3', 'Materials Discovery'),
     'DBLP:journals/corr/abs-2410-05080': ('K3', 'Materials Discovery'),
+    'riebesell2025framework': ('K3', 'Materials Discovery'),
+    # rows whose names carry parentheses/specials (missed by the strict table parse)
+    'krithara2023bioasq': ('K1', 'Literature Synthesis'),
+    'liu2025researchbench': ('K1', 'Hypothesis Generation'),
+    'liu2025hypobench': ('K1', 'Hypothesis Generation'),
+    'xiong2025truthhypo': ('K2', 'Hypothesis Generation'),
 }
 PAPER_DB = {
     'DBLP:journals/corr/abs-2205-01833': 'K2', 'DBLP:conf/acl/LoWNKW20': 'K2',
@@ -418,7 +425,8 @@ PAPER_DB = {
     'ashburner2000gene': 'K2',
     'DBLP:journals/nar/GaultonBBCDHLMMAO12': 'K3', 'irwin2012zinc': 'K3',
     'DBLP:journals/nar/KimTBCFGHHHSWYZ16': 'K3', 'DBLP:journals/nar/BermanWFGBWSB00': 'K3',
-    'DBLP:journals/nar/VaradiADNNYYSWL22': 'K3', 'jain2013commentary': 'K3', 'saal2013materials': 'K3',
+    'DBLP:journals/nar/VaradiADNNYYSWL22': 'K3', 'varadi2024alphafold': 'K3',
+    'jain2013commentary': 'K3', 'saal2013materials': 'K3',
     'ramakrishnan2014quantum': 'K3', 'DBLP:journals/nar/LiuLWJG07': 'K3',
     'demner2016preparing': 'K4', 'petersen2010alzheimer': 'K4', 'york2000sloan': 'K4',
     'vallenari2023gaia': 'K4', 'mast': 'K4', 'DBLP:conf/mss/KoblerBCH95': 'K4',
