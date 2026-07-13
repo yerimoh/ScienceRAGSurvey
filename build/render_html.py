@@ -120,10 +120,10 @@ CELL_TIERS = {
 CELL_PAPERS = {
     # Textual — Question Answering / Literature Synthesis / Hypothesis Generation
     'K1.O1': ['DBLP:conf/acl/Xiong0LZ24', 'DBLP:conf/pasc/GokdemirSBWHHSA25', 'DBLP:conf/emnlp/FrisoniMMV22', 'DBLP:journals/corr/abs-2603-09800', 'DBLP:journals/bioinformatics/JeongSSK24', 'DBLP:journals/corr/abs-2408-01107', 'DBLP:conf/naacl/SohnPYPHSKK25', 'DBLP:journals/corr/abs-2312-07559', 'DBLP:conf/acl/ChenLJWG0025', 'DBLP:conf/ecir/AteiaK25', 'zhang2024honeycomb'],
-    'K1.O2': ['DBLP:journals/corr/abs-2402-01788', 'iyer2024pathfinder', 'DBLP:conf/nips/WangGYZZ0ZD0W0Z24', 'DBLP:conf/cikm/BesrourHS025', 'DBLP:journals/corr/abs-2310-16146', 'DBLP:conf/acl/YanFYX00Z25', 'DBLP:journals/corr/abs-2409-13740', 'asai2026synthesizing', 'asai2024openscholar', 'wang2025accelerating'],
+    'K1.O2': ['DBLP:journals/corr/abs-2402-01788', 'iyer2024pathfinder', 'DBLP:conf/nips/WangGYZZ0ZD0W0Z24', 'DBLP:conf/cikm/BesrourHS025', 'DBLP:journals/corr/abs-2310-16146', 'DBLP:conf/acl/YanFYX00Z25', 'DBLP:journals/corr/abs-2409-13740', 'asai2026synthesizing', 'wang2025accelerating'],
     'K1.O3': ['DBLP:conf/acl/0005DJH24', 'DBLP:conf/naacl/BaekJCH25', 'DBLP:conf/iclr/0001LGXLOPCZ25', 'DBLP:conf/emnlp/LiXGZLYZJXDRZFB25'],
     # Relational — Question Answering / Literature Synthesis / Hypothesis Generation
-    'K2.O1': ['DBLP:journals/bioinformatics/SomanRMASPVCSRI24', 'DBLP:conf/acl/0006WS24', 'DBLP:conf/bionlp/YangLMZKLCCCML24', 'DBLP:conf/acl/WuZQCXMJG25', 'DBLP:conf/acl/Jiang0XQFWTDC0W25', 'DBLP:conf/iclr/00010GLGCZ25', 'DBLP:conf/aaai/LeeBHBPS26'],
+    'K2.O1': ['DBLP:journals/bioinformatics/SomanRMASPVCSRI24', 'DBLP:conf/acl/0006WS24', 'DBLP:conf/bionlp/YangLMZKLCCCML24', 'DBLP:conf/acl/WuZQCXMJG25', 'DBLP:conf/acl/Jiang0XQFWTDC0W25', 'DBLP:conf/iclr/00010GLGCZ25'],
     'K2.O2': ['DBLP:conf/sigir/HuLD0A0025'],
     'K2.O3': ['DBLP:conf/naacl/LiCJ25'],
     # Structured-entity — Question Answering (O1) / Molecular Design + Materials Discovery (O3)
@@ -159,7 +159,6 @@ CORE_SYSTEM_TASK = {
     'DBLP:conf/sigir/HuLD0A0025': 'Literature Synthesis', 'DBLP:conf/naacl/LiCJ25': 'Hypothesis Generation',
     # Structured-entity
     'DBLP:journals/bioinformatics/JinYCL24': 'Question Answering', 'DBLP:conf/emnlp/ChiangHCR25': 'Question Answering',
-    'DBLP:conf/aaai/LeeBHBPS26': 'Question Answering', 'asai2024openscholar': 'Literature Synthesis',
     'DBLP:conf/nips/LeeKV0RPVN24': 'Molecular Design', 'DBLP:journals/bib/ZhangPHCM25': 'Molecular Design',
     'nan2026taliragen': 'Molecular Design', 'DBLP:conf/iclr/0001NQXBA23': 'Molecular Design',
     'DBLP:journals/corr/abs-2603-15712': 'Materials Discovery',

@@ -128,9 +128,9 @@
   "paper_link": "",
   "note": "Full-text verified 2026-05-31: a RAG QA/prediction agent system (DTI ranking, toxicity classification, molecular captioning) over biomedical KBs (PubChem, PrimeKG, DrugBank, STITCH) — it does NOT generate de novo molecules, and its verification sources overlap its retrieval (circular). Reclassified from K2.O3 (Strong-verifier Hypothesis) to K2.O1 (KB-grounded prediction).",
   "ko_cells": [
-   "K2.O1"
+   "K3.O1"
   ],
-  "ko_primary": "K2.O1",
+  "ko_primary": "K3.O1",
   "ko_note": "Full-text verified 2026-05-31: a RAG QA/prediction agent system (DTI ranking, toxicity classification, molecular captioning) over biomedical KBs (PubChem, PrimeKG, DrugBank, STITCH) — it does NOT generate de novo molecules, and its verification sources overlap its retrieval (circular). Reclassified from K2.O3 (Strong-verifier Hypothesis) to K2.O1 (KB-grounded prediction).",
   "cross_source": false,
   "type": "Method",
@@ -428,15 +428,13 @@
   ],
   "type": "Method",
   "ko_cells": [
-   "K1.O2"
+   "K1"
   ],
-  "ko_primary": "K1.O2",
+  "ko_primary": "K1",
   "ko_note": "",
   "cross_source": false,
   "flagship": true,
-  "subsection": [
-   "Literature Synthesis"
-  ]
+  "subsection": []
  },
  {
   "title": "Overview of TREC 2025 Biomedical Generative Retrieval (BioGen) Track",

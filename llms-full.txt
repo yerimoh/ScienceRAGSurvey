@@ -33,10 +33,9 @@ _Answer a question whose gold already lies in the corpus — retrieve, cite, ans
 - **mehta2023copilots** — RAG over DIII-D and Alcator C-Mod tokamak text logs; grounded operator QA with references rather than action generation. Not indexed by DBLP  `[K1.O1, Methods]`
 - **rehm2025accgpt** — On-premise RAG chatbot over CERN internal documentation; e5-large-v2 embeddings. Not indexed by DBLP  `[K1.O1, Methods]`
 
-### K1.O2  ·  Textual × Synthesis  (14)
+### K1.O2  ·  Textual × Synthesis  (13)
 _Integrate evidence no single source states — verify claims and synthesize the literature. (Claim Verification, Literature Synthesis.)_
 
-- **OpenScholar: Synthesizing Scientific Literature with RAG LMs** — OpenScholar · Nature · 2026 — ★★ K1.O2 FLAGSHIP. Iterative self-feedback. 0% hallucination vs GPT-4o 78-90%. Experts prefer OpenScholar-GPT-4o over human 70%. Public demo 30K users  `[K1.O2, Biology, Medicine, Physics, Methods]`
 - **[Synthesizing Scientific Literature with Retrieval-Augmented Language Models](https://doi.org/10.1038/s41586-025-10072-4)** — ScholarQABench · Nature · 2026 — OpenScholar's multidisciplinary long-form synthesis benchmark  `[K1.O2, Biology, Medicine, Physics, Benchmarks]`
 - **[SQuAI: Scientific Question-Answering with Multi-Agent Retrieval-Augmented Generation](https://doi.org/10.1145/3746252.3761471)** — unarXive (Simple, Expert) · CIKM · 2025 — main.tex: K=-; O=O2  `[K1.O2, Biology, Chemistry, Physics, Benchmarks]`
 - **[SurveyForge: On the Outline Heuristics, Memory-Driven Generation, and Multi-dimensional Evaluation for Automated Survey Writing](https://arxiv.org/abs/2503.04629)** — SurveyForge · ACL · 2025 — Learns outline heuristics from human surveys and uses a memory-based scholar-navigation retrieval agent (SANA: subquery decomposition, memory retrieval, time-aware reranking) to…  `[K1.O2, General Science, Methods]`
@@ -59,11 +58,12 @@ _Propose an output the corpus does not contain, judged by an external verifier. 
 - **[Chain of Ideas: Revolutionizing Research Via Novel Idea Development with LLM Agents](https://aclanthology.org/2025.findings-emnlp.477/)** — Chain-of-Ideas · EMNLP Findings · 2025 — Organizes Semantic Scholar citation chains into an evolution chain and extrapolates the next idea; evaluated with Idea Arena (human-preference-aligned)  `[K1.O3, General Science, Methods]`
 - **[SciMON: Scientific Inspiration Machines Optimized for Novelty](https://doi.org/10.18653/v1/2024.acl-long.18)** — SciMON · ACL · 2024 — Retrieves inspirations from 67K ACL Anthology papers + citation/KG neighbors built from the corpus; iteratively optimizes generated idea for novelty against prior work  `[K1.O3, General Science, Methods]`
 
-### K1  ·  Textual — no objective rung yet  (95)
+### K1  ·  Textual — no objective rung yet  (96)
 
 - **[BioModelsRAG: A Biological Modeling Assistant Using RAG (Retrieval Augmented Generation)](https://arxiv.org/abs/2601.22684)** — BioModels Custom QA · arXiv · 2026  `[K1, Biology, Benchmarks]`
 - **BioModelsRAG: Biological Modeling Assistant** — BioModelsRAG · arXiv · 2026 — K2 EXEMPLAR — curated systems-biology DB. SBML→Antimony→LLM-summary→ChromaDB pipeline  `[K1, Biology, Methods]`
 - **MatClaw RAG Benchmark (pymatgen/atomate2)** — MatClaw RAG Benchmark · arXiv · 2026 — Structure-aware chunking 99% accuracy. Code as domain knowledge  `[K1, Materials Science, Benchmarks]`
+- **OpenScholar: Synthesizing Scientific Literature with RAG LMs** — OpenScholar · Nature · 2026 — ★★ K1.O2 FLAGSHIP. Iterative self-feedback. 0% hallucination vs GPT-4o 78-90%. Experts prefer OpenScholar-GPT-4o over human 70%. Public demo 30K users  `[K1, Biology, Medicine, Physics, Methods]`
 - **[Overview of TREC 2025 Biomedical Generative Retrieval (BioGen) Track](https://arxiv.org/abs/2603.21582)** — TREC 2025 BioGen · arXiv · 2026  `[K1, Biology, Medicine, Benchmarks]`
 - **[Retrieval Augmented Generation of Literature-derived Polymer Knowledge: The Example of a Biodegradable Polymer Expert System](https://arxiv.org/abs/2602.16650v1)** — PHA-related Domain-Expert QA Benchmark · arXiv · 2026 — 113 RAG QA items in the PHA domain. General / paper-specific / multi-paper  `[K1, Materials Science, Benchmarks]`
 - **[Benchmarking Large Language Models on Answering and Explaining Challenging Medical Questions](https://arxiv.org/abs/2402.18060)** — Medbullets · NAACL · 2025  `[K1, Medicine, Benchmarks]`
@@ -161,10 +161,9 @@ _Propose an output the corpus does not contain, judged by an external verifier. 
 
 _Curated graphs of scientific relations — UMLS, PrimeKG, DRKG, STRING, KEGG, citation graphs. Reached by entity linking and traversal._
 
-### K2.O1  ·  Relational × Grounding  (8)
+### K2.O1  ·  Relational × Grounding  (7)
 _Answer a question whose gold already lies in the corpus — retrieve, cite, answer. (Question Answering.)_
 
-- **CLADD: RAG-Enhanced Collaborative LLM Agents for Drug Discovery** — CLADD · AAAI · 2026 — Full-text verified 2026-05-31: a RAG QA/prediction agent system (DTI ranking, toxicity classification, molecular captioning) over biomedical KBs (PubChem, PrimeKG, DrugBank, STI…  `[K2.O1, Chemistry, Methods]`
 - **Medical Graph RAG: Towards Safe Medical Large Language Model via Graph Retrieval-Augmented Generation** — MedGraphRAG · ACL · 2025 — Medicine and clinical knowledge — UMLS-aligned retrieval substrate  `[K2.O1, Medicine, Methods]`
 - **[KGARevion: An AI Agent for Knowledge-Intensive Biomedical QA](https://arxiv.org/abs/2410.04660)** — KGARevion · ICLR · 2025 — An agent loop of generating candidate triples, verifying them against a KG (PrimeKG/biokg), revising, and answering. Verifying the LLM's latent knowledge against the KG removes …  `[K2.O1, Medicine, Biology, Methods]`
 - **[HyKGE: A Hypothesis Knowledge Graph Enhanced RAG Framework for Accurate and Reliable Medical LLMs Responses](https://aclanthology.org/2025.acl-long.580/)** — HyKGE · ACL · 2025 — Seeds retrieval with an LLM hypothesis (HO) to fetch multi-hop reasoning chains from a fused curated medical KG (CMeKG, CPubMed-KG, Disease-KG; ~1.29M entities), filtering noise…  `[K2.O1, Medicine, Methods]`
@@ -227,9 +226,10 @@ _Propose an output the corpus does not contain, judged by an external verifier. 
 
 _The objects of science as data — molecules, 3D structures, and property records (ChEMBL, PubChem, PDB, Materials Project). Reached by structural or property query._
 
-### K3.O1  ·  Structured-entity × Grounding  (4)
+### K3.O1  ·  Structured-entity × Grounding  (5)
 _Answer a question whose gold already lies in the corpus — retrieve, cite, answer. (Question Answering.)_
 
+- **CLADD: RAG-Enhanced Collaborative LLM Agents for Drug Discovery** — CLADD · AAAI · 2026 — Full-text verified 2026-05-31: a RAG QA/prediction agent system (DTI ranking, toxicity classification, molecular captioning) over biomedical KBs (PubChem, PrimeKG, DrugBank, STI…  `[K3.O1, Chemistry, Methods]`
 - **AI-Powered Assistant for Long-Term Access to RHIC Knowledge** — RHIC DAPP · New York Scientific Data Summit · 2025 — ★ FLAGSHIP K4 EXAMPLE. ~1 ExaByte institutional memory. MCP-RAG. Demonstrates commercial AI's blindness to non-public scientific tacit knowledge  `[K3.O1, Physics, Methods]`
 - **[LLaMP: Large Language Model Made Powerful for High-fidelity Materials Knowledge Retrieval](https://arxiv.org/abs/2401.17244)** — LLaMP MP Property Benchmark · EMNLP · 2025 — main.tex: K=-; O=O1  `[K3.O1, Materials Science, Chemistry, Benchmarks]`
 - **[HoneyComb: A Flexible LLM-Based Agent System for Materials Science](https://doi.org/10.18653/v1/2024.findings-emnlp.192)** — EMNLP 2024 Findings · 2024 — Materials science and physics — MatSciKB curated literature knowledge base for materials RAG  `[K3.O1, Materials Science, Methods]`
