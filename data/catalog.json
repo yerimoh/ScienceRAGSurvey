@@ -1446,16 +1446,14 @@
   "paper_link": "",
   "note": "RAG over DUNE DocDB + Indico + internal wikis; multi-qa-mpnet + FAISS; ~70% retrieval accuracy (preliminary); Fermilab on-premise",
   "ko_cells": [
-   "K1.O1"
+   "K1"
   ],
-  "ko_primary": "K1.O1",
+  "ko_primary": "K1",
   "ko_note": "RAG over DUNE DocDB + Indico + internal wikis; multi-qa-mpnet + FAISS; ~70% retrieval accuracy (preliminary); Fermilab on-premise",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
-  "subsection": [
-   "Question Answering"
-  ]
+  "subsection": []
  },
  {
   "title": "DUNE-GPT (LLM Integration for DUNE Experiment)",
@@ -4175,13 +4173,13 @@
   ],
   "type": "benchmark",
   "ko_cells": [
-   "K3.O3"
+   "K4.O3"
   ],
-  "ko_primary": "K3.O3",
+  "ko_primary": "K4.O3",
   "ko_note": "main.tex: K=-; O=O3",
   "cross_source": false,
   "subsection": [
-   "Hypothesis Generation"
+   "Property Prediction"
   ]
  },
  {
@@ -4353,12 +4351,14 @@
   ],
   "type": "benchmark",
   "ko_cells": [
-   "K4"
+   "K4.O1"
   ],
-  "ko_primary": "K4",
+  "ko_primary": "K4.O1",
   "ko_note": "",
   "cross_source": false,
-  "subsection": []
+  "subsection": [
+   "Question Answering"
+  ]
  },
  {
   "bib_key": "DBLP:journals/corr/abs-2408-10609",
@@ -4372,15 +4372,15 @@
   "paper_link": "https://arxiv.org/abs/2408.10609",
   "note": "PerturBench — cellular perturbation analysis benchmark with 4 generalization regimes",
   "ko_cells": [
-   "K4.O3"
+   "K3.O3"
   ],
-  "ko_primary": "K4.O3",
+  "ko_primary": "K3.O3",
   "ko_note": "PerturBench — cellular perturbation analysis benchmark with 4 generalization regimes",
   "cross_source": false,
   "type": "benchmark",
   "bib_only": true,
   "subsection": [
-   "Hypothesis Generation"
+   "Property Prediction"
   ]
  },
  {
@@ -4395,15 +4395,15 @@
   "paper_link": "https://doi.org/10.1038/s41587-023-01905-6",
   "note": "GEARS — held-out perturbation evaluation protocol on Norman 2019 dual-gene combinations",
   "ko_cells": [
-   "K4.O3"
+   "K3.O3"
   ],
-  "ko_primary": "K4.O3",
+  "ko_primary": "K3.O3",
   "ko_note": "GEARS — held-out perturbation evaluation protocol on Norman 2019 dual-gene combinations",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
   "subsection": [
-   "Hypothesis Generation"
+   "Property Prediction"
   ]
  },
  {
@@ -4846,9 +4846,9 @@
   "paper_link": "https://www.nature.com/articles/s41597-023-01960-3",
   "note": "Chemistry and drug discovery",
   "ko_cells": [
-   "K3"
+   "K2"
   ],
-  "ko_primary": "K3",
+  "ko_primary": "K2",
   "ko_note": "Chemistry and drug discovery",
   "cross_source": false,
   "type": "Method",
@@ -5667,9 +5667,9 @@
   "paper_link": "https://doi.org/10.1093/nar/gkab1061",
   "note": "Initial release: >360,000 predicted structures across 21 model organism proteomes; predicted complement to PDB experimental structures",
   "ko_cells": [
-   "K4"
+   "K3"
   ],
-  "ko_primary": "K4",
+  "ko_primary": "K3",
   "ko_note": "Initial release: >360,000 predicted structures across 21 model organism proteomes; predicted complement to PDB experimental structures",
   "cross_source": false,
   "type": "Method",
@@ -5871,9 +5871,9 @@
   ],
   "type": "dataset",
   "ko_cells": [
-   "K1"
+   "K2"
   ],
-  "ko_primary": "K1",
+  "ko_primary": "K2",
   "ko_note": "main.tex: K=K1; Knowledge Source infrastructure (OpenAlex)",
   "cross_source": false,
   "subsection": []
@@ -6241,9 +6241,9 @@
   "paper_link": "https://arxiv.org/abs/2010.09600",
   "note": "Chemistry and drug discovery",
   "ko_cells": [
-   "K3"
+   "K2"
   ],
-  "ko_primary": "K3",
+  "ko_primary": "K2",
   "ko_note": "Chemistry and drug discovery",
   "cross_source": false,
   "type": "Method",
@@ -6437,12 +6437,14 @@
   ],
   "type": "benchmark",
   "ko_cells": [
-   "K1"
+   "K2.O2"
   ],
-  "ko_primary": "K1",
+  "ko_primary": "K2.O2",
   "ko_note": "",
   "cross_source": false,
-  "subsection": []
+  "subsection": [
+   "Literature Synthesis"
+  ]
  },
  {
   "title": "NIST/EPA/NIH Tandem Mass Spectral Library (NIST 2020)",
@@ -6495,7 +6497,7 @@
   "type": "benchmark",
   "bib_only": true,
   "subsection": [
-   "Hypothesis Generation"
+   "Property Prediction"
   ]
  },
  {
@@ -6519,7 +6521,7 @@
   "type": "benchmark",
   "bib_only": true,
   "subsection": [
-   "Hypothesis Generation"
+   "Property Prediction"
   ]
  },
  {
@@ -6548,12 +6550,14 @@
   ],
   "type": "benchmark",
   "ko_cells": [
-   "K4"
+   "K4.O1"
   ],
-  "ko_primary": "K4",
+  "ko_primary": "K4.O1",
   "ko_note": "",
   "cross_source": false,
-  "subsection": []
+  "subsection": [
+   "Question Answering"
+  ]
  },
  {
   "title": "S2ORC: The Semantic Scholar Open Research Corpus",
@@ -6585,9 +6589,9 @@
   ],
   "type": "dataset",
   "ko_cells": [
-   "K3"
+   "K2"
   ],
-  "ko_primary": "K3",
+  "ko_primary": "K2",
   "ko_note": "main.tex: K=K1; O=-",
   "cross_source": false,
   "subsection": []
@@ -6660,12 +6664,14 @@
   ],
   "type": "benchmark",
   "ko_cells": [
-   "K3"
+   "K3.O3"
   ],
-  "ko_primary": "K3",
+  "ko_primary": "K3.O3",
   "ko_note": "Structural biology — CrossDocked2020: millions of ligand poses across PDB targets for structure-based drug design",
   "cross_source": false,
-  "subsection": []
+  "subsection": [
+   "Molecular Design"
+  ]
  },
  {
   "bib_key": "kluwer2020uptodate",
@@ -6701,9 +6707,9 @@
   "paper_link": "https://doi.org/10.1186/s13059-019-1835-8",
   "note": "CAFA3 — Database-verified Prediction benchmark",
   "ko_cells": [
-   "K2.O3"
+   "K3.O3"
   ],
-  "ko_primary": "K2.O3",
+  "ko_primary": "K3.O3",
   "ko_note": "CAFA3 — Database-verified Prediction benchmark",
   "cross_source": false,
   "type": "benchmark",
@@ -6819,14 +6825,16 @@
   "paper_link": "https://www.nature.com/articles/s41597-019-0322-0",
   "note": "377,110 chest X-ray images; 227,835 studies; 65,379 patients; radiology report generation benchmark",
   "ko_cells": [
-   "K4"
+   "K4.O1"
   ],
-  "ko_primary": "K4",
+  "ko_primary": "K4.O1",
   "ko_note": "377,110 chest X-ray images; 227,835 studies; 65,379 patients; radiology report generation benchmark",
   "cross_source": false,
   "type": "dataset",
   "bib_only": true,
-  "subsection": []
+  "subsection": [
+   "Question Answering"
+  ]
  },
  {
   "title": "PubMedQA: A Dataset for Biomedical Research Question Answering",
@@ -7032,12 +7040,14 @@
   ],
   "type": "benchmark",
   "ko_cells": [
-   "K3"
+   "K3.O3"
   ],
-  "ko_primary": "K3",
+  "ko_primary": "K3.O3",
   "ko_note": "",
   "cross_source": false,
-  "subsection": []
+  "subsection": [
+   "Property Prediction"
+  ]
  },
  {
   "title": "The HAM10000 dataset, a large collection of multi-source dermatoscopic images of common pigmented skin lesions",
@@ -7604,9 +7614,9 @@
   "paper_link": "https://doi.org/10.1093/nar/gkv1277",
   "note": "Chemistry and drug discovery",
   "ko_cells": [
-   "K3"
+   "K2"
   ],
-  "ko_primary": "K3",
+  "ko_primary": "K2",
   "ko_note": "Chemistry and drug discovery",
   "cross_source": false,
   "type": "Method",
@@ -8681,9 +8691,9 @@
   "paper_link": "https://doi.org/10.1093/nar/28.1.235",
   "note": "Single worldwide archive of 3D structures of biological macromolecules; experimental ground truth for structural biology",
   "ko_cells": [
-   "K4"
+   "K3"
   ],
-  "ko_primary": "K4",
+  "ko_primary": "K3",
   "ko_note": "Single worldwide archive of 3D structures of biological macromolecules; experimental ground truth for structural biology",
   "cross_source": false,
   "type": "Method",

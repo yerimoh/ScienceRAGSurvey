@@ -379,6 +379,53 @@ def cell_label(code):
         return O_LABELS[code][0]
     return code
 
+# Authoritative per-paper classifications transcribed from the paper's own tables, so every
+# system the survey actually cites lands where the paper puts it (not where the modality
+# heuristic guesses). PAPER_BENCH = Table 2 (benchmarks): key -> (substrate, task family).
+# PAPER_DB = the §4 knowledge-source table (databases): key -> substrate only (no objective).
+PAPER_BENCH = {
+    'jin-etal-2019-pubmedqa': ('K1', 'Question Answering'),
+    'zaki2024mascqa': ('K1', 'Question Answering'),
+    'welbl-etal-2017-crowdsourcing': ('K1', 'Question Answering'),
+    'auer2023sciqa': ('K2', 'Question Answering'),
+    'DBLP:conf/eccv/SunWZZCZZWLZLLLY24': ('K4', 'Question Answering'),
+    'DBLP:journals/corr/abs-2003-10286': ('K4', 'Question Answering'),
+    'PhysioNet-mimic-cxr-2.1.0': ('K4', 'Question Answering'),
+    'DBLP:conf/emnlp/WaddenLLWZCH20': ('K1', 'Claim Verification'),
+    'DBLP:conf/emnlp/WaddenLKCBWH22': ('K1', 'Claim Verification'),
+    'DBLP:journals/corr/abs-2310-16146': ('K1', 'Literature Synthesis'),
+    'DBLP:conf/emnlp/LuDC20': ('K2', 'Literature Synthesis'),
+    'DBLP:journals/corr/WuRFGGPLP17': ('K3', 'Property Prediction'),
+    'DBLP:conf/nips/HuangFG0RLCXSZ21': ('K3', 'Property Prediction'),
+    'zhou2019cafa': ('K3', 'Property Prediction'),
+    'roohani2024gears': ('K3', 'Property Prediction'),
+    'DBLP:journals/corr/abs-2408-10609': ('K3', 'Property Prediction'),
+    'DBLP:journals/bioinformatics/BreitOAS20': ('K2', 'Property Prediction'),
+    'DBLP:conf/nips/HuFZDRLCL20': ('K2', 'Property Prediction'),
+    'DBLP:conf/nips/BushuievBJYKSHW24': ('K4', 'Property Prediction'),
+    'DBLP:journals/jcisd/FrancoeurMSJISK20': ('K3', 'Molecular Design'),
+    'lan2023adsorbml': ('K3', 'Materials Discovery'),
+    'DBLP:journals/corr/abs-2509-20630': ('K3', 'Materials Discovery'),
+    'DBLP:journals/corr/abs-2410-05080': ('K3', 'Materials Discovery'),
+}
+PAPER_DB = {
+    'DBLP:journals/corr/abs-2205-01833': 'K2', 'DBLP:conf/acl/LoWNKW20': 'K2',
+    'canese2013pubmed': 'K1', 'europepmc2024': 'K1', 'kurtz2000nasa': 'K1', 'inspirehep': 'K1',
+    'georef': 'K1', 'lee2023climate': 'K1', 'scopus': 'K1', 'webofscience': 'K1',
+    'DBLP:journals/qss/HerzogHK20': 'K1', 'embase': 'K1', 'rafique2025large': 'K1',
+    'bodenreider2004unified': 'K2', 'chandak2023building': 'K2', 'ioannidis2020drkg': 'K2',
+    'DBLP:journals/nar/SzklarczykSMJBK16': 'K2', 'kanehisa2000kegg': 'K2', 'milacic2024reactome': 'K2',
+    'ashburner2000gene': 'K2',
+    'DBLP:journals/nar/GaultonBBCDHLMMAO12': 'K3', 'irwin2012zinc': 'K3',
+    'DBLP:journals/nar/KimTBCFGHHHSWYZ16': 'K3', 'DBLP:journals/nar/BermanWFGBWSB00': 'K3',
+    'DBLP:journals/nar/VaradiADNNYYSWL22': 'K3', 'jain2013commentary': 'K3', 'saal2013materials': 'K3',
+    'ramakrishnan2014quantum': 'K3', 'DBLP:journals/nar/LiuLWJG07': 'K3',
+    'demner2016preparing': 'K4', 'petersen2010alzheimer': 'K4', 'york2000sloan': 'K4',
+    'vallenari2023gaia': 'K4', 'mast': 'K4', 'DBLP:conf/mss/KoblerBCH95': 'K4',
+    'eyring2016overview': 'K4', 'cernopendata': 'K4',
+}
+
+
 # ---------- Central taxonomy remap ----------
 # Every paper carries an assignment from the earlier epistemic taxonomy (Primary Literature /
 # Curated KB / Observational / Tacit  ×  Ground / Synthesis / Hypothesis). We remap each paper
@@ -466,10 +513,15 @@ for p in papers:
                 _norm.append(_d)
         p['domain'] = _norm
     bib = p.get('bib_key')
-    if bib in CORE_CELL:
+    if bib in CORE_CELL:                       # Fig. 2 assembly (methods) — highest authority
         substrate, rung = CORE_CELL[bib].split('.')
         task = CORE_SYSTEM_TASK.get(bib)
-    else:
+    elif bib in PAPER_BENCH:                    # Table 2 (benchmarks) — substrate + task
+        substrate, task = PAPER_BENCH[bib]
+        rung = TASK_RUNG.get(task)
+    elif bib in PAPER_DB:                       # §4 knowledge-source table (databases) — substrate only
+        substrate, rung, task = PAPER_DB[bib], None, None
+    else:                                       # long tail not cited by the survey — modality heuristic
         substrate = _substrate_for(p)
         rung = _rung_for(p)
         task = _task_for(substrate, rung, p) if rung else None
