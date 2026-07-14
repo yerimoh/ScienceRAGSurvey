@@ -6,12 +6,6 @@ Companion site to the upcoming survey *"Scientific Retrieval-Augmented Generatio
 
 🌐 **Live site:** _(set after enabling GitHub Pages — see below)_
 
-## What's in here
-
-- **182 entries** — methods, benchmarks, and datasets across 8 scientific domains
-- **12 K×O cells** — every entry placed in the dual-axis grid (Knowledge Source K1–K4 × Operational Objective O1–O3)
-- **LLM-friendly indices** — `llms.txt` (compact overview) and `llms-full.txt` (every entry)
-- **Machine-readable dump** — `data/papers.json` (single JSON, all metadata)
 
 ## Structure
 
