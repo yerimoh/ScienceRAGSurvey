@@ -610,11 +610,28 @@ def sidebar(base='', current=''):
         n = len(by_cell.get(K, []))
         k_axis_items += f'<a href="{base}cell/{K}.html" class="sb-sub{cls(f"cell/{K}")}">{K_LABELS[K][0]} <span class="sb-count">{n}</span></a>\n'
 
-    # O-only axis pages (O1-O3)
-    o_axis_items = ''
-    for O in ['O1', 'O2', 'O3']:
-        n = len(by_cell.get(O, []))
-        o_axis_items += f'<a href="{base}cell/{O}.html" class="sb-sub{cls(f"cell/{O}")}">{O_LABELS[O][0]} <span class="sb-count">{n}</span></a>\n'
+    # Operational Objective — the seven task families of §5, grouped under the three rungs
+    # (grounding, synthesis, discovery) in the order the survey presents them. Each rung
+    # header links to its aggregate page; each task links to a filtered Browse view.
+    from urllib.parse import quote as _q
+    task_counts = Counter()
+    for _p in papers:
+        for _s in (_p.get('subsection') or []):
+            if _s:
+                task_counts[_s] += 1
+    RUNGS = [
+        ('O1', 'Grounding',  ['Question Answering']),
+        ('O2', 'Synthesis',  ['Claim Verification', 'Literature Synthesis']),
+        ('O3', 'Discovery',  ['Property Prediction', 'Molecular Design', 'Materials Discovery', 'Hypothesis Generation']),
+    ]
+    task_items = ''
+    for O, rung_name, tasks in RUNGS:
+        n_rung = len(by_cell.get(O, []))
+        task_items += (f'<a href="{base}cell/{O}.html" class="sb-subhead{cls(f"cell/{O}")}">'
+                       f'{rung_name} <span class="sb-count">{n_rung}</span></a>\n')
+        for t in tasks:
+            task_items += (f'<a href="{base}browse.html?sub={_q(t)}" class="sb-sub sb-task">'
+                           f'{esc(t)} <span class="sb-count">{task_counts.get(t, 0)}</span></a>\n')
 
     # Domain items
     dom_items = ''
@@ -641,24 +658,24 @@ def sidebar(base='', current=''):
     <a href="{base}about.html" class="sb-item{cls("about")}"><span class="sb-icon">🚀</span> Getting Started</a>
 
     <details class="sb-group"{cell_open}>
-      <summary class="sb-item"><span class="sb-icon">▦</span> Substrate × Objective <span class="sb-caret">▾</span></summary>
-      <div class="sb-subs">
-        <a href="{base}browse.html" class="sb-sub sb-sub-overview">All 12 cells →</a>
-        {cell_items}
-      </div>
-    </details>
-
-    <details class="sb-group"{cell_open}>
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         {k_axis_items}
       </div>
     </details>
 
     <details class="sb-group"{cell_open}>
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
-        {o_axis_items}
+        {task_items}
+      </div>
+    </details>
+
+    <details class="sb-group"{cell_open}>
+      <summary class="sb-item"><span class="sb-icon">▦</span> Substrate × Objective <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="{base}browse.html" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        {cell_items}
       </div>
     </details>
 

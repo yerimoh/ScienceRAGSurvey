@@ -246,6 +246,23 @@ code:not(pre code) {
 .sb-sub.sb-sub-overview { font-style: italic; font-size: .78rem; color: var(--fg-faint); }
 .sb-sub .sb-count { margin-left: auto; font-size: .68rem; background: transparent; padding: 0; }
 
+/* Rung sub-headers inside the Operational Objective group (grounding/synthesis/discovery) */
+.sb-subhead {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .3rem .6rem .15rem;
+  margin-top: .3rem;
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--fg-faint);
+  text-decoration: none;
+}
+.sb-subhead:first-child { margin-top: 0; }
+.sb-subhead:hover, .sb-subhead.active { color: var(--link); text-decoration: none; }
+.sb-subhead .sb-count { margin-left: auto; font-size: .66rem; background: transparent; padding: 0; }
+.sb-sub.sb-task { padding-left: 1.15rem; font-size: .8rem; }
+
 .sb-rule { border: 0; border-top: 1px solid var(--line); margin: .65rem .75rem; }
 .sb-quiet { font-size: .82rem; color: var(--fg-faint); }
 
