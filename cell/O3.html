@@ -5,11 +5,22 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[O3] Discovery, Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1784080040">
+<script>
+(() => {
+  try {
+    const stored = localStorage.getItem('srag-bg');
+    document.documentElement.dataset.bg = stored === 'off' ? 'off' : 'on';
+  } catch (e) {
+    document.documentElement.dataset.bg = 'on';
+  }
+})();
+</script>
+<link rel="stylesheet" href="../static/style.css?v=1784087157">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 <button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+<button class="bg-toggle" aria-label="Toggle white background" onclick="toggleBackground()">◐</button>
 
 <aside class="sidebar" id="sidebar">
   <a href="../index.html" class="sb-logo">
@@ -26,10 +37,10 @@
     <details class="sb-group" open>
       <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
-        <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
-<a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
-<a href="../cell/K3.html" class="sb-sub">Structured-entity <span class="sb-count">76</span></a>
-<a href="../cell/K4.html" class="sb-sub">Perceptual <span class="sb-count">73</span></a>
+        <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">22</span></a>
+<a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">8</span></a>
+<a href="../cell/K3.html" class="sb-sub">Structured-entity <span class="sb-count">7</span></a>
+<a href="../cell/K4.html" class="sb-sub">Perceptual <span class="sb-count">9</span></a>
 
       </div>
     </details>
@@ -37,12 +48,12 @@
     <details class="sb-group" open>
       <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
-        <a href="../cell/O1.html" class="sb-subhead">Grounding <span class="sb-count">42</span></a>
+        <a href="../cell/O1.html" class="sb-subhead">Grounding <span class="sb-count">24</span></a>
 <a href="../browse.html?sub=Question%20Answering" class="sb-sub sb-task">Question Answering <span class="sb-count">33</span></a>
-<a href="../cell/O2.html" class="sb-subhead">Synthesis <span class="sb-count">18</span></a>
+<a href="../cell/O2.html" class="sb-subhead">Synthesis <span class="sb-count">9</span></a>
 <a href="../browse.html?sub=Claim%20Verification" class="sb-sub sb-task">Claim Verification <span class="sb-count">3</span></a>
 <a href="../browse.html?sub=Literature%20Synthesis" class="sb-sub sb-task">Literature Synthesis <span class="sb-count">15</span></a>
-<a href="../cell/O3.html" class="sb-subhead active">Discovery <span class="sb-count">37</span></a>
+<a href="../cell/O3.html" class="sb-subhead active">Discovery <span class="sb-count">13</span></a>
 <a href="../browse.html?sub=Property%20Prediction" class="sb-sub sb-task">Property Prediction <span class="sb-count">13</span></a>
 <a href="../browse.html?sub=Molecular%20Design" class="sb-sub sb-task">Molecular Design <span class="sb-count">8</span></a>
 <a href="../browse.html?sub=Materials%20Discovery" class="sb-sub sb-task">Materials Discovery <span class="sb-count">10</span></a>
@@ -112,7 +123,7 @@
   <div class="wrap">
     <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
     <h1><span class="cell-id-big">[O3]</span> Discovery</h1>
-    <p class="lede"><strong>37</strong> entries with <strong>Discovery</strong> objective (all K sources).</p>
+    <p class="lede"><strong>13</strong> entries with <strong>Discovery</strong> objective (all K sources).</p>
     <div class="cell-axis-pair">
       <div class="axis-card axis-o">
         <span class="axis-tag">O 3</span>
@@ -130,11 +141,11 @@
 <section class="cell-list">
   <div class="wrap">
     <div class="subsec-filter" id="oaxisO3subf">
-<button class="subsec-btn active" data-sub="">All <span class="subsec-n">37</span></button>
-<button class="subsec-btn" data-sub="Property Prediction">Property Prediction <span class="subsec-n">13</span></button>
-<button class="subsec-btn" data-sub="Materials Discovery">Materials Discovery <span class="subsec-n">10</span></button>
-<button class="subsec-btn" data-sub="Molecular Design">Molecular Design <span class="subsec-n">8</span></button>
-<button class="subsec-btn" data-sub="Hypothesis Generation">Hypothesis Generation <span class="subsec-n">6</span></button>
+<button class="subsec-btn active" data-sub="">All <span class="subsec-n">13</span></button>
+<button class="subsec-btn" data-sub="Molecular Design">Molecular Design <span class="subsec-n">6</span></button>
+<button class="subsec-btn" data-sub="Hypothesis Generation">Hypothesis Generation <span class="subsec-n">5</span></button>
+<button class="subsec-btn" data-sub="Materials Discovery">Materials Discovery <span class="subsec-n">1</span></button>
+<button class="subsec-btn" data-sub="Property Prediction">Property Prediction <span class="subsec-n">1</span></button>
 </div>
 <script>
 (function(){
@@ -155,30 +166,12 @@
 })();
 </script>
 
-    <div class="card-grid"><article class="card" data-sub="Materials Discovery">
-  <h3 class="card-title">MatClaw: Autonomous Code-First Agent for Materials Science</h3>
-  <div class="card-meta"><span class="meta-method">MatClaw</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2026</span></div>
-  <p class="card-note">Code-first LLM agent; RAG over domain source code (pymatgen, atomate2, jobflow, dpdata, DeePMD-kit); ~99% API-call accuracy; 4-layer memory; 3 end-to-end demonstrations on CuInP2S6 (force field, Curie temp, parameter search)</p>
+    <div class="card-grid"><article class="card" data-sub="Hypothesis Generation">
+  <h3 class="card-title"><a href="https://doi.org/10.18653/v1/2024.acl-long.18" target="_blank" rel="noopener">SciMON: Scientific Inspiration Machines Optimized for Novelty ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">SciMON</span>, <span class="meta-venue">ACL</span>, <span class="meta-year">2024</span></div>
+  <p class="card-note">Retrieves inspirations from 67K ACL Anthology papers + citation/KG neighbors built from the corpus; iteratively optimizes generated idea for novelty against prior work.</p>
   
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Materials Discovery</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/zhang2026matclaw.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Molecular Design">
-  <h3 class="card-title">TaLiRAGen: target-aware ligand generation via RAG LLMs</h3>
-  <div class="card-meta"><span class="meta-method">TaLiRAGen</span>, <span class="meta-venue">Molecular Diversity</span>, <span class="meta-year">2026</span></div>
-  <p class="card-note">★ K2.O3 EXEMPLAR. No-training RAG+LLM SBDD. Evidence-theoretic norm metric.</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Molecular Design</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">SMILES</span><span class="tag tag-mod">3D Structure</span></div>
-  <a href="../papers/nan2026taliragen.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Hypothesis Generation">
-  <h3 class="card-title"><a href="https://openreview.net/forum?id=X9OfMNNepI" target="_blank" rel="noopener">MOOSE-Chem: Large Language Models for Rediscovering Unseen Chemistry Scientific Hypotheses ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MOOSE-Chem</span>, <span class="meta-venue">ICLR</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Retrieves inspiration papers from chemistry literature (3000 most-cited Nature papers); composes &amp; ranks novel hypotheses; evaluated by rediscovering held-out high-impact 2024 findings (TOMATO-Chem).</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O3.html" class="tag tag-cell" title="K1.O3">Textual × Discovery</a><span class="tag tag-sub">Hypothesis Generation</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <div class="card-tags"><a href="../cell/K1.O3.html" class="tag tag-cell" title="K1.O3">Textual × Discovery</a><span class="tag tag-sub">Hypothesis Generation</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   
 </article>
 
@@ -188,6 +181,15 @@
   <p class="card-note">Expands a core paper with academic-graph literature + a paper-mined entity store; proposes problems/methods/experiments, refined by ReviewingAgents.</p>
   
   <div class="card-tags"><a href="../cell/K1.O3.html" class="tag tag-cell" title="K1.O3">Textual × Discovery</a><span class="tag tag-sub">Hypothesis Generation</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  
+</article>
+
+<article class="card" data-sub="Hypothesis Generation">
+  <h3 class="card-title"><a href="https://openreview.net/forum?id=X9OfMNNepI" target="_blank" rel="noopener">MOOSE-Chem: Large Language Models for Rediscovering Unseen Chemistry Scientific Hypotheses ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">MOOSE-Chem</span>, <span class="meta-venue">ICLR</span>, <span class="meta-year">2025</span></div>
+  <p class="card-note">Retrieves inspiration papers from chemistry literature (3000 most-cited Nature papers); composes &amp; ranks novel hypotheses; evaluated by rediscovering held-out high-impact 2024 findings (TOMATO-Chem).</p>
+  
+  <div class="card-tags"><a href="../cell/K1.O3.html" class="tag tag-cell" title="K1.O3">Textual × Discovery</a><span class="tag tag-sub">Hypothesis Generation</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   
 </article>
 
@@ -209,22 +211,13 @@
   <a href="../papers/DBLP_conf_naacl_LiCJ25.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card" data-sub="Materials Discovery">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2509.20630" target="_blank" rel="noopener">MLIP Arena: Physics-aware MLIP Benchmark Platform ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MLIP Arena</span>, <span class="meta-venue">NeurIPS D&amp;B 2025</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">MLIP Arena, Simulation-verified Materials Discovery benchmark</p>
+<article class="card" data-sub="Molecular Design">
+  <h3 class="card-title">Molecule Generation with Fragment Retrieval Augmentation</h3>
+  <div class="card-meta"><span class="meta-method">f-RAG</span>, <span class="meta-venue">NeurIPS</span>, <span class="meta-year">2024</span></div>
+  <p class="card-note">Fragment-based drug discovery with retrieval augmentation; hard/soft fragment retrieval; iterative refinement + genetic fragment modification; evaluated on PMO benchmark 23 tasks; AUC top-10 metric</p>
   
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Materials Discovery</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2509-20630.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Materials Discovery">
-  <h3 class="card-title"><a href="https://doi.org/10.1038/s42256-025-01055-1" target="_blank" rel="noopener">Matbench Discovery: ML Crystal Stability Benchmark on 257K WBM Structures ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">Matbench Discovery</span>, <span class="meta-venue">Nature Machine Intelligence</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Matbench Discovery, Simulation-verified Materials Discovery benchmark</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Materials Discovery</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/riebesell2025matbench.html" class="card-summary-link">Summary →</a>
+  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Molecular Design</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <a href="../papers/DBLP_conf_nips_LeeKV0RPVN24.html" class="card-summary-link">Summary →</a>
 </article>
 
 <article class="card" data-sub="Molecular Design">
@@ -236,121 +229,13 @@
   <a href="../papers/DBLP_journals_bib_ZhangPHCM25.html" class="card-summary-link">Summary →</a>
 </article>
 
-<article class="card" data-sub="Property Prediction">
-  <h3 class="card-title"><a href="https://openreview.net/forum?id=78tc3EiUrN" target="_blank" rel="noopener">MADGEN: Mass-Spec attends to De Novo Molecular generation ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MADGEN</span>, <span class="meta-venue">ICLR</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Full-text verified 2026-06-01: MADGEN (ICLR 2025), the sole genuine retrieval-augmented de novo method for spectrum-to-molecule. Retrieves a molecular scaffold keyed on the MS/MS spectrum (contrastive spectrum-to-scaffold ranking, signal-keyed = K3) then generates the full str…</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O3.html" class="tag tag-cell" title="K4.O3">Perceptual × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
 <article class="card" data-sub="Molecular Design">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2506.14488" target="_blank" rel="noopener">Reimagining Target-Aware Molecular Generation through Retrieval-Enhanced Aligned Diffusion ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">READ</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Full-text verified 2026-05-31: first retrieval-augmented diffusion framework for de novo ligand design; retrieves cognate ligands through a pocket-ligand bipartite graph; validated with AutoDock Vina (Score/Minimize/Dock). Curated KB, docking-verified.</p>
+  <h3 class="card-title">TaLiRAGen: target-aware ligand generation via RAG LLMs</h3>
+  <div class="card-meta"><span class="meta-method">TaLiRAGen</span>, <span class="meta-venue">Molecular Diversity</span>, <span class="meta-year">2026</span></div>
+  <p class="card-note">★ K2.O3 EXEMPLAR. No-training RAG+LLM SBDD. Evidence-theoretic norm metric.</p>
   
-  <div class="card-tags"><a href="../cell/K4.O3.html" class="tag tag-cell" title="K4.O3">Perceptual × Discovery</a><span class="tag tag-sub">Molecular Design</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="Hypothesis Generation">
-  <h3 class="card-title"><a href="https://doi.org/10.18653/v1/2024.acl-long.18" target="_blank" rel="noopener">SciMON: Scientific Inspiration Machines Optimized for Novelty ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">SciMON</span>, <span class="meta-venue">ACL</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Retrieves inspirations from 67K ACL Anthology papers + citation/KG neighbors built from the corpus; iteratively optimizes generated idea for novelty against prior work.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O3.html" class="tag tag-cell" title="K1.O3">Textual × Discovery</a><span class="tag tag-sub">Hypothesis Generation</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="Materials Discovery">
-  <h3 class="card-title"><a href="https://doi.org/10.1038/s41524-024-01259-w" target="_blank" rel="noopener">JARVIS-Leaderboard: ~1500 Tasks × 11 Categories Multi-modal Materials Benchmark ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">JARVIS-Leaderboard</span>, <span class="meta-venue">npj Computational Materials</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">JARVIS-Leaderboard, Simulation-verified Materials Discovery benchmark</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Materials Discovery</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/choudhary2024jarvis.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Molecular Design">
-  <h3 class="card-title">Molecule Generation with Fragment Retrieval Augmentation</h3>
-  <div class="card-meta"><span class="meta-method">f-RAG</span>, <span class="meta-venue">NeurIPS</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Fragment-based drug discovery with retrieval augmentation; hard/soft fragment retrieval; iterative refinement + genetic fragment modification; evaluated on PMO benchmark 23 tasks; AUC top-10 metric</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Molecular Design</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_nips_LeeKV0RPVN24.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Materials Discovery">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2410.12771" target="_blank" rel="noopener">Open Materials 2024 (OMat24) Inorganic Materials Dataset and Models ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">OMat24</span>, <span class="meta-venue">arXiv (Meta FAIR)</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">OMat24, 110M+ DFT inorganic-materials dataset + EquiformerV2/eSEN MLIP models; Matbench Discovery F1 &gt; 0.9</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Materials Discovery</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2410-12771.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Property Prediction">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2408.10609" target="_blank" rel="noopener">PerturBench: Benchmarking Machine Learning Models for Cellular Perturbation Analysis ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">PerturBench</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">PerturBench, cellular perturbation analysis benchmark with 4 generalization regimes</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2408-10609.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Property Prediction">
-  <h3 class="card-title"><a href="https://doi.org/10.1038/s41587-023-01905-6" target="_blank" rel="noopener">Predicting transcriptional outcomes of novel multigene perturbations with GEARS ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">GEARS</span>, <span class="meta-venue">Nature Biotechnology</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">GEARS, held-out perturbation evaluation protocol on Norman 2019 dual-gene combinations</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/roohani2024gears.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Materials Discovery">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2410.05080" target="_blank" rel="noopener">ScienceAgentBench: 102 Tasks × 44 Pubs × API+E2E Code Success ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">ScienceAgentBench</span>, <span class="meta-venue">ICLR / arXiv</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">ScienceAgentBench, Simulation-verified Materials Discovery benchmark</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Materials Discovery</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2410-05080.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Materials Discovery">
-  <h3 class="card-title"><a href="https://doi.org/10.1021/acscentsci.3c01629" target="_blank" rel="noopener">The Open DAC 2023 Dataset and Challenges for Sorbent Discovery in Direct Air Capture ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">ODAC23</span>, <span class="meta-venue">ACS Central Science</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">ODAC23, 8,400+ MOFs × 38M DFT for DAC sorbent discovery; OC20-style S2EF/IS2RE/IS2RS tasks</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Materials Discovery</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/sriram2024odac23.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Molecular Design">
-  <h3 class="card-title"><a href="https://proceedings.mlr.press/v235/huang24ab.html" target="_blank" rel="noopener">Interaction-based Retrieval-augmented Diffusion Models for Protein-specific 3D Molecule Generation ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">IRDiff</span>, <span class="meta-venue">ICML</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Full-text verified 2026-05-31: retrieves high-affinity ligand references via a protein-molecule interaction network to steer a target-aware diffusion model; SOTA binding affinity on CrossDocked2020 (Vina). Curated ligand KB, docking-verified.</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O3.html" class="tag tag-cell" title="K4.O3">Perceptual × Discovery</a><span class="tag tag-sub">Molecular Design</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="Property Prediction">
-  <h3 class="card-title"><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/c6c31413d5c53b7d1c343c1498734b0f-Abstract-Datasets_and_Benchmarks_Track.html" target="_blank" rel="noopener">MassSpecGym: A benchmark for the discovery and identification of molecules ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MassSpecGym</span>, <span class="meta-venue">NeurIPS</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">main.tex: K=-; O=O3</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O3.html" class="tag tag-cell" title="K4.O3">Perceptual × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">SMILES</span><span class="tag tag-mod">Structured Table</span></div>
-  <a href="../papers/DBLP_conf_nips_BushuievBJYKSHW24.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Materials Discovery">
-  <h3 class="card-title"><a href="https://doi.org/10.1038/s41524-023-01121-5" target="_blank" rel="noopener">AdsorbML: 1000 Adsorbate-Surface DFT-Success Benchmark ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">AdsorbML</span>, <span class="meta-venue">npj Computational Materials</span>, <span class="meta-year">2023</span></div>
-  <p class="card-note">AdsorbML, Simulation-verified Materials Discovery benchmark</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Materials Discovery</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/lan2023adsorbml.html" class="card-summary-link">Summary →</a>
+  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Molecular Design</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">SMILES</span><span class="tag tag-mod">3D Structure</span></div>
+  <a href="../papers/nan2026taliragen.html" class="card-summary-link">Summary →</a>
 </article>
 
 <article class="card" data-sub="Molecular Design">
@@ -363,129 +248,39 @@
 </article>
 
 <article class="card" data-sub="Materials Discovery">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2110.06197" target="_blank" rel="noopener">Crystal Diffusion Variational Autoencoder for Periodic Material Generation ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">CDVAE</span>, <span class="meta-venue">ICLR 2022</span>, <span class="meta-year">2022</span></div>
-  <p class="card-note">CDVAE, 3-dataset crystal generation benchmark (Perov-5 / Carbon-24 / MP-20) with Validity / Coverage / Property statistics</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Materials Discovery</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/DBLP_conf_iclr_XieFGBJ22.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Molecular Design">
-  <h3 class="card-title"><a href="https://doi.org/10.1016/j.cell.2022.05.013" target="_blank" rel="noopener">Mapping information-rich genotype-phenotype landscapes with genome-scale Perturb-seq ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">Replogle-Nadig</span>, <span class="meta-venue">Cell</span>, <span class="meta-year">2022</span></div>
-  <p class="card-note">main.tex: K=-; O=O3</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Molecular Design</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">Structured Table</span></div>
-  <a href="../papers/replogle2022mapping.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Property Prediction">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2102.09548" target="_blank" rel="noopener">Therapeutics Data Commons: Machine Learning Datasets and Tasks for Drug Discovery and Development ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">TDC</span>, <span class="meta-venue">NeurIPS D&amp;B 2021</span>, <span class="meta-year">2021</span></div>
-  <p class="card-note">66 AI-ready datasets × 22 tasks × 29 leaderboards, Database-verified Prediction umbrella benchmark for drug discovery</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/DBLP_conf_nips_HuangFG0RLCXSZ21.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Property Prediction">
-  <h3 class="card-title"><a href="https://proceedings.neurips.cc/paper/2020/hash/fb60d411a5c5b72b2e7d3527cfc84fd0-Abstract.html" target="_blank" rel="noopener">Open Graph Benchmark: Datasets for Machine Learning on Graphs ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">OGB / OGB-biokg</span>, <span class="meta-venue">NeurIPS</span>, <span class="meta-year">2020</span></div>
-  <p class="card-note">OGB-biokg, biomedical knowledge graph link prediction with hits@K public leaderboard</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Relational × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/DBLP_conf_nips_HuFZDRLCL20.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Property Prediction">
-  <h3 class="card-title"><a href="https://doi.org/10.1093/bioinformatics/btaa274" target="_blank" rel="noopener">OpenBioLink: a benchmarking framework for large-scale biomedical link prediction ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">OpenBioLink</span>, <span class="meta-venue">Bioinformatics</span>, <span class="meta-year">2020</span></div>
-  <p class="card-note">OpenBioLink, biomedical link prediction benchmark with leakage-controlled held-out edge recovery</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Relational × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/DBLP_journals_bioinformatics_BreitOAS20.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Molecular Design">
-  <h3 class="card-title"><a href="https://doi.org/10.1021/acs.jcim.0c00411" target="_blank" rel="noopener">Three-Dimensional Convolutional Neural Networks and a Cross-Docked Data Set for Structure-Based Drug Design ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">CrossDocked2020</span>, <span class="meta-venue">J. Chem. Inf. Model.</span>, <span class="meta-year">2020</span></div>
-  <p class="card-note">Structural biology, CrossDocked2020: millions of ligand poses across PDB targets for structure-based drug design</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Molecular Design</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">3D Structure</span></div>
-  <a href="../papers/DBLP_journals_jcisd_FrancoeurMSJISK20.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Property Prediction">
-  <h3 class="card-title"><a href="https://doi.org/10.1186/s13059-019-1835-8" target="_blank" rel="noopener">CAFA3: Critical Assessment of Function Annotation ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">CAFA3</span>, <span class="meta-venue">Genome Biology</span>, <span class="meta-year">2019</span></div>
-  <p class="card-note">CAFA3, Database-verified Prediction benchmark</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/zhou2019cafa.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Property Prediction">
-  <h3 class="card-title"><a href="https://doi.org/10.1039/C7SC02664A" target="_blank" rel="noopener">MoleculeNet: a benchmark for molecular machine learning ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MoleculeNet</span>, <span class="meta-venue">Chemical Science (RSC)</span>, <span class="meta-year">2018</span></div>
-  <p class="card-note">Standard molecular-ML benchmark; 4 categories, 17 datasets. Used by CLADD.</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">SMILES</span><span class="tag tag-mod">Structured Table</span></div>
-  
-</article>
-
-<article class="card" data-sub="Property Prediction">
-  <h3 class="card-title"><a href="https://doi.org/10.7554/eLife.26726" target="_blank" rel="noopener">Hetionet: Systematic Integration of Biomedical Knowledge for Drug Repurposing ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">Hetionet</span>, <span class="meta-venue">eLife</span>, <span class="meta-year">2017</span></div>
-  <p class="card-note">Hetionet, Database-verified Prediction benchmark</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Relational × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/himmelstein2017hetionet.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Property Prediction">
-  <h3 class="card-title"><a href="https://doi.org/10.1021/ci400709d" target="_blank" rel="noopener">KIBA: Integrated Kinase Inhibitor Bioactivity Score ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">KIBA</span>, <span class="meta-venue">J. Chem. Inf. Model.</span>, <span class="meta-year">2014</span></div>
-  <p class="card-note">KIBA, Database-verified Prediction benchmark</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/tang2014kiba.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Property Prediction">
-  <h3 class="card-title"><a href="https://doi.org/10.1126/scitranslmed.3003377" target="_blank" rel="noopener">TWOSIDES &amp; OFFSIDES: Data-driven Prediction of Drug Effects and Interactions ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">TWOSIDES</span>, <span class="meta-venue">Science Translational Medicine</span>, <span class="meta-year">2012</span></div>
-  <p class="card-note">TWOSIDES, Database-verified Prediction benchmark</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Relational × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/tatonetti2012twosides.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Property Prediction">
-  <h3 class="card-title"><a href="https://doi.org/10.1038/nbt.1990" target="_blank" rel="noopener">Comprehensive Analysis of Kinase Inhibitor Selectivity (Davis Kd Matrix) ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">Davis Kd Matrix</span>, <span class="meta-venue">Nature Biotechnology</span>, <span class="meta-year">2011</span></div>
-  <p class="card-note">Davis Kd Matrix, Database-verified Prediction benchmark</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/davis2011kinase.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Hypothesis Generation">
-  <h3 class="card-title">bicerano2024polymer</h3>
-  
-  <p class="card-note">Expert system for de novo polymer design via QSPR over PEARL (Polymer Expert Analog Repeat-unit Library); weakly-verified hypothesis, QSPR predictions without experimental validation loop; non-obvious candidates discovered</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Relational × Discovery</a><span class="tag tag-sub">Hypothesis Generation</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/bicerano2024polymer.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Materials Discovery">
   <h3 class="card-title">DBLP:journals/corr/abs-2603-15712</h3>
   
   <p class="card-note">GPT-4 + RAG over 50,000 materials (Materials Project, NOMAD, OC20); 250+ HEA CO2 reduction catalysts; 82% thermodynamic stability; best alloy Fe0.2Co0.2Ni0.2Ir0.1Ru0.3 at 0.285V limiting potential (25% vs IrO2); 200x HTS efficiency</p>
   
   <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Materials Discovery</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   <a href="../papers/DBLP_journals_corr_abs-2603-15712.html" class="card-summary-link">Summary →</a>
+</article>
+
+<article class="card" data-sub="Molecular Design">
+  <h3 class="card-title"><a href="https://proceedings.mlr.press/v235/huang24ab.html" target="_blank" rel="noopener">Interaction-based Retrieval-augmented Diffusion Models for Protein-specific 3D Molecule Generation ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">IRDiff</span>, <span class="meta-venue">ICML</span>, <span class="meta-year">2024</span></div>
+  <p class="card-note">Full-text verified 2026-05-31: retrieves high-affinity ligand references via a protein-molecule interaction network to steer a target-aware diffusion model; SOTA binding affinity on CrossDocked2020 (Vina). Curated ligand KB, docking-verified.</p>
+  
+  <div class="card-tags"><a href="../cell/K4.O3.html" class="tag tag-cell" title="K4.O3">Perceptual × Discovery</a><span class="tag tag-sub">Molecular Design</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  
+</article>
+
+<article class="card" data-sub="Molecular Design">
+  <h3 class="card-title"><a href="https://arxiv.org/abs/2506.14488" target="_blank" rel="noopener">Reimagining Target-Aware Molecular Generation through Retrieval-Enhanced Aligned Diffusion ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">READ</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2025</span></div>
+  <p class="card-note">Full-text verified 2026-05-31: first retrieval-augmented diffusion framework for de novo ligand design; retrieves cognate ligands through a pocket-ligand bipartite graph; validated with AutoDock Vina (Score/Minimize/Dock). Curated KB, docking-verified.</p>
+  
+  <div class="card-tags"><a href="../cell/K4.O3.html" class="tag tag-cell" title="K4.O3">Perceptual × Discovery</a><span class="tag tag-sub">Molecular Design</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  
+</article>
+
+<article class="card" data-sub="Property Prediction">
+  <h3 class="card-title"><a href="https://openreview.net/forum?id=78tc3EiUrN" target="_blank" rel="noopener">MADGEN: Mass-Spec attends to De Novo Molecular generation ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">MADGEN</span>, <span class="meta-venue">ICLR</span>, <span class="meta-year">2025</span></div>
+  <p class="card-note">Full-text verified 2026-06-01: MADGEN (ICLR 2025), the sole genuine retrieval-augmented de novo method for spectrum-to-molecule. Retrieves a molecular scaffold keyed on the MS/MS spectrum (contrastive spectrum-to-scaffold ranking, signal-keyed = K3) then generates the full str…</p>
+  
+  <div class="card-tags"><a href="../cell/K4.O3.html" class="tag tag-cell" title="K4.O3">Perceptual × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  
 </article>
 </div>
   </div>
@@ -506,6 +301,31 @@
     </p>
   </div>
 </footer>
+<script>
+function toggleBackground() {
+  const root = document.documentElement;
+  const next = root.dataset.bg === 'off' ? 'on' : 'off';
+  root.dataset.bg = next;
+  try {
+    localStorage.setItem('srag-bg', next);
+  } catch (e) {}
+  const button = document.querySelector('.bg-toggle');
+  if (button) {
+    button.setAttribute('aria-pressed', next === 'on' ? 'true' : 'false');
+    button.textContent = next === 'on' ? '◐' : '◑';
+    button.title = next === 'on' ? 'White background on' : 'White background off';
+  }
+}
+(() => {
+  const current = document.documentElement.dataset.bg === 'off' ? 'off' : 'on';
+  const button = document.querySelector('.bg-toggle');
+  if (button) {
+    button.setAttribute('aria-pressed', current === 'on' ? 'true' : 'false');
+    button.textContent = current === 'on' ? '◐' : '◑';
+    button.title = current === 'on' ? 'White background on' : 'White background off';
+  }
+})();
+</script>
 <script src="../static/footnotes.js?v=1779886412"></script>
 </body>
 </html>

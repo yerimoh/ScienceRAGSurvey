@@ -574,6 +574,31 @@ def cell_count(c):
     return len(by_cell.get(c, []))
 
 
+def axis_papers(axis):
+    """Papers shown on a K-only (K1..K4) or O-only (O1..O3) aggregate page.
+
+    Aligned to main2.tex: returns the deduplicated union of the curated per-cell
+    allow-lists (CELL_PAPERS) whose cell falls under this axis, in cell order and
+    then main.tex citation order. This keeps the K1/K2/… and O1/O2/O3 pages a clean
+    roll-up of their cells instead of dumping every heuristically-tagged paper
+    (which previously bloated K1 to 100+ off-topic entries)."""
+    ps, seen = [], set()
+    for cell, keys in CELL_PAPERS.items():
+        K, O = cell.split('.')
+        if axis not in (K, O):
+            continue
+        for k in keys:
+            p = papers_by_key.get(k)
+            if p is not None and k not in seen:
+                seen.add(k)
+                ps.append(p)
+    return ps
+
+
+def axis_count(axis):
+    return len(axis_papers(axis))
+
+
 def esc(s):
     if s is None:
         return ''
@@ -604,10 +629,10 @@ def sidebar(base='', current=''):
             n = cell_count(c)
             cell_items += f'<a href="{base}cell/{c}.html" class="sb-sub{cls(f"cell/{c}")}">{cell_label(c)} <span class="sb-count">{n}</span></a>\n'
 
-    # K-only axis pages (K1-K4)
+    # K-axis roll-up pages (K1-K4)
     k_axis_items = ''
     for K in ['K1', 'K2', 'K3', 'K4']:
-        n = len(by_cell.get(K, []))
+        n = axis_count(K)
         k_axis_items += f'<a href="{base}cell/{K}.html" class="sb-sub{cls(f"cell/{K}")}">{K_LABELS[K][0]} <span class="sb-count">{n}</span></a>\n'
 
     # Operational Objective — the seven task families of §5, grouped under the three rungs
@@ -626,7 +651,7 @@ def sidebar(base='', current=''):
     ]
     task_items = ''
     for O, rung_name, tasks in RUNGS:
-        n_rung = len(by_cell.get(O, []))
+        n_rung = axis_count(O)
         task_items += (f'<a href="{base}cell/{O}.html" class="sb-subhead{cls(f"cell/{O}")}">'
                        f'{rung_name} <span class="sb-count">{n_rung}</span></a>\n')
         for t in tasks:
@@ -716,11 +741,22 @@ def page_head(title, base='', desc='Scientific RAG Hub, a curated catalog of ret
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(title)}, Scientific RAG Hub</title>
 <meta name="description" content="{esc(desc)}">
+<script>
+(() => {{
+  try {{
+    const stored = localStorage.getItem('srag-bg');
+    document.documentElement.dataset.bg = stored === 'off' ? 'off' : 'on';
+  }} catch (e) {{
+    document.documentElement.dataset.bg = 'on';
+  }}
+}})();
+</script>
 <link rel="stylesheet" href="{base}static/style.css?v={css_mtime}">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 <button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+<button class="bg-toggle" aria-label="Toggle white background" onclick="toggleBackground()">◐</button>
 {sidebar(base=base, current=current)}
 <div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
 <main class="with-sidebar">
@@ -745,6 +781,31 @@ def page_foot(base=''):
     </p>
   </div>
 </footer>
+<script>
+function toggleBackground() {{
+  const root = document.documentElement;
+  const next = root.dataset.bg === 'off' ? 'on' : 'off';
+  root.dataset.bg = next;
+  try {{
+    localStorage.setItem('srag-bg', next);
+  }} catch (e) {{}}
+  const button = document.querySelector('.bg-toggle');
+  if (button) {{
+    button.setAttribute('aria-pressed', next === 'on' ? 'true' : 'false');
+    button.textContent = next === 'on' ? '◐' : '◑';
+    button.title = next === 'on' ? 'White background on' : 'White background off';
+  }}
+}}
+(() => {{
+  const current = document.documentElement.dataset.bg === 'off' ? 'off' : 'on';
+  const button = document.querySelector('.bg-toggle');
+  if (button) {{
+    button.setAttribute('aria-pressed', current === 'on' ? 'true' : 'false');
+    button.textContent = current === 'on' ? '◐' : '◑';
+    button.title = current === 'on' ? 'White background on' : 'White background off';
+  }}
+}})();
+</script>
 <script src="{base}static/footnotes.js?v={js_mtime}"></script>
 </body>
 </html>
@@ -1598,18 +1659,18 @@ def render_cell_pages():
 '''
             (ROOT / 'cell' / f'{cell}.html').write_text(page_head(f'[{cell}] {kn} × {on}', base='../', current=f'cell/{cell}') + body + page_foot('../'))
 
-    # ---------- K-only axis pages (cell/K1.html etc.) ----------
+    # ---------- K-axis roll-up pages (cell/K1.html etc.) ----------
     for K in ['K1', 'K2', 'K3', 'K4']:
-        ps = sorted(by_cell.get(K, []), key=year_sort)
+        ps = axis_papers(K)
         kn, kd = K_LABELS[K]
-        cards = '\n'.join(paper_card(p, base='../', axis_scope=K) for p in ps) or '<p class="empty">No K-only entries yet.</p>'
+        cards = '\n'.join(paper_card(p, base='../', axis_scope=K) for p in ps) or '<p class="empty">No entries yet.</p>'
         sf = subsec_filter_html(ps, prefix=f'kaxis{K}', axis_scope=K)
         body = f'''
 <section class="cell-hero">
   <div class="wrap">
     <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
     <h1><span class="cell-id-big">[{K}]</span> {esc(kn)}</h1>
-    <p class="lede"><strong>{len(ps)}</strong> K-axis-only entries (datasets / knowledge sources without paired O).</p>
+    <p class="lede"><strong>{len(ps)}</strong> systems on the {esc(kn)} substrate, across all objectives.</p>
     <div class="cell-axis-pair">
       <div class="axis-card axis-k">
         <span class="axis-tag">K {K[1]}</span>
@@ -1629,23 +1690,10 @@ def render_cell_pages():
 '''
         (ROOT / 'cell' / f'{K}.html').write_text(page_head(f'[{K}] {kn}', base='../', current=f'cell/{K}') + body + page_foot('../'))
 
-    # ---------- O-only axis pages (cell/O1.html etc.) ----------
+    # ---------- O-axis roll-up pages (cell/O1.html etc.) ----------
     for O in ['O1', 'O2', 'O3']:
-        # Aggregate all papers from every K×O cell + bare O-only entries
-        seen_bk = set()
-        ps = []
-        for K in ['K1', 'K2', 'K3', 'K4']:
-            for p in by_cell.get(f'{K}.{O}', []):
-                bk = p.get('bib_key') or id(p)
-                if bk not in seen_bk:
-                    seen_bk.add(bk)
-                    ps.append(p)
-        for p in by_cell.get(O, []):
-            bk = p.get('bib_key') or id(p)
-            if bk not in seen_bk:
-                seen_bk.add(bk)
-                ps.append(p)
-        ps = sorted(ps, key=year_sort)
+        # Curated union of every K×O cell under this objective (main2.tex-aligned).
+        ps = axis_papers(O)
         on, od = O_LABELS[O]
         sf = subsec_filter_html(ps, prefix=f'oaxis{O}', axis_scope=O)
         cards = '\n'.join(paper_card(p, base='../', axis_scope=O) for p in ps) or '<p class="empty">No entries yet.</p>'

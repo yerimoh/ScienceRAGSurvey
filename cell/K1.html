@@ -5,11 +5,22 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[K1] Textual, Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1784080040">
+<script>
+(() => {
+  try {
+    const stored = localStorage.getItem('srag-bg');
+    document.documentElement.dataset.bg = stored === 'off' ? 'off' : 'on';
+  } catch (e) {
+    document.documentElement.dataset.bg = 'on';
+  }
+})();
+</script>
+<link rel="stylesheet" href="../static/style.css?v=1784087157">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 <button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+<button class="bg-toggle" aria-label="Toggle white background" onclick="toggleBackground()">◐</button>
 
 <aside class="sidebar" id="sidebar">
   <a href="../index.html" class="sb-logo">
@@ -26,10 +37,10 @@
     <details class="sb-group" open>
       <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
-        <a href="../cell/K1.html" class="sb-sub active">Textual <span class="sb-count">131</span></a>
-<a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
-<a href="../cell/K3.html" class="sb-sub">Structured-entity <span class="sb-count">76</span></a>
-<a href="../cell/K4.html" class="sb-sub">Perceptual <span class="sb-count">73</span></a>
+        <a href="../cell/K1.html" class="sb-sub active">Textual <span class="sb-count">22</span></a>
+<a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">8</span></a>
+<a href="../cell/K3.html" class="sb-sub">Structured-entity <span class="sb-count">7</span></a>
+<a href="../cell/K4.html" class="sb-sub">Perceptual <span class="sb-count">9</span></a>
 
       </div>
     </details>
@@ -37,12 +48,12 @@
     <details class="sb-group" open>
       <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
-        <a href="../cell/O1.html" class="sb-subhead">Grounding <span class="sb-count">42</span></a>
+        <a href="../cell/O1.html" class="sb-subhead">Grounding <span class="sb-count">24</span></a>
 <a href="../browse.html?sub=Question%20Answering" class="sb-sub sb-task">Question Answering <span class="sb-count">33</span></a>
-<a href="../cell/O2.html" class="sb-subhead">Synthesis <span class="sb-count">18</span></a>
+<a href="../cell/O2.html" class="sb-subhead">Synthesis <span class="sb-count">9</span></a>
 <a href="../browse.html?sub=Claim%20Verification" class="sb-sub sb-task">Claim Verification <span class="sb-count">3</span></a>
 <a href="../browse.html?sub=Literature%20Synthesis" class="sb-sub sb-task">Literature Synthesis <span class="sb-count">15</span></a>
-<a href="../cell/O3.html" class="sb-subhead">Discovery <span class="sb-count">37</span></a>
+<a href="../cell/O3.html" class="sb-subhead">Discovery <span class="sb-count">13</span></a>
 <a href="../browse.html?sub=Property%20Prediction" class="sb-sub sb-task">Property Prediction <span class="sb-count">13</span></a>
 <a href="../browse.html?sub=Molecular%20Design" class="sb-sub sb-task">Molecular Design <span class="sb-count">8</span></a>
 <a href="../browse.html?sub=Materials%20Discovery" class="sb-sub sb-task">Materials Discovery <span class="sb-count">10</span></a>
@@ -112,7 +123,7 @@
   <div class="wrap">
     <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
     <h1><span class="cell-id-big">[K1]</span> Textual</h1>
-    <p class="lede"><strong>131</strong> K-axis-only entries (datasets / knowledge sources without paired O).</p>
+    <p class="lede"><strong>22</strong> systems on the Textual substrate, across all objectives.</p>
     <div class="cell-axis-pair">
       <div class="axis-card axis-k">
         <span class="axis-tag">K 1</span>
@@ -127,21 +138,30 @@
   <div class="wrap">
     
     <div class="card-grid"><article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2601.22684" target="_blank" rel="noopener">BioModelsRAG: A Biological Modeling Assistant Using RAG (Retrieval Augmented Generation) ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">BioModels Custom QA</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2026</span></div>
+  <h3 class="card-title"><a href="https://aclanthology.org/2024.findings-acl.372" target="_blank" rel="noopener">Benchmarking Retrieval-Augmented Generation for Medicine ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">MEDRAG</span>, <span class="meta-venue">ACL (Findings)</span>, <span class="meta-year">2024</span></div>
+  <p class="card-note">A RAG toolkit and benchmark for medical QA. PubMed + RRF over 4 corpora is optimal; GPT-3.5+MEDRAG approaches CoT GPT-4.</p>
   
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
+  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
+  <a href="../papers/DBLP_conf_acl_Xiong0LZ24.html" class="card-summary-link">Summary →</a>
 </article>
 
 <article class="card" data-sub="">
-  <h3 class="card-title">BioModelsRAG: Biological Modeling Assistant</h3>
-  <div class="card-meta"><span class="meta-method">BioModelsRAG</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2026</span></div>
-  <p class="card-note">K2 EXEMPLAR, curated systems-biology DB. SBML→Antimony→LLM-summary→ChromaDB pipeline.</p>
+  <h3 class="card-title">DBLP:conf/pasc/GokdemirSBWHHSA25</h3>
   
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <p class="card-note">HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 76%; outperforms PubMedGPT and GPT-4; scales to thousands of GPUs</p>
   
+  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <a href="../papers/DBLP_conf_pasc_GokdemirSBWHHSA25.html" class="card-summary-link">Summary →</a>
+</article>
+
+<article class="card" data-sub="">
+  <h3 class="card-title"><a href="https://doi.org/10.18653/v1/2022.emnlp-main.390" target="_blank" rel="noopener">BioReader: a Retrieval-Enhanced Text-to-Text Transformer for Biomedical Literature ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">BioReader</span>, <span class="meta-venue">EMNLP</span>, <span class="meta-year">2022</span></div>
+  <p class="card-note">The first retrieval-enhanced biomedical T5. It fetches relevant chunks from a ~60M-token PubMed-centric neural database and injects them via chunked cross-attention, surpassing prior SOTA on several biomedical NLP/QA tasks with 3x fewer parameters.</p>
+  
+  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <a href="../papers/DBLP_conf_emnlp_FrisoniMMV22.html" class="card-summary-link">Summary →</a>
 </article>
 
 <article class="card" data-sub="">
@@ -154,426 +174,12 @@
 </article>
 
 <article class="card" data-sub="">
-  <h3 class="card-title">MatClaw RAG Benchmark (pymatgen/atomate2)</h3>
-  <div class="card-meta"><span class="meta-method">MatClaw RAG Benchmark</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2026</span></div>
-  <p class="card-note">Structure-aware chunking 99% accuracy. Code as domain knowledge.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">OpenScholar: Synthesizing Scientific Literature with RAG LMs</h3>
-  <div class="card-meta"><span class="meta-method">OpenScholar</span>, <span class="meta-venue">Nature</span>, <span class="meta-year">2026</span></div>
-  <p class="card-note">★★ K1.O2 FLAGSHIP. Iterative self-feedback. 0% hallucination vs GPT-4o 78-90%. Experts prefer OpenScholar-GPT-4o over human 70%. Public demo 30K users.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2603.21582" target="_blank" rel="noopener">Overview of TREC 2025 Biomedical Generative Retrieval (BioGen) Track ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">TREC 2025 BioGen</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2026</span></div>
-  
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2602.16650v1" target="_blank" rel="noopener">Retrieval Augmented Generation of Literature-derived Polymer Knowledge: The Example of a Biodegradable Polymer Expert System ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">PHA-related Domain-Expert QA Benchmark</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2026</span></div>
-  <p class="card-note">113 RAG QA items in the PHA domain. General / paper-specific / multi-paper.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2604.02259" target="_blank" rel="noopener">Retrieval-Augmented Question Answering over Scientific Literature for the Electron-Ion Collider ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">EIC RAG Q&amp;A application</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2026</span></div>
-  <p class="card-note">Local RAG for the EIC. Chunk size 180 + cosine is optimal.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/jat2026retrieval.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://doi.org/10.1038/s41586-025-10072-4" target="_blank" rel="noopener">Synthesizing Scientific Literature with Retrieval-Augmented Language Models ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">ScholarQABench</span>, <span class="meta-venue">Nature</span>, <span class="meta-year">2026</span></div>
-  <p class="card-note">OpenScholar&#x27;s multidisciplinary long-form synthesis benchmark.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/asai2026synthesizing.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2402.18060" target="_blank" rel="noopener">Benchmarking Large Language Models on Answering and Explaining Challenging Medical Questions ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">Medbullets</span>, <span class="meta-venue">NAACL</span>, <span class="meta-year">2025</span></div>
-  
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2405.00465" target="_blank" rel="noopener">BiomedRAG: A Retrieval Augmented Large Language Model for Biomedicine ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">BiomedRAG</span>, <span class="meta-venue">Journal of Biomedical Informatics</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Trains a tailored chunk scorer on LLM perplexity. +22.43pp F1 on GIT.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2508.05728" target="_blank" rel="noopener">CLAPP: The CLASS LLM Agent for Pair Programming ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">CLAPP</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">RAG over the CLASS official documentation + a 5-agent AG2 multi-agent system. Streamlit web app.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/astronomy.html" class="tag tag-domain">🔭Astronomy</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">CPDD (Chronic Pain Diagnostic Dataset / MedRAG benchmark)</h3>
-  <div class="card-meta"><span class="meta-method">CPDD</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">★ K4: Private hospital EHR. Used by MedRAG (KG-elicited).</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://aclanthology.org/2025.emnlp-industry.3/" target="_blank" rel="noopener">CRAB: A Benchmark for Evaluating Curation of Retrieval-Augmented LLMs in Biomedicine ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">CRAB</span>, <span class="meta-venue">EMNLP (Industry Track)</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Curated multilingual biomedical benchmark; reveals over-reasoning in reasoning-specialized LLMs.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2501.02031" target="_blank" rel="noopener">CarbonChat: Large Language Model-Based Corporate Carbon Emission Analysis and Climate Knowledge Q&amp;A System ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">CarbonChat QA</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2025</span></div>
-  
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2508.01643v1" target="_blank" rel="noopener">ChEmbed: Enhancing Chemical Literature Search Through Domain-Specific Text Embeddings ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">ChemRxiv Retrieval</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">ChEmbed_prog 0.911 nDCG@10.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://doi.org/10.1088/2632-2153/adc2d6" target="_blank" rel="noopener">ChemLit-QA: a human evaluated dataset for chemistry RAG tasks ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">ChemLit-QA</span>, <span class="meta-venue">Mach. Learn.: Sci. Technol.</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Chemistry RAG QAC with 7 reasoning types and a negative set for hallucination detection.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2506.17277" target="_blank" rel="noopener">Chunk Twice, Embed Once: A Systematic Study of Segmentation and Representation Trade-offs in Chemistry-Aware Retrieval-Augmented Generation ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">RT100-0</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Chunking and embedding guidelines for chemistry RAG. RT100-0 + general-purpose models work best. Releases the MTEB-compatible FSUChemRxivQuest.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">DUNE Knowledge Retrieval: Large-scale Indexing of Fermilab Collaboration Documents</h3>
-  <div class="card-meta"><span class="meta-method">DUNE-GPT</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">RAG over DUNE DocDB + Indico + internal wikis; multi-qa-mpnet + FAISS; ~70% retrieval accuracy (preliminary); Fermilab on-premise</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/rafique2025large.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2507.07155" target="_blank" rel="noopener">Evaluating Retrieval-Augmented Generation Agents for Autonomous Scientific Discovery in Astrophysics ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">CosmoPaperQA</span>, <span class="meta-venue">ML4Astro @ ICML</span>, <span class="meta-year">2025</span></div>
-  
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/astronomy.html" class="tag tag-domain">🔭Astronomy</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2507.15715" target="_blank" rel="noopener">From Queries to Criteria: Understanding How Astronomers Evaluate LLMs ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">Astro-LLMs-Benchmark</span>, <span class="meta-venue">COLM</span>, <span class="meta-year">2025</span></div>
-  
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/astronomy.html" class="tag tag-domain">🔭Astronomy</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2509.09686v2" target="_blank" rel="noopener">GeoGPT-RAG Technical Report ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">GeoRAG-QA</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Open-ended geoscience RAG benchmark; metric = Answer Recall + Top-K Recall; not closed-form MC</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2509-09686.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2504.01458" target="_blank" rel="noopener">GeoRAG: A Question-Answering Approach from a Geographical Perspective ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">GeoRAG</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Seven-dimensional geography RAG: +28.7% accuracy, -41.9% hallucination.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2408.00727" target="_blank" rel="noopener">Improving Retrieval-Augmented Generation in Medicine with Iterative Follow-up Questions ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">i-MedRAG</span>, <span class="meta-venue">PSB</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Medical RAG that iteratively generates follow-up queries. Zero-shot GPT-3.5 reaches 69.68% (SOTA) on MedQA.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://aclanthology.org/2025.climatenlp-1.17/" target="_blank" rel="noopener">Listen to the Context: Towards Faithful Large Language Models for Retrieval Augmented Generation on Climate Questions ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">ClimateGPT Faithful+</span>, <span class="meta-venue">ClimateNLP @ ACL</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Instruction-tuning ablation: removing the unfaithful subset raises faithfulness from 30% to 57%.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">MITRA: AI Assistant for Knowledge Retrieval in Physics Collaborations</h3>
-  <div class="card-meta"><span class="meta-method">MITRA</span>, <span class="meta-venue">ML4PS @ NeurIPS</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">★ K4: CMS Private. On-prem GPU. Two-tier DB prevents cross-analysis confusion. Set 2 paraphrase: P@1 0.13→0.75 vs BM25.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2507.07257" target="_blank" rel="noopener">Open Source Planning &amp; Control System with Language Agents for Autonomous Scientific Discovery ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">cmbagent</span>, <span class="meta-venue">ML for Astrophysics @ ICML</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">~30 LLM agents for planning and control. 1st place at NeurIPS 2025 Fair Universe; 91.4% with OpenAI on CosmoPaperQA.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/astronomy.html" class="tag tag-domain">🔭Astronomy</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2502.13668" target="_blank" rel="noopener">PeerQA: A Scientific Question Answering Dataset from Peer Reviews ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">PeerQA Baselines</span>, <span class="meta-venue">NAACL</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Peer-review questions paired with the original authors&#x27; answers; long-context QA. Prepending the title improves retrieval.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">RAG for 10 LLMs in assessing medical fitness</h3>
-  <div class="card-meta"><span class="meta-method">LLM-RAG pipeline for preoperative medicine</span>, <span class="meta-venue">npj Digital Medicine</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">GPT-4 RAG accuracy 96.4% &gt; human MD avg 86.6%. K4 partial via local hospital protocols.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://openreview.net/forum?id=2Xwa540MzD" target="_blank" rel="noopener">RAISE: Enhancing Scientific Reasoning in LLMs via Step-by-Step Retrieval ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">RAISE</span>, <span class="meta-venue">MATH-AI @ NeurIPS</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Decomposes the problem and issues logical queries to search an in-the-wild corpus, step by step.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">RAR2: Retrieval-Augmented Medical Reasoning via Thought-Driven Retrieval</h3>
-  <div class="card-meta"><span class="meta-method">RAR2</span>, <span class="meta-venue">EMNLP (Findings)</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Joint DPO over thought retrieval and retrieval reasoning. Test-time scaling.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">Rationale-Guided Retrieval Augmented Generation for Medical Question Answering</h3>
-  <div class="card-meta"><span class="meta-method">RAG²</span>, <span class="meta-venue">NAACL</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Trains a small filter model with perplexity-difference auto-labeling + rationale queries + balanced retrieval. SOTA on MedQA.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_naacl_SohnPYPHSKK25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">Retrieval-Augmented Generation Assistant for Anatomical Pathology Laboratories</h3>
-  <div class="card-meta"><span class="meta-method">RAG-AP</span>, <span class="meta-venue">Emerging Science Journal</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">K4 NOVELTY EXAMPLE, internal lab protocols as retrieval source. k=1 best F1=0.50. Hybrid + MedEmbed best on RAGAS.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">Retrieval-augmented generation elevates local LLM quality in radiology contrast media consultation</h3>
-  <div class="card-meta"><span class="meta-method">Llama 3.2 11B + RAG</span>, <span class="meta-venue">npj Digital Medicine</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">local-LLM + RAG → hallucination 0% (was 8%); HIPAA/GDPR compliant.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">Retrieval-augmented generation for generative AI in health care</h3>
-  <div class="card-meta"><span class="meta-venue">npj Health Systems</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Perspective paper on RAG in healthcare: equity, reliability, personalization. Type=summary.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/summary.html" class="tag tag-type">Surveys</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://doi.org/10.1145/3746252.3761471" target="_blank" rel="noopener">SQuAI: Scientific Question-Answering with Multi-Agent Retrieval-Augmented Generation ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">unarXive (Simple, Expert)</span>, <span class="meta-venue">CIKM</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">main.tex: K=-; O=O2</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/DBLP_conf_cikm_BesrourHS025.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://doi.org/10.1145/3711896.3737432" target="_blank" rel="noopener">ScIRGen: Synthesize Realistic and Large-Scale RAG Dataset for Scientific Research ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">ScIRGen</span>, <span class="meta-venue">KDD</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">SePer-Filter at 95% precision; 61k geoscience QA. 10-25% over SOTA on C3-C4.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">SciRag: Evaluating RAG Agents for Autonomous Scientific Discovery in Astrophysics</h3>
-  <div class="card-meta"><span class="meta-method">SciRag</span>, <span class="meta-venue">ML4Astro @ ICML</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">First systematic astronomy RAG eval. 9-config comparison. OpenAI 91.4% best. CMBAgent connection.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/astronomy.html" class="tag tag-domain">🔭Astronomy</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2508.08742" target="_blank" rel="noopener">SciRerankBench: Benchmarking Rerankers Towards Scientific Retrieval-Augmented Generated LLMs ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">SciRerankBench</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">First benchmark for evaluating scientific-RAG rerankers; even when the reranker puts the answer in the top-10, LLM reasoning is the bottleneck.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2502.14739" target="_blank" rel="noopener">SuperGPQA: Scaling LLM Evaluation Across 285 Graduate Disciplines ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">SuperGPQA</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">13 disciplines, 72 fields, 285 graduate-level subfields; human-LLM collaborative filtering.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../domain/astronomy.html" class="tag tag-domain">🔭Astronomy</a><a href="../domain/Quantum.html" class="tag tag-domain">🌀Quantum</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://github.com/Jack-ZC8/Omni-RAG-Medical" target="_blank" rel="noopener">Towards Omni-RAG: Comprehensive Retrieval-Augmented Generation for Large Language Models in Medical Applications ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">Source Planning Optimisation (SPO)</span>, <span class="meta-venue">ACL</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Builds MedOmniKB (5 heterogeneous medical KBs) with a Source-Planning-Optimisation method; a small planner beats a 10x larger model.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">KG</span></div>
-  <a href="../papers/DBLP_conf_acl_ChenLJWG0025.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2510.05336" target="_blank" rel="noopener">WeatherArchive-Bench: Benchmarking Retrieval-Augmented Reasoning for Historical Weather Archives ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">WeatherArchive-Bench</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">First large-scale RAG over historical weather archives; dense models underperform BM25 on archaic language.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://openreview.net/forum?id=X9OfMNNepI" target="_blank" rel="noopener">MOOSE-Chem: Large Language Models for Rediscovering Unseen Chemistry Scientific Hypotheses ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MOOSE-Chem</span>, <span class="meta-venue">ICLR</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Retrieves inspiration papers from chemistry literature (3000 most-cited Nature papers); composes &amp; ranks novel hypotheses; evaluated by rediscovering held-out high-impact 2024 findings (TOMATO-Chem).</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O3.html" class="tag tag-cell" title="K1.O3">Textual × Discovery</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://doi.org/10.18653/v1/2025.naacl-long.342" target="_blank" rel="noopener">ResearchAgent: Iterative Research Idea Generation over Scientific Literature with Large Language Models ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">ResearchAgent</span>, <span class="meta-venue">NAACL</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Expands a core paper with academic-graph literature + a paper-mined entity store; proposes problems/methods/experiments, refined by ReviewingAgents.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O3.html" class="tag tag-cell" title="K1.O3">Textual × Discovery</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://aclanthology.org/2025.findings-emnlp.477/" target="_blank" rel="noopener">Chain of Ideas: Revolutionizing Research Via Novel Idea Development with LLM Agents ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">Chain-of-Ideas</span>, <span class="meta-venue">EMNLP Findings</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Organizes Semantic Scholar citation chains into an evolution chain and extrapolates the next idea; evaluated with Idea Arena (human-preference-aligned).</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O3.html" class="tag tag-cell" title="K1.O3">Textual × Discovery</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://doi.org/10.1007/978-3-031-88720-8_1" target="_blank" rel="noopener">BioRAGent: A Retrieval-Augmented Generation System for Showcasing Generative Query Expansion and Domain-Specific Search for Scientific Q&amp;A ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">BioRAGent</span>, <span class="meta-venue">ECIR</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">A conversational biomedical RAG demo that searches PubMed abstracts and titles via LLM-based generative query expansion and answers with citations to the retrieved papers. Reports top results on the BioASQ 2024 task.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_ecir_AteiaK25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2503.04629" target="_blank" rel="noopener">SurveyForge: On the Outline Heuristics, Memory-Driven Generation, and Multi-dimensional Evaluation for Automated Survey Writing ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">SurveyForge</span>, <span class="meta-venue">ACL</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Learns outline heuristics from human surveys and uses a memory-based scholar-navigation retrieval agent (SANA: subquery decomposition, memory retrieval, time-aware reranking) to gather per-section literature and generate surveys. Beats AutoSurvey on SurveyBench.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_acl_YanFYX00Z25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://doi.org/10.1038/s41746-025-01840-7" target="_blank" rel="noopener">Accelerating clinical evidence synthesis with large language models ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">TrialMind</span>, <span class="meta-venue">npj Digital Medicine</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">A clinical-evidence synthesis pipeline: PICO-based PubMed search, screening, data extraction, outcome-metric standardization, and a human-verified meta-analysis (forest plot). Human-in-the-loop; retrieval recall 0.78 (GPT-4 0.07) and 1.5x median gain over GPT-4 on result extra…</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/wang2025trialmind.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">BIORAG: RAG-LLM Framework for Biological Question Reasoning</h3>
-  <div class="card-meta"><span class="meta-method">BIORAG</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">★ Cross-source K1+K2. MeSH hierarchical filter + dense retrieval. Self-eval loop. SOTA on GeneTuring.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://aclanthology.org/2024.findings-acl.372" target="_blank" rel="noopener">Benchmarking Retrieval-Augmented Generation for Medicine ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MEDRAG</span>, <span class="meta-venue">ACL (Findings)</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">A RAG toolkit and benchmark for medical QA. PubMed + RRF over 4 corpora is optimal; GPT-3.5+MEDRAG approaches CoT GPT-4.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
-  <a href="../papers/DBLP_conf_acl_Xiong0LZ24.html" class="card-summary-link">Summary →</a>
+  <h3 class="card-title"><a href="https://doi.org/10.1093/bioinformatics/btae238" target="_blank" rel="noopener">Improving medical reasoning through retrieval and self-reflection with retrieval-augmented large language models ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">Self-BioRAG</span>, <span class="meta-venue">Bioinformatics (ISMB)</span>, <span class="meta-year">2024</span></div>
+  <p class="card-note">A self-reflective medical RAG that decides on its own whether to retrieve and rates evidence with self-reflection tokens. It retrieves PubMed abstracts, PMC full text, textbooks, and guidelines with MedCPT, and a 7B model beats comparable baselines on MedQA/MedMCQA/MMLU-Med (M…</p>
+  
+  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <a href="../papers/DBLP_journals_bioinformatics_JeongSSK24.html" class="card-summary-link">Summary →</a>
 </article>
 
 <article class="card" data-sub="">
@@ -586,147 +192,48 @@
 </article>
 
 <article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2310.16146" target="_blank" rel="noopener">CLINFO.AI: AN OPEN-SOURCE RETRIEVAL-AUGMENTED LARGE LANGUAGE MODEL SYSTEM FOR ANSWERING MEDICAL QUESTIONS USING SCIENTIFIC LITERATURE ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">PubMedRS-200</span>, <span class="meta-venue">PSB</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">PubMed systematic-review medical QA benchmark. Clinfo.ai, PSB 2024.</p>
+  <h3 class="card-title">Rationale-Guided Retrieval Augmented Generation for Medical Question Answering</h3>
+  <div class="card-meta"><span class="meta-method">RAG²</span>, <span class="meta-venue">NAACL</span>, <span class="meta-year">2025</span></div>
+  <p class="card-note">Trains a small filter model with perplexity-difference auto-labeling + rationale queries + balanced retrieval. SOTA on MedQA.</p>
   
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2310-16146.html" class="card-summary-link">Summary →</a>
+  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <a href="../papers/DBLP_conf_naacl_SohnPYPHSKK25.html" class="card-summary-link">Summary →</a>
 </article>
 
 <article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2401.09646" target="_blank" rel="noopener">ClimateGPT: Towards AI Synthesizing Interdisciplinary Research on Climate Change ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">ClimateGPT IFT Test Set</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2024</span></div>
+  <h3 class="card-title"><a href="https://arxiv.org/abs/2312.07559v2" target="_blank" rel="noopener">PaperQA: Retrieval-Augmented Generative Agent for Scientific Research ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">PaperQA</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2023</span></div>
+  <p class="card-note">Map-reduce answers with cited evidence and 0% citation hallucination; introduces the LitQA benchmark.</p>
   
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
+  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <a href="../papers/DBLP_journals_corr_abs-2312-07559.html" class="card-summary-link">Summary →</a>
 </article>
 
 <article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2405.20389" target="_blank" rel="noopener">Designing an Evaluation Framework for Large Language Models in Astronomy Research ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">Ask astro-ph</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">A Slack RAG chatbot (gpt-4o + bge-small) for astronomy researchers, with a dynamic evaluation framework.</p>
+  <h3 class="card-title"><a href="https://github.com/Jack-ZC8/Omni-RAG-Medical" target="_blank" rel="noopener">Towards Omni-RAG: Comprehensive Retrieval-Augmented Generation for Large Language Models in Medical Applications ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">Source Planning Optimisation (SPO)</span>, <span class="meta-venue">ACL</span>, <span class="meta-year">2025</span></div>
+  <p class="card-note">Builds MedOmniKB (5 heterogeneous medical KBs) with a Source-Planning-Optimisation method; a small planner beats a 10x larger model.</p>
   
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/astronomy.html" class="tag tag-domain">🔭Astronomy</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
+  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">KG</span></div>
+  <a href="../papers/DBLP_conf_acl_ChenLJWG0025.html" class="card-summary-link">Summary →</a>
 </article>
 
 <article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://doi.org/10.1093/nar/gkad1085" target="_blank" rel="noopener">Europe PMC in 2023 ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">Europe PMC REST API</span>, <span class="meta-venue">Nucleic Acids Research</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">K1 domain-specific (biomedical): open full text + preprint integration. bib title says &#x27;in 2024&#x27; but actual paper is &#x27;in 2023&#x27;.</p>
+  <h3 class="card-title"><a href="https://doi.org/10.1007/978-3-031-88720-8_1" target="_blank" rel="noopener">BioRAGent: A Retrieval-Augmented Generation System for Showcasing Generative Query Expansion and Domain-Specific Search for Scientific Q&amp;A ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">BioRAGent</span>, <span class="meta-venue">ECIR</span>, <span class="meta-year">2025</span></div>
+  <p class="card-note">A conversational biomedical RAG demo that searches PubMed abstracts and titles via LLM-based generative query expansion and answers with citations to the retrieved papers. Reports top results on the BioASQ 2024 task.</p>
   
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
-  <a href="../papers/europepmc2024.html" class="card-summary-link">Summary →</a>
+  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <a href="../papers/DBLP_conf_ecir_AteiaK25.html" class="card-summary-link">Summary →</a>
 </article>
 
 <article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2311.12022" target="_blank" rel="noopener">GPQA: A graduate-level google-proof q&amp;a benchmark ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">GPQA</span>, <span class="meta-venue">COLM</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">PhD-level physics/chemistry/biology MCQs. Non-experts with Google score 22.1%; experts 81.3%.</p>
+  <h3 class="card-title"><a href="https://arxiv.org/abs/2402.01788" target="_blank" rel="noopener">LitLLM: A Toolkit for Scientific Literature Review ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">LitLLM</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2024</span></div>
+  <p class="card-note">A modular RAG toolkit that searches from the user&#x27;s abstract as a query (Semantic Scholar/OpenAlex), reranks by LLM permutation, and generates a plan-based related-work section with sentence-count and per-line citation control.</p>
   
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://www.americangeosciences.org/information/georef" target="_blank" rel="noopener">GeoRef: Comprehensive Geoscience Bibliography ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">GeoRef Search</span>, <span class="meta-venue">American Geosciences Institute</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">K1 domain-specific (geoscience): @misc citation. Most comprehensive geoscience bibliography.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
-  <a href="../papers/georef.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2409.13740" target="_blank" rel="noopener">Language Agents Achieve Superhuman Synthesis of Scientific Knowledge ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">PaperQA2</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">RAG that surpasses human experts: PaperQA2 85.2% vs humans 73.8%. RCS + citation traversal.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2409-13740.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://doi.org/10.18653/v1/2024.emnlp-main.840" target="_blank" rel="noopener">LitSearch: A Retrieval Benchmark for Scientific Literature Search ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">LitSearch</span>, <span class="meta-venue">EMNLP</span>, <span class="meta-year">2024</span></div>
-  
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://pubs.rsc.org/en/content/articlelanding/2024/dd/d3dd00188a" target="_blank" rel="noopener">MaScQA: Investigating Materials Science Knowledge of Large Language Models ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MaScQA</span>, <span class="meta-venue">Digital Discovery (RSC)</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Used to evaluate HoneyComb; 650 GATE-exam items. GPT-4 ~62%.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/zaki2024mascqa.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2412.00431" target="_blank" rel="noopener">Multi-Agent System for Cosmological Parameter Analysis ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">cmbagent</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Three specialized RAG agents in a multi-agent system reproduce the ACT DR6 cosmological-parameter analysis in 40 minutes with zero lines of code.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/astronomy.html" class="tag tag-domain">🔭Astronomy</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/sarkar2024multi.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">Responsible Retrieval Augmented Generation for Climate Decision Making from Documents</h3>
-  <div class="card-meta"><span class="meta-method">R2AG (Responsible RAG)</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">UNECE 16-expert annotated dataset. Defense-in-depth UX. K4 partial: governmental policy = institutional knowledge.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2410-23902.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2403.15729" target="_blank" rel="noopener">Towards a RAG-based Summarization for the Electron Ion Collider ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">RAGS4EIC</span>, <span class="meta-venue">JINST</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">EIC RAG with GPT-3.5. CAR 88.9%, HF 2.0%; weak on LaTeX.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2403.15729" target="_blank" rel="noopener">Towards a RAG-based Summarization for the Electron-Ion Collider ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">AI4EIC2023_DATASETS</span>, <span class="meta-venue">JINST</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">EIC benchmark of 51 QA pairs; GPT-4 + human experts.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">Towards a RAG-based Summarization for the Electron-Ion Collider</h3>
-  <div class="card-meta"><span class="meta-method">EIC RAG</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">RAG-based summarization AI for EIC institutional documents; LangChain + vector DB; RAGAs evaluation; prompt template instruction-tuning; Streamlit web app; serves 1,400+ physicists in 38 countries</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2403-15729.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://doi.org/10.18653/v1/2024.acl-long.18" target="_blank" rel="noopener">SciMON: Scientific Inspiration Machines Optimized for Novelty ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">SciMON</span>, <span class="meta-venue">ACL</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Retrieves inspirations from 67K ACL Anthology papers + citation/KG neighbors built from the corpus; iteratively optimizes generated idea for novelty against prior work.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O3.html" class="tag tag-cell" title="K1.O3">Textual × Discovery</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://doi.org/10.1093/bioinformatics/btae238" target="_blank" rel="noopener">Improving medical reasoning through retrieval and self-reflection with retrieval-augmented large language models ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">Self-BioRAG</span>, <span class="meta-venue">Bioinformatics (ISMB)</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">A self-reflective medical RAG that decides on its own whether to retrieve and rates evidence with self-reflection tokens. It retrieves PubMed abstracts, PMC full text, textbooks, and guidelines with MedCPT, and a 7B model beats comparable baselines on MedQA/MedMCQA/MMLU-Med (M…</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_bioinformatics_JeongSSK24.html" class="card-summary-link">Summary →</a>
+  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <a href="../papers/DBLP_journals_corr_abs-2402-01788.html" class="card-summary-link">Summary →</a>
 </article>
 
 <article class="card" data-sub="">
@@ -748,560 +255,83 @@
 </article>
 
 <article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2402.01788" target="_blank" rel="noopener">LitLLM: A Toolkit for Scientific Literature Review ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">LitLLM</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">A modular RAG toolkit that searches from the user&#x27;s abstract as a query (Semantic Scholar/OpenAlex), reranks by LLM permutation, and generates a plan-based related-work section with sentence-count and per-line citation control.</p>
+  <h3 class="card-title"><a href="https://doi.org/10.1145/3746252.3761471" target="_blank" rel="noopener">SQuAI: Scientific Question-Answering with Multi-Agent Retrieval-Augmented Generation ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">unarXive (Simple, Expert)</span>, <span class="meta-venue">CIKM</span>, <span class="meta-year">2025</span></div>
+  <p class="card-note">main.tex: K=-; O=O2</p>
+  
+  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
+  <a href="../papers/DBLP_conf_cikm_BesrourHS025.html" class="card-summary-link">Summary →</a>
+</article>
+
+<article class="card" data-sub="">
+  <h3 class="card-title"><a href="https://arxiv.org/abs/2310.16146" target="_blank" rel="noopener">CLINFO.AI: AN OPEN-SOURCE RETRIEVAL-AUGMENTED LARGE LANGUAGE MODEL SYSTEM FOR ANSWERING MEDICAL QUESTIONS USING SCIENTIFIC LITERATURE ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">PubMedRS-200</span>, <span class="meta-venue">PSB</span>, <span class="meta-year">2024</span></div>
+  <p class="card-note">PubMed systematic-review medical QA benchmark. Clinfo.ai, PSB 2024.</p>
+  
+  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
+  <a href="../papers/DBLP_journals_corr_abs-2310-16146.html" class="card-summary-link">Summary →</a>
+</article>
+
+<article class="card" data-sub="">
+  <h3 class="card-title"><a href="https://arxiv.org/abs/2503.04629" target="_blank" rel="noopener">SurveyForge: On the Outline Heuristics, Memory-Driven Generation, and Multi-dimensional Evaluation for Automated Survey Writing ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">SurveyForge</span>, <span class="meta-venue">ACL</span>, <span class="meta-year">2025</span></div>
+  <p class="card-note">Learns outline heuristics from human surveys and uses a memory-based scholar-navigation retrieval agent (SANA: subquery decomposition, memory retrieval, time-aware reranking) to gather per-section literature and generate surveys. Beats AutoSurvey on SurveyBench.</p>
   
   <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2402-01788.html" class="card-summary-link">Summary →</a>
+  <a href="../papers/DBLP_conf_acl_YanFYX00Z25.html" class="card-summary-link">Summary →</a>
 </article>
 
 <article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://doi.org/10.1038/s41597-023-02068-4" target="_blank" rel="noopener">BioASQ-QA: A manually curated corpus for Biomedical Question Answering ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">BioASQ-QA</span>, <span class="meta-venue">Scientific Data</span>, <span class="meta-year">2023</span></div>
-  <p class="card-note">4,721 expert-annotated biomedical QA pairs; running since 2012; combines exact answer + ideal summary; used for evaluation in cross-modal grounding section</p>
+  <h3 class="card-title"><a href="https://arxiv.org/abs/2409.13740" target="_blank" rel="noopener">Language Agents Achieve Superhuman Synthesis of Scientific Knowledge ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">PaperQA2</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2024</span></div>
+  <p class="card-note">RAG that surpasses human experts: PaperQA2 85.2% vs humans 73.8%. RCS + citation traversal.</p>
   
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/krithara2023bioasq.html" class="card-summary-link">Summary →</a>
+  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <a href="../papers/DBLP_journals_corr_abs-2409-13740.html" class="card-summary-link">Summary →</a>
 </article>
 
 <article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://www.ipcc.ch/report/ar6/syr/" target="_blank" rel="noopener">Climate Change 2023: Synthesis Report (IPCC AR6) ↗</a></h3>
-  <div class="card-meta"><span class="meta-venue">IPCC</span>, <span class="meta-year">2023</span></div>
-  <p class="card-note">K1 domain-specific (climate): IPCC AR6 Synthesis Report 2023. Authoritative multi-sector climate science reference used by ClimateRAG systems.</p>
+  <h3 class="card-title"><a href="https://doi.org/10.1038/s41586-025-10072-4" target="_blank" rel="noopener">Synthesizing Scientific Literature with Retrieval-Augmented Language Models ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">ScholarQABench</span>, <span class="meta-venue">Nature</span>, <span class="meta-year">2026</span></div>
+  <p class="card-note">OpenScholar&#x27;s multidisciplinary long-form synthesis benchmark.</p>
   
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/lee2023climate.html" class="card-summary-link">Summary →</a>
+  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
+  <a href="../papers/asai2026synthesizing.html" class="card-summary-link">Summary →</a>
 </article>
 
 <article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2211.11501" target="_blank" rel="noopener">DS-1000: A Natural and Reliable Benchmark for Data Science Code Generation ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">DS-1000</span>, <span class="meta-venue">ICML</span>, <span class="meta-year">2023</span></div>
+  <h3 class="card-title"><a href="https://doi.org/10.18653/v1/2024.acl-long.18" target="_blank" rel="noopener">SciMON: Scientific Inspiration Machines Optimized for Novelty ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">SciMON</span>, <span class="meta-venue">ACL</span>, <span class="meta-year">2024</span></div>
+  <p class="card-note">Retrieves inspirations from 67K ACL Anthology papers + citation/KG neighbors built from the corpus; iteratively optimizes generated idea for novelty against prior work.</p>
   
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">GeneTuring tests GPT models in genomics</h3>
-  <div class="card-meta"><span class="meta-method">GeneTuring</span>, <span class="meta-venue">bioRxiv</span>, <span class="meta-year">2023</span></div>
-  <p class="card-note">Genomics LLM evaluation benchmark; 12 NCBI subtasks. GeneGPT/BIORAG dominate general LLMs.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
+  <div class="card-tags"><a href="../cell/K1.O3.html" class="tag tag-cell" title="K1.O3">Textual × Discovery</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   
 </article>
 
 <article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://doi.org/10.1038/s41586-023-06291-2" target="_blank" rel="noopener">Large language models encode clinical knowledge ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MultiMedQA</span>, <span class="meta-venue">Nature</span>, <span class="meta-year">2023</span></div>
+  <h3 class="card-title"><a href="https://doi.org/10.18653/v1/2025.naacl-long.342" target="_blank" rel="noopener">ResearchAgent: Iterative Research Idea Generation over Scientific Literature with Large Language Models ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">ResearchAgent</span>, <span class="meta-venue">NAACL</span>, <span class="meta-year">2025</span></div>
+  <p class="card-note">Expands a core paper with academic-graph literature + a paper-mined entity store; proposes problems/methods/experiments, refined by ReviewingAgents.</p>
   
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">LitQA (PaperQA benchmark)</h3>
-  <div class="card-meta"><span class="meta-method">LitQA</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2023</span></div>
-  <p class="card-note">★ Cross-domain (bio+chem+physics+medical). Anti-contamination via post-cutoff papers + &#x27;Insufficient info&#x27; option.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
+  <div class="card-tags"><a href="../cell/K1.O3.html" class="tag tag-cell" title="K1.O3">Textual × Discovery</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   
 </article>
 
 <article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://aclanthology.org/2023.ijcnlp-long.42/" target="_blank" rel="noopener">MedRedQA for medical consumer question answering: Dataset, tasks, and neural baselines ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MedRedQA</span>, <span class="meta-venue">IJCNLP</span>, <span class="meta-year">2023</span></div>
-  <p class="card-note">Real consumer medical QA from Reddit r/AskDocs; 51,000+ pairs, filtered to verified-clinician answers. Used for factuality evaluation in MedRAGChecker (arXiv 2026).</p>
+  <h3 class="card-title"><a href="https://openreview.net/forum?id=X9OfMNNepI" target="_blank" rel="noopener">MOOSE-Chem: Large Language Models for Rediscovering Unseen Chemistry Scientific Hypotheses ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">MOOSE-Chem</span>, <span class="meta-venue">ICLR</span>, <span class="meta-year">2025</span></div>
+  <p class="card-note">Retrieves inspiration papers from chemistry literature (3000 most-cited Nature papers); composes &amp; ranks novel hypotheses; evaluated by rediscovering held-out high-impact 2024 findings (TOMATO-Chem).</p>
   
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2312.07559v2" target="_blank" rel="noopener">PaperQA: Retrieval-Augmented Generative Agent for Scientific Research ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">PaperQA</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2023</span></div>
-  <p class="card-note">Map-reduce answers with cited evidence and 0% citation hallucination; introduces the LitQA benchmark.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2312-07559.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2310.18463" target="_blank" rel="noopener">PeTailor: Improving Large Language Model by Tailored Chunk Scorer in Biomedical Triple Extraction ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">GIT</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2023</span></div>
-  <p class="card-note">Gene-disease triple extraction. BiomedRAG +22.43pp F1.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
+  <div class="card-tags"><a href="../cell/K1.O3.html" class="tag tag-cell" title="K1.O3">Textual × Discovery</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   
 </article>
 
 <article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://doi.org/10.1101/2023.05.02.23289410" target="_blank" rel="noopener">Repurposing non-pharmacological interventions for Alzheimer&#x27;s disease through link prediction on biomedical literature ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">ADInt</span>, <span class="meta-venue">medRxiv</span>, <span class="meta-year">2023</span></div>
-  <p class="card-note">AD Link Prediction. BiomedRAG.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/xiao2024repurposing.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2211.13308" target="_blank" rel="noopener">SciRepEval: A Multi-Format Benchmark for Scientific Document Representations ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">SciRepEval</span>, <span class="meta-venue">EMNLP</span>, <span class="meta-year">2023</span></div>
-  <p class="card-note">SPECTER2 across 4 formats and 24 tasks.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://proceedings.mlr.press/v174/pal22a.html" target="_blank" rel="noopener">MedMCQA: A Large-scale Multi-Subject Multi-Choice Dataset for Medical domain Question Answering ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MedMCQA</span>, <span class="meta-venue">CHIL</span>, <span class="meta-year">2022</span></div>
-  
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2210.13777" target="_blank" rel="noopener">SCIFACT-OPEN: Towards open-domain scientific claim verification ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">SCIFACT-OPEN</span>, <span class="meta-venue">EMNLP (Findings)</span>, <span class="meta-year">2022</span></div>
-  <p class="card-note">Open-domain over 500K documents; SOTA F1 drops 15-30, exposing a generalization limit.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/DBLP_conf_emnlp_WaddenLKCBWH22.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://doi.org/10.18653/v1/2022.emnlp-main.390" target="_blank" rel="noopener">BioReader: a Retrieval-Enhanced Text-to-Text Transformer for Biomedical Literature ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">BioReader</span>, <span class="meta-venue">EMNLP</span>, <span class="meta-year">2022</span></div>
-  <p class="card-note">The first retrieval-enhanced biomedical T5. It fetches relevant chunks from a ~60M-token PubMed-centric neural database and injects them via chunked cross-attention, surpassing prior SOTA on several biomedical NLP/QA tasks with 3x fewer parameters.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_emnlp_FrisoniMMV22.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://openreview.net/forum?id=d7KBjmI3GmQ" target="_blank" rel="noopener">Measuring Massive Multitask Language Understanding ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MMLU</span>, <span class="meta-venue">ICLR</span>, <span class="meta-year">2021</span></div>
-  <p class="card-note">Massive multitask language understanding: 57 subjects, 15,908 items; ~6.5% ground-truth errors.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../domain/astronomy.html" class="tag tag-domain">🔭Astronomy</a><a href="../domain/Quantum.html" class="tag tag-domain">🌀Quantum</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2009.13081" target="_blank" rel="noopener">What Disease does this Patient Have? A Large-scale Open Domain Question Answering Dataset from Medical Exams ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MedQA</span>, <span class="meta-venue">Applied Sciences</span>, <span class="meta-year">2021</span></div>
-  <p class="card-note">61k medical open-QA in 3 languages from real medical-licensing exams; USMLE is the hardest. Used as a benchmark for multi-hop reasoning.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://doi.org/10.1162/qss_a_00022" target="_blank" rel="noopener">Crossref: The sustainable source of community-owned scholarly metadata ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">Crossref REST API</span>, <span class="meta-venue">Quantitative Science Studies</span>, <span class="meta-year">2020</span></div>
-  <p class="card-note">K1 infrastructure: DOI registry, 106M records, community-owned scholarly metadata. Growing 11%/yr.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
-  <a href="../papers/DBLP_journals_qss_HendricksTLF20.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://doi.org/10.1162/qss_a_00020" target="_blank" rel="noopener">Dimensions ↗</a></h3>
-  <div class="card-meta"><span class="meta-venue">Quant. Sci. Stud.</span>, <span class="meta-year">2020</span></div>
-  <p class="card-note">Dimensions: Digital Science citation database (commercial K1 general literature)</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://aclanthology.org/2020.acl-main.671/" target="_blank" rel="noopener">Explainable Automated Fact-Checking for Public Health Claims ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">PubHealth</span>, <span class="meta-venue">EMNLP</span>, <span class="meta-year">2020</span></div>
-  
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://aclanthology.org/2020.emnlp-main.609/" target="_blank" rel="noopener">Fact or Fiction: Verifying Scientific Claims ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">VERISCI</span>, <span class="meta-venue">EMNLP</span>, <span class="meta-year">2020</span></div>
-  <p class="card-note">First formalization of scientific claim verification; SCIFACT with 1.4K citances. A 3-stage TF-IDF + RoBERTa pipeline.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_emnlp_WaddenLLWZCH20.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2010.13337" target="_blank" rel="noopener">Ginger Cannot Cure Cancer: Battling Fake Health News with a Comprehensive Data Repository ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">FakeHealth</span>, <span class="meta-venue">ICWSM</span>, <span class="meta-year">2020</span></div>
-  
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://aclanthology.org/D19-1473/" target="_blank" rel="noopener">Detecting causal language use in science findings ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">HealthAdvice</span>, <span class="meta-venue">EMNLP-IJCNLP</span>, <span class="meta-year">2019</span></div>
-  <p class="card-note">Causal-language detection/classification. MMRAG TC.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://aclanthology.org/D19-1259" target="_blank" rel="noopener">PubMedQA: A Dataset for Biomedical Research Question Answering ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">PubMedQA</span>, <span class="meta-venue">EMNLP</span>, <span class="meta-year">2019</span></div>
-  <p class="card-note">First biomedical yes/no/maybe QA dataset. Humans 78.0% vs models 68.1%.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://aclanthology.org/D19-1259/" target="_blank" rel="noopener">PubMedQA: A Dataset for Biomedical Research Question Answering ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">PubMedQA</span>, <span class="meta-venue">EMNLP-IJCNLP</span>, <span class="meta-year">2019</span></div>
-  <p class="card-note">1k expert-annotated + 61.2k unlabeled + 211.3k artificially generated QA; Yes/No/Maybe from PubMed abstracts; first QA dataset requiring quantitative reasoning over biomedical texts</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/jin-etal-2019-pubmedqa.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://www.biorxiv.org" target="_blank" rel="noopener">bioRxiv: the Preprint Server for Biology ↗</a></h3>
-  <div class="card-meta"><span class="meta-venue">Cold Spring Harb. Lab.</span>, <span class="meta-year">2019</span></div>
-  <p class="card-note">K1 preprint (biology): bioRxiv is the primary biology preprint server, used as retrieval corpus in bio/medical RAG systems before peer review.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/sever2019biorxiv.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://www.medrxiv.org" target="_blank" rel="noopener">medRxiv ↗</a></h3>
-  <div class="card-meta"><span class="meta-venue">Cold Spring Harb. Lab. / Yale / BMJ</span>, <span class="meta-year">2019</span></div>
-  <p class="card-note">K1 preprint (clinical medicine): medRxiv is operated jointly by Cold Spring Harbor Laboratory, Yale University, and BMJ. Covers health sciences preprints.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://chemrxiv.org" target="_blank" rel="noopener">ChemRxiv ↗</a></h3>
-  <div class="card-meta"><span class="meta-venue">ACS / RSC / GDCh / CCS / CSJ</span>, <span class="meta-year">2017</span></div>
-  <p class="card-note">K1 preprint (chemistry): ChemRxiv is co-owned by ACS, Royal Society of Chemistry, German Chemical Society (GDCh), Chinese Chemical Society, and Chemical Society of Japan.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://aclanthology.org/W17-4413/" target="_blank" rel="noopener">Crowdsourcing Multiple Choice Science Questions ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">SciQ</span>, <span class="meta-venue">Workshop on Noisy User-generated Text (WNUT)</span>, <span class="meta-year">2017</span></div>
-  <p class="card-note">Used to evaluate HoneyComb; 13.7K crowd-sourced science MCQs (physics, chemistry, biology). Open AllenAI dataset.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://aclanthology.org/W17-4413/" target="_blank" rel="noopener">Crowdsourcing Multiple Choice Science Questions (SciQ) ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">SciQ</span>, <span class="meta-venue">W-NUT @ EMNLP</span>, <span class="meta-year">2017</span></div>
-  <p class="card-note">main.tex: K=-; O=O1</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/welbl-etal-2017-crowdsourcing.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://eartharxiv.org" target="_blank" rel="noopener">EarthArXiv ↗</a></h3>
-  <div class="card-meta"><span class="meta-venue">Center for Open Science</span>, <span class="meta-year">2017</span></div>
-  <p class="card-note">K1 preprint (earth sciences): EarthArXiv is a community-led open-access preprint server for earth, environmental, and planetary science.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://trec.nist.gov/pubs/trec26/papers/Overview-QA.pdf" target="_blank" rel="noopener">Overview of the Medical Question Answering Task at TREC 2017 LiveQA ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">TREC LiveQA Medical</span>, <span class="meta-venue">TREC</span>, <span class="meta-year">2017</span></div>
-  <p class="card-note">QA benchmark built from real consumer health questions sent to the NLM; tests handling of unstructured real-world questions. MedBioRAG (2025) reaches ROUGE-1 27.33.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/1711.05789" target="_blank" rel="noopener">TREC 2017 LiveQA: Medical Question Answering Track Overview ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">LiveQA</span>, <span class="meta-venue">TREC</span>, <span class="meta-year">2017</span></div>
-  <p class="card-note">Test set of real consumer health questions submitted to the US NLM; 104 items. Used for faithfulness evaluation in MedRAGChecker (arXiv 2026).</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://link.springer.com/chapter/10.1007/978-3-319-30671-1_73" target="_blank" rel="noopener">A full-text learning to rank dataset for medical information retrieval ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">NFCorpus</span>, <span class="meta-venue">ECIR</span>, <span class="meta-year">2016</span></div>
-  <p class="card-note">Full-text learning-to-rank benchmark in the medical domain, from NutritionFacts.org. In MedBioRAG (2025), semantic search reaches NDCG@10 37.91% vs BM25.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://osf.io/preprints" target="_blank" rel="noopener">OSF Preprints ↗</a></h3>
-  <div class="card-meta"><span class="meta-venue">Center for Open Science</span>, <span class="meta-year">2016</span></div>
-  <p class="card-note">K1 preprint (general/social sciences): OSF Preprints (Center for Open Science) hosts community-run servers including PsyArXiv, SocArXiv, and others under a single platform.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://www.ncbi.nlm.nih.gov/books/NBK153387/" target="_blank" rel="noopener">PubMed: the bibliographic database ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">NCBI E-utilities</span>, <span class="meta-venue">The NCBI Handbook (2nd ed.)</span>, <span class="meta-year">2013</span></div>
-  <p class="card-note">K1 domain-specific (biomedical): MeSH vocab, E-utilities API, launched 1996.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
-  <a href="../papers/canese2013pubmed.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://aclanthology.org/S13-2056/" target="_blank" rel="noopener">SemEval-2013 Task 9: Extraction of Drug-Drug Interactions from Biomedical Texts ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">DDI</span>, <span class="meta-venue">SemEval</span>, <span class="meta-year">2013</span></div>
-  <p class="card-note">Drug-drug-interaction relation extraction; used by BiomedRAG.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-015-0564-6" target="_blank" rel="noopener">BioASQ: A challenge on large-scale biomedical semantic indexing and question answering ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">BioASQ</span>, <span class="meta-venue">AAAI Fall Symposium Series</span>, <span class="meta-year">2012</span></div>
-  <p class="card-note">MEDLINE biomedical IR + QA + summarization challenge, expert-annotated. MedBioRAG 98%.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://core.ac.uk" target="_blank" rel="noopener">CORE ↗</a></h3>
-  <div class="card-meta"><span class="meta-venue">D Lib Mag.</span>, <span class="meta-year">2012</span></div>
-  <p class="card-note">CORE: free open-access full-text aggregator (K1 general literature)</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://doi.org/10.1016/j.jbi.2012.04.008" target="_blank" rel="noopener">Development of a benchmark corpus to support the automatic extraction of drug-related adverse effects from medical case reports ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">ade-corpus-v2</span>, <span class="meta-venue">J. Biomed. Informatics</span>, <span class="meta-year">2012</span></div>
-  <p class="card-note">Adverse-drug-reaction classification. BiomedRAG.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://inspirehep.net" target="_blank" rel="noopener">INSPIRE-HEP: The information system for high-energy physics ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">INSPIRE REST API</span>, <span class="meta-venue">INSPIRE Collaboration (system reference)</span>, <span class="meta-year">2012</span></div>
-  <p class="card-note">K1 domain-specific (HEP): @misc citation. Note: survey text lists SLAC (left 2021); correct operators are CERN/DESY/Fermilab/IHEP/IN2P3.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
-  <a href="../papers/inspirehep.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://orcid.org" target="_blank" rel="noopener">ORCID ↗</a></h3>
-  <div class="card-meta"><span class="meta-venue">Learn. Publ.</span>, <span class="meta-year">2012</span></div>
-  <p class="card-note">ORCID: author disambiguation identifier used by OpenAlex (K1 general literature)</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://doi.org/10.1093/nar/gkq906" target="_blank" rel="noopener">ChemProt: a disease chemical biology database ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">ChemProt</span>, <span class="meta-venue">Nucleic Acids Research</span>, <span class="meta-year">2011</span></div>
-  <p class="card-note">Chemical-protein interaction relation-extraction benchmark; 2,432 PubMed abstracts, 5 CPR labels. Improves LLaMA2-13B F1 in BiomedRAG.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/1108.2700" target="_blank" rel="noopener">arXiv: It was twenty years ago today (Ginsparg 2011) ↗</a></h3>
-  <div class="card-meta"><span class="meta-venue">CoRR / arXiv</span>, <span class="meta-year">2011</span></div>
-  <p class="card-note">K1 preprint (general): arXiv hosts full-text preprints across 8 disciplines (physics, math, CS, quantitative biology, quantitative finance, statistics, electrical engineering and systems science, economics) via OAI-PMH and S3 bulk access.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">Overview of BioCreative II gene mention recognition</h3>
-  <div class="card-meta"><span class="meta-method">BC2GM</span>, <span class="meta-venue">Genome biology</span>, <span class="meta-year">2008</span></div>
-  <p class="card-note">BioCreative II Gene Mention; NER over PubMed abstracts. MMRAG Top + Llama-3 F1 0.978.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://www.scopus.com" target="_blank" rel="noopener">Scopus ↗</a></h3>
-  <div class="card-meta"><span class="meta-venue">Elsevier</span>, <span class="meta-year">2004</span></div>
-  <p class="card-note">Elsevier Scopus: subscription-based abstract and citation database (commercial K1 general literature)</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/astro-ph/0002104" target="_blank" rel="noopener">The NASA Astrophysics Data System: Overview ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">ADS Search API</span>, <span class="meta-venue">Astronomy and Astrophysics Supplement Series</span>, <span class="meta-year">2000</span></div>
-  <p class="card-note">K1 domain-specific (astronomy): bibcode system, data archive cross-links (SIMBAD/NED). Founded 1993.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/astronomy.html" class="tag tag-domain">🔭Astronomy</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
-  <a href="../papers/kurtz2000nasa.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://www.webofscience.com" target="_blank" rel="noopener">Web of Science ↗</a></h3>
-  <div class="card-meta"><span class="meta-venue">Clarivate</span>, <span class="meta-year">1997</span></div>
-  <p class="card-note">Clarivate Web of Science: subscription-based multidisciplinary citation index (commercial K1 general literature)</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../domain/earth.html" class="tag tag-domain">🌍Earth Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://www.siemens.com/gproms" target="_blank" rel="noopener">gPROMS: Advanced process modelling software ↗</a></h3>
-  <div class="card-meta"><span class="meta-venue">Software</span>, <span class="meta-year">1990</span></div>
-  <p class="card-note">Leading advanced-process-modeling (APM) platform (equation-based, DAE); battery/pharma/LNG process knowledge embedded</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/gproms.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://www.mathworks.com" target="_blank" rel="noopener">MATLAB and Simulink ↗</a></h3>
-  <div class="card-meta"><span class="meta-venue">Software</span>, <span class="meta-year">1984</span></div>
-  <p class="card-note">Numerical computing and dynamic systems simulation; control/signal/aerospace Toolbox knowledge embedded</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/matlabsimulink.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://www.aspentech.com" target="_blank" rel="noopener">Aspen Plus: Process simulation software ↗</a></h3>
-  <div class="card-meta"><span class="meta-venue">Software</span>, <span class="meta-year">1981</span></div>
-  <p class="card-note">Leading general-purpose chemical-engineering process simulator; thermodynamic/kinetic/unit-operation databases embedded</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/aspenplus.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://www.factsage.com" target="_blank" rel="noopener">FactSage: Thermochemical software and databases ↗</a></h3>
-  <div class="card-meta"><span class="meta-venue">Software</span>, <span class="meta-year">1976</span></div>
-  <p class="card-note">CALPHAD-based thermochemical suite; ~60,000 compounds + 20+ solution DBs (FToxid, FTstel, FTsalt) for metallurgical and high-temperature calculations</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/factsage.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://www.embase.com" target="_blank" rel="noopener">Embase ↗</a></h3>
-  <div class="card-meta"><span class="meta-venue">Elsevier</span>, <span class="meta-year">1974</span></div>
-  <p class="card-note">K1 domain-specific (biomedical/pharma): Elsevier&#x27;s Embase is a subscription-based biomedical database with broader pharmacology and drug-device coverage than PubMed.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://www.metso.com/hsc" target="_blank" rel="noopener">HSC Chemistry: Thermodynamic calculation software ↗</a></h3>
-  <div class="card-meta"><span class="meta-venue">Software</span>, <span class="meta-year">1974</span></div>
-  <p class="card-note">Thermochemical software for pyrometallurgical and hydrometallurgical process simulation; ~30,000 species database (Metso Outotec)</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/hsc.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://www.ansys.com" target="_blank" rel="noopener">ANSYS multiphysics simulation ↗</a></h3>
-  <div class="card-meta"><span class="meta-venue">Software</span>, <span class="meta-year">1970</span></div>
-  <p class="card-note">Multiphysics simulation (structural/fluid/electromagnetic); material property databases embedded</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/ansys.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://www.aveva.com" target="_blank" rel="noopener">Pro/II: Process engineering simulation software ↗</a></h3>
-  <div class="card-meta"><span class="meta-venue">Software</span>, <span class="meta-year">1967</span></div>
-  <p class="card-note">Process simulator widely deployed in refining and petrochemicals; tacit knowledge embedded in unit-operation models</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/proii.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">DBLP:conf/pasc/GokdemirSBWHHSA25</h3>
-  
-  <p class="card-note">HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 76%; outperforms PubMedGPT and GPT-4; scales to thousands of GPUs</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_pasc_GokdemirSBWHHSA25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">DBLP:journals/corr/abs-2406-12881</h3>
-  
-  <p class="card-note">RAG over particle-accelerator electronic logbooks across DESY, BESSY, Fermilab (ADEL), BNL, SLAC, LBNL, CERN; grounded QA over internal operational records</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">DBLP:journals/make/LahiriH25</h3>
-  
-  <p class="card-note">Multimodal RAG fusing PubMed text+figures via cross-modal attention; evaluated on BioASQ and PubMedQA; low hallucination rate; non-inferior to human accuracy</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_make_LahiriH25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://mtsamples.com/" target="_blank" rel="noopener">MTsamples (Web Dataset) ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MTsample</span></div>
-  <p class="card-note">Classifies medical utterances by clinical department. BiomedRAG.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.html" class="tag tag-cell" title="K1">Textual</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">mehta2023copilots</h3>
-  
-  <p class="card-note">RAG over DIII-D and Alcator C-Mod tokamak text logs; grounded operator QA with references rather than action generation. Not indexed by DBLP.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">rehm2025accgpt</h3>
-  
-  <p class="card-note">On-premise RAG chatbot over CERN internal documentation; e5-large-v2 embeddings. Not indexed by DBLP.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+  <h3 class="card-title"><a href="https://aclanthology.org/2025.findings-emnlp.477/" target="_blank" rel="noopener">Chain of Ideas: Revolutionizing Research Via Novel Idea Development with LLM Agents ↗</a></h3>
+  <div class="card-meta"><span class="meta-method">Chain-of-Ideas</span>, <span class="meta-venue">EMNLP Findings</span>, <span class="meta-year">2025</span></div>
+  <p class="card-note">Organizes Semantic Scholar citation chains into an evolution chain and extrapolates the next idea; evaluated with Idea Arena (human-preference-aligned).</p>
+  
+  <div class="card-tags"><a href="../cell/K1.O3.html" class="tag tag-cell" title="K1.O3">Textual × Discovery</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
   
 </article>
 </div>
@@ -1323,6 +353,31 @@
     </p>
   </div>
 </footer>
+<script>
+function toggleBackground() {
+  const root = document.documentElement;
+  const next = root.dataset.bg === 'off' ? 'on' : 'off';
+  root.dataset.bg = next;
+  try {
+    localStorage.setItem('srag-bg', next);
+  } catch (e) {}
+  const button = document.querySelector('.bg-toggle');
+  if (button) {
+    button.setAttribute('aria-pressed', next === 'on' ? 'true' : 'false');
+    button.textContent = next === 'on' ? '◐' : '◑';
+    button.title = next === 'on' ? 'White background on' : 'White background off';
+  }
+}
+(() => {
+  const current = document.documentElement.dataset.bg === 'off' ? 'off' : 'on';
+  const button = document.querySelector('.bg-toggle');
+  if (button) {
+    button.setAttribute('aria-pressed', current === 'on' ? 'true' : 'false');
+    button.textContent = current === 'on' ? '◐' : '◑';
+    button.title = current === 'on' ? 'White background on' : 'White background off';
+  }
+})();
+</script>
 <script src="../static/footnotes.js?v=1779886412"></script>
 </body>
 </html>
