@@ -17,6 +17,11 @@ from collections import defaultdict, Counter
 
 ROOT = Path('/gallery_millet/yerim.oh/ScienceRAGServey/site')
 papers = json.loads((ROOT / 'data/papers.json').read_text())
+# Paper Table 3 (tab:method_systems), extracted by build/extract_method_systems.py. Drives the
+# at-a-glance pipeline table shown atop each cell / axis page. Optional: sites built without it
+# just skip the table.
+_ms_path = ROOT / 'data/method_systems.json'
+METHOD_SYSTEMS = json.loads(_ms_path.read_text()) if _ms_path.exists() else []
 
 # ---------- Reference tables ----------
 # Taxonomy mirrors the survey (Oh et al.). The K axis is the *retrieval substrate*, the
@@ -597,6 +602,91 @@ def axis_papers(axis):
 
 def axis_count(axis):
     return len(axis_papers(axis))
+
+
+# ---------- At-a-glance systems table (paper Table 3) ----------
+_ms_by_key = {s['bib_key']: s for s in METHOD_SYSTEMS}
+COUPLING_ORDER = ['Open', 'Self-check', 'External-verify', 'Closed-loop']
+COUPLING_DESC = {
+    'Open': 'retrieve and generate once, output returned unchecked',
+    'Self-check': 'critiques its own draft, consulting only the retrieved evidence',
+    'External-verify': 'an outside process scores the finished output once',
+    'Closed-loop': 'the verifier runs inside the loop and drives refinement',
+}
+K_SHORT = {'K1': 'Txt', 'K2': 'Rel', 'K3': 'Str', 'K4': 'Prc'}
+O_SHORT = {
+    'Question Answering': 'QA', 'Literature Synthesis': 'LS', 'Claim Verification': 'CV',
+    'Hypothesis Generation': 'HG', 'Molecular Design': 'MD', 'Materials Discovery': 'MtD',
+    'Property Prediction': 'PP', 'Cross-modal Grounding': 'CmG',
+}
+
+
+def _system_name_html(s, base):
+    """System name, linked to its on-site summary page if one exists, else to the
+    external paper, else plain."""
+    bib = s['bib_key']
+    fn = bib.replace(':', '_').replace('/', '_') + '.html'
+    label = esc(s['name'])
+    if (ROOT / 'papers' / fn).exists():
+        return f'<a href="{base}papers/{fn}">{label}</a>'
+    p = papers_by_key.get(bib)
+    link = p.get('paper_link') if p else None
+    if link:
+        return f'<a href="{esc(link)}" target="_blank" rel="noopener">{label}</a>'
+    return label
+
+
+def systems_table_html(bib_keys, base='../', caption=None):
+    """Compact pipeline table for the given systems, mirroring the survey's Table 3
+    (System | K | Construction φ | Matching s | Integration G | Verifier V | O),
+    grouped by depth of verifier coupling. Renders nothing if no system on the page
+    appears in the extracted table."""
+    rows = [_ms_by_key[k] for k in bib_keys if k in _ms_by_key]
+    if not rows:
+        return ''
+    by_couple = defaultdict(list)
+    for r in rows:
+        by_couple[r.get('coupling') or 'Open'].append(r)
+
+    body_rows = []
+    for coup in COUPLING_ORDER:
+        group = by_couple.get(coup)
+        if not group:
+            continue
+        body_rows.append(
+            f'<tr class="sys-group"><td colspan="7"><span class="sys-coupling">{esc(coup)}</span>'
+            f'<span class="sys-coupling-desc">{esc(COUPLING_DESC.get(coup, ""))}</span></td></tr>'
+        )
+        for s in group:
+            k = s.get('K', '')
+            o_full = s.get('O', '')
+            o_rung = s.get('O_rung', '')
+            body_rows.append(
+                '<tr>'
+                f'<td class="sys-name">{_system_name_html(s, base)}</td>'
+                f'<td><span class="sys-k sys-k-{k.lower()}" title="{esc(K_LABELS.get(k, (k,))[0])}">{esc(K_SHORT.get(k, k))}</span></td>'
+                f'<td>{esc(s.get("construction", ""))}</td>'
+                f'<td>{esc(s.get("matching", ""))}</td>'
+                f'<td>{esc(s.get("integration", ""))}</td>'
+                f'<td>{esc(s.get("verifier", ""))}</td>'
+                f'<td><span class="sys-o sys-o-{o_rung.lower()}" title="{esc(o_full)}">{esc(O_SHORT.get(o_full, o_full))}</span></td>'
+                '</tr>'
+            )
+    cap = f'<figcaption class="sys-cap">{esc(caption)}</figcaption>' if caption else ''
+    return f'''
+<figure class="sys-table-wrap">
+  {cap}
+  <div class="sys-table-scroll">
+    <table class="sys-table">
+      <thead><tr>
+        <th>System</th><th>K</th><th>Construction <span class="sys-sym">φ</span></th>
+        <th>Matching <span class="sys-sym">s</span></th><th>Integration <span class="sys-sym">𝒢</span></th>
+        <th>Verifier <span class="sys-sym">𝒱</span></th><th>O</th>
+      </tr></thead>
+      <tbody>{"".join(body_rows)}</tbody>
+    </table>
+  </div>
+</figure>'''
 
 
 def esc(s):
@@ -1617,6 +1707,8 @@ def render_cell_pages():
             factcheck_fns = (f'<section class="footnotes overview-fns" aria-hidden="true"><ol>{"".join(fn_items)}</ol></section>'
                              if fn_items else '')
             sf = subsec_filter_html(ps, prefix=f'cell{cell}', axis_scope=O, cell_key=cell)
+            sys_table = systems_table_html(CELL_PAPERS.get(cell, []), base='../',
+                                           caption=f'Pipeline at a glance — [{cell}] systems, decomposed by stage (survey Table 3).')
 
             # Cell-tier badge (Active / Emerging / Frontier) from §4 K×O Cross-Tab Analysis
             tier_info = CELL_TIERS.get(cell)
@@ -1651,6 +1743,7 @@ def render_cell_pages():
 
 <section class="cell-list">
   <div class="wrap">
+    {sys_table}
     {sf}
     <div class="card-grid">{cards}</div>
   </div>
@@ -1665,6 +1758,8 @@ def render_cell_pages():
         kn, kd = K_LABELS[K]
         cards = '\n'.join(paper_card(p, base='../', axis_scope=K) for p in ps) or '<p class="empty">No entries yet.</p>'
         sf = subsec_filter_html(ps, prefix=f'kaxis{K}', axis_scope=K)
+        sys_table = systems_table_html([s['bib_key'] for s in METHOD_SYSTEMS if s.get('K') == K], base='../',
+                                       caption=f'Pipeline at a glance — {kn} systems, decomposed by stage (survey Table 3).')
         body = f'''
 <section class="cell-hero">
   <div class="wrap">
@@ -1683,6 +1778,7 @@ def render_cell_pages():
 
 <section class="cell-list">
   <div class="wrap">
+    {sys_table}
     {sf}
     <div class="card-grid">{cards}</div>
   </div>
@@ -1697,6 +1793,8 @@ def render_cell_pages():
         on, od = O_LABELS[O]
         sf = subsec_filter_html(ps, prefix=f'oaxis{O}', axis_scope=O)
         cards = '\n'.join(paper_card(p, base='../', axis_scope=O) for p in ps) or '<p class="empty">No entries yet.</p>'
+        sys_table = systems_table_html([s['bib_key'] for s in METHOD_SYSTEMS if s.get('O_rung') == O], base='../',
+                                       caption=f'Pipeline at a glance — {on} systems, decomposed by stage (survey Table 3).')
         # K-cell breakdown pills
         o_cells_nav = '\n'.join(
             f'<a href="../cell/{K}.{O}.html" class="pill" title="{K}.{O}">{cell_label(K+"."+O)} {cell_count(K+"."+O)}</a>'
@@ -1721,6 +1819,7 @@ def render_cell_pages():
 
 <section class="cell-list">
   <div class="wrap">
+    {sys_table}
     {sf}
     <div class="card-grid">{cards}</div>
   </div>

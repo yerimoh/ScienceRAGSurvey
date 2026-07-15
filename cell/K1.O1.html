@@ -15,7 +15,7 @@
   }
 })();
 </script>
-<link rel="stylesheet" href="../static/style.css?v=1784087157">
+<link rel="stylesheet" href="../static/style.css?v=1784107305">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -154,6 +154,20 @@
 
 <section class="cell-list">
   <div class="wrap">
+    
+<figure class="sys-table-wrap">
+  <figcaption class="sys-cap">Pipeline at a glance — [K1.O1] systems, decomposed by stage (survey Table 3).</figcaption>
+  <div class="sys-table-scroll">
+    <table class="sys-table">
+      <thead><tr>
+        <th>System</th><th>K</th><th>Construction <span class="sys-sym">φ</span></th>
+        <th>Matching <span class="sys-sym">s</span></th><th>Integration <span class="sys-sym">𝒢</span></th>
+        <th>Verifier <span class="sys-sym">𝒱</span></th><th>O</th>
+      </tr></thead>
+      <tbody><tr class="sys-group"><td colspan="7"><span class="sys-coupling">Open</span><span class="sys-coupling-desc">retrieve and generate once, output returned unchecked</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_acl_Xiong0LZ24.html">MEDRAG</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>dense + BM25</td><td>rank fusion</td><td>concat</td><td>none</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_pasc_GokdemirSBWHHSA25.html">HiPerRAG</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>ColTrast encoder</td><td>dense cosine</td><td>concat</td><td>none</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_emnlp_FrisoniMMV22.html">BioReader</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>kNN datastore</td><td>neighbor lookup</td><td>cross-attention</td><td>none</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2603-09800.html">MITRA</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>OCR + DPR</td><td>dense + rerank</td><td>cited prompt</td><td>none</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr class="sys-group"><td colspan="7"><span class="sys-coupling">Self-check</span><span class="sys-coupling-desc">critiques its own draft, consulting only the retrieved evidence</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_bioinformatics_JeongSSK24.html">Self-BioRAG</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>MedCPT index</td><td>on-demand</td><td>reflection gate</td><td>reflect tokens</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2408-01107.html">BioRAG</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>PubMedBERT</td><td>dense + MeSH</td><td>iterative reason</td><td>sufficiency gate</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_naacl_SohnPYPHSKK25.html">RAG^2</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>per-corpus dense</td><td>rationale query</td><td>perplexity filter</td><td>utility filter</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2312-07559.html">PaperQA</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>full-text chunks</td><td>agentic search</td><td>summary rerank</td><td>citation check</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_acl_ChenLJWG0025.html">Omni-RAG</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>per-source index</td><td>source planner</td><td>evidence concat</td><td>plan eval</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_ecir_AteiaK25.html">BioRAGent</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>BM25 index</td><td>query expansion</td><td>snippet rerank</td><td>abstain guard</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name">HoneyComb</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>MatSciKB</td><td>BM25 + tool</td><td>tool-exec loop</td><td>tool assessor</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr></tbody>
+    </table>
+  </div>
+</figure>
     <div class="subsec-filter" id="cellK1.O1subf">
 <button class="subsec-btn active" data-sub="">All <span class="subsec-n">10</span></button>
 <button class="subsec-btn" data-sub="Question Answering">Question Answering <span class="subsec-n">10</span></button>

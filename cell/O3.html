@@ -15,7 +15,7 @@
   }
 })();
 </script>
-<link rel="stylesheet" href="../static/style.css?v=1784087157">
+<link rel="stylesheet" href="../static/style.css?v=1784107305">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -140,6 +140,20 @@
 
 <section class="cell-list">
   <div class="wrap">
+    
+<figure class="sys-table-wrap">
+  <figcaption class="sys-cap">Pipeline at a glance — Discovery systems, decomposed by stage (survey Table 3).</figcaption>
+  <div class="sys-table-scroll">
+    <table class="sys-table">
+      <thead><tr>
+        <th>System</th><th>K</th><th>Construction <span class="sys-sym">φ</span></th>
+        <th>Matching <span class="sys-sym">s</span></th><th>Integration <span class="sys-sym">𝒢</span></th>
+        <th>Verifier <span class="sys-sym">𝒱</span></th><th>O</th>
+      </tr></thead>
+      <tbody><tr class="sys-group"><td colspan="7"><span class="sys-coupling">Open</span><span class="sys-coupling-desc">retrieve and generate once, output returned unchecked</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_naacl_LiCJ25.html">GraPPI</a></td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td>STRING + FAISS</td><td>kNN window</td><td>divide-and-solve</td><td>none</td><td><span class="sys-o sys-o-o3" title="Hypothesis Generation">HG</span></td></tr><tr><td class="sys-name"><a href="https://openreview.net/forum?id=78tc3EiUrN" target="_blank" rel="noopener">MADGEN</a></td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td>spectrum-scaffold</td><td>spectrum rank</td><td>spectrum-cond. gen.</td><td>none</td><td><span class="sys-o sys-o-o3" title="Property Prediction">PP</span></td></tr><tr class="sys-group"><td colspan="7"><span class="sys-coupling">Self-check</span><span class="sys-coupling-desc">critiques its own draft, consulting only the retrieved evidence</span></td></tr><tr><td class="sys-name"><a href="https://doi.org/10.18653/v1/2024.acl-long.18" target="_blank" rel="noopener">SciMON</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>embed + graph</td><td>inspiration ret.</td><td>prompt cond.</td><td>novelty loop</td><td><span class="sys-o sys-o-o3" title="Hypothesis Generation">HG</span></td></tr><tr><td class="sys-name"><a href="https://doi.org/10.18653/v1/2025.naacl-long.342" target="_blank" rel="noopener">ResearchAgent</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>entity store</td><td>paper + entity</td><td>prompt cond.</td><td>reviewer loop</td><td><span class="sys-o sys-o-o3" title="Hypothesis Generation">HG</span></td></tr><tr class="sys-group"><td colspan="7"><span class="sys-coupling">External-verify</span><span class="sys-coupling-desc">an outside process scores the finished output once</span></td></tr><tr><td class="sys-name"><a href="https://proceedings.mlr.press/v235/huang24ab.html" target="_blank" rel="noopener">IRDiff</a></td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td>interaction net</td><td>affinity refs</td><td>3D diffusion</td><td>docking score</td><td><span class="sys-o sys-o-o3" title="Molecular Design">MD</span></td></tr><tr><td class="sys-name"><a href="https://arxiv.org/abs/2506.14488" target="_blank" rel="noopener">READ</a></td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td>pocket graph</td><td>scaffold ret.</td><td>modulate steps</td><td>steric filter</td><td><span class="sys-o sys-o-o3" title="Molecular Design">MD</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_bib_ZhangPHCM25.html">Rag2Mol</a></td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td>pocket library</td><td>two-level match</td><td>atom generator</td><td>docking screen</td><td><span class="sys-o sys-o-o3" title="Molecular Design">MD</span></td></tr><tr class="sys-group"><td colspan="7"><span class="sys-coupling">Closed-loop</span><span class="sys-coupling-desc">the verifier runs inside the loop and drives refinement</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_nips_LeeKV0RPVN24.html">f-RAG</a></td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td>fragment vocab</td><td>fragment sim.</td><td>generator inject</td><td>docking loop</td><td><span class="sys-o sys-o-o3" title="Molecular Design">MD</span></td></tr><tr><td class="sys-name"><a href="https://openreview.net/forum?id=vDFA1tpuLvk" target="_blank" rel="noopener">RetMol</a></td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td>FAISS mol</td><td>property top-K</td><td>fusion module</td><td>AutoDock-GPU loop</td><td><span class="sys-o sys-o-o3" title="Molecular Design">MD</span></td></tr><tr><td class="sys-name"><a href="../papers/nan2026taliragen.html">TaLiRAGen</a></td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td>ligand contexts</td><td>context ret.</td><td>multi-turn CoT</td><td>docking loop</td><td><span class="sys-o sys-o-o3" title="Molecular Design">MD</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2603-15712.html">HEA-catalyst</a></td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td>materials index</td><td>cosine + rules</td><td>constraint inject</td><td>DFT loop</td><td><span class="sys-o sys-o-o3" title="Materials Discovery">MtD</span></td></tr></tbody>
+    </table>
+  </div>
+</figure>
     <div class="subsec-filter" id="oaxisO3subf">
 <button class="subsec-btn active" data-sub="">All <span class="subsec-n">13</span></button>
 <button class="subsec-btn" data-sub="Molecular Design">Molecular Design <span class="subsec-n">6</span></button>

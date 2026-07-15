@@ -15,7 +15,7 @@
   }
 })();
 </script>
-<link rel="stylesheet" href="../static/style.css?v=1784087157">
+<link rel="stylesheet" href="../static/style.css?v=1784107305">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -140,6 +140,20 @@
 
 <section class="cell-list">
   <div class="wrap">
+    
+<figure class="sys-table-wrap">
+  <figcaption class="sys-cap">Pipeline at a glance — Synthesis systems, decomposed by stage (survey Table 3).</figcaption>
+  <div class="sys-table-scroll">
+    <table class="sys-table">
+      <thead><tr>
+        <th>System</th><th>K</th><th>Construction <span class="sys-sym">φ</span></th>
+        <th>Matching <span class="sys-sym">s</span></th><th>Integration <span class="sys-sym">𝒢</span></th>
+        <th>Verifier <span class="sys-sym">𝒱</span></th><th>O</th>
+      </tr></thead>
+      <tbody><tr class="sys-group"><td colspan="7"><span class="sys-coupling">Open</span><span class="sys-coupling-desc">retrieve and generate once, output returned unchecked</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_sigir_HuLD0A0025.html">CG-RAG</a></td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td>citation graph</td><td>lexical subgraph</td><td>subgraph summary</td><td>none</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2402-01788.html">LitLLM</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>live search</td><td>keyword query</td><td>rerank + plan</td><td>none</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr class="sys-group"><td colspan="7"><span class="sys-coupling">Self-check</span><span class="sys-coupling-desc">critiques its own draft, consulting only the retrieved evidence</span></td></tr><tr><td class="sys-name"><a href="../papers/iyer2024pathfinder.html">Pathfinder</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>dense + citation</td><td>HyDE query</td><td>cross-encoder</td><td>consensus</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_nips_WangGYZZ0ZD0W0Z24.html">AutoSurvey</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>dense corpus</td><td>topic retrieval</td><td>outline draft</td><td>self-refine</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_cikm_BesrourHS025.html">SQuAI</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>hybrid index</td><td>sub-question</td><td>per-claim cite</td><td>faithfulness</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2310-16146.html">Clinfo.AI</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>live PubMed</td><td>LLM search</td><td>abstractive synth</td><td>relevance filter</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_acl_YanFYX00Z25.html">SurveyForge</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>arXiv dense</td><td>outline nav</td><td>section draft</td><td>refine/dedup</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr class="sys-group"><td colspan="7"><span class="sys-coupling">External-verify</span><span class="sys-coupling-desc">an outside process scores the finished output once</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2409-13740.html">PaperQA2</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>full-text chunks</td><td>agentic search</td><td>contextual summary</td><td>ContraCrow check</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr class="sys-group"><td colspan="7"><span class="sys-coupling">Closed-loop</span><span class="sys-coupling-desc">the verifier runs inside the loop and drives refinement</span></td></tr><tr><td class="sys-name"><a href="../papers/asai2026synthesizing.html">OpenScholar</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>45M-paper index</td><td>dense retrieval</td><td>cross-encoder</td><td>self-feedback</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr><td class="sys-name">TrialMind</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>trial literature</td><td>PICO Boolean</td><td>screen + extract</td><td>iter. + human</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr></tbody>
+    </table>
+  </div>
+</figure>
     <div class="subsec-filter" id="oaxisO2subf">
 <button class="subsec-btn active" data-sub="">All <span class="subsec-n">9</span></button>
 <button class="subsec-btn" data-sub="Literature Synthesis">Literature Synthesis <span class="subsec-n">9</span></button>
