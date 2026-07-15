@@ -5,8 +5,8 @@ across the sciences, organized by the survey's two axes: the retrieval SUBSTRATE
 on (the native form of what it indexes) and the OPERATIONAL OBJECTIVE it serves (the rung, ordered
 by how far the ground truth sits from the corpus). 331 entries across a 12-cell landscape.
 
-Companion to the upcoming survey "Scientific Retrieval-Augmented Generation: A Survey through
-Knowledge Source and Scientific Mission" (Oh et al., Vision and Learning Lab, Seoul National University).
+Companion to the upcoming survey "Scientific Retrieval-Augmented Generation: A Survey and
+Taxonomy" (Oh et al., Vision and Learning Lab, Seoul National University).
 
 Axes:
   K1 Textual · K2 Relational · K3 Structured-entity · K4 Perceptual   (substrate, §4)

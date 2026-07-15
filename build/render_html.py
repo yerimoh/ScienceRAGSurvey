@@ -734,7 +734,7 @@ def page_foot(base=''):
   <div class="wrap">
     <p>
       <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
-      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
+      <em>"Scientific Retrieval-Augmented Generation: A Survey and Taxonomy"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
@@ -1068,7 +1068,7 @@ def render_index():
         <h2 class="section-title">Cite</h2>
         <pre><code>@article{oh2026sciragsurvey,
   title   = {Scientific Retrieval-Augmented Generation: A Survey
-             through Knowledge Source and Scientific Mission},
+             a Survey and Taxonomy},
   author  = {Oh, Yerim and others},
   journal = {TBD},
   year    = {TBD}
@@ -1103,7 +1103,7 @@ def render_about():
     <p class="lede">
       A curated catalog of <strong>{len(papers)} retrieval-augmented generation</strong> systems,
       benchmarks, and datasets across the sciences, the companion resource to the upcoming survey
-      <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission."</em>
+      <em>"Scientific Retrieval-Augmented Generation: A Survey and Taxonomy."</em>
     </p>
 
     <figure class="gs-figure">
