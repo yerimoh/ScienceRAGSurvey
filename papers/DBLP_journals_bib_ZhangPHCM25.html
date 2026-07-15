@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Rag2Mol: structure-based drug design based on RAG — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Rag2Mol: structure-based drug design based on RAG, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,145 +117,145 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">📌 한 줄 요약</a></li><li class="toc-l2"><a href="#연구-배경-및-동기">🎯 연구 배경 및 동기</a></li><li class="toc-l2"><a href="#시스템-아키텍처">🏗️ 시스템 아키텍처</a></li><li class="toc-l2"><a href="#핵심-모듈-상세-설명">🔑 핵심 모듈 상세 설명</a></li><li class="toc-l3"><a href="#1-global-retriever-포켓-특이적-db-구축">1. Global Retriever (포켓 특이적 DB 구축)</a></li><li class="toc-l3"><a href="#2-molecular-retriever-참조-분자-선택">2. Molecular Retriever (참조 분자 선택)</a></li><li class="toc-l3"><a href="#3-gvp-기반-자기회귀-생성기">3. GVP 기반 자기회귀 생성기</a></li><li class="toc-l3"><a href="#4-두-워크플로우">4. 두 워크플로우</a></li><li class="toc-l3"><a href="#도구db-연동-테이블">도구·DB 연동 테이블</a></li><li class="toc-l2"><a href="#실험-및-평가">🧪 실험 및 평가</a></li><li class="toc-l3"><a href="#평가-태스크-및-데이터셋">평가 태스크 및 데이터셋</a></li><li class="toc-l3"><a href="#평가-지표">평가 지표</a></li><li class="toc-l3"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#핵심-기여">💡 핵심 기여</a></li><li class="toc-l2"><a href="#한계점">⚠️ 한계점</a></li><li class="toc-l2"><a href="#관련-연구-및-관련-정보">🔗 관련 연구 및 관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">📌 TL;DR</a></li><li class="toc-l2"><a href="#research-background-and-motivation">🎯 Research Background and Motivation</a></li><li class="toc-l2"><a href="#system-architecture">🏗️ System Architecture</a></li><li class="toc-l2"><a href="#detailed-description-of-core-modules">🔑 Detailed Description of Core Modules</a></li><li class="toc-l3"><a href="#1-global-retriever-building-the-pocket-specific-db">1. Global Retriever (building the pocket-specific DB)</a></li><li class="toc-l3"><a href="#2-molecular-retriever-selecting-reference-molecules">2. Molecular Retriever (selecting reference molecules)</a></li><li class="toc-l3"><a href="#3-gvp-based-autoregressive-generator">3. GVP-based autoregressive generator</a></li><li class="toc-l3"><a href="#4-two-workflows">4. Two workflows</a></li><li class="toc-l3"><a href="#tooldb-integration-table">Tool/DB Integration Table</a></li><li class="toc-l2"><a href="#experiments-and-evaluation">🧪 Experiments and Evaluation</a></li><li class="toc-l3"><a href="#evaluation-tasks-and-datasets">Evaluation tasks and datasets</a></li><li class="toc-l3"><a href="#evaluation-metrics">Evaluation metrics</a></li><li class="toc-l3"><a href="#main-results">Main results</a></li><li class="toc-l2"><a href="#core-contributions">💡 Core Contributions</a></li><li class="toc-l2"><a href="#limitations">⚠️ Limitations</a></li><li class="toc-l2"><a href="#related-research-and-related-links">🔗 Related Research and Related Links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>Rag2Mol: structure-based drug design based on RAG</h1>
 <blockquote>
 <p>Briefings in Bioinformatics (Oxford) | 2025 | Method | bio, medical, chem</p>
-<h2 id="한-줄-요약">📌 한 줄 요약</h2>
-<p>Rag2Mol은 RAG 기반 구조 중심 신약 설계(SBDD) 프레임워크로, 두 단계 검색기(Global + Molecular Retriever)로 ZINC DB에서 구매 가능한 참조 분자를 동적으로 불러와 GVP 기반 자기회귀 모델의 분자 생성을 안내하며, 합성 가능성과 결합 친화도를 동시에 개선한다.</p>
-<h2 id="연구-배경-및-동기">🎯 연구 배경 및 동기</h2>
-<p><strong>기존 SBDD 방법의 한계점</strong></p>
+<h2 id="tldr">📌 TL;DR</h2>
+<p>Rag2Mol is a RAG-based structure-based drug design (SBDD) framework that uses a two-stage retriever (Global + Molecular Retriever) to dynamically pull purchasable reference molecules from the ZINC DB, guiding the molecule generation of a GVP-based autoregressive model, and simultaneously improving synthesizability and binding affinity.</p>
+<h2 id="research-background-and-motivation">🎯 Research Background and Motivation</h2>
+<p><strong>Limitations of existing SBDD methods</strong></p>
 </blockquote>
 <ul>
-<li>기존 AI SBDD 모델은 합성 가능성을 무시하여 생성 분자가 실제 합성 가능한 화학 공간 밖에 위치하는 경우가 많음</li>
-<li>데이터 편향 문제: 훈련 데이터(CrossDocked2020)가 전체 단백질-리간드 복합체 공간에 비해 극히 일부</li>
-<li>기존 가상 스크리닝은 AI 모델 3개(스크리닝·도킹·결합 친화도 예측)를 순차 사용 → 각 단계의 false positive가 누적되어 성공률 저하</li>
-<li>생성된 분자의 광범위한 하위 검증(도킹 계산, 웻랩 실험) 과정이 복잡하고 불확실성 축적</li>
+<li>Existing AI SBDD models ignore synthesizability, so generated molecules often lie outside the actually synthesizable chemical space</li>
+<li>Data bias problem: the training data (CrossDocked2020) covers only an extremely small fraction of the entire protein-ligand complex space</li>
+<li>Existing virtual screening uses 3 AI models sequentially (screening, docking, binding-affinity prediction) → false positives from each stage accumulate, lowering success rate</li>
+<li>The extensive downstream validation process for generated molecules (docking calculations, wet-lab experiments) is complex and accumulates uncertainty</li>
 </ul>
-<p><strong>이 연구가 필요한 이유</strong></p>
+<p><strong>Why this research is needed</strong></p>
 <ul>
-<li>RAG를 SBDD에 적용하면 외부 구매 가능 분자 DB(ZINC)를 동적으로 활용 → 합성 가능성 문제 해소 가능</li>
-<li>단일 모델이 스크리닝·도킹·생성을 통합 → AI 모델 순차 파이프라인의 오류 누적 감소</li>
-<li>두 워크플로우(G: 신규 생성, R: 유사 분자 검색)로 다양한 실세계 신약 개발 시나리오 대응 가능</li>
+<li>Applying RAG to SBDD dynamically leverages an external purchasable molecule DB (ZINC) → can resolve the synthesizability problem</li>
+<li>A single model integrates screening, docking, and generation → reduces error accumulation of the sequential AI-model pipeline</li>
+<li>Two workflows (G: de novo generation, R: similar-molecule retrieval) can address diverse real-world drug development scenarios</li>
 </ul>
-<h2 id="시스템-아키텍처">🏗️ 시스템 아키텍처</h2>
-<pre><code class="language-javascript">[입력: 단백질 포켓 3D 구조]
+<h2 id="system-architecture">🏗️ System Architecture</h2>
+<pre><code class="language-javascript">[Input: protein pocket 3D structure]
         ↓
 ┌─────────────────────────────────────┐
 │  Step 1: Global Retriever            │
-│  ZINC → 가상 스크리닝 + Vina 도킹   │
-│  → 포켓 특이적 소분자 DB 구축        │
+│  ZINC → virtual screening + Vina docking │
+│  → build pocket-specific small-molecule DB │
 └─────────────────┬───────────────────┘
                   ↓
 ┌─────────────────────────────────────┐
-│  Step 2: 자기회귀 분자 생성 (반복)  │
+│  Step 2: autoregressive molecule generation (iterative) │
 │  Molecular Retriever:               │
-│    포켓별 DB → 참조 분자 선택       │
-│  cross-KNN 메시지 패싱 →            │
-│    참조 분자 정보 → fragment에 융합  │
-│  GVP 기반 모델: 다음 원자 예측      │
+│    per-pocket DB → select reference molecule │
+│  cross-KNN message passing →        │
+│    reference molecule info → fused into fragment │
+│  GVP-based model: predict next atom │
 └─────────────────┬───────────────────┘
                   ↓
     ┌─────────────┴─────────────┐
     ↓                           ↓
 [Rag2Mol-G]              [Rag2Mol-R]
-생성 분자 직접 사용       생성 분자 클러스터링
-                          scaffold 선택
-                          ZINC 유사도 검색
-                          → 구매 가능 분자 출력
+use generated molecule directly   cluster generated molecules
+                          select scaffold
+                          ZINC similarity search
+                          → output purchasable molecules
                   ↓
 ┌─────────────────────────────────────┐
-│  Step 3: 필터링 + 검증              │
-│  Vina/QED/SA/Lipinski/LogP 기준     │
-│  → Vina 도킹 재계산 → 웻랩 실험    │
+│  Step 3: filtering + validation     │
+│  Vina/QED/SA/Lipinski/LogP criteria │
+│  → recompute Vina docking → wet-lab experiments │
 └─────────────────────────────────────┘
 </code></pre>
-<h2 id="핵심-모듈-상세-설명">🔑 핵심 모듈 상세 설명</h2>
-<h3 id="1-global-retriever-포켓-특이적-db-구축">1. Global Retriever (포켓 특이적 DB 구축)</h3>
+<h2 id="detailed-description-of-core-modules">🔑 Detailed Description of Core Modules</h2>
+<h3 id="1-global-retriever-building-the-pocket-specific-db">1. Global Retriever (building the pocket-specific DB)</h3>
 <ul>
-<li>입력: 단백질 포켓 3D 좌표</li>
-<li>ZINC에서 가상 스크리닝 모델로 결합 가능성 있는 소분자 1차 필터링</li>
-<li>AutoDock Vina로 필터링된 분자를 포켓에 도킹 → 결합 친화도 + 합성 가능성 동시 고려</li>
-<li>결과: 포켓별 소분자 DB (결합 가능 + 구매 가능 분자 집합)</li>
+<li>Input: protein pocket 3D coordinates</li>
+<li>First-pass filtering of small molecules with binding potential from ZINC using a virtual screening model</li>
+<li>Dock the filtered molecules into the pocket with AutoDock Vina → jointly consider binding affinity + synthesizability</li>
+<li>Result: per-pocket small-molecule DB (set of bindable + purchasable molecules)</li>
 </ul>
-<h3 id="2-molecular-retriever-참조-분자-선택">2. Molecular Retriever (참조 분자 선택)</h3>
+<h3 id="2-molecular-retriever-selecting-reference-molecules">2. Molecular Retriever (selecting reference molecules)</h3>
 <ul>
-<li>분자 생성 각 단계에서 현재 생성된 fragment와 포켓별 DB의 분자들을 비교</li>
-<li>cross-KNN 그래프로 가장 관련성 높은 참조 분자 선택</li>
-<li>참조 분자의 구조 정보를 hidden space에서 메시지 패싱으로 생성 fragment에 융합</li>
+<li>At each step of molecule generation, compare the currently generated fragment with the molecules in the per-pocket DB</li>
+<li>Select the most relevant reference molecule via a cross-KNN graph</li>
+<li>Fuse the structural information of the reference molecule into the generated fragment through message passing in hidden space</li>
 </ul>
-<h3 id="3-gvp-기반-자기회귀-생성기">3. GVP 기반 자기회귀 생성기</h3>
+<h3 id="3-gvp-based-autoregressive-generator">3. GVP-based autoregressive generator</h3>
 <ul>
-<li>E(3)-등변 GVP(Graph Vector Perceptron) 아키텍처</li>
-<li>단백질 포켓 잔기 + 참조 분자를 조건으로 원자를 순차적으로 예측</li>
-<li>각 스텝에서 원자 유형, 3D 좌표, 결합 유형 예측</li>
-<li>CrossDocked2020으로 학습 (훈련 중에도 검색기 활성)</li>
+<li>E(3)-equivariant GVP (Graph Vector Perceptron) architecture</li>
+<li>Sequentially predicts atoms conditioned on protein pocket residues + reference molecules</li>
+<li>At each step predicts atom type, 3D coordinates, and bond type</li>
+<li>Trained on CrossDocked2020 (retriever active even during training)</li>
 </ul>
-<h3 id="4-두-워크플로우">4. 두 워크플로우</h3>
-<p>| 워크플로우 | 작동 방식 | 적합 상황 |
-| <strong>Rag2Mol-G</strong> | 포켓별 DB를 참조로 신규 분자 직접 생성 | 여러 결합 템플릿이 필요한 표적, 고친화도 신규 후보 탐색 |
-| <strong>Rag2Mol-R</strong> | 생성 분자 → 클러스터링 → scaffold → ZINC 유사도 검색 | 합성 가능한 유사체 탐색, undruggable 표적, 가상 스크리닝 대체 |</p>
-<h3 id="도구db-연동-테이블">도구·DB 연동 테이블</h3>
-<p>| 모듈 | 사용 DB/도구 | 역할 |
-| Global Retriever | ZINC (230M+ 화합물) | 구매 가능 분자 소스 |
-| Global Retriever | AutoDock Vina | 도킹 점수 계산 |
-| Molecular Retriever | CrossDocked2020 포켓별 DB | 훈련/추론 중 참조 분자 |
-| 평가 | GNINA | CNN affinity 계산 |
-| 평가 | PoseBusters | 물리적 유효성 검증 |
-| 실세계 적용 | PDB (RCSB) | 표적 단백질 3D 구조 다운로드 |</p>
-<h2 id="실험-및-평가">🧪 실험 및 평가</h2>
-<h3 id="평가-태스크-및-데이터셋">평가 태스크 및 데이터셋</h3>
+<h3 id="4-two-workflows">4. Two workflows</h3>
+<p>| Workflow | Mode of operation | Suitable situation |
+| <strong>Rag2Mol-G</strong> | Directly generate de novo molecules using the per-pocket DB as reference | Targets requiring multiple binding templates, exploring high-affinity de novo candidates |
+| <strong>Rag2Mol-R</strong> | Generated molecules → clustering → scaffold → ZINC similarity search | Exploring synthesizable analogs, undruggable targets, replacing virtual screening |</p>
+<h3 id="tooldb-integration-table">Tool/DB Integration Table</h3>
+<p>| Module | DB/tool used | Role |
+| Global Retriever | ZINC (230M+ compounds) | Source of purchasable molecules |
+| Global Retriever | AutoDock Vina | Docking score calculation |
+| Molecular Retriever | CrossDocked2020 per-pocket DB | Reference molecules during training/inference |
+| Evaluation | GNINA | CNN affinity calculation |
+| Evaluation | PoseBusters | Physical validity verification |
+| Real-world application | PDB (RCSB) | Download target protein 3D structures |</p>
+<h2 id="experiments-and-evaluation">🧪 Experiments and Evaluation</h2>
+<h3 id="evaluation-tasks-and-datasets">Evaluation tasks and datasets</h3>
 <ul>
-<li><strong>벤치마크</strong>: CrossDocked2020 test set (100개 단백질 포켓)</li>
-<li><strong>비교 모델 (SBDD)</strong>: Pocket2Mol, ResGen, AR, GraphBP, FLAG, TargetDiff, Pocket2MolRL, Decomp-o, Decomp-r</li>
-<li><strong>비교 모델 (가상 스크리닝, Rag2Mol-R 대비)</strong>: ConPLex, DrugBAN, UdanDTI</li>
-<li><strong>실세계 케이스</strong>: PTPN2 (단백질 티로신 포스파타아제, undruggable 표적, 임상 완료 억제제 없음)</li>
+<li><strong>Benchmark</strong>: CrossDocked2020 test set (100 protein pockets)</li>
+<li><strong>Comparison models (SBDD)</strong>: Pocket2Mol, ResGen, AR, GraphBP, FLAG, TargetDiff, Pocket2MolRL, Decomp-o, Decomp-r</li>
+<li><strong>Comparison models (virtual screening, vs. Rag2Mol-R)</strong>: ConPLex, DrugBAN, UdanDTI</li>
+<li><strong>Real-world case</strong>: PTPN2 (protein tyrosine phosphatase, undruggable target, no clinically completed inhibitor)</li>
 </ul>
-<h3 id="평가-지표">평가 지표</h3>
-<p>| 지표 | 설명 |
-| Vina Dock (kcal/mol) | 도킹 전 Vina 결합 에너지 |
-| Vina Score (kcal/mol) | 재도킹 후 결합 에너지 |
-| %↑ Vina | 네이티브 리간드보다 높은 Vina 점수 비율 |
-| PB-Valid | PoseBusters로 검증한 물리적 유효 분자 비율 |
-| CNN Affinity | GNINA 기반 CNN 결합 친화도 |
-| Clash | 입체 충돌 수 |
-| QED | 약물 유사성 정량 지표 |
-| SA | 합성 접근성 점수 |
-| Lipinski | Lipinski 규칙 5 준수 여부 |
-| LogP | 지질 친화성 |</p>
-<h3 id="주요-결과">주요 결과</h3>
+<h3 id="evaluation-metrics">Evaluation metrics</h3>
+<p>| Metric | Description |
+| Vina Dock (kcal/mol) | Vina binding energy before docking |
+| Vina Score (kcal/mol) | Binding energy after redocking |
+| %↑ Vina | Fraction with higher Vina score than the native ligand |
+| PB-Valid | Fraction of physically valid molecules verified by PoseBusters |
+| CNN Affinity | GNINA-based CNN binding affinity |
+| Clash | Number of steric clashes |
+| QED | Quantitative estimate of drug-likeness |
+| SA | Synthetic accessibility score |
+| Lipinski | Compliance with Lipinski's rule of 5 |
+| LogP | Lipophilicity |</p>
+<h3 id="main-results">Main results</h3>
 <ul>
-<li>Rag2Mol은 거의 모든 지표에서 최고 또는 근최고 성능 달성</li>
-<li>특히 Vina Dock/Score top 1/3 분자가 네이티브 리간드보다 낮은(우수한) 결합 에너지 일관 달성</li>
-<li>Rag2Mol-R: ConPLex/DrugBAN/UdanDTI 대비 더 넓은 화학 공간 커버리지와 높은 표적 특이성</li>
-<li>PTPN2 케이스: 두 워크플로우 모두 유망 억제제 후보 발굴 (기존 활성 억제제 능가)</li>
+<li>Rag2Mol achieves the best or near-best performance on almost all metrics</li>
+<li>In particular, the top 1/3 molecules by Vina Dock/Score consistently achieve lower (better) binding energy than the native ligand</li>
+<li>Rag2Mol-R: broader chemical-space coverage and higher target specificity than ConPLex/DrugBAN/UdanDTI</li>
+<li>PTPN2 case: both workflows discover promising inhibitor candidates (surpassing existing active inhibitors)</li>
 </ul>
-<h2 id="핵심-기여">💡 핵심 기여</h2>
+<h2 id="core-contributions">💡 Core Contributions</h2>
 <ol>
-<li><strong>RAG의 SBDD 적용</strong>: 텍스트 RAG 패러다임을 3D 구조 기반 분자 생성으로 확장</li>
-<li><strong>두 단계 검색기</strong>: Global Retriever(포켓별 DB 구축) + Molecular Retriever(생성 단계별 참조 선택)로 합성 가능성 + 친화도를 동시 담보</li>
-<li><strong>두 워크플로우</strong>: 신규 생성(Rag2Mol-G)과 유사 분자 검색(Rag2Mol-R)으로 다양한 실용 시나리오 대응</li>
-<li><strong>확장 가능한 프레임워크</strong>: GVP 외 다른 SBDD 백본 모델로도 교체 가능한 모듈식 설계</li>
-<li><strong>실세계 검증</strong>: 미드러거블 PTPN2 표적에서 유망 억제제 발굴</li>
+<li><strong>Applying RAG to SBDD</strong>: extends the text RAG paradigm to 3D structure-based molecule generation</li>
+<li><strong>Two-stage retriever</strong>: Global Retriever (building per-pocket DB) + Molecular Retriever (per-step reference selection during generation) jointly guarantee synthesizability + affinity</li>
+<li><strong>Two workflows</strong>: de novo generation (Rag2Mol-G) and similar-molecule retrieval (Rag2Mol-R) address diverse practical scenarios</li>
+<li><strong>Extensible framework</strong>: modular design that can also swap in SBDD backbone models other than GVP</li>
+<li><strong>Real-world validation</strong>: discovery of promising inhibitors for the undruggable PTPN2 target</li>
 </ol>
-<h2 id="한계점">⚠️ 한계점</h2>
+<h2 id="limitations">⚠️ Limitations</h2>
 <ul>
-<li>ZINC DB 품질과 커버리지에 성능 의존</li>
-<li>Global Retriever (가상 스크리닝 + 도킹) 계산 비용 높음</li>
-<li>LLM 미사용 → 자연어 기반 상호작용이나 지식 통합 불가</li>
-<li>훈련 데이터 CrossDocked2020의 bias 내재 (PDB에서 이미 알려진 리간드-포켓 쌍 중심)</li>
-<li>Rag2Mol-R의 유사도 검색이 Morgan fingerprint 기반 → 3D 구조적 유사성 반영 한계</li>
+<li>Performance depends on the quality and coverage of the ZINC DB</li>
+<li>High computational cost of the Global Retriever (virtual screening + docking)</li>
+<li>No LLM used → natural-language-based interaction or knowledge integration not possible</li>
+<li>Inherent bias of the CrossDocked2020 training data (centered on ligand-pocket pairs already known in PDB)</li>
+<li>Rag2Mol-R's similarity search is Morgan fingerprint-based → limited in reflecting 3D structural similarity</li>
 </ul>
-<h2 id="관련-연구-및-관련-정보">🔗 관련 연구 및 관련 정보</h2>
+<h2 id="related-research-and-related-links">🔗 Related Research and Related Links</h2>
 <ul>
-<li><strong>논문 링크</strong>: <a href="https://doi.org/10.1093/bib/bbaf265">https://doi.org/10.1093/bib/bbaf265</a></li>
-<li><strong>RECOMB 2025 버전</strong>: <a href="https://doi.org/10.1007/978-3-031-90252-9_15">https://doi.org/10.1007/978-3-031-90252-9_15</a></li>
+<li><strong>Paper link</strong>: <a href="https://doi.org/10.1093/bib/bbaf265">https://doi.org/10.1093/bib/bbaf265</a></li>
+<li><strong>RECOMB 2025 version</strong>: <a href="https://doi.org/10.1007/978-3-031-90252-9_15">https://doi.org/10.1007/978-3-031-90252-9_15</a></li>
 <li><strong>GitHub</strong>: <a href="https://github.com/CQ-zhang-2016/Rag2Mol">https://github.com/CQ-zhang-2016/Rag2Mol</a></li>
-<li><strong>주요 베이스라인</strong>: Pocket2Mol (ICML 2022), TargetDiff (ICLR 2023), ResGen (Nature Machine Intelligence 2023)</li>
-<li><strong>유사 방법론</strong>: PocketCrafter (Novartis, Shen et al. 2024), FLAG (ICLR 2023)</li>
-<li><strong>사용 데이터셋</strong>: CrossDocked2020 (Francoeur et al., J. Chem. Inf. Model. 2020)</li>
+<li><strong>Main baselines</strong>: Pocket2Mol (ICML 2022), TargetDiff (ICLR 2023), ResGen (Nature Machine Intelligence 2023)</li>
+<li><strong>Similar methodologies</strong>: PocketCrafter (Novartis, Shen et al. 2024), FLAG (ICLR 2023)</li>
+<li><strong>Datasets used</strong>: CrossDocked2020 (Francoeur et al., J. Chem. Inf. Model. 2020)</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/bib/ZhangPHCM25)</a></p>
@@ -289,14 +289,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

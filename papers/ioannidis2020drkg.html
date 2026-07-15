@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DRKG: Drug Repurposing Knowledge Graph for COVID-19 — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>DRKG: Drug Repurposing Knowledge Graph for COVID-19, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,85 +121,85 @@
 <p>ioannidis2020drkg | 2020 | arXiv preprint | dataset | [chem] | <a href="https://arxiv.org/abs/2010.09600">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">DRKG (Drug Repurposing Knowledge Graph)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">97,238 엔티티, 5,874,261 트리플 (6개 기존 DB 통합)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">97,238 entities, 5,874,261 triples (integration of 6 existing DBs)</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Structured, Network</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">DRKG (지식 그래프 완성 기반 약물 재목적화)</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">DRKG (knowledge-graph-completion-based drug repurposing)</td></tr>
 </table>
 
 <blockquote>
 <p>arXiv preprint | 2020 | dataset | chem</p>
-<h4>📌 한 줄 요약</h4>
-<p>DRKG는 COVID-19 약물 재목적화를 위해 DrugBank, Hetionet, GNBR, String, IntAct, DGIdb 등 6개 DB를 통합한 생물의학 지식 그래프로, 지식 그래프 임베딩 기반 후보 약물 발굴을 지원한다.</p>
+<h4>📌 TL;DR</h4>
+<p>DRKG is a biomedical knowledge graph that integrates 6 DBs, including DrugBank, Hetionet, GNBR, String, IntAct, and DGIdb, for COVID-19 drug repurposing, and it supports candidate drug discovery based on knowledge graph embeddings.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>COVID-19에 특화된 통합 약물 재목적화 지식 그래프가 없었음</li>
-<li>기존 생물의학 DB들이 별도로 존재하여 교차 자원 분석이 어려웠음
-<strong>이 시스템이 필요한 이유</strong></li>
-<li>팬데믹 대응을 위한 신속한 약물 후보 도출 필요</li>
-<li>지식 그래프 완성(KGC) 방법으로 기존에 알려지지 않은 약물-타겟 관계 예측</li>
+<li>There was no integrated drug repurposing knowledge graph specialized for COVID-19</li>
+<li>Existing biomedical DBs existed separately, making cross-resource analysis difficult
+<strong>Why this system is needed</strong></li>
+<li>Rapid derivation of drug candidates is needed for pandemic response</li>
+<li>Prediction of previously unknown drug-target relationships via knowledge graph completion (KGC) methods</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>DrugBank, Hetionet, GNBR, String, IntAct, DGIdb 등 6개 생물의학 DB를 통합한다. 엔티티 유형: 약물, 유전자, 질환, 화합물, 생물학적 과정, 해부학 구조, 세포 성분, 분자 기능 등. TransE, RotatE 등 KGE 모델로 약물 재목적화 후보 스코어링.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>It integrates 6 biomedical DBs, including DrugBank, Hetionet, GNBR, String, IntAct, and DGIdb. Entity types: drugs, genes, diseases, compounds, biological processes, anatomical structures, cellular components, molecular functions, etc. Drug repurposing candidate scoring with KGE models such as TransE and RotatE.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>GitHub</td>
-  <td>DRKG 그래프 데이터 및 임베딩 공개</td>
+  <td>DRKG graph data and embeddings publicly available</td>
 </tr>
 <tr>
-  <td>직접 다운로드</td>
-  <td>노드·엣지 TSV 파일</td>
+  <td>Direct download</td>
+  <td>Node/edge TSV files</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>지식 그래프 트리플 (head, relation, tail)</li>
-<li>KGE 임베딩 벡터</li>
-<li>약물-타겟 예측 결과</li>
+<li>Knowledge graph triples (head, relation, tail)</li>
+<li>KGE embedding vectors</li>
+<li>Drug-target prediction results</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>엔티티</td>
+  <td>Entities</td>
   <td>97,238</td>
 </tr>
 <tr>
-  <td>트리플</td>
+  <td>Triples</td>
   <td>5,874,261</td>
 </tr>
 <tr>
-  <td>통합 DB</td>
-  <td>6개</td>
+  <td>Integrated DBs</td>
+  <td>6</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>COVID-19 대응 목적으로 구축되어 다른 질환 영역은 커버리지 불균등</li>
-<li>통합 과정에서 엔티티 정렬 오류 가능성</li>
-<li>미심사(preprint) 논문 기반으로 방법론 검증이 제한적</li>
+<li>Built for COVID-19 response purposes, so coverage of other disease domains is uneven</li>
+<li>Possibility of entity alignment errors during the integration process</li>
+<li>Based on a non-peer-reviewed (preprint) paper, so methodological validation is limited</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://arxiv.org/abs/2010.09600">DRKG - Drug Repurposing Knowledge Graph for COVID-19</a></li>
+<li><strong>Paper</strong>: <a href="https://arxiv.org/abs/2010.09600">DRKG - Drug Repurposing Knowledge Graph for COVID-19</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (ioannidis2020drkg)</a></p>
@@ -222,14 +222,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

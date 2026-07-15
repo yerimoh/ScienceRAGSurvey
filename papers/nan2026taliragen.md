@@ -12,79 +12,79 @@ originSessionId: e17a6512-257b-4eac-96cc-808523cf24a8
 # TaLiRAGen: target-aware ligand generation via RAG LLMs
 
 > Molecular Diversity (Springer Nature) | 2026 | Method | chem · bio · medical
-## 📌 한 줄 요약
-RAG와 LLM을 결합하여, 타겟 특화 학습 없이 단백질 타겟에 맞는 리간드를 생성하는 no-training 프레임워크.
+## 📌 TL;DR
+A no-training framework that combines RAG and LLMs to generate ligands matched to a protein target without any target-specific training.
 
-사전지식: 리간드 - 리간드(ligand)는 특정 단백질(주로 수용체나 효소)에 결합하는 작은 분자입니다. 약물 개발에서 핵심 개념인데, 어떤 질병과 관련된 단백질이 있으면, 그 단백질에 딱 맞게 결합해서 기능을 억제하거나 활성화하는 분자를 설계하는 것입니다. TaLiRAGen 논문에서는 바로 이 리간드를 AI로 설계하는 게 목표예요. 특정 타겟 단백질을 주면, 거기에 잘 붙을 것 같은 분자 구조(SMILES 형식)를 LLM+RAG로 생성하는 거죠. 결합 잘 되는지는 AutoDock Vina라는 도킹 소프트웨어로 시뮬레이션해서 점수를 매김.
+Background: ligand - a ligand is a small molecule that binds to a specific protein (typically a receptor or enzyme). It is a core concept in drug development: when there is a protein associated with a disease, the goal is to design a molecule that binds precisely to that protein to inhibit or activate its function. The TaLiRAGen paper aims exactly at designing such ligands with AI. Given a specific target protein, it generates a molecular structure (in SMILES format) that is likely to bind well to it, using an LLM+RAG. Whether the binding is good is scored by simulation with docking software called AutoDock Vina.
 
-## 🎯 연구 배경 및 동기
-**기존 방법의 한계점:**
-- VAE, 확산 모델(diffusion model) 등 생성 모델은 타겟 특화 학습 데이터에 심하게 의존하여, 데이터가 부족한 새로운 타겟에 적용하기 어려움.
-- 기존 방법들은 LLM에 이미 내재된 방대한 생화학 지식을 충분히 활용하지 못함.
+## 🎯 Background and Motivation
+**Limitations of existing methods:**
+- Generative models such as VAEs and diffusion models depend heavily on target-specific training data, making them difficult to apply to new targets where data is scarce.
+- Existing methods do not sufficiently leverage the vast biochemical knowledge already embedded in LLMs.
 
-**이 연구가 필요한 이유:**
-- 구조 기반 신약 설계(Structure-Based Drug Design, SBDD)에서 특정 단백질 타겟에 높은 결합 친화도를 가지는 리간드를 생성하는 것은 핵심 과제임.
-- 학습 없이도 LLM의 일반 화학 지식과 외부 데이터베이스 검색을 결합하면, 다양한 타겟에 유연하게 적용 가능한 리간드 생성이 가능함.
-## 🏗️ 시스템 아키텍처
+**Why this research is needed:**
+- In Structure-Based Drug Design (SBDD), generating ligands with high binding affinity to a specific protein target is a core challenge.
+- Even without training, combining an LLM's general chemistry knowledge with retrieval from external databases enables ligand generation that can be flexibly applied to diverse targets.
+## 🏗️ Architecture
 ```javascript
-[Input: 단백질 타겟 구조 / 서열]
+[Input: protein target structure / sequence]
         ↓
-[Retriever] protein-ligand context를 diverse repositories에서 검색
+[Retriever] retrieves protein-ligand context from diverse repositories
         ↓
-[CoT-augmented Multi-turn Prompting] — 검색된 context를 LLM에 통합
+[CoT-augmented Multi-turn Prompting] — integrates the retrieved context into the LLM
         ↓
-[LLM Generator] — SMILES 형식 리간드 후보 생성
+[LLM Generator] — generates ligand candidates in SMILES format
         ↓
-[Docking Feedback (AutoDock Vina)] — 결합 친화도 계산, 낮은 후보 필터링
+[Docking Feedback (AutoDock Vina)] — computes binding affinity, filters out low candidates
         ↓
-[Evidence-Theoretic Normalization 통합 평가] — QED + SA + Vina score 통합
+[Evidence-Theoretic Normalization integrated evaluation] — integrates QED + SA + Vina score
         ↓
-[Output: 구조적 제약 조건을 만족하는 최적 리간드 후보]
+[Output: optimal ligand candidates satisfying structural constraints]
 ```
 [image]
-## 🔑 핵심 모듈 상세 설명
-**① RAG 기반 Retrieval**
-- 단백질-리간드 맥락(context)을 다양한 저장소(diverse repositories)에서 검색.
-- 검색된 context는 유사한 단백질-리간드 쌍 정보를 포함하여 LLM의 생성 방향을 안내.
+## 🔑 Detailed Description of Core Modules
+**① RAG-based Retrieval**
+- Retrieves protein-ligand context from diverse repositories.
+- The retrieved context includes information on similar protein-ligand pairs to guide the LLM's generation direction.
 
 **② CoT-augmented Multi-turn Prompting**
-- Chain-of-Thought 추론을 멀티턴 대화 형식에 결합하여, LLM이 생화학적 맥락을 단계적으로 처리.
-- LogP, ring count 등 구조적 제약 조건을 프롬프트에 명시하여 맞춤형 리간드 생성 가능.
+- Combines Chain-of-Thought reasoning with a multi-turn conversation format so that the LLM processes biochemical context step by step.
+- Structural constraints such as LogP and ring count are specified in the prompt to enable customized ligand generation.
 
-**③ Docking Feedback 기반 정제**
-- AutoDock Vina를 이용해 생성된 SMILES 리간드를 단백질 타겟에 도킹.
-- 도킹 점수(Vina score)를 피드백으로 활용하여 분자를 반복적으로 정제(refinement).
+**③ Docking Feedback-based Refinement**
+- Docks the generated SMILES ligands to the protein target using AutoDock Vina.
+- Uses the docking score (Vina score) as feedback to iteratively refine the molecules.
 
-**④ Evidence-Theoretic Normalization 통합 평가 지표**
-- 결합 친화도(binding affinity)와 약물 유사성(drug-like properties)을 증거 이론적 정규화(evidence-theoretic normalization)로 통합.
-- QED(약물 유사성 정량 추정), SA(합성 접근성), Vina docking score를 하나의 지표로 통합 평가.
-## 🧪 실험 및 평가
-**평가 태스크 및 데이터셋:**
-- **CrossDocked2020** test set 사용. 969 target IDs에서 적절성·신뢰성 기준 필터링 후 **908 targets** 최종 사용.
-- 타겟당 **5개 리간드** 생성 후 평가.
-- AutoDock Vina를 통한 도킹 점수 기반 평가.
+**④ Evidence-Theoretic Normalization Integrated Evaluation Metric**
+- Integrates binding affinity and drug-like properties via evidence-theoretic normalization.
+- Combines QED (quantitative estimation of drug-likeness), SA (synthetic accessibility), and Vina docking score into a single integrated evaluation metric.
+## 🧪 Experiments and Evaluation
+**Evaluation tasks and datasets:**
+- Uses the **CrossDocked2020** test set. After filtering the 969 target IDs by adequacy and reliability criteria, **908 targets** are used in the end.
+- Generates **5 ligands** per target and evaluates them.
+- Docking score-based evaluation via AutoDock Vina.
 
-**주요 평가 지표:**
-| 지표 | 설명 |
-| Vina docking score | 결합 친화도 (낮을수록 좋음, kcal/mol) |
-| QED | 약물 유사성 정량 추정 (0~1, 높을수록 좋음) |
-| SA | 합성 접근성 (0~1, 높을수록 좋음) |
-| 통합 지표 | Evidence-theoretic normalization 적용, 위 세 지표 통합 |
-| LogP, ring count 등 | 구조적 제약 조건 충족 여부 |
+**Main evaluation metrics:**
+| Metric | Description |
+| Vina docking score | Binding affinity (lower is better, kcal/mol) |
+| QED | Quantitative estimation of drug-likeness (0~1, higher is better) |
+| SA | Synthetic accessibility (0~1, higher is better) |
+| Integrated metric | Applies evidence-theoretic normalization, integrating the three metrics above |
+| LogP, ring count, etc. | Whether structural constraints are satisfied |
 
-**비교 대상:**
-- 기존 VAE 기반, 확산 모델 기반 SBDD 방법 대비 binding affinity 및 drug-likeness 비교 (구체적 수치는 전문 미확인).
-## 💡 핵심 기여
-- **No-training 프레임워크**: 타겟 특화 학습 없이 LLM 내장 화학 지식 + RAG로 리간드 생성 → 데이터 부족 타겟에도 적용 가능.
-- **Evidence-theoretic normalization 통합 지표**: 결합 친화도 + 약물 유사성을 단일 지표로 통합하여 생성 리간드 평가 일관성 향상.
-- **프롬프트 기반 구조 맞춤화**: LogP, ring count 등 구조 제약 조건을 프롬프트로 유연하게 반영 가능.
-## ⚠️ 한계점
-- 논문 전문 미공개로 사용된 specific DB명, LLM 모델명 확인 불가.
-- SMILES 유효성(validity) 및 합성 가능성(SA) 검증이 계산적 수준에 머물러, 실험적 검증 부재.
-- 도킹 기반 결합 친화도 평가는 실제 wet-lab 결합 친화도와 차이가 있을 수 있음.
-- 생성된 리간드의 다양성(diversity) 및 신규성(novelty) 지표 상세 보고 여부 불명.
-## 🔗 관련 연구 및 관련 정보
-- **논문 링크**: [https://doi.org/10.1007/s11030-026-11483-9](https://doi.org/10.1007/s11030-026-11483-9)
-- **코드/데이터**: GitHub ([https://github.com/yxjacksonyyds/T](https://github.com/yxjacksonyyds/T)), Google Drive 보충자료
+**Comparison targets:**
+- Compares binding affinity and drug-likeness against existing VAE-based and diffusion model-based SBDD methods (specific numbers not confirmed as the full text is unavailable).
+## 💡 Key Contributions
+- **No-training framework**: generates ligands using the LLM's built-in chemistry knowledge + RAG without target-specific training → applicable even to data-scarce targets.
+- **Evidence-theoretic normalization integrated metric**: integrates binding affinity + drug-likeness into a single metric, improving the consistency of evaluating generated ligands.
+- **Prompt-based structural customization**: structural constraints such as LogP and ring count can be flexibly reflected via prompts.
+## ⚠️ Limitations
+- The specific DB names and LLM model names used cannot be confirmed because the full paper is not publicly available.
+- Verification of SMILES validity and synthetic accessibility (SA) remains at a computational level, with no experimental validation.
+- Docking-based binding affinity evaluation may differ from actual wet-lab binding affinity.
+- It is unclear whether diversity and novelty metrics of the generated ligands are reported in detail.
+## 🔗 Related Research and Related Links
+- **Paper link**: [https://doi.org/10.1007/s11030-026-11483-9](https://doi.org/10.1007/s11030-026-11483-9)
+- **Code/Data**: GitHub ([https://github.com/yxjacksonyyds/T](https://github.com/yxjacksonyyds/T)), Google Drive supplementary materials
 - **PubMed**: [https://pubmed.ncbi.nlm.nih.gov/41723766/](https://pubmed.ncbi.nlm.nih.gov/41723766/)
-- **키워드**: Structure-Based Drug Design (SBDD), Retrieval-Augmented Generation, Chain-of-Thought, AutoDock Vina, evidence-theoretic normalization, no-training ligand generation
+- **Keywords**: Structure-Based Drug Design (SBDD), Retrieval-Augmented Generation, Chain-of-Thought, AutoDock Vina, evidence-theoretic normalization, no-training ligand generation

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Protein Data Bank — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>The Protein Data Bank, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,90 +121,90 @@
 <p>DBLP:journals/nar/BermanWFGBWSB00 | 2000 | Nucleic Acids Res. | dataset | [bio] | <a href="https://doi.org/10.1093/nar/28.1.235">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">PDB (Protein Data Bank)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">논문 기준 명시 건수 없음 — 전세계 유일한 생물학적 거대분자 구조 데이터 단일 세계 아카이브</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">No count stated in the paper — the world's single, unique archive of biological macromolecular structure data</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (rcsb.org)</td></tr>
-<tr><td class="prop-key">Modality</td><td class="prop-val">Structured Table (원자 좌표, 구조 데이터)</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Structured Table (atomic coordinates, structural data)</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">RCSB PDB (rcsb.org)</td></tr>
 </table>
 
 <blockquote>
 <p>Nucleic Acids Res. | 2000 | dataset | bio</p>
 </blockquote>
-<h4>📌 한 줄 요약</h4>
-<p>생물학적 거대분자(단백질·핵산 등)의 3차원 구조 데이터를 집적하는 전세계 유일의 단일 아카이브로, X선 결정학·NMR·전자현미경 등 실험적으로 결정된 구조의 데이터 기탁·접근·미래 개발 계획을 기술한다.</p>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>📌 TL;DR</h4>
+<p>The world's single, unique archive aggregating three-dimensional structural data of biological macromolecules (proteins, nucleic acids, etc.), describing the deposition, access, and future development plans for structures determined experimentally by X-ray crystallography, NMR, electron microscopy, and other methods.</p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>전 세계에 분산된 단백질 구조 데이터를 통합하는 표준 아카이브 없음</li>
-<li>구조 데이터의 접근성, 형식, 품질 일관성 부재</li>
-<li>데이터 기탁 및 검증 체계 미비</li>
+<li>No standard archive unifying protein structure data scattered around the world</li>
+<li>Lack of consistency in accessibility, format, and quality of structural data</li>
+<li>Inadequate data deposition and validation systems</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>구조생물학 데이터의 장기 보존·접근을 위한 글로벌 단일 아카이브 필요</li>
-<li>X선 결정학, NMR, 전자현미경 등 실험 구조의 표준화된 기탁 체계 필요</li>
+<li>A single global archive is required for long-term preservation and access of structural biology data</li>
+<li>A standardized deposition system is required for experimental structures from X-ray crystallography, NMR, electron microscopy, etc.</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>RCSB (Research Collaboratory for Structural Bioinformatics, Rutgers University) 주도. 생물학적 거대분자의 실험적으로 결정된 3차원 구조(X선 결정학, NMR 분광법, 전자현미경 등)를 집적하는 전세계 유일의 단일 아카이브. 데이터 기탁 시스템, 품질 검증, 웹 인터페이스 접근 체계 구비. 미래 개발 계획으로 데이터 표준화 및 기능 확장 논의.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>Led by RCSB (Research Collaboratory for Structural Bioinformatics, Rutgers University). The world's single, unique archive aggregating experimentally determined three-dimensional structures of biological macromolecules (X-ray crystallography, NMR spectroscopy, electron microscopy, etc.). Equipped with a data deposition system, quality validation, and web-interface access. Future development plans discuss data standardization and functional expansion.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>RCSB PDB 포털</td>
-  <td><a href="https://www.rcsb.org">https://www.rcsb.org</a> — 무료 공개 접근</td>
+  <td>RCSB PDB portal</td>
+  <td><a href="https://www.rcsb.org">https://www.rcsb.org</a> — free public access</td>
 </tr>
 <tr>
   <td>PDBe (EBI)</td>
   <td><a href="https://www.ebi.ac.uk/pdbe">https://www.ebi.ac.uk/pdbe</a></td>
 </tr>
 <tr>
-  <td>PDBj (일본)</td>
+  <td>PDBj (Japan)</td>
   <td><a href="https://pdbj.org">https://pdbj.org</a></td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>PDB 형식 (원자 좌표, 연결 정보)</li>
-<li>mmCIF 형식 (현대 표준 형식)</li>
-<li>구조 인자 파일 (실험 회절 데이터)</li>
-<li>검증 보고서</li>
+<li>PDB format (atomic coordinates, connectivity information)</li>
+<li>mmCIF format (modern standard format)</li>
+<li>Structure factor files (experimental diffraction data)</li>
+<li>Validation reports</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>아카이브 성격</td>
-  <td><strong>전세계 유일의 단일 구조 아카이브</strong></td>
+  <td>Archive nature</td>
+  <td><strong>The world's single, unique structural archive</strong></td>
 </tr>
 <tr>
-  <td>수록 분자 유형</td>
-  <td><strong>단백질, 핵산, 생물학적 복합체</strong></td>
+  <td>Molecule types included</td>
+  <td><strong>Proteins, nucleic acids, biological complexes</strong></td>
 </tr>
 </tbody>
 </table>
-<p><em>주: 2000년 논문 본문에서 당시 PDB 정확한 구조 건수 미기재 — 논문은 시스템 설계·기탁·접근 방법 기술에 집중</em></p>
-<h4>⚠️ 한계점</h4>
+<p><em>Note: The main text of the 2000 paper does not record the exact PDB structure count at that time — the paper focuses on describing the system design, deposition, and access methods</em></p>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>기탁 바이어스: 연구 관심이 높은 구조 집중</li>
-<li>결정화 조건이 생리적 환경과 다를 수 있음</li>
-<li>동적 거동 및 비결정성 단백질 영역 과소 대표</li>
+<li>Deposition bias: concentration on structures of high research interest</li>
+<li>Crystallization conditions may differ from physiological environments</li>
+<li>Under-representation of dynamic behavior and intrinsically disordered protein regions</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/28.1.235">The Protein Data Bank</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1093/nar/28.1.235">The Protein Data Bank</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/nar/BermanWFGBWSB00)</a></p>
@@ -241,14 +241,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

@@ -2,12 +2,12 @@
 """Render the full HTML site from data/papers.json.
 
 Outputs:
-  index.html                — landing page with K×O grid + search
-  about.html                — survey context + methodology
-  browse.html               — full paper browser with client-side filter
-  cell/<K>.<O>.html         — 12 K×O cell pages
-  domain/<dom>.html         — 8 domain pages
-  topics/<type>.html        — 4 type pages (method/benchmark/dataset/survey)
+  index.html               , landing page with K×O grid + search
+  about.html               , survey context + methodology
+  browse.html              , full paper browser with client-side filter
+  cell/<K>.<O>.html        , 12 K×O cell pages
+  domain/<dom>.html        , 8 domain pages
+  topics/<type>.html       , 4 type pages (method/benchmark/dataset/survey)
 """
 import html
 import json
@@ -19,22 +19,22 @@ ROOT = Path('/gallery_millet/yerim.oh/ScienceRAGServey/site')
 papers = json.loads((ROOT / 'data/papers.json').read_text())
 
 # ---------- Reference tables ----------
-# Taxonomy mirrors the survey (Oh et al.). The K axis is the *retrieval substrate* — the
+# Taxonomy mirrors the survey (Oh et al.). The K axis is the *retrieval substrate*, the
 # native form in which a source stores its knowledge, which fixes the retrieval operation it
 # permits (§4). The O axis is the *operational objective*, three rungs ordered by how far the
 # ground truth sits from the corpus (§5). Internal codes K1–K4 / O1–O3 are kept for URL and
 # file-path stability; only their MEANING changed from the earlier epistemic taxonomy.
-#   K1 = Textual · K2 = Relational · K3 = Structured-entity · K4 = Perceptual
-#   O1 = Grounding · O2 = Synthesis · O3 = Discovery
+#   K1 = Textual, K2 = Relational, K3 = Structured-entity, K4 = Perceptual
+#   O1 = Grounding, O2 = Synthesis, O3 = Discovery
 K_LABELS = {
-    'K1': ('Textual', 'Prose record of science — papers, abstracts, clinical notes, guidelines. Matched by embedding or lexical search over passages.'),
-    'K2': ('Relational', 'Curated graphs of scientific relations — UMLS, PrimeKG, DRKG, STRING, KEGG, citation graphs. Reached by entity linking and traversal.'),
-    'K3': ('Structured-entity', 'The objects of science as data — molecules, 3D structures, and property records (ChEMBL, PubChem, PDB, Materials Project). Reached by structural or property query.'),
-    'K4': ('Perceptual', 'Raw instrument output — images, spectra, sequencing, time-series (MIMIC-CXR, MassBank, sky surveys). Reachable only through a learned cross-modal encoder.'),
+    'K1': ('Textual', 'Prose record of science, papers, abstracts, clinical notes, guidelines. Matched by embedding or lexical search over passages.'),
+    'K2': ('Relational', 'Curated graphs of scientific relations, UMLS, PrimeKG, DRKG, STRING, KEGG, citation graphs. Reached by entity linking and traversal.'),
+    'K3': ('Structured-entity', 'The objects of science as data, molecules, 3D structures, and property records (ChEMBL, PubChem, PDB, Materials Project). Reached by structural or property query.'),
+    'K4': ('Perceptual', 'Raw instrument output, images, spectra, sequencing, time-series (MIMIC-CXR, MassBank, sky surveys). Reachable only through a learned cross-modal encoder.'),
 }
 O_LABELS = {
-    'O1': ('Grounding', 'Answer a question whose gold already lies in the corpus — retrieve, cite, answer. (Question Answering.)'),
-    'O2': ('Synthesis', 'Integrate evidence no single source states — verify claims and synthesize the literature. (Claim Verification, Literature Synthesis.)'),
+    'O1': ('Grounding', 'Answer a question whose gold already lies in the corpus, retrieve, cite, answer. (Question Answering.)'),
+    'O2': ('Synthesis', 'Integrate evidence no single source states, verify claims and synthesize the literature. (Claim Verification, Literature Synthesis.)'),
     'O3': ('Discovery', 'Propose an output the corpus does not contain, judged by an external verifier. (Property Prediction, Molecular Design, Materials Discovery, Hypothesis Generation.)'),
 }
 # The seven task families of §5, grouped under the three O rungs.
@@ -80,7 +80,7 @@ K_SUBSECTIONS = {
 }
 # Per-cell allow-list of subsection chips, overriding axis_subsections() when present.
 CELL_SUBSECTIONS = {}
-# Cell-tier labels — the maturity landscape of §8 (ssec:kxo_crosstab). Capability is
+# Cell-tier labels, the maturity landscape of §8 (ssec:kxo_crosstab). Capability is
 # ACTIVE where the substrate admits a mature matching operation and the task an automatic
 # score, EMERGING where a single component lags, and FRONTIER (dormant) where the verifier,
 # retriever, or substrate does not yet exist. (tier, label_for_hero_chip)
@@ -88,22 +88,22 @@ CELL_TIERS = {
     # Textual (K1)
     'K1.O1': ('Active',   'Literature Grounding'),
     'K1.O2': ('Active',   'Literature Synthesis'),
-    'K1.O3': ('Frontier', 'Literature-grounded Ideation'),
+    'K1.O3': ('Dormant','Literature-grounded Ideation'),
     # Relational (K2)
     'K2.O1': ('Active',   'Knowledge-graph QA'),
     'K2.O2': ('Emerging', 'Knowledge-graph Synthesis'),
     'K2.O3': ('Emerging', 'Relational Hypothesis'),
     # Structured-entity (K3)
     'K3.O1': ('Active',   'Structured-entity Lookup'),
-    'K3.O2': ('Frontier', 'Structured Synthesis (open)'),
+    'K3.O2': ('Dormant','Structured Synthesis (open)'),
     'K3.O3': ('Emerging', 'Structure-based Design'),
     # Perceptual (K4)
     'K4.O1': ('Emerging', 'Cross-modal Grounding'),
-    'K4.O2': ('Frontier', 'Perceptual Synthesis (open)'),
-    'K4.O3': ('Frontier', 'Signal-to-structure Discovery'),
+    'K4.O2': ('Dormant','Perceptual Synthesis (open)'),
+    'K4.O3': ('Dormant','Signal-to-structure Discovery'),
 }
 
-# Per-cell paper allow-list — the bib_keys actually CITED in each K×O subsubsection of
+# Per-cell paper allow-list, the bib_keys actually CITED in each K×O subsubsection of
 # the survey draft (ver/2/main.tex, latest prose revision). Comment blocks and %-comments
 # were excluded, so e.g. PhoPile (only in a \begin{comment} block) is NOT here.
 # When a cell appears here, the cell page renders ONLY these papers, in main.tex citation
@@ -113,24 +113,24 @@ CELL_TIERS = {
 # K1.O3 merges the strong- and weak-verifier paragraphs. K3.O2 has no draft paragraph (empty).
 # Per-cell authoritative system lists, transcribed directly from the survey's assembly
 # figure (Fig. 2), which is the paper's own substrate × task grid. Keys are (substrate, rung):
-#   K1 Textual · K2 Relational · K3 Structured-entity · K4 Perceptual
-#   O1 Grounding · O2 Synthesis · O3 Discovery
+#   K1 Textual, K2 Relational, K3 Structured-entity, K4 Perceptual
+#   O1 Grounding, O2 Synthesis, O3 Discovery
 # Where a cell holds more than one task family, the tasks are noted in a comment. Keys absent
 # from papers.json (bib-only refs) are silently skipped at render time.
 CELL_PAPERS = {
-    # Textual — Question Answering / Literature Synthesis / Hypothesis Generation
+    # Textual, Question Answering / Literature Synthesis / Hypothesis Generation
     'K1.O1': ['DBLP:conf/acl/Xiong0LZ24', 'DBLP:conf/pasc/GokdemirSBWHHSA25', 'DBLP:conf/emnlp/FrisoniMMV22', 'DBLP:journals/corr/abs-2603-09800', 'DBLP:journals/bioinformatics/JeongSSK24', 'DBLP:journals/corr/abs-2408-01107', 'DBLP:conf/naacl/SohnPYPHSKK25', 'DBLP:journals/corr/abs-2312-07559', 'DBLP:conf/acl/ChenLJWG0025', 'DBLP:conf/ecir/AteiaK25', 'zhang2024honeycomb'],
     'K1.O2': ['DBLP:journals/corr/abs-2402-01788', 'iyer2024pathfinder', 'DBLP:conf/nips/WangGYZZ0ZD0W0Z24', 'DBLP:conf/cikm/BesrourHS025', 'DBLP:journals/corr/abs-2310-16146', 'DBLP:conf/acl/YanFYX00Z25', 'DBLP:journals/corr/abs-2409-13740', 'asai2026synthesizing', 'wang2025accelerating'],
     'K1.O3': ['DBLP:conf/acl/0005DJH24', 'DBLP:conf/naacl/BaekJCH25', 'DBLP:conf/iclr/0001LGXLOPCZ25', 'DBLP:conf/emnlp/LiXGZLYZJXDRZFB25'],
-    # Relational — Question Answering / Literature Synthesis / Hypothesis Generation
+    # Relational, Question Answering / Literature Synthesis / Hypothesis Generation
     'K2.O1': ['DBLP:journals/bioinformatics/SomanRMASPVCSRI24', 'DBLP:conf/acl/0006WS24', 'DBLP:conf/bionlp/YangLMZKLCCCML24', 'DBLP:conf/acl/WuZQCXMJG25', 'DBLP:conf/acl/Jiang0XQFWTDC0W25', 'DBLP:conf/iclr/00010GLGCZ25'],
     'K2.O2': ['DBLP:conf/sigir/HuLD0A0025'],
     'K2.O3': ['DBLP:conf/naacl/LiCJ25'],
-    # Structured-entity — Question Answering (O1) / Molecular Design + Materials Discovery (O3)
+    # Structured-entity, Question Answering (O1) / Molecular Design + Materials Discovery (O3)
     'K3.O1': ['DBLP:journals/bioinformatics/JinYCL24', 'DBLP:conf/emnlp/ChiangHCR25'],
     'K3.O2': [],
     'K3.O3': ['DBLP:conf/nips/LeeKV0RPVN24', 'DBLP:journals/bib/ZhangPHCM25', 'nan2026taliragen', 'DBLP:conf/iclr/0001NQXBA23', 'DBLP:journals/corr/abs-2603-15712'],
-    # Perceptual — Cross-modal QA (O1) / Molecular Design + Property Prediction (O3)
+    # Perceptual, Cross-modal QA (O1) / Molecular Design + Property Prediction (O3)
     'K4.O1': ['DBLP:journals/corr/abs-2411-16523', 'DBLP:journals/corr/abs-2510-01558', 'DBLP:conf/iclr/0005ZLWSWZ0Y25', 'DBLP:conf/emnlp/XiaZLZLLZY24', 'DBLP:conf/naacl/SunZHX25', 'DBLP:conf/aaai/ZhangGZZCZZYB26'],
     'K4.O2': [],
     'K4.O3': ['DBLP:conf/icml/Huang0ZQYZZZWY24', 'DBLP:journals/corr/abs-2506-14488', 'DBLP:conf/iclr/WangCLH25'],
@@ -177,127 +177,127 @@ CORE_SYSTEM_TASK = {
 # evidence is one click away instead of the raw paper link. See ver/2/factcheck_kxo_k1o1.md.
 FACTCHECK = {
     'DBLP:conf/acl/Xiong0LZ24': {
-        'verdict': '✅ Accurate — closed-form',
+        'verdict': '✅ Accurate, closed-form',
         'evidence': 'MEDRAG is “a toolkit with systematic implementations of RAG for medical QA” (§4); its evaluation “tasks are all composed of multi-choice questions” (§3.2), retrieving over PubMed, StatPearls, textbooks and Wikipedia. (MEDRAG = the system; MIRAGE = its benchmark.)',
-        'source': 'ACL Findings 2024, pp. 6233–6251 · arXiv:2402.13178',
+        'source': 'ACL Findings 2024, pp. 6233–6251, arXiv:2402.13178',
     },
     'DBLP:journals/corr/abs-2408-01107': {
-        'verdict': '✅ Accurate — closed-form',
+        'verdict': '✅ Accurate, closed-form',
         'evidence': 'BioRAG is “a novel Retrieval-Augmented Generation (RAG) with the Large Language Models (LLMs) framework” (§2) retrieving over “a corpus of 22,371,343 high-quality, processed PubMed abstracts” (§2.1) for closed-form biological QA (GeneTuring, MedMCQA, College Biology/Medicine).',
-        'source': 'CoRR 2024 · arXiv:2408.01107',
+        'source': 'CoRR 2024, arXiv:2408.01107',
     },
     'DBLP:conf/naacl/SohnPYPHSKK25': {
-        'verdict': '✅ Accurate — closed-form',
-        'evidence': 'RAG² (“RAtionale-Guided Retrieval Augmented Generation”) uses LLM-generated rationales as retrieval queries plus a perplexity-trained filter, for multiple-choice medical QA (MedQA, MedMCQA, MMLU-Med) over four balanced corpora — PubMed, PMC, textbooks, clinical guidelines (§3.4).',
-        'source': 'NAACL 2025, pp. 12739–12753 · arXiv:2411.00300',
+        'verdict': '✅ Accurate, closed-form',
+        'evidence': 'RAG² (“RAtionale-Guided Retrieval Augmented Generation”) uses LLM-generated rationales as retrieval queries plus a perplexity-trained filter, for multiple-choice medical QA (MedQA, MedMCQA, MMLU-Med) over four balanced corpora, PubMed, PMC, textbooks, clinical guidelines (§3.4).',
+        'source': 'NAACL 2025, pp. 12739–12753, arXiv:2411.00300',
     },
     'DBLP:journals/corr/abs-2312-07559': {
-        'verdict': '✅ Accurate — long-form citation',
+        'verdict': '✅ Accurate, long-form citation',
         'evidence': 'PaperQA “performs information retrieval across full-text scientific articles” and, via a “map summarization step … followed by a reduce step,” returns cited long-form answers with per-sentence “citation markers” (§3); LitQA is its separate “50 multiple-choice” eval benchmark (§4).',
-        'source': 'CoRR 2023 · arXiv:2312.07559',
+        'source': 'CoRR 2023, arXiv:2312.07559',
     },
     'asai2026synthesizing': {
-        'verdict': '✅ Accurate — long-form citation',
+        'verdict': '✅ Accurate, long-form citation',
         'evidence': 'OpenScholar is a “retrieval-augmented LM that answers scientific queries by identifying relevant passages from 45 million open-access papers and synthesizing citation-backed responses,” evaluated on ScholarQABench (2,967 expert queries, 208 long-form answers). Cite key is for the Nature 2026 version (not DBLP-indexed; arXiv = 2411.14199).',
-        'source': 'Nature 650:857–863, 2026 · DOI 10.1038/s41586-025-10072-4',
+        'source': 'Nature 650:857–863, 2026, DOI 10.1038/s41586-025-10072-4',
     },
     'DBLP:journals/corr/abs-2310-16146': {
-        'verdict': '✅ Accurate — long-form citation (output form)',
+        'verdict': '✅ Accurate, long-form citation (output form)',
         'evidence': 'Clinfo.ai is “an open-source WebApp that answers clinical questions based on dynamically retrieved scientific literature” (PubMed), producing a “Literature Summary” whose “ordered list, with each number … corresponding to a citation” attributes each finding to its source; releases PubMedRS-200. (Caveat: answer scored by summarization metrics, not citation precision/recall.)',
-        'source': 'CoRR 2023 · arXiv:2310.16146 · PSB 2024',
+        'source': 'CoRR 2023, arXiv:2310.16146, PSB 2024',
     },
-    # --- K4.O1 (Private-document Retrieval) — verified 2026-05-31 against full bodies. See factcheck_kxo_k4o1.md ---
+    # --- K4.O1 (Private-document Retrieval), verified 2026-05-31 against full bodies. See factcheck_kxo_k4o1.md ---
     'DBLP:journals/corr/abs-2603-09800': {
-        'verdict': '✅ Accurate — retrieval-grounded',
+        'verdict': '✅ Accurate, retrieval-grounded',
         'evidence': 'MITRA is “a Retrieval-Augmented Generation (RAG) based system” over the “Compact Muon Solenoid (CMS) … internal documentation,” “hosted on-premise” for privacy. It explicitly beats an “Okapi BM25” baseline on paraphrased queries by wide margins (P@1 0.75 vs 0.13, MRR 0.81 vs 0.35, NDCG@5 0.88 vs 0.59); generation-step evaluation is left to future work.',
-        'source': 'CoRR 2026 · arXiv:2603.09800 (DBLP-verified)',
+        'source': 'CoRR 2026, arXiv:2603.09800 (DBLP-verified)',
     },
     'rafique2025large': {
-        'verdict': '⚠️ Name/corpus accurate — no BM25 comparison',
-        'evidence': 'DUNE-GPT is “a prototype framework that leverages LLMs and RAG” for “natural-language querying of DUNE’s internal documentation and technical resources” (Fermilab on-premise). It reports only a single preliminary figure — “retrieves relevant documentation with high accuracy (∼70%)” — and makes NO BM25/sparse-baseline comparison. ⚠️ Paper is real on arXiv (2601.05278) but NOT indexed by DBLP; bib key is a hand-made arXiv entry.',
-        'source': 'arXiv:2601.05278 (2026) · not in DBLP',
+        'verdict': '⚠️ Name/corpus accurate, no BM25 comparison',
+        'evidence': 'DUNE-GPT is “a prototype framework that leverages LLMs and RAG” for “natural-language querying of DUNE’s internal documentation and technical resources” (Fermilab on-premise). It reports only a single preliminary figure, “retrieves relevant documentation with high accuracy (∼70%)”, and makes NO BM25/sparse-baseline comparison. ⚠️ Paper is real on arXiv (2601.05278) but NOT indexed by DBLP; bib key is a hand-made arXiv entry.',
+        'source': 'arXiv:2601.05278 (2026), not in DBLP',
     },
     'DBLP:journals/corr/abs-2509-09688': {
         'verdict': '⚠️ Reports deployment + qualitative QA, not retrieval metrics',
-        'evidence': 'The RHIC “Data and Analysis Preservation Plan (DAPP)” assistant (the paper names the plan DAPP; the assistant itself is unnamed) indexes “documentation, workflows, and software” (~1 ExaByte) via RAG + Model Context Protocol. It reports “deployment, computational performance” and a QUALITATIVE expert-grounded comparison of Llama3.3-70B / Mistral-Large / ChatGPT-o3 — NO retrieval-quality metrics and NO BM25 comparison; a formal benchmark “is currently in progress.”',
-        'source': 'CoRR 2025 · arXiv:2509.09688 (DBLP-verified)',
+        'evidence': 'The RHIC “Data and Analysis Preservation Plan (DAPP)” assistant (the paper names the plan DAPP; the assistant itself is unnamed) indexes “documentation, workflows, and software” (~1 ExaByte) via RAG + Model Context Protocol. It reports “deployment, computational performance” and a QUALITATIVE expert-grounded comparison of Llama3.3-70B / Mistral-Large / ChatGPT-o3, NO retrieval-quality metrics and NO BM25 comparison; a formal benchmark “is currently in progress.”',
+        'source': 'CoRR 2025, arXiv:2509.09688 (DBLP-verified)',
     },
     'DBLP:journals/corr/abs-2406-12881': {
-        'verdict': '✅ Accurate — retrieval-grounded',
+        'verdict': '✅ Accurate, retrieval-grounded',
         'evidence': 'A multi-facility study: “Electronic logbooks contain valuable information about activities and events concerning their associated particle accelerator facilities” (DESY, BESSY, Fermilab’s ADEL, BNL, SLAC, LBNL, CERN). It implements RAG (“q→retrieve(q)→generate(q,𝒟)→a”) to ground answers in these institution-private operational logbooks.',
-        'source': 'CoRR 2024 · arXiv:2406.12881 (DBLP-verified)',
+        'source': 'CoRR 2024, arXiv:2406.12881 (DBLP-verified)',
     },
     'mehta2023copilots': {
-        'verdict': '✅ Accurate — retrieval-grounded',
-        'evidence': 'An operational copilot using “Retrieval-Augmented Generation (RAG)” over institution-private text logs from the DIII-D and Alcator C-Mod tokamak fusion experiments; it “answers operator queries using retrieved experimental logs rather than generating hypothetical decisions” — i.e. grounding, not action/hypothesis generation. ⚠️ NeurIPS 2023 AI4Science workshop paper, NOT indexed by DBLP.',
-        'source': 'NeurIPS 2023 Workshop AI4Science · OpenReview yGVChrbJ4E · not in DBLP',
+        'verdict': '✅ Accurate, retrieval-grounded',
+        'evidence': 'An operational copilot using “Retrieval-Augmented Generation (RAG)” over institution-private text logs from the DIII-D and Alcator C-Mod tokamak fusion experiments; it “answers operator queries using retrieved experimental logs rather than generating hypothetical decisions”, i.e. grounding, not action/hypothesis generation. ⚠️ NeurIPS 2023 AI4Science workshop paper, NOT indexed by DBLP.',
+        'source': 'NeurIPS 2023 Workshop AI4Science, OpenReview yGVChrbJ4E, not in DBLP',
     },
     'rehm2025accgpt': {
-        'verdict': '✅ Accurate — retrieval-grounded',
-        'evidence': 'AccGPT is an on-premise “knowledge retrieval chatbot” that lets an LLM “reference an external knowledge base, such as CERN’s internal documentation” (e5-large-v2 embeddings) before answering — single-corpus grounding over institution-private docs. ⚠️ EPJ Web of Conferences (CHEP 2024) proceedings, NOT indexed by DBLP.',
-        'source': 'EPJ Web Conf 337:01279, 2025 · DOI 10.1051/epjconf/202533701279 · not in DBLP',
+        'verdict': '✅ Accurate, retrieval-grounded',
+        'evidence': 'AccGPT is an on-premise “knowledge retrieval chatbot” that lets an LLM “reference an external knowledge base, such as CERN’s internal documentation” (e5-large-v2 embeddings) before answering, single-corpus grounding over institution-private docs. ⚠️ EPJ Web of Conferences (CHEP 2024) proceedings, NOT indexed by DBLP.',
+        'source': 'EPJ Web Conf 337:01279, 2025, DOI 10.1051/epjconf/202533701279, not in DBLP',
     },
     'DBLP:conf/nips/BushuievBJYKSHW24': {
-        'verdict': '⚠️ Accurate on facts, but it is a benchmark — not a framework, and de novo generation is generation, not retrieval',
-        'evidence': 'MassSpecGym is “the first comprehensive benchmark for the discovery and identification of molecules from MS/MS data” — a dataset (231k spectra over 29k structures), NOT a RAG method/framework. It defines three challenges: “de novo molecular structure generation, molecule retrieval, and spectrum simulation”; only the second is retrieval-based, so the de novo task the paragraph foregrounds generates (does not “retrieve across spectra”) a structure from one spectrum. De novo generation is scored by Top-k accuracy, Top-k MCES and Top-k Tanimoto; published baselines reach Top-1 accuracy 0.00 (“none of the baselines achieve an accuracy above zero”).',
-        'source': 'NeurIPS 2024 Datasets & Benchmarks · arXiv:2410.23326 (DBLP-verified)',
+        'verdict': '⚠️ Accurate on facts, but it is a benchmark, not a framework, and de novo generation is generation, not retrieval',
+        'evidence': 'MassSpecGym is “the first comprehensive benchmark for the discovery and identification of molecules from MS/MS data”, a dataset (231k spectra over 29k structures), NOT a RAG method/framework. It defines three challenges: “de novo molecular structure generation, molecule retrieval, and spectrum simulation”; only the second is retrieval-based, so the de novo task the paragraph foregrounds generates (does not “retrieve across spectra”) a structure from one spectrum. De novo generation is scored by Top-k accuracy, Top-k MCES and Top-k Tanimoto; published baselines reach Top-1 accuracy 0.00 (“none of the baselines achieve an accuracy above zero”).',
+        'source': 'NeurIPS 2024 Datasets & Benchmarks, arXiv:2410.23326 (DBLP-verified)',
     },
-    # --- K2.O3 (Simulation-verified Materials Design) — verified 2026-05-31 against full bodies. See factcheck_kxo_k2o3.md ---
+    # --- K2.O3 (Simulation-verified Materials Design), verified 2026-05-31 against full bodies. See factcheck_kxo_k2o3.md ---
     'DBLP:journals/corr/abs-2603-15712': {
-        'verdict': '✅ Accurate — strong K2.O3 fit',
+        'verdict': '✅ Accurate, strong K2.O3 fit',
         'evidence': 'Grounds an LLM on “a curated database of 50,000+ validated materials” (Materials Project + NOMAD + OC20; two-stage cosine + chemical-filter retrieval, k=20), “generated over 250 catalyst candidates with an 82% thermodynamic stability rate,” verified by DFT (VASP 6.3 PBE+U, convex hull E_hull<50 meV/atom). Best composition “Fe0.2Co0.2Ni0.2Ir0.1Ru0.3 achieves 0.285V limiting potential.” Genuine RAG → new candidates → DFT-verified. (Byline “AI Scientists” is a genuine DBLP-registered autonomous-agent author, not a fabrication.)',
-        'source': 'CoRR 2026 · arXiv:2603.15712 (DBLP-verified)',
+        'source': 'CoRR 2026, arXiv:2603.15712 (DBLP-verified)',
     },
     'zhang2026matclaw': {
-        'verdict': '⚠️ Misclassified — real K2 code-RAG, but NOT O3 / not simulation-verified',
-        'evidence': 'MatClaw genuinely uses RAG over the source code of pymatgen, atomate2, jobflow, dpdata, DeePMD-kit (BM25 + 3-query RRF), “rais[ing] per-step API-call accuracy to ~99%.” BUT it generates NO new material candidates (full-text counts: candidate=0, novel=0) — all demos run on the existing material CuInP2S6 — and it does NOT verify with external simulation: “All three tasks use the pre-trained DeePMD model … rather than DFT calculations.” The phrase “workflow success rate” does not appear (per-task Success/Failure table only). → fails the O3 (new-candidate) and simulation-verified axes; belongs in a K2 code-library-RAG / agentic-workflow class, not K2.O3.',
-        'source': 'CoRR 2026 · arXiv:2604.02688 (DBLP-verified)',
+        'verdict': '⚠️ Misclassified, real K2 code-RAG, but NOT O3 / not simulation-verified',
+        'evidence': 'MatClaw genuinely uses RAG over the source code of pymatgen, atomate2, jobflow, dpdata, DeePMD-kit (BM25 + 3-query RRF), “rais[ing] per-step API-call accuracy to ~99%.” BUT it generates NO new material candidates (full-text counts: candidate=0, novel=0), all demos run on the existing material CuInP2S6, and it does NOT verify with external simulation: “All three tasks use the pre-trained DeePMD model … rather than DFT calculations.” The phrase “workflow success rate” does not appear (per-task Success/Failure table only). → fails the O3 (new-candidate) and simulation-verified axes; belongs in a K2 code-library-RAG / agentic-workflow class, not K2.O3.',
+        'source': 'CoRR 2026, arXiv:2604.02688 (DBLP-verified)',
     },
     'ong2013python': {
-        'verdict': '✅ Real software citation — metadata correct',
+        'verdict': '✅ Real software citation, metadata correct',
         'evidence': 'pymatgen: Ong et al., “Python Materials Genomics (pymatgen)…”, Computational Materials Science 68:314–319 (2013), doi 10.1016/j.commatsci.2012.10.028. Verified via ScienceDirect; title/venue/volume/pages/year/DOI all match.',
         'source': 'Comput. Mater. Sci. 68:314–319, 2013 (software ref; not in DBLP)',
     },
     'ganose2025_atomate2': {
-        'verdict': '✅ Real software citation — metadata correct',
+        'verdict': '✅ Real software citation, metadata correct',
         'evidence': 'atomate2: Ganose et al., “Atomate2: modular workflows for materials science”, Digital Discovery 4:1944–1973 (2025), doi 10.1039/D5DD00019J. Verified via RSC; title/venue/year/DOI match.',
         'source': 'Digital Discovery 4:1944–1973, 2025 (software ref; not in DBLP)',
     },
     'rosen2024jobflow': {
-        'verdict': '✅ Real software citation — metadata correct',
+        'verdict': '✅ Real software citation, metadata correct',
         'evidence': 'jobflow: Rosen et al., “Jobflow: Computational Workflows Made Simple”, JOSS 9(93):5995 (2024), doi 10.21105/joss.05995. Verified via JOSS; all fields match.',
         'source': 'JOSS 9(93):5995, 2024 (software ref; not in DBLP)',
     },
     'doi:10.1021/acs.jcim.5c01767': {
-        'verdict': '✅ Real software citation — metadata correct',
+        'verdict': '✅ Real software citation, metadata correct',
         'evidence': 'dpdata: Zeng et al., “dpdata: A Scalable Python Toolkit for Atomistic Machine Learning Data Sets”, J. Chem. Inf. Model. 65(21):11497–11504 (2025), doi 10.1021/acs.jcim.5c01767. Verified via ACS/PubMed; all fields match.',
         'source': 'J. Chem. Inf. Model. 65(21):11497–11504, 2025 (software ref; not in DBLP)',
     },
     'Wang_ComputPhysCommun_2018_v228_p178': {
-        'verdict': '✅ Real software citation — metadata correct',
+        'verdict': '✅ Real software citation, metadata correct',
         'evidence': 'DeePMD-kit: Wang, Zhang, Han, E, “DeePMD-kit: A deep learning package for many-body potential energy representation and molecular dynamics”, Comput. Phys. Comm. 228:178–184 (2018), doi 10.1016/j.cpc.2018.03.016. Verified via ScienceDirect/arXiv:1712.03641; all fields match.',
         'source': 'Comput. Phys. Comm. 228:178–184, 2018 (software ref; not in DBLP)',
     },
-    # --- K1.O3 (Weak-verifier Hypothesis) — verified 2026-06-01 against full bodies + real DBLP. See factcheck below ---
+    # --- K1.O3 (Weak-verifier Hypothesis), verified 2026-06-01 against full bodies + real DBLP. See factcheck below ---
     'DBLP:conf/iclr/0001LGXLOPCZ25': {
-        'verdict': '✅ Accurate — K1.O3 weak-verifier',
-        'evidence': 'MOOSE-Chem retrieves inspiration papers from a chemistry-literature corpus (“3000 most cited chemistry papers published in Nature”) — K1, not a curated KB. Retrieval is one of three core subtasks (retrieve inspirations / compose / rank). It GENERATES novel chemistry hypotheses, judged by rediscovering held-out high-impact 2024 findings (TOMATO-Chem) — a weak verifier, no docking/sim. Method-primary (benchmark is enabling infrastructure).',
-        'source': 'ICLR 2025 · OpenReview X9OfMNNepI (DBLP-verified)',
+        'verdict': '✅ Accurate, K1.O3 weak-verifier',
+        'evidence': 'MOOSE-Chem retrieves inspiration papers from a chemistry-literature corpus (“3000 most cited chemistry papers published in Nature”), K1, not a curated KB. Retrieval is one of three core subtasks (retrieve inspirations / compose / rank). It GENERATES novel chemistry hypotheses, judged by rediscovering held-out high-impact 2024 findings (TOMATO-Chem), a weak verifier, no docking/sim. Method-primary (benchmark is enabling infrastructure).',
+        'source': 'ICLR 2025, OpenReview X9OfMNNepI (DBLP-verified)',
     },
     'DBLP:conf/acl/0005DJH24': {
-        'verdict': '✅ Accurate — K1.O3 weak-verifier',
-        'evidence': 'SciMON retrieves “inspirations” from a paper corpus (“67,408 ACL Anthology papers”) plus citation/KG neighbors built from that corpus (K1). Retrieval is the core input stage (genuine RAG). It generates new ideas grounded in literature and “iteratively optimizes for novelty against prior work” — weak verifier. Method paper.',
-        'source': 'ACL 2024, pp. 279–299 · doi 10.18653/v1/2024.acl-long.18 (DBLP-verified)',
+        'verdict': '✅ Accurate, K1.O3 weak-verifier',
+        'evidence': 'SciMON retrieves “inspirations” from a paper corpus (“67,408 ACL Anthology papers”) plus citation/KG neighbors built from that corpus (K1). Retrieval is the core input stage (genuine RAG). It generates new ideas grounded in literature and “iteratively optimizes for novelty against prior work”, weak verifier. Method paper.',
+        'source': 'ACL 2024, pp. 279–299, doi 10.18653/v1/2024.acl-long.18 (DBLP-verified)',
     },
     'DBLP:conf/naacl/BaekJCH25': {
-        'verdict': '✅ Accurate — K1.O3 weak-verifier',
-        'evidence': 'ResearchAgent augments a core paper with “relevant publications by connecting information over an academic graph” plus “entities … from a knowledge store derived from … concepts mined across numerous papers” — both literature-derived (K1, not an external curated KB). It “defines novel problems, proposes methods and designs experiments,” refined by LLM ReviewingAgents (weak verifier, no external confirmation). Method paper.',
-        'source': 'NAACL 2025, pp. 6709–6738 · doi 10.18653/v1/2025.naacl-long.342 (DBLP-verified)',
+        'verdict': '✅ Accurate, K1.O3 weak-verifier',
+        'evidence': 'ResearchAgent augments a core paper with “relevant publications by connecting information over an academic graph” plus “entities … from a knowledge store derived from … concepts mined across numerous papers”, both literature-derived (K1, not an external curated KB). It “defines novel problems, proposes methods and designs experiments,” refined by LLM ReviewingAgents (weak verifier, no external confirmation). Method paper.',
+        'source': 'NAACL 2025, pp. 6709–6738, doi 10.18653/v1/2025.naacl-long.342 (DBLP-verified)',
     },
     'DBLP:conf/emnlp/LiXGZLYZJXDRZFB25': {
-        'verdict': '✅ Accurate — K1.O3 weak-verifier',
-        'evidence': 'Chain-of-Ideas retrieves papers via the Semantic Scholar API and organizes citations into a forward/backward “evolution chain” (K1 literature), then extrapolates the next research idea (genuine RAG, improving on vanilla RAG). Evaluated with “Idea Arena,” a human-preference-aligned novelty protocol — weak verifier. Method-primary (Idea Arena is the secondary contribution).',
-        'source': 'EMNLP 2025 Findings, pp. 8971–9004 · ACL Anthology 2025.findings-emnlp.477 (DBLP-verified)',
+        'verdict': '✅ Accurate, K1.O3 weak-verifier',
+        'evidence': 'Chain-of-Ideas retrieves papers via the Semantic Scholar API and organizes citations into a forward/backward “evolution chain” (K1 literature), then extrapolates the next research idea (genuine RAG, improving on vanilla RAG). Evaluated with “Idea Arena,” a human-preference-aligned novelty protocol, weak verifier. Method-primary (Idea Arena is the secondary contribution).',
+        'source': 'EMNLP 2025 Findings, pp. 8971–9004, ACL Anthology 2025.findings-emnlp.477 (DBLP-verified)',
     },
 }
 # Cells whose papers show the fact-check footnote chip on the cell page.
@@ -437,10 +437,10 @@ PAPER_DB = {
 # ---------- Central taxonomy remap ----------
 # Every paper carries an assignment from the earlier epistemic taxonomy (Primary Literature /
 # Curated KB / Observational / Tacit  ×  Ground / Synthesis / Hypothesis). We remap each paper
-# onto the survey's published taxonomy — retrieval SUBSTRATE (§4) × OBJECTIVE rung (§5) — once,
+# onto the survey's published taxonomy, retrieval SUBSTRATE (§4) × OBJECTIVE rung (§5), once,
 # in place, so every downstream aggregation (grid, cell pages, browse, insights) reflects it.
-#   Substrate: K1 Textual · K2 Relational · K3 Structured-entity · K4 Perceptual
-#   Rung:      O1 Grounding · O2 Synthesis · O3 Discovery
+#   Substrate: K1 Textual, K2 Relational, K3 Structured-entity, K4 Perceptual
+#   Rung:      O1 Grounding, O2 Synthesis, O3 Discovery
 # The assembly-figure core systems (CELL_PAPERS / CORE_SYSTEM_TASK) are authoritative and pin
 # their own substrate, rung, and task; the long tail is mapped by modality, then by the old tag.
 CORE_CELL = {}
@@ -521,15 +521,15 @@ for p in papers:
                 _norm.append(_d)
         p['domain'] = _norm
     bib = p.get('bib_key')
-    if bib in CORE_CELL:                       # Fig. 2 assembly (methods) — highest authority
+    if bib in CORE_CELL:                       # Fig. 2 assembly (methods), highest authority
         substrate, rung = CORE_CELL[bib].split('.')
         task = CORE_SYSTEM_TASK.get(bib)
-    elif bib in PAPER_BENCH:                    # Table 2 (benchmarks) — substrate + task
+    elif bib in PAPER_BENCH:                    # Table 2 (benchmarks), substrate + task
         substrate, task = PAPER_BENCH[bib]
         rung = TASK_RUNG.get(task)
-    elif bib in PAPER_DB:                       # §4 knowledge-source table (databases) — substrate only
+    elif bib in PAPER_DB:                       # §4 knowledge-source table (databases), substrate only
         substrate, rung, task = PAPER_DB[bib], None, None
-    else:                                       # long tail not cited by the survey — modality heuristic
+    else:                                       # long tail not cited by the survey, modality heuristic
         substrate = _substrate_for(p)
         rung = _rung_for(p)
         task = _task_for(substrate, rung, p) if rung else None
@@ -633,7 +633,7 @@ def sidebar(base='', current=''):
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -649,14 +649,14 @@ def sidebar(base='', current=''):
     </details>
 
     <details class="sb-group"{cell_open}>
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         {k_axis_items}
       </div>
     </details>
 
     <details class="sb-group"{cell_open}>
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         {o_axis_items}
       </div>
@@ -689,7 +689,7 @@ def sidebar(base='', current=''):
 '''
 
 
-def page_head(title, base='', desc='Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.', current=''):
+def page_head(title, base='', desc='Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.', current=''):
     # Cache-bust the CSS using the file's mtime so browsers always pull the latest after a rebuild.
     css_mtime = int((ROOT / 'static/style.css').stat().st_mtime)
     return f'''<!doctype html>
@@ -697,7 +697,7 @@ def page_head(title, base='', desc='Scientific RAG Hub — a curated catalog of 
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{esc(title)} — Scientific RAG Hub</title>
+<title>{esc(title)}, Scientific RAG Hub</title>
 <meta name="description" content="{esc(desc)}">
 <link rel="stylesheet" href="{base}static/style.css?v={css_mtime}">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
@@ -716,14 +716,14 @@ def page_foot(base=''):
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="{base}llms.txt">llms.txt</a> ·
-      <a href="{base}llms-full.txt">llms-full.txt</a> ·
-      <a href="{base}data/catalog.json">catalog.json</a> ·
+      <a href="{base}llms.txt">llms.txt</a>
+      <a href="{base}llms-full.txt">llms-full.txt</a>
+      <a href="{base}data/catalog.json">catalog.json</a>
       <a href="{base}about.html">About</a>
     </p>
   </div>
@@ -765,7 +765,7 @@ def paper_card(p, base='', axis_scope=None, factcheck_id=None):
         meta_parts.append(f'<span class="meta-venue">{venue}</span>')
     if year:
         meta_parts.append(f'<span class="meta-year">{year}</span>')
-    meta = ' · '.join(meta_parts)
+    meta = ', '.join(meta_parts)
 
     tag_html = []
     for c in cells:
@@ -802,13 +802,13 @@ def paper_card(p, base='', axis_scope=None, factcheck_id=None):
     if _allowed is not None:
         _subsec_items = [s for s in _subsec_items if s in _allowed]
     subsec_attr = f' data-sub="{esc(" | ".join(_subsec_items))}"'
-    # Fact-check footnote chip — clicking opens a popover with verbatim original-text
+    # Fact-check footnote chip, clicking opens a popover with verbatim original-text
     # evidence (footnotes.js), instead of jumping to the raw paper link.
     fc_html = ''
     if factcheck_id and bib_key in FACTCHECK:
         verdict = esc(FACTCHECK[bib_key]['verdict'])
         fc_html = (f'<p class="card-factcheck"><a class="footnote-ref" '
-                   f'href="#{factcheck_id}" title="source evidence">{verdict} · source ⌖</a></p>')
+                   f'href="#{factcheck_id}" title="source evidence">{verdict}, source ⌖</a></p>')
     return f'''<article class="card"{subsec_attr}>
   <h3 class="card-title">{title_html}</h3>
   {f'<div class="card-meta">{meta}</div>' if meta else ''}
@@ -829,12 +829,12 @@ PIPELINE_HTML = '''
     <p class="section-sub">
       The survey organizes the field not as a grid of cells but as the <em>pipeline</em> a system runs:
       what knowledge it <strong>retrieves</strong> (the substrate), how it <strong>constructs, retrieves,
-      generates, and verifies</strong>, and what <strong>objective</strong> it produces — scored by evaluation.
+      generates, and verifies</strong>, and what <strong>objective</strong> it produces, scored by evaluation.
       Science specializes every stage.
     </p>
     <div class="flow">
       <div class="flow-card flow-k">
-        <div class="flow-cap">Knowledge&nbsp;Source · substrate</div>
+        <div class="flow-cap">Knowledge&nbsp;Source</div>
         <a class="flow-chip flow-kc" href="cell/K1.html">Textual</a>
         <a class="flow-chip flow-kc" href="cell/K2.html">Relational</a>
         <a class="flow-chip flow-kc" href="cell/K3.html">Structured-entity</a>
@@ -851,7 +851,7 @@ PIPELINE_HTML = '''
       </div>
       <span class="flow-arrow">&rarr;</span>
       <div class="flow-card flow-o">
-        <div class="flow-cap">Operational&nbsp;Objective · rung</div>
+        <div class="flow-cap">Operational&nbsp;Objective</div>
         <a class="flow-chip flow-oc" href="cell/O3.html">Discovery</a>
         <a class="flow-chip flow-oc" href="cell/O2.html">Synthesis</a>
         <a class="flow-chip flow-oc" href="cell/O1.html">Grounding</a>
@@ -873,8 +873,7 @@ def _growth_chart_html():
     from collections import defaultdict, Counter
     TYPES = [('Method', 'Methods', '#c2185b'),
              ('benchmark', 'Benchmarks', '#1a73e8'),
-             ('dataset', 'Datasets', '#12805c'),
-             ('summary', 'Surveys', '#e8710a')]
+             ('dataset', 'Datasets', '#12805c')]
     yc = defaultdict(Counter)
     for p in papers:
         y = p.get('year')
@@ -938,12 +937,12 @@ def render_index():
     parts.append(f'''
 <section class="hero">
   <div class="wrap">
-    <p class="eyebrow">AI for Science · Retrieval-Augmented Generation</p>
+    <p class="eyebrow">AI for Science and Retrieval-Augmented Generation</p>
     <h1>The catalog of scientific RAG, organized by what it retrieves and what it must produce.</h1>
     <p class="lede">
       <strong>{len(papers)}</strong> methods, benchmarks, and datasets across
-      <strong>{len(by_dom)}</strong> scientific domains — mapped onto the survey's two axes:
-      the <em>retrieval substrate</em> a system draws on (Textual · Relational · Structured-entity · Perceptual)
+      <strong>{len(by_dom)}</strong> scientific domains, mapped onto the survey's two axes:
+      the <em>retrieval substrate</em> a system draws on (Textual, Relational, Structured-entity, Perceptual)
       and the <em>operational objective</em> it serves, rising from grounding a known answer to proposing a discovery.
       Companion catalog to the survey by Oh et al.
     </p>
@@ -970,12 +969,13 @@ def render_index():
   <div class="wrap">
     <h2 class="section-title">A field growing fast</h2>
     <p class="section-sub">
-      Cumulative count of every catalogued system — methods, benchmarks, and datasets — by year. Scientific RAG
-      accelerates sharply from 2023 onward, led by <strong style="color:#c2185b">methods</strong> with
+      Cumulative count of catalogued methods, benchmarks, and datasets by year. Scientific RAG
+      accelerates sharply from 2023 onward, led by <strong style="color:#c2185b">methods</strong>, with
       <strong style="color:#1a73e8">benchmarks</strong> following.
     </p>
     <div class="chart-frame">{_gsvg}</div>
     <p class="chart-legend">{_gleg}</p>
+    <p class="chart-note">The chart plots entries with a recorded publication year; a handful of undated entries are not shown. See <a href="browse.html">Browse</a> for the full catalog of {len(papers)}.</p>
   </div>
 </section>
 ''')
@@ -1013,45 +1013,54 @@ def render_index():
         parts.append(f'      <a href="topics/{t.lower()}.html" class="type-card"><strong>{esc(label)}</strong><span>{n}</span></a>\n')
     parts.append('    </div>\n  </div>\n</section>\n')
 
-    # Flagships strip
-    flagships_file = ROOT / 'build/flagships.json'
-    flagships = json.loads(flagships_file.read_text()).get('flagships', [])
-    by_bib = {p.get('bib_key'): p for p in papers}
+    # What's next, the survey's core message + a pointer to future directions
     parts.append('''
-<section class="flagship-section">
+<section class="whatsnext-section">
   <div class="wrap">
-    <h2 class="section-title">Flagship systems — start here</h2>
-    <p class="section-sub">Nine papers that either set the modern bar (Nature, NeurIPS, AAAI) or open a structural gap. <a href="insights.html#flagships">See full Insights →</a></p>
-    <div class="flagship-strip">
+    <h2 class="section-title">What's next</h2>
+    <p class="section-sub">
+      Across the grid, one message stands out. Capability piles up where the substrate is textual and the task
+      can be scored automatically, and it thins toward non-textual evidence and externally verified discovery,
+      the very abilities an autonomous scientific agent leans on most. The work ahead is less a search for better
+      retrievers than making more of science <strong>retrievable</strong> and more of its outputs
+      <strong>verifiable</strong>.
+    </p>
+    <div class="whatsnext-cta">
+      <a href="insights.html#directions" class="btn">The road ahead</a>
+      <a href="insights.html" class="btn btn-secondary">Read the Insights</a>
+    </div>
+  </div>
+</section>
 ''')
-    for f in flagships:
-        p = by_bib.get(f['bib_key'], {})
-        url = p.get('paper_link') or ''
-        big = f['headline_stats'][0]
-        title = esc(p.get('title') or f['name'])
-        title_link = f'<a href="{esc(url)}" target="_blank" rel="noopener">{title}</a>' if url else title
-        fcell = p.get('ko_primary') if (p.get('ko_primary') and '.' in p.get('ko_primary')) else f['cell']
-        parts.append(f'''      <article class="fl-mini">
-        <div class="fl-mini-big"><span class="fl-mini-num">{esc(big[0])}</span><span class="fl-mini-label">{esc(big[1])}</span></div>
-        <h3 class="fl-mini-name">{esc(f['name'])}</h3>
-        <p class="fl-mini-tag">{esc(f['tagline'])}</p>
-        <div class="fl-mini-meta"><a href="cell/{fcell}.html" class="tag tag-cell" title="{fcell}">{cell_label(fcell)}</a> <span class="muted">{esc(f['venue'])}</span></div>
-        <p class="fl-mini-cite">{title_link}</p>
-      </article>
-''')
-    parts.append('    </div>\n  </div>\n</section>\n')
 
-    # Recent additions
-    recent = sorted([p for p in papers if str(p.get('year', '')).isdigit() and int(p['year']) >= 2025], key=year_sort)[:9]
+    # Contributing + Cite (moved here from Getting Started)
     parts.append('''
-<section class="recent-section">
+<section class="contribute-section">
   <div class="wrap">
-    <h2 class="section-title">Recently added (2025-2026)</h2>
-    <div class="card-grid">
+    <div class="contribute-grid">
+      <div class="contribute-card">
+        <h2 class="section-title">Contributing</h2>
+        <p>
+          Missing entries, mis-classifications, or new systems? Open an issue or a pull request on the
+          <a href="https://github.com/yerimoh/ScienceRAGSurvey" target="_blank" rel="noopener">GitHub repository</a>.
+          The build is fully deterministic, so editing the data files and re-running the render script rebuilds
+          every page.
+        </p>
+      </div>
+      <div class="contribute-card">
+        <h2 class="section-title">Cite</h2>
+        <pre><code>@article{oh2026sciragsurvey,
+  title   = {Scientific Retrieval-Augmented Generation: A Survey
+             through Knowledge Source and Scientific Mission},
+  author  = {Oh, Yerim and others},
+  journal = {TBD},
+  year    = {TBD}
+}</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
 ''')
-    for p in recent:
-        parts.append(paper_card(p))
-    parts.append('    </div>\n  </div>\n</section>\n')
 
     # Inline search JS hook
     parts.append('''
@@ -1070,19 +1079,20 @@ document.getElementById('q')?.addEventListener('keydown', e => {
 
 # ---------- about.html ----------
 def render_about():
-    cell_counts = '\n'.join(
-        f'    <tr><th>{c}</th><td>{cell_count(c)}</td><td>{esc(K_LABELS[c.split(".")[0]][0])} × {esc(O_LABELS[c.split(".")[1]][0])}</td></tr>'
-        for K in ['K1', 'K2', 'K3', 'K4'] for O in ['O1', 'O2', 'O3'] for c in [f'{K}.{O}']
-    )
     body = f'''
 <section class="prose">
   <div class="wrap">
     <h1>About Scientific RAG Hub</h1>
     <p class="lede">
       A curated catalog of <strong>{len(papers)} retrieval-augmented generation</strong> systems,
-      benchmarks, and datasets across the sciences — the companion resource to the upcoming survey
+      benchmarks, and datasets across the sciences, the companion resource to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission."</em>
     </p>
+
+    <figure class="gs-figure">
+      <img src="static/science-rag-overview.png" alt="The knowledge sources of scientific RAG arranged as a wheel around a central hub, spanning nine scientific domains" loading="lazy">
+      <figcaption>The knowledge sources of scientific RAG, spanning literature, curated databases, structured entities, and raw instrument data across nine domains.</figcaption>
+    </figure>
 
     <h2>The taxonomy: substrate × objective</h2>
     <p>
@@ -1093,19 +1103,19 @@ def render_about():
       physical execution the difference is decisive. Two demands shape such a system: the knowledge it retrieves
       and the task it must answer.
     </p>
-    <h3>Knowledge Source (K) — the retrieval substrate</h3>
+    <h3>Knowledge Source (K): the retrieval substrate</h3>
     <p>A source's native form fixes the retrieval operation it permits. General RAG stays almost entirely on the first substrate; scientific RAG must reach the other three, each costlier to index.</p>
     <ul>
-      <li><strong>K1 Textual</strong> — the prose record of science: papers, abstracts, clinical notes, guidelines. Matched by embedding or lexical search over passages.</li>
-      <li><strong>K2 Relational</strong> — curated graphs of scientific relations (UMLS, PrimeKG, DRKG, STRING, KEGG, citation graphs). Knowledge lives in the edges, reached by entity linking and traversal.</li>
-      <li><strong>K3 Structured-entity</strong> — the objects of science held as data: molecules, 3D structures, and property records (ChEMBL, PubChem, PDB, Materials Project). Reached by structural or property query, not by words.</li>
-      <li><strong>K4 Perceptual</strong> — raw instrument output: images, spectra, sequencing, time-series (MIMIC-CXR, MassBank, sky surveys). Nothing is retrievable until a cross-modal encoder connects the signal to a text query.</li>
+      <li><strong>K1 Textual</strong>, the prose record of science: papers, abstracts, clinical notes, guidelines. Matched by embedding or lexical search over passages.</li>
+      <li><strong>K2 Relational</strong>, curated graphs of scientific relations (UMLS, PrimeKG, DRKG, STRING, KEGG, citation graphs). Knowledge lives in the edges, reached by entity linking and traversal.</li>
+      <li><strong>K3 Structured-entity</strong>, the objects of science held as data: molecules, 3D structures, and property records (ChEMBL, PubChem, PDB, Materials Project). Reached by structural or property query, not by words.</li>
+      <li><strong>K4 Perceptual</strong>, raw instrument output: images, spectra, sequencing, time-series (MIMIC-CXR, MassBank, sky surveys). Nothing is retrievable until a cross-modal encoder connects the signal to a text query.</li>
     </ul>
-    <h3>Operational Objective (O) — the rung, ordered by distance from the corpus</h3>
+    <h3>Operational Objective (O): the rung, ordered by distance from the corpus</h3>
     <ul>
-      <li><strong>O1 Grounding</strong> — answer a question whose gold already lies in the corpus (Question Answering).</li>
-      <li><strong>O2 Synthesis</strong> — integrate evidence no single source states, verifying claims across documents (Claim Verification, Literature Synthesis).</li>
-      <li><strong>O3 Discovery</strong> — propose an output the corpus does not contain, judged by an external verifier (Property Prediction, Molecular Design, Materials Discovery, Hypothesis Generation).</li>
+      <li><strong>O1 Grounding</strong>, answer a question whose gold already lies in the corpus (Question Answering).</li>
+      <li><strong>O2 Synthesis</strong>, integrate evidence no single source states, verifying claims across documents (Claim Verification, Literature Synthesis).</li>
+      <li><strong>O3 Discovery</strong>, propose an output the corpus does not contain, judged by an external verifier (Property Prediction, Molecular Design, Materials Discovery, Hypothesis Generation).</li>
     </ul>
 
     <h2>Why this taxonomy</h2>
@@ -1114,18 +1124,10 @@ def render_about():
       misses the two factors that most constrain scientific inquiry: the fidelity of the grounded evidence and the
       complexity of the scientific objective. Organized by substrate and objective, the field reveals a consistent
       shape. Capability accumulates where a substrate admits a mature matching operation and a task admits an
-      automatic score — literature grounding and synthesis over <strong>Textual</strong>, lookup over
-      <strong>Relational</strong> and <strong>Structured-entity</strong> — and thins toward non-textual evidence and
+      automatic score, literature grounding and synthesis over <strong>Textual</strong>, lookup over
+      <strong>Relational</strong> and <strong>Structured-entity</strong>, and thins toward non-textual evidence and
       externally verified discovery, where the retriever or the verifier does not yet exist.
     </p>
-
-    <h2>The landscape — 12 cells</h2>
-    <table class="ko-stat">
-      <thead><tr><th>Cell</th><th>Core systems</th><th>Substrate × Objective</th></tr></thead>
-      <tbody>
-{cell_counts}
-      </tbody>
-    </table>
 
     <h2 id="pipeline">The scientific RAG pipeline</h2>
     <p>
@@ -1134,30 +1136,30 @@ def render_about():
       output back for another round.
     </p>
     <ul>
-      <li id="construction"><strong>Construction</strong> — build the index. Each substrate is indexed in its own form: passages as embeddings, graphs as nodes and edges, molecules as structural fingerprints, signals through a learned encoder.</li>
-      <li id="retrieval"><strong>Retrieval</strong> — match the query to the substrate. Relevance is a domain judgment, not topical resemblance: the right passage, the right scaffold, the record whose peaks match.</li>
-      <li id="generation"><strong>Generation</strong> — draft an output from the query, the retrieved evidence, and any verifier feedback, in the formats a domain requires.</li>
-      <li id="verification"><strong>Verification</strong> — test the output against a signal from beyond the corpus. Systems differ by how deeply the verifier is coupled, from a single unchecked pass to a closed loop that refines against a docking score or a DFT calculation every round.</li>
-      <li id="evaluation"><strong>Evaluation</strong> — score the result against ground truth: a fixed gold for grounding, a reference for synthesis, and for discovery an external verifier whose ground truth lies outside any corpus.</li>
+      <li id="construction"><strong>Construction</strong>, build the index. Each substrate is indexed in its own form: passages as embeddings, graphs as nodes and edges, molecules as structural fingerprints, signals through a learned encoder.</li>
+      <li id="retrieval"><strong>Retrieval</strong>, match the query to the substrate. Relevance is a domain judgment, not topical resemblance: the right passage, the right scaffold, the record whose peaks match.</li>
+      <li id="generation"><strong>Generation</strong>, draft an output from the query, the retrieved evidence, and any verifier feedback, in the formats a domain requires.</li>
+      <li id="verification"><strong>Verification</strong>, test the output against a signal from beyond the corpus. Systems differ by how deeply the verifier is coupled, from a single unchecked pass to a closed loop that refines against a docking score or a DFT calculation every round.</li>
+      <li id="evaluation"><strong>Evaluation</strong>, score the result against ground truth: a fixed gold for grounding, a reference for synthesis, and for discovery an external verifier whose ground truth lies outside any corpus.</li>
     </ul>
 
     <h2>What makes retrieval scientific</h2>
     <p>Five demands separate a scientific RAG system from general RAG that ranks by semantic proximity alone:</p>
     <ol>
-      <li><strong>Traceable attribution</strong> — every claim must trace to a specific source unit, sentence-level, page-level, or as a claim graph.</li>
-      <li><strong>Heterogeneous, multi-substrate retrieval</strong> — the corpus spans literature, curated graphs, structured entities, and raw signals, each with its own format and reliability.</li>
-      <li><strong>Domain-native representation</strong> — SMILES, InChI, FASTA, CIF, DICOM carry meaning no flattening to text preserves; retrieval must recognize identity across surface forms.</li>
-      <li><strong>Protocol-level reproducibility</strong> — an output must carry enough method detail for a domain expert to reproduce it, not merely summarize it.</li>
-      <li><strong>External verifier coupling</strong> — for discovery, a docking simulator or DFT calculation, not the language model, decides whether a proposal survives.</li>
+      <li><strong>Traceable attribution</strong>, every claim must trace to a specific source unit, sentence-level, page-level, or as a claim graph.</li>
+      <li><strong>Heterogeneous, multi-substrate retrieval</strong>, the corpus spans literature, curated graphs, structured entities, and raw signals, each with its own format and reliability.</li>
+      <li><strong>Domain-native representation</strong>, SMILES, InChI, FASTA, CIF, DICOM carry meaning no flattening to text preserves; retrieval must recognize identity across surface forms.</li>
+      <li><strong>Protocol-level reproducibility</strong>, an output must carry enough method detail for a domain expert to reproduce it, not merely summarize it.</li>
+      <li><strong>External verifier coupling</strong>, for discovery, a docking simulator or DFT calculation, not the language model, decides whether a proposal survives.</li>
     </ol>
 
     <h2>How to use the catalog</h2>
     <ul>
-      <li><a href="browse.html">Browse</a> — filter the full catalog by substrate × objective cell, task, domain, or type.</li>
-      <li><a href="index.html#domains">Domains</a> — browse by scientific field.</li>
-      <li><a href="browse.html">Browse</a> — full searchable, filterable catalog.</li>
-      <li><a href="llms.txt">/llms.txt</a> · <a href="llms-full.txt">/llms-full.txt</a> — LLM-friendly indices.</li>
-      <li><a href="data/catalog.json">catalog.json</a> — full machine-readable dump, remapped to the substrate × objective taxonomy (raw source stays at <a href="data/papers.json">papers.json</a>).</li>
+      <li><a href="browse.html">Browse</a>, filter the full catalog by substrate × objective cell, task, domain, or type.</li>
+      <li><a href="index.html#domains">Domains</a>, browse by scientific field.</li>
+      <li><a href="browse.html">Browse</a>, full searchable, filterable catalog.</li>
+      <li><a href="llms.txt">/llms.txt</a>, <a href="llms-full.txt">/llms-full.txt</a>, LLM-friendly indices.</li>
+      <li><a href="data/catalog.json">catalog.json</a>, full machine-readable dump, remapped to the substrate × objective taxonomy (raw source stays at <a href="data/papers.json">papers.json</a>).</li>
     </ul>
 
     <h2>Survey Construction Pipeline</h2>
@@ -1168,7 +1170,7 @@ def render_about():
       <div class="pipe-row pipe-row-sources">
         <div class="pipe-node pipe-node-src">
           <div class="pipe-icon">📄</div>
-          <div class="pipe-label">Literature<br><span class="pipe-sub">arXiv · PubMed · ACL · NeurIPS…</span></div>
+          <div class="pipe-label">Literature<br><span class="pipe-sub">arXiv, PubMed, ACL, NeurIPS…</span></div>
         </div>
         <div class="pipe-node pipe-node-src">
           <div class="pipe-icon">🗂</div>
@@ -1189,7 +1191,7 @@ def render_about():
           <div class="pipe-label"><strong>Substrate × Objective Classification</strong></div>
           <div class="pipe-classify-grid">
             <div class="pipe-axis pipe-axis-k">
-              <div class="pipe-axis-label">K — Retrieval Substrate</div>
+              <div class="pipe-axis-label">K: Retrieval Substrate</div>
               <div class="pipe-axis-items">
                 <span class="pipe-pill pipe-k1">K1 Textual</span>
                 <span class="pipe-pill pipe-k2">K2 Relational</span>
@@ -1199,7 +1201,7 @@ def render_about():
             </div>
             <div class="pipe-axis-times">×</div>
             <div class="pipe-axis pipe-axis-o">
-              <div class="pipe-axis-label">O — Operational Objective</div>
+              <div class="pipe-axis-label">O: Operational Objective</div>
               <div class="pipe-axis-items">
                 <span class="pipe-pill pipe-o1">O1 Grounding</span>
                 <span class="pipe-pill pipe-o2">O2 Synthesis</span>
@@ -1220,7 +1222,7 @@ def render_about():
           <div class="pipe-mini-grid">
             {"".join(
               f'<a href="cell/{K}.{O}.html" class="pipe-cell pipe-cell-{"h" if cell_count(f"{K}.{O}")>=10 else "m" if cell_count(f"{K}.{O}")>=3 else "l"}" title="{K}.{O}: {cell_count(f"{K}.{O}")} entries">'
-              f'<span class="pipe-cell-id">{K}·{O}</span>'
+              f'<span class="pipe-cell-id">{K}.{O}</span>'
               f'<span class="pipe-cell-n">{cell_count(f"{K}.{O}")}</span>'
               f'</a>'
               for K in ["K1","K2","K3","K4"] for O in ["O1","O2","O3"]
@@ -1240,7 +1242,7 @@ def render_about():
       <div class="pipe-row pipe-row-outputs">
         <div class="pipe-node pipe-node-out">
           <div class="pipe-icon">🌐</div>
-          <div class="pipe-label">This Site<br><span class="pipe-sub">Browse · Filter · Search</span></div>
+          <div class="pipe-label">This Site<br><span class="pipe-sub">Browse, Filter, Search</span></div>
         </div>
         <div class="pipe-node pipe-node-out">
           <div class="pipe-icon">📖</div>
@@ -1256,28 +1258,12 @@ def render_about():
     <h2>Methodology</h2>
     <p>
       Entries are curated by the Vision and Learning Lab and cross-referenced against the survey's master
-      bibliography. Each system is placed by its <em>retrieval substrate</em> — the native form of what it
-      indexes — and by its <em>objective rung</em>. The survey's core systems are pinned to the exact cell they
+      bibliography. Each system is placed by its <em>retrieval substrate</em>, the native form of what it
+      indexes, and by its <em>objective rung</em>. The survey's core systems are pinned to the exact cell they
       occupy in the assembly figure; the wider catalog is mapped by the modality it retrieves over. A system that
       commits to a single substrate occupies a single cell, which is the common case: almost every surveyed system
       retrieves from just one substrate, and cross-substrate retrieval is itself an open frontier (§8).
     </p>
-
-    <h2>Contributing</h2>
-    <p>
-      Missing entries, mis-classifications, or new systems? Open an issue or PR on the
-      GitHub repo. The build is fully deterministic — edit <code>data/ko_assignments.json</code>
-      (or the source Notion DB) and re-run <code>build/render_html.py</code>.
-    </p>
-
-    <h2>Cite</h2>
-    <pre><code>@article{{oh2026sciragsurvey,
-  title   = {{Scientific Retrieval-Augmented Generation: A Survey through
-             Knowledge Source and Scientific Mission}},
-  author  = {{Oh, Yerim and others}},
-  journal = {{TBD}},
-  year    = {{TBD}}
-}}</code></pre>
   </div>
 </section>
 '''
@@ -1327,7 +1313,7 @@ def render_browse():
 <section class="browse-list">
   <div class="wrap">
     <div id="cards" class="card-grid"></div>
-    <p id="empty" class="empty" hidden>No matching entries — try a broader search.</p>
+    <p id="empty" class="empty" hidden>No matching entries, try a broader search.</p>
   </div>
 </section>
 
@@ -1343,19 +1329,19 @@ SECTION_OVERVIEWS = {
     # adds only what is specific to the intersection. Cards below are grouped automatically.
     'K1.O1': {
         'subsection': 'Literature Grounding',
-        'description': 'Answers a question directly over the textual record of science — PubMed, arXiv, full-text papers — by retrieving passages, citing them, and grounding the answer in the corpus that already holds it. The most mature capability in the field: mature retrievers meet automatic scoring, so open generation and light self-checking suffice.',
+        'description': 'Answers a question directly over the textual record of science, PubMed, arXiv, full-text papers, by retrieving passages, citing them, and grounding the answer in the corpus that already holds it. The most mature capability in the field: mature retrievers meet automatic scoring, so open generation and light self-checking suffice.',
     },
     'K1.O2': {
         'subsection': 'Literature Synthesis',
-        'description': 'Integrates evidence that no single paper states into one cited answer, resolving contradictions across many textual sources. The difficulty shifts from citing one source to verifying every claim against a set of them, so faithfulness and coverage — not exact match — become the score.',
+        'description': 'Integrates evidence that no single paper states into one cited answer, resolving contradictions across many textual sources. The difficulty shifts from citing one source to verifying every claim against a set of them, so faithfulness and coverage, not exact match, become the score.',
     },
     'K1.O3': {
         'subsection': 'Literature-grounded Ideation',
-        'description': 'Uses the literature as a generative prior to propose research ideas, mechanisms, and hypotheses. The dormant rung of the textual substrate: no docking program, simulator, or database can confirm a proposed idea, so systems are judged only by novelty or expert preference — signals that language-model judges themselves overrate.',
+        'description': 'Uses the literature as a generative prior to propose research ideas, mechanisms, and hypotheses. The dormant rung of the textual substrate: no docking program, simulator, or database can confirm a proposed idea, so systems are judged only by novelty or expert preference, signals that language-model judges themselves overrate.',
     },
     'K2.O1': {
         'subsection': 'Knowledge-graph QA',
-        'description': 'Answers by linking a query to entities in a curated relational graph — UMLS, PrimeKG, DRKG, biomedical ontologies — and traversing its typed edges, so the answer lives in the couplings between nodes rather than in any single passage.',
+        'description': 'Answers by linking a query to entities in a curated relational graph, UMLS, PrimeKG, DRKG, biomedical ontologies, and traversing its typed edges, so the answer lives in the couplings between nodes rather than in any single passage.',
     },
     'K2.O2': {
         'subsection': 'Knowledge-graph Synthesis',
@@ -1363,11 +1349,11 @@ SECTION_OVERVIEWS = {
     },
     'K2.O3': {
         'subsection': 'Relational Hypothesis',
-        'description': 'Proposes new links or candidates over a relational graph — for example ranking protein–protein interaction pathways for a therapeutic target. Emerging: the graph supplies structure, but the verifier that would confirm a proposed relation beyond the graph is rarely available.',
+        'description': 'Proposes new links or candidates over a relational graph, for example ranking protein–protein interaction pathways for a therapeutic target. Emerging: the graph supplies structure, but the verifier that would confirm a proposed relation beyond the graph is rarely available.',
     },
     'K3.O1': {
         'subsection': 'Structured-entity Lookup',
-        'description': 'Grounds an answer in the objects of science held as data — molecules, 3D structures, and property records (ChEMBL, PubChem, PDB, Materials Project) — reached by structural or property query and returned as an exact, up-to-date value from an authoritative field.',
+        'description': 'Grounds an answer in the objects of science held as data, molecules, 3D structures, and property records (ChEMBL, PubChem, PDB, Materials Project), reached by structural or property query and returned as an exact, up-to-date value from an authoritative field.',
     },
     'K3.O2': {
         'subsection': 'Structured Synthesis (open)',
@@ -1375,11 +1361,11 @@ SECTION_OVERVIEWS = {
     },
     'K3.O3': {
         'subsection': 'Structure-based Design',
-        'description': 'Retrieves exemplar molecules, fragments, or crystal structures to steer a generative model toward novel candidates, then confirms each with a strong external verifier outside the corpus — molecular docking for ligands, DFT or an ML interatomic potential for materials. The clearest case of a verifier coupled into the loop; the gap to wet-lab confirmation remains the open challenge.',
+        'description': 'Retrieves exemplar molecules, fragments, or crystal structures to steer a generative model toward novel candidates, then confirms each with a strong external verifier outside the corpus, molecular docking for ligands, DFT or an ML interatomic potential for materials. The clearest case of a verifier coupled into the loop; the gap to wet-lab confirmation remains the open challenge.',
     },
     'K4.O1': {
         'subsection': 'Cross-modal Grounding',
-        'description': 'Grounds an answer in a raw instrument signal — chest X-rays, pathology slides, ECG traces — where retrieval must bridge a non-textual modality to a textual question through a learned cross-modal encoder. Emerging: the encoder that connects signal to text is the component that still lags.',
+        'description': 'Grounds an answer in a raw instrument signal, chest X-rays, pathology slides, ECG traces, where retrieval must bridge a non-textual modality to a textual question through a learned cross-modal encoder. Emerging: the encoder that connects signal to text is the component that still lags.',
     },
     'K4.O2': {
         'subsection': 'Perceptual Synthesis (open)',
@@ -1387,7 +1373,7 @@ SECTION_OVERVIEWS = {
     },
     'K4.O3': {
         'subsection': 'Signal-to-structure Discovery',
-        'description': 'Proposes a scientific object directly from a raw signal — a molecule from an MS/MS spectrum, a diagnosis-hypothesis from an image. One of the sparsest cells: MADGEN retrieves a scaffold keyed on the spectrum and then generates the full structure, but almost all spectrum-to-structure models generate with no retrieval at all. A concrete frontier for scientific RAG.',
+        'description': 'Proposes a scientific object directly from a raw signal, a molecule from an MS/MS spectrum, a diagnosis-hypothesis from an image. One of the sparsest cells: MADGEN retrieves a scaffold keyed on the spectrum and then generates the full structure, but almost all spectrum-to-structure models generate with no retrieval at all. A concrete frontier for scientific RAG.',
     },
 }
 
@@ -1543,12 +1529,12 @@ def render_cell_pages():
                     fc = FACTCHECK[bk]
                     label = esc(p.get('method') or p.get('title') or bk)
                     fn_items.append(
-                        f'<li id="{fc_id}"><p><strong>{label} — {esc(fc["verdict"])}</strong></p>'
+                        f'<li id="{fc_id}"><p><strong>{label}, {esc(fc["verdict"])}</strong></p>'
                         f'<p>{esc(fc["evidence"])}</p>'
-                        f'<p class="fn-src">Source: {esc(fc["source"])} · full-text verified</p></li>'
+                        f'<p class="fn-src">Source: {esc(fc["source"])}, full-text verified</p></li>'
                     )
                 card_list.append(paper_card(p, base='../', axis_scope=O, factcheck_id=fc_id))
-            cards = '\n'.join(card_list) or '<p class="empty">No verified entries in this cell yet — see <a href="../about.html#methodology">methodology</a> and the survey §11 frontier discussion.</p>'
+            cards = '\n'.join(card_list) or '<p class="empty">No verified entries in this cell yet, see <a href="../about.html#methodology">methodology</a> and the survey §11 frontier discussion.</p>'
             # Hidden footnote targets (popover source for footnotes.js)
             factcheck_fns = (f'<section class="footnotes overview-fns" aria-hidden="true"><ol>{"".join(fn_items)}</ol></section>'
                              if fn_items else '')
@@ -1808,7 +1794,7 @@ def render_insights():
                 continue
             h = (c / max_year_total) * (chart_h - 70)
             cy -= h
-            bars.append(f'<rect x="{x}" y="{cy}" width="{bar_w}" height="{h:.1f}" fill="{K_COLORS[K]}" opacity="0.92"><title>{y} · {K}: {c}</title></rect>')
+            bars.append(f'<rect x="{x}" y="{cy}" width="{bar_w}" height="{h:.1f}" fill="{K_COLORS[K]}" opacity="0.92"><title>{y}, {K}: {c}</title></rect>')
         bars.append(f'<text x="{x+bar_w/2}" y="{chart_h-12}" text-anchor="middle" font-size="12" fill="var(--fg-muted)">{y}</text>')
         bars.append(f'<text x="{x+bar_w/2}" y="{chart_h-30-(total/max_year_total)*(chart_h-70)-6}" text-anchor="middle" font-size="11" font-weight="700" fill="var(--fg)">{total}</text>')
         x += bar_w + gap
@@ -1833,10 +1819,10 @@ def render_insights():
           <div class="fl-stats">{stats_html}</div>
           <p class="fl-subtitle">{esc(f['subtitle'])}</p>
           <p class="fl-why"><strong>Why it matters.</strong> {esc(f['why'])}</p>
-          <p class="fl-cite">{title_link} · <span class="muted">{esc(f['venue'])}</span></p>
+          <p class="fl-cite">{title_link}, <span class="muted">{esc(f['venue'])}</span></p>
         </article>''')
 
-    # Cross-substrate papers — systems whose retrieved evidence spans more than one substrate
+    # Cross-substrate papers, systems whose retrieved evidence spans more than one substrate
     # (by modality), the §8 cross-substrate-retrieval frontier. The survey's marquee bridges
     # (MedGraphRAG, Omni-RAG, LLaMP) are pinned first.
     def _n_substrates(p):
@@ -1847,20 +1833,20 @@ def render_insights():
     xs_papers += [p for p in papers if _n_substrates(p) > 1 and p.get('bib_key') not in _seen]
     xs_cards = '\n'.join(paper_card(p) for p in xs_papers[:12])
 
-    # Frontier cells — the survey's white space (§8): dormant literature-grounded ideation and
+    # Frontier cells, the survey's white space (§8): dormant literature-grounded ideation and
     # the near-empty signal-to-structure discovery cell.
-    frontier_K3O3 = by_cell.get('K1.O3', [])   # Textual × Discovery — ideation, weak verifier
-    frontier_K4O3 = by_cell.get('K4.O3', [])   # Perceptual × Discovery — signal-to-structure
-    f33 = '\n'.join(paper_card(p) for p in frontier_K3O3) or '<p class="empty">No verified entries — this cell is a structural gap.</p>'
-    f43 = '\n'.join(paper_card(p) for p in frontier_K4O3) or '<p class="empty">No verified entries — this cell is a structural gap.</p>'
+    frontier_K3O3 = by_cell.get('K1.O3', [])   # Textual × Discovery, ideation, weak verifier
+    frontier_K4O3 = by_cell.get('K4.O3', [])   # Perceptual × Discovery, signal-to-structure
+    f33 = '\n'.join(paper_card(p) for p in frontier_K3O3) or '<p class="empty">No verified entries, this cell is a structural gap.</p>'
+    f43 = '\n'.join(paper_card(p) for p in frontier_K4O3) or '<p class="empty">No verified entries, this cell is a structural gap.</p>'
 
     body = f'''
 <section class="insights-hero">
   <div class="wrap">
-    <p class="eyebrow">Insights · The shape of scientific RAG</p>
+    <p class="eyebrow">The shape of scientific RAG</p>
     <h1>What the {len(papers)}-paper catalog reveals.</h1>
     <p class="lede">
-      Six lenses on the field — the systems that set the bar, the five demands that make retrieval
+      Six lenses on the field, the systems that set the bar, the five demands that make retrieval
       <em>scientific</em>, how the substrates have grown, where each one lives across domains,
       where the white space is, and the challenges the survey lays out as the road ahead.
     </p>
@@ -1878,7 +1864,7 @@ def render_insights():
 
 <section id="flagships" class="prose-section">
   <div class="wrap">
-    <h2 class="section-title">Flagships — papers that move the field</h2>
+    <h2 class="section-title">Flagships, papers that move the field</h2>
     <p class="section-sub">Nine systems chosen for the largest measured gains or the clearest demonstration of a structural pattern.</p>
     <div class="fl-grid">{''.join(fl_cards)}</div>
   </div>
@@ -1887,37 +1873,37 @@ def render_insights():
 <section id="requirements" class="prose-section alt-bg">
   <div class="wrap">
     <h2 class="section-title">Five demands that make retrieval scientific</h2>
-    <p class="section-sub">General RAG ranks web text by semantic proximity. Science is governed by physical law, not linguistic flexibility — a transposed digit that merely dents fluency in prose can turn a benign compound toxic. Five demands follow.</p>
+    <p class="section-sub">General RAG ranks web text by semantic proximity. Science is governed by physical law, not linguistic flexibility, a transposed digit that merely dents fluency in prose can turn a benign compound toxic. Five demands follow.</p>
     <div class="req-grid">
       <div class="req-card req-1">
         <div class="req-num">1</div>
         <h3>Traceable attribution</h3>
-        <p>Every claim must trace to a specific source unit — sentence-level, page-level, or as a claim graph — because fluency alone cannot be trusted.</p>
-        <p class="req-evidence">OpenScholar 0% citation hallucination · PaperQA sentence-level attribution</p>
+        <p>Every claim must trace to a specific source unit, sentence-level, page-level, or as a claim graph, because fluency alone cannot be trusted.</p>
+        <p class="req-evidence">OpenScholar 0% citation hallucination, PaperQA sentence-level attribution</p>
       </div>
       <div class="req-card req-2">
         <div class="req-num">2</div>
         <h3>Heterogeneous, multi-substrate retrieval</h3>
-        <p>The corpus is not uniform web text but literature, curated graphs, structured entities, and raw signals — each with its own format and reliability, each reached by a different operation.</p>
-        <p class="req-evidence">Textual · Relational · Structured-entity · Perceptual substrates (§4)</p>
+        <p>The corpus is not uniform web text but literature, curated graphs, structured entities, and raw signals, each with its own format and reliability, each reached by a different operation.</p>
+        <p class="req-evidence">Textual, Relational, Structured-entity, Perceptual substrates (§4)</p>
       </div>
       <div class="req-card req-3">
         <div class="req-num">3</div>
         <h3>Domain-native representation</h3>
         <p>SMILES, InChI, FASTA, CIF, DICOM carry meaning no flattening to text preserves. Retrieval must recognize a molecule's identity across every surface form it takes.</p>
-        <p class="req-evidence">f-RAG / Rag2Mol / RetMol SMILES+3D · MMed-RAG DICOM · LLaMP CIF</p>
+        <p class="req-evidence">f-RAG / Rag2Mol / RetMol SMILES+3D, MMed-RAG DICOM, LLaMP CIF</p>
       </div>
       <div class="req-card req-4">
         <div class="req-num">4</div>
         <h3>Protocol-level reproducibility</h3>
-        <p>An output must carry enough method detail for a domain expert to reproduce it — not merely a readable summary of what was done.</p>
-        <p class="req-evidence">MITRA full-method docs · executable / API-grounded pipelines</p>
+        <p>An output must carry enough method detail for a domain expert to reproduce it, not merely a readable summary of what was done.</p>
+        <p class="req-evidence">MITRA full-method docs, executable / API-grounded pipelines</p>
       </div>
       <div class="req-card req-5">
         <div class="req-num">5</div>
         <h3>External verifier coupling</h3>
-        <p>For discovery, a docking simulator or a DFT calculation — not the language model — decides whether a proposal survives. How deeply the verifier is coupled bounds how far a system can reach.</p>
-        <p class="req-evidence">f-RAG → docking loop · HEA-catalyst → DFT · IRDiff/Rag2Mol external docking</p>
+        <p>For discovery, a docking simulator or a DFT calculation, not the language model, decides whether a proposal survives. How deeply the verifier is coupled bounds how far a system can reach.</p>
+        <p class="req-evidence">f-RAG → docking loop, HEA-catalyst → DFT, IRDiff/Rag2Mol external docking</p>
       </div>
     </div>
   </div>
@@ -1930,7 +1916,7 @@ def render_insights():
       The 2024–2025 surge is led by <strong style="color:#b8431f">Textual</strong> systems (medical QA, literature
       synthesis), with <strong style="color:#6a3acb">Structured-entity</strong> and
       <strong style="color:#1f7a4d">Relational</strong> work following. <strong style="color:#d4992a">Perceptual</strong>
-      retrieval — the substrate that needs a learned cross-modal encoder — arrives later and stays thinner, tracking
+      retrieval, the substrate that needs a learned cross-modal encoder, arrives later and stays thinner, tracking
       the field's concentration on text.
     </p>
     <div class="chart-frame">{timeline_svg}</div>
@@ -1940,11 +1926,11 @@ def render_insights():
 
 <section id="kd" class="prose-section alt-bg">
   <div class="wrap">
-    <h2 class="section-title">Substrate × Domain — where each substrate lives</h2>
+    <h2 class="section-title">Substrate × Domain, where each substrate lives</h2>
     <p class="section-sub">
       Medicine spreads across all four substrates. Chemistry and materials lean on the Structured-entity databases
       of molecules and properties. Biology mixes Textual literature with Relational graphs. Physics, earth science,
-      and astronomy are Textual- and Perceptual-heavy — instrument archives no one has yet indexed. Cells link to a
+      and astronomy are Textual- and Perceptual-heavy, instrument archives no one has yet indexed. Cells link to a
       filtered Browse view.
     </p>
     <table class="kd-grid">
@@ -1956,14 +1942,14 @@ def render_insights():
 
 <section id="bridges" class="prose-section">
   <div class="wrap">
-    <h2 class="section-title">Cross-substrate systems — the retrieval frontier</h2>
+    <h2 class="section-title">Cross-substrate systems, the retrieval frontier</h2>
     <p class="section-sub">
       Nearly every surveyed system commits to a single substrate, yet a real scientific question often spans
-      several at once — linking a molecule's structure to the literature that discusses it and to the graph
+      several at once, linking a molecule's structure to the literature that discusses it and to the graph
       relations it takes part in. The <strong>{len(xs_papers)}</strong> systems below reach across substrates:
       MedGraphRAG links documents, literature, and a controlled vocabulary into one graph, and Omni-RAG routes a
       query across several heterogeneous stores. None yet matches a query expressed in one substrate against
-      evidence keyed in another — the open challenge of §8.
+      evidence keyed in another, the open challenge of §8.
     </p>
     <div class="card-grid">{xs_cards}</div>
     <p class="see-more"><a href="browse.html" class="btn btn-secondary">Browse all cross-substrate systems →</a></p>
@@ -1972,21 +1958,21 @@ def render_insights():
 
 <section id="frontiers" class="prose-section alt-bg">
   <div class="wrap">
-    <h2 class="section-title">Frontier cells — where the white space is</h2>
+    <h2 class="section-title">Frontier cells, where the white space is</h2>
     <p class="section-sub">
       Capability concentrates on the Textual substrate and thins toward discovery. The grid surfaces two dormant
-      cells where the verifier or the substrate simply does not exist yet — the operations an autonomous AI
+      cells where the verifier or the substrate simply does not exist yet, the operations an autonomous AI
       scientist depends on most. A third, Perceptual × Synthesis, has no retrievable substrate at all and is empty.
     </p>
     <div class="frontier-pair">
       <div class="frontier-col">
         <h3><span class="cell-id-big">[K1.O3]</span> Textual × Discovery <span class="muted">({len(frontier_K3O3)} systems)</span></h3>
-        <p>Literature-grounded ideation. Systems propose mechanisms and hypotheses from the literature, but no docking program, simulator, or database can confirm an idea — so they are judged only by novelty or expert preference, signals that language-model judges overrate. The one Discovery rung that coupling a verifier cannot yet close.</p>
+        <p>Literature-grounded ideation. Systems propose mechanisms and hypotheses from the literature, but no docking program, simulator, or database can confirm an idea, so they are judged only by novelty or expert preference, signals that language-model judges overrate. The one Discovery rung that coupling a verifier cannot yet close.</p>
         <div class="card-grid">{f33}</div>
       </div>
       <div class="frontier-col">
         <h3><span class="cell-id-big">[K4.O3]</span> Perceptual × Discovery <span class="muted">({len(frontier_K4O3)} systems)</span></h3>
-        <p>Signal-to-structure discovery — a molecule from a spectrum, a diagnosis-hypothesis from an image. MADGEN retrieves a scaffold keyed on an MS/MS spectrum and generates the full structure, but almost every other spectrum-to-structure model generates with no retrieval at all. The sparsest inhabited cell in the grid.</p>
+        <p>Signal-to-structure discovery, a molecule from a spectrum, a diagnosis-hypothesis from an image. MADGEN retrieves a scaffold keyed on an MS/MS spectrum and generates the full structure, but almost every other spectrum-to-structure model generates with no retrieval at all. The sparsest inhabited cell in the grid.</p>
         <div class="card-grid">{f43}</div>
       </div>
     </div>
@@ -1995,48 +1981,48 @@ def render_insights():
 
 <section id="directions" class="prose-section">
   <div class="wrap">
-    <h2 class="section-title">The road ahead — three causes of the gaps</h2>
+    <h2 class="section-title">The road ahead, three causes of the gaps</h2>
     <p class="section-sub">The survey (§8) reads the thin cells not as one problem but three. Some gaps are already solved in general RAG and only await adaptation; others need components built for science; the rest cannot be closed by architecture at all. The work ahead is less a search for better retrievers than making more of science <em>retrievable</em> and more of its outputs <em>verifiable</em>.</p>
     <div class="dir-grid">
       <div class="dir-card">
         <span class="dir-num">A1</span>
-        <h3>Adapt · Reasoning-aware retrieval &amp; reranking</h3>
+        <h3>Adapt: Reasoning-aware retrieval &amp; reranking</h3>
         <p>Forced retrieval can inject stale or superseded facts, and standard rerankers reward passages that are semantically similar but logically irrelevant. Adapting when-to-retrieve and relevance to scientific epistemology, not surface overlap, is the near-term win.</p>
-        <p class="dir-ev">adaptive retrieval · reasoning-utility reranking (SciRerankBench)</p>
+        <p class="dir-ev">adaptive retrieval, reasoning-utility reranking (SciRerankBench)</p>
       </div>
       <div class="dir-card">
         <span class="dir-num">A2</span>
-        <h3>Adapt · Contamination &amp; discovery evaluation</h3>
-        <p>Scientific literature is finite, so test items and retrievable documents share one narrow corpus and science cannot fabricate fresh questions. Discovery is always scored against a proxy — a proxy that marks genuinely novel-but-correct output as wrong.</p>
-        <p class="dir-ev">post-cutoff contamination control · staged simulation / wet-lab confirmation</p>
+        <h3>Adapt: Contamination &amp; discovery evaluation</h3>
+        <p>Scientific literature is finite, so test items and retrievable documents share one narrow corpus and science cannot fabricate fresh questions. Discovery is always scored against a proxy, a proxy that marks genuinely novel-but-correct output as wrong.</p>
+        <p class="dir-ev">post-cutoff contamination control, staged simulation / wet-lab confirmation</p>
       </div>
       <div class="dir-card">
         <span class="dir-num">B1</span>
-        <h3>Build · Retrievable substrates <span class="dir-star">★ largest unclaimed win</span></h3>
-        <p>Large authoritative archives (AFLOW, OQMD, HEPData, sky surveys) have no query layer for RAG. Activating them needs specialized intermediary layers that encode database schemas and measurement metadata — plus a path from live findings to a queryable index.</p>
-        <p class="dir-ev">indexing non-textual archives · streaming, not snapshotting</p>
+        <h3>Build: Retrievable substrates <span class="dir-star">★ largest unclaimed win</span></h3>
+        <p>Large authoritative archives (AFLOW, OQMD, HEPData, sky surveys) have no query layer for RAG. Activating them needs specialized intermediary layers that encode database schemas and measurement metadata, plus a path from live findings to a queryable index.</p>
+        <p class="dir-ev">indexing non-textual archives, streaming, not snapshotting</p>
       </div>
       <div class="dir-card">
         <span class="dir-num">B2</span>
-        <h3>Build · Cross-modal identity &amp; cross-substrate retrieval</h3>
+        <h3>Build: Cross-modal identity &amp; cross-substrate retrieval</h3>
         <p>A molecule is a SMILES string, an IUPAC name, and a 3D structure at once; a question in one substrate is often answered by evidence keyed in another. Retrieval must recognize scientific identity across surface forms and fuse matches across all four substrates.</p>
-        <p class="dir-ev">modality-spanning encoders · one retriever over Textual+Relational+Structured+Perceptual</p>
+        <p class="dir-ev">modality-spanning encoders, one retriever over Textual+Relational+Structured+Perceptual</p>
       </div>
       <div class="dir-card">
         <span class="dir-num">B3</span>
-        <h3>Build · Scientific verifiers &amp; executable RAG</h3>
+        <h3>Build: Scientific verifiers &amp; executable RAG</h3>
         <p>Outside molecular docking, verifiers for physical validity barely exist. Reaching discovery needs domain verifiers coupled into generation, uncertainty preserved rather than collapsed, and closed loops that execute tools, fail, and retrieve to recover.</p>
-        <p class="dir-ev">constraint checkers · retrieval-augmented error recovery · verifier-free ideation</p>
+        <p class="dir-ev">constraint checkers, retrieval-augmented error recovery, verifier-free ideation</p>
       </div>
       <div class="dir-card">
         <span class="dir-num">C</span>
-        <h3>Beyond technique · Tacit knowledge &amp; access</h3>
+        <h3>Beyond technique: Tacit knowledge &amp; access</h3>
         <p>The intuition a scientist acquires at the bench is never written down, and much empirical data is locked behind licensing and privacy law. Better architecture cannot manufacture ground truth that was never recorded or that no system is permitted to read.</p>
-        <p class="dir-ev">approximating unrecorded intuition · the human-vs-system access asymmetry</p>
+        <p class="dir-ev">approximating unrecorded intuition, the human-vs-system access asymmetry</p>
       </div>
     </div>
     <p class="section-sub" style="margin-top:1.4rem">
-      <strong>Outlook.</strong> Evidence grounding is the foundation an autonomous AI scientist must stand on, and the cells it depends on most — synthesis and verified discovery — are the least mature. Closing them turns partly on industry: self-driving labs generate the missing data (including negative results), while general RAG infrastructure makes closed corpora searchable in place.
+      <strong>Outlook.</strong> Evidence grounding is the foundation an autonomous AI scientist must stand on, and the cells it depends on most, synthesis and verified discovery, are the least mature. Closing them turns partly on industry: self-driving labs generate the missing data (including negative results), while general RAG infrastructure makes closed corpora searchable in place.
     </p>
   </div>
 </section>
@@ -2123,7 +2109,7 @@ def render_paper_pages():
         BIBTEX = {}
     papers_dir = ROOT / 'papers'
     if not papers_dir.exists():
-        print('  papers/ dir missing — skipping summary pages')
+        print('  papers/ dir missing, skipping summary pages')
         return
     count = 0
     for md_file in sorted(papers_dir.glob('*.md')):
@@ -2189,7 +2175,7 @@ def render_paper_pages():
         cell_tags = ''.join(f'<a href="../cell/{c}.html" class="tag tag-cell" title="{c}">{cell_label(c)}</a>' for c in cells)
         subsec = matching.get('subsection', '')
         if isinstance(subsec, list):
-            subsec = ' · '.join(x for x in subsec if x)
+            subsec = ', '.join(x for x in subsec if x)
         subsec_tag = f'<span class="tag tag-sub">{esc(subsec)}</span>' if subsec else ''
         domains = matching.get('domain', [])
         dom_tags = ''.join(f'<a href="../domain/{d}.html" class="tag tag-domain">{DOMAIN_EMOJI.get(d,"")}{esc(DOMAIN_LABELS.get(d,d))}</a>' for d in domains)

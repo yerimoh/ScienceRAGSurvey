@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ZINC: a free tool to discover chemistry for biology — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>ZINC: a free tool to discover chemistry for biology, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,7 +121,7 @@
 <p>irwin2012zinc | 2012 | Journal of Chemical Information and Modeling | dataset | [chem] | <a href="https://doi.org/10.1021/ci3001277">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">ZINC (2012 version)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">20M+ 상업적 구매 가능 분자</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">20M+ commercially available molecules</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Structured</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">ZINC web interface (zinc.docking.org)</td></tr>
@@ -129,72 +129,72 @@
 
 <blockquote>
 <p>Journal of Chemical Information and Modeling | 2012 | dataset | chem</p>
-<h4>📌 한 줄 요약</h4>
-<p>ZINC은 생물학적으로 관련된 형태로 제공되는 2천만 개 이상의 상업적 구매 가능 분자를 모은 공개 리간드 발견 자원으로, ready-to-dock 포맷으로 다운로드 가능하다.</p>
+<h4>📌 TL;DR</h4>
+<p>ZINC is an open ligand-discovery resource that aggregates more than 20 million commercially available molecules provided in biologically relevant forms, downloadable in ready-to-dock format.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>구매 가능한 화합물 목록이 분산되어 있고, 도킹에 필요한 3D 형태로 준비되지 않은 경우가 많았음</li>
-<li>생물학 연구자들이 계산화학 전문 지식 없이 화합물 검색을 수행하기 어려웠음
-<strong>이 시스템이 필요한 이유</strong></li>
-<li>가상 스크리닝(virtual screening)을 위해 즉시 사용 가능한 3D 도킹 포맷 화합물 라이브러리 필요</li>
-<li>구매 가능성 정보와 생물학적 활성 주석을 통합한 단일 자원 부재</li>
+<li>Lists of purchasable compounds were fragmented, and in many cases were not prepared in the 3D forms required for docking</li>
+<li>It was difficult for biology researchers to perform compound searches without computational-chemistry expertise
+<strong>Why this system is needed</strong></li>
+<li>A ready-to-use 3D docking-format compound library is needed for virtual screening</li>
+<li>There was no single resource integrating purchasability information with biological-activity annotations</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>상업적 화합물 목록을 수집하여 3D 생물학적 관련 형태(protonation state, tautomer 포함)로 변환한다. 구조, 생물 활성, 물리적 성질, 판매처, 카탈로그 번호, 이름, CAS 번호로 검색 가능하다. 소규모 커스텀 서브셋 생성·편집·공유·다운로드 기능 제공.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>Lists of commercial compounds are collected and converted into 3D biologically relevant forms (including protonation state and tautomer). They can be searched by structure, biological activity, physical properties, vendor, catalog number, name, and CAS number. Functionality to create, edit, share, and download small custom subsets is provided.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>웹 인터페이스</td>
-  <td>zinc.docking.org 구조/성질 검색</td>
+  <td>Web interface</td>
+  <td>zinc.docking.org structure/property search</td>
 </tr>
 <tr>
-  <td>서브셋 다운로드</td>
-  <td>ready-to-dock 포맷(MOL2, SDF 등)</td>
+  <td>Subset download</td>
+  <td>ready-to-dock format (MOL2, SDF, etc.)</td>
 </tr>
 <tr>
-  <td>커스텀 서브셋</td>
-  <td>필터링 후 직접 다운로드</td>
+  <td>Custom subset</td>
+  <td>direct download after filtering</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>3D 도킹 포맷 (MOL2, SDF)</li>
+<li>3D docking format (MOL2, SDF)</li>
 <li>SMILES</li>
-<li>물리화학적 성질 (MW, LogP, HBA/HBD 등)</li>
+<li>Physicochemical properties (MW, LogP, HBA/HBD, etc.)</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>구매 가능 분자</td>
+  <td>Commercially available molecules</td>
   <td>20M+</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>상업 카탈로그 기반이므로 실제 구매 가능 여부는 갱신 주기에 따라 변동</li>
-<li>구매처별 가격·리드타임 정보는 외부 링크에 의존</li>
+<li>Because it is based on commercial catalogs, actual purchasability varies with the update cycle</li>
+<li>Per-vendor price and lead-time information depends on external links</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1021/ci3001277">ZINC: a free tool to discover chemistry for biology</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1021/ci3001277">ZINC: a free tool to discover chemistry for biology</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (irwin2012zinc)</a></p>
@@ -220,14 +220,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

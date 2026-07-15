@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Overview of the Coupled Model Intercomparison Project Phase 6 (CMIP6) experimental design and organization — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Overview of the Coupled Model Intercomparison Project Phase 6 (CMIP6) experimental design and organization, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,118 +121,118 @@
 <p>eyring2016overview | 2016 | Geoscientific Model Development | dataset | [earth, climate] | <a href="https://doi.org/10.5194/gmd-9-1937-2016">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">CMIP6 — Coupled Model Intercomparison Project Phase 6</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">Petabyte-scale; ~20 PB 이상 (전 세계 49개 모델링 그룹, 100여 개 기후 모델; 볼륨은 실제 생산 후 추정치)</td></tr>
-<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (ESGF 통해 공개 배포)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">Petabyte-scale; ~20 PB or more (49 modeling groups worldwide, 100+ climate models; volume is an estimate after actual production)</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (publicly distributed via ESGF)</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">NetCDF, Simulation output, Time series</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">CMIP6 / ESGF (Earth System Grid Federation)</td></tr>
 </table>
 
 <blockquote>
 <p>Geoscientific Model Development | 2016 | dataset | earth, climate</p>
-<h4>한 줄 요약</h4>
-<p>전 세계 기후 모델링 그룹의 지구 시스템 모델(ESM) 시뮬레이션을 조율·통합하는 CMIP6 설계 및 조직 논문. IPCC 제6차 평가 보고서(AR6)의 과학적 기반이 되는 <strong>페타바이트 규모</strong> 기후 시뮬레이션 데이터를 ESGF를 통해 공개 배포. 과거·현재·미래 기후 시나리오 시뮬레이션의 표준 프로토콜을 정의.</p>
+<h4>TL;DR</h4>
+<p>A paper on the CMIP6 design and organization that coordinates and integrates Earth System Model (ESM) simulations from climate modeling groups worldwide. It publicly distributes <strong>petabyte-scale</strong> climate simulation data—the scientific basis for the IPCC Sixth Assessment Report (AR6)—via ESGF. It defines standard protocols for simulations of past, present, and future climate scenarios.</p>
 </blockquote>
-<h4>개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>CMIP1–5는 개별 실험 설계로 모델 간 비교가 어렵고 커버리지 불균일</li>
-<li>CMIP5 이후 지구 시스템 모델 복잡성 증가 (탄소 순환, 에어로졸, 해양 생지화학 결합)</li>
-<li>단일 모델 앙상블로는 내부 변동성과 모델 불확도 구분 불가</li>
+<li>CMIP1–5 used individual experimental designs, making inter-model comparison difficult and coverage uneven</li>
+<li>Increasing complexity of Earth System Models after CMIP5 (coupling of carbon cycle, aerosols, ocean biogeochemistry)</li>
+<li>A single-model ensemble cannot distinguish internal variability from model uncertainty</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>IPCC AR6 과학적 근거 확보를 위한 다중 모델 앙상블 표준 필요</li>
-<li>기후 변화 원인 규명(Detection &amp; Attribution), 지역 영향 평가, 탄소 예산 추정 등 정책 관련 질문에 답하기 위한 체계적 실험 설계</li>
-<li>ScenarioMIP(SSP 경로), HighResMIP, AerChemMIP 등 18개 상호 비교 프로젝트(MIP) 통합 조율</li>
+<li>A multi-model ensemble standard is needed to establish the scientific basis for IPCC AR6</li>
+<li>Systematic experimental design to answer policy-relevant questions such as detection and attribution of climate change causes, regional impact assessment, and carbon budget estimation</li>
+<li>Integrated coordination of 18 Model Intercomparison Projects (MIPs) such as ScenarioMIP (SSP pathways), HighResMIP, and AerChemMIP</li>
 </ul>
-<h4>시스템 구성</h4>
-<p>CMIP6는 WCRP(세계기후연구프로그램)가 주관하며 3단계로 구성:</p>
+<h4>Architecture</h4>
+<p>CMIP6 is led by the WCRP (World Climate Research Programme) and consists of three tiers:</p>
 <ol>
-<li><strong>DECK(Diagnostic, Evaluation and Characterization of Klima)</strong>: 4가지 표준 실험 (piControl, historical, AMIP, abrupt4×CO₂) — 모든 참여 모델 의무</li>
-<li><strong>Historical 시뮬레이션</strong>: 1850–2014 관측 기반 강제력</li>
-<li><strong>선택적 MIPs</strong>: 21개 CMIP6-Endorsed MIP (ScenarioMIP, HighResMIP, PMIP, AerChemMIP 등)</li>
+<li><strong>DECK (Diagnostic, Evaluation and Characterization of Klima)</strong>: 4 standard experiments (piControl, historical, AMIP, abrupt4×CO₂) — mandatory for all participating models</li>
+<li><strong>Historical simulations</strong>: observation-based forcings for 1850–2014</li>
+<li><strong>Optional MIPs</strong>: 21 CMIP6-Endorsed MIPs (ScenarioMIP, HighResMIP, PMIP, AerChemMIP, etc.)</li>
 </ol>
-<p>데이터 배포: ESGF (Earth System Grid Federation) — 분산 페더레이션 아카이브, 전 세계 노드 운영.</p>
-<h4>데이터 접근 방법</h4>
+<p>Data distribution: ESGF (Earth System Grid Federation) — a distributed federated archive operating nodes worldwide.</p>
+<h4>Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>ESGF 포털</td>
-  <td>esgf-node.llnl.gov 등 — 웹 탐색·다운로드</td>
+  <td>ESGF portal</td>
+  <td>esgf-node.llnl.gov, etc. — web browsing and download</td>
 </tr>
 <tr>
   <td>ESMValTool</td>
-  <td>Python 기반 진단·분석 도구</td>
+  <td>Python-based diagnostic and analysis tool</td>
 </tr>
 <tr>
   <td>Pangeo</td>
-  <td>클라우드 기반 Zarr 포맷 접근 (Google Cloud, AWS)</td>
+  <td>cloud-based access in Zarr format (Google Cloud, AWS)</td>
 </tr>
 <tr>
   <td>intake-esm</td>
-  <td>Python 카탈로그 기반 검색</td>
+  <td>Python catalog-based search</td>
 </tr>
 </tbody>
 </table>
-<h4>제공 데이터 형식</h4>
+<h4>Data formats</h4>
 <ul>
 <li>NetCDF-4 (CF Conventions)</li>
-<li>변수: 대기(300+), 해양, 해빙, 육지, 에어로졸, 탄소 순환</li>
-<li>시간 해상도: 서브일~월~연 평균</li>
-<li>공간 해상도: 25km~200km (모델별 상이)</li>
+<li>Variables: atmosphere (300+), ocean, sea ice, land, aerosols, carbon cycle</li>
+<li>Temporal resolution: sub-daily to monthly to annual averages</li>
+<li>Spatial resolution: 25km–200km (varies by model)</li>
 </ul>
-<h4>주요 통계</h4>
+<h4>Key statistics</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>참여 모델링 그룹</td>
-  <td><strong>~49</strong> 개 (전 세계)</td>
+  <td>Participating modeling groups</td>
+  <td><strong>~49</strong> (worldwide)</td>
 </tr>
 <tr>
-  <td>모델 수</td>
-  <td><strong>100+</strong> 개 ESM/GCM</td>
+  <td>Number of models</td>
+  <td><strong>100+</strong> ESM/GCM</td>
 </tr>
 <tr>
-  <td>총 데이터 볼륨</td>
-  <td><strong>~20 PB</strong> 이상 (추산)</td>
+  <td>Total data volume</td>
+  <td><strong>~20 PB</strong> or more (estimated)</td>
 </tr>
 <tr>
-  <td>MIP 수</td>
-  <td><strong>21</strong> 개 (CMIP6-Endorsed MIPs, 논문 확인)</td>
+  <td>Number of MIPs</td>
+  <td><strong>21</strong> (CMIP6-Endorsed MIPs, confirmed in the paper)</td>
 </tr>
 <tr>
-  <td>DECK 실험</td>
-  <td><strong>4</strong> 개 (의무)</td>
+  <td>DECK experiments</td>
+  <td><strong>4</strong> (mandatory)</td>
 </tr>
 <tr>
-  <td>지원 IPCC 보고서</td>
+  <td>Supported IPCC report</td>
   <td>AR6 (2021)</td>
 </tr>
 </tbody>
 </table>
-<h4>한계점</h4>
+<h4>Limitations</h4>
 <ul>
-<li>모델 해상도 한계: 대부분 100km 수준으로 극단 기상 사건·지역 기후 시뮬레이션 부족 (HighResMIP에서 일부 해결)</li>
-<li>데이터 볼륨이 매우 커 일반 연구자의 로컬 다운로드 비현실적 → 클라우드 분석 필요</li>
-<li>NetCDF/CF 규약에 대한 도메인 지식 없이 RAG 파이프라인에서 직접 활용 어려움</li>
-<li>모델 간 변수명·그리드 불균일 → 표준화 처리 필요</li>
+<li>Limited model resolution: mostly around 100km, insufficient for simulating extreme weather events and regional climate (partly addressed in HighResMIP)</li>
+<li>Data volume is very large, making local download by ordinary researchers impractical → cloud-based analysis needed</li>
+<li>Difficult to use directly in a RAG pipeline without domain knowledge of the NetCDF/CF conventions</li>
+<li>Non-uniform variable names and grids across models → standardization processing required</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.5194/gmd-9-1937-2016">https://doi.org/10.5194/gmd-9-1937-2016</a></li>
-<li><strong>ESGF 포털</strong>: <a href="https://esgf-node.llnl.gov/projects/cmip6/">https://esgf-node.llnl.gov/projects/cmip6/</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.5194/gmd-9-1937-2016">https://doi.org/10.5194/gmd-9-1937-2016</a></li>
+<li><strong>ESGF portal</strong>: <a href="https://esgf-node.llnl.gov/projects/cmip6/">https://esgf-node.llnl.gov/projects/cmip6/</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (eyring2016overview)</a></p>
@@ -258,14 +258,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

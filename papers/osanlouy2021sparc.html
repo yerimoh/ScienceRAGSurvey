@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The SPARC DRC: Building a Resource for the Autonomic Nervous System Community — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>The SPARC DRC: Building a Resource for the Autonomic Nervous System Community, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,43 +121,43 @@
 <p>osanlouy2021sparc | 2021 | Frontiers in Physiology | dataset | [medical, bio] | <a href="https://doi.org/10.3389/fphys.2021.693735">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">SPARC (Stimulating Peripheral Activity to Relieve Conditions) Data and Resource Center</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">논문에서 정확한 건수 명시 안 됨 — SPARC 컨소시엄 큐레이션 데이터셋 모음</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">Exact count not specified in the paper — a collection of curated datasets from the SPARC consortium</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (sparc.science)</td></tr>
-<tr><td class="prop-key">Modality</td><td class="prop-val">Image (장기 스캐폴드, 2D 평면 지도), Structured Table (실험 데이터, 수학 모델)</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">SPARC 데이터 포털 (sparc.science)</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Image (organ scaffolds, 2D flatmaps), Structured Table (experimental data, mathematical models)</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">SPARC data portal (sparc.science)</td></tr>
 </table>
 
 <blockquote>
 <p>Frontiers in Physiology | 2021 | dataset | medical, bio</p>
 </blockquote>
-<h4>📌 한 줄 요약</h4>
-<p>NIH 지원 SPARC 프로그램의 데이터 및 자원 센터(DRC)로, 포유류 자율신경계의 실험 데이터·수학 모델·시뮬레이션 도구를 큐레이션·주석화하고 Google Maps 형식의 2D 평면 지도와 3D 장기 스캐폴드를 통해 신경조절 연구 커뮤니티에 제공한다.</p>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>📌 TL;DR</h4>
+<p>The Data and Resource Center (DRC) of the NIH-funded SPARC program curates and annotates experimental data, mathematical models, and simulation tools for the mammalian autonomic nervous system, and delivers them to the neuromodulation research community through Google Maps-style 2D flatmaps and 3D organ scaffolds.</p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>자율신경계 데이터가 분산되어 통합 검색 및 교차 종 비교 불가</li>
-<li>신경조절 장치 개발을 위한 계산 모델 접근 경로 부재</li>
-<li>자율신경 해부학적 연결성 지도의 표준화 자원 없음</li>
+<li>Autonomic nervous system data are scattered, making integrated search and cross-species comparison impossible</li>
+<li>No access path to computational models for developing neuromodulation devices</li>
+<li>No standardized resource for maps of autonomic anatomical connectivity</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>NIH-SPARC 프로그램의 실험 데이터와 모델을 단일 지식베이스로 통합 필요</li>
-<li>자율신경과학자 및 의료기기 제조업체를 위한 신경조절 가설 검증 플랫폼 필요</li>
+<li>Need to integrate the experimental data and models of the NIH-SPARC program into a single knowledge base</li>
+<li>Need a neuromodulation hypothesis-testing platform for autonomic neuroscientists and medical device manufacturers</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>Auckland Bioengineering Institute 주도. SPARC 컨소시엄 제공 데이터·수학 모델을 큐레이션·주석화하여 단일 지식베이스로 통합. 의미론적 검색 인터페이스 + Google Maps 형식 2D 평면 지도(연결성 표시) + 3D 해부학 장기 스캐폴드(교차 종 비교 공통 좌표 프레임워크) 포함. 데이터 업로드, 큐레이션, 영상 세그멘테이션, 평면 지도 등록, 웹 포털 표시 파이프라인 구현. 온라인 계산 시설 연결로 신경조절 가설 검증 지원.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>Led by the Auckland Bioengineering Institute. Data and mathematical models provided by the SPARC consortium are curated and annotated and integrated into a single knowledge base. Includes a semantic search interface + Google Maps-style 2D flatmaps (showing connectivity) + 3D anatomical organ scaffolds (a common coordinate framework for cross-species comparison). Implements pipelines for data upload, curation, image segmentation, flatmap registration, and web portal display. Supports neuromodulation hypothesis testing through connection to online computational facilities.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>SPARC 포털</td>
-  <td><a href="https://sparc.science">https://sparc.science</a> — 무료 공개 접근</td>
+  <td>SPARC portal</td>
+  <td><a href="https://sparc.science">https://sparc.science</a> — free public access</td>
 </tr>
 <tr>
   <td>DOI</td>
@@ -165,45 +165,45 @@
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>2D 평면 연결성 지도 (신경 회로 다이어그램)</li>
-<li>3D 해부학 장기 스캐폴드</li>
-<li>실험 데이터 (전기생리학, 영상 등)</li>
-<li>수학 모델 및 시뮬레이션 파일</li>
+<li>2D flatmap connectivity maps (neural circuit diagrams)</li>
+<li>3D anatomical organ scaffolds</li>
+<li>Experimental data (electrophysiology, imaging, etc.)</li>
+<li>Mathematical models and simulation files</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>지원 기관</td>
-  <td><strong>NIH (SPARC 프로그램)</strong></td>
+  <td>Funding agency</td>
+  <td><strong>NIH (SPARC program)</strong></td>
 </tr>
 <tr>
-  <td>주요 초점</td>
-  <td><strong>포유류 자율신경계</strong></td>
+  <td>Main focus</td>
+  <td><strong>Mammalian autonomic nervous system</strong></td>
 </tr>
 <tr>
-  <td>포털 기능</td>
-  <td><strong>의미론적 검색, 2D 평면 지도, 3D 스캐폴드</strong></td>
+  <td>Portal features</td>
+  <td><strong>Semantic search, 2D flatmaps, 3D scaffolds</strong></td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>논문에서 정확한 데이터셋 건수·종 수 명시 안 됨</li>
-<li>데이터 큐레이션·주석화 품질이 기여 기관별 상이</li>
-<li>일부 장기·종의 스캐폴드 미완성</li>
+<li>Exact dataset counts and number of species not specified in the paper</li>
+<li>Data curation and annotation quality varies by contributing institution</li>
+<li>Scaffolds for some organs and species are incomplete</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.3389/fphys.2021.693735">The SPARC DRC: building a resource for the autonomic nervous system community</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.3389/fphys.2021.693735">The SPARC DRC: building a resource for the autonomic nervous system community</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (osanlouy2021sparc)</a></p>
@@ -228,14 +228,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

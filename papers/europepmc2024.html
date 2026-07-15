@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Europe PMC in 2023 — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Europe PMC in 2023, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,7 +121,7 @@
 <p>europepmc2024 | 2024 | Nucleic Acids Research | dataset | [medical, bio] | <a href="https://doi.org/10.1093/nar/gkad1085">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">Europe PMC open-access life science literature database</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">42M+ abstracts, 9M+ full-text articles, 650K+ preprints (2023년 9월 15일 기준)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">42M+ abstracts, 9M+ full-text articles, 650K+ preprints (as of September 15, 2023)</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">Europe PMC REST API / Bulk download</td></tr>
@@ -129,115 +129,115 @@
 
 <blockquote>
 <p>Nucleic Acids Research | 2024 | dataset | medical, bio</p>
-<h4>📌 한 줄 요약</h4>
-<p>EMBL-EBI가 운영하며 37개 국제 연구 펀딩 기관이 지원하는 생명과학 오픈 액세스 문헌 플랫폼. <strong>4,200만 개 이상</strong>의 초록과 <strong>900만 개 이상</strong>의 전문 기사를 제공하며, <strong>31개 프리프린트 서버</strong>에서 수집한 <strong>65만 개 이상</strong>의 프리프린트와 <strong>20억 개 이상</strong>의 텍스트 마이닝 주석을 RESTful API로 무료 제공한다.</p>
+<h4>📌 TL;DR</h4>
+<p>An open-access life science literature platform operated by EMBL-EBI and supported by 37 international research funding agencies. It provides <strong>more than 42 million</strong> abstracts and <strong>more than 9 million</strong> full-text articles, and offers for free via a RESTful API <strong>more than 650,000</strong> preprints collected from <strong>31 preprint servers</strong> along with <strong>more than 2 billion</strong> text-mining annotations.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>생명과학 오픈 액세스 문헌을 통합하여 무료로 제공하는 인프라의 필요성</li>
-<li>프리프린트 서버가 난립하여 동료심사 전 최신 연구를 통합 탐색하기 어려움</li>
-<li>텍스트 마이닝을 위한 구조화된 주석 데이터의 공개 제공 부재</li>
+<li>The need for infrastructure that integrates and freely provides open-access life science literature</li>
+<li>The proliferation of preprint servers makes it difficult to search across the latest pre-peer-review research in an integrated way</li>
+<li>The absence of publicly available structured annotation data for text mining</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>ELIXIR Core Data Resource 및 Global Core Biodata Resource로 지정된 핵심 인프라</li>
-<li>37개 국제 연구 펀딩 기관이 후원하는 연구 성과물을 오픈 액세스로 집적</li>
-<li>2018년 9개 서버에서 시작하여 2023년 31개 서버로 프리프린트 통합 확장</li>
+<li>Core infrastructure designated as an ELIXIR Core Data Resource and a Global Core Biodata Resource</li>
+<li>Aggregates, as open access, the research outputs funded by 37 international research funding agencies</li>
+<li>Expanded preprint integration from 9 servers in 2018 to 31 servers in 2023</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>EMBL-EBI가 호스팅하는 오픈 액세스 플랫폼. 콘텐츠는 매일 업데이트되며, 60개 이상의 생명과학 데이터베이스·인용·펀딩·프로토콜·동료심사 자료와 연계된 풍부한 메타데이터를 제공한다. Unpaywall을 통해 1,300만 개 이상의 출판물에 무료 전문 링크를 연결. 프리프린트 수록 기준(2023년 3월 신설): 무료 접근, 생명과학 주요 콘텐츠, 심사 절차 보유, 표절·위법 행위 정책, 최소 30건 이상, 기계가독성 메타데이터 제공 조건 모두 충족 필요. 텍스트 마이닝 API 등 신규 코드는 GitLab에 오픈 소스로 공개(2022년 POSI 채택).</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>An open-access platform hosted by EMBL-EBI. Content is updated daily and provides rich metadata linked to more than 60 life science databases, citations, funding, protocols, and peer-review materials. Through Unpaywall it links free full-text access to more than 13 million publications. Preprint inclusion criteria (newly established in March 2023): all conditions must be met, namely free access, life science as the main content, having a screening procedure, a plagiarism and misconduct policy, a minimum of at least 30 items, and provision of machine-readable metadata. New code such as the text-mining API is released as open source on GitLab (POSI adopted in 2022).</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>웹사이트</td>
-  <td>europepmc.org — 브라우저 기반 탐색</td>
+  <td>Website</td>
+  <td>europepmc.org — browser-based exploration</td>
 </tr>
 <tr>
   <td>REST API</td>
-  <td>RESTful API — 무료, 일일 업데이트</td>
+  <td>RESTful API — free, daily updates</td>
 </tr>
 <tr>
-  <td>벌크 다운로드</td>
-  <td>5.7M 오픈 액세스 기사 (PDF·XML), 매주 업데이트, 분기별 아카이브</td>
+  <td>Bulk download</td>
+  <td>5.7M open-access articles (PDF/XML), updated weekly, quarterly archives</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>초록, 전문(오픈 액세스 기사), 메타데이터 (제목, 저자, 저널, PMID/PMCID/DOI)</li>
-<li>텍스트 마이닝 주석 20B+: 유전자/단백질명, 유기체, 질환, 화학물질</li>
-<li>Preprint Evaluations API: DocMaps 프레임워크 기반 동료 리뷰 보고서 메타데이터</li>
-<li>Article Status Monitor: 출판 생애주기 추적 (CSV 내보내기, POST REST API)</li>
-<li>기관 ROR ID 매핑 (41% 기관, 80%+ 그랜트 PI)</li>
+<li>Abstracts, full text (open-access articles), metadata (title, authors, journal, PMID/PMCID/DOI)</li>
+<li>Text-mining annotations 20B+: gene/protein names, organisms, diseases, chemicals</li>
+<li>Preprint Evaluations API: peer-review report metadata based on the DocMaps framework</li>
+<li>Article Status Monitor: tracking the publication lifecycle (CSV export, POST REST API)</li>
+<li>Institutional ROR ID mapping (41% of institutions, 80%+ of grant PIs)</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Figure</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>전체 초록</td>
-  <td><strong>42M+</strong> (2023년 9월 15일 기준)</td>
+  <td>Total abstracts</td>
+  <td><strong>42M+</strong> (as of September 15, 2023)</td>
 </tr>
 <tr>
-  <td>전문(full text) 기사</td>
-  <td><strong>9M+</strong> (2023년 9월 15일 기준)</td>
+  <td>Full-text articles</td>
+  <td><strong>9M+</strong> (as of September 15, 2023)</td>
 </tr>
 <tr>
-  <td>프리프린트 (전체)</td>
-  <td><strong>650,000+</strong> (2023년 9월 15일 기준)</td>
+  <td>Preprints (total)</td>
+  <td><strong>650,000+</strong> (as of September 15, 2023)</td>
 </tr>
 <tr>
-  <td>프리프린트 (전문 보유)</td>
-  <td><strong>53,624</strong> (2023년 9월 15일 기준)</td>
+  <td>Preprints (with full text)</td>
+  <td><strong>53,624</strong> (as of September 15, 2023)</td>
 </tr>
 <tr>
-  <td>COVID-19 프리프린트 전문</td>
+  <td>COVID-19 preprint full text</td>
   <td><strong>65,000+</strong></td>
 </tr>
 <tr>
-  <td>통합 프리프린트 서버</td>
-  <td><strong>31개</strong> (2023년 기준)</td>
+  <td>Integrated preprint servers</td>
+  <td><strong>31</strong> (as of 2023)</td>
 </tr>
 <tr>
-  <td>텍스트 마이닝 주석</td>
+  <td>Text-mining annotations</td>
   <td><strong>2B+</strong></td>
 </tr>
 <tr>
-  <td>오픈 액세스 PDF 벌크 다운로드</td>
+  <td>Open-access PDF bulk download</td>
   <td><strong>5.7M</strong></td>
 </tr>
 <tr>
-  <td>후원 펀딩 기관</td>
-  <td><strong>37개</strong></td>
+  <td>Supporting funding agencies</td>
+  <td><strong>37</strong></td>
 </tr>
 <tr>
-  <td>Unpaywall 전문 링크 연결</td>
+  <td>Unpaywall full-text links connected</td>
   <td><strong>13M+</strong></td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li><strong>프리프린트 철회/삭제 추적</strong>: 전문을 보유한 프리프린트에 대해서만 가능; 초록만 수록된 프리프린트의 철회 상태는 중앙 집중적 추적 불가</li>
-<li><strong>프리프린트 버전 링크 불가</strong>: bioRxiv, medRxiv처럼 버전 간 DOI를 재사용하는 서버에서는 버전 간 링크 연결 불가</li>
-<li><strong>프리프린트-저널 논문 매칭 한계</strong>: 저자나 제목이 크게 변경된 경우 프리프린트와 최종 출판 논문 간의 매핑 실패 가능</li>
+<li><strong>Tracking preprint retraction/removal</strong>: possible only for preprints that have full text; the retraction status of preprints indexed with abstracts only cannot be tracked centrally</li>
+<li><strong>No preprint version linking</strong>: on servers that reuse DOIs across versions, such as bioRxiv and medRxiv, links between versions cannot be established</li>
+<li><strong>Limitations in preprint-to-journal-article matching</strong>: mapping between a preprint and its final published article may fail when the authors or title have changed substantially</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/gkad1085">https://doi.org/10.1093/nar/gkad1085</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1093/nar/gkad1085">https://doi.org/10.1093/nar/gkad1085</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (europepmc2024)</a></p>
@@ -258,14 +258,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

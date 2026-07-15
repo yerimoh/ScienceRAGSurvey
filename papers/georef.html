@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GeoRef: Comprehensive Geoscience Bibliography — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>GeoRef: Comprehensive Geoscience Bibliography, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,107 +121,107 @@
 <p>georef | 2024 | American Geosciences Institute | dataset | [earth] | <a href="https://www.americangeosciences.org/information/georef">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">GeoRef geoscience bibliographic database</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">4.7M+ records (AGI 공식 사이트 기준; 연 ~100,000건 증가)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">4.7M+ records (per the official AGI site; growing ~100,000 records per year)</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Subscription</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">GeoRef (EBSCO 구독 배포)</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">GeoRef (distributed via EBSCO subscription)</td></tr>
 </table>
 
 <blockquote>
 <p>American Geosciences Institute | 2024 | dataset | earth</p>
-<h4>📌 한 줄 요약</h4>
-<p>지구과학 전 분야를 아우르는 가장 포괄적인 서지 데이터베이스. AGI(American Geosciences Institute)가 1966년 설립하여 운영하며, <strong>470만 건 이상</strong>의 레코드(연 약 10만 건 추가)를 44개 언어, 3,500종 이상의 저널과 보고서·지도·학위논문을 포함해 색인. 북미 지질학은 1666년, 전 세계 지질학은 1933년까지 소급 수록. <strong>정식 학술 논문이 아닌 기관 데이터베이스 참고 항목(<code>@misc</code>)임에 유의.</strong></p>
+<h4>📌 TL;DR</h4>
+<p>The most comprehensive bibliographic database spanning all fields of geoscience. Established and operated by AGI (American Geosciences Institute) in 1966, it indexes <strong>more than 4.7 million</strong> records (about 100,000 added per year), covering 44 languages and more than 3,500 journals as well as reports, maps, and theses. Coverage reaches back to 1666 for North American geology and to 1933 for worldwide geology. <strong>Note that this is an institutional database reference entry (<code>@misc</code>), not a formal scholarly paper.</strong></p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>지구과학 분야 문헌이 저널·학위논문·정부 보고서·지질 지도 등 다양한 유형으로 분산</li>
-<li>다언어(44개 언어) 지구과학 자료를 통합 탐색할 수 있는 전문 인프라 부재</li>
+<li>Geoscience literature is scattered across diverse types such as journals, theses, government reports, and geologic maps</li>
+<li>Absence of specialized infrastructure for unified search of multilingual (44 languages) geoscience materials</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>1966년 AGI 설립 이후 지구과학 커뮤니티의 표준 문헌 정보 서비스로 자리잡음</li>
-<li>훈련받은 지구과학자 편집자·색인자가 GeoRef Thesaurus 통제 어휘 직접 부여</li>
-<li>북미 지질 1666년, 전 세계 지질 1933년까지 소급 수록하는 장기 시계열 제공</li>
+<li>Since AGI's founding in 1966, it has become the standard literature-information service for the geoscience community</li>
+<li>Trained geoscientist editors and indexers directly assign GeoRef Thesaurus controlled vocabulary</li>
+<li>Provides a long time series with coverage reaching back to 1666 for North American geology and 1933 for worldwide geology</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>AGI(American Geosciences Institute, 버지니아주 알렉산드리아 소재)가 제작·관리하며 EBSCO 등 유통 기관을 통해 기관 구독 형태로 배포. AGI 지구과학자 편집자가 직접 색인·GeoRef Thesaurus 통제 어휘 부여로 전문 큐레이션. 수록 분야: 지질학 전반, 지구물리학, 수문학, 고생물학, 암석학, 광물학, 경제지질학, 환경·공학지질학, 해양지질학, 해양학. 수록 자료 유형: 저널 논문, 단행본, 지질 지도, 회의 논문, 보고서, 학위논문(미국·캐나다), USGS 간행물. 온라인 ISSN: 2573-1874.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>Produced and maintained by AGI (American Geosciences Institute, located in Alexandria, Virginia) and distributed as institutional subscriptions through distributors such as EBSCO. AGI geoscientist editors provide expert curation by directly indexing and assigning GeoRef Thesaurus controlled vocabulary. Fields covered: geology in general, geophysics, hydrology, paleontology, petrology, mineralogy, economic geology, environmental and engineering geology, marine geology, and oceanography. Material types covered: journal articles, monographs, geologic maps, conference papers, reports, theses (United States and Canada), and USGS publications. Online ISSN: 2573-1874.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>기관 구독</td>
-  <td>EBSCO 등 유통 기관을 통한 구독 — 개인 무료 접근 불가</td>
+  <td>Institutional subscription</td>
+  <td>Subscription through distributors such as EBSCO — no free individual access</td>
 </tr>
 <tr>
   <td>API</td>
-  <td>공개 무료 API 미제공</td>
+  <td>No public free API provided</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>서지 정보: 제목, 저자, 출판연도, 저널/자료 유형</li>
-<li>초록 (논문에 따라 다름)</li>
-<li>GeoRef Thesaurus 통제 어휘 (계층적 주제 탐색 가능)</li>
-<li>회색 문헌: 학위논문(미국·캐나다 대학원), 지질 지도, 정부 보고서</li>
+<li>Bibliographic information: title, author, publication year, journal/material type</li>
+<li>Abstract (varies by paper)</li>
+<li>GeoRef Thesaurus controlled vocabulary (enables hierarchical subject browsing)</li>
+<li>Grey literature: theses (U.S. and Canadian graduate schools), geologic maps, government reports</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>총 레코드</td>
-  <td><strong>4.7M+</strong> (AGI 공식 사이트 기준)</td>
+  <td>Total records</td>
+  <td><strong>4.7M+</strong> (per the official AGI site)</td>
 </tr>
 <tr>
-  <td>연간 증가</td>
-  <td><strong>~100,000건</strong> (월 6,000~9,000건)</td>
+  <td>Annual growth</td>
+  <td><strong>~100,000 records</strong> (6,000–9,000 per month)</td>
 </tr>
 <tr>
-  <td>수록 저널 수</td>
-  <td><strong>3,500종+</strong> (44개 언어)</td>
+  <td>Number of journals covered</td>
+  <td><strong>3,500+</strong> (44 languages)</td>
 </tr>
 <tr>
-  <td>소급 수록 범위 (북미)</td>
-  <td><strong>1666년~현재</strong></td>
+  <td>Retrospective coverage range (North America)</td>
+  <td><strong>1666–present</strong></td>
 </tr>
 <tr>
-  <td>소급 수록 범위 (전 세계)</td>
-  <td><strong>1933년~현재</strong></td>
+  <td>Retrospective coverage range (worldwide)</td>
+  <td><strong>1933–present</strong></td>
 </tr>
 <tr>
-  <td>갱신 주기</td>
-  <td>월 단위</td>
+  <td>Update cycle</td>
+  <td>Monthly</td>
 </tr>
 <tr>
-  <td>접근 방식</td>
-  <td>EBSCO 등 기관 구독</td>
+  <td>Access method</td>
+  <td>Institutional subscription (e.g., EBSCO)</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li><strong>구독 전용</strong>: 무료 공개 API 미제공 — RAG 파이프라인 구축 시 기관 구독 계약 필수</li>
-<li><strong>전문 미포함</strong>: 서지 정보(제목·저자·초록·통제어) 제공; 원문 자체는 별도 전문 링크 필요</li>
-<li><strong>회색 문헌 편향</strong>: 비학술 보고서·지도 대량 포함으로 문헌 품질 편차 존재</li>
-<li><strong>1933년 이전 비북미 문헌 공백</strong>: 전 세계 지질 커버리지는 1933년부터 시작; 유럽·아시아 19세기 지질 문헌 누락 가능</li>
-<li><strong>갱신 지연</strong>: 월 단위 업데이트로 최신 arXiv 프리프린트 등 즉시 수록 불가</li>
+<li><strong>Subscription-only</strong>: No free public API — an institutional subscription contract is required when building a RAG pipeline</li>
+<li><strong>No full text</strong>: Provides bibliographic information (title, author, abstract, controlled terms); the original text itself requires a separate full-text link</li>
+<li><strong>Grey-literature bias</strong>: Large inclusion of non-scholarly reports and maps introduces variation in literature quality</li>
+<li><strong>Gap in pre-1933 non-North American literature</strong>: Worldwide geology coverage begins in 1933; 19th-century European and Asian geology literature may be missing</li>
+<li><strong>Update lag</strong>: Monthly updates mean the latest arXiv preprints and similar cannot be included immediately</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://www.americangeosciences.org/information/georef">https://www.americangeosciences.org/information/georef</a></li>
+<li><strong>Paper</strong>: <a href="https://www.americangeosciences.org/information/georef">https://www.americangeosciences.org/information/georef</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (georef)</a></p>
@@ -242,14 +242,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

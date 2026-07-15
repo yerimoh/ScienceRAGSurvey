@@ -12,96 +12,96 @@ originSessionId: e17a6512-257b-4eac-96cc-808523cf24a8
 # Responsible Retrieval Augmented Generation for Climate Decision Making from Documents
 
 > arXiv | 2024 | Method | earth
-## 📌 한 줄 요약
-기후 법률·정책 문서를 대상으로 책임감 있는 RAG 시스템을 구축하고, 도메인 특화 4차원 평가 프레임워크 및 전문가 human-annotated 데이터셋을 공개한 논문.
-## 🎯 연구 배경 및 동기
-**기존 방법의 한계점**
-- 기후 법률·정책 문서는 방대하고 기술적이며 다국어로 작성되어 핵심 정보 접근이 어려움
-- 일반 LLM은 (1) 환각·오정보 생성, (2) 출력 속성 제어 어려움, (3) 특수 도메인 성능 저하 문제가 있음
-- 기존 기후 RAG 앱(ChatClimate, ChatNetZero)은 엄밀한 평가가 없거나 소규모이며, UX가 LLM 생성 내용을 원문에 링크하지 않음
-- 법률 도메인 LLM 연구에서 공정성·투명성·환각 평가 필요성이 명확히 제기됨
-**이 연구가 필요한 이유**
-- 기후 의사결정 지원은 인간 복지에 직접 영향을 미치는 고위험 AI 적용 사례
-- 취약 계층과 저중소득 국가에 불균형적 영향을 주는 기후 변화 특성상 책임 있는 배포 원칙 필요
-- 도메인 특화 생성 정책 가이드라인 및 강건한 평가 데이터셋 부재
-## 🏗️ 시스템 아키텍처
+## 📌 TL;DR
+A paper that builds a responsible RAG system targeting climate law and policy documents, and releases a domain-specific 4-dimensional evaluation framework along with an expert human-annotated dataset.
+## 🎯 Background and Motivation
+**Limitations of existing methods**
+- Climate law and policy documents are vast, technical, and written in multiple languages, making access to core information difficult
+- General-purpose LLMs suffer from (1) hallucination and misinformation generation, (2) difficulty controlling output attributes, and (3) degraded performance in specialized domains
+- Existing climate RAG apps (ChatClimate, ChatNetZero) either lack rigorous evaluation or are small-scale, and their UX does not link LLM-generated content back to the source text
+- Research on legal-domain LLMs has clearly raised the need for fairness, transparency, and hallucination evaluation
+**Why this research is needed**
+- Climate decision support is a high-stakes AI application that directly affects human welfare
+- Given that climate change disproportionately affects vulnerable populations and low- and middle-income countries, principles for responsible deployment are needed
+- There is a lack of domain-specific generation policy guidelines and robust evaluation datasets
+## 🏗️ Architecture
 ```javascript
-[사용자 입력]
+[User Input]
     ↓
-[Input Guardrails] → 악의적·문제적 쿼리 필터링 (NeMo Guardrails, red-teaming)
+[Input Guardrails] → Filtering malicious/problematic queries (NeMo Guardrails, red-teaming)
     ↓
-[Information Retrieval] → BM25 + Dense Retrieval 하이브리드
+[Information Retrieval] → BM25 + Dense Retrieval hybrid
     ↓
 [Answer Synthesis] → GPT-4/GPT-4o/Llama 3.1/Gemini-1.5-pro
     ↓
 [Output Guardrails + Auto-Evaluators]
-    - CPR 정책 준수 평가 (Gemini-1.5-pro)
-    - 충실도 평가 앙상블 (Patronus Lynx + Gemini G-Eval + Vectara)
-    - 포매팅 규칙 체크
-    - 응답 여부 확인
+    - CPR policy compliance evaluation (Gemini-1.5-pro)
+    - Faithfulness evaluation ensemble (Patronus Lynx + Gemini G-Eval + Vectara)
+    - Formatting rule check
+    - Response/no-response determination
     ↓
-[UX 노출] → 사용자에게 각 평가 결과 투명하게 제공
+[UX Exposure] → Each evaluation result is transparently presented to the user
 ```
-## 🔑 핵심 모듈 상세 설명
-**1. 데이터베이스**
-- Climate Policy Radar (CPR) DB: 전 세계 모든 국가 정부 발간 기후 법률·정책 6,000+ 문서
-- 평가용 550개 문서 샘플링 (World Bank Regions 균등 분배, 번역 여부 층화)
-- 평균 80페이지, 일부 1,000페이지 이상, 테이블·그림·레이아웃 포함 복잡 문서
-- IEA, IAEA, OSCE, WMO 에너지 문서 추가 포함 (RAG 선호도 데이터셋용)
-**2. Retrieval 실험**
-| 방법 | 설명 |
-| BM25 | 희소 검색 baseline |
-| Dense (4종) | 오픈소스 dense retrieval 모델 단독 |
-| Hybrid (4종) | α·BM25 + dense (α=0.2) |
+## 🔑 Detailed Description of Core Modules
+**1. Database**
+- Climate Policy Radar (CPR) DB: 6,000+ climate law and policy documents published by governments of all countries worldwide
+- 550 documents sampled for evaluation (evenly distributed across World Bank Regions, stratified by translation status)
+- Average of 80 pages, some over 1,000 pages, complex documents including tables, figures, and layouts
+- Additional inclusion of IEA, IAEA, OSCE, WMO energy documents (for the RAG preference dataset)
+**2. Retrieval Experiments**
+| Method | Description |
+| BM25 | Sparse retrieval baseline |
+| Dense (4 types) | Open-source dense retrieval models standalone |
+| Hybrid (4 types) | α·BM25 + dense (α=0.2) |
 
-- 총 173,000 pairwise LLM 판정으로 벤치마크
-- Recall 최우선 지표 (LLM에 전달되는 관련 정보 비율 극대화)
-**3. 평가 프레임워크 4차원**
-| 차원 | 설명 | 평가 방법 |
-| CPR 생성 정책 준수 | 공정성·객관성·충실성·인간 안전 위험 회피 | Gemini-1.5-pro LLM-as-judge |
-| 충실도 | 제공 컨텍스트 기반 생성 (환각 감지) | Patronus Lynx + Gemini G-Eval + Vectara 앙상블 |
-| 포매팅 | 마크다운 bullet-point + 인용 규칙 | regex·텍스트 규칙 기반 |
-| 응답 여부 | 응답 불가 케이스 올바른 처리 | 텍스트 서치 |
+- Benchmarked with a total of 173,000 pairwise LLM judgments
+- Recall as the top-priority metric (maximizing the proportion of relevant information passed to the LLM)
+**3. Evaluation Framework 4 Dimensions**
+| Dimension | Description | Evaluation Method |
+| CPR generation policy compliance | Fairness, objectivity, faithfulness, avoiding human safety risks | Gemini-1.5-pro LLM-as-judge |
+| Faithfulness | Generation grounded in provided context (hallucination detection) | Patronus Lynx + Gemini G-Eval + Vectara ensemble |
+| Formatting | Markdown bullet-point + citation rules | regex/text rule-based |
+| Response/no-response | Correct handling of unanswerable cases | Text search |
 
 **4. Human Annotation**
-- UNECE 협력: 16명 도메인 전문가 (UN, IRENA, WMO, 각국 정부)
-- 3주 어노테이션 스프린트: 800개 문서 대상 생성 데이터 라벨링
-- 최종 데이터셋: 1,009 트리플 (query, retrieved passages, response), 정책 위반 15.6%
-- HuggingFace 공개: [ClimatePolicyRadar/rag-climate-expert-eval](https://huggingface.co/datasets/ClimatePolicyRadar/rag-climate-expert-eval)
-## 🧪 실험 및 평가
-**Retrieval 평가 결과**
-- Retrieval LLM Judge (GPT-4o 기반): F1 82.3% precision, 69.0% recall, 75.3% F1
-- 194개 합성 질문 어노테이션 데이터셋 (2명 전문가 annotator, 0-2 관련도 척도)
-- 패시지 랭킹 프레이밍의 한계 발견: 유용 정보 근접 신호, 비특정 언어, 문서 메타데이터 필요 케이스
-**Generation 평가 결과 (CPR 정책 준수)**
-| 모델 | Recall | Precision | F1 | Accuracy |
+- UNECE collaboration: 16 domain experts (UN, IRENA, WMO, various national governments)
+- 3-week annotation sprint: labeling generated data for 800 documents
+- Final dataset: 1,009 triples (query, retrieved passages, response), 15.6% policy violations
+- Released on HuggingFace: [ClimatePolicyRadar/rag-climate-expert-eval](https://huggingface.co/datasets/ClimatePolicyRadar/rag-climate-expert-eval)
+## 🧪 Experiments and Evaluation
+**Retrieval Evaluation Results**
+- Retrieval LLM Judge (GPT-4o based): F1 82.3% precision, 69.0% recall, 75.3% F1
+- 194-question synthetic annotation dataset (2 expert annotators, 0-2 relevance scale)
+- Limitations of the passage-ranking framing discovered: cases needing proximity signals for useful information, non-specific language, and document metadata
+**Generation Evaluation Results (CPR policy compliance)**
+| Model | Recall | Precision | F1 | Accuracy |
 | GPT-4o | 0.987 | 0.343 | 0.509 | 0.708 |
 | GPT-4 | 0.865 | 0.588 | 0.700 | 0.886 |
 | Llama-3.1 | 0.487 | 0.854 | 0.620 | 0.908 |
 | Gemini-1.5-pro | 0.961 | 0.542 | 0.693 | 0.869 |
 
-- 안전 배포 관점에서 Recall 최우선 → Gemini-1.5-pro 자동 평가기 선택
-- 충실도 위반 285건 중 100건(67.1%)이 정책 위반 True Positive와 중복
-**충실도 평가기 앙상블**
-- Vectara (NLU 기반): 다른 모델과 낮은 일치도 (다른 접근법)
-- Gemini↔GPT-4o: 높은 일치도
-- Patronus Lynx↔G-Eval Llama: pairwise F1 0.47 (파인튜닝이 기반 모델 대비 큰 변화)
-- LLM이 자신의 생성을 선호하는 편향 확인 (self-preference bias)
-- 최종: Patronus Lynx + Gemini G-Eval + Vectara 앙상블
-## 💡 핵심 기여
-- 기후 도메인 특화 RAG 생성 정책 및 4차원 평가 프레임워크 최초 제안
-- UNECE 전문가 16인 협력 human-annotated 데이터셋 공개 (HuggingFace)
-- Defense-in-depth UX 설계: 각 자동 평가 결과를 사용자에게 투명하게 노출
-- 오픈소스 retrieval 모델 vs BM25 하이브리드 체계적 비교
-- 라이브 데모 및 평가 하니스 공개로 기후·정책 커뮤니티 재현성 지원
-## ⚠️ 한계점
-- 현재 단일 문서 스코프 (멀티 문서 확장 미완)
-- 소규모 정책 위반 데이터셋으로 프롬프트 튜닝 효과 충분한 검증 어려움
-- 오픈소스 dense 모델이 특정 설정에서 BM25 대비 제한적 성능
-- 패시지 랭킹 프레이밍 자체의 한계 (계층적·멀티홉 검색 등 대안 제안)
-## 🔗 관련 연구 및 관련 정보
+- From a safe-deployment perspective, Recall is the top priority → Gemini-1.5-pro selected as the auto-evaluator
+- Of 285 faithfulness violations, 100 (67.1%) overlapped with policy-violation True Positives
+**Faithfulness Evaluator Ensemble**
+- Vectara (NLU-based): low agreement with other models (different approach)
+- Gemini↔GPT-4o: high agreement
+- Patronus Lynx↔G-Eval Llama: pairwise F1 0.47 (fine-tuning produced large changes relative to the base model)
+- Confirmed bias where an LLM prefers its own generations (self-preference bias)
+- Final: Patronus Lynx + Gemini G-Eval + Vectara ensemble
+## 💡 Key Contributions
+- First proposal of a climate-domain-specific RAG generation policy and 4-dimensional evaluation framework
+- Release of a human-annotated dataset built in collaboration with 16 UNECE experts (HuggingFace)
+- Defense-in-depth UX design: transparently exposing each automatic evaluation result to the user
+- Systematic comparison of open-source retrieval models vs BM25 hybrid
+- Support for reproducibility in the climate/policy community through a live demo and released evaluation harness
+## ⚠️ Limitations
+- Current scope is single-document (multi-document extension incomplete)
+- With a small policy-violation dataset, it is difficult to sufficiently validate the effect of prompt tuning
+- Open-source dense models show limited performance compared to BM25 in certain settings
+- Limitations of the passage-ranking framing itself (alternatives such as hierarchical and multi-hop retrieval proposed)
+## 🔗 Related Research and Related Links
 - **arXiv**: [https://arxiv.org/abs/2410.23902](https://arxiv.org/abs/2410.23902)
-- **라이브 데모**: [https://queried.labs.climatepolicyradar.org/](https://queried.labs.climatepolicyradar.org/)
-- **데이터셋**: [https://huggingface.co/datasets/ClimatePolicyRadar/rag-climate-expert-eval](https://huggingface.co/datasets/ClimatePolicyRadar/rag-climate-expert-eval)
-- **어노테이션 가이드북**: [https://climatepolicyradar.notion.site/Annotation-Guidebook-for-Generative-AI-Data-Labelling](https://climatepolicyradar.notion.site/Annotation-Guidebook-for-Generative-AI-Data-Labelling)
-- **관련 연구**: ChatClimate, ChatNetZero, ClimateGPT (기후 도메인 RAG 선행 연구)
+- **Live demo**: [https://queried.labs.climatepolicyradar.org/](https://queried.labs.climatepolicyradar.org/)
+- **Dataset**: [https://huggingface.co/datasets/ClimatePolicyRadar/rag-climate-expert-eval](https://huggingface.co/datasets/ClimatePolicyRadar/rag-climate-expert-eval)
+- **Annotation Guidebook**: [https://climatepolicyradar.notion.site/Annotation-Guidebook-for-Generative-AI-Data-Labelling](https://climatepolicyradar.notion.site/Annotation-Guidebook-for-Generative-AI-Data-Labelling)
+- **Related research**: ChatClimate, ChatNetZero, ClimateGPT (prior work on climate-domain RAG)

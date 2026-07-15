@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Review of Particle Physics — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Review of Particle Physics, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,105 +121,105 @@
 <p>navas2024review | 2024 | Physical Review D | dataset | [physics] | <a href="https://doi.org/10.1103/PhysRevD.110.030001">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">Review of Particle Physics (RPP) — Particle Data Group (PDG)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">2,717 new measurements from 869 papers (2024판 기준); 120개 리뷰 포함, 2권 구성</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">2,717 new measurements from 869 papers (as of the 2024 edition); includes 120 reviews, organized in 2 volumes</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">PDG 데이터 접근: pdg.lbl.gov</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">PDG data access: pdg.lbl.gov</td></tr>
 </table>
 
 <blockquote>
 <p>Physical Review D | 2024 | dataset | physics</p>
-<h4>📌 한 줄 요약</h4>
-<p>입자데이터그룹(Particle Data Group)이 격년 발행하는 입자물리학의 표준 참조 편람으로, 게이지 보손·힉스 보손·렙톤·쿼크·중간자·중입자의 실측 특성을 평가·평균·요약하며, 고에너지물리학에서 가장 많이 인용되는 단일 참조 저작이다.</p>
+<h4>📌 TL;DR</h4>
+<p>Published biennially by the Particle Data Group, this is the standard reference handbook of particle physics. It evaluates, averages, and summarizes the measured properties of gauge bosons, the Higgs boson, leptons, quarks, mesons, and baryons, and is the single most cited reference work in high-energy physics.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>입자물리학은 전 세계 수십 개 실험 그룹이 독립적으로 동일한 입자 특성을 측정하는 구조</li>
-<li>개별 측정값들을 일관된 방식으로 평가·평균하는 중앙 집중 큐레이션 필요</li>
-<li>가속기 실험 결과와 우주론·천체물리학 데이터를 통합하는 종합 참조 부재</li>
+<li>Particle physics is structured such that dozens of experimental groups worldwide independently measure the same particle properties</li>
+<li>Centralized curation that evaluates and averages individual measurements in a consistent manner is needed</li>
+<li>There was no comprehensive reference integrating accelerator experiment results with cosmology and astrophysics data</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>측정 불확도를 포함한 표준 평균값 제공으로 전 세계 연구자의 공통 참조점 확보</li>
-<li>가상 입자(초대칭 입자, 중성미자 질량, 암흑 물질) 탐색 결과도 통합 수록</li>
-<li>이론 리뷰(힉스 보손 물리학, 초대칭, 대통일 이론, 중성미자 혼합 등)와 실험 데이터 병합 제공</li>
+<li>Provides standard average values including measurement uncertainties, establishing a common reference point for researchers worldwide</li>
+<li>Also integrates and includes results of hypothetical-particle searches (supersymmetric particles, neutrino masses, dark matter)</li>
+<li>Provides theory reviews (Higgs boson physics, supersymmetry, grand unified theories, neutrino mixing, etc.) merged with experimental data</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>PDG는 Lawrence Berkeley National Laboratory(LBNL)가 주도하고 전 세계 입자물리학자들이 참여하는 국제 협력체이다. 매 2년마다(홀수 연도) 최신 측정 데이터를 수집·평가하여 물리량의 세계 평균값과 오차를 산출한다. 2024판(Physical Review D 110, 030001)은 Summary Tables(제1권)와 Particle Listings 및 추가 리뷰(제2권)로 구성된다.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>The PDG is an international collaboration led by Lawrence Berkeley National Laboratory (LBNL) with the participation of particle physicists worldwide. Every 2 years (in odd-numbered years), it collects and evaluates the latest measurement data to compute world-average values of physical quantities and their uncertainties. The 2024 edition (Physical Review D 110, 030001) consists of the Summary Tables (Volume 1) and the Particle Listings plus additional reviews (Volume 2).</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>웹사이트</td>
-  <td>pdg.lbl.gov — 온라인 데이터 테이블, 입자 요약</td>
+  <td>Website</td>
+  <td>pdg.lbl.gov — online data tables, particle summaries</td>
 </tr>
 <tr>
-  <td>PDF/인쇄본</td>
-  <td>Physical Review D 게재 (오픈 액세스)</td>
+  <td>PDF/print</td>
+  <td>Published in Physical Review D (open access)</td>
 </tr>
 <tr>
-  <td>데이터 파일</td>
-  <td>구조화된 데이터 파일 다운로드 지원</td>
+  <td>Data files</td>
+  <td>Supports download of structured data files</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>입자 특성 요약 테이블 (질량, 수명, 붕괴 분기비, 자기 모멘트 등)</li>
-<li>측정값 목록 (각 실험별 개별 측정값 + 가중 평균)</li>
-<li>120개 이상의 리뷰 논문 (이론 및 실험 주제)</li>
-<li>가속기·검출기 기술 개요</li>
-<li>통계·확률 방법론 리뷰</li>
+<li>Particle property summary tables (mass, lifetime, decay branching ratios, magnetic moment, etc.)</li>
+<li>Lists of measured values (individual measurements per experiment + weighted average)</li>
+<li>More than 120 review articles (theoretical and experimental topics)</li>
+<li>Overviews of accelerator and detector technology</li>
+<li>Reviews of statistical and probabilistic methodology</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>2024판 신규 측정값</td>
-  <td><strong>2,717</strong> 건 (869편 논문 기반)</td>
+  <td>New measurements in the 2024 edition</td>
+  <td><strong>2,717</strong> (based on 869 papers)</td>
 </tr>
 <tr>
-  <td>수록 리뷰 수</td>
-  <td><strong>120</strong> 개 (대부분 업데이트)</td>
+  <td>Number of reviews included</td>
+  <td><strong>120</strong> (most updated)</td>
 </tr>
 <tr>
-  <td>권 구성</td>
-  <td><strong>2권</strong> (제1권: Summary Tables + 97개 리뷰; 제2권: Particle Listings + 23개 리뷰)</td>
+  <td>Volume organization</td>
+  <td><strong>2 volumes</strong> (Volume 1: Summary Tables + 97 reviews; Volume 2: Particle Listings + 23 reviews)</td>
 </tr>
 <tr>
-  <td>발행 주기</td>
-  <td>격년 (짝수 연도: 전자판 업데이트, 홀수 연도: 전체 출판)</td>
+  <td>Publication cycle</td>
+  <td>Biennial (even years: electronic edition update; odd years: full publication)</td>
 </tr>
 <tr>
-  <td>학술지</td>
+  <td>Journal</td>
   <td>Physical Review D vol.110, no.3 (2024)</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>큐레이션된 참조 편람으로서 1차 측정 논문이 아닌 2차 평균 데이터 제공</li>
-<li>격년 발행 주기로 인해 최신 실험 결과 반영에 시간 지연 존재</li>
-<li>평균 계산 방법론(PDG scaling factor 등)이 표준이지만 세부 측정별 맥락 손실 가능</li>
-<li>텍스트 중심 RAG에서 수식·단위 혼재로 자동 파싱 어려움</li>
+<li>As a curated reference handbook, it provides secondary averaged data rather than primary measurement papers</li>
+<li>The biennial publication cycle introduces a time lag in reflecting the latest experimental results</li>
+<li>The averaging methodology (PDG scaling factor, etc.) is standard, but context of individual measurements may be lost</li>
+<li>In text-centric RAG, the intermixing of formulas and units makes automatic parsing difficult</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1103/PhysRevD.110.030001">Review of Particle Physics (Phys. Rev. D 110, 030001, 2024)</a></li>
-<li><strong>PDG 웹사이트</strong>: <a href="https://pdg.lbl.gov">pdg.lbl.gov</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1103/PhysRevD.110.030001">Review of Particle Physics (Phys. Rev. D 110, 030001, 2024)</a></li>
+<li><strong>PDG website</strong>: <a href="https://pdg.lbl.gov">pdg.lbl.gov</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (navas2024review)</a></p>
@@ -243,14 +243,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

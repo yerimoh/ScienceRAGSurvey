@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Gene Ontology Knowledgebase in 2023 — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>The Gene Ontology Knowledgebase in 2023, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,93 +121,93 @@
 <p>gene2023gene | 2023 | Genetics | dataset | [bio] | <a href="https://doi.org/10.1093/genetics/iyad031">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">Gene Ontology (GO) Knowledgebase</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">3개 구성 요소: GO 온톨로지, GO 주석, GO Causal Activity Models (GO-CAMs)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">3 components: GO ontology, GO annotations, GO Causal Activity Models (GO-CAMs)</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">GO REST API / 파일 다운로드 (http://geneontology.org)</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">GO REST API / file download (http://geneontology.org)</td></tr>
 </table>
 
 <blockquote>
 <p>Genetics | 2023 | dataset | bio</p>
-<h4>📌 한 줄 요약</h4>
-<p>유전자 및 유전자 산물(단백질, 비코딩 RNA)의 기능을 기술하는 GO 지식베이스의 2023년 현황으로, GO 온톨로지, GO 주석, GO-CAM 세 가지 구성 요소와 지속적 확장·검증 방법을 소개한다.</p>
+<h4>📌 TL;DR</h4>
+<p>A 2023 status report on the GO knowledgebase, which describes the functions of genes and gene products (proteins, non-coding RNAs), introducing its three components—the GO ontology, GO annotations, and GO-CAM—along with methods for continuous expansion and validation.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>2000년 창립 이후 새로운 생물학적 발견과 함께 GO 용어 및 주석의 지속적 갱신이 필요해졌다</li>
-<li>단순 유전자-GO 용어 매핑을 넘어 분자 경로의 인과적 활동 모델(GO-CAM) 표현이 필요했다</li>
+<li>Since its founding in 2000, new biological discoveries have required continuous updating of GO terms and annotations</li>
+<li>Beyond simple gene-to-GO-term mapping, there was a need to represent causal activity models of molecular pathways (GO-CAM)</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>생명 나무 전체(바이러스 포함)에 걸친 유전자 기능 지식의 포괄적 자원 구축</li>
-<li>GO-CAM을 통해 여러 GO 주석을 연결하는 메커니즘적 경로 모델 제공</li>
-<li>광범위한 국제 컨소시엄의 QA 검사, 검토, 사용자 피드백을 통한 품질 유지</li>
+<li>To build a comprehensive resource of gene function knowledge spanning the entire tree of life (including viruses)</li>
+<li>To provide mechanistic pathway models that connect multiple GO annotations through GO-CAM</li>
+<li>To maintain quality through QA checks, reviews, and user feedback from a broad international consortium</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>GO 지식베이스는 세 가지 구성 요소로 이루어진다: (1) <strong>GO</strong> — 유전자의 기능적 특성을 기술하는 전산 지식 구조, (2) <strong>GO 주석</strong> — 특정 유전자 산물이 특정 기능적 특성을 갖는다는 증거 기반 진술, (3) <strong>GO Causal Activity Models (GO-CAMs)</strong> — 정의된 관계를 사용하여 여러 GO 주석을 연결하는 분자 '경로'의 메커니즘 모델. 각 구성 요소는 새로운 발견에 따라 지속적으로 확장·수정·갱신된다.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>The GO knowledgebase consists of three components: (1) <strong>GO</strong> — a computational knowledge structure that describes the functional characteristics of genes, (2) <strong>GO annotations</strong> — evidence-based statements that a particular gene product has a particular functional characteristic, and (3) <strong>GO Causal Activity Models (GO-CAMs)</strong> — mechanistic models of molecular 'pathways' that connect multiple GO annotations using defined relations. Each component is continuously expanded, revised, and updated as new discoveries are made.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>웹 인터페이스</td>
-  <td><a href="http://geneontology.org">http://geneontology.org</a> — 온톨로지 및 주석 탐색</td>
+  <td>Web interface</td>
+  <td><a href="http://geneontology.org">http://geneontology.org</a> — browse the ontology and annotations</td>
 </tr>
 <tr>
   <td>REST API</td>
-  <td>프로그래밍 방식 데이터 접근</td>
+  <td>programmatic data access</td>
 </tr>
 <tr>
-  <td>파일 다운로드</td>
-  <td>OBO, OWL, GAF 등 다양한 형식</td>
+  <td>File download</td>
+  <td>various formats such as OBO, OWL, GAF</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>GO 온톨로지 (OBO/OWL 형식)</li>
-<li>GO 주석 파일 (GAF 형식, 증거 코드 포함)</li>
-<li>GO-CAM 모델 (인과적 활동 모델)</li>
-<li>종별 유전자-GO 매핑</li>
+<li>GO ontology (OBO/OWL format)</li>
+<li>GO annotation files (GAF format, including evidence codes)</li>
+<li>GO-CAM models (causal activity models)</li>
+<li>Species-specific gene-to-GO mappings</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>구성 요소 수</td>
-  <td><strong>3개</strong> (GO 온톨로지, GO 주석, GO-CAM)</td>
+  <td>Number of components</td>
+  <td><strong>3</strong> (GO ontology, GO annotations, GO-CAM)</td>
 </tr>
 <tr>
-  <td>적용 대상</td>
-  <td>생명 나무 전체 생물 + 바이러스</td>
+  <td>Scope of application</td>
+  <td>all organisms across the tree of life + viruses</td>
 </tr>
 <tr>
-  <td>주요 정보 출처</td>
-  <td>소수 모델 생물체 실험 결과 (대부분 지식 출처)</td>
+  <td>Primary source of information</td>
+  <td>experimental results from a small number of model organisms (most knowledge sources)</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>대부분의 유전자 기능 지식은 소수의 모델 생물체에서 수행된 실험에서 비롯된다</li>
-<li>비모델 생물체의 유전자는 주로 전산 추론으로 주석되어 신뢰도가 낮을 수 있다</li>
-<li>GO-CAM 모델은 아직 개발 초기 단계로 전체 생물학적 경로의 완전한 표현에 한계가 있다</li>
+<li>Most gene function knowledge derives from experiments performed in a small number of model organisms</li>
+<li>Genes of non-model organisms are annotated primarily by computational inference, which may be of lower reliability</li>
+<li>GO-CAM models are still in the early stages of development and have limitations in fully representing complete biological pathways</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1093/genetics/iyad031">The Gene Ontology knowledgebase in 2023</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1093/genetics/iyad031">The Gene Ontology knowledgebase in 2023</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (gene2023gene)</a></p>
@@ -233,14 +233,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

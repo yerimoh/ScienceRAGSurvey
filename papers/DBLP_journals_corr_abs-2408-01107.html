@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BioRAG: A RAG-LLM Framework for Biological Question Reasoning — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>BioRAG: A RAG-LLM Framework for Biological Question Reasoning, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,81 +117,81 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l3"><a href="#핵심-구성-요소">핵심 구성 요소</a></li><li class="toc-l2"><a href="#inputoutput">Input/Output</a></li><li class="toc-l2"><a href="#예시-사례">예시 사례</a></li><li class="toc-l3"><a href="#예시-①-gene-alias-task-geneturing-논문-figure-6">예시 ① — Gene Alias Task (GeneTuring; 논문 Figure 6)</a></li><li class="toc-l3"><a href="#예시-②-multi-hop-gene-disease-reasoning-figure-7">예시 ② — Multi-hop Gene-Disease Reasoning (Figure 7)</a></li><li class="toc-l3"><a href="#예시-③-college-biology-mcq-figure-5">예시 ③ — College Biology MCQ (Figure 5)</a></li><li class="toc-l2"><a href="#주요-평가-결과">주요 평가 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#background">Background</a></li><li class="toc-l2"><a href="#construction-methodology">Construction Methodology</a></li><li class="toc-l3"><a href="#core-components">Core components</a></li><li class="toc-l2"><a href="#inputoutput">Input/Output</a></li><li class="toc-l2"><a href="#examples">Examples</a></li><li class="toc-l3"><a href="#example-①-gene-alias-task-geneturing-paper-figure-6">Example ① — Gene Alias Task (GeneTuring; paper Figure 6)</a></li><li class="toc-l3"><a href="#example-②-multi-hop-gene-disease-reasoning-figure-7">Example ② — Multi-hop Gene-Disease Reasoning (Figure 7)</a></li><li class="toc-l3"><a href="#example-③-college-biology-mcq-figure-5">Example ③ — College Biology MCQ (Figure 5)</a></li><li class="toc-l2"><a href="#key-evaluation-results">Key Evaluation Results</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>BioRAG: A RAG-LLM Framework for Biological Question Reasoning</h1>
 <blockquote>
 <p>arXiv 2024 | 2024 | Method | bio · medical</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>22,371,343편의 PubMed 초록을 색인하고, MeSH 분류 모델 + 도메인 임베딩 + 자체 평가(self-evaluation) 루프 + 외부 검색 도구(Gene/dbSNP/Protein/Genome 4개 NCBI API + 검색엔진 등 10개 외부 소스)를 결합한 5단계 반복 RAG 파이프라인. GeneTuring 9개 sub-task와 4개 의생물 QA 벤치마크에서 GeneGPT·NewBing·BioMistral·PMC-Llama 등 기존 BioLLM 및 SciRAG 시스템을 모두 능가한다.</p>
-<h2 id="제작-배경">제작 배경</h2>
-<p><strong>기존 접근법의 한계</strong></p>
+<h2 id="tldr">TL;DR</h2>
+<p>A 5-stage iterative RAG pipeline that indexes 22,371,343 PubMed abstracts and combines a MeSH classification model + a domain embedding + a self-evaluation loop + external search tools (10 external sources including 4 NCBI APIs for Gene/dbSNP/Protein/Genome plus a search engine). It outperforms all existing BioLLM and SciRAG systems such as GeneGPT, NewBing, BioMistral, and PMC-Llama across the 9 GeneTuring sub-tasks and 4 biomedical QA benchmarks.</p>
+<h2 id="background">Background</h2>
+<p><strong>Limitations of existing approaches</strong></p>
 <ul>
-<li>Fine-tuned BioLLM (BioMistral, PMC-Llama 등)은 학습 시점의 지식만 보유 → 빠르게 진화하는 생명과학 분야에서 cutoff 문제 심각</li>
-<li>단일 RAG 시스템 (GeneGPT)은 특정 API 호출(Gene, dbSNP)에만 특화되어 멀티-홉 추론 불가</li>
-<li>일반 검색엔진 기반 RAG (NewBing)는 dbSNP, PubMed 같은 권위 있는 도메인 소스 접근 불가 → &quot;BIORAG and GeneGPT achieve 100% accuracy in the gene SNP association sub-task, as both of them have access to the dbSNP database. However, NewBing has no access to the dbSNP database, thus it gets 0% accuracy in this task.&quot; (논문 p.7)</li>
+<li>Fine-tuned BioLLMs (BioMistral, PMC-Llama, etc.) hold only knowledge as of their training time → serious cutoff problems in the rapidly evolving field of life sciences</li>
+<li>A single RAG system (GeneGPT) is specialized only for specific API calls (Gene, dbSNP) and cannot perform multi-hop reasoning</li>
+<li>General search-engine-based RAG (NewBing) cannot access authoritative domain sources such as dbSNP and PubMed → &quot;BIORAG and GeneGPT achieve 100% accuracy in the gene SNP association sub-task, as both of them have access to the dbSNP database. However, NewBing has no access to the dbSNP database, thus it gets 0% accuracy in this task.&quot; (paper p.7)</li>
 </ul>
-<p><strong>왜 이 시스템이 필요한지</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>학제 융합 연구에서는 분자 → 세포 → 조직 → 개체 수준을 가로지르는 다층 지식이 필요</li>
-<li>단계별 추론(step-by-step reasoning) + 정보 부족 시 자동 외부 검색 전환이 가능한 closed-loop RAG 필요</li>
+<li>Interdisciplinary research requires multi-layered knowledge spanning the molecule → cell → tissue → organism levels</li>
+<li>A closed-loop RAG capable of step-by-step reasoning + automatic switching to external search when information is insufficient is needed</li>
 </ul>
-<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
-<p><strong>전체 5단계 파이프라인 (논문 Figure 2)</strong></p>
+<h2 id="construction-methodology">Construction Methodology</h2>
+<p><strong>Full 5-stage pipeline (paper Figure 2)</strong></p>
 <pre><code>[Input Question]
        │
        ▼
  ① Retriever Selection
-   - 질문 유형 분석 → 어느 소스가 가장 적합한지 LLM이 결정
-   - Internal (PubMed local) vs External (Gene/dbSNP/Protein/Genome/Crossref/Wikimedia/biorxiv 등)
+   - Analyze the question type → the LLM decides which source is most suitable
+   - Internal (PubMed local) vs External (Gene/dbSNP/Protein/Genome/Crossref/Wikimedia/biorxiv, etc.)
        │
        ▼
  ② Query Pre-processing
-   - 질의를 재작성 + MeSH topic tag 추출 (MMeSH = Llama3-8B fine-tuned)
-   - 예: &quot;innate vs adaptive immunity&quot; → MeSH: [Adaptive Immunity, Animals, ...]
+   - Rewrite the query + extract MeSH topic tags (MMeSH = Llama3-8B fine-tuned)
+   - e.g.: &quot;innate vs adaptive immunity&quot; → MeSH: [Adaptive Immunity, Animals, ...]
        │
        ▼
  ③ Retriever Execution
-   - Internal: MeSH SQL filter + 임베딩 cosine 정렬
-   - External: NCBI Entrez API 호출 / 검색엔진 호출
+   - Internal: MeSH SQL filter + embedding cosine ranking
+   - External: NCBI Entrez API call / search engine call
        │
        ▼
- ④ Self-Evaluation (← 핵심 루프)
-   - LLM이 &quot;검색 결과가 답변에 충분한가&quot; 자체 판정
-   - 불충분 시 ①로 되돌아가 다른 소스 재시도 (최대 15회)
+ ④ Self-Evaluation (← core loop)
+   - The LLM judges by itself &quot;whether the retrieval results are sufficient for the answer&quot;
+   - If insufficient, return to ① and retry another source (up to 15 times)
        │
        ▼
  ⑤ Inference and Generation
-   - 최종 답변 + 인용 출처 출력
+   - Output the final answer + cited sources
 </code></pre>
-<h3 id="핵심-구성-요소">핵심 구성 요소</h3>
-<p><strong>Internal Source: PubMed 22M 초록</strong></p>
+<h3 id="core-components">Core components</h3>
+<p><strong>Internal Source: PubMed 22M abstracts</strong></p>
 <ul>
-<li>2024 PubMed baseline 전체 파싱</li>
-<li>HTML/링크/표 제거 후 22,371,343편의 고품질 abstract 청크 확보</li>
+<li>Parsed the entire 2024 PubMed baseline</li>
+<li>Secured 22,371,343 high-quality abstract chunks after removing HTML/links/tables</li>
 </ul>
 <p><strong>MMeSH (MeSH Classifier)</strong></p>
 <ul>
 <li>Llama3-8B fine-tuned with template: <code>&quot;QUESTION: [.....] MeSH: [κ1, κ2, ...]&quot;</code> (Figure 3)</li>
-<li>예측된 MeSH terms로 SQL <code>filtered by: eq(&quot;MeSH&quot;, &quot;Adaptive Immunity&quot;) or ...</code> 생성 (Figure 4)</li>
-<li>1차 필터링 후 임베딩 유사도로 정렬</li>
+<li>Generates SQL <code>filtered by: eq(&quot;MeSH&quot;, &quot;Adaptive Immunity&quot;) or ...</code> from the predicted MeSH terms (Figure 4)</li>
+<li>After the first-pass filtering, ranks by embedding similarity</li>
 </ul>
 <p><strong>Domain-Specific Embedding Model</strong></p>
 <ul>
-<li>AdamW, 2 epochs, PubMed 텍스트에 대해 도메인 적응</li>
-<li>일반 임베딩 대비 생물학 전문 용어 분리력 향상</li>
+<li>AdamW, 2 epochs, domain-adapted on PubMed text</li>
+<li>Improved separability of biological technical terms compared to a general embedding</li>
 </ul>
-<p><strong>External Sources (논문 Table)</strong></p>
+<p><strong>External Sources (paper Table)</strong></p>
 <ul>
 <li>NCBI Gene / dbSNP / Genome / Protein (4 entities × Entrez API)</li>
 <li>biorxiv (preprints)</li>
-<li>Wikimedia (개념 정의)</li>
+<li>Wikimedia (concept definitions)</li>
 <li>Crossref (citation network)</li>
 <li>Search engine (general web)</li>
 </ul>
-<p><strong>Customized 5-Prompt Chain (논문 Appendix)</strong></p>
+<p><strong>Customized 5-Prompt Chain (paper Appendix)</strong></p>
 <blockquote>
 <p>&quot;Prompt #1: To provide the most helpful and accurate response to the following Question: {Question}. You have been given descriptions...&quot;
 &quot;Prompt #2: Based on the RETRIEVAL METHODS you selected, and considering the Question and the Input Requirements...&quot;
@@ -205,14 +205,14 @@
 </ul>
 <p><strong>Output</strong></p>
 <ul>
-<li>자연어 답변 + (선택) 인용 출처</li>
-<li>9 sub-task의 경우: gene symbol (예: &quot;ARHGEF26&quot;), location (chromosome band), Yes/No 또는 MCQ 정답</li>
+<li>Natural language answer + (optional) cited sources</li>
+<li>For the 9 sub-tasks: gene symbol (e.g., &quot;ARHGEF26&quot;), location (chromosome band), Yes/No or MCQ answer</li>
 </ul>
-<h2 id="예시-사례">예시 사례</h2>
-<h3 id="예시-①-gene-alias-task-geneturing-논문-figure-6">예시 ① — Gene Alias Task (GeneTuring; 논문 Figure 6)</h3>
+<h2 id="examples">Examples</h2>
+<h3 id="example-①-gene-alias-task-geneturing-paper-figure-6">Example ① — Gene Alias Task (GeneTuring; paper Figure 6)</h3>
 <blockquote>
 <p><strong>Query</strong>: &quot;What is the official gene symbol of SGEF?&quot;</p>
-<p><strong>BioRAG 실행 로그</strong></p>
+<p><strong>BioRAG execution log</strong></p>
 <blockquote>
 <p>Thought: I can use the Gene tool to find the official gene symbol of SGEF.
 Query Preprocessing → &quot;SGEF&quot;
@@ -224,22 +224,22 @@ Retriever Execution And Result:
 Self-Evaluation: &quot;The necessary information has been obtained to form an answer.&quot;
 Inference and Generation: &quot;The official gene symbol for SGEF is ARHGEF26.&quot;</p>
 </blockquote>
-<p><strong>NewBing 비교</strong>: &quot;The official gene symbol for SGEF is SGEF (Src homology 3 domain-containing Guanine nucleotide Exchange Factor).&quot; → <strong>오답</strong> (NewBing은 Wikipedia 스니펫만 조회)</p>
-<p><strong>GeneGPT 비교</strong>: Entrez API 호출은 성공하지만 alias 처리 미흡</p>
+<p><strong>NewBing comparison</strong>: &quot;The official gene symbol for SGEF is SGEF (Src homology 3 domain-containing Guanine nucleotide Exchange Factor).&quot; → <strong>wrong answer</strong> (NewBing only retrieves a Wikipedia snippet)</p>
+<p><strong>GeneGPT comparison</strong>: The Entrez API call succeeds but alias handling is inadequate</p>
 </blockquote>
-<h3 id="예시-②-multi-hop-gene-disease-reasoning-figure-7">예시 ② — Multi-hop Gene-Disease Reasoning (Figure 7)</h3>
+<h3 id="example-②-multi-hop-gene-disease-reasoning-figure-7">Example ② — Multi-hop Gene-Disease Reasoning (Figure 7)</h3>
 <blockquote>
 <p><strong>Query</strong>: &quot;What are genes related to B-cell immunodeficiency?&quot;</p>
-<p><strong>BioRAG 다단계 실행</strong></p>
+<p><strong>BioRAG multi-stage execution</strong></p>
 <blockquote>
 <p>Step 1: Retriever Selection = Gene → &quot;Official Symbol: TOP2B, Other Aliases: BILU, TOPIIB, top2beta&quot;
-Self-Evaluation: &quot;Use the PubMed tool to conduct further searches on genes and diseases.&quot; (1차 결과 불충분 → 외부 점프)
+Self-Evaluation: &quot;Use the PubMed tool to conduct further searches on genes and diseases.&quot; (first-pass result insufficient → jump to external)
 Step 2: Retriever Selection = PubMed → &quot;B cell development is a highly... Topoisomerase 2β (TOP2B) introduces...&quot;
 MeSH Mapping = Immunoglobulin G1 Fragments
-최종 답변: TOP2B 등 관련 유전자 목록</p>
+Final answer: list of related genes such as TOP2B</p>
 </blockquote>
 </blockquote>
-<h3 id="예시-③-college-biology-mcq-figure-5">예시 ③ — College Biology MCQ (Figure 5)</h3>
+<h3 id="example-③-college-biology-mcq-figure-5">Example ③ — College Biology MCQ (Figure 5)</h3>
 <blockquote>
 <p><strong>Question (litter size in rodents)</strong> → BioRAG</p>
 <blockquote>
@@ -249,7 +249,7 @@ Self-Evaluation: &quot;Small litter sizes in rodents may be an adaptation to the
 Output: &quot;Option B: High parental investment&quot;</p>
 </blockquote>
 </blockquote>
-<h2 id="주요-평가-결과">주요 평가 결과</h2>
+<h2 id="key-evaluation-results">Key Evaluation Results</h2>
 <p><strong>Table 1 — GeneTuring (9 sub-tasks, accuracy %)</strong></p>
 <table>
 <thead>
@@ -329,7 +329,7 @@ Output: &quot;Option B: High parental investment&quot;</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Table 2 — Biological QA 벤치마크 (accuracy %)</strong></p>
+<p><strong>Table 2 — Biological QA benchmarks (accuracy %)</strong></p>
 <table>
 <thead>
 <tr>
@@ -386,26 +386,26 @@ Output: &quot;Option B: High parental investment&quot;</p>
 </tr>
 </tbody>
 </table>
-<p><strong>핵심 인사이트</strong></p>
+<p><strong>Key insights</strong></p>
 <ul>
-<li>BioRAG는 nomenclature/genomic location 같은 API 의존 task에서 GeneGPT와 동률 100%</li>
-<li>gene-disease association처럼 reasoning이 필요한 task에서는 GeneGPT(0%) &gt; NewBing(8%) ≪ <strong>BioRAG(71%)</strong></li>
+<li>BioRAG ties GeneGPT at 100% on API-dependent tasks such as nomenclature/genomic location</li>
+<li>On tasks that require reasoning, such as gene-disease association, GeneGPT(0%) &gt; NewBing(8%) ≪ <strong>BioRAG(71%)</strong></li>
 </ul>
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li>Self-evaluation 루프 최대 15회 고정 → 깊은 multi-hop 질의에서 조기 종료 위험</li>
-<li>22M PubMed 인덱싱 + Llama3-70B 추론 비용 매우 큼</li>
-<li>MeSH는 의생물 외 분야(화학, 재료 등)에는 적용 불가</li>
-<li>외부 API 의존 → NCBI/Crossref 가용성 실패 시 fallback 미정의</li>
-<li>추론 chain이 길어질수록 prompt 토큰 비용 폭증</li>
+<li>The self-evaluation loop is fixed at a maximum of 15 iterations → risk of premature termination on deep multi-hop queries</li>
+<li>Very high cost of indexing 22M PubMed abstracts + Llama3-70B inference</li>
+<li>MeSH is not applicable to fields outside biomedicine (chemistry, materials, etc.)</li>
+<li>Dependence on external APIs → no defined fallback if NCBI/Crossref availability fails</li>
+<li>Prompt token cost explodes as the reasoning chain grows longer</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문 (arXiv)</strong>: <a href="https://arxiv.org/abs/2408.01107">https://arxiv.org/abs/2408.01107</a></li>
-<li><strong>저자 소속</strong>: Zhejiang University, OPPO Research, ETH Zürich</li>
-<li><strong>벤치마크</strong>: GeneTuring (Hou &amp; Ji 2023), MedMCQA, MMLU subset (Medical Genetics, College Biology, College Medicine)</li>
-<li><strong>기본 LLM</strong>: Llama3-70B</li>
-<li><strong>K×O 분류</strong>: K1.O1 (PubMed 문헌) + K2.O1 (NCBI 큐레이션 DB) — 다중 소스 결합 패턴</li>
+<li><strong>Paper (arXiv)</strong>: <a href="https://arxiv.org/abs/2408.01107">https://arxiv.org/abs/2408.01107</a></li>
+<li><strong>Author affiliations</strong>: Zhejiang University, OPPO Research, ETH Zürich</li>
+<li><strong>Benchmarks</strong>: GeneTuring (Hou &amp; Ji 2023), MedMCQA, MMLU subset (Medical Genetics, College Biology, College Medicine)</li>
+<li><strong>Base LLM</strong>: Llama3-70B</li>
+<li><strong>K×O classification</strong>: K1.O1 (PubMed literature) + K2.O1 (NCBI curated DB) — multi-source combination pattern</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/corr/abs-2408-01107)</a></p>
@@ -442,14 +442,14 @@ Output: &quot;Option B: High parental investment&quot;</p>
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BindingDB in 2024: a FAIR knowledgebase of protein-small molecule binding data — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>BindingDB in 2024: a FAIR knowledgebase of protein-small molecule binding data, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,7 +121,7 @@
 <p>liu2025bindingdb | 2025 | Nucleic Acids Research | dataset | [chem] | <a href="https://doi.org/10.1093/nar/gkae1075">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">BindingDB (2024 update)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">2.9M 결합 측정치, 1.3M 화합물, 수천 단백질 타겟</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">2.9M binding measurements, 1.3M compounds, thousands of protein targets</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Structured</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">BindingDB web interface + FAIR data services</td></tr>
@@ -129,84 +129,84 @@
 
 <blockquote>
 <p>Nucleic Acids Research | 2025 | dataset | chem</p>
-<h4>📌 한 줄 요약</h4>
-<p>BindingDB의 2024년 업데이트로, FAIR 원칙 준수 강화, 2.9M 결합 측정치 및 1.3M 화합물을 포함하며, 분산 사이트에 복제된 장기 데이터 아카이브를 구축하였다.</p>
+<h4>📌 TL;DR</h4>
+<p>The 2024 update of BindingDB strengthens compliance with FAIR principles, includes 2.9M binding measurements and 1.3M compounds, and establishes a long-term data archive replicated across distributed sites.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>장기적 데이터 보존 및 재현성 보장 체계가 부족했음</li>
-<li>2016년 이후 급격히 성장한 US 특허 바이오활성 데이터 통합 필요
-<strong>이 시스템이 필요한 이유</strong></li>
-<li>AI 모델 훈련, 계산화학 방법 개발, 의약화학 지원을 위한 대규모 FAIR 데이터 필요</li>
-<li>분산 복제 아카이브로 데이터 지속가능성 확보</li>
+<li>Lacked a system to guarantee long-term data preservation and reproducibility</li>
+<li>Needed to integrate the US patent bioactivity data that has grown rapidly since 2016
+<strong>Why this system is needed</strong></li>
+<li>Large-scale FAIR data is required for AI model training, computational chemistry method development, and medicinal chemistry support</li>
+<li>Distributed replicated archives ensure data sustainability</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>2016년 이후 주로 US 특허 데이터 큐레이션에 집중하여 대규모 성장을 이룬다. Responsive web design으로 웹사이트 전면 개편. 강화된 검색·필터링, 새 다운로드 옵션, 웹서비스 추가. 분산 사이트 복제 장기 데이터 아카이브 구축. FAIR 데이터 공유 정책 준수.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>Since 2016, growth has been driven primarily by a focus on curating US patent data, achieving large-scale expansion. The website was fully redesigned with responsive web design. Enhanced search and filtering, new download options, and web services were added. A long-term data archive replicated across distributed sites was built. Compliance with FAIR data-sharing policies is maintained.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>웹 인터페이스</td>
-  <td>bindingdb.org 개선된 반응형 검색 UI</td>
+  <td>Web interface</td>
+  <td>bindingdb.org improved responsive search UI</td>
 </tr>
 <tr>
-  <td>웹 서비스</td>
-  <td>데이터 조회 API</td>
+  <td>Web service</td>
+  <td>Data query API</td>
 </tr>
 <tr>
-  <td>다운로드</td>
-  <td>다양한 포맷 다운로드 옵션</td>
+  <td>Download</td>
+  <td>Various format download options</td>
 </tr>
 <tr>
-  <td>분산 아카이브</td>
-  <td>장기 보존용 복제 사이트</td>
+  <td>Distributed archive</td>
+  <td>Replicated sites for long-term preservation</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>결합 친화도 (Ki, IC50, Kd, EC50)</li>
-<li>화합물 구조 (SMILES, SDF)</li>
-<li>단백질 타겟 정보</li>
+<li>Binding affinity (Ki, IC50, Kd, EC50)</li>
+<li>Compound structures (SMILES, SDF)</li>
+<li>Protein target information</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>결합 측정치</td>
+  <td>Binding measurements</td>
   <td>2.9M</td>
 </tr>
 <tr>
-  <td>화합물</td>
+  <td>Compounds</td>
   <td>1.3M</td>
 </tr>
 <tr>
-  <td>단백질 타겟</td>
-  <td>수천 (thousands)</td>
+  <td>Protein targets</td>
+  <td>thousands</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>특허 데이터 추출 기반 성장이 주를 이루어 특정 화합물 유형 편향 가능성</li>
-<li>관련 자원(ChEMBL, PubChem) 대비 데이터 중복 관리 필요</li>
+<li>Growth driven mainly by patent data extraction may introduce bias toward certain compound types</li>
+<li>Data-duplication management is needed relative to related resources (ChEMBL, PubChem)</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/gkae1075">BindingDB in 2024: a FAIR knowledgebase</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1093/nar/gkae1075">BindingDB in 2024: a FAIR knowledgebase</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (liu2025bindingdb)</a></p>
@@ -232,14 +232,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

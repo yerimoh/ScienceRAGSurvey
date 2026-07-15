@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>QMugs: Quantum Mechanical Properties of Drug-like Molecules — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>QMugs: Quantum Mechanical Properties of Drug-like Molecules, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,7 +121,7 @@
 <p>isert2022qmugs | 2022 | Scientific Data | dataset | [chem] | <a href="https://doi.org/10.1038/s41597-022-01390-7">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">QMugs (Quantum-Mechanical Properties of Drug-like Molecules)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">665k+ 생물 활성 분자, ~2M 형태(conformers)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">665k+ bioactive molecules, ~2M conformers</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Structured</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">QMugs (GFN2-xTB + DFT/ωB97X-D/def2-SVP)</td></tr>
@@ -129,73 +129,73 @@
 
 <blockquote>
 <p>Scientific Data | 2022 | dataset | chem</p>
-<h4>📌 한 줄 요약</h4>
-<p>QMugs는 ChEMBL에서 추출한 665k개 이상의 drug-like 분자에 대한 반경험적(GFN2-xTB) 및 DFT(ωB97X-D/def2-SVP) 수준의 양자역학 성질을 제공하는 오픈 액세스 데이터셋이다.</p>
+<h4>📌 TL;DR</h4>
+<p>QMugs is an open-access dataset providing semi-empirical (GFN2-xTB) and DFT (ωB97X-D/def2-SVP) level quantum-mechanical properties for over 665k drug-like molecules extracted from ChEMBL.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>QM9 등 기존 QM 데이터셋은 소형 분자(9중원자 이하)에 한정되어 drug-like 분자 커버 미흡</li>
-<li>생물 활성 관련 양자역학 성질 데이터를 포함한 대규모 컬렉션 부재
-<strong>이 시스템이 필요한 이유</strong></li>
-<li>Drug-like 분자 크기(MW 250-700)에서의 QM 성질 ML 모델 개발에 필요한 훈련 데이터</li>
-<li>다중 수준 이론(반경험적+DFT)에서 학습하는 모델 지원</li>
+<li>Existing QM datasets such as QM9 are limited to small molecules (nine heavy atoms or fewer), providing insufficient coverage of drug-like molecules</li>
+<li>Absence of a large-scale collection that includes quantum-mechanical property data related to bioactivity
+<strong>Why this system is needed</strong></li>
+<li>Training data needed for developing ML models of QM properties for drug-like molecule sizes (MW 250-700)</li>
+<li>Support for models that learn from multiple levels of theory (semi-empirical + DFT)</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>ChEMBL DB에서 생물학적·약리학적으로 관련된 분자를 추출한다. GFN2-xTB 반경험적 방법으로 기하 최적화 및 열역학 데이터 계산. DFT(ωB97X-D/def2-SVP) 수준에서 원자·분자 성질 추가 계산. DFT 밀도 행렬 및 오비탈 행렬도 포함.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>Biologically and pharmacologically relevant molecules are extracted from the ChEMBL DB. Geometry optimization and thermodynamic data are computed using the GFN2-xTB semi-empirical method. Atomic and molecular properties are additionally computed at the DFT (ωB97X-D/def2-SVP) level. DFT density matrices and orbital matrices are also included.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>ETH Zurich 데이터 저장소</td>
+  <td>ETH Zurich data repository</td>
   <td>DOI:10.3929/ethz-b-000482129</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>최적화된 분자 기하 구조 (xyz)</li>
-<li>원자 성질 (GFN2-xTB 및 DFT 수준)</li>
-<li>분자 성질 (쌍극자 모멘트, 분극률 등)</li>
-<li>DFT 밀도 및 오비탈 행렬</li>
+<li>Optimized molecular geometries (xyz)</li>
+<li>Atomic properties (GFN2-xTB and DFT levels)</li>
+<li>Molecular properties (dipole moment, polarizability, etc.)</li>
+<li>DFT density and orbital matrices</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>분자 수</td>
+  <td>Number of molecules</td>
   <td>665k+</td>
 </tr>
 <tr>
-  <td>형태 수 (conformers)</td>
+  <td>Number of conformers</td>
   <td>~2M</td>
 </tr>
 <tr>
-  <td>출처 DB</td>
+  <td>Source DB</td>
   <td>ChEMBL</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>계산 비용으로 인해 대형 분자(MW&gt;700)는 포함되지 않음</li>
-<li>DFT 밀도 행렬 등 일부 데이터는 파일 크기가 매우 커 스토리지 요구사항 높음</li>
+<li>Due to computational cost, large molecules (MW&gt;700) are not included</li>
+<li>Some data, such as DFT density matrices, have very large file sizes, leading to high storage requirements</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1038/s41597-022-01390-7">QMugs, quantum mechanical properties of drug-like molecules</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1038/s41597-022-01390-7">QMugs, quantum mechanical properties of drug-like molecules</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (isert2022qmugs)</a></p>
@@ -221,14 +221,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

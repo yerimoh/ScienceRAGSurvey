@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Towards Omni-RAG: Comprehensive Retrieval-Augmented Generation for Large Language Models in Medical Applications — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Towards Omni-RAG: Comprehensive Retrieval-Augmented Generation for Large Language Models in Medical Applications, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,31 +117,31 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l3"><a href="#step-1-medomnikb-5-소스-구축-논문-3">Step 1 — MedOmniKB 5-소스 구축 (논문 §3)</a></li><li class="toc-l3"><a href="#step-2-source-planning-optimisation-spo-논문-4-figure-2">Step 2 — Source Planning Optimisation (SPO, 논문 §4, Figure 2)</a></li><li class="toc-l2"><a href="#inputoutput">Input/Output</a></li><li class="toc-l2"><a href="#예시-사례">예시 사례</a></li><li class="toc-l3"><a href="#예시-①-seborrheic-dermatitis-논문-figure-2-핵심-case-study">예시 ① — Seborrheic Dermatitis (논문 Figure 2 — 핵심 case study)</a></li><li class="toc-l2"><a href="#주요-평가-결과">주요 평가 결과</a></li><li class="toc-l2"><a href="#핵심-기여">핵심 기여</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#background">Background</a></li><li class="toc-l2"><a href="#construction-methodology">Construction Methodology</a></li><li class="toc-l3"><a href="#step-1-building-medomnikb-with-5-sources-paper-3">Step 1 — Building MedOmniKB with 5 sources (paper §3)</a></li><li class="toc-l3"><a href="#step-2-source-planning-optimisation-spo-paper-4-figure-2">Step 2 — Source Planning Optimisation (SPO, paper §4, Figure 2)</a></li><li class="toc-l2"><a href="#inputoutput">Input/Output</a></li><li class="toc-l2"><a href="#example-cases">Example cases</a></li><li class="toc-l3"><a href="#example-①-seborrheic-dermatitis-paper-figure-2-core-case-study">Example ① — Seborrheic Dermatitis (paper Figure 2 — core case study)</a></li><li class="toc-l2"><a href="#key-evaluation-results">Key evaluation results</a></li><li class="toc-l2"><a href="#key-contributions">Key contributions</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>Omni-RAG: Comprehensive Multi-Source RAG for Medical Applications via Source Planning Optimisation (SPO)</h1>
 <blockquote>
 <p>ACL 2025 | 2025 | Method | medical</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>의료 QA의 8개 광범위 데이터셋(Reasoning/Research/Clinical/Open-ended)을 5개 이질적 지식 소스 — <strong>Book, Guideline, Research(PubMed), Wiki, Graph(UMLS+DrugBank)</strong> — 로 동시 커버하는 <strong>MedOmniKB</strong>를 구축하고, 전문가 LLM(Qwen2.5-72B-AWQ)이 SFT+DPO로 소형 planner(Qwen2.5-7B)에게 &quot;어느 소스에 어떤 쿼리로 몇 번 묻는가&quot;를 학습시키는 <strong>Source Planning Optimisation (SPO)</strong> 방식. 평균 정확도 <strong>+4.6 ~ +7.0</strong>% 향상으로 SOTA baselines (Reflexion, SeRTS, Trainable Planning, RaFe) 전반을 능가.</p>
-<h2 id="제작-배경">제작 배경</h2>
-<p><strong>기존 의료 RAG 한계 (논문 §1)</strong></p>
+<h2 id="tldr">TL;DR</h2>
+<p>A <strong>Source Planning Optimisation (SPO)</strong> approach that builds <strong>MedOmniKB</strong>, which simultaneously covers 8 broad medical QA datasets (Reasoning/Research/Clinical/Open-ended) with 5 heterogeneous knowledge sources — <strong>Book, Guideline, Research(PubMed), Wiki, Graph(UMLS+DrugBank)</strong> — and, using an expert LLM (Qwen2.5-72B-AWQ), trains a small planner (Qwen2.5-7B) via SFT+DPO to learn &quot;which source to query, with what query, and how many times.&quot; With an average accuracy gain of <strong>+4.6 ~ +7.0</strong>%, it surpasses SOTA baselines (Reflexion, SeRTS, Trainable Planning, RaFe) across the board.</p>
+<h2 id="background">Background</h2>
+<p><strong>Limitations of existing medical RAG (paper §1)</strong></p>
 <ul>
-<li>기존 시스템은 PubMed 또는 Wikipedia 단일 소스 의존</li>
-<li>질의 유형(진단, 약물 상호작용, 최신 연구, consumer health)마다 최적 소스가 다름에도 동일 검색 전략 사용</li>
-<li>모델이 &quot;각 소스에 무엇이 있는지&quot;에 대한 기대치와 정렬되지 않음 → 부적절한 소스 호출</li>
-<li>저자 인용: &quot;Existing methods typically treat all sources uniformly, using the original question to retrieve without tailoring the search strategy to different sources&quot; (§1)</li>
+<li>Existing systems rely on a single source, either PubMed or Wikipedia</li>
+<li>Although the optimal source differs by query type (diagnosis, drug interaction, latest research, consumer health), they use the same retrieval strategy</li>
+<li>The model is not aligned with expectations about &quot;what exists in each source&quot; → inappropriate source calls</li>
+<li>Author quote: &quot;Existing methods typically treat all sources uniformly, using the original question to retrieve without tailoring the search strategy to different sources&quot; (§1)</li>
 </ul>
-<p><strong>왜 필요한가</strong></p>
+<p><strong>Why it is needed</strong></p>
 <ul>
-<li>의료 AI는 환자 안전과 직결 → &quot;correctness and trustworthiness are paramount&quot; (§1)</li>
-<li>진단·임상 의사결정·연구지식·소비자 건강 등 의료 시나리오를 포괄해야 임상 적용 가능</li>
-<li>단일 소스는 long-tail (드문 질환, 최신 약물, 임상 가이드라인 업데이트) 누락</li>
+<li>Medical AI is directly tied to patient safety → &quot;correctness and trustworthiness are paramount&quot; (§1)</li>
+<li>Clinical applicability requires covering medical scenarios such as diagnosis, clinical decision-making, research knowledge, and consumer health</li>
+<li>A single source misses the long-tail (rare diseases, latest drugs, clinical guideline updates)</li>
 </ul>
-<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
-<h3 id="step-1-medomnikb-5-소스-구축-논문-3">Step 1 — MedOmniKB 5-소스 구축 (논문 §3)</h3>
+<h2 id="construction-methodology">Construction Methodology</h2>
+<h3 id="step-1-building-medomnikb-with-5-sources-paper-3">Step 1 — Building MedOmniKB with 5 sources (paper §3)</h3>
 <p><strong>Unstructured Sources</strong></p>
 <table>
 <thead>
@@ -154,13 +154,13 @@
 </thead>
 <tbody>
 <tr>
-  <td><strong>Book</strong> (교과서)</td>
+  <td><strong>Book</strong> (textbooks)</td>
   <td>27.7k</td>
   <td>13.1M</td>
   <td>150.1</td>
 </tr>
 <tr>
-  <td><strong>Guideline</strong> (임상 가이드라인)</td>
+  <td><strong>Guideline</strong> (clinical guidelines)</td>
   <td>45.7k</td>
   <td>647.7k</td>
   <td>106.7</td>
@@ -199,18 +199,18 @@
 </tbody>
 </table>
 <ul>
-<li>Book: 18,182 PDFs (의학·외과·영상의학) + StatPearls + MedRAG 교과서</li>
-<li>Guideline: 13개 가이드라인 소스에서 45,679 articles</li>
-<li>Research: 2024 PubMed 전체 스냅샷 (title+abstract)</li>
-<li>Wiki: HuggingFace English Wikipedia 처리</li>
-<li>Graph: UMLS Metathesaurus Full Subset + DrugBank의 description/indication/pharmacodynamics/absorption/drug interaction을 노드 정의에 통합. SQLite 저장 (online UMLS API latency 회피)</li>
+<li>Book: 18,182 PDFs (medicine, surgery, radiology) + StatPearls + MedRAG textbooks</li>
+<li>Guideline: 45,679 articles from 13 guideline sources</li>
+<li>Research: full 2024 PubMed snapshot (title+abstract)</li>
+<li>Wiki: processed HuggingFace English Wikipedia</li>
+<li>Graph: UMLS Metathesaurus Full Subset + DrugBank's description/indication/pharmacodynamics/absorption/drug interaction integrated into node definitions. Stored in SQLite (avoiding online UMLS API latency)</li>
 </ul>
-<p><strong>검색 인프라</strong></p>
+<p><strong>Retrieval infrastructure</strong></p>
 <ul>
 <li>Unstructured: MedCPT-article-encoder → Qdrant vector DB</li>
-<li>Graph: SQLite에서 concept 정의 + 1-hop relations 추출 후 reranker로 필터링</li>
+<li>Graph: extract concept definitions + 1-hop relations from SQLite, then filter with a reranker</li>
 </ul>
-<h3 id="step-2-source-planning-optimisation-spo-논문-4-figure-2">Step 2 — Source Planning Optimisation (SPO, 논문 §4, Figure 2)</h3>
+<h3 id="step-2-source-planning-optimisation-spo-paper-4-figure-2">Step 2 — Source Planning Optimisation (SPO, paper §4, Figure 2)</h3>
 <pre><code>       ┌─────────────────────────────────────────────────┐
        │  Training Q (with gold answer)                  │
        └────────────────────┬────────────────────────────┘
@@ -220,19 +220,19 @@
        │  ① Planning Exploration                         │
        │  ───────────────────────────────                │
        │  Expert LLM (Qwen2.5-72B-Instruct-AWQ)          │
-       │  → 각 소스마다 multiple queries 생성            │
+       │  → generate multiple queries per source         │
        │     Plan P = {(i, j, q_ij)} where i=source,     │
        │              j=query index                      │
-       │     Per-source 쿼리 ≤ 4 (context 한계)          │
+       │     Per-source queries ≤ 4 (context limit)      │
        └────────────────────┬────────────────────────────┘
                             │
                             ▼
        ┌─────────────────────────────────────────────────┐
        │  ② Planning Judging                             │
        │  ───────────────────────────────                │
-       │  각 query로 retrieve → 문서 d_ij                │
-       │  Expert LLM이 &quot;이 문서가 gold answer를          │
-       │  support하는가?&quot; 판정                           │
+       │  retrieve with each query → document d_ij       │
+       │  Expert LLM judges &quot;does this document          │
+       │  support the gold answer?&quot;                      │
        │  → positive plan (support) / negative plan      │
        └────────────────────┬────────────────────────────┘
                             │
@@ -240,7 +240,7 @@
        ┌─────────────────────────────────────────────────┐
        │  ③ Planning Learning                            │
        │  ───────────────────────────────                │
-       │  소형 planner (Qwen2.5-7B) on positive plans:   │
+       │  small planner (Qwen2.5-7B) on positive plans:  │
        │   (1) SFT (supervised fine-tuning)              │
        │   (2) DPO with (positive, negative) pairs       │
        └────────────────────┬────────────────────────────┘
@@ -259,8 +259,8 @@
                        Answer y
 </code></pre>
 <h2 id="inputoutput">Input/Output</h2>
-<p><strong>Input</strong>: 의료 질의 x (MCQ 또는 open-ended)</p>
-<p><strong>Output</strong>: Source plan P + 최종 답변 y. P는 다음 형태:</p>
+<p><strong>Input</strong>: medical query x (MCQ or open-ended)</p>
+<p><strong>Output</strong>: Source plan P + final answer y. P takes the following form:</p>
 <blockquote>
 <p><code>&lt;book&gt;seborrheic dermatitis symptoms and signs; greasy yellow scales skin condition; ...&lt;/book&gt;</code>
 <code>&lt;guideline&gt;clinical approach to infantile skin conditions; pediatric dermatology best practices; ...&lt;/guideline&gt;</code>
@@ -268,8 +268,8 @@
 <code>&lt;wiki&gt;atopic dermatitis; infant skin rashes; allergic contact dermatitis triggers; ...&lt;/wiki&gt;</code>
 <code>&lt;graph&gt;Psoriasis, genetic transmission and skin manifestations; Skin scaling, underlying dermatological conditions; ...&lt;/graph&gt;</code></p>
 </blockquote>
-<h2 id="예시-사례">예시 사례</h2>
-<h3 id="예시-①-seborrheic-dermatitis-논문-figure-2-핵심-case-study">예시 ① — Seborrheic Dermatitis (논문 Figure 2 — 핵심 case study)</h3>
+<h2 id="example-cases">Example cases</h2>
+<h3 id="example-①-seborrheic-dermatitis-paper-figure-2-core-case-study">Example ① — Seborrheic Dermatitis (paper Figure 2 — core case study)</h3>
 <blockquote>
 <p><strong>Original Question (MedQA-style MCQ)</strong>:</p>
 <blockquote>
@@ -277,7 +277,7 @@
 A. Atopic dermatitis  B. Seborrheic keratosis  C. Allergic contact dermatitis  D. Seborrheic dermatitis&quot;</p>
 </blockquote>
 <p><strong>Gold Answer</strong>: D. Seborrheic dermatitis</p>
-<p><strong>SPO Planner 출력 (5-source plan)</strong>:</p>
+<p><strong>SPO Planner output (5-source plan)</strong>:</p>
 <blockquote>
 <p><code>&lt;book&gt;seborrheic dermatitis symptoms and signs; greasy yellow scales skin condition; ...&lt;/book&gt;</code>
 <code>&lt;guideline&gt;clinical approach to infantile skin conditions; pediatric dermatology best practices; ...&lt;/guideline&gt;</code>
@@ -285,15 +285,15 @@ A. Atopic dermatitis  B. Seborrheic keratosis  C. Allergic contact dermatitis  D
 <code>&lt;wiki&gt;atopic dermatitis; infant skin rashes; allergic contact dermatitis triggers; ...&lt;/wiki&gt;</code>
 <code>&lt;graph&gt;Psoriasis, genetic transmission and skin manifestations; Skin scaling, underlying dermatological conditions; ...&lt;/graph&gt;</code></p>
 </blockquote>
-<p><strong>Planning Judging 단계 비교</strong>:</p>
+<p><strong>Planning Judging stage comparison</strong>:</p>
 <ul>
-<li>&quot;Support Gold Answer&quot; plan → DPO에서 positive 강화</li>
-<li>&quot;Not Support Gold Answer&quot; plan → negative 억제</li>
+<li>&quot;Support Gold Answer&quot; plan → reinforced as positive in DPO</li>
+<li>&quot;Not Support Gold Answer&quot; plan → suppressed as negative</li>
 </ul>
-<p><strong>결과</strong>: 5개 소스에서 각각 다른 시맨틱 layer의 정보를 끌어와 D 정답 도출. 단일 PubMed RAG는 &quot;infant skin rash&quot; 일반 정보만 끌어와 D vs A 혼동 가능</p>
+<p><strong>Result</strong>: Pulling information from different semantic layers across the 5 sources leads to deriving the correct answer D. A single-source PubMed RAG might only pull general &quot;infant skin rash&quot; information and confuse D vs A</p>
 </blockquote>
-<h2 id="주요-평가-결과">주요 평가 결과</h2>
-<p><strong>Table 4 — 8개 데이터셋 정확도, Reader = Frozen Qwen2.5-7B-Instruct</strong></p>
+<h2 id="key-evaluation-results">Key evaluation results</h2>
+<p><strong>Table 4 — Accuracy on 8 datasets, Reader = Frozen Qwen2.5-7B-Instruct</strong></p>
 <table>
 <thead>
 <tr>
@@ -499,37 +499,37 @@ A. Atopic dermatitis  B. Seborrheic keratosis  C. Allergic contact dermatitis  D
 </tr>
 </tbody>
 </table>
-<p><strong>핵심 관찰</strong></p>
+<p><strong>Key observations</strong></p>
 <ul>
-<li>SPO 7B planner가 frozen 72B prompting과 SeRTS·Reflexion(둘 다 72B) 능가</li>
-<li>Qwen2.5-7B reader: 평균 56.95 (No-RAG) → 70.93 (SPO) = <strong>+13.98</strong> vs baseline</li>
-<li>SOTA baseline 대비 <strong>+4.6 ~ +7.0%</strong> 평균 향상</li>
-<li>가장 큰 향상: PubMedQA(+5.6 over SeRTS, 60.20 vs 55.60), MIMIC-IV(+7.1, 69.60 vs 62.50)</li>
+<li>The SPO 7B planner surpasses frozen 72B prompting and SeRTS·Reflexion (both 72B)</li>
+<li>Qwen2.5-7B reader: average 56.95 (No-RAG) → 70.93 (SPO) = <strong>+13.98</strong> vs baseline</li>
+<li><strong>+4.6 ~ +7.0%</strong> average improvement over SOTA baselines</li>
+<li>Largest gains: PubMedQA (+5.6 over SeRTS, 60.20 vs 55.60), MIMIC-IV (+7.1, 69.60 vs 62.50)</li>
 </ul>
-<h2 id="핵심-기여">핵심 기여</h2>
+<h2 id="key-contributions">Key contributions</h2>
 <ol>
-<li><strong>MedOmniKB</strong> — 5-소스(Book/Guideline/Research/Wiki/Graph) 통합 의료 지식 베이스, 기존 단일소스 KB 대비 규모 차원이 다름 (Table 1)</li>
-<li><strong>Source Planning Optimisation (SPO)</strong> — Plan Exploration → Plan Judging → Plan Learning 3-단계로 planner를 학습; LLM-as-judge 패러다임으로 gold annotation 없이 학습 데이터 확보</li>
-<li><strong>소형 planner의 SOTA</strong> — 7B planner가 72B baseline을 11개 데이터셋에서 능가 (효율성)</li>
-<li><strong>5-소스 구조화 plan output</strong> — <code>&lt;book&gt;...&lt;/book&gt;&lt;guideline&gt;...&lt;/guideline&gt;...</code> 형식의 명시적 source-aware 쿼리</li>
+<li><strong>MedOmniKB</strong> — a 5-source (Book/Guideline/Research/Wiki/Graph) integrated medical knowledge base, of a fundamentally different scale than existing single-source KBs (Table 1)</li>
+<li><strong>Source Planning Optimisation (SPO)</strong> — trains the planner in 3 stages, Plan Exploration → Plan Judging → Plan Learning; secures training data without gold annotation via the LLM-as-judge paradigm</li>
+<li><strong>SOTA with a small planner</strong> — the 7B planner surpasses 72B baselines on 11 datasets (efficiency)</li>
+<li><strong>5-source structured plan output</strong> — explicit source-aware queries in the <code>&lt;book&gt;...&lt;/book&gt;&lt;guideline&gt;...&lt;/guideline&gt;...</code> format</li>
 </ol>
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li>5개 소스 모두 K1(문헌)·K2(큐레이션 DB) 계열 — K4(개인/임상 경험) 미포함</li>
-<li>MedOmniKB 구축 비용 큼 (25.3M PubMed 처리)</li>
-<li>SPO 학습 시 전문가 LLM(72B) 추론 반복 필요 → 학습 비용 상승</li>
-<li>소스 분포 외(out-of-distribution) 데이터에 대한 적응성은 추가 검증 필요 (논문 §6)</li>
-<li>Per-source query 수 4개로 제한 → 복잡 multi-hop 질의에서 부족할 가능성</li>
+<li>All 5 sources are of the K1 (literature) and K2 (curated DB) families — K4 (personal/clinical experience) is not included</li>
+<li>MedOmniKB construction is costly (processing 25.3M PubMed entries)</li>
+<li>SPO training requires repeated inference by the expert LLM (72B) → increased training cost</li>
+<li>Adaptability to out-of-distribution data (outside the source distribution) requires additional validation (paper §6)</li>
+<li>Per-source queries limited to 4 → may be insufficient for complex multi-hop queries</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://aclanthology.org/2025.acl-long.742/">ACL Anthology 2025.acl-long.742</a></li>
-<li><strong>arXiv 프리프린트</strong>: <a href="https://arxiv.org/abs/2501.02460">arXiv:2501.02460</a></li>
-<li><strong>코드/프로젝트</strong>: <a href="https://github.com/Jack-ZC8/Omni-RAG-Medical">GitHub: Jack-ZC8/Omni-RAG-Medical</a></li>
-<li><strong>저자 소속</strong>: Shanghai Jiao Tong University / Fudan University / Shanghai AI Lab</li>
-<li><strong>평가 데이터셋 (11종)</strong>: MedQA, MedMCQA, MMLU-Med, PubMedQA, BioASQ, SEER, DDXPlus, MIMIC-IV-ED, LiveQA, MedicationQA, ExpertQA-Biomed (총 24,199 train / 4,837 dev / 8,248 test)</li>
-<li><strong>비교 baseline</strong>: No Retrieval, Original Question, Query2Doc, Reflexion, SeRTS, Trainable Planning, RaFe Planning</li>
-<li><strong>K×O 분류</strong>: K1.O1 (문헌+가이드라인) + K2.O1 (UMLS+DrugBank KG) — 다중소스 K1+K2 통합 패턴의 대표 사례</li>
+<li><strong>Paper</strong>: <a href="https://aclanthology.org/2025.acl-long.742/">ACL Anthology 2025.acl-long.742</a></li>
+<li><strong>arXiv preprint</strong>: <a href="https://arxiv.org/abs/2501.02460">arXiv:2501.02460</a></li>
+<li><strong>Code/project</strong>: <a href="https://github.com/Jack-ZC8/Omni-RAG-Medical">GitHub: Jack-ZC8/Omni-RAG-Medical</a></li>
+<li><strong>Author affiliations</strong>: Shanghai Jiao Tong University / Fudan University / Shanghai AI Lab</li>
+<li><strong>Evaluation datasets (11)</strong>: MedQA, MedMCQA, MMLU-Med, PubMedQA, BioASQ, SEER, DDXPlus, MIMIC-IV-ED, LiveQA, MedicationQA, ExpertQA-Biomed (total 24,199 train / 4,837 dev / 8,248 test)</li>
+<li><strong>Comparison baselines</strong>: No Retrieval, Original Question, Query2Doc, Reflexion, SeRTS, Trainable Planning, RaFe Planning</li>
+<li><strong>K×O classification</strong>: K1.O1 (literature+guidelines) + K2.O1 (UMLS+DrugBank KG) — a representative case of the multi-source K1+K2 integration pattern</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/acl/ChenLJWG0025)</a></p>
@@ -570,14 +570,14 @@ A. Atopic dermatitis  B. Seborrheic keratosis  C. Allergic contact dermatitis  D
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

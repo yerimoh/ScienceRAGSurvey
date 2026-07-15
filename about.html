@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>About — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="static/style.css?v=1783921725">
+<title>About, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -106,9 +106,14 @@
     <h1>About Scientific RAG Hub</h1>
     <p class="lede">
       A curated catalog of <strong>331 retrieval-augmented generation</strong> systems,
-      benchmarks, and datasets across the sciences — the companion resource to the upcoming survey
+      benchmarks, and datasets across the sciences, the companion resource to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission."</em>
     </p>
+
+    <figure class="gs-figure">
+      <img src="static/science-rag-overview.png" alt="The knowledge sources of scientific RAG arranged as a wheel around a central hub, spanning nine scientific domains" loading="lazy">
+      <figcaption>The knowledge sources of scientific RAG, spanning literature, curated databases, structured entities, and raw instrument data across nine domains.</figcaption>
+    </figure>
 
     <h2>The taxonomy: substrate × objective</h2>
     <p>
@@ -119,19 +124,19 @@
       physical execution the difference is decisive. Two demands shape such a system: the knowledge it retrieves
       and the task it must answer.
     </p>
-    <h3>Knowledge Source (K) — the retrieval substrate</h3>
+    <h3>Knowledge Source (K): the retrieval substrate</h3>
     <p>A source's native form fixes the retrieval operation it permits. General RAG stays almost entirely on the first substrate; scientific RAG must reach the other three, each costlier to index.</p>
     <ul>
-      <li><strong>K1 Textual</strong> — the prose record of science: papers, abstracts, clinical notes, guidelines. Matched by embedding or lexical search over passages.</li>
-      <li><strong>K2 Relational</strong> — curated graphs of scientific relations (UMLS, PrimeKG, DRKG, STRING, KEGG, citation graphs). Knowledge lives in the edges, reached by entity linking and traversal.</li>
-      <li><strong>K3 Structured-entity</strong> — the objects of science held as data: molecules, 3D structures, and property records (ChEMBL, PubChem, PDB, Materials Project). Reached by structural or property query, not by words.</li>
-      <li><strong>K4 Perceptual</strong> — raw instrument output: images, spectra, sequencing, time-series (MIMIC-CXR, MassBank, sky surveys). Nothing is retrievable until a cross-modal encoder connects the signal to a text query.</li>
+      <li><strong>K1 Textual</strong>, the prose record of science: papers, abstracts, clinical notes, guidelines. Matched by embedding or lexical search over passages.</li>
+      <li><strong>K2 Relational</strong>, curated graphs of scientific relations (UMLS, PrimeKG, DRKG, STRING, KEGG, citation graphs). Knowledge lives in the edges, reached by entity linking and traversal.</li>
+      <li><strong>K3 Structured-entity</strong>, the objects of science held as data: molecules, 3D structures, and property records (ChEMBL, PubChem, PDB, Materials Project). Reached by structural or property query, not by words.</li>
+      <li><strong>K4 Perceptual</strong>, raw instrument output: images, spectra, sequencing, time-series (MIMIC-CXR, MassBank, sky surveys). Nothing is retrievable until a cross-modal encoder connects the signal to a text query.</li>
     </ul>
-    <h3>Operational Objective (O) — the rung, ordered by distance from the corpus</h3>
+    <h3>Operational Objective (O): the rung, ordered by distance from the corpus</h3>
     <ul>
-      <li><strong>O1 Grounding</strong> — answer a question whose gold already lies in the corpus (Question Answering).</li>
-      <li><strong>O2 Synthesis</strong> — integrate evidence no single source states, verifying claims across documents (Claim Verification, Literature Synthesis).</li>
-      <li><strong>O3 Discovery</strong> — propose an output the corpus does not contain, judged by an external verifier (Property Prediction, Molecular Design, Materials Discovery, Hypothesis Generation).</li>
+      <li><strong>O1 Grounding</strong>, answer a question whose gold already lies in the corpus (Question Answering).</li>
+      <li><strong>O2 Synthesis</strong>, integrate evidence no single source states, verifying claims across documents (Claim Verification, Literature Synthesis).</li>
+      <li><strong>O3 Discovery</strong>, propose an output the corpus does not contain, judged by an external verifier (Property Prediction, Molecular Design, Materials Discovery, Hypothesis Generation).</li>
     </ul>
 
     <h2>Why this taxonomy</h2>
@@ -140,29 +145,10 @@
       misses the two factors that most constrain scientific inquiry: the fidelity of the grounded evidence and the
       complexity of the scientific objective. Organized by substrate and objective, the field reveals a consistent
       shape. Capability accumulates where a substrate admits a mature matching operation and a task admits an
-      automatic score — literature grounding and synthesis over <strong>Textual</strong>, lookup over
-      <strong>Relational</strong> and <strong>Structured-entity</strong> — and thins toward non-textual evidence and
+      automatic score, literature grounding and synthesis over <strong>Textual</strong>, lookup over
+      <strong>Relational</strong> and <strong>Structured-entity</strong>, and thins toward non-textual evidence and
       externally verified discovery, where the retriever or the verifier does not yet exist.
     </p>
-
-    <h2>The landscape — 12 cells</h2>
-    <table class="ko-stat">
-      <thead><tr><th>Cell</th><th>Core systems</th><th>Substrate × Objective</th></tr></thead>
-      <tbody>
-    <tr><th>K1.O1</th><td>10</td><td>Textual × Grounding</td></tr>
-    <tr><th>K1.O2</th><td>8</td><td>Textual × Synthesis</td></tr>
-    <tr><th>K1.O3</th><td>4</td><td>Textual × Discovery</td></tr>
-    <tr><th>K2.O1</th><td>6</td><td>Relational × Grounding</td></tr>
-    <tr><th>K2.O2</th><td>1</td><td>Relational × Synthesis</td></tr>
-    <tr><th>K2.O3</th><td>1</td><td>Relational × Discovery</td></tr>
-    <tr><th>K3.O1</th><td>2</td><td>Structured-entity × Grounding</td></tr>
-    <tr><th>K3.O2</th><td>0</td><td>Structured-entity × Synthesis</td></tr>
-    <tr><th>K3.O3</th><td>5</td><td>Structured-entity × Discovery</td></tr>
-    <tr><th>K4.O1</th><td>6</td><td>Perceptual × Grounding</td></tr>
-    <tr><th>K4.O2</th><td>0</td><td>Perceptual × Synthesis</td></tr>
-    <tr><th>K4.O3</th><td>3</td><td>Perceptual × Discovery</td></tr>
-      </tbody>
-    </table>
 
     <h2 id="pipeline">The scientific RAG pipeline</h2>
     <p>
@@ -171,30 +157,30 @@
       output back for another round.
     </p>
     <ul>
-      <li id="construction"><strong>Construction</strong> — build the index. Each substrate is indexed in its own form: passages as embeddings, graphs as nodes and edges, molecules as structural fingerprints, signals through a learned encoder.</li>
-      <li id="retrieval"><strong>Retrieval</strong> — match the query to the substrate. Relevance is a domain judgment, not topical resemblance: the right passage, the right scaffold, the record whose peaks match.</li>
-      <li id="generation"><strong>Generation</strong> — draft an output from the query, the retrieved evidence, and any verifier feedback, in the formats a domain requires.</li>
-      <li id="verification"><strong>Verification</strong> — test the output against a signal from beyond the corpus. Systems differ by how deeply the verifier is coupled, from a single unchecked pass to a closed loop that refines against a docking score or a DFT calculation every round.</li>
-      <li id="evaluation"><strong>Evaluation</strong> — score the result against ground truth: a fixed gold for grounding, a reference for synthesis, and for discovery an external verifier whose ground truth lies outside any corpus.</li>
+      <li id="construction"><strong>Construction</strong>, build the index. Each substrate is indexed in its own form: passages as embeddings, graphs as nodes and edges, molecules as structural fingerprints, signals through a learned encoder.</li>
+      <li id="retrieval"><strong>Retrieval</strong>, match the query to the substrate. Relevance is a domain judgment, not topical resemblance: the right passage, the right scaffold, the record whose peaks match.</li>
+      <li id="generation"><strong>Generation</strong>, draft an output from the query, the retrieved evidence, and any verifier feedback, in the formats a domain requires.</li>
+      <li id="verification"><strong>Verification</strong>, test the output against a signal from beyond the corpus. Systems differ by how deeply the verifier is coupled, from a single unchecked pass to a closed loop that refines against a docking score or a DFT calculation every round.</li>
+      <li id="evaluation"><strong>Evaluation</strong>, score the result against ground truth: a fixed gold for grounding, a reference for synthesis, and for discovery an external verifier whose ground truth lies outside any corpus.</li>
     </ul>
 
     <h2>What makes retrieval scientific</h2>
     <p>Five demands separate a scientific RAG system from general RAG that ranks by semantic proximity alone:</p>
     <ol>
-      <li><strong>Traceable attribution</strong> — every claim must trace to a specific source unit, sentence-level, page-level, or as a claim graph.</li>
-      <li><strong>Heterogeneous, multi-substrate retrieval</strong> — the corpus spans literature, curated graphs, structured entities, and raw signals, each with its own format and reliability.</li>
-      <li><strong>Domain-native representation</strong> — SMILES, InChI, FASTA, CIF, DICOM carry meaning no flattening to text preserves; retrieval must recognize identity across surface forms.</li>
-      <li><strong>Protocol-level reproducibility</strong> — an output must carry enough method detail for a domain expert to reproduce it, not merely summarize it.</li>
-      <li><strong>External verifier coupling</strong> — for discovery, a docking simulator or DFT calculation, not the language model, decides whether a proposal survives.</li>
+      <li><strong>Traceable attribution</strong>, every claim must trace to a specific source unit, sentence-level, page-level, or as a claim graph.</li>
+      <li><strong>Heterogeneous, multi-substrate retrieval</strong>, the corpus spans literature, curated graphs, structured entities, and raw signals, each with its own format and reliability.</li>
+      <li><strong>Domain-native representation</strong>, SMILES, InChI, FASTA, CIF, DICOM carry meaning no flattening to text preserves; retrieval must recognize identity across surface forms.</li>
+      <li><strong>Protocol-level reproducibility</strong>, an output must carry enough method detail for a domain expert to reproduce it, not merely summarize it.</li>
+      <li><strong>External verifier coupling</strong>, for discovery, a docking simulator or DFT calculation, not the language model, decides whether a proposal survives.</li>
     </ol>
 
     <h2>How to use the catalog</h2>
     <ul>
-      <li><a href="browse.html">Browse</a> — filter the full catalog by substrate × objective cell, task, domain, or type.</li>
-      <li><a href="index.html#domains">Domains</a> — browse by scientific field.</li>
-      <li><a href="browse.html">Browse</a> — full searchable, filterable catalog.</li>
-      <li><a href="llms.txt">/llms.txt</a> · <a href="llms-full.txt">/llms-full.txt</a> — LLM-friendly indices.</li>
-      <li><a href="data/catalog.json">catalog.json</a> — full machine-readable dump, remapped to the substrate × objective taxonomy (raw source stays at <a href="data/papers.json">papers.json</a>).</li>
+      <li><a href="browse.html">Browse</a>, filter the full catalog by substrate × objective cell, task, domain, or type.</li>
+      <li><a href="index.html#domains">Domains</a>, browse by scientific field.</li>
+      <li><a href="browse.html">Browse</a>, full searchable, filterable catalog.</li>
+      <li><a href="llms.txt">/llms.txt</a>, <a href="llms-full.txt">/llms-full.txt</a>, LLM-friendly indices.</li>
+      <li><a href="data/catalog.json">catalog.json</a>, full machine-readable dump, remapped to the substrate × objective taxonomy (raw source stays at <a href="data/papers.json">papers.json</a>).</li>
     </ul>
 
     <h2>Survey Construction Pipeline</h2>
@@ -205,7 +191,7 @@
       <div class="pipe-row pipe-row-sources">
         <div class="pipe-node pipe-node-src">
           <div class="pipe-icon">📄</div>
-          <div class="pipe-label">Literature<br><span class="pipe-sub">arXiv · PubMed · ACL · NeurIPS…</span></div>
+          <div class="pipe-label">Literature<br><span class="pipe-sub">arXiv, PubMed, ACL, NeurIPS…</span></div>
         </div>
         <div class="pipe-node pipe-node-src">
           <div class="pipe-icon">🗂</div>
@@ -226,7 +212,7 @@
           <div class="pipe-label"><strong>Substrate × Objective Classification</strong></div>
           <div class="pipe-classify-grid">
             <div class="pipe-axis pipe-axis-k">
-              <div class="pipe-axis-label">K — Retrieval Substrate</div>
+              <div class="pipe-axis-label">K: Retrieval Substrate</div>
               <div class="pipe-axis-items">
                 <span class="pipe-pill pipe-k1">K1 Textual</span>
                 <span class="pipe-pill pipe-k2">K2 Relational</span>
@@ -236,7 +222,7 @@
             </div>
             <div class="pipe-axis-times">×</div>
             <div class="pipe-axis pipe-axis-o">
-              <div class="pipe-axis-label">O — Operational Objective</div>
+              <div class="pipe-axis-label">O: Operational Objective</div>
               <div class="pipe-axis-items">
                 <span class="pipe-pill pipe-o1">O1 Grounding</span>
                 <span class="pipe-pill pipe-o2">O2 Synthesis</span>
@@ -255,7 +241,7 @@
           <div class="pipe-icon">▦</div>
           <div class="pipe-label"><strong>12-Cell Landscape</strong></div>
           <div class="pipe-mini-grid">
-            <a href="cell/K1.O1.html" class="pipe-cell pipe-cell-h" title="K1.O1: 10 entries"><span class="pipe-cell-id">K1·O1</span><span class="pipe-cell-n">10</span></a><a href="cell/K1.O2.html" class="pipe-cell pipe-cell-m" title="K1.O2: 8 entries"><span class="pipe-cell-id">K1·O2</span><span class="pipe-cell-n">8</span></a><a href="cell/K1.O3.html" class="pipe-cell pipe-cell-m" title="K1.O3: 4 entries"><span class="pipe-cell-id">K1·O3</span><span class="pipe-cell-n">4</span></a><a href="cell/K2.O1.html" class="pipe-cell pipe-cell-m" title="K2.O1: 6 entries"><span class="pipe-cell-id">K2·O1</span><span class="pipe-cell-n">6</span></a><a href="cell/K2.O2.html" class="pipe-cell pipe-cell-l" title="K2.O2: 1 entries"><span class="pipe-cell-id">K2·O2</span><span class="pipe-cell-n">1</span></a><a href="cell/K2.O3.html" class="pipe-cell pipe-cell-l" title="K2.O3: 1 entries"><span class="pipe-cell-id">K2·O3</span><span class="pipe-cell-n">1</span></a><a href="cell/K3.O1.html" class="pipe-cell pipe-cell-l" title="K3.O1: 2 entries"><span class="pipe-cell-id">K3·O1</span><span class="pipe-cell-n">2</span></a><a href="cell/K3.O2.html" class="pipe-cell pipe-cell-l" title="K3.O2: 0 entries"><span class="pipe-cell-id">K3·O2</span><span class="pipe-cell-n">0</span></a><a href="cell/K3.O3.html" class="pipe-cell pipe-cell-m" title="K3.O3: 5 entries"><span class="pipe-cell-id">K3·O3</span><span class="pipe-cell-n">5</span></a><a href="cell/K4.O1.html" class="pipe-cell pipe-cell-m" title="K4.O1: 6 entries"><span class="pipe-cell-id">K4·O1</span><span class="pipe-cell-n">6</span></a><a href="cell/K4.O2.html" class="pipe-cell pipe-cell-l" title="K4.O2: 0 entries"><span class="pipe-cell-id">K4·O2</span><span class="pipe-cell-n">0</span></a><a href="cell/K4.O3.html" class="pipe-cell pipe-cell-m" title="K4.O3: 3 entries"><span class="pipe-cell-id">K4·O3</span><span class="pipe-cell-n">3</span></a>
+            <a href="cell/K1.O1.html" class="pipe-cell pipe-cell-h" title="K1.O1: 10 entries"><span class="pipe-cell-id">K1.O1</span><span class="pipe-cell-n">10</span></a><a href="cell/K1.O2.html" class="pipe-cell pipe-cell-m" title="K1.O2: 8 entries"><span class="pipe-cell-id">K1.O2</span><span class="pipe-cell-n">8</span></a><a href="cell/K1.O3.html" class="pipe-cell pipe-cell-m" title="K1.O3: 4 entries"><span class="pipe-cell-id">K1.O3</span><span class="pipe-cell-n">4</span></a><a href="cell/K2.O1.html" class="pipe-cell pipe-cell-m" title="K2.O1: 6 entries"><span class="pipe-cell-id">K2.O1</span><span class="pipe-cell-n">6</span></a><a href="cell/K2.O2.html" class="pipe-cell pipe-cell-l" title="K2.O2: 1 entries"><span class="pipe-cell-id">K2.O2</span><span class="pipe-cell-n">1</span></a><a href="cell/K2.O3.html" class="pipe-cell pipe-cell-l" title="K2.O3: 1 entries"><span class="pipe-cell-id">K2.O3</span><span class="pipe-cell-n">1</span></a><a href="cell/K3.O1.html" class="pipe-cell pipe-cell-l" title="K3.O1: 2 entries"><span class="pipe-cell-id">K3.O1</span><span class="pipe-cell-n">2</span></a><a href="cell/K3.O2.html" class="pipe-cell pipe-cell-l" title="K3.O2: 0 entries"><span class="pipe-cell-id">K3.O2</span><span class="pipe-cell-n">0</span></a><a href="cell/K3.O3.html" class="pipe-cell pipe-cell-m" title="K3.O3: 5 entries"><span class="pipe-cell-id">K3.O3</span><span class="pipe-cell-n">5</span></a><a href="cell/K4.O1.html" class="pipe-cell pipe-cell-m" title="K4.O1: 6 entries"><span class="pipe-cell-id">K4.O1</span><span class="pipe-cell-n">6</span></a><a href="cell/K4.O2.html" class="pipe-cell pipe-cell-l" title="K4.O2: 0 entries"><span class="pipe-cell-id">K4.O2</span><span class="pipe-cell-n">0</span></a><a href="cell/K4.O3.html" class="pipe-cell pipe-cell-m" title="K4.O3: 3 entries"><span class="pipe-cell-id">K4.O3</span><span class="pipe-cell-n">3</span></a>
           </div>
           <div class="pipe-grid-legend">
             <span class="pipe-cell-dot pipe-cell-h"></span> ≥10 &nbsp;
@@ -271,7 +257,7 @@
       <div class="pipe-row pipe-row-outputs">
         <div class="pipe-node pipe-node-out">
           <div class="pipe-icon">🌐</div>
-          <div class="pipe-label">This Site<br><span class="pipe-sub">Browse · Filter · Search</span></div>
+          <div class="pipe-label">This Site<br><span class="pipe-sub">Browse, Filter, Search</span></div>
         </div>
         <div class="pipe-node pipe-node-out">
           <div class="pipe-icon">📖</div>
@@ -287,42 +273,26 @@
     <h2>Methodology</h2>
     <p>
       Entries are curated by the Vision and Learning Lab and cross-referenced against the survey's master
-      bibliography. Each system is placed by its <em>retrieval substrate</em> — the native form of what it
-      indexes — and by its <em>objective rung</em>. The survey's core systems are pinned to the exact cell they
+      bibliography. Each system is placed by its <em>retrieval substrate</em>, the native form of what it
+      indexes, and by its <em>objective rung</em>. The survey's core systems are pinned to the exact cell they
       occupy in the assembly figure; the wider catalog is mapped by the modality it retrieves over. A system that
       commits to a single substrate occupies a single cell, which is the common case: almost every surveyed system
       retrieves from just one substrate, and cross-substrate retrieval is itself an open frontier (§8).
     </p>
-
-    <h2>Contributing</h2>
-    <p>
-      Missing entries, mis-classifications, or new systems? Open an issue or PR on the
-      GitHub repo. The build is fully deterministic — edit <code>data/ko_assignments.json</code>
-      (or the source Notion DB) and re-run <code>build/render_html.py</code>.
-    </p>
-
-    <h2>Cite</h2>
-    <pre><code>@article{oh2026sciragsurvey,
-  title   = {Scientific Retrieval-Augmented Generation: A Survey through
-             Knowledge Source and Scientific Mission},
-  author  = {Oh, Yerim and others},
-  journal = {TBD},
-  year    = {TBD}
-}</code></pre>
   </div>
 </section>
 </main>
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="llms.txt">llms.txt</a> ·
-      <a href="llms-full.txt">llms-full.txt</a> ·
-      <a href="data/catalog.json">catalog.json</a> ·
+      <a href="llms.txt">llms.txt</a>
+      <a href="llms-full.txt">llms-full.txt</a>
+      <a href="data/catalog.json">catalog.json</a>
       <a href="about.html">About</a>
     </p>
   </div>

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PerturBench: Benchmarking Machine Learning Models for Cellular Perturbation Analysis — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>PerturBench: Benchmarking Machine Learning Models for Cellular Perturbation Analysis, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,7 +117,7 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#실제-데이터-형식-예시-논문-2-table-1-figure-2">실제 데이터 형식 예시 (논문 §2 + Table 1 + Figure 2)</a></li><li class="toc-l3"><a href="#유형-a-single-cell-perturbation-dataset-record">유형 A — Single-cell perturbation dataset record</a></li><li class="toc-l3"><a href="#유형-b-covariate-transfer-task-5-datasets">유형 B — Covariate transfer task (5 datasets)</a></li><li class="toc-l3"><a href="#유형-c-combinatorial-prediction-task-norman19">유형 C — Combinatorial prediction task (Norman19)</a></li><li class="toc-l3"><a href="#유형-d-rank-metric-calculation-논문-figure-2">유형 D — Rank metric calculation (논문 Figure 2)</a></li><li class="toc-l2"><a href="#평가-framework-요약">평가 framework 요약</a></li><li class="toc-l2"><a href="#주요-결과-논문-5">주요 결과 (논문 §5)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#construction-methodology">Construction Methodology</a></li><li class="toc-l2"><a href="#example-real-data-formats-paper-2-table-1-figure-2">Example real data formats (paper §2 + Table 1 + Figure 2)</a></li><li class="toc-l3"><a href="#type-a-single-cell-perturbation-dataset-record">Type A — Single-cell perturbation dataset record</a></li><li class="toc-l3"><a href="#type-b-covariate-transfer-task-5-datasets">Type B — Covariate transfer task (5 datasets)</a></li><li class="toc-l3"><a href="#type-c-combinatorial-prediction-task-norman19">Type C — Combinatorial prediction task (Norman19)</a></li><li class="toc-l3"><a href="#type-d-rank-metric-calculation-paper-figure-2">Type D — Rank metric calculation (paper Figure 2)</a></li><li class="toc-l2"><a href="#evaluation-framework-summary">Evaluation framework summary</a></li><li class="toc-l2"><a href="#main-results-paper-5">Main results (paper §5)</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>PerturBench: 6-dataset standardized benchmark for single-cell perturbation models</h1>
@@ -126,20 +126,21 @@
 Yan Wu, Esther Wershof, Sebastian M. Schmon, Marcel Nassar, Błażej Osiński, Ridvan Eksi, Zichao Yan, Rory Stark, Kun Zhang, Thore Graepel — Altos Labs / University College London
 arXiv: <a href="https://arxiv.org/abs/2408.10609">2408.10609</a> · DBLP: <code>journals/corr/abs-2408-10609</code></p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p><strong>단일세포 perturbation response 예측 모델</strong>의 표준 평가를 위한 <strong>6-dataset benchmark</strong> (Srivatsan20 / Frangieh21 / Jiang24 / McFalineFigueroa23 / Norman19 / OP3) 와 <strong>2 task family</strong> (covariate transfer / combo prediction). RMSE + Pearson 같은 fit metric 외에 <strong>rank-based metric</strong> (perturbation 간 순서)을 도입해 mode-collapse 모델을 노출. CPA / SAMS-VAE / BioLord / GEARS / scGPT 등 published model + Latent Additive / Decoder-only baseline 비교.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>A <strong>6-dataset benchmark</strong> (Srivatsan20 / Frangieh21 / Jiang24 / McFalineFigueroa23 / Norman19 / OP3) and <strong>2 task families</strong> (covariate transfer / combo prediction) for the standardized evaluation of <strong>single-cell perturbation response prediction models</strong>. Beyond fit metrics like RMSE + Pearson, it introduces a <strong>rank-based metric</strong> (ordering across perturbations) to expose mode-collapse models. It compares published models such as CPA / SAMS-VAE / BioLord / GEARS / scGPT with Latent Additive / Decoder-only baselines.</p>
 <hr />
-<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
-<pre><code>Step 1 — 문제 인식: 기존 perturbation benchmark의 약점
+<h2 id="construction-methodology">Construction Methodology</h2>
+<pre><code>Step 1 — Problem recognition: weaknesses of existing perturbation benchmarks
   ┌──────────────────────────────────────────────┐
-  │ - 데이터셋마다 다른 split / metric           │
-  │ - rank-blind metric (RMSE/Pearson) 위주      │
-  │   → Decoder-Only가 single mean으로 좋은 점수 │
-  │ - 작은 dataset 위주 → real-world 미반영      │
-  │ - scFM (scGPT 등) 평가 일관성 부재          │
+  │ - Different split / metric per dataset        │
+  │ - rank-blind metric (RMSE/Pearson) focused    │
+  │   → Decoder-Only scores well with single mean │
+  │ - Small-dataset focused → real-world not      │
+  │   reflected                                   │
+  │ - Lack of scFM (scGPT etc.) eval consistency  │
   └──────────────────────────────────────────────┘
 
-Step 2 — 6 dataset 선정 (≥100 perturbations 필수)
+Step 2 — 6 dataset selection (≥100 perturbations required)
   ┌──────────────────┬──────┬──────┬─────────┬───────────┐
   │ Dataset           │ Sing │ Dual │ Modality│ Cells     │
   ├──────────────────┼──────┼──────┼─────────┼───────────┤
@@ -151,7 +152,7 @@ Step 2 — 6 dataset 선정 (≥100 perturbations 필수)
   │ OP3 (Szałata)      │  144 │   0  │ chem    │ 296,147   │
   └──────────────────┴──────┴──────┴─────────┴───────────┘
 
-Step 3 — 2 task family 정의
+Step 3 — Define 2 task families
   · Covariate transfer:
       train: pert A,B,C in cells X,Y
       test:  pert A,B,C in cells Z (unseen covariate)
@@ -182,8 +183,8 @@ Step 6 — Benchmarking rules
   · 4 seeds × best HP for stability
 </code></pre>
 <hr />
-<h2 id="실제-데이터-형식-예시-논문-2-table-1-figure-2">실제 데이터 형식 예시 (논문 §2 + Table 1 + Figure 2)</h2>
-<h3 id="유형-a-single-cell-perturbation-dataset-record">유형 A — Single-cell perturbation dataset record</h3>
+<h2 id="example-real-data-formats-paper-2-table-1-figure-2">Example real data formats (paper §2 + Table 1 + Figure 2)</h2>
+<h3 id="type-a-single-cell-perturbation-dataset-record">Type A — Single-cell perturbation dataset record</h3>
 <blockquote>
 <p><strong>Input</strong>: control cell expression vector + perturbation metadata (covariate + pert ID)</p>
 <pre><code>Cell shape:  (cells, genes) ~ (218,331 × ~33,000) for Frangieh21
@@ -192,7 +193,7 @@ Covariate:   batch / cell type / dose
 </code></pre>
 <p><strong>Output / Label</strong>: post-perturbation cell expression vector (same gene shape)</p>
 </blockquote>
-<h3 id="유형-b-covariate-transfer-task-5-datasets">유형 B — Covariate transfer task (5 datasets)</h3>
+<h3 id="type-b-covariate-transfer-task-5-datasets">Type B — Covariate transfer task (5 datasets)</h3>
 <blockquote>
 <pre><code>Train: cells with covariate C1, C2 — all perturbations A,B,C
 Test:  cells with covariate C3 (unseen) — same perturbations A,B,C
@@ -200,14 +201,14 @@ Model task: predict cell state under perturbation in unseen covariate
 Real-world analog: drug effect in unseen cell line / tissue
 </code></pre>
 </blockquote>
-<h3 id="유형-c-combinatorial-prediction-task-norman19">유형 C — Combinatorial prediction task (Norman19)</h3>
+<h3 id="type-c-combinatorial-prediction-task-norman19">Type C — Combinatorial prediction task (Norman19)</h3>
 <blockquote>
 <pre><code>Train: 155 single + 30% of 131 dual perturbations
 Test:  70% of dual perturbations (held out)
 Model task: predict A+B response from A and B single effects
 </code></pre>
 </blockquote>
-<h3 id="유형-d-rank-metric-calculation-논문-figure-2">유형 D — Rank metric calculation (논문 Figure 2)</h3>
+<h3 id="type-d-rank-metric-calculation-paper-figure-2">Type D — Rank metric calculation (paper Figure 2)</h3>
 <blockquote>
 <pre><code>Predicted pert X embedding ≈ control population mean
 Compute cosine similarity to all known perturbations
@@ -219,110 +220,110 @@ rank(X) = position of X in sorted list / total perts
 </code></pre>
 </blockquote>
 <hr />
-<h2 id="평가-framework-요약">평가 framework 요약</h2>
+<h2 id="evaluation-framework-summary">Evaluation framework summary</h2>
 <table>
 <thead>
 <tr>
   <th>Category</th>
   <th>Metric</th>
-  <th>목적</th>
+  <th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td><strong>Fit</strong></td>
   <td>RMSE</td>
-  <td>average response 정확도</td>
+  <td>accuracy of average response</td>
 </tr>
 <tr>
   <td>Fit</td>
   <td>cosine LogFC</td>
-  <td>LogFC 방향 일치</td>
+  <td>LogFC direction agreement</td>
 </tr>
 <tr>
   <td><strong>Rank</strong></td>
   <td>rank RMSE</td>
-  <td>mode-collapse 탐지</td>
+  <td>mode-collapse detection</td>
 </tr>
 <tr>
   <td>Rank</td>
   <td>rank cosine</td>
-  <td>specificity 측정</td>
+  <td>specificity measurement</td>
 </tr>
 <tr>
   <td><strong>Distributional</strong></td>
   <td>MMD (gene)</td>
-  <td>full distribution 일치</td>
+  <td>full distribution agreement</td>
 </tr>
 <tr>
   <td>Distributional</td>
   <td>MMD PCA (top-256)</td>
-  <td>latent 분포 일치</td>
+  <td>latent distribution agreement</td>
 </tr>
 <tr>
   <td>Distributional</td>
   <td>DEG recall (top-20 t-score)</td>
-  <td>DEG 회수율</td>
+  <td>DEG recovery rate</td>
 </tr>
 </tbody>
 </table>
-<p>→ 핵심 contribution: <strong>rank metric</strong> — RMSE만 보면 Decoder-Only가 모든 perturbation을 single mean으로 예측해도 좋게 보이지만, rank ≈ 0.5로 즉시 노출.</p>
+<p>→ Core contribution: the <strong>rank metric</strong> — looking only at RMSE, a Decoder-Only that predicts every perturbation as the single mean can look good, but it is immediately exposed with rank ≈ 0.5.</p>
 <hr />
-<h2 id="주요-결과-논문-5">주요 결과 (논문 §5)</h2>
+<h2 id="main-results-paper-5">Main results (paper §5)</h2>
 <table>
 <thead>
 <tr>
-  <th>발견</th>
-  <th>의미</th>
+  <th>Finding</th>
+  <th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>Adversarial 제거한 CPA<em>(noAdv)가 CPA</em>보다 항상 좋음</td>
-  <td>adversarial component가 도움 안 됨</td>
+  <td>CPA<em>(noAdv) with adversarial removed is always better than CPA</em></td>
+  <td>adversarial component does not help</td>
 </tr>
 <tr>
-  <td>Sparsity 제거한 SAMS-VAE<em>(S)가 SAMS-VAE</em>보다 항상 좋음</td>
-  <td>sparse mask 가정이 오히려 손실</td>
+  <td>SAMS-VAE<em>(S) with sparsity removed is always better than SAMS-VAE</em></td>
+  <td>the sparse-mask assumption is actually a loss</td>
 </tr>
 <tr>
-  <td>Latent Additive baseline이 published 모델과 동등 또는 우위</td>
-  <td>단순 모델이 일반적으로 충분</td>
+  <td>Latent Additive baseline is on par with or superior to published models</td>
+  <td>simple models are generally sufficient</td>
 </tr>
 <tr>
-  <td>Decoder-Only는 RMSE 양호하나 rank ≈ 0.5</td>
-  <td>mode-collapse, rank metric 필요</td>
+  <td>Decoder-Only has good RMSE but rank ≈ 0.5</td>
+  <td>mode-collapse, rank metric needed</td>
 </tr>
 <tr>
-  <td>scGPT 임베딩 사용 시 marginal 개선만</td>
-  <td>scFM가 perturbation에 큰 효과 없음</td>
+  <td>Using scGPT embeddings gives only marginal improvement</td>
+  <td>scFM has no large effect on perturbation</td>
 </tr>
 <tr>
-  <td>Norman19 combo prediction: linear model도 강함</td>
-  <td>dual 효과가 대부분 linear</td>
+  <td>Norman19 combo prediction: even a linear model is strong</td>
+  <td>dual effects are mostly linear</td>
 </tr>
 </tbody>
 </table>
-<p>→ <strong>결론</strong>: &quot;no single model architecture clearly outperforms others, simpler architectures are generally competitive and scale well with larger datasets&quot; (논문 §Abstract).</p>
+<p>→ <strong>Conclusion</strong>: &quot;no single model architecture clearly outperforms others, simpler architectures are generally competitive and scale well with larger datasets&quot; (paper §Abstract).</p>
 <hr />
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li><strong>단일세포 transcriptomics만</strong>: protein, phosphoproteomics 미커버</li>
-<li><strong>6 dataset 고정</strong>: 더 큰 atlas (CMap, LINCS, scPerturb 50-dataset) 미포함</li>
-<li><strong>Adversarial / sparsity</strong> 같은 모델 구성 비교 위주, novel architecture 평가 부족</li>
-<li><strong>Static benchmark</strong>: 새 dataset 등장 시 update 필요</li>
-<li><strong>HPO compute</strong>: 60+ trials × 6 model × 6 dataset → 막대한 compute</li>
-<li><strong>시간</strong>: 2024 cutoff, 후속 scFoundation/STATE 미반영</li>
+<li><strong>Single-cell transcriptomics only</strong>: does not cover protein, phosphoproteomics</li>
+<li><strong>Fixed at 6 datasets</strong>: larger atlases (CMap, LINCS, scPerturb 50-dataset) not included</li>
+<li>Focused on comparing model components like <strong>adversarial / sparsity</strong>; lacks evaluation of novel architectures</li>
+<li><strong>Static benchmark</strong>: requires updates when new datasets appear</li>
+<li><strong>HPO compute</strong>: 60+ trials × 6 models × 6 datasets → enormous compute</li>
+<li><strong>Time</strong>: 2024 cutoff, does not reflect subsequent scFoundation/STATE</li>
 </ul>
 <hr />
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2408.10609">2408.10609</a></li>
 <li><strong>DBLP</strong>: <a href="https://dblp.org/rec/journals/corr/abs-2408-10609.html">journals/corr/abs-2408-10609</a></li>
-<li><strong>저자 소속</strong>: Altos Labs (Cambridge) + University College London</li>
-<li><strong>이 benchmark가 사용한 dataset</strong>: Norman 2019 (canonical combo), Srivatsan 2020 (sci-Plex), Frangieh 2021 (immune + cancer), Jiang 2024, McFaline-Figueroa 2023, OP3 (NeurIPS 2023 challenge)</li>
-<li><strong>이 benchmark가 평가한 모델</strong>: CPA, SAMS-VAE, BioLord, GEARS, scGPT, Latent Additive, Decoder-Only</li>
-<li><strong>관련 benchmark</strong>: scPerturb (Peidli 2024 — data harmonization), NeurIPS 2023 perturbation prediction challenge</li>
+<li><strong>Author affiliations</strong>: Altos Labs (Cambridge) + University College London</li>
+<li><strong>Datasets used by this benchmark</strong>: Norman 2019 (canonical combo), Srivatsan 2020 (sci-Plex), Frangieh 2021 (immune + cancer), Jiang 2024, McFaline-Figueroa 2023, OP3 (NeurIPS 2023 challenge)</li>
+<li><strong>Models evaluated by this benchmark</strong>: CPA, SAMS-VAE, BioLord, GEARS, scGPT, Latent Additive, Decoder-Only</li>
+<li><strong>Related benchmarks</strong>: scPerturb (Peidli 2024 — data harmonization), NeurIPS 2023 perturbation prediction challenge</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/corr/abs-2408-10609)</a></p>
@@ -361,14 +362,14 @@ rank(X) = position of X in sorted list / total perts
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

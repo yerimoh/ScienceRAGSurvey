@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Quantum chemistry structures and properties of 134 kilo molecules — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Quantum chemistry structures and properties of 134 kilo molecules, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,90 +121,90 @@
 <p>ramakrishnan2014quantum | 2014 | Scientific Data | dataset | [chem] | <a href="https://doi.org/10.1038/sdata.2014.22">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">QM9</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">133,885개 안정 소형 유기 분자 (GDB-17 9중원자 이하 서브셋)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">133,885 stable small organic molecules (GDB-17 subset with up to 9 heavy atoms)</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Structured</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">QM9 (DFT/B3LYP/6-31G(2df,p) 계산 결과)</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">QM9 (DFT/B3LYP/6-31G(2df,p) computed results)</td></tr>
 </table>
 
 <blockquote>
 <p>Scientific Data | 2014 | dataset | chem</p>
-<h4>📌 한 줄 요약</h4>
-<p>QM9는 GDB-17 화학 우주에서 중원자 9개 이하 유기 분자 133,885개에 대한 B3LYP/6-31G(2df,p) 수준의 기하 구조·에너지·전자·열역학 성질을 제공하는 표준 양자화학 벤치마크 데이터셋이다.</p>
+<h4>📌 TL;DR</h4>
+<p>QM9 is a standard quantum-chemistry benchmark dataset providing B3LYP/6-31G(2df,p)-level geometric structures, energies, and electronic and thermodynamic properties for 133,885 organic molecules with up to 9 heavy atoms drawn from the GDB-17 chemical space.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>분자 크기에 따라 조합적으로 증가하는 화학 공간을 체계적으로 탐색할 계산 데이터셋이 없었음</li>
-<li>하이브리드 QM/ML 방법 개발 및 구조-성질 관계 분석을 위한 일관된 대규모 데이터셋 부재
-<strong>이 시스템이 필요한 이유</strong></li>
-<li>기계학습 퍼텐셜 및 분자 성질 예측 모델의 훈련·검증용 표준 벤치마크 필요</li>
-<li>신약 발견 및 재료 설계를 위한 화학 공간의 체계적 계산 탐색</li>
+<li>No computational dataset existed for systematically exploring chemical space, which grows combinatorially with molecular size</li>
+<li>Absence of a consistent, large-scale dataset for developing hybrid QM/ML methods and analyzing structure-property relationships
+<strong>Why this system is needed</strong></li>
+<li>Need for a standard benchmark to train and validate machine-learning potentials and molecular-property prediction models</li>
+<li>Systematic computational exploration of chemical space for drug discovery and materials design</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>GDB-17 화학 우주 데이터베이스에서 C, H, O, N, F 원소로 이루어진 중원자 9개 이하 분자 134k 서브셋을 추출한다. PM7 기하 최적화 후 B3LYP/6-31G(2df,p) 수준에서 재최적화. 에너지·엔탈피·자유에너지 원자화 에너지, 쌍극자 모멘트, 분극률, 프론티어 오비탈 고유값 등 계산. C7H10O2 화학식의 6,095개 이성질체에 대해 추가로 G4MP2 수준 계산.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>A 134k subset of molecules composed of the elements C, H, O, N, and F with up to 9 heavy atoms is extracted from the GDB-17 chemical-space database. After PM7 geometry optimization, structures are re-optimized at the B3LYP/6-31G(2df,p) level. Atomization energies, enthalpies, and free energies, dipole moments, polarizabilities, frontier-orbital eigenvalues, and more are computed. G4MP2-level calculations are additionally performed for the 6,095 isomers of the chemical formula C7H10O2.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>공개 저장소</td>
-  <td>figshare/원저자 제공 데이터 다운로드</td>
+  <td>Public repository</td>
+  <td>Data download provided via figshare / original authors</td>
 </tr>
 <tr>
-  <td>QM9 형식</td>
-  <td>xyz 형식 분자 구조 + 성질 파일</td>
+  <td>QM9 format</td>
+  <td>xyz-format molecular structures + property files</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>xyz 형식 3D 기하 구조</li>
-<li>스칼라 성질 (에너지, 엔탈피, 자유에너지, 쌍극자 모멘트, 분극률)</li>
-<li>진동 주파수</li>
-<li>HOMO/LUMO 에너지 및 갭</li>
+<li>xyz-format 3D geometric structures</li>
+<li>Scalar properties (energy, enthalpy, free energy, dipole moment, polarizability)</li>
+<li>Vibrational frequencies</li>
+<li>HOMO/LUMO energies and gap</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>분자 수 (총 추출)</td>
+  <td>Number of molecules (total extracted)</td>
   <td>133,885</td>
 </tr>
 <tr>
-  <td>화학식 수</td>
+  <td>Number of chemical formulae</td>
   <td>621 stoichiometries</td>
 </tr>
 <tr>
-  <td>최다 이성질체 화학식</td>
-  <td>C7H10O2 (6,095개)</td>
+  <td>Formula with most isomers</td>
+  <td>C7H10O2 (6,095)</td>
 </tr>
 <tr>
-  <td>계산 수준</td>
+  <td>Level of theory</td>
   <td>DFT/B3LYP/6-31G(2df,p)</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>C, H, O, N, F 원소만 포함 (S, Br, Cl, I, 금속 제외)</li>
-<li>중원자 9개 이하 소분자만 포함하여 drug-like 분자 (MW&gt;250) 커버 제한</li>
-<li>134k 중 3,054개는 기하 일관성 검증 실패</li>
+<li>Includes only the elements C, H, O, N, and F (excludes S, Br, Cl, I, and metals)</li>
+<li>Includes only small molecules with up to 9 heavy atoms, limiting coverage of drug-like molecules (MW&gt;250)</li>
+<li>3,054 of the 134k molecules failed geometric-consistency validation</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1038/sdata.2014.22">Quantum chemistry structures and properties of 134 kilo molecules</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1038/sdata.2014.22">Quantum chemistry structures and properties of 134 kilo molecules</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (ramakrishnan2014quantum)</a></p>
@@ -230,14 +230,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

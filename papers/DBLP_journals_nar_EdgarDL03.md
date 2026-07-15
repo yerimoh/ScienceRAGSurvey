@@ -12,54 +12,54 @@ paper_link: https://doi.org/10.1093/nar/30.1.207
 DBLP:journals/nar/EdgarDL03 | 2002 | Nucleic Acids Research | dataset | [bio] | [paper](https://doi.org/10.1093/nar/30.1.207)
 
 **DB**: GEO (Gene Expression Omnibus)
-**DB size**: 고처리량 유전자 발현 및 게놈 혼성화 실험 데이터의 공개 저장소 (3개 핵심 엔티티: 플랫폼, 샘플, 시리즈)
+**DB size**: Public repository of high-throughput gene expression and genomic hybridization experiment data (3 core entities: Platform, Sample, Series)
 **DB Open/Private**: Open
 **Modality**: ['Text']
-**Retriever**: N/A (지식 소스 인프라)
+**Retriever**: N/A (knowledge source infrastructure)
 **Eval Task**: N/A
 **Eval Metric**: N/A
-**Method Name**: NCBI GEO 웹 (http://www.ncbi.nlm.nih.gov/geo)
+**Method Name**: NCBI GEO web (http://www.ncbi.nlm.nih.gov/geo)
 
 > Nucleic Acids Research | 2002 | dataset | bio
-#### 📌 한 줄 요약
-고처리량 유전자 발현 데이터의 증가하는 수요에 대응하여 NCBI가 구축한 공개 저장소로, 플랫폼(프로브 목록), 샘플(측정 데이터), 시리즈(실험 묶음) 세 가지 핵심 데이터 엔티티로 구성된다.
+#### 📌 TL;DR
+A public repository built by NCBI in response to the growing demand for high-throughput gene expression data, composed of three core data entities: Platform (probe list), Sample (measurement data), and Series (experiment grouping).
 
-#### 🎯 개발/구축 배경
-**기존 인프라의 한계**
-- 고처리량 유전자 발현 데이터에 대한 공개 저장소의 수요가 급증하였으나 중앙 집중식 공개 데이터 허브가 부재했다
-- 개별 연구실의 데이터베이스는 특정 분석 방법에 특화되어 있어 데이터 공유와 재활용에 한계가 있었다
+#### 🎯 Background
+**Limitations of existing infrastructure**
+- Demand for a public repository of high-throughput gene expression data surged, but a centralized public data hub was lacking
+- Individual laboratory databases were specialized for particular analysis methods, limiting data sharing and reuse
 
-**이 시스템이 필요한 이유**
-- GEO는 개별 유전자 발현 데이터베이스를 대체하지 않고 보완하는 3차 중앙 데이터 배포 허브로 설계
-- 유전자 발현 및 게놈 혼성화 실험의 이종 데이터셋을 제출·저장·검색할 수 있는 유연하고 개방된 설계
-- 국제 공개 데이터 공유 요건을 충족하는 표준화된 제출 플랫폼 제공
+**Why this system is needed**
+- GEO is designed as a tertiary central data distribution hub that complements rather than replaces individual gene expression databases
+- A flexible and open design that allows heterogeneous datasets from gene expression and genomic hybridization experiments to be submitted, stored, and retrieved
+- Provides a standardized submission platform that meets international public data sharing requirements
 
-#### 🔨 시스템 구성
-GEO의 세 가지 핵심 데이터 엔티티: (1) **플랫폼(Platform)** — 어떤 분자 집합을 검출할 수 있는지 정의하는 프로브 목록, (2) **샘플(Sample)** — 측정 대상 분자 집합을 기술하고 단일 플랫폼을 참조하는 분자 풍도 데이터, (3) **시리즈(Series)** — 실험을 구성하는 의미 있는 데이터셋으로 샘플들을 조직화. GEO는 http://www.ncbi.nlm.nih.gov/geo를 통해 공개 접근 가능하다.
+#### 🔨 Architecture
+GEO's three core data entities: (1) **Platform** — a probe list defining which set of molecules can be detected, (2) **Sample** — molecular abundance data describing the set of molecules being measured and referencing a single Platform, (3) **Series** — meaningful datasets that constitute an experiment, organizing Samples. GEO is publicly accessible through http://www.ncbi.nlm.nih.gov/geo.
 
-#### 📥 데이터 접근 방법
-| 방법 | 설명 |
+#### 📥 Access
+| Method | Description |
 |---|---|
-| 웹 인터페이스 | http://www.ncbi.nlm.nih.gov/geo — 무료 브라우저 검색 |
-| SOFT 형식 다운로드 | 플랫폼·샘플·시리즈 데이터 다운로드 |
+| Web interface | http://www.ncbi.nlm.nih.gov/geo — free browser search |
+| SOFT format download | Download of Platform, Sample, and Series data |
 
-#### 📤 제공 데이터 형식
-- SOFT (Simple Omnibus Format in Text) 형식
-- 플랫폼 정의 파일
-- 샘플 분자 풍도 데이터
-- 시리즈 메타데이터
+#### 📤 Data formats
+- SOFT (Simple Omnibus Format in Text) format
+- Platform definition files
+- Sample molecular abundance data
+- Series metadata
 
-#### 📊 주요 통계 (논문 기준)
-| 항목 | 수치 |
+#### 📊 Key statistics (per paper)
+| Item | Value |
 |---|---|
-| 핵심 데이터 엔티티 | **3개** (Platform, Sample, Series) |
-| 설립 기관 | NCBI, NLM, NIH |
-| 접근 방식 | 공개 웹 (무료) |
+| Core data entities | **3** (Platform, Sample, Series) |
+| Founding institutions | NCBI, NLM, NIH |
+| Access method | Public web (free) |
 
-#### ⚠️ 한계점
-- GEO는 분석 특화 인하우스 데이터베이스를 대체하지 않고 보완하는 중앙 허브로 설계되어 직접 분석 기능이 제한적이다
-- 이종 데이터셋 간 표준화(정규화)가 제출자에 따라 달라 직접 비교에 주의가 필요하다
-- 2002년 창립 논문으로 초기 수록 데이터셋 수가 현재에 비해 매우 적었다
+#### ⚠️ Limitations
+- GEO is designed as a central hub that complements rather than replaces analysis-specialized in-house databases, so its direct analysis capabilities are limited
+- Standardization (normalization) across heterogeneous datasets varies by submitter, so care is needed for direct comparison
+- As a 2002 founding paper, the number of datasets initially included was very small compared to the present
 
-## 관련 정보
-- **논문**: [Gene Expression Omnibus: NCBI gene expression and hybridization array data repository](https://doi.org/10.1093/nar/30.1.207)
+## Related links
+- **Paper**: [Gene Expression Omnibus: NCBI gene expression and hybridization array data repository](https://doi.org/10.1093/nar/30.1.207)

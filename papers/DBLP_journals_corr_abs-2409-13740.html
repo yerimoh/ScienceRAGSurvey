@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Language Agents Achieve Superhuman Synthesis of Scientific Knowledge — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Language Agents Achieve Superhuman Synthesis of Scientific Knowledge, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,86 +117,86 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#연구-배경-및-동기">연구 배경 및 동기</a></li><li class="toc-l2"><a href="#시스템-아키텍처">시스템 아키텍처</a></li><li class="toc-l2"><a href="#핵심-모듈-상세-설명">핵심 모듈 상세 설명</a></li><li class="toc-l3"><a href="#rcs-reranking-amp-contextual-summarization">RCS (Reranking &amp;amp; Contextual Summarization)</a></li><li class="toc-l3"><a href="#citation-traversal-tool">Citation Traversal Tool</a></li><li class="toc-l3"><a href="#도구db-연동-테이블">도구·DB 연동 테이블</a></li><li class="toc-l2"><a href="#litqa2-벤치마크-상세-이-논문이-제작한-closed-form-qa-benchmark">LitQA2 벤치마크 상세 (이 논문이 제작한 closed-form QA benchmark)</a></li><li class="toc-l3"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l3"><a href="#실제-litqa2-문항-형식-논문-figure-2a-본문-발췌">실제 LitQA2 문항 형식 (논문 Figure 2A 본문 발췌)</a></li><li class="toc-l3"><a href="#주요-평가-결과-논문-본문-table-figure-2b-직접-인용">주요 평가 결과 (논문 본문 Table + Figure 2B 직접 인용)</a></li><li class="toc-l3"><a href="#litqa2의-의의">LitQA2의 의의</a></li><li class="toc-l2"><a href="#실험-및-평가">실험 및 평가</a></li><li class="toc-l3"><a href="#평가-태스크-및-데이터셋">평가 태스크 및 데이터셋</a></li><li class="toc-l3"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#핵심-기여">핵심 기여</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-연구-및-관련-정보">관련 연구 및 관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#background-and-motivation">Background and Motivation</a></li><li class="toc-l2"><a href="#architecture">Architecture</a></li><li class="toc-l2"><a href="#key-module-details">Key Module Details</a></li><li class="toc-l3"><a href="#rcs-reranking-amp-contextual-summarization">RCS (Reranking &amp;amp; Contextual Summarization)</a></li><li class="toc-l3"><a href="#citation-traversal-tool">Citation Traversal Tool</a></li><li class="toc-l3"><a href="#tool-db-integration-table">Tool / DB Integration Table</a></li><li class="toc-l2"><a href="#litqa2-benchmark-details-the-closed-form-qa-benchmark-built-by-this-paper">LitQA2 Benchmark Details (the closed-form QA benchmark built by this paper)</a></li><li class="toc-l3"><a href="#construction-methodology">Construction Methodology</a></li><li class="toc-l3"><a href="#actual-litqa2-question-format-excerpt-from-the-papers-figure-2a-body">Actual LitQA2 Question Format (excerpt from the paper&#x27;s Figure 2A body)</a></li><li class="toc-l3"><a href="#key-evaluation-results-directly-quoted-from-the-papers-body-table-figure-2b">Key Evaluation Results (directly quoted from the paper&#x27;s body Table + Figure 2B)</a></li><li class="toc-l3"><a href="#significance-of-litqa2">Significance of LitQA2</a></li><li class="toc-l2"><a href="#experiments-and-evaluation">Experiments and Evaluation</a></li><li class="toc-l3"><a href="#evaluation-tasks-and-datasets">Evaluation Tasks and Datasets</a></li><li class="toc-l3"><a href="#key-results">Key Results</a></li><li class="toc-l2"><a href="#key-contributions">Key Contributions</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-work-and-related-links">Related Work and Related Links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>Language Agents Achieve Superhuman Synthesis of Scientific Knowledge</h1>
 <blockquote>
 <p>arXiv | 2024 | Method | bio</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>PaperQA2는 과학 문헌 검색·요약·모순탐지 세 가지 실제 태스크에서 제한 없는 인간 전문가(PhD/박사과정)를 초과하는 성능을 달성한 최초의 RAG 에이전트 시스템이다.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>PaperQA2 is the first RAG agent system to achieve performance exceeding unrestricted human experts (PhDs / PhD students) across three real-world tasks: scientific literature search, summarization, and contradiction detection.</p>
 <hr />
-<h2 id="연구-배경-및-동기">연구 배경 및 동기</h2>
-<p><strong>기존 방법의 한계</strong></p>
+<h2 id="background-and-motivation">Background and Motivation</h2>
+<p><strong>Limitations of existing methods</strong></p>
 <ul>
-<li>LLM은 hallucination(잘못된 정보를 자신 있게 생성) 문제가 있어 과학적 정확성 요구 충족 어려움</li>
-<li>기존 과학문헌 벤치마크(PubMedQA, BioASQ 등)는 초록만 사용하거나 고정 코퍼스를 사용해 실제 연구 환경을 반영하지 못함</li>
-<li>기존 벤치마크 대부분이 인간 성능과 직접 비교하지 않아 실용적 가치 불분명</li>
-<li>단순 RAG(Perplexity, Elicit 등)는 검색 청크를 변환 없이 컨텍스트에 주입하여 distracting context 문제 발생</li>
+<li>LLMs suffer from hallucination (confidently generating incorrect information), making it hard to meet the demands of scientific accuracy</li>
+<li>Existing scientific-literature benchmarks (PubMedQA, BioASQ, etc.) use only abstracts or fixed corpora, failing to reflect real research settings</li>
+<li>Most existing benchmarks do not compare directly against human performance, leaving their practical value unclear</li>
+<li>Simple RAG (Perplexity, Elicit, etc.) injects retrieved chunks into the context without transformation, causing a distracting-context problem</li>
 </ul>
-<p><strong>이 연구가 필요한 이유</strong></p>
+<p><strong>Why this research is needed</strong></p>
 <ul>
-<li>과학 연구에서 문헌 검색·요약·모순탐지를 자동화하면 연구자 생산성 획기적 향상 가능</li>
-<li>문헌 폭증으로 인간이 전체 문헌을 일일이 확인하는 것이 불가능해져 AI 기반 자동 탐지 시스템 필요</li>
-<li>특히 모순 탐지는 &quot;many vs many&quot; 문제로 인간에게 실현 불가능한 규모에서 동작 가능</li>
+<li>Automating literature search, summarization, and contradiction detection in scientific research can dramatically improve researcher productivity</li>
+<li>With the explosion of literature, it has become impossible for humans to check the entire body of work one by one, creating a need for AI-based automated detection systems</li>
+<li>In particular, contradiction detection is a &quot;many vs many&quot; problem that can operate at a scale infeasible for humans</li>
 </ul>
 <hr />
-<h2 id="시스템-아키텍처">시스템 아키텍처</h2>
-<pre><code>[사용자 쿼리]
+<h2 id="architecture">Architecture</h2>
+<pre><code>[User query]
      ↓
-[PaperQA2 Agent (GPT-4-Turbo, ReAct 패턴)]
+[PaperQA2 Agent (GPT-4-Turbo, ReAct pattern)]
      ├── Paper Search Tool
-     │     키워드+연도범위 생성 → Semantic Scholar API 검색
-     │     → Grobid/PyMuPDF 파싱 → Hybrid 임베딩 (dense+sparse)
-     │     → 청크 저장 (agent state)
+     │     Generate keywords + year range → search Semantic Scholar API
+     │     → Grobid/PyMuPDF parsing → Hybrid embedding (dense+sparse)
+     │     → store chunks (agent state)
      │
      ├── Citation Traversal Tool  ← NEW
-     │     RCS 점수 ≥ 8인 논문의 인용/피인용 1hop 탐색
-     │     → overlap fraction 필터링 → 최대 12편 추가
+     │     Traverse 1-hop citations/references of papers with RCS score ≥ 8
+     │     → overlap fraction filtering → add up to 12 papers
      │
      ├── Gather Evidence Tool
-     │     top-k (기본 30) cosine 유사도 검색
-     │     → RCS: 각 청크에 LLM completion
-     │         → 요약(200~400토큰) + 관련성점수(0~10)
-     │     → 점수 기반 재순위화 → 상위 summaries 저장
+     │     top-k (default 30) cosine-similarity search
+     │     → RCS: LLM completion on each chunk
+     │         → summary (200~400 tokens) + relevance score (0~10)
+     │     → score-based reranking → store top summaries
      │
      └── Generate Answer Tool
-           상위 N개(기본 15) summaries → LLM 최종 답변 생성
-           → cited Wikipedia-style 답변 출력
+           Top N (default 15) summaries → LLM final answer generation
+           → output cited Wikipedia-style answer
 </code></pre>
-<p><strong>WikiCrow</strong> (요약 특화): 유전자명 → 구조/기능/상호작용/임상의의 각 섹션별 PaperQA2 호출 4회 + overview LLM 1회 → Python으로 합성</p>
-<p><strong>ContraCrow</strong> (모순탐지 특화): 논문 청크 분할 → LLM 클레임 추출 → 품질 필터링(≥8/10) → PaperQA2로 각 클레임에 모순탐지 쿼리 → 11점 Likert 스코어 출력</p>
+<p><strong>WikiCrow</strong> (summarization-specialized): gene name → 4 PaperQA2 calls for each of the structure/function/interaction/clinical-significance sections + 1 overview LLM → synthesized with Python</p>
+<p><strong>ContraCrow</strong> (contradiction-detection-specialized): split paper into chunks → LLM claim extraction → quality filtering (≥8/10) → contradiction-detection query on each claim via PaperQA2 → output 11-point Likert score</p>
 <hr />
-<h2 id="핵심-모듈-상세-설명">핵심 모듈 상세 설명</h2>
+<h2 id="key-module-details">Key Module Details</h2>
 <h3 id="rcs-reranking-amp-contextual-summarization">RCS (Reranking &amp; Contextual Summarization)</h3>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>내용</th>
+  <th>Item</th>
+  <th>Content</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>입력</td>
-  <td>top-k 청크 (기본 30개)</td>
+  <td>Input</td>
+  <td>top-k chunks (default 30)</td>
 </tr>
 <tr>
-  <td>처리</td>
-  <td>각 청크에 LLM completion: 요약 + 관련성점수(0~10) JSON 출력</td>
+  <td>Processing</td>
+  <td>LLM completion on each chunk: JSON output of summary + relevance score (0~10)</td>
 </tr>
 <tr>
-  <td>출력</td>
-  <td>점수순 재정렬된 contextual summaries</td>
+  <td>Output</td>
+  <td>contextual summaries reordered by score</td>
 </tr>
 <tr>
-  <td>특징</td>
-  <td>병렬 처리로 고효율; 소스 메타데이터(인용수·저널명) 포함 주입</td>
+  <td>Characteristics</td>
+  <td>high efficiency via parallel processing; injects source metadata (citation count, journal name)</td>
 </tr>
 <tr>
-  <td>효과</td>
-  <td>No RCS 대비 accuracy 유의미하게 향상 (t=9.29, p&lt;0.001)</td>
+  <td>Effect</td>
+  <td>significantly improves accuracy vs. No RCS (t=9.29, p&lt;0.001)</td>
 </tr>
 </tbody>
 </table>
@@ -204,122 +204,122 @@
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>내용</th>
+  <th>Item</th>
+  <th>Content</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>기원</td>
-  <td>RCS 점수 ≥ 8 논문에서 출발</td>
+  <td>Origin</td>
+  <td>starts from papers with RCS score ≥ 8</td>
 </tr>
 <tr>
-  <td>방향</td>
-  <td>전방(future citers) + 후방(past references) 모두</td>
+  <td>Direction</td>
+  <td>both forward (future citers) and backward (past references)</td>
 </tr>
 <tr>
   <td>API</td>
   <td>Semantic Scholar + Crossref</td>
 </tr>
 <tr>
-  <td>필터</td>
-  <td>overlap fraction α=1/3: 여러 소스논문이 공통 인용하는 논문만 유지</td>
+  <td>Filter</td>
+  <td>overlap fraction α=1/3: keep only papers commonly cited by multiple source papers</td>
 </tr>
 <tr>
-  <td>한도</td>
-  <td>최대 12편/호출</td>
+  <td>Limit</td>
+  <td>up to 12 papers per call</td>
 </tr>
 <tr>
-  <td>효과</td>
-  <td>DOI recall 유의미하게 향상 (t=3.4, p=0.022)</td>
+  <td>Effect</td>
+  <td>significantly improves DOI recall (t=3.4, p=0.022)</td>
 </tr>
 </tbody>
 </table>
-<h3 id="도구db-연동-테이블">도구·DB 연동 테이블</h3>
+<h3 id="tool-db-integration-table">Tool / DB Integration Table</h3>
 <table>
 <thead>
 <tr>
-  <th>도구</th>
-  <th>역할</th>
-  <th>비고</th>
+  <th>Tool</th>
+  <th>Role</th>
+  <th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>Semantic Scholar API</td>
-  <td>논문 검색 및 인용 탐색</td>
-  <td>기본 12편/검색</td>
+  <td>Paper search and citation traversal</td>
+  <td>default 12 papers/search</td>
 </tr>
 <tr>
   <td>Crossref API</td>
-  <td>과거 참고문헌 탐색</td>
-  <td>Semantic Scholar 보완</td>
+  <td>Traversal of past references</td>
+  <td>complements Semantic Scholar</td>
 </tr>
 <tr>
   <td>Grobid</td>
-  <td>섹션·표·인용 파싱</td>
-  <td>WikiCrow에 필수; 토큰 44% 절감</td>
+  <td>Section/table/citation parsing</td>
+  <td>essential for WikiCrow; 44% token savings</td>
 </tr>
 <tr>
   <td>PyMuPDF</td>
-  <td>기본 PDF 파싱</td>
-  <td>LitQA2 실험 기본값</td>
+  <td>Default PDF parsing</td>
+  <td>default for LitQA2 experiments</td>
 </tr>
 <tr>
   <td>OpenAI Embeddings</td>
-  <td>임베딩 생성</td>
+  <td>Embedding generation</td>
   <td>text-embedding-3-large</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="litqa2-벤치마크-상세-이-논문이-제작한-closed-form-qa-benchmark">LitQA2 벤치마크 상세 (이 논문이 제작한 closed-form QA benchmark)</h2>
-<p>본 논문은 system(PaperQA2)과 함께 <strong>LitQA2</strong> 벤치마크를 제안. LitQA (PaperQA 원전, 47문항)의 확장판으로, <strong>248개 객관식(MCQ) 생의학 질문</strong>으로 구성. 답은 논문 <strong>본문에만</strong> 등장하고 초록에는 없는 사실에 기반.</p>
-<h3 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h3>
-<pre><code>Step 1 — 소스 논문 선정 원칙 (논문 §LitQA2 본문 인용)
+<h2 id="litqa2-benchmark-details-the-closed-form-qa-benchmark-built-by-this-paper">LitQA2 Benchmark Details (the closed-form QA benchmark built by this paper)</h2>
+<p>Along with the system (PaperQA2), this paper proposes the <strong>LitQA2</strong> benchmark. It is an extension of LitQA (the original PaperQA one, 47 questions), consisting of <strong>248 multiple-choice (MCQ) biomedical questions</strong>. The answers are based on facts that appear <strong>only in the main body</strong> of a paper and not in the abstract.</p>
+<h3 id="construction-methodology">Construction Methodology</h3>
+<pre><code>Step 1 — Source-paper selection principle (quoted from the paper's §LitQA2 body)
   &quot;LitQA2 questions are designed to have answers that appear in
    the main body of a paper, but not in the abstract, and ideally
    appear only once in the set of all scientific literature.&quot;
-  → 학습 데이터 cut-off 이후 발표 논문 + 본문 검색이 필요한 사실 위주
+  → papers published after the training-data cut-off + facts that require main-body search
 
-Step 2 — 단계적 release (논문 §8.4 본문 인용)
+Step 2 — Staged release (quoted from the paper's §8.4 body)
   &quot;LitQA2 was built up from LitQA (47 questions) in two stages
    of releases, first 100 questions (147), then an additional 101
    questions, adding to the original subset to make 248 total
    questions.&quot;
-  ┌──────────────────────────┬──────┐
-  │ Stage                    │ 누적 │
-  ├──────────────────────────┼──────┤
-  │ Original LitQA           │   47 │
-  │ + Stage 1 (development)  │  147 │
-  │ + Stage 2 (held-out new) │  248 │
-  └──────────────────────────┴──────┘
-  Stage 2는 PaperQA2 engineering 변경 이후 새로 작성되어,
-  PaperQA2가 LitQA2에 overfit 안 되었음을 검증.
+  ┌──────────────────────────┬────────────┐
+  │ Stage                    │ Cumulative │
+  ├──────────────────────────┼────────────┤
+  │ Original LitQA           │         47 │
+  │ + Stage 1 (development)  │        147 │
+  │ + Stage 2 (held-out new) │        248 │
+  └──────────────────────────┴────────────┘
+  Stage 2 was newly written after the PaperQA2 engineering changes,
+  verifying that PaperQA2 did not overfit to LitQA2.
 
-Step 3 — 평가 metric (논문 §LitQA2 metric 정의)
-  · Accuracy = CorrectAll / All       (전체 정답 비율)
+Step 3 — Evaluation metrics (defined in the paper's §LitQA2 metric)
+  · Accuracy = CorrectAll / All       (fraction of all questions answered correctly)
   · Precision = CorrectSure / AnsweredSure
-    (답한 것 중 정답 비율; &quot;Insufficient information&quot; 옵션 활용)
-  Insufficient-information 옵션이 있어 모름을 인정 가능 → precision/accuracy 분리
+    (fraction correct among those answered; leverages the &quot;Insufficient information&quot; option)
+  The presence of the Insufficient-information option allows admitting ignorance → separates precision/accuracy
 
-Step 4 — 자동 평가 파이프라인 (논문 §8.2 본문 인용)
+Step 4 — Automatic evaluation pipeline (quoted from the paper's §8.2 body)
   &quot;LitQA2 was automatically evaluated using an evaluation LLM call
    (GPT-4-0613), which extracted the letter answer from PaperQA2's
    output.&quot;
-  → 추출된 letter answer를 ideal answer와 매칭, &quot;Insufficient information&quot;
-    선택 시 별도 처리 (null 정답에 대해서는 Correct로 채점)
+  → match the extracted letter answer against the ideal answer; when &quot;Insufficient information&quot;
+    is chosen, handle separately (scored as Correct for null answers)
 </code></pre>
-<h3 id="실제-litqa2-문항-형식-논문-figure-2a-본문-발췌">실제 LitQA2 문항 형식 (논문 Figure 2A 본문 발췌)</h3>
+<h3 id="actual-litqa2-question-format-excerpt-from-the-papers-figure-2a-body">Actual LitQA2 Question Format (excerpt from the paper's Figure 2A body)</h3>
 <blockquote>
 <p>&quot;LitQA2 questions are MCQ with the option to refuse via 'Insufficient information to answer this question'. Each question has a single correct option, multiple incorrect distractors, and metadata indicating the source DOI.&quot;</p>
 </blockquote>
-<p>LitQA2 question은 답이 논문의 <strong>단 한 곳</strong>에만 등장하도록 설계되어, 모델이 단순 키워드 매칭이 아닌 정확한 retrieval+reasoning을 수행해야 함.</p>
-<h3 id="주요-평가-결과-논문-본문-table-figure-2b-직접-인용">주요 평가 결과 (논문 본문 Table + Figure 2B 직접 인용)</h3>
+<p>LitQA2 questions are designed so that the answer appears in only <strong>a single place</strong> in the paper, so the model must perform accurate retrieval + reasoning rather than simple keyword matching.</p>
+<h3 id="key-evaluation-results-directly-quoted-from-the-papers-body-table-figure-2b">Key Evaluation Results (directly quoted from the paper's body Table + Figure 2B)</h3>
 <table>
 <thead>
 <tr>
-  <th>시스템</th>
+  <th>System</th>
   <th>LitQA2 Precision</th>
   <th>LitQA2 Accuracy</th>
 </tr>
@@ -331,7 +331,7 @@ Step 4 — 자동 평가 파이프라인 (논문 §8.2 본문 인용)
   <td><strong>66.0% ± 1.2%</strong></td>
 </tr>
 <tr>
-  <td>Human expert (PhD/박사과정, 9명)</td>
+  <td>Human expert (PhD/PhD students, 9 people)</td>
   <td>73.8% ± 9.6%</td>
   <td>67.7% ± 11.9%</td>
 </tr>
@@ -346,73 +346,73 @@ Step 4 — 자동 평가 파이프라인 (논문 §8.2 본문 인용)
   <td>–</td>
 </tr>
 <tr>
-  <td>GPT-4-Turbo (RAG 없음)</td>
+  <td>GPT-4-Turbo (no RAG)</td>
   <td>43.6%</td>
   <td>–</td>
 </tr>
 <tr>
-  <td>Claude-Opus (RAG 없음)</td>
+  <td>Claude-Opus (no RAG)</td>
   <td>23.6%</td>
   <td>–</td>
 </tr>
 <tr>
-  <td>PaperQA (구버전)</td>
+  <td>PaperQA (old version)</td>
   <td>76.5%</td>
   <td>36.7%</td>
 </tr>
 </tbody>
 </table>
-<p><strong>핵심 발견 (논문 §본문 인용)</strong></p>
+<p><strong>Key findings (quoted from the paper's body)</strong></p>
 <ul>
-<li>PaperQA2 precision <strong>인간 전문가 초과</strong>: t(8.6)=3.49, p=0.0036 (통계적 유의)</li>
+<li>PaperQA2 precision <strong>exceeds human experts</strong>: t(8.6)=3.49, p=0.0036 (statistically significant)</li>
 <li>&quot;PaperQA2 outperforms other RAG systems on the LitQA2 benchmark in both precision and accuracy&quot;</li>
-<li>Stage 1(147) vs Stage 2(101) 결과 차이 없음 → overfit 없음</li>
+<li>No difference between Stage 1 (147) vs Stage 2 (101) results → no overfitting</li>
 </ul>
-<h3 id="litqa2의-의의">LitQA2의 의의</h3>
-<p>LitQA2는 closed-form benchmark이지만 RAG 시스템의 <strong>전체 파이프라인</strong>(검색 → 본문 발췌 → 추론 → 답변)을 한 번에 평가할 수 있도록 설계됨:</p>
+<h3 id="significance-of-litqa2">Significance of LitQA2</h3>
+<p>LitQA2 is a closed-form benchmark, yet it is designed to evaluate the <strong>entire pipeline</strong> of a RAG system (search → main-body extraction → reasoning → answering) at once:</p>
 <ul>
-<li>답이 abstract에 없음 → retrieval이 전체 본문을 다뤄야 함</li>
-<li>답이 학습 데이터 cut-off 이후 → parametric memory로는 답 불가</li>
-<li>&quot;Insufficient information&quot; 옵션 → 모름을 인정하는 신중함도 평가</li>
+<li>The answer is not in the abstract → retrieval must cover the entire main body</li>
+<li>The answer comes after the training-data cut-off → cannot be answered from parametric memory</li>
+<li>The &quot;Insufficient information&quot; option → also evaluates the prudence of admitting ignorance</li>
 </ul>
 <hr />
-<h2 id="실험-및-평가">실험 및 평가</h2>
-<h3 id="평가-태스크-및-데이터셋">평가 태스크 및 데이터셋</h3>
+<h2 id="experiments-and-evaluation">Experiments and Evaluation</h2>
+<h3 id="evaluation-tasks-and-datasets">Evaluation Tasks and Datasets</h3>
 <table>
 <thead>
 <tr>
-  <th>태스크</th>
-  <th>벤치마크</th>
-  <th>규모</th>
-  <th>비교 대상</th>
+  <th>Task</th>
+  <th>Benchmark</th>
+  <th>Scale</th>
+  <th>Comparison target</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>문헌 QA</td>
-  <td>LitQA2 (자체 제작)</td>
-  <td>248문항 (MCQ)</td>
-  <td>인간 전문가 9명</td>
+  <td>Literature QA</td>
+  <td>LitQA2 (self-built)</td>
+  <td>248 questions (MCQ)</td>
+  <td>9 human experts</td>
 </tr>
 <tr>
-  <td>과학 요약</td>
+  <td>Scientific summarization</td>
   <td>WikiCrow vs Wikipedia</td>
-  <td>240 유전자 기사, 375 문장 평가</td>
-  <td>인간 작성 Wikipedia</td>
+  <td>240 gene articles, 375 sentences evaluated</td>
+  <td>human-written Wikipedia</td>
 </tr>
 <tr>
-  <td>모순 탐지</td>
-  <td>ContraDetect (자체 제작)</td>
-  <td>93 생물학 논문, 3,180 클레임</td>
-  <td>전문가 5명 검증</td>
+  <td>Contradiction detection</td>
+  <td>ContraDetect (self-built)</td>
+  <td>93 biology papers, 3,180 claims</td>
+  <td>verified by 5 experts</td>
 </tr>
 </tbody>
 </table>
-<h3 id="주요-결과">주요 결과</h3>
+<h3 id="key-results">Key Results</h3>
 <table>
 <thead>
 <tr>
-  <th>시스템</th>
+  <th>System</th>
   <th>Precision</th>
 </tr>
 </thead>
@@ -422,7 +422,7 @@ Step 4 — 자동 평가 파이프라인 (논문 §8.2 본문 인용)
   <td><strong>85.2%</strong></td>
 </tr>
 <tr>
-  <td>인간 전문가</td>
+  <td>Human experts</td>
   <td>73.8%</td>
 </tr>
 <tr>
@@ -430,11 +430,11 @@ Step 4 — 자동 평가 파이프라인 (논문 §8.2 본문 인용)
   <td>69.7%</td>
 </tr>
 <tr>
-  <td>GPT-4-Turbo (직접)</td>
+  <td>GPT-4-Turbo (direct)</td>
   <td>43.6%</td>
 </tr>
 <tr>
-  <td>Claude-Opus (직접)</td>
+  <td>Claude-Opus (direct)</td>
   <td>23.6%</td>
 </tr>
 </tbody>
@@ -442,8 +442,8 @@ Step 4 — 자동 평가 파이프라인 (논문 §8.2 본문 인용)
 <table>
 <thead>
 <tr>
-  <th>시스템</th>
-  <th>Precision (인용·지지 비율)</th>
+  <th>System</th>
+  <th>Precision (cited/supported fraction)</th>
 </tr>
 </thead>
 <tbody>
@@ -460,22 +460,22 @@ Step 4 — 자동 평가 파이프라인 (논문 §8.2 본문 인용)
 <table>
 <thead>
 <tr>
-  <th>지표</th>
-  <th>수치</th>
+  <th>Metric</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>논문당 평균 클레임 수</td>
+  <td>Average number of claims per paper</td>
   <td>35.16 ± 21.72</td>
 </tr>
 <tr>
-  <td>논문당 탐지 모순 수</td>
+  <td>Number of contradictions detected per paper</td>
   <td>2.34 ± 1.99</td>
 </tr>
 <tr>
-  <td>전문가 검증 모순 수</td>
-  <td>1.64/논문 (하한)</td>
+  <td>Number of expert-verified contradictions</td>
+  <td>1.64/paper (lower bound)</td>
 </tr>
 <tr>
   <td>ContraDetect AUC</td>
@@ -488,32 +488,32 @@ Step 4 — 자동 평가 파이프라인 (논문 §8.2 본문 인용)
 </tbody>
 </table>
 <hr />
-<h2 id="핵심-기여">핵심 기여</h2>
+<h2 id="key-contributions">Key Contributions</h2>
 <ul>
-<li><strong>인간 초과 성능 최초 달성</strong>: 제한 없는 인간 전문가 대비 LitQA2 precision 유의미하게 초과 (p=0.0036)</li>
-<li><strong>RCS 기법</strong>: top-k 검색 후 LLM으로 각 청크를 요약+점수화하여 노이즈 청크 제거 → precision 대폭 향상</li>
-<li><strong>Citation Traversal 도구</strong>: 인용 그래프를 계층적 인덱싱으로 활용 → recall 유의미하게 향상</li>
-<li><strong>WikiCrow</strong>: 인간 작성 Wikipedia보다 정확한 유전자 기사 자동 생성 (reasoning error 12 vs 26개)</li>
-<li><strong>ContraCrow</strong>: 생물학 문헌에서 논문당 평균 1.64개의 검증 가능 모순 자동 탐지</li>
-<li><strong>엄격한 인간 비교 방법론</strong>: 인터넷·도구 완전 허용 상태의 PhD 전문가와 동일 조건 비교</li>
+<li><strong>First achievement of superhuman performance</strong>: LitQA2 precision significantly exceeds unrestricted human experts (p=0.0036)</li>
+<li><strong>RCS technique</strong>: after top-k retrieval, use an LLM to summarize + score each chunk to remove noisy chunks → substantial precision improvement</li>
+<li><strong>Citation Traversal tool</strong>: leverages the citation graph via hierarchical indexing → significant recall improvement</li>
+<li><strong>WikiCrow</strong>: automatically generates gene articles more accurate than human-written Wikipedia (reasoning errors 12 vs 26)</li>
+<li><strong>ContraCrow</strong>: automatically detects an average of 1.64 verifiable contradictions per paper in biology literature</li>
+<li><strong>Rigorous human-comparison methodology</strong>: comparison under identical conditions with PhD experts given full access to the internet and tools</li>
 </ul>
 <hr />
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li><strong>폐쇄 접근 논문 누락</strong>: 라이선스 제약으로 오픈액세스 논문만 사용 가능 → 중요 결과 누락 가능성</li>
-<li><strong>ContraCrow 오버컨피던스</strong>: 인간 간 일치율 75.5% vs ContraCrow-인간 일치율 60.4% → 과도한 확신 경향</li>
-<li><strong>비용</strong>: 쿼리당 $1~3, WikiCrow 기사당 $4.48 → 대규모 배포 시 비용 부담</li>
-<li><strong>소형 모델 성능 저하</strong>: RCS에 Llama3-70B, GPT-3.5-Turbo 사용 시 accuracy 오히려 감소 → 고성능 LLM 의존</li>
-<li><strong>추상적 추론 한계</strong>: LLM 자체의 추론 오류(hallucination) 여전히 존재 (WikiCrow reasoning issue 12개)</li>
+<li><strong>Omission of closed-access papers</strong>: due to licensing constraints, only open-access papers can be used → possibility of missing important results</li>
+<li><strong>ContraCrow overconfidence</strong>: human-human agreement 75.5% vs ContraCrow-human agreement 60.4% → tendency toward excessive confidence</li>
+<li><strong>Cost</strong>: $1~3 per query, $4.48 per WikiCrow article → cost burden at large-scale deployment</li>
+<li><strong>Degraded performance with small models</strong>: using Llama3-70B or GPT-3.5-Turbo for RCS actually reduces accuracy → dependence on high-performance LLMs</li>
+<li><strong>Limits of abstract reasoning</strong>: the LLM's own reasoning errors (hallucination) still exist (12 WikiCrow reasoning issues)</li>
 </ul>
 <hr />
-<h2 id="관련-연구-및-관련-정보">관련 연구 및 관련 정보</h2>
+<h2 id="related-work-and-related-links">Related Work and Related Links</h2>
 <ul>
-<li><strong>원 논문</strong>: <a href="https://arxiv.org/abs/2409.13740">https://arxiv.org/abs/2409.13740</a></li>
-<li><strong>GitHub</strong>: <a href="https://github.com/Future-House/paper-qa">https://github.com/Future-House/paper-qa</a> (paperqa 오픈소스)</li>
-<li><strong>WikiCrow 생성 기사</strong>: <a href="https://storage.googleapis.com/fh-public/wikicrow2/">https://storage.googleapis.com/fh-public/wikicrow2/</a></li>
-<li><strong>선행 연구</strong>: PaperQA (arXiv 2312.07559), Lab-bench (arXiv 2407.10362)</li>
-<li><strong>이 논문이 제작한 벤치마크</strong>: LitQA2 (248 MCQ), ContraDetect</li>
+<li><strong>Original paper</strong>: <a href="https://arxiv.org/abs/2409.13740">https://arxiv.org/abs/2409.13740</a></li>
+<li><strong>GitHub</strong>: <a href="https://github.com/Future-House/paper-qa">https://github.com/Future-House/paper-qa</a> (paperqa open source)</li>
+<li><strong>WikiCrow generated articles</strong>: <a href="https://storage.googleapis.com/fh-public/wikicrow2/">https://storage.googleapis.com/fh-public/wikicrow2/</a></li>
+<li><strong>Prior work</strong>: PaperQA (arXiv 2312.07559), Lab-bench (arXiv 2407.10362)</li>
+<li><strong>Benchmarks built by this paper</strong>: LitQA2 (248 MCQ), ContraDetect</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/corr/abs-2409-13740)</a></p>
@@ -551,14 +551,14 @@ Step 4 — 자동 평가 파이프라인 (논문 §8.2 본문 인용)
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

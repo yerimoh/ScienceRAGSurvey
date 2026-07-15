@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SCIFACT-OPEN: Towards open-domain scientific claim verification — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>SCIFACT-OPEN: Towards open-domain scientific claim verification, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,132 +117,132 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">📌 한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">🎯 제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">🔨 어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#input-입력">📥 Input (입력)</a></li><li class="toc-l2"><a href="#output-출력-정답-형식">📤 Output (출력 / 정답 형식)</a></li><li class="toc-l2"><a href="#예시-문항">💡 예시 문항</a></li><li class="toc-l2"><a href="#주요-평가-결과">📊 주요 평가 결과</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">📌 TL;DR</a></li><li class="toc-l2"><a href="#background">🎯 Background</a></li><li class="toc-l2"><a href="#how-it-was-built-construction-methodology">🔨 How It Was Built (Construction Methodology)</a></li><li class="toc-l2"><a href="#input">📥 Input</a></li><li class="toc-l2"><a href="#output-answer-format">📤 Output (Answer format)</a></li><li class="toc-l2"><a href="#example-items">💡 Example Items</a></li><li class="toc-l2"><a href="#key-evaluation-results">📊 Key Evaluation Results</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>SCIFACT-OPEN: Towards open-domain scientific claim verification</h1>
 <ul>
-<li>기존 과학적 주장 검증 시스템들은 소규모의 인위적인 문서 집합(약 5K 규모)이나 단일 문서 환경에서만 평가되어, 실제 오픈 도메인 환경에서의 확장성 검증이 불가능함.</li>
-<li>대규모 코퍼스를 사용할 경우 모든 증거 문서에 대해 철저한 수동 주석(exhaustive annotation)을 진행하는 것이 물리적으로 불가능하므로 이를 해결할 수 있는 새로운 벤치마크가 필요.</li>
+<li>Existing scientific claim verification systems have only been evaluated on small, artificial document sets (around 5K in scale) or in single-document settings, making it impossible to verify their scalability in real open-domain environments.</li>
+<li>When using a large-scale corpus, exhaustive manual annotation of all evidence documents is physically impossible, so a new benchmark that can address this is needed.</li>
 </ul>
 <blockquote>
 <p>arXiv | 2022 | benchmark | medical, bio</p>
-<h2 id="한-줄-요약">📌 한 줄 요약</h2>
-<p>50만 개의 연구 초록 코퍼스에 대해 과학적 주장 검증 시스템을 평가하기 위한 대규모 오픈 도메인 테스트 콜렉션.</p>
-<h2 id="제작-배경">🎯 제작 배경</h2>
-<p><strong>기존 벤치마크의 한계</strong></p>
+<h2 id="tldr">📌 TL;DR</h2>
+<p>A large-scale open-domain test collection for evaluating scientific claim verification systems against a corpus of 500K research abstracts.</p>
+<h2 id="background">🎯 Background</h2>
+<p><strong>Limitations of existing benchmarks</strong></p>
 </blockquote>
-<h2 id="어떻게-만들었나-construction-methodology">🔨 어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="how-it-was-built-construction-methodology">🔨 How It Was Built (Construction Methodology)</h2>
 <p>[image]</p>
 <ul>
-<li><strong>Step 1 (코퍼스 출처 선정 및 샘플링)</strong>: S2ORC 데이터셋에서 의학 또는 생물학 필드를 포함하며, 최소 1개의 수신 및 발신 인용이 존재하는 고품질 논문들을 필터링. 650만 개의 후보 중 50만 개를 무작위 샘플링하여 오픈 도메인 코퍼스 구성.</li>
-<li><strong>Step 2 (예측 모델을 통한 풀링(Pooling))</strong>: TREC 대회 방식에서 영감을 받아 풀링 전략 도입. BM25와 VerT5erini 신경망 리랜커를 이용해 클레임당 k=50개의 초록 검색. 이후 VerT5erini, ParagraphJoint, MultiVerS, MultiVerS10 등 최신 4개 시스템의 신뢰도(Confidence) 점수를 기반으로 랜킹 산정.</li>
-<li><strong>Step 3 (주석 풀(Annotation Pool) 생성)</strong>: 각 모델별로 상위 250개(d=250)의 클레임-초록 쌍(CAP) 예측값을 수집하고, 이들의 합집합(Union)으로 최종 주석 풀 생성.</li>
-<li><strong>Step 4 (전문가 품질 검증 및 라벨링)</strong>: 생물학 관련 학위를 가진 3명의 전문 주석자가 풀에 포함된 문서를 검토하여 최종적으로 SUPPORTS, REFUTES, NEI(Not Enough Info) 라벨을 부여.</li>
+<li><strong>Step 1 (Corpus source selection and sampling)</strong>: Filter high-quality papers from the S2ORC dataset that include a medical or biology field and have at least one incoming and outgoing citation. From 6.5M candidates, randomly sample 500K to construct the open-domain corpus.</li>
+<li><strong>Step 2 (Pooling via prediction models)</strong>: Adopt a pooling strategy inspired by the TREC competition approach. Retrieve k=50 abstracts per claim using BM25 and the VerT5erini neural reranker. Then compute rankings based on the confidence scores of four state-of-the-art systems: VerT5erini, ParagraphJoint, MultiVerS, and MultiVerS10.</li>
+<li><strong>Step 3 (Annotation pool creation)</strong>: Collect the top 250 (d=250) claim-abstract pair (CAP) predictions from each model, and create the final annotation pool from their union.</li>
+<li><strong>Step 4 (Expert quality verification and labeling)</strong>: Three expert annotators with degrees in biology review the documents included in the pool and finally assign SUPPORTS, REFUTES, and NEI (Not Enough Info) labels.</li>
 </ul>
-<h2 id="input-입력">📥 Input (입력)</h2>
+<h2 id="input">📥 Input</h2>
 <table header-row="true">
 <tr>
-<td>항목</td>
-<td>내용</td>
+<td>Item</td>
+<td>Content</td>
 </tr>
 <tr>
-<td>입력 쿼리</td>
-<td>과학적 주장(Claim) 문장</td>
-</tr>
-<tr>
-<td>코퍼스</td>
-<td>50만 개 S2ORC 초록</td>
-</tr>
-<tr>
-<td>도메인</td>
-<td>의학 및 생물학</td>
-</tr>
-<tr>
-<td>클레임 수</td>
-<td>279개</td>
-</tr>
-<tr>
-<td>출처</td>
-<td>SCIFACT-ORIG에서 추출한 클레임으로부터 확장</td>
-</tr>
-</table>
-
-<p><strong>제공 필드</strong></p>
-<table header-row="true">
-<tr>
-<td>필드명</td>
-<td>설명</td>
-</tr>
-<tr>
-<td>Claim</td>
-<td>검증할 과학적 주장 문장</td>
+<td>Input query</td>
+<td>Scientific claim sentence</td>
 </tr>
 <tr>
 <td>Corpus</td>
-<td>주장을 검증하기 위해 검색해야 할 50만 개의 전체 초록 문서 세트</td>
+<td>500K S2ORC abstracts</td>
+</tr>
+<tr>
+<td>Domain</td>
+<td>Medical and biology</td>
+</tr>
+<tr>
+<td>Number of claims</td>
+<td>279</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>Extended from claims extracted from SCIFACT-ORIG</td>
 </tr>
 </table>
 
-<h2 id="output-출력-정답-형식">📤 Output (출력 / 정답 형식)</h2>
+<p><strong>Provided fields</strong></p>
 <table header-row="true">
 <tr>
-<td>항목</td>
-<td>내용</td>
+<td>Field name</td>
+<td>Description</td>
 </tr>
 <tr>
-<td>출력 형태</td>
-<td>클레임을 지지(SUPPORTS)하거나 반박(REFUTES)하는 증거 초록 + 라벨</td>
+<td>Claim</td>
+<td>Scientific claim sentence to be verified</td>
 </tr>
 <tr>
-<td>평가 지표</td>
+<td>Corpus</td>
+<td>The full set of 500K abstract documents that must be searched to verify the claim</td>
+</tr>
+</table>
+
+<h2 id="output-answer-format">📤 Output (Answer format)</h2>
+<table header-row="true">
+<tr>
+<td>Item</td>
+<td>Content</td>
+</tr>
+<tr>
+<td>Output form</td>
+<td>Evidence abstracts that support (SUPPORTS) or refute (REFUTES) the claim + label</td>
+</tr>
+<tr>
+<td>Evaluation metrics</td>
 <td>Precision, Recall, F1, Average Precision</td>
 </tr>
 </table>
 
-<p><strong>벤치마크된 모델 목록</strong></p>
+<p><strong>List of benchmarked models</strong></p>
 <table header-row="true">
 <tr>
-<td>모델명</td>
-<td>기반</td>
-<td>설명</td>
+<td>Model name</td>
+<td>Base</td>
+<td>Description</td>
 </tr>
 <tr>
 <td>VerT5erini</td>
 <td>T5-3B</td>
-<td>문장 단위 추출 후 T5 모델로 팩트 체크 파이프라인</td>
+<td>Fact-checking pipeline that extracts at the sentence level and then uses a T5 model</td>
 </tr>
 <tr>
 <td>ParagraphJoint</td>
 <td>RoBERTa</td>
-<td>512 토큰 성성, 전체 단락 동시 인코딩 Multi-task 학습</td>
+<td>512-token composition, multi-task learning that encodes the entire paragraph jointly</td>
 </tr>
 <tr>
 <td>MultiVerS</td>
 <td>Longformer</td>
-<td>긴 문서 문맥 파악을 위해 Longformer 사용</td>
+<td>Uses Longformer to capture long-document context</td>
 </tr>
 <tr>
 <td>ARSJoint</td>
 <td>RoBERTa</td>
-<td>Abstract, Rationale, Stance를 Joint로 예측</td>
+<td>Jointly predicts Abstract, Rationale, and Stance</td>
 </tr>
 </table>
 
-<h2 id="예시-문항">💡 예시 문항</h2>
-<p><strong>Supports 예시</strong></p>
+<h2 id="example-items">💡 Example Items</h2>
+<p><strong>Supports example</strong></p>
 <ul>
-<li><strong>Claim</strong>: 알콘올 소비 이력이 있는 개인은 암 위험이 더 낙다. (Cancer risk is lower in individuals with a history of alcohol consumption)</li>
-<li><strong>Supporting Evidence</strong>: 알콘올 소비는 갑상선암 위험 감소와 관련이 있었다. (Alcohol consumption was associated with a decreased risk of thyroid cancer)
-<strong>Refutes 예시</strong></li>
+<li><strong>Claim</strong>: Cancer risk is lower in individuals with a history of alcohol consumption. (Cancer risk is lower in individuals with a history of alcohol consumption)</li>
+<li><strong>Supporting Evidence</strong>: Alcohol consumption was associated with a decreased risk of thyroid cancer. (Alcohol consumption was associated with a decreased risk of thyroid cancer)
+<strong>Refutes example</strong></li>
 <li><strong>Claim</strong>: (Above same claim)</li>
-<li><strong>Refuting Evidence</strong>: 알콘올 소비 수준이 증가함에 따라 암 위험이 상승하는 것을 발견했다. (We found that the risk of cancer rises with increasing levels of alcohol consumption)</li>
+<li><strong>Refuting Evidence</strong>: We found that the risk of cancer rises with increasing levels of alcohol consumption. (We found that the risk of cancer rises with increasing levels of alcohol consumption)</li>
 </ul>
-<h2 id="주요-평가-결과">📊 주요 평가 결과</h2>
-<p><strong>SCIFACT-OPEN 환경 (F1 Score)</strong></p>
+<h2 id="key-evaluation-results">📊 Key Evaluation Results</h2>
+<p><strong>SCIFACT-OPEN setting (F1 Score)</strong></p>
 <table header-row="true">
 <tr>
-<td>모델</td>
+<td>Model</td>
 <td>F1</td>
 <td>Average Precision</td>
 </tr>
@@ -272,14 +272,14 @@
 <td>-</td>
 </tr>
 </table>
-- SCIFACT-ORIG에서 뛰어난 성능을 보였던 모델들이 오픈 도메인 환경에 적용되자 **F1 점수가 15~30점 하락** — 대규모 코퍼스에 대한 일반화 능력이 매우 부족함을 입증.
-## ⚠️ 한계점
-- 데이터 수집 과정에서 초기 검색(Retrieval) 시 단일 정보 검색 시스템(BM25 + VerT5erini)에만 의존.
-- 전통적인 TREC 대회에 비해 적은 수(4개)의 시스템만을 풀링(Pooling) 과정에 사용하여 미발견된 증거 문서가 코퍼스 내에 남아있을 불확실성 존재.
-## 🔗 관련 정보
-- 논문: [https://arxiv.org/abs/2210.13777](https://arxiv.org/abs/2210.13777)
+- Models that showed excellent performance on SCIFACT-ORIG saw their **F1 scores drop by 15-30 points** when applied to the open-domain setting, demonstrating a severe lack of generalization ability on large-scale corpora.
+## ⚠️ Limitations
+- During the data collection process, the initial retrieval relied only on a single information retrieval system (BM25 + VerT5erini).
+- Compared to the traditional TREC competition, only a small number (4) of systems were used in the pooling process, leaving uncertainty that undiscovered evidence documents may remain within the corpus.
+## 🔗 Related links
+- Paper: [https://arxiv.org/abs/2210.13777](https://arxiv.org/abs/2210.13777)
 - GitHub: [https://github.com/dwadden/scifact-open](https://github.com/dwadden/scifact-open)
-- 이 벤치마크를 사용한 논문: SCIFACT-OPEN 제안 원 논문 (arXiv 2022)
+- Paper using this benchmark: the original paper proposing SCIFACT-OPEN (arXiv 2022)
 
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/emnlp/WaddenLKCBWH22)</a></p>
@@ -319,14 +319,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

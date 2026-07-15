@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AlphaFold Protein Structure Database in 2024: providing structure coverage for over 214 million protein sequences — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>AlphaFold Protein Structure Database in 2024: providing structure coverage for over 214 million protein sequences, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -120,97 +120,97 @@
       <h1>AlphaFold Protein Structure Database in 2024: providing structure coverage for over 214 million protein sequences</h1>
 <p>varadi2024alphafold | 2024 | Nucleic Acids Res. | dataset | [bio] | <a href="https://doi.org/10.1093/nar/gkad1011">paper</a></p>
 <table class="prop-table">
-<tr><td class="prop-key">DB</td><td class="prop-val">AlphaFold DB (AlphaFold Protein Structure Database) — 2024 업데이트</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">2억 1,400만 개 이상 단백질 서열에 대한 예측 구조 (2021년 초기 30만 건 대비 500배 확장)</td></tr>
+<tr><td class="prop-key">DB</td><td class="prop-val">AlphaFold DB (AlphaFold Protein Structure Database) — 2024 update</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">Predicted structures for over 214 million protein sequences (a 500-fold expansion from the initial 300,000 in 2021)</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (alphafold.ebi.ac.uk)</td></tr>
-<tr><td class="prop-key">Modality</td><td class="prop-val">Structured Table (원자 좌표, 잔기별/쌍별 신뢰도)</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Structured Table (atomic coordinates, per-residue/pairwise confidence)</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">AlphaFold DB / EBI (alphafold.ebi.ac.uk)</td></tr>
 </table>
 
 <blockquote>
 <p>Nucleic Acids Res. | 2024 | dataset | bio</p>
 </blockquote>
-<h4>📌 한 줄 요약</h4>
-<p>2021년 초기 30만 건에서 2024년 2억 1,400만 개 이상으로 약 500배 확장된 AlphaFold DB의 최신 현황을 보고하며, 모델 생물체·글로벌 보건 프로테옴·Swiss-Prot 통합 및 Google Cloud 기반 고급 데이터 접근 방법을 소개한다.</p>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>📌 TL;DR</h4>
+<p>This work reports the latest status of AlphaFold DB, which expanded roughly 500-fold from the initial 300,000 entries in 2021 to over 214 million in 2024, and introduces the integration of model organisms, global-health proteomes, and Swiss-Prot, along with advanced Google Cloud-based data access methods.</p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of the existing infrastructure</strong></p>
 <ul>
-<li>2022년 AlphaFold DB 초기 릴리스는 21개 모델 생물체에 한정</li>
-<li>글로벌 보건 관련 병원체 프로테옴 및 Swiss-Prot 전체 커버리지 미달</li>
-<li>FTP 직접 다운로드 외 대규모 고급 쿼리 방법 미비</li>
+<li>The initial 2022 release of AlphaFold DB was limited to 21 model organisms</li>
+<li>Insufficient coverage of global-health pathogen proteomes and the full Swiss-Prot</li>
+<li>Lack of large-scale advanced query methods beyond direct FTP download</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>UniProt 데이터베이스 전체 수준의 구조 커버리지 확장 필요</li>
-<li>연구자의 다양한 데이터 접근 수요(클라우드, API, 뷰어)에 대응</li>
+<li>Need to expand structure coverage to the full scale of the UniProt database</li>
+<li>Need to address researchers' diverse data-access demands (cloud, API, viewer)</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>EMBL-EBI, Google DeepMind, Seoul National University 공동 업데이트. 2021년 초기 300,000건에서 2억 1,400만 개 이상으로 약 500배 확장. PDB, UniProt, Ensembl, InterPro, MobiDB 등 주요 데이터 자원과 통합. 모델 생물체 프로테옴, 글로벌 보건 프로테옴, Swiss-Prot 통합, 큐레이션 단백질 데이터셋 포함. FTP 직접 파일 접근 + Google Cloud Public Datasets 고급 쿼리 + REST API 엔드포인트. PAE 뷰어, 3D 뷰어 커스터마이징, 검색 엔진 개선.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>A joint update by EMBL-EBI, Google DeepMind, and Seoul National University. Roughly a 500-fold expansion from the initial 300,000 entries in 2021 to over 214 million. Integrated with major data resources such as PDB, UniProt, Ensembl, InterPro, and MobiDB. Includes model organism proteomes, global-health proteomes, Swiss-Prot integration, and curated protein datasets. Direct FTP file access + Google Cloud Public Datasets advanced queries + REST API endpoints. PAE viewer, 3D viewer customization, and search-engine improvements.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>AlphaFold DB 포털</td>
-  <td><a href="https://alphafold.ebi.ac.uk">https://alphafold.ebi.ac.uk</a> — 무료 공개 접근</td>
+  <td>AlphaFold DB portal</td>
+  <td><a href="https://alphafold.ebi.ac.uk">https://alphafold.ebi.ac.uk</a> — free public access</td>
 </tr>
 <tr>
   <td>FTP</td>
-  <td>직접 파일 다운로드</td>
+  <td>Direct file download</td>
 </tr>
 <tr>
   <td>Google Cloud</td>
-  <td>Google Cloud Public Datasets 고급 쿼리</td>
+  <td>Google Cloud Public Datasets advanced queries</td>
 </tr>
 <tr>
   <td>REST API</td>
-  <td>프로그래밍 접근 엔드포인트</td>
+  <td>Programmatic access endpoints</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>mmCIF/PDB 형식 (예측 원자 좌표)</li>
-<li>pLDDT 점수 (잔기별 신뢰도)</li>
-<li>PAE 행렬 (Predicted Aligned Error)</li>
+<li>mmCIF/PDB format (predicted atomic coordinates)</li>
+<li>pLDDT scores (per-residue confidence)</li>
+<li>PAE matrix (Predicted Aligned Error)</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>총 예측 구조 수</td>
-  <td><strong>214,000,000개 이상</strong></td>
+  <td>Total predicted structures</td>
+  <td><strong>over 214,000,000</strong></td>
 </tr>
 <tr>
-  <td>2021년 초기 대비 확장 배수</td>
-  <td><strong>약 500배</strong></td>
+  <td>Expansion factor relative to initial 2021</td>
+  <td><strong>~500-fold</strong></td>
 </tr>
 <tr>
-  <td>통합 데이터 자원</td>
+  <td>Integrated data resources</td>
   <td><strong>PDB, UniProt, Ensembl, InterPro, MobiDB</strong></td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>예측 구조로 실험 검증 미완 (특히 저 pLDDT 영역)</li>
-<li>서열 기반 예측으로 결합 파트너·리간드 컨텍스트 미반영</li>
-<li>단백질 동역학 및 다형성 표현 한계</li>
+<li>Predicted structures with incomplete experimental validation (especially low-pLDDT regions)</li>
+<li>Sequence-based predictions that do not reflect binding-partner or ligand context</li>
+<li>Limited representation of protein dynamics and polymorphism</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/gkad1011">AlphaFold Protein Structure Database in 2024</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1093/nar/gkad1011">AlphaFold Protein Structure Database in 2024</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (varadi2024alphafold)</a></p>
@@ -236,14 +236,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

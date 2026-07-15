@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DrugBank 6.0: the DrugBank knowledgebase for 2024 — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>DrugBank 6.0: the DrugBank knowledgebase for 2024, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,99 +121,99 @@
 <p>knox2024drugbank | 2024 | Nucleic Acids Research | dataset | [chem] | <a href="https://doi.org/10.1093/nar/gkad976">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">DrugBank 6.0</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">FDA 승인 약물 4,563개, 임상시험 약물 6,231개, 약물-약물 상호작용 1,413,413개</td></tr>
-<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (기본) / Subscription (확장 기능)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">4,563 FDA-approved drugs, 6,231 clinical-trial drugs, 1,413,413 drug-drug interactions</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (basic) / Subscription (extended features)</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text, Structured</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">DrugBank web interface (go.drugbank.com)</td></tr>
 </table>
 
 <blockquote>
 <p>Nucleic Acids Research | 2024 | dataset | chem</p>
-<h4>📌 한 줄 요약</h4>
-<p>DrugBank 6.0은 약물·약물 타겟·약동학 정보의 '골드 스탠다드' 지식 자원으로, 4,563개 FDA 승인 약물, 140만 개 이상의 약물-약물 상호작용 데이터를 포함한다.</p>
+<h4>📌 TL;DR</h4>
+<p>DrugBank 6.0 is a &quot;gold-standard&quot; knowledge resource for drug, drug-target, and pharmacokinetic information, containing 4,563 FDA-approved drugs and more than 1.4 million drug-drug interaction records.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of the existing infrastructure</strong></p>
 <ul>
-<li>2018년 마지막 업데이트 이후 FDA 승인 약물 목록 및 상호작용 데이터의 대폭 확장 필요</li>
-<li>약물 기전 및 대사 경로의 시각적 표현이 부족했음
-<strong>이 시스템이 필요한 이유</strong></li>
-<li>연간 3천만 뷰 이상의 주요 약물 정보 자원으로서의 지속적 업데이트 요구</li>
-<li>AI 기반 약물 재목적화, 부작용 예측, 타겟 발견을 위한 통합 지식 그래프 필요</li>
+<li>Since the last update in 2018, a substantial expansion of the FDA-approved drug list and interaction data was needed</li>
+<li>Visual representation of drug mechanisms and metabolic pathways was lacking
+<strong>Why this system is needed</strong></li>
+<li>As a major drug-information resource with over 30 million views per year, it requires continuous updates</li>
+<li>An integrated knowledge graph is needed for AI-driven drug repurposing, side-effect prediction, and target discovery</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>2006년 출시 이후 지속 확장되어 온 약물 정보 지식 베이스이다. 약물 화학 구조, 약동학, 약력학, 작용 기전, 대사 경로, 타겟 단백질, 약물-약물/약물-식품 상호작용 등을 통합한다. 색상 풍부한 주석이 있는 약물 기전·대사 경로 신규 추가.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>It is a drug-information knowledge base that has been continuously expanded since its launch in 2006. It integrates drug chemical structures, pharmacokinetics, pharmacodynamics, mechanisms of action, metabolic pathways, target proteins, and drug-drug/drug-food interactions. Newly added drug mechanisms and metabolic pathways with color-rich annotations.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>웹 인터페이스</td>
-  <td>go.drugbank.com 검색</td>
+  <td>Web interface</td>
+  <td>Search at go.drugbank.com</td>
 </tr>
 <tr>
-  <td>데이터 다운로드</td>
-  <td>XML, CSV 형식 (등록 후 무료)</td>
+  <td>Data download</td>
+  <td>XML, CSV formats (free after registration)</td>
 </tr>
 <tr>
   <td>API</td>
-  <td>DrugBank API (상업 라이선스 옵션)</td>
+  <td>DrugBank API (commercial license option)</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>약물 화학 구조 (SMILES, InChI, SDF)</li>
-<li>약동학·약력학 데이터</li>
-<li>단백질 타겟 서열</li>
-<li>약물-약물 상호작용 목록</li>
-<li>경로 정보 (시각화 포함)</li>
+<li>Drug chemical structures (SMILES, InChI, SDF)</li>
+<li>Pharmacokinetic and pharmacodynamic data</li>
+<li>Protein target sequences</li>
+<li>Drug-drug interaction lists</li>
+<li>Pathway information (including visualization)</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>FDA 승인 약물</td>
-  <td>4,563 (2018 대비 72% 증가)</td>
+  <td>FDA-approved drugs</td>
+  <td>4,563 (72% increase vs. 2018)</td>
 </tr>
 <tr>
-  <td>임상시험 약물</td>
-  <td>6,231 (38% 증가)</td>
+  <td>Clinical-trial drugs</td>
+  <td>6,231 (38% increase)</td>
 </tr>
 <tr>
-  <td>약물-약물 상호작용</td>
-  <td>1,413,413 (300% 증가)</td>
+  <td>Drug-drug interactions</td>
+  <td>1,413,413 (300% increase)</td>
 </tr>
 <tr>
-  <td>약물-식품 상호작용</td>
-  <td>2,475 (200% 증가)</td>
+  <td>Drug-food interactions</td>
+  <td>2,475 (200% increase)</td>
 </tr>
 <tr>
-  <td>연간 조회 수</td>
+  <td>Annual views</td>
   <td>30M+</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>고급 API 기능은 상업 라이선스 필요</li>
-<li>약물 기전 일부는 전문가 큐레이션이 아닌 예측 기반</li>
-<li>시판 철수 약물 정보 업데이트가 지연될 수 있음</li>
+<li>Advanced API features require a commercial license</li>
+<li>Some drug mechanisms are prediction-based rather than expert-curated</li>
+<li>Updates to information on withdrawn drugs may be delayed</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/gkad976">DrugBank 6.0: the DrugBank Knowledgebase for 2024</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1093/nar/gkad976">DrugBank 6.0: the DrugBank Knowledgebase for 2024</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (knox2024drugbank)</a></p>
@@ -239,14 +239,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

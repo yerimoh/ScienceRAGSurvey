@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CLADD: RAG-Enhanced Collaborative LLM Agents for Drug Discovery — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>CLADD: RAG-Enhanced Collaborative LLM Agents for Drug Discovery, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -129,71 +129,71 @@
 
 <blockquote>
 <p>AAAI 2026 | 2026 | Method | chem · medical</p>
-<h4>📌 한 줄 요약</h4>
-<p>도메인 특화 파인튜닝 없이 여러 LLM 에이전트가 협력하여 Drug Repurposing Hub, DrugBank, STITCH 등 생물의학 지식 베이스로부터 동적으로 검색하여 약물 발굴 태스크(drug-target interaction, 독성 분류)를 수행하는 RAG 기반 에이전틱 시스템이다.</p>
+<h4>📌 TL;DR</h4>
+<p>This is a RAG-based agentic system in which, without domain-specific fine-tuning, multiple LLM agents collaborate to dynamically retrieve from biomedical knowledge bases such as Drug Repurposing Hub, DrugBank, and STITCH, and perform drug discovery tasks (drug-target interaction, toxicity classification).</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 접근법의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing approaches</strong></p>
 <ul>
-<li>도메인 특화 LLM 파인튜닝은 비용이 높고, 새로운 실험 데이터의 빠른 통합이 어려움</li>
-<li>실제 과학적 질문은 복잡하고 개방형이어서 정적 지식 검색만으로는 불충분함</li>
-<li>생화학 데이터의 이종성(heterogeneity), 모호성, 다중 출처 통합이 RAG 적용의 주요 장애물</li>
+<li>Domain-specific LLM fine-tuning is costly, and rapid integration of new experimental data is difficult</li>
+<li>Real scientific questions are complex and open-ended, so static knowledge retrieval alone is insufficient</li>
+<li>The heterogeneity, ambiguity, and multi-source integration of biochemical data are major obstacles to applying RAG</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>약물 발굴 태스크에서 지속적으로 생성되는 실험 데이터를 신속히 통합할 필요</li>
-<li>제로샷 설정에서 일반 목적 LLM을 약물 발굴에 활용하는 유연한 프레임워크 필요</li>
+<li>In drug discovery tasks, there is a need to rapidly integrate continuously generated experimental data</li>
+<li>A flexible framework is needed to leverage general-purpose LLMs for drug discovery in a zero-shot setting</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>여러 LLM 에이전트가 협력하여 Drug Repurposing Hub, DrugBank (13,688 분자), STITCH v5.0으로부터 동적으로 정보를 검색하고, 쿼리 분자를 컨텍스트화하여 관련 증거를 통합한다. RAG 워크플로에서 생화학 데이터의 이종성과 모호성 문제를 해결하는 특수 처리 방법을 도입하였다. 파인튜닝 없이 제로샷 설정으로 동작한다.</p>
-<h4>📊 주요 결과</h4>
+<h4>🔨 Architecture</h4>
+<p>Multiple LLM agents collaborate to dynamically retrieve information from Drug Repurposing Hub, DrugBank (13,688 molecules), and STITCH v5.0, contextualize the query molecule, and integrate relevant evidence. The system introduces specialized handling methods that address the heterogeneity and ambiguity problems of biochemical data in the RAG workflow. It operates in a zero-shot setting without fine-tuning.</p>
+<h4>📊 Key results</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>Drug-target interaction 데이터셋</td>
-  <td>Drug Repurposing Hub, DrugBank, STITCH v5.0 (총 13,688 분자)</td>
+  <td>Drug-target interaction dataset</td>
+  <td>Drug Repurposing Hub, DrugBank, STITCH v5.0 (13,688 molecules in total)</td>
 </tr>
 <tr>
-  <td>Toxicity 데이터셋</td>
+  <td>Toxicity dataset</td>
   <td>BBBP, Sider, ClinTox, BACE</td>
 </tr>
 <tr>
   <td>BBBP AUROC</td>
-  <td>72.28 (±1.04) — 최고 성능</td>
+  <td>72.28 (±1.04) — best performance</td>
 </tr>
 <tr>
   <td>Sider AUROC</td>
-  <td>66.42 (±1.31) — 최고 성능</td>
+  <td>66.42 (±1.31) — best performance</td>
 </tr>
 <tr>
   <td>ClinTox AUROC</td>
-  <td>93.80 (±2.30) — 최고 성능</td>
+  <td>93.80 (±2.30) — best performance</td>
 </tr>
 <tr>
   <td>BACE AUROC</td>
   <td>77.74 (±3.15)</td>
 </tr>
 <tr>
-  <td>비교</td>
-  <td>GPT-4o, domain LLMs (MolT5, BioT5), GNN (GraphMVP, MoleculeSTM) 모두 능가</td>
+  <td>Comparison</td>
+  <td>Outperforms GPT-4o, domain LLMs (MolT5, BioT5), and GNNs (GraphMVP, MoleculeSTM) alike</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>외부 데이터베이스에 없는 분자(&quot;No Overlap&quot; 시나리오)에서는 성능 일부 저하</li>
-<li>여러 에이전트 협력으로 인한 추론 지연(latency) 증가</li>
-<li>도메인 특화 파인튜닝 모델과의 격차가 일부 태스크에서 남아 있음</li>
+<li>Some performance degradation for molecules not present in external databases (the &quot;No Overlap&quot; scenario)</li>
+<li>Increased inference latency due to the collaboration among multiple agents</li>
+<li>A gap with domain-specific fine-tuned models remains on some tasks</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문 (AAAI)</strong>: <a href="https://doi.org/10.1609/aaai.v40i1.37020">https://doi.org/10.1609/aaai.v40i1.37020</a></li>
+<li><strong>Paper (AAAI)</strong>: <a href="https://doi.org/10.1609/aaai.v40i1.37020">https://doi.org/10.1609/aaai.v40i1.37020</a></li>
 <li><strong>arXiv preprint</strong>: <a href="https://arxiv.org/abs/2502.17506">https://arxiv.org/abs/2502.17506</a></li>
 </ul>
 
@@ -234,14 +234,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

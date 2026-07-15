@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PubChem Substance and Compound databases — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>PubChem Substance and Compound databases, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -129,95 +129,95 @@
 
 <blockquote>
 <p>Nucleic Acids Research | 2016 | dataset | chem</p>
-<h4>📌 한 줄 요약</h4>
-<p>미국 NIH가 운영하는 공개 화학 정보 저장소로 SMILES, InChI, CAS 식별자 등을 포함한 화합물·물질·바이오어세이 데이터를 통합 제공한다.</p>
+<h4>📌 TL;DR</h4>
+<p>A public chemical information repository operated by the US NIH that provides integrated compound, substance, and bioassay data including SMILES, InChI, and CAS identifiers.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>화학 물질 정보가 여러 독립적 저장소에 분산되어 있어 통합 검색이 어려웠음</li>
-<li>생물 활성 데이터와 화학 구조 정보 간 연결이 체계적으로 이루어지지 않았음
-<strong>이 시스템이 필요한 이유</strong></li>
-<li>NIH Molecular Libraries Roadmap Initiative의 일환으로, 화학 정보의 공공 접근성 확보 필요</li>
-<li>구조 기반 검색, 유사도 검색, 생물 활성 조회를 단일 인터페이스로 제공</li>
+<li>Chemical substance information was scattered across multiple independent repositories, making integrated search difficult</li>
+<li>The connection between bioactivity data and chemical structure information was not systematically established
+<strong>Why this system is needed</strong></li>
+<li>As part of the NIH Molecular Libraries Roadmap Initiative, there was a need to secure public accessibility to chemical information</li>
+<li>Provides structure-based search, similarity search, and bioactivity lookup through a single interface</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>세 개의 상호 연결된 데이터베이스(Substance, Compound, BioAssay)로 구성된다. Substance DB는 기여자가 제출한 원시 화학 정보를, Compound DB는 표준화된 고유 구조를, BioAssay DB는 실험적 생물 활성 데이터를 저장한다. 구조 표준화 파이프라인을 통해 중복 제거 및 SMILES/InChI 변환이 자동으로 수행된다. PubChem3D와 PubChemRDF(RDF 형식 데이터) 파생 자원도 포함된다.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>It consists of three interconnected databases (Substance, Compound, BioAssay). The Substance DB stores raw chemical information submitted by contributors, the Compound DB stores standardized unique structures, and the BioAssay DB stores experimental bioactivity data. A structure standardization pipeline automatically performs deduplication and SMILES/InChI conversion. Derived resources such as PubChem3D and PubChemRDF (RDF-format data) are also included.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>PUG-REST API</td>
-  <td>RESTful API로 CID, SMILES, InChI 등으로 검색 및 다운로드</td>
+  <td>RESTful API for searching and downloading by CID, SMILES, InChI, etc.</td>
 </tr>
 <tr>
   <td>PUG-View</td>
-  <td>구조화된 뷰 데이터 조회 API</td>
+  <td>API for querying structured view data</td>
 </tr>
 <tr>
-  <td>FTP 다운로드</td>
-  <td>SDF, SMILES, XML, ASN.1 포맷 전체 덤프 제공</td>
+  <td>FTP download</td>
+  <td>Provides full dumps in SDF, SMILES, XML, and ASN.1 formats</td>
 </tr>
 <tr>
-  <td>웹 인터페이스</td>
-  <td>pubchem.ncbi.nlm.nih.gov 텍스트/구조 검색</td>
+  <td>Web interface</td>
+  <td>pubchem.ncbi.nlm.nih.gov text/structure search</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>SMILES (canonical 및 isomeric)</li>
+<li>SMILES (canonical and isomeric)</li>
 <li>InChI / InChIKey</li>
-<li>SDF (2D/3D 구조)</li>
+<li>SDF (2D/3D structures)</li>
 <li>XML, ASN.1</li>
 <li>RDF (PubChemRDF)</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>Substance 기록</td>
-  <td>157M+ (2015년 9월 기준)</td>
+  <td>Substance records</td>
+  <td>157M+ (as of September 2015)</td>
 </tr>
 <tr>
-  <td>고유 화합물 구조</td>
+  <td>Unique compound structures</td>
   <td>60M</td>
 </tr>
 <tr>
-  <td>바이오어세이 기술</td>
+  <td>Bioassay descriptions</td>
   <td>1M+</td>
 </tr>
 <tr>
-  <td>단백질 타겟</td>
+  <td>Protein targets</td>
   <td>~10,000</td>
 </tr>
 <tr>
-  <td>특허-화합물 링크</td>
+  <td>Patent-compound links</td>
   <td>329M+</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>기여자 제출 데이터 품질 편차가 크며 표준화 과정에서 일부 정보 손실 가능</li>
-<li>초당 3회 이상의 API 요청은 서버 과부하 우려로 제한됨</li>
-<li>대용량 요청(수백만 건)에는 배치 처리 방식이 필요</li>
+<li>Wide variance in the quality of contributor-submitted data, with possible loss of some information during standardization</li>
+<li>API requests exceeding 3 per second are restricted due to concerns about server overload</li>
+<li>Large-scale requests (millions of records) require a batch-processing approach</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/gkv951">PubChem Substance and Compound databases</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1093/nar/gkv951">PubChem Substance and Compound databases</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/nar/KimTBCFGHHHSWYZ16)</a></p>
@@ -260,14 +260,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

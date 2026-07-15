@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Predicting transcriptional outcomes of novel multigene perturbations with GEARS — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Predicting transcriptional outcomes of novel multigene perturbations with GEARS, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,7 +117,7 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#실제-데이터-형식-예시-논문-methods-github-readme">실제 데이터 형식 예시 (논문 §Methods + GitHub README)</a></li><li class="toc-l3"><a href="#유형-a-single-gene-perturbation-training-example">유형 A — Single-gene perturbation training example</a></li><li class="toc-l3"><a href="#유형-b-two-gene-combinatorial-perturbation">유형 B — Two-gene combinatorial perturbation</a></li><li class="toc-l3"><a href="#유형-c-gi-genetic-interaction-subtype-classification">유형 C — GI (Genetic Interaction) subtype classification</a></li><li class="toc-l3"><a href="#유형-d-python-api-github-readme">유형 D — Python API (GitHub README)</a></li><li class="toc-l2"><a href="#평가-framework-요약">평가 framework 요약</a></li><li class="toc-l2"><a href="#주요-결과-논문-본문">주요 결과 (논문 본문)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#construction-methodology">Construction Methodology</a></li><li class="toc-l2"><a href="#example-of-actual-data-format-paper-methods-github-readme">Example of actual data format (paper §Methods + GitHub README)</a></li><li class="toc-l3"><a href="#type-a-single-gene-perturbation-training-example">Type A — Single-gene perturbation training example</a></li><li class="toc-l3"><a href="#type-b-two-gene-combinatorial-perturbation">Type B — Two-gene combinatorial perturbation</a></li><li class="toc-l3"><a href="#type-c-gi-genetic-interaction-subtype-classification">Type C — GI (Genetic Interaction) subtype classification</a></li><li class="toc-l3"><a href="#type-d-python-api-github-readme">Type D — Python API (GitHub README)</a></li><li class="toc-l2"><a href="#evaluation-framework-summary">Evaluation framework summary</a></li><li class="toc-l2"><a href="#main-results-paper-body">Main results (paper body)</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>GEARS: GNN over gene-gene KG predicts unseen single- and multi-gene perturbations</h1>
@@ -126,37 +126,38 @@
 Yusuf Roohani, Kexin Huang, Jure Leskovec — Stanford SNAP / Genentech
 DOI: <a href="https://doi.org/10.1038/s41587-023-01905-6">10.1038/s41587-023-01905-6</a> · GitHub: <a href="https://github.com/snap-stanford/GEARS">snap-stanford/GEARS</a></p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p><strong>Single-cell perturbation 효과 예측을 위한 GNN 모델</strong> — Gene Ontology / co-expression 기반 <strong>gene-gene knowledge graph</strong>를 perturbation 임베딩과 결합하여 <strong>학습 중 본 적 없는 single-gene 또는 multi-gene perturbation의 전사체 반응</strong>을 예측. 평가는 Norman 2019 (102 single + 131 two-gene) / Adamson 2016 / Dixit 2016 위에서 <strong>MSE on top-20 DEG / Pearson / Precision@10 for GI prediction</strong>.</p>
+<h2 id="tldr">TL;DR</h2>
+<p><strong>A GNN model for predicting single-cell perturbation effects</strong> — it combines a <strong>gene-gene knowledge graph</strong> based on Gene Ontology / co-expression with perturbation embeddings to predict the <strong>transcriptomic response of single-gene or multi-gene perturbations never seen during training</strong>. Evaluation is done on Norman 2019 (102 single + 131 two-gene) / Adamson 2016 / Dixit 2016 using <strong>MSE on top-20 DEG / Pearson / Precision@10 for GI prediction</strong>.</p>
 <hr />
-<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
-<pre><code>Step 1 — 문제 인식
+<h2 id="construction-methodology">Construction Methodology</h2>
+<pre><code>Step 1 — Problem framing
   ┌──────────────────────────────────────────────┐
-  │ - Perturb-seq 실험 가능한 조합 &lt; 10⁻⁶          │
-  │   (20K 유전자 × 20K = 4억 dual pair)          │
-  │ - 기존 모델은 학습에서 본 perturbation만 예측 │
-  │   → unseen perturbation으로의 일반화 부족    │
-  │ - 특히 dual-gene 효과는 단순 가산이 아님       │
-  │   (GI: synergy, suppression, redirection 등)  │
+  │ - Experimentally feasible Perturb-seq combos &lt; 10⁻⁶ │
+  │   (20K genes × 20K = 400M dual pairs)         │
+  │ - Existing models predict only perturbations seen │
+  │   in training                                 │
+  │   → poor generalization to unseen perturbations │
+  │ - Dual-gene effects in particular are not simple additions │
+  │   (GI: synergy, suppression, redirection, etc.) │
   └──────────────────────────────────────────────┘
 
-Step 2 — GEARS 모델 구조
+Step 2 — GEARS model architecture
   ┌──────────────────────────────────────────────┐
-  │ (1) Gene-gene knowledge graph 입력            │
+  │ (1) Gene-gene knowledge graph input           │
   │     - Gene Ontology (functional similarity)   │
   │     - Co-expression network                   │
-  │  → GNN으로 gene-level embedding 학습          │
+  │  → learn gene-level embedding via GNN         │
   │                                              │
   │ (2) Perturbation embedding                    │
-  │     - 각 perturbed gene의 GNN embedding 사용 │
-  │     - Multi-gene: 임베딩 합산                 │
+  │     - use each perturbed gene's GNN embedding │
+  │     - Multi-gene: sum the embeddings          │
   │                                              │
   │ (3) Cell-state decoder                        │
   │     - control cell expression + pert embed   │
   │     → predicted post-perturbation expression  │
   └──────────────────────────────────────────────┘
 
-Step 3 — Held-out evaluation protocol (논문 contribution)
+Step 3 — Held-out evaluation protocol (paper contribution)
   ┌──────────────────────────────────────────────┐
   │ Single-gene splits:                           │
   │  · Seen: same perturbation, different cells   │
@@ -168,9 +169,9 @@ Step 3 — Held-out evaluation protocol (논문 contribution)
   │  · Unseen-Unseen: neither in training        │
   └──────────────────────────────────────────────┘
 
-Step 4 — Dataset 평가 (3개 핵심 dataset)
+Step 4 — Dataset evaluation (3 core datasets)
   ┌──────────────┬──────────┬──────────────────┐
-  │ Dataset       │ Perts     │ 활용              │
+  │ Dataset       │ Perts     │ Usage             │
   ├──────────────┼──────────┼──────────────────┤
   │ Norman 2019   │ 102 sg + 131 dg │ canonical dual-gene  │
   │ Adamson 2016  │ ~87 single  │ UPR pathway          │
@@ -178,7 +179,7 @@ Step 4 — Dataset 평가 (3개 핵심 dataset)
   │ Replogle 2022 │ essential gene-scale │ added later (preprocessor) │
   └──────────────┴──────────┴──────────────────┘
 
-Step 5 — 평가 metric (논문 §Methods)
+Step 5 — Evaluation metrics (paper §Methods)
   · MSE on top-20 DEG (differentially expressed genes)
   · Pearson correlation (predicted vs observed Δ expression)
   · Precision@10 for GI subtype classification
@@ -186,8 +187,8 @@ Step 5 — 평가 metric (논문 §Methods)
   · Jaccard similarity of DEG sets
 </code></pre>
 <hr />
-<h2 id="실제-데이터-형식-예시-논문-methods-github-readme">실제 데이터 형식 예시 (논문 §Methods + GitHub README)</h2>
-<h3 id="유형-a-single-gene-perturbation-training-example">유형 A — Single-gene perturbation training example</h3>
+<h2 id="example-of-actual-data-format-paper-methods-github-readme">Example of actual data format (paper §Methods + GitHub README)</h2>
+<h3 id="type-a-single-gene-perturbation-training-example">Type A — Single-gene perturbation training example</h3>
 <blockquote>
 <p><strong>Input</strong>:</p>
 <pre><code>Control cell expression: (n_genes,) vector
@@ -199,7 +200,7 @@ Cell-line / batch covariate
 (averaged or per-cell distribution)
 </code></pre>
 </blockquote>
-<h3 id="유형-b-two-gene-combinatorial-perturbation">유형 B — Two-gene combinatorial perturbation</h3>
+<h3 id="type-b-two-gene-combinatorial-perturbation">Type B — Two-gene combinatorial perturbation</h3>
 <blockquote>
 <p><strong>Input</strong>:</p>
 <pre><code>Perturbed genes: ('CEBPA', 'CEBPB')
@@ -212,10 +213,10 @@ Unseen-Unseen: train has neither
 → harder splits = more realistic generalization test
 </code></pre>
 </blockquote>
-<h3 id="유형-c-gi-genetic-interaction-subtype-classification">유형 C — GI (Genetic Interaction) subtype classification</h3>
+<h3 id="type-c-gi-genetic-interaction-subtype-classification">Type C — GI (Genetic Interaction) subtype classification</h3>
 <blockquote>
 <p>Predicted dual-gene response vs additive single effects:</p>
-<pre><code>Predicted GI types (논문 Fig. 4):
+<pre><code>Predicted GI types (paper Fig. 4):
   · NEOMORPHIC: novel program (A+B ≠ A union B)
   · REDUNDANT: same program (A+B ≈ A ≈ B)
   · SUPPRESSOR: B suppresses A (A+B → control)
@@ -225,7 +226,7 @@ Unseen-Unseen: train has neither
 </code></pre>
 <p>Metric: Precision@10 — top-10 predicted GIs match ground-truth class</p>
 </blockquote>
-<h3 id="유형-d-python-api-github-readme">유형 D — Python API (GitHub README)</h3>
+<h3 id="type-d-python-api-github-readme">Type D — Python API (GitHub README)</h3>
 <pre><code class="language-python">from gears import PertData, GEARS
 pert_data = PertData('./data')
 pert_data.load(data_name='norman')                # 102 single + 131 dual
@@ -236,46 +237,46 @@ gears_model.train(epochs=20)
 # Metric: MSE top-20 DEG, Pearson, Precision@10
 </code></pre>
 <hr />
-<h2 id="평가-framework-요약">평가 framework 요약</h2>
+<h2 id="evaluation-framework-summary">Evaluation framework summary</h2>
 <table>
 <thead>
 <tr>
   <th>Metric</th>
-  <th>의미</th>
-  <th>우선순위</th>
+  <th>Meaning</th>
+  <th>Priority</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td><strong>MSE on top-20 DEG</strong></td>
-  <td>가장 변화 큰 20개 유전자에서의 예측 정확도</td>
+  <td>Prediction accuracy on the 20 genes with the largest changes</td>
   <td>Primary</td>
 </tr>
 <tr>
   <td><strong>Pearson correlation</strong></td>
-  <td>Δexpression 예측 vs 실측 상관</td>
+  <td>Predicted vs observed Δexpression correlation</td>
   <td>Primary</td>
 </tr>
 <tr>
   <td><strong>Precision@10 (GI)</strong></td>
-  <td>Top-10 예측 GI subtype 정확도</td>
+  <td>Accuracy of the top-10 predicted GI subtypes</td>
   <td>Primary</td>
 </tr>
 <tr>
   <td><strong>Jaccard similarity</strong></td>
-  <td>예측 DEG set ∩ 실측 DEG set</td>
+  <td>Predicted DEG set ∩ observed DEG set</td>
   <td>Secondary</td>
 </tr>
 </tbody>
 </table>
-<p>→ <strong>단순 MSE만 보면 부족</strong> — Norman 2019의 control 평균이 baseline으로 강하기 때문. Top-20 DEG로 perturbation-specific signal 측정.</p>
+<p>→ <strong>Looking at MSE alone is insufficient</strong> — because the control mean of Norman 2019 is a strong baseline. Top-20 DEG is used to measure the perturbation-specific signal.</p>
 <hr />
-<h2 id="주요-결과-논문-본문">주요 결과 (논문 본문)</h2>
+<h2 id="main-results-paper-body">Main results (paper body)</h2>
 <table>
 <thead>
 <tr>
-  <th>비교</th>
-  <th>결과</th>
+  <th>Comparison</th>
+  <th>Result</th>
 </tr>
 </thead>
 <tbody>
@@ -285,42 +286,42 @@ gears_model.train(epochs=20)
 </tr>
 <tr>
   <td>Two-gene seen-seen</td>
-  <td>GEARS ≈ linear baseline (대부분 가산)</td>
+  <td>GEARS ≈ linear baseline (mostly additive)</td>
 </tr>
 <tr>
   <td>Two-gene seen-unseen</td>
-  <td>GEARS &gt; all baselines (gene-gene KG 효과)</td>
+  <td>GEARS &gt; all baselines (gene-gene KG effect)</td>
 </tr>
 <tr>
   <td>Two-gene unseen-unseen</td>
-  <td>가장 어려움, 모든 모델 낮은 성능</td>
+  <td>hardest, all models low performance</td>
 </tr>
 <tr>
   <td>GI subtype prediction</td>
-  <td>NEOMORPHIC/REDUNDANT 예측 가능</td>
+  <td>NEOMORPHIC/REDUNDANT predictable</td>
 </tr>
 </tbody>
 </table>
-<p>→ &quot;When trained on single-gene perturbation data alone, GEARS cannot reliably predict outcomes for combinatorial perturbations&quot; (GitHub README, 한계 명시).</p>
+<p>→ &quot;When trained on single-gene perturbation data alone, GEARS cannot reliably predict outcomes for combinatorial perturbations&quot; (GitHub README, limitation stated explicitly).</p>
 <hr />
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li><strong>Single-only training으로는 dual 예측 한계</strong> (저자 GitHub README 명시)</li>
-<li><strong>Knowledge graph 의존</strong>: GO/co-expression KG 품질이 결정적</li>
-<li><strong>Cell-line dependency</strong>: K562 (Norman) 학습 → 다른 cell type 일반화 제한</li>
-<li><strong>Single-cell transcriptomics만</strong>: protein, phenotype, organelle 미커버</li>
-<li><strong>Computational cost</strong>: 큰 GNN, MPS hardware 필수</li>
-<li><strong>PerturBench (Wu 2024)에서 ablation 시</strong>: GEARS가 단순 Latent Additive baseline과 거의 동등</li>
+<li><strong>Single-only training is limited for dual prediction</strong> (stated explicitly in the authors' GitHub README)</li>
+<li><strong>Knowledge graph dependency</strong>: the quality of the GO/co-expression KG is decisive</li>
+<li><strong>Cell-line dependency</strong>: trained on K562 (Norman) → limited generalization to other cell types</li>
+<li><strong>Single-cell transcriptomics only</strong>: does not cover protein, phenotype, organelle</li>
+<li><strong>Computational cost</strong>: large GNN, MPS hardware required</li>
+<li><strong>Under ablation in PerturBench (Wu 2024)</strong>: GEARS is nearly on par with a simple Latent Additive baseline</li>
 </ul>
 <hr />
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문 (Nat. Biotechnol.)</strong>: <a href="https://doi.org/10.1038/s41587-023-01905-6">10.1038/s41587-023-01905-6</a></li>
+<li><strong>Paper (Nat. Biotechnol.)</strong>: <a href="https://doi.org/10.1038/s41587-023-01905-6">10.1038/s41587-023-01905-6</a></li>
 <li><strong>GitHub</strong>: <a href="https://github.com/snap-stanford/GEARS">snap-stanford/GEARS</a> (<code>pip install cell-gears</code>)</li>
-<li><strong>저자 소속</strong>: Stanford SNAP (Jure Leskovec lab) + Genentech</li>
-<li><strong>이 모델이 사용한 dataset</strong>: [[norman2019exploring]] (102 sg + 131 dg), Adamson 2016 (UPR), Dixit 2016 (TF), Replogle 2022 (essential)</li>
-<li><strong>이 모델을 평가한 benchmark</strong>: [[DBLP:journals/corr/abs-2408-10609]] (PerturBench — GEARS와 baseline 비교)</li>
-<li><strong>후속 작업</strong>: scFoundation, scGPT, STATE — 모두 GEARS와 baseline 비교</li>
+<li><strong>Author affiliation</strong>: Stanford SNAP (Jure Leskovec lab) + Genentech</li>
+<li><strong>Datasets used by this model</strong>: [[norman2019exploring]] (102 sg + 131 dg), Adamson 2016 (UPR), Dixit 2016 (TF), Replogle 2022 (essential)</li>
+<li><strong>Benchmark that evaluated this model</strong>: [[DBLP:journals/corr/abs-2408-10609]] (PerturBench — comparing GEARS with baselines)</li>
+<li><strong>Follow-up work</strong>: scFoundation, scGPT, STATE — all compare GEARS with baselines</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (roohani2024gears)</a></p>
@@ -348,14 +349,14 @@ gears_model.train(epochs=20)
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

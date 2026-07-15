@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Open DAC 2023 Dataset and Challenges for Sorbent Discovery in Direct Air Capture — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>The Open DAC 2023 Dataset and Challenges for Sorbent Discovery in Direct Air Capture, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,7 +117,7 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#실제-데이터-형식-예시-논문-tasks-results-table-s3">실제 데이터 형식 예시 (논문 §Tasks + §Results + Table S3)</a></li><li class="toc-l3"><a href="#유형-a-s2ef-inputoutput-structure-energy-forces">유형 A — S2EF input/output (Structure → Energy + Forces)</a></li><li class="toc-l3"><a href="#유형-b-is2re-is2rs-initial-relaxed">유형 B — IS2RE / IS2RS (Initial → Relaxed)</a></li><li class="toc-l3"><a href="#유형-c-promising-dac-mof-예시-논문-table-s3-fig-3">유형 C — Promising DAC MOF 예시 (논문 Table S3 / Fig. 3)</a></li><li class="toc-l3"><a href="#유형-d-dataset-규모-분포-논문-methods">유형 D — Dataset 규모 분포 (논문 §Methods)</a></li><li class="toc-l2"><a href="#평가-framework">평가 framework</a></li><li class="toc-l2"><a href="#주요-결과-논문-results">주요 결과 (논문 §Results)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#construction-methodology">Construction Methodology</a></li><li class="toc-l2"><a href="#real-data-format-examples-paper-tasks-results-table-s3">Real Data Format Examples (paper §Tasks + §Results + Table S3)</a></li><li class="toc-l3"><a href="#type-a-s2ef-inputoutput-structure-energy-forces">Type A — S2EF input/output (Structure → Energy + Forces)</a></li><li class="toc-l3"><a href="#type-b-is2re-is2rs-initial-relaxed">Type B — IS2RE / IS2RS (Initial → Relaxed)</a></li><li class="toc-l3"><a href="#type-c-promising-dac-mof-examples-paper-table-s3-fig-3">Type C — Promising DAC MOF examples (paper Table S3 / Fig. 3)</a></li><li class="toc-l3"><a href="#type-d-dataset-scale-distribution-paper-methods">Type D — Dataset scale distribution (paper §Methods)</a></li><li class="toc-l2"><a href="#evaluation-framework">Evaluation framework</a></li><li class="toc-l2"><a href="#key-results-paper-results">Key Results (paper §Results)</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>ODAC23: 8,400 MOFs × 38M DFT for Direct-Air-Capture Sorbent Discovery</h1>
@@ -126,11 +126,11 @@
 Anuroop Sriram, Sihoon Choi, Xiaohan Yu, Logan M. Brabson, Abhishek Das, Zachary Ulissi, Matt Uyttendaele, Andrew J. Medford, David S. Sholl — Meta FAIR / Georgia Tech / ORNL
 arXiv: <a href="https://arxiv.org/abs/2311.00341">2311.00341</a> · DOI: <a href="https://doi.org/10.1021/acscentsci.3c01629">10.1021/acscentsci.3c01629</a></p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p><strong>직접 공기 포집(Direct Air Capture, DAC)</strong>용 <strong>금속-유기 골격체(MOF)</strong> 후보 탐색을 위한 <strong>38M+ DFT calculation × 8,400+ MOF benchmark</strong>. 입력은 MOF + adsorbate(CO₂, H₂O) 구조이며, <strong>OC20과 동일한 3-task 정의 (S2EF / IS2RE / IS2RS)</strong>로 ML 모델을 평가. MOF adsorption DFT 데이터로는 현재 <strong>가장 큰 공개 데이터셋</strong>.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>A <strong>38M+ DFT calculation × 8,400+ MOF benchmark</strong> for exploring <strong>metal-organic framework (MOF)</strong> candidates for <strong>Direct Air Capture (DAC)</strong>. The inputs are MOF + adsorbate (CO₂, H₂O) structures, and ML models are evaluated with the <strong>same 3-task definition as OC20 (S2EF / IS2RE / IS2RS)</strong>. It is currently the <strong>largest public dataset</strong> of MOF adsorption DFT data.</p>
 <hr />
-<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
-<pre><code>Step 1 — 과학적 동기
+<h2 id="construction-methodology">Construction Methodology</h2>
+<pre><code>Step 1 — Scientific motivation
   ┌──────────────────────────────────────────────┐
   │ - Annual CO₂ emission ~36B tonnes (2020)     │
   │ - Atmospheric CO₂ +50% since preindustrial   │
@@ -138,20 +138,20 @@ arXiv: <a href="https://arxiv.org/abs/2311.00341">2311.00341</a> · DOI: <a href
   │ - DAC: ambient-condition negative emissions  │
   │ - MOFs: modular, tunable, high porosity      │
   │   → ideal customizable sorbents              │
-  │ - 문제: vast chemical space + humidity/temp  │
-  │   dependence → 효율적 screening 필요          │
+  │ - Problem: vast chemical space + humidity/   │
+  │   temp dependence → efficient screening needed│
   └──────────────────────────────────────────────┘
 
-Step 2 — MOF corpus 구성 (8,400+ frameworks)
+Step 2 — Building the MOF corpus (8,400+ frameworks)
   ┌──────────────┬────────┬───────────────────────┐
   │ Set          │ Count  │ Source                │
   ├──────────────┼────────┼───────────────────────┤
   │ Pristine MOFs│ 4,942  │ CoRE MOF + curated    │
-  │ Defective MOFs│ 3,470  │ defect 1–16% 농도     │
+  │ Defective MOFs│ 3,470  │ defect 1–16% conc.    │
   │ Ultrastable   │   114  │ Nandy fragmented +   │
   │              │        │ recombined            │
   └──────────────┴────────┴───────────────────────┘
-  · 57 metals (Zn / Cu / Cd 최다)
+  · 57 metals (Zn / Cu / Cd most common)
   · monometallic 89% / bimetallic 10.7% / 
     trimetallic &lt;1%
 
@@ -160,7 +160,7 @@ Step 3 — Adsorbate placement
   · ~2–6 placements per framework
   · CO₂ only / H₂O only / CO₂ + H₂O / CO₂ + 2H₂O
 
-Step 4 — DFT 계산 규모
+Step 4 — DFT computation scale
   ┌──────────────────────────────────────────────┐
   │ - 38M+ single-point DFT calculations         │
   │ - 170K converged adsorption energies          │
@@ -168,55 +168,55 @@ Step 4 — DFT 계산 규모
   │ - largest MOF-adsorption DFT dataset to date │
   └──────────────────────────────────────────────┘
 
-Step 5 — Benchmark task 정의 (OC20-style)
+Step 5 — Benchmark task definition (OC20-style)
   ┌─────────────────────────────────────────────┐
   │ S2EF (Structure → Energy + Forces)           │
-  │  · 입력: MOF+adsorbate single structure      │
-  │  · 출력: Ẽ_ads + per-atom forces             │
+  │  · Input: MOF+adsorbate single structure     │
+  │  · Output: Ẽ_ads + per-atom forces           │
   │                                              │
   │ IS2RE (Initial Structure → Relaxed Energy)  │
-  │  · 입력: 초기 placement (non-relaxed)        │
-  │  · 출력: 최종 relaxed adsorption energy      │
+  │  · Input: initial placement (non-relaxed)    │
+  │  · Output: final relaxed adsorption energy   │
   │                                              │
   │ IS2RS (Initial Structure → Relaxed Struct)  │
-  │  · 입력: 초기 placement                       │
-  │  · 출력: 최종 relaxed 3D coordinates         │
+  │  · Input: initial placement                   │
+  │  · Output: final relaxed 3D coordinates      │
   └─────────────────────────────────────────────┘
 
-Step 6 — Adsorption energy 정의
+Step 6 — Adsorption energy definition
   Ẽ_ads = E_system − E_MOF − n_CO2·E_CO2 − n_H2O·E_H2O
   (tilde = not necessarily relaxed)
 
-Step 7 — Promising MOF 식별 (downstream verification)
-  · ODAC23 안에서 직접 promising MOF 발굴
-  · Single + co-adsorption energy 분석
-  · Adsorbate-adsorbate interaction energy 계산
+Step 7 — Identifying promising MOFs (downstream verification)
+  · Directly discover promising MOFs within ODAC23
+  · Single + co-adsorption energy analysis
+  · Adsorbate-adsorbate interaction energy calculation
 </code></pre>
 <hr />
-<h2 id="실제-데이터-형식-예시-논문-tasks-results-table-s3">실제 데이터 형식 예시 (논문 §Tasks + §Results + Table S3)</h2>
-<h3 id="유형-a-s2ef-inputoutput-structure-energy-forces">유형 A — S2EF input/output (Structure → Energy + Forces)</h3>
+<h2 id="real-data-format-examples-paper-tasks-results-table-s3">Real Data Format Examples (paper §Tasks + §Results + Table S3)</h2>
+<h3 id="type-a-s2ef-inputoutput-structure-energy-forces">Type A — S2EF input/output (Structure → Energy + Forces)</h3>
 <blockquote>
 <p><strong>Input</strong> (periodic unit cell):</p>
-<pre><code>MOF (e.g., CoRE-MOF 코드 ZIDBEV, IMAGAG, IPIDUH)
-  + adsorbate placement: 1 × CO2 또는 1 × H2O 또는 1 × CO2 + 1 × H2O
+<pre><code>MOF (e.g., CoRE-MOF codes ZIDBEV, IMAGAG, IPIDUH)
+  + adsorbate placement: 1 × CO2 or 1 × H2O or 1 × CO2 + 1 × H2O
   + initial positions from classical FF + Monte Carlo
 </code></pre>
 <p><strong>Output</strong> (DFT ground truth, PBE-D3 functional):</p>
 <pre><code>Ẽ_ads (non-relaxed adsorption energy, eV)
 Forces per atom (eV/Å, 3D vector)
 </code></pre>
-<p><strong>Adsorption energy 정의</strong>:</p>
+<p><strong>Adsorption energy definition</strong>:</p>
 <pre><code>Ẽ_ads = E_system − E_MOF − n_CO2·E_CO2 − n_H2O·E_H2O
 </code></pre>
 </blockquote>
-<h3 id="유형-b-is2re-is2rs-initial-relaxed">유형 B — IS2RE / IS2RS (Initial → Relaxed)</h3>
+<h3 id="type-b-is2re-is2rs-initial-relaxed">Type B — IS2RE / IS2RS (Initial → Relaxed)</h3>
 <blockquote>
 <p><strong>IS2RE</strong>: initial placement → final relaxed adsorption energy E_ads
 <strong>IS2RS</strong>: initial placement → final relaxed 3D coordinates of all atoms</p>
-<p>표준 OC20-style train/test split, MOF framework로 stratified
-(pristine 구조와 그 defective version이 같은 split에 배치)</p>
+<p>Standard OC20-style train/test split, stratified by MOF framework
+(a pristine structure and its defective version are placed in the same split)</p>
 </blockquote>
-<h3 id="유형-c-promising-dac-mof-예시-논문-table-s3-fig-3">유형 C — Promising DAC MOF 예시 (논문 Table S3 / Fig. 3)</h3>
+<h3 id="type-c-promising-dac-mof-examples-paper-table-s3-fig-3">Type C — Promising DAC MOF examples (paper Table S3 / Fig. 3)</h3>
 <blockquote>
 <p>Top promising MOFs identified directly in ODAC23 by DFT:</p>
 </blockquote>
@@ -231,45 +231,45 @@ Forces per atom (eV/Å, 3D vector)
 <tbody>
 <tr>
   <td><strong>ZIDBEV</strong></td>
-  <td>강한 CO₂ binding</td>
+  <td>strong CO₂ binding</td>
   <td>E_inter_mol ≈ 0 eV (separate adsorption OK)</td>
 </tr>
 <tr>
   <td><strong>IMAGAG</strong></td>
-  <td>favors CO₂+H₂O 공존</td>
+  <td>favors CO₂+H₂O coexistence</td>
   <td>E_inter_mol = −0.64 eV</td>
 </tr>
 <tr>
   <td><strong>IPIDUH</strong></td>
-  <td>CO₂+H₂O 비호환</td>
+  <td>CO₂+H₂O incompatible</td>
   <td>E_inter_mol = +1.04 eV</td>
 </tr>
 <tr>
   <td><strong>TUGTAR</strong></td>
-  <td>CO₂+H₂O 비호환</td>
+  <td>CO₂+H₂O incompatible</td>
   <td>E_inter_mol = +0.51 eV</td>
 </tr>
 <tr>
   <td><strong>KOQLUZ</strong></td>
-  <td>강한 MOF 재배열</td>
+  <td>strong MOF rearrangement</td>
   <td>E_inter_mol = −2.31 eV</td>
 </tr>
 <tr>
   <td><strong>LEWZET</strong></td>
-  <td>두 번째 H₂O 흡착 시 distortion</td>
+  <td>distortion upon second H₂O adsorption</td>
   <td>2nd E_inter_mol = −5.48 eV</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
-<p><strong>선별 기준</strong> (Findley &amp; Sholl):</p>
+<p><strong>Selection criteria</strong> (Findley &amp; Sholl):</p>
 <ul>
 <li>E_ads(CO₂) &lt; −0.5 eV (sufficient binding at dilute DAC conditions)</li>
-<li>E_ads(CO₂) 가 E_ads(H₂O) 보다 favorable (CO₂ over water)</li>
+<li>E_ads(CO₂) is more favorable than E_ads(H₂O) (CO₂ over water)</li>
 </ul>
-<p>→ 5,079 pristine MOF 중 <strong>135개</strong>가 두 기준 모두 충족 (classical FF로는 0개)</p>
+<p>→ Out of 5,079 pristine MOFs, <strong>135</strong> satisfy both criteria (0 with classical FF)</p>
 </blockquote>
-<h3 id="유형-d-dataset-규모-분포-논문-methods">유형 D — Dataset 규모 분포 (논문 §Methods)</h3>
+<h3 id="type-d-dataset-scale-distribution-paper-methods">Type D — Dataset scale distribution (paper §Methods)</h3>
 <blockquote>
 <pre><code>┌──────────────────────────┬───────────┐
 │ Pristine MOFs            │   4,942   │
@@ -287,7 +287,7 @@ Forces per atom (eV/Å, 3D vector)
 Most common: Zn, Cu, Cd</p>
 </blockquote>
 <hr />
-<h2 id="평가-framework">평가 framework</h2>
+<h2 id="evaluation-framework">Evaluation framework</h2>
 <table>
 <thead>
 <tr>
@@ -330,61 +330,61 @@ Most common: Zn, Cu, Cd</p>
 </tr>
 </tbody>
 </table>
-<p>→ OC20/OC22 with the <strong>same evaluation protocol</strong> → MOF/DAC domain으로 확장</p>
+<p>→ OC20/OC22 with the <strong>same evaluation protocol</strong> → extended to the MOF/DAC domain</p>
 <hr />
-<h2 id="주요-결과-논문-results">주요 결과 (논문 §Results)</h2>
+<h2 id="key-results-paper-results">Key Results (paper §Results)</h2>
 <table>
 <thead>
 <tr>
-  <th>발견</th>
-  <th>의미</th>
+  <th>Finding</th>
+  <th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>MOFs with various adsorbate-adsorbate interactions identified</td>
-  <td>ZIDBEV (E=0), IMAGAG (-0.64 eV), IPIDUH (1.04 eV) 등</td>
+  <td>ZIDBEV (E=0), IMAGAG (-0.64 eV), IPIDUH (1.04 eV), etc.</td>
 </tr>
 <tr>
-  <td>Co-adsorption distortion 효과</td>
-  <td>LEWZET 2nd H₂O 시 -5.48 eV (MOF distortion)</td>
+  <td>Co-adsorption distortion effect</td>
+  <td>LEWZET -5.48 eV upon 2nd H₂O (MOF distortion)</td>
 </tr>
 <tr>
   <td>Direct identification of promising DAC MOFs</td>
-  <td>downstream FF screening 불필요</td>
+  <td>downstream FF screening unnecessary</td>
 </tr>
 <tr>
-  <td>FF-based screening 한계 노출</td>
-  <td>open-metal site / defect에서 FF 부정확</td>
+  <td>Exposed limitations of FF-based screening</td>
+  <td>FF is inaccurate at open-metal sites / defects</td>
 </tr>
 <tr>
   <td>ML models trained on ODAC23</td>
-  <td>DFT-level 근사로 high-throughput screening 가능</td>
+  <td>high-throughput screening possible via DFT-level approximation</td>
 </tr>
 </tbody>
 </table>
-<p>→ <strong>결론</strong>: ML + ODAC23 = DAC sorbent discovery의 <strong>scalable in-silico verification platform</strong></p>
+<p>→ <strong>Conclusion</strong>: ML + ODAC23 = a <strong>scalable in-silico verification platform</strong> for DAC sorbent discovery</p>
 <hr />
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li><strong>DFT functional dependence</strong>: PBE-based, 다른 functional과 격차</li>
-<li><strong>OC20-style framework</strong>: liquid/gas phase 외 confined geometry 한정</li>
-<li><strong>Adsorbate 한정</strong>: CO₂, H₂O만 (다른 기체 미커버)</li>
-<li><strong>Compute cost</strong>: 400M core-hours 재현 불가</li>
-<li><strong>Class imbalance</strong>: monometallic 89% → bimetallic/trimetallic 데이터 sparse</li>
-<li><strong>Defect concentration 1–16%</strong>: amorphous / heavily-defective MOF 미커버</li>
-<li><strong>시간</strong>: 2023 cutoff, 후속 ODAC24/25 등장 시 비교 필요</li>
+<li><strong>DFT functional dependence</strong>: PBE-based, with a gap to other functionals</li>
+<li><strong>OC20-style framework</strong>: limited to confined geometry, beyond liquid/gas phase</li>
+<li><strong>Adsorbate limitation</strong>: only CO₂, H₂O (other gases not covered)</li>
+<li><strong>Compute cost</strong>: 400M core-hours not reproducible</li>
+<li><strong>Class imbalance</strong>: monometallic 89% → bimetallic/trimetallic data sparse</li>
+<li><strong>Defect concentration 1–16%</strong>: amorphous / heavily-defective MOFs not covered</li>
+<li><strong>Time</strong>: 2023 cutoff, comparison needed when successors like ODAC24/25 appear</li>
 </ul>
 <hr />
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문 (ACS Central Sci.)</strong>: <a href="https://doi.org/10.1021/acscentsci.3c01629">10.1021/acscentsci.3c01629</a></li>
+<li><strong>Paper (ACS Central Sci.)</strong>: <a href="https://doi.org/10.1021/acscentsci.3c01629">10.1021/acscentsci.3c01629</a></li>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2311.00341">2311.00341</a></li>
-<li><strong>공식 사이트</strong>: <a href="https://opencatalystproject.org/">opencatalystproject.org</a> (Open DAC subset)</li>
+<li><strong>Official site</strong>: <a href="https://opencatalystproject.org/">opencatalystproject.org</a> (Open DAC subset)</li>
 <li><strong>GitHub</strong>: <a href="https://github.com/Open-Catalyst-Project/ocp">Open-Catalyst-Project/ocp</a></li>
-<li><strong>저자 소속</strong>: Meta FAIR / Georgia Tech / ORNL</li>
-<li><strong>이 dataset을 사용한 후속 작업</strong>: OMat24 (Meta 2024, OpenDAC를 design 참조), MLIP Arena gas-adsorption task</li>
-<li><strong>관련 데이터셋</strong>: OC20 (Chanussot 2021), OC22 (Tran 2023), OMat24 (Barroso-Luque 2024), CoRE MOF database (Chung 2014)</li>
+<li><strong>Author affiliations</strong>: Meta FAIR / Georgia Tech / ORNL</li>
+<li><strong>Follow-up work using this dataset</strong>: OMat24 (Meta 2024, referencing OpenDAC's design), MLIP Arena gas-adsorption task</li>
+<li><strong>Related datasets</strong>: OC20 (Chanussot 2021), OC22 (Tran 2023), OMat24 (Barroso-Luque 2024), CoRE MOF database (Chung 2014)</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (sriram2024odac23)</a></p>
@@ -414,14 +414,14 @@ Most common: Zn, Cu, Cd</p>
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

@@ -12,106 +12,109 @@ paper_link: https://pubs.rsc.org/en/content/articlelanding/2024/dd/d3dd00188a
 > Digital Discovery 2024 | Benchmark | material
 > Zaki, Mausam, Krishnan — IIT Delhi (M3RG-IITD) · arXiv:2308.09115
 
-## 한 줄 요약
-인도 GATE(Graduate Aptitude Test in Engineering) 재료과학·야금공학 기출문제 **650 문항**을 4가지 문항 구조(MCQ/MATCH/MCQN/NUM) × 14개 재료과학 도메인으로 분류하여 구축한 LLM의 학부 졸업 수준 재료과학 지식 평가 벤치마크. GPT-4-CoT가 62.0%로 최고 성능이며, GPT-4의 conceptual error(64%)가 computational error(36%)를 압도해 도메인 지식 부족이 주요 병목임을 정량화. HoneyComb(GPT-4 + MatSciKB + ToolHub)가 79.07%로 RAG 강화 효과 입증.
+## TL;DR
+A benchmark for evaluating the undergraduate-graduate-level materials science knowledge of LLMs, built from **650 questions** drawn from past papers of India's GATE (Graduate Aptitude Test in Engineering) in Materials Science and Metallurgical Engineering, classified along 4 question structures (MCQ/MATCH/MCQN/NUM) × 14 materials science domains. GPT-4-CoT achieves the best performance at 62.0%, and GPT-4's conceptual errors (64%) far outweigh its computational errors (36%), quantifying that lack of domain knowledge is the main bottleneck. HoneyComb (GPT-4 + MatSciKB + ToolHub) reaches 79.07%, demonstrating the effect of RAG augmentation.
 
-## 제작 배경
-- 화학·생물 분야에는 도메인 특화 LLM(ChemGPT, BioBERT 등)이 다수 존재하나, **재료과학에는 전문 평가 셋이 부재**.
-- 기존 LLM 벤치마크(MMLU, SciQ 등)는 일반 과학 상식 위주로, 학부 졸업 수준의 thermodynamics·crystallography·phase transition 계산 문제를 포함하지 않음.
-- GATE 시험은 인도에서 매년 80만 명 이상이 응시(주요 학과 평균 10만 명)하는 **국가 수준 대학원 입시**로, 재료과학·야금 학부 졸업자의 핵심 역량을 검증하기 위해 IIT 5개 기관이 공동 출제 → 신뢰성 있는 정답 키 보유.
+## Background
+- Domain-specialized LLMs (ChemGPT, BioBERT, etc.) exist in abundance for chemistry and biology, but **materials science lacks a dedicated evaluation set**.
+- Existing LLM benchmarks (MMLU, SciQ, etc.) focus on general scientific common sense and do not include undergraduate-graduate-level computational problems in thermodynamics, crystallography, or phase transition.
+- The GATE exam is a **national-level graduate admissions test** taken by more than 800,000 candidates in India each year (an average of 100,000 for major departments); it is jointly set by 5 IIT institutions to verify the core competencies of materials science and metallurgy undergraduate graduates → it has a reliable answer key.
 
-## 어떻게 만들었나 (Construction Methodology)
+## Construction Methodology
 
 ```
-Step 1 — 소스 선정
-  └─ 인도 IIT 주관 GATE (Graduate Aptitude Test in Engineering)
-      재료과학·야금공학(MT) 파트 기출문제 수집
-  └─ 공식 출처: gate.iitkgp.ac.in/old_question_papers.html
-      (IIT Kharagpur가 GATE 주관 기관 중 하나)
+Step 1 — Source selection
+  └─ GATE (Graduate Aptitude Test in Engineering) administered by India's IITs
+      Collection of past papers from the Materials Science and
+      Metallurgical Engineering (MT) section
+  └─ Official source: gate.iitkgp.ac.in/old_question_papers.html
+      (IIT Kharagpur is one of the GATE-administering institutions)
 
-Step 2 — 문항 구조 분류 (Axis A)
+Step 2 — Question structure classification (Axis A)
   ┌──────────┬────────────────────────────────────────┬─────┐
-  │ 유형     │ 설명                                    │ 수  │
+  │ Type     │ Description                             │ Num │
   ├──────────┼────────────────────────────────────────┼─────┤
-  │ MCQ      │ 4지 선다, 개념 이해 중심 (1개 정답)     │ 285 │
-  │ MATCH    │ 두 리스트 매칭, 4지 옵션                │  70 │
-  │ MCQN     │ 4지 옵션 + 수치 계산 필요               │  67 │
-  │ NUM      │ 수치 입력 (선택지 없음)                 │ 228 │
+  │ MCQ      │ 4-option multiple choice, concept-      │ 285 │
+  │          │ focused (1 correct answer)              │     │
+  │ MATCH    │ Matching two lists, 4-option            │  70 │
+  │ MCQN     │ 4 options + numerical calculation req.  │  67 │
+  │ NUM      │ Numerical entry (no options)            │ 228 │
   ├──────────┼────────────────────────────────────────┼─────┤
-  │ 합계     │                                        │ 650 │
+  │ Total    │                                        │ 650 │
   └──────────┴────────────────────────────────────────┴─────┘
-  (MCQ 중 13문제는 복수 정답 형식)
+  (13 of the MCQ questions have a multiple-correct-answer format)
 
-Step 3 — 도메인 분류 (Axis B, 14 카테고리)
+Step 3 — Domain classification (Axis B, 14 categories)
   thermodynamics · atomic structure · mechanical behavior ·
   materials manufacturing · material applications · phase transition ·
   electrical properties · material processing · transport phenomenon ·
   magnetic properties · material characterization · fluid mechanics ·
   material testing · miscellaneous
 
-Step 4 — 전문가 검수
-  └─ 2명의 재료과학 도메인 전문가가 독립적으로 도메인 라벨링
-  └─ 라벨 불일치 → 토론을 통한 합의 도출
-  └─ 정답 검증: IIT Kharagpur 공식 answer key 기준
+Step 4 — Expert review
+  └─ 2 materials science domain experts independently labeled domains
+  └─ Label disagreement → consensus reached through discussion
+  └─ Answer verification: based on the official IIT Kharagpur answer key
 
-Step 5 — 평가 프로토콜
+Step 5 — Evaluation protocol
   ┌─ Zero-shot: "Solve the following question. Write the
   │              correct answer inside a list at the end."
   └─ Chain-of-Thought(CoT): "Solve the following question with
                             highly detailed step-by-step
                             explanation. Write the correct
                             answer inside a list at the end."
-  └─ OpenAI API로 GPT-3.5 / GPT-4 평가
-  └─ 모델 출력은 텍스트 파일로 저장 후 수동으로 답안 추출
-     (모델이 항상 지정 포맷을 따르진 않음)
+  └─ Evaluated GPT-3.5 / GPT-4 via the OpenAI API
+  └─ Model outputs were saved as text files and answers were
+     manually extracted afterward
+     (the model does not always follow the specified format)
 
-Step 6 — 공개
+Step 6 — Release
   └─ github.com/M3RG-IITD/MaScQA
-  └─ 전체 650 문항 (Train/Val/Test 분할 없음)
+  └─ All 650 questions (no Train/Val/Test split)
 ```
 
-## Input (입력)
-- **문항 형식**: 텍스트 기반 자연어 질문 (이미지·그래프 없음)
-- **문항 수**: 650 (MCQ 285 + MATCH 70 + MCQN 67 + NUM 228)
-- **도메인**: 14개 재료과학 sub-area
-- **언어**: 영어
-- **메타데이터**: question_id, structure_type, domain_label, correct_answer
+## Input
+- **Question format**: text-based natural language questions (no images or graphs)
+- **Number of questions**: 650 (MCQ 285 + MATCH 70 + MCQN 67 + NUM 228)
+- **Domains**: 14 materials science sub-areas
+- **Language**: English
+- **Metadata**: question_id, structure_type, domain_label, correct_answer
 
-## Output (출력 / 정답 형식)
-- **MCQ / MATCH / MCQN**: A/B/C/D 중 한 옵션 (또는 복수 옵션)
-- **NUM**: 수치 (정수 또는 지정 자릿수의 부동소수점)
-- **평가 지표**: 정답 일치율 (% accuracy)
-- **베이스라인**: 무작위 선택 시 MCQ 25%, MATCH 25%, MCQN 25%, NUM 0%
+## Output (Answer format)
+- **MCQ / MATCH / MCQN**: one of the options A/B/C/D (or multiple options)
+- **NUM**: a numerical value (integer or floating point with a specified number of digits)
+- **Evaluation metric**: answer match rate (% accuracy)
+- **Baseline**: with random selection, MCQ 25%, MATCH 25%, MCQN 25%, NUM 0%
 
-## 실제 문항 예시 (논문 본문 + Figure 1·4·5·8 캡션 기반 재구성)
+## Example Questions (reconstructed from the paper body + Figure 1·4·5·8 captions)
 
-### MCQ — 개념형 (논문 본문 인용)
-> 논문 본문에서 GPT-4-CoT가 conceptual error를 보인 사례 중 하나:
+### MCQ — Conceptual (quoted from the paper body)
+> One of the cases where GPT-4-CoT exhibits a conceptual error in the paper body:
 >
 > **Q (Fig. 4(b)).** Relating lattice parameter (a) and atomic diameter (D) in a given crystal structure.
 >
-> GPT-4-CoT는 잘못된 관계식 `a = √(8/3) · D`를 적용 → 정답인 `a = (4/√6) · D`와 어긋남.
+> GPT-4-CoT applied the incorrect relation `a = √(8/3) · D` → inconsistent with the correct answer `a = (4/√6) · D`.
 >
-> *Atomic structure 영역에서 LLM의 공식 retrieval 오류를 보여주는 대표 사례*
+> *A representative case showing LLM formula-retrieval errors in the Atomic structure area*
 
-### MATCH — 응용 분야 매칭 (논문 본문 인용)
-> **Q (Fig. 6).** Match materials to their primary application (missile cone heads, semiconductors, refractory uses 등).
+### MATCH — Application-domain matching (quoted from the paper body)
+> **Q (Fig. 6).** Match materials to their primary application (missile cone heads, semiconductors, refractory uses, etc.).
 >
-> *논문 본문(p.18) 분석*: "GPT-3.5-CoT was only able to determine the material properties required for the missile cone heads ... [it] tries to arrive at the correct answer by eliminating the options." → GPT-3.5는 elimination 전략에 의존, GPT-4는 개념적 inter-relating으로 정답 도달.
+> *Analysis in the paper body (p.18)*: "GPT-3.5-CoT was only able to determine the material properties required for the missile cone heads ... [it] tries to arrive at the correct answer by eliminating the options." → GPT-3.5 relies on an elimination strategy, while GPT-4 reaches the correct answer through conceptual inter-relating.
 
-### MCQN — 수치 + 다중 선택 (논문 본문 인용)
+### MCQN — Numerical + multiple choice (quoted from the paper body)
 > **Q (Fig. 7).** A numerical question with four numeric options.
 >
-> *논문 본문*: "The GPT-3.5-CoT solution used the correct concept but made calculation errors leading to a final incorrect answer. However, GPT-4-CoT used the correct concept and did not make calculation mistakes."
+> *Paper body*: "The GPT-3.5-CoT solution used the correct concept but made calculation errors leading to a final incorrect answer. However, GPT-4-CoT used the correct concept and did not make calculation mistakes."
 
-### NUM — 수치 직접 입력 (논문 본문 인용)
+### NUM — Direct numerical entry (quoted from the paper body)
 > **Q (Fig. 8).** Sample numerical question related to **platinum's crystal structure** (FCC, calculating interplanar distance d).
 >
-> *논문 본문*: "Both models applied the correct concept. However, GPT-3.5-CoT made a calculation mistake in obtaining the interplanar distance 'd'..." → 개념은 맞지만 산술 오류로 NUM 정확도가 모든 카테고리 중 가장 낮음.
+> *Paper body*: "Both models applied the correct concept. However, GPT-3.5-CoT made a calculation mistake in obtaining the interplanar distance 'd'..." → the concept is correct but an arithmetic error makes NUM accuracy the lowest of all categories.
 
-> ※ 원문 GATE 문제 텍스트는 IIT Kharagpur 공식 question paper PDF에서 확인 가능 (각 fig 캡션은 이미지 형식이라 PDF에서 직접 텍스트 추출 불가).
+> ※ The original GATE question text can be checked in the official IIT Kharagpur question paper PDFs (each figure caption is in image format, so text cannot be extracted directly from the PDF).
 
-## 주요 평가 결과 (Table 1)
+## Key Evaluation Results (Table 1)
 
 | Evaluation Method | MCQ (285) | MATCH (70) | MCQN (67) | NUM (228) | **Overall** |
 |---|---|---|---|---|---|
@@ -122,39 +125,39 @@ Step 6 — 공개
 | **GPT-4-CoT** | **76.84** | **92.86** | 52.24 | **37.28** | **62.00** |
 | HoneyComb (GPT-4+MatSciKB+ToolHub, EMNLP 2024) | — | — | — | — | **79.07** |
 
-**핵심 발견**
-- GPT-4 → GPT-4-CoT 향상은 미미(+1.85pp) — CoT가 항상 도움되지 않음을 시사.
-- NUM 카테고리에서 모든 모델이 최저 성능 → 수치 계산이 주요 병목.
-- MATCH에서 GPT-4가 GPT-3.5의 **2배 이상** 정확도 (88.57% vs 40.00%) → 개념 inter-relating 능력 차이.
-- 13개 multi-correct MCQ 중 GPT-4는 6개, GPT-4-CoT는 7개만 정답.
+**Key findings**
+- The improvement from GPT-4 → GPT-4-CoT is marginal (+1.85pp) — suggesting that CoT does not always help.
+- All models perform worst on the NUM category → numerical calculation is the main bottleneck.
+- On MATCH, GPT-4 is **more than 2×** as accurate as GPT-3.5 (88.57% vs 40.00%) → a difference in conceptual inter-relating ability.
+- Of the 13 multi-correct MCQ questions, GPT-4 gets only 6 correct and GPT-4-CoT only 7.
 
-**Error 분석 (GPT-4-CoT 오답 100 문항 샘플, Table 3)**
-| Error Type | 비율 |
+**Error analysis (sample of 100 GPT-4-CoT incorrect answers, Table 3)**
+| Error Type | Proportion |
 |---|---|
-| Conceptual error (지식 부족) | ~64% |
-| Computational error (계산 실수) | ~36% |
-| Grounding error (개념 적용 오류) | ~0% (CoT가 거의 제거) |
+| Conceptual error (lack of knowledge) | ~64% |
+| Computational error (calculation mistake) | ~36% |
+| Grounding error (error in applying concepts) | ~0% (CoT almost eliminates it) |
 
-→ 도메인 지식 보강(RAG/SFT)이 계산 능력 향상보다 우선순위.
+→ Reinforcing domain knowledge (RAG/SFT) takes priority over improving calculation ability.
 
-**Domain 분석 (GPT-4-CoT, Table 2)**
-- **최저 정확도 영역**: Electrical properties · Mechanical behavior (~60% 오답)
-- Thermodynamics · Atomic structure · Phase transition · Transport phenomena · Magnetic properties: 40%+ 오답
-- **최고 정확도 영역**: Material testing (오답 0건) · Material characterization
+**Domain analysis (GPT-4-CoT, Table 2)**
+- **Lowest-accuracy areas**: Electrical properties · Mechanical behavior (~60% incorrect)
+- Thermodynamics · Atomic structure · Phase transition · Transport phenomena · Magnetic properties: 40%+ incorrect
+- **Highest-accuracy areas**: Material testing (0 incorrect) · Material characterization
 
-## 한계점
-- **이미지·그래프 없음**: 텍스트 기반 문제만 포함 → multimodal 평가 불가 (실제 GATE는 일부 그림 문제 포함).
-- **인도 커리큘럼 편향**: GATE 문제 특성상 인도 학부 교과서 기반 → 미국·유럽 커리큘럼과 미세한 강조점 차이 가능.
-- **최신 재료 미커버**: 배터리·2D 소재·나노소재·MOF·perovskite solar cell 등 2010년대 이후 hot topic 문제 부족.
-- **언어**: 영어 단일 (다국어 평가 불가).
-- **Train/Val/Test 분할 부재**: 전체 650 문항이 평가 셋으로만 사용 → 학습용 split 따로 필요시 사용자가 직접 구성.
-- **수치 계산 채점의 모호성**: 부동소수점 반올림 자릿수가 문제별로 다름 → automatic grading 시 tolerance 설정 필요.
+## Limitations
+- **No images or graphs**: only text-based questions are included → multimodal evaluation is not possible (the actual GATE includes some figure-based questions).
+- **Indian curriculum bias**: given the nature of GATE questions, they are based on Indian undergraduate textbooks → subtle differences in emphasis relative to US/European curricula are possible.
+- **Latest materials not covered**: a shortage of questions on hot topics since the 2010s such as batteries, 2D materials, nanomaterials, MOF, and perovskite solar cells.
+- **Language**: English only (multilingual evaluation not possible).
+- **No Train/Val/Test split**: all 650 questions are used only as an evaluation set → if a separate training split is needed, users must construct it themselves.
+- **Ambiguity in grading numerical calculations**: the floating-point rounding digits differ per question → a tolerance setting is needed for automatic grading.
 
-## 관련 정보
-- **논문**: [Digital Discovery, RSC, 2024 (DOI: 10.1039/D3DD00188A)](https://pubs.rsc.org/en/content/articlelanding/2024/dd/d3dd00188a)
+## Related links
+- **Paper**: [Digital Discovery, RSC, 2024 (DOI: 10.1039/D3DD00188A)](https://pubs.rsc.org/en/content/articlelanding/2024/dd/d3dd00188a)
 - **arXiv**: [2308.09115](https://arxiv.org/abs/2308.09115)
 - **GitHub**: [M3RG-IITD/MaScQA](https://github.com/M3RG-IITD/MaScQA)
-- **공식 GATE 문제 출처**: [gate.iitkgp.ac.in](https://gate.iitkgp.ac.in/old_question_papers.html)
-- **이 벤치마크를 사용한 후속 작업**:
-  - HoneyComb (EMNLP Findings 2024) — 79.07% 달성 (RAG agent)
-  - 후속 재료과학 RAG 논문들의 표준 벤치마크로 채택
+- **Official GATE question source**: [gate.iitkgp.ac.in](https://gate.iitkgp.ac.in/old_question_papers.html)
+- **Follow-up work using this benchmark**:
+  - HoneyComb (EMNLP Findings 2024) — achieves 79.07% (RAG agent)
+  - Adopted as a standard benchmark by subsequent materials science RAG papers

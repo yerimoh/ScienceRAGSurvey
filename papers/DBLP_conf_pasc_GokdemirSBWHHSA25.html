@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DBLP:conf/pasc/GokdemirSBWHHSA25 — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>DBLP:conf/pasc/GokdemirSBWHHSA25, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,46 +117,46 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-hiperrag-architecture">시스템 구조 (HiPerRAG Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l2"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#architecture-hiperrag-architecture">Architecture (HiPerRAG Architecture)</a></li><li class="toc-l2"><a href="#pipeline-inference">Pipeline (inference)</a></li><li class="toc-l2"><a href="#key-results">Key results</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>HiPerRAG: HPC-Scale RAG for Scientific QA</h1>
 <blockquote>
 <p>PASC 2025 | Method | bio · medical · chem · physics</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>HiPerRAG는 고성능 컴퓨팅(HPC)으로 360만 편 이상의 과학 논문을 색인·검색해 객관식 과학 QA에 답하는 RAG 인프라다. 멀티모달 문서 파서 Oreo와 질의 인지 인코더 미세조정 ColTrast를 핵심으로, Polaris·Sunspot·Frontier 슈퍼컴퓨터의 수천 GPU로 백만 문서 규모 RAG를 가능하게 한다. (출력은 합성이 아니라 검색-답변형 closed-form QA이므로 K1.O1로 분류.)</p>
-<h2 id="시스템-구조-hiperrag-architecture">시스템 구조 (HiPerRAG Architecture)</h2>
+<h2 id="tldr">TL;DR</h2>
+<p>HiPerRAG is a RAG infrastructure that uses high-performance computing (HPC) to index and search over 3.6 million scientific papers in order to answer multiple-choice scientific QA. Built around Oreo, a multimodal document parser, and ColTrast, a query-aware encoder fine-tuning method, it makes million-document-scale RAG possible using thousands of GPUs on the Polaris, Sunspot, and Frontier supercomputers. (Because the output is retrieval-answer closed-form QA rather than synthesis, it is classified as K1.O1.)</p>
+<h2 id="architecture-hiperrag-architecture">Architecture (HiPerRAG Architecture)</h2>
 <ul>
-<li><strong>코퍼스:</strong> 360만 편 이상의 과학 논문을 색인·검색.</li>
-<li><strong>Oreo (멀티모달 문서 파싱):</strong> 대규모 과학 문헌을 고처리량으로 파싱하는 모델. 기존 파서 대비 약 4.5배 빠름.</li>
-<li><strong>ColTrast (검색기 미세조정):</strong> 질의 인지(query-aware) 인코더를 contrastive + late-interaction 방식으로 미세조정해 검색 정확도를 높이는 알고리즘.</li>
-<li><strong>생성기:</strong> 검색된 패시지를 LLM에 전달해 객관식 답을 생성.</li>
-<li><strong>HPC 스택:</strong> Polaris·Sunspot·Frontier에서 수천 GPU로 확장하는 인프라(독립 모델이 아니라 백만 문서 규모 RAG를 떠받치는 소프트웨어 스택).</li>
+<li><strong>Corpus:</strong> Indexes and searches over 3.6 million scientific papers.</li>
+<li><strong>Oreo (multimodal document parsing):</strong> A model that parses large-scale scientific literature at high throughput. About 4.5x faster than existing parsers.</li>
+<li><strong>ColTrast (retriever fine-tuning):</strong> An algorithm that fine-tunes a query-aware encoder using contrastive + late-interaction methods to improve retrieval accuracy.</li>
+<li><strong>Generator:</strong> Passes retrieved passages to an LLM to generate multiple-choice answers.</li>
+<li><strong>HPC stack:</strong> Infrastructure that scales to thousands of GPUs on Polaris, Sunspot, and Frontier (not a standalone model, but a software stack that underpins million-document-scale RAG).</li>
 </ul>
-<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
+<h2 id="pipeline-inference">Pipeline (inference)</h2>
 <ol>
-<li>질문 입력 → ColTrast로 미세조정된 인코더로 360만+ 논문 색인에서 관련 패시지 검색.</li>
-<li>검색된 패시지를 LLM 생성기에 전달.</li>
-<li>객관식/단답 형태의 답을 생성하고 정확도로 평가.</li>
+<li>Question input → retrieve relevant passages from the 3.6M+ paper index using the ColTrast-fine-tuned encoder.</li>
+<li>Pass the retrieved passages to the LLM generator.</li>
+<li>Generate answers in multiple-choice/short-answer form and evaluate by accuracy.</li>
 </ol>
-<h2 id="주요-결과">주요 결과</h2>
+<h2 id="key-results">Key results</h2>
 <ul>
-<li>기존 과학 QA 벤치마크에서 <strong>SciQ 90%, PubMedQA 76% 정확도</strong>.</li>
-<li>자체 제작 단백질 QA 벤치마크(ProteinInteractionQA, ProteinFunctionQA) 도입.</li>
-<li>핵심 기여: 백만 문서 규모로의 RAG 확장(파싱·임베딩 비용 문제 해결)과 검색 정확도 향상.</li>
+<li><strong>90% accuracy on SciQ and 76% on PubMedQA</strong> on existing scientific QA benchmarks.</li>
+<li>Introduces self-built protein QA benchmarks (ProteinInteractionQA, ProteinFunctionQA).</li>
+<li>Key contributions: scaling RAG to the million-document level (solving parsing and embedding cost problems) and improving retrieval accuracy.</li>
 </ul>
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li>출력이 객관식 QA에 한정되어 다중 출처 통합(synthesis)이나 장문 합성은 다루지 않음.</li>
-<li>슈퍼컴퓨터급 자원을 전제로 한 인프라라 재현·접근성이 제한적.</li>
-<li>단백질 QA 벤치마크가 LLM 생성으로 만들어져 품질 편향 가능.</li>
+<li>The output is limited to multiple-choice QA, so it does not address multi-source integration (synthesis) or long-form synthesis.</li>
+<li>Because the infrastructure presupposes supercomputer-class resources, reproducibility and accessibility are limited.</li>
+<li>The protein QA benchmarks are created by LLM generation, so quality bias is possible.</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
 <li>arXiv: 2505.04846 (<a href="https://arxiv.org/abs/2505.04846">https://arxiv.org/abs/2505.04846</a>)</li>
 <li>DOI: <a href="https://doi.org/10.1145/3732775.3733586">https://doi.org/10.1145/3732775.3733586</a> (PASC 2025)</li>
-<li>Argonne National Laboratory · University of Chicago 외</li>
+<li>Argonne National Laboratory · University of Chicago et al.</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/pasc/GokdemirSBWHHSA25)</a></p>
@@ -213,14 +213,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

@@ -13,24 +13,25 @@ paper_link: https://arxiv.org/abs/2408.10609
 > Yan Wu, Esther Wershof, Sebastian M. Schmon, Marcel Nassar, Błażej Osiński, Ridvan Eksi, Zichao Yan, Rory Stark, Kun Zhang, Thore Graepel — Altos Labs / University College London
 > arXiv: [2408.10609](https://arxiv.org/abs/2408.10609) · DBLP: `journals/corr/abs-2408-10609`
 
-## 한 줄 요약
-**단일세포 perturbation response 예측 모델**의 표준 평가를 위한 **6-dataset benchmark** (Srivatsan20 / Frangieh21 / Jiang24 / McFalineFigueroa23 / Norman19 / OP3) 와 **2 task family** (covariate transfer / combo prediction). RMSE + Pearson 같은 fit metric 외에 **rank-based metric** (perturbation 간 순서)을 도입해 mode-collapse 모델을 노출. CPA / SAMS-VAE / BioLord / GEARS / scGPT 등 published model + Latent Additive / Decoder-only baseline 비교.
+## TL;DR
+A **6-dataset benchmark** (Srivatsan20 / Frangieh21 / Jiang24 / McFalineFigueroa23 / Norman19 / OP3) and **2 task families** (covariate transfer / combo prediction) for the standardized evaluation of **single-cell perturbation response prediction models**. Beyond fit metrics like RMSE + Pearson, it introduces a **rank-based metric** (ordering across perturbations) to expose mode-collapse models. It compares published models such as CPA / SAMS-VAE / BioLord / GEARS / scGPT with Latent Additive / Decoder-only baselines.
 
 ---
 
-## 어떻게 만들었나 (Construction Methodology)
+## Construction Methodology
 
 ```
-Step 1 — 문제 인식: 기존 perturbation benchmark의 약점
+Step 1 — Problem recognition: weaknesses of existing perturbation benchmarks
   ┌──────────────────────────────────────────────┐
-  │ - 데이터셋마다 다른 split / metric           │
-  │ - rank-blind metric (RMSE/Pearson) 위주      │
-  │   → Decoder-Only가 single mean으로 좋은 점수 │
-  │ - 작은 dataset 위주 → real-world 미반영      │
-  │ - scFM (scGPT 등) 평가 일관성 부재          │
+  │ - Different split / metric per dataset        │
+  │ - rank-blind metric (RMSE/Pearson) focused    │
+  │   → Decoder-Only scores well with single mean │
+  │ - Small-dataset focused → real-world not      │
+  │   reflected                                   │
+  │ - Lack of scFM (scGPT etc.) eval consistency  │
   └──────────────────────────────────────────────┘
 
-Step 2 — 6 dataset 선정 (≥100 perturbations 필수)
+Step 2 — 6 dataset selection (≥100 perturbations required)
   ┌──────────────────┬──────┬──────┬─────────┬───────────┐
   │ Dataset           │ Sing │ Dual │ Modality│ Cells     │
   ├──────────────────┼──────┼──────┼─────────┼───────────┤
@@ -42,7 +43,7 @@ Step 2 — 6 dataset 선정 (≥100 perturbations 필수)
   │ OP3 (Szałata)      │  144 │   0  │ chem    │ 296,147   │
   └──────────────────┴──────┴──────┴─────────┴───────────┘
 
-Step 3 — 2 task family 정의
+Step 3 — Define 2 task families
   · Covariate transfer:
       train: pert A,B,C in cells X,Y
       test:  pert A,B,C in cells Z (unseen covariate)
@@ -75,9 +76,9 @@ Step 6 — Benchmarking rules
 
 ---
 
-## 실제 데이터 형식 예시 (논문 §2 + Table 1 + Figure 2)
+## Example real data formats (paper §2 + Table 1 + Figure 2)
 
-### 유형 A — Single-cell perturbation dataset record
+### Type A — Single-cell perturbation dataset record
 
 > **Input**: control cell expression vector + perturbation metadata (covariate + pert ID)
 >
@@ -89,7 +90,7 @@ Step 6 — Benchmarking rules
 >
 > **Output / Label**: post-perturbation cell expression vector (same gene shape)
 
-### 유형 B — Covariate transfer task (5 datasets)
+### Type B — Covariate transfer task (5 datasets)
 
 > ```
 > Train: cells with covariate C1, C2 — all perturbations A,B,C
@@ -98,7 +99,7 @@ Step 6 — Benchmarking rules
 > Real-world analog: drug effect in unseen cell line / tissue
 > ```
 
-### 유형 C — Combinatorial prediction task (Norman19)
+### Type C — Combinatorial prediction task (Norman19)
 
 > ```
 > Train: 155 single + 30% of 131 dual perturbations
@@ -106,7 +107,7 @@ Step 6 — Benchmarking rules
 > Model task: predict A+B response from A and B single effects
 > ```
 
-### 유형 D — Rank metric calculation (논문 Figure 2)
+### Type D — Rank metric calculation (paper Figure 2)
 
 > ```
 > Predicted pert X embedding ≈ control population mean
@@ -120,51 +121,51 @@ Step 6 — Benchmarking rules
 
 ---
 
-## 평가 framework 요약
+## Evaluation framework summary
 
-| Category | Metric | 목적 |
+| Category | Metric | Purpose |
 |---|---|---|
-| **Fit** | RMSE | average response 정확도 |
-| Fit | cosine LogFC | LogFC 방향 일치 |
-| **Rank** | rank RMSE | mode-collapse 탐지 |
-| Rank | rank cosine | specificity 측정 |
-| **Distributional** | MMD (gene) | full distribution 일치 |
-| Distributional | MMD PCA (top-256) | latent 분포 일치 |
-| Distributional | DEG recall (top-20 t-score) | DEG 회수율 |
+| **Fit** | RMSE | accuracy of average response |
+| Fit | cosine LogFC | LogFC direction agreement |
+| **Rank** | rank RMSE | mode-collapse detection |
+| Rank | rank cosine | specificity measurement |
+| **Distributional** | MMD (gene) | full distribution agreement |
+| Distributional | MMD PCA (top-256) | latent distribution agreement |
+| Distributional | DEG recall (top-20 t-score) | DEG recovery rate |
 
-→ 핵심 contribution: **rank metric** — RMSE만 보면 Decoder-Only가 모든 perturbation을 single mean으로 예측해도 좋게 보이지만, rank ≈ 0.5로 즉시 노출.
+→ Core contribution: the **rank metric** — looking only at RMSE, a Decoder-Only that predicts every perturbation as the single mean can look good, but it is immediately exposed with rank ≈ 0.5.
 
 ---
 
-## 주요 결과 (논문 §5)
+## Main results (paper §5)
 
-| 발견 | 의미 |
+| Finding | Meaning |
 |---|---|
-| Adversarial 제거한 CPA*(noAdv)가 CPA*보다 항상 좋음 | adversarial component가 도움 안 됨 |
-| Sparsity 제거한 SAMS-VAE*(S)가 SAMS-VAE*보다 항상 좋음 | sparse mask 가정이 오히려 손실 |
-| Latent Additive baseline이 published 모델과 동등 또는 우위 | 단순 모델이 일반적으로 충분 |
-| Decoder-Only는 RMSE 양호하나 rank ≈ 0.5 | mode-collapse, rank metric 필요 |
-| scGPT 임베딩 사용 시 marginal 개선만 | scFM가 perturbation에 큰 효과 없음 |
-| Norman19 combo prediction: linear model도 강함 | dual 효과가 대부분 linear |
+| CPA*(noAdv) with adversarial removed is always better than CPA* | adversarial component does not help |
+| SAMS-VAE*(S) with sparsity removed is always better than SAMS-VAE* | the sparse-mask assumption is actually a loss |
+| Latent Additive baseline is on par with or superior to published models | simple models are generally sufficient |
+| Decoder-Only has good RMSE but rank ≈ 0.5 | mode-collapse, rank metric needed |
+| Using scGPT embeddings gives only marginal improvement | scFM has no large effect on perturbation |
+| Norman19 combo prediction: even a linear model is strong | dual effects are mostly linear |
 
-→ **결론**: "no single model architecture clearly outperforms others, simpler architectures are generally competitive and scale well with larger datasets" (논문 §Abstract).
-
----
-
-## 한계점
-- **단일세포 transcriptomics만**: protein, phosphoproteomics 미커버
-- **6 dataset 고정**: 더 큰 atlas (CMap, LINCS, scPerturb 50-dataset) 미포함
-- **Adversarial / sparsity** 같은 모델 구성 비교 위주, novel architecture 평가 부족
-- **Static benchmark**: 새 dataset 등장 시 update 필요
-- **HPO compute**: 60+ trials × 6 model × 6 dataset → 막대한 compute
-- **시간**: 2024 cutoff, 후속 scFoundation/STATE 미반영
+→ **Conclusion**: "no single model architecture clearly outperforms others, simpler architectures are generally competitive and scale well with larger datasets" (paper §Abstract).
 
 ---
 
-## 관련 정보
+## Limitations
+- **Single-cell transcriptomics only**: does not cover protein, phosphoproteomics
+- **Fixed at 6 datasets**: larger atlases (CMap, LINCS, scPerturb 50-dataset) not included
+- Focused on comparing model components like **adversarial / sparsity**; lacks evaluation of novel architectures
+- **Static benchmark**: requires updates when new datasets appear
+- **HPO compute**: 60+ trials × 6 models × 6 datasets → enormous compute
+- **Time**: 2024 cutoff, does not reflect subsequent scFoundation/STATE
+
+---
+
+## Related links
 - **arXiv**: [2408.10609](https://arxiv.org/abs/2408.10609)
 - **DBLP**: [journals/corr/abs-2408-10609](https://dblp.org/rec/journals/corr/abs-2408-10609.html)
-- **저자 소속**: Altos Labs (Cambridge) + University College London
-- **이 benchmark가 사용한 dataset**: Norman 2019 (canonical combo), Srivatsan 2020 (sci-Plex), Frangieh 2021 (immune + cancer), Jiang 2024, McFaline-Figueroa 2023, OP3 (NeurIPS 2023 challenge)
-- **이 benchmark가 평가한 모델**: CPA, SAMS-VAE, BioLord, GEARS, scGPT, Latent Additive, Decoder-Only
-- **관련 benchmark**: scPerturb (Peidli 2024 — data harmonization), NeurIPS 2023 perturbation prediction challenge
+- **Author affiliations**: Altos Labs (Cambridge) + University College London
+- **Datasets used by this benchmark**: Norman 2019 (canonical combo), Srivatsan 2020 (sci-Plex), Frangieh 2021 (immune + cancer), Jiang 2024, McFaline-Figueroa 2023, OP3 (NeurIPS 2023 challenge)
+- **Models evaluated by this benchmark**: CPA, SAMS-VAE, BioLord, GEARS, scGPT, Latent Additive, Decoder-Only
+- **Related benchmarks**: scPerturb (Peidli 2024 — data harmonization), NeurIPS 2023 perturbation prediction challenge

@@ -13,79 +13,79 @@ originSessionId: e17a6512-257b-4eac-96cc-808523cf24a8
 
 > J. Chem. Inf. Model. | 2025 | Method | material, chem
 
-## 한 줄 요약
-CSV 실험 데이터와 PDF 문헌을 이중 소스로 통합하여, 완전 오프라인 환경에서 로컬 LLM을 광촉매 재료 도메인에 특화시키는 RAG 프레임워크(MDSK-RAG).
+## TL;DR
+A RAG framework (MDSK-RAG) that integrates CSV experimental data and PDF literature as dual sources, specializing a local LLM to the photocatalyst materials domain in a fully offline environment.
 
-## 연구 배경 및 동기
-- **기존 방법의 한계점**: 클라우드 기반 LLM(예: GPT-4o)은 성능이 우수하나, 연구실 내 미공개 실험 데이터를 다루는 환경에서 데이터 기밀성 문제로 외부 API 활용이 불가. 기존 RAG는 주로 텍스트 문헌만 다루며, 연구실 자체 보유 CSV 실험 데이터를 통합하는 방법이 부재.
-- **이 연구가 필요한 이유**: 실험실 환경에서 비공개 실험 레코드와 과학 문헌을 동시에 활용하면서도 완전한 오프라인 운용이 가능한 도메인 특화 RAG 시스템이 필요. 모델 재학습(fine-tuning) 없이 로컬 LLM의 전문성을 빠르게 끌어올릴 수 있는 실용적 방법론 요구.
+## Background and Motivation
+- **Limitations of existing methods**: Cloud-based LLMs (e.g., GPT-4o) offer excellent performance, but in environments handling unpublished in-lab experimental data, external API use is not possible due to data confidentiality concerns. Existing RAG mainly handles only text literature, and lacks a method to integrate the lab's own CSV experimental data.
+- **Why this research is needed**: A domain-specialized RAG system is needed that can simultaneously leverage confidential experimental records and scientific literature while enabling fully offline operation in a laboratory environment. There is a demand for a practical methodology that can rapidly boost the expertise of a local LLM without model retraining (fine-tuning).
 
-## 시스템 아키텍처
+## Architecture
 ```
-[사용자 쿼리]
+[User query]
     |
-    +---> [CSV Retriever] --> CSV 변환 텍스트 DB (740 records) --> 관련 k개 passage 추출 --> 로컬 LLM 요약
+    +---> [CSV Retriever] --> CSV-converted text DB (740 records) --> extract top-k relevant passages --> local LLM summary
     |
-    +---> [PDF Retriever] --> PDF 문헌 DB (20 papers)         --> 관련 k개 passage 추출 --> 로컬 LLM 요약
+    +---> [PDF Retriever] --> PDF literature DB (20 papers)        --> extract top-k relevant passages --> local LLM summary
     |
-    +---> [두 요약 병합 + 원본 쿼리] --> 로컬 LLM (gemma-2-9b-it) --> 최종 응답 생성
+    +---> [merge the two summaries + original query] --> local LLM (gemma-2-9b-it) --> final response generation
 ```
 
-## 핵심 모듈 상세 설명
-### 1. 이중 데이터베이스 구성
-| 소스 | 내용 | 규모 | 공개 여부 |
+## Detailed Description of Core Modules
+### 1. Dual-Database Construction
+| Source | Content | Scale | Public availability |
 |---|---|---|---|
-| CSV 실험 레코드 | 자체 금속황화물 광촉매 실험 데이터 | 740건 | Private |
-| PDF 과학 논문 | 동료심사 완료 과학 논문 | 20편 | Private |
+| CSV experimental records | In-house metal sulfide photocatalyst experimental data | 740 records | Private |
+| PDF scientific papers | Peer-reviewed scientific papers | 20 papers | Private |
 
-### 2. CSV → Template-based Text 변환
-- 구조화된 CSV 테이블 데이터를 자연어 템플릿 텍스트로 변환하여 벡터 검색 가능하게 전처리.
-- 예: `{재료명}의 수소 발생률은 {값} μmol/h이며, 조건은 {조건}이다.` 형태로 변환.
+### 2. CSV → Template-based Text Conversion
+- Preprocesses structured CSV table data into natural-language template text so it becomes searchable via vector retrieval.
+- Example: converted into the form `The hydrogen evolution rate of {material name} is {value} μmol/h, and the conditions are {conditions}.`
 
 ### 3. Dual Retriever
-- CSV 변환 텍스트용 Retriever와 PDF용 Retriever를 독립 구성.
-- 코사인 유사도 기반 벡터 검색으로 각각 k개 관련 passage 반환.
-- 모든 연산 완전 로컬 처리(no-Internet).
+- A Retriever for the CSV-converted text and a Retriever for the PDFs are configured independently.
+- Each returns top-k relevant passages via cosine-similarity-based vector retrieval.
+- All computation is fully local (no-Internet).
 
-### 4. Post-retrieval: 요약 및 병합
-- 각 retriever 결과를 로컬 LLM이 개별 요약.
-- 두 요약을 병합(fusion)하여 원본 쿼리와 함께 최종 생성 LLM에 입력.
+### 4. Post-retrieval: Summarization and Merging
+- The local LLM individually summarizes each retriever's results.
+- The two summaries are merged (fusion) and, together with the original query, fed into the final generation LLM.
 
-### 5. Generator (로컬 LLM)
-| 모델 | 크기 | 하드웨어 |
+### 5. Generator (Local LLM)
+| Model | Size | Hardware |
 |---|---|---|
-| gemma-2-9b-it (primary, quantized) | ~9B | 노트북 GPU (16GB VRAM) |
-| Qwen2.5-7B-Instruct | ~7B | 노트북 GPU |
-| gemma-2-27b-it | ~27B | 전용 서버 (RTX 3090, 24GB VRAM) |
+| gemma-2-9b-it (primary, quantized) | ~9B | Laptop GPU (16GB VRAM) |
+| Qwen2.5-7B-Instruct | ~7B | Laptop GPU |
+| gemma-2-27b-it | ~27B | Dedicated server (RTX 3090, 24GB VRAM) |
 
-## 실험 및 평가
-### 평가 태스크 및 데이터셋
-- **Photocatalyst Expert QA**: 도메인 전문가가 정의한 14개 질문으로 구성된 자체 제작 벤치마크.
-- 질문 유형: 실험 조건 관련 사실형, 추론·해석형 혼합.
+## Experiments and Evaluation
+### Evaluation Tasks and Datasets
+- **Photocatalyst Expert QA**: An in-house benchmark composed of 14 questions defined by domain experts.
+- Question types: a mix of factual questions related to experimental conditions and reasoning/interpretation questions.
 
-### 주요 결과
-| 모델 | 조건 | Cosine Similarity (중앙값) | Expert 5점 평가 (중앙값) |
+### Main Results
+| Model | Condition | Cosine Similarity (median) | Expert 5-point rating (median) |
 |---|---|---|---|
 | gemma-2-9b-it | Without MDSK-RAG | 0.63 | 2 |
 | gemma-2-9b-it | With MDSK-RAG | 0.71 (+12.70%) | 3 (+50.00%) |
 | GPT-4o | Without MDSK-RAG (cloud) | 0.66 | — |
 
-- Wilcoxon signed-rank test: W=14.0, p=1.34×10⁻² (통계적으로 유의)
-- MDSK-RAG 적용 gemma-2-9b-it이 GPT-4o(without RAG)를 코사인 유사도 기준으로 상회.
+- Wilcoxon signed-rank test: W=14.0, p=1.34×10⁻² (statistically significant)
+- gemma-2-9b-it with MDSK-RAG applied surpasses GPT-4o (without RAG) on the cosine similarity metric.
 
-## 핵심 기여
-- CSV(실험 레코드)와 PDF(문헌) 이중 소스를 통합하는 최초 수준의 오프라인 재료과학 RAG 프레임워크 제안.
-- 모델 재학습 없이 로컬 소형 LLM(<10B)의 도메인 전문성을 강화.
-- 기밀 실험 데이터를 외부 유출 없이 활용 가능한 실용적 솔루션 제시.
-- 10B 미만 로컬 LLM + MDSK-RAG가 고성능 클라우드 모델(GPT-4o, without RAG)을 특정 도메인에서 능가함을 실증.
+## Key Contributions
+- Proposes a near-first offline materials-science RAG framework that integrates CSV (experimental records) and PDF (literature) dual sources.
+- Strengthens the domain expertise of local small LLMs (<10B) without model retraining.
+- Presents a practical solution that can leverage confidential experimental data without external leakage.
+- Empirically demonstrates that a sub-10B local LLM + MDSK-RAG can outperform a high-performance cloud model (GPT-4o, without RAG) in a specific domain.
 
-## 한계점
-- 추론형 질문에서 불완전한 컨텍스트 검색 시 오류 추론 유발 (reasoning failure mode 존재).
-- 금속황화물 광촉매 도메인에 특화되어 있어 타 재료계 적용 시 도메인별 조정 필요.
-- 평가 벤치마크가 14개 질문으로 소규모 (통계적 파워 제한).
-- 향후 과제: 하이브리드 심볼릭 접근법, 도메인 특화 지식 그래프 구축 등 제안.
+## Limitations
+- In reasoning-type questions, incomplete context retrieval induces erroneous reasoning (a reasoning failure mode exists).
+- Being specialized for the metal sulfide photocatalyst domain, applying it to other materials systems requires domain-specific adjustment.
+- The evaluation benchmark is small at 14 questions (limited statistical power).
+- Future work: proposals such as a hybrid symbolic approach and building a domain-specific knowledge graph.
 
-## 관련 연구 및 관련 정보
-- **논문 링크**: [https://doi.org/10.1021/acs.jcim.5c01941](https://doi.org/10.1021/acs.jcim.5c01941)
-- **관련 방법론**: HoneyComb, G-RAG, TopoChat (재료과학 RAG 계열)
-- **사용 벤치마크**: Photocatalyst Expert QA (자체 제작, 14문항)
+## Related Work and Related Links
+- **Paper link**: [https://doi.org/10.1021/acs.jcim.5c01941](https://doi.org/10.1021/acs.jcim.5c01941)
+- **Related methodologies**: HoneyComb, G-RAG, TopoChat (materials-science RAG family)
+- **Benchmark used**: Photocatalyst Expert QA (in-house, 14 questions)

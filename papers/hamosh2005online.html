@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Online Mendelian Inheritance in Man (OMIM), a knowledgebase of human genes and genetic disorders — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Online Mendelian Inheritance in Man (OMIM), a knowledgebase of human genes and genetic disorders, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,126 +121,126 @@
 <p>hamosh2005online | 2005 | Nucleic Acids Research | dataset | [medical] | <a href="https://doi.org/10.1093/nar/gki033">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">OMIM (Online Mendelian Inheritance in Man)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">15,593개 항목 (2004년 9월 기준); 유전자 9,816개, 표현형 5,777개</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">15,593 entries (as of September 2004); 9,816 genes, 5,777 phenotypes</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">OMIM 웹사이트 / NCBI Entrez 통합 검색</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">OMIM website / NCBI Entrez integrated search</td></tr>
 </table>
 
 <blockquote>
 <p>Nucleic Acids Research | 2005 | dataset | medical</p>
-<h4>📌 한 줄 요약</h4>
-<p>존스홉킨스대학교 McKusick-Nathans 연구소가 관리하고 NCBI가 배포하는 인간 유전자·유전 질환의 권위 있는 카탈로그로, 2004년 기준 15,593개 항목과 12,715개의 대립형질 변이를 수록한다.</p>
+<h4>📌 TL;DR</h4>
+<p>An authoritative catalog of human genes and genetic disorders, maintained by the McKusick-Nathans Institute at Johns Hopkins University and distributed by NCBI, containing 15,593 entries and 12,715 allelic variants as of 2004.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>Victor McKusick의 1966년 인쇄물 &quot;Mendelian Inheritance in Man(MIM)&quot;이 기원이나, 인쇄 갱신 주기로는 급증하는 유전 발견을 따라잡기 어려웠다</li>
-<li>인쇄·CD-ROM 형식으로는 일일 문헌 업데이트 및 외부 DB 링크 기능이 불가했다</li>
+<li>It originates from Victor McKusick's 1966 print work &quot;Mendelian Inheritance in Man (MIM),&quot; but the print update cycle could not keep up with the rapidly growing volume of genetic discoveries</li>
+<li>Print and CD-ROM formats could not support daily literature updates or links to external DBs</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>유전체 혁명으로 매일 새로운 유전자-질환 연관이 보고되어 실시간 온라인 갱신이 필수가 됐다</li>
-<li>임상 의사와 연구자가 단일 플랫폼에서 유전자·표현형·문헌·시퀀스 DB를 교차 검색해야 했다</li>
+<li>The genomic revolution meant new gene-disease associations were reported daily, making real-time online updates essential</li>
+<li>Clinicians and researchers needed to cross-search gene, phenotype, literature, and sequence DBs on a single platform</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>각 OMIM 항목은 고유한 6자리 MIM 번호로 식별되며 유전자(별 기호), 표현형, 유전자-표현형 관계를 기술한다.</p>
+<h4>🔨 Architecture</h4>
+<p>Each OMIM entry is identified by a unique six-digit MIM number and describes genes (star symbol), phenotypes, and gene-phenotype relationships.</p>
 <ul>
-<li><strong>MIM 번호 체계</strong>: 앞자리로 항목 유형 구분 (1xxxx = 상염색체 우성, 2xxxx = 상염색체 열성, 3xxxx = X-연결 등)</li>
-<li><strong>Allelic Variant 섹션</strong>: 각 항목 내 임상적으로 중요한 돌연변이 기재 (2004년 기준 1,651개 항목에 12,715개 변이)</li>
-<li><strong>Clinical Synopsis</strong>: 표현형별 임상 특징 요약 (4,500개 이상)</li>
-<li><strong>Morbid Map</strong>: 유전자-질환 매핑 알파벳 순 목록</li>
+<li><strong>MIM number scheme</strong>: the leading digit distinguishes the entry type (1xxxx = autosomal dominant, 2xxxx = autosomal recessive, 3xxxx = X-linked, etc.)</li>
+<li><strong>Allelic Variant section</strong>: clinically significant mutations listed within each entry (12,715 variants across 1,651 entries as of 2004)</li>
+<li><strong>Clinical Synopsis</strong>: summary of clinical features by phenotype (more than 4,500)</li>
+<li><strong>Morbid Map</strong>: alphabetically ordered list of gene-disease mappings</li>
 </ul>
-<h4>📥 데이터 접근 방법</h4>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>웹 인터페이스</td>
-  <td>omim.org — 무료 검색; 개인·비영리 사용</td>
+  <td>Web interface</td>
+  <td>omim.org — free search; personal and non-profit use</td>
 </tr>
 <tr>
   <td>NCBI Entrez</td>
-  <td>PubMed, Gene, OMIM 통합 검색 연결</td>
+  <td>integrated search links across PubMed, Gene, and OMIM</td>
 </tr>
 <tr>
-  <td>FTP 다운로드</td>
-  <td>상업적 사용 시 별도 라이선스 필요</td>
+  <td>FTP download</td>
+  <td>separate license required for commercial use</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>MIM 번호별 텍스트 항목 (유전자 기술, 표현형, 임상 시놉시스)</li>
-<li>대립형질 변이 목록 (Allelic Variant 섹션)</li>
-<li>유전자-표현형 매핑 테이블 (Morbid Map)</li>
-<li>NCBI Gene, sequence DB, PubMed 상호 링크</li>
+<li>Text entries by MIM number (gene descriptions, phenotypes, clinical synopses)</li>
+<li>Allelic variant lists (Allelic Variant section)</li>
+<li>Gene-phenotype mapping tables (Morbid Map)</li>
+<li>Cross-links to NCBI Gene, sequence DB, and PubMed</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>전체 항목 수</td>
-  <td><strong>15,593개</strong> (2004년 9월 기준)</td>
+  <td>Total number of entries</td>
+  <td><strong>15,593</strong> (as of September 2004)</td>
 </tr>
 <tr>
-  <td>유전자 항목 (분자 서열 확인)</td>
-  <td><strong>9,816개</strong></td>
+  <td>Gene entries (molecular sequence confirmed)</td>
+  <td><strong>9,816</strong></td>
 </tr>
 <tr>
-  <td>표현형/질환 항목</td>
-  <td><strong>5,777개</strong></td>
+  <td>Phenotype/disorder entries</td>
+  <td><strong>5,777</strong></td>
 </tr>
 <tr>
-  <td>대립형질 변이 수</td>
-  <td><strong>12,715개</strong> (1,651개 항목)</td>
+  <td>Number of allelic variants</td>
+  <td><strong>12,715</strong> (across 1,651 entries)</td>
 </tr>
 <tr>
-  <td>임상 시놉시스 수</td>
-  <td><strong>4,500개 이상</strong></td>
+  <td>Number of clinical synopses</td>
+  <td><strong>more than 4,500</strong></td>
 </tr>
 <tr>
-  <td>매핑된 질환 수</td>
-  <td><strong>3,659개</strong> (2,558개 유전자 좌위에 분포)</td>
+  <td>Number of mapped disorders</td>
+  <td><strong>3,659</strong> (distributed across 2,558 gene loci)</td>
 </tr>
 <tr>
-  <td>분자 기전 확인 질환</td>
-  <td><strong>2,563개</strong></td>
+  <td>Disorders with confirmed molecular basis</td>
+  <td><strong>2,563</strong></td>
 </tr>
 <tr>
-  <td>일일 고유 방문자</td>
-  <td><strong>약 8,500명</strong></td>
+  <td>Daily unique visitors</td>
+  <td><strong>about 8,500</strong></td>
 </tr>
 <tr>
-  <td>일일 쿼리 수</td>
-  <td><strong>약 100,000건</strong></td>
+  <td>Daily number of queries</td>
+  <td><strong>about 100,000</strong></td>
 </tr>
 <tr>
-  <td>월간 신규 항목/업데이트</td>
-  <td>신규 약 70개, 업데이트 약 600건</td>
+  <td>Monthly new entries/updates</td>
+  <td>about 70 new, about 600 updates</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>멘델 유전 질환 중심: 복합(다유전자·환경) 질환은 포함 범위가 제한적</li>
-<li>상업적 재배포·활용 시 별도 라이선스 협의 필요</li>
-<li>텍스트 중심 서술로 구조화된 쿼리(SPARQL 등)에 직접 활용 어려움</li>
+<li>Focused on Mendelian genetic disorders: coverage of complex (polygenic and environmental) disorders is limited</li>
+<li>Separate license negotiation required for commercial redistribution and use</li>
+<li>Text-centric narrative makes it difficult to use directly for structured queries (SPARQL, etc.)</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/gki033">Hamosh et al., Nucleic Acids Research 2005</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1093/nar/gki033">Hamosh et al., Nucleic Acids Research 2005</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (hamosh2005online)</a></p>
@@ -266,14 +266,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

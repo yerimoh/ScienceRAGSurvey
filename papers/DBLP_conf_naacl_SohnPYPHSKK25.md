@@ -13,22 +13,22 @@ originSessionId: e17a6512-257b-4eac-96cc-808523cf24a8
 
 > NAACL | 2025 | Method | medical
 
-## 한 줄 요약
-LLM이 먼저 chain-of-thought rationale을 생성해 이를 검색 쿼리로 활용하고, **PubMed/PMC/Textbooks/Clinical Guidelines** 4개 코퍼스에서 균등 검색하며, perplexity 변화량으로 자동 라벨링된 데이터로 Flan-T5-large 770M 필터링 모델을 학습해 정보성 스니펫만 LLM에 전달. 단일 단계 검색만 사용하면서도 MedQA·MedMCQA·MMLU-Med에서 Llama-3-8B 평균 **+6.1%**, GPT-4o **+0.9%** 향상.
+## TL;DR
+The LLM first generates a chain-of-thought rationale and uses it as the retrieval query, retrieves evenly from 4 corpora — **PubMed/PMC/Textbooks/Clinical Guidelines** — and trains a Flan-T5-large 770M filtering model on data automatically labeled by perplexity change, so that only informative snippets are passed to the LLM. While using only single-stage retrieval, it improves Llama-3-8B by an average of **+6.1%** and GPT-4o by **+0.9%** on MedQA, MedMCQA, and MMLU-Med.
 
-## 제작 배경
-**기존 의료 RAG의 한계**
-- 의료 쿼리에 환자 정보 등 광범위한 맥락을 포함하면 검색기가 혼란, 너무 짧으면 암묵적 의료 지식 의존 필요
-- MedCPT 같은 PubMed-편향 retriever는 임상 가이드라인/교과서 소외 → retriever bias
-- Self-BioRAG는 LLM 전체 파인튜닝 필요 (Llama-2 7B/13B 학습) → 학습 비용 큼
-- Adaptive-RAG는 정답/오답만 라벨로 사용 → 문서 유용성의 미세 신호 무시
+## Background
+**Limitations of existing medical RAG**
+- Including broad context such as patient information in a medical query confuses the retriever, while a query that is too short requires relying on implicit medical knowledge
+- PubMed-biased retrievers like MedCPT marginalize clinical guidelines/textbooks → retriever bias
+- Self-BioRAG requires full fine-tuning of the LLM (training Llama-2 7B/13B) → high training cost
+- Adaptive-RAG uses only correct/incorrect as labels → ignores the fine-grained signal of document usefulness
 
-**왜 필요한가**
-- 단일 패스 + 770M 소형 필터링 모델만으로 SOTA에 근접하는 효율적 의료 RAG가 필요
-- 의료 도메인은 어노테이션 비용이 매우 높으므로 perplexity 차이로 자동 라벨링하는 방법이 매력적
-- 저자 인용: "These rationale-based queries help identify key... and they refine poorly targeted retrieval results" (§1)
+**Why it is needed**
+- An efficient medical RAG that approaches SOTA using only a single pass + a 770M small filtering model is needed
+- Since annotation is very costly in the medical domain, automatic labeling by perplexity difference is attractive
+- Author quote: "These rationale-based queries help identify key... and they refine poorly targeted retrieval results" (§1)
 
-## 시스템 아키텍처 (논문 Figure 1)
+## Architecture (paper Figure 1)
 ```
                        [Initial Query x]
                             │
@@ -38,91 +38,91 @@ LLM이 먼저 chain-of-thought rationale을 생성해 이를 검색 쿼리로 �
         │  ────────────────────────────────    │
         │  Base LLM (Llama-3-8B / Meerkat-7B / │
         │            GPT-4o) at temp=0         │
-        │  Chain-of-Thought로 rationale 생성   │
-        │  → rationale 텍스트 자체가 새 쿼리   │
-        │    (초기 쿼리 미포함 — token 한계)   │
+        │  Generate rationale via Chain-of-Thought │
+        │  → the rationale text itself is the new query │
+        │    (initial query excluded — token limit) │
         └──────────────┬───────────────────────┘
                        │
         ┌──────────────▼───────────────────────┐
         │  ② Balanced Retrieval                │
         │  ────────────────────────────────    │
-        │  4개 corpus 각각에서 동일 비율 검색  │
-        │  - PubMed (대형, MedCPT 학습 소스)   │
-        │  - PMC (대형, open access)           │
-        │  - Medical Textbooks (소형, 전문)    │
-        │  - Clinical Guidelines (소형, 최신)  │
-        │  → MedCPT cross-encoder가 초기 쿼리  │
-        │    기준 재순위                       │
+        │  Retrieve in equal proportion from each of 4 corpora │
+        │  - PubMed (large, MedCPT training source) │
+        │  - PMC (large, open access)          │
+        │  - Medical Textbooks (small, specialized) │
+        │  - Clinical Guidelines (small, up-to-date) │
+        │  → MedCPT cross-encoder reranks based on │
+        │    the initial query                 │
         └──────────────┬───────────────────────┘
                        │
         ┌──────────────▼───────────────────────┐
         │  ③ Rationale-Guided Filtering        │
         │  ────────────────────────────────    │
-        │  Flan-T5-large (770M, 단일 RTX 3090) │
-        │  ΔPPL = PPL(x) − PPL(x, d) 기반 학습 │
-        │  → 각 snippet의 Helpful / Not Helpful│
-        │    판정 후 Helpful만 LLM에 투입      │
+        │  Flan-T5-large (770M, single RTX 3090) │
+        │  Trained based on ΔPPL = PPL(x) − PPL(x, d) │
+        │  → judges each snippet Helpful / Not Helpful │
+        │    then feeds only Helpful ones to the LLM │
         └──────────────┬───────────────────────┘
                        │
                        ▼
                 [Final LLM Answer]
 ```
 
-## 핵심 모듈 상세 설명
-### Rationale-Guided Filtering (핵심 혁신)
-- 훈련 데이터 생성:
-  - x: 질의, d: 검색된 문서, r: rationale
-  - 라벨: `ΔPPL = PPL(x) − PPL(x, d)`
-  - 상위 25% ΔPPL → "Helpful" (문서가 rationale의 perplexity를 크게 낮춤 = 유용)
-  - 하위 25% → "Not Helpful"
-- Flan-T5-large (770M)를 binary classifier로 SFT
-- 추론 시 각 snippet에 대해 filter 적용 → Helpful만 유지
+## Detailed description of core modules
+### Rationale-Guided Filtering (core innovation)
+- Training data generation:
+  - x: query, d: retrieved document, r: rationale
+  - Label: `ΔPPL = PPL(x) − PPL(x, d)`
+  - Top 25% ΔPPL → "Helpful" (the document greatly lowers the perplexity of the rationale = useful)
+  - Bottom 25% → "Not Helpful"
+- SFT Flan-T5-large (770M) as a binary classifier
+- At inference, apply the filter to each snippet → keep only Helpful ones
 
 ### Rationale-Based Query
-- CoT prompt로 base LLM이 rationale 생성 (temperature=0)
-- Rationale 자체가 검색 쿼리 (초기 쿼리는 reranker에서만 사용)
-- 이유: "the initial query and the rationale exceeds the maximum length of MedCPT"
-- 짧은 쿼리는 자동 확장, 긴 쿼리는 핵심 추론 단계만 추출
+- The base LLM generates a rationale with a CoT prompt (temperature=0)
+- The rationale itself is the retrieval query (the initial query is used only in the reranker)
+- Reason: "the initial query and the rationale exceeds the maximum length of MedCPT"
+- Short queries are automatically expanded, and long queries have only the key reasoning steps extracted
 
 ### Balanced Retrieval
-| 코퍼스 | 규모 | 특징 |
+| Corpus | Scale | Characteristics |
 |---|---|---|
-| PubMed | 대형 (MedCorp) | 생의학 논문 abstract |
-| PMC | 대형 | open access full text |
-| Medical Textbooks | 소형 | StatPearls 등 표준 교과서 |
-| Clinical Guidelines | 소형 | 최신 임상 진료 가이드라인 |
+| PubMed | large (MedCorp) | biomedical paper abstracts |
+| PMC | large | open access full text |
+| Medical Textbooks | small | standard textbooks such as StatPearls |
+| Clinical Guidelines | small | up-to-date clinical practice guidelines |
 
-- 각 corpus에서 동일 개수 retrieval → MedCPT-편향 완화
-- "balanced approach consistently outperforms others, highlighting the..." (Appendix Figure A3 캡션)
+- Retrieve an equal number from each corpus → mitigates MedCPT bias
+- "balanced approach consistently outperforms others, highlighting the..." (Appendix Figure A3 caption)
 
 ## Input/Output
 **Input**
-- USMLE/AIIMS/MMLU 스타일 multi-choice 의료 질의 (4-5 선택지)
+- USMLE/AIIMS/MMLU-style multi-choice medical queries (4-5 options)
 
 **Output**
-- 정답 선택지 + 추론 과정 (rationale)
+- Correct-answer option + reasoning process (rationale)
 
-## 예시 사례
-### COPD Exacerbation Case (MedQA, 논문 Figure 4 — 전체 인용)
+## Example case
+### COPD Exacerbation Case (MedQA, paper Figure 4 — quoted in full)
 > **Initial Query (full case)**:
 > > "A 62-year-old man presents to the emergency department with shortness of breath. … He feels as if he is unable to take a deep breath. The patient has a past medical history of COPD and a 44-pack-year smoking history. The patient has been admitted before for a similar presentation. Vitals: T 98.7°F, BP 177/118 mmHg, P 123/min, R 33/min, O2 sat 80% on room air. The patient is started on 100% oxygen, albuterol, ipratropium, magnesium, and prednisone. … He is still short of breath. Physical exam: bilateral wheezes, poor air movement.
 > > Which of the following is the best next step in management? (A) BiPAP (B) Chest tube placement (C) Intubation (D) Needle Decompression"
 >
-> **Meerkat-7B without RAG (자체 추론)**:
+> **Meerkat-7B without RAG (its own reasoning)**:
 > > "...The presence of bilateral wheezes and poor air movement on physical examination suggests exacerbation of COPD with significant airflow obstruction. … (C) Intubation may be necessary for patients who are in respiratory failure and not responding to medical therapy… Therefore, the answer is (C) Intubation." ❌
 >
-> **RAG with rationale query (no filtering — distractor 유입)**:
+> **RAG with rationale query (no filtering — distractor introduced)**:
 > > Top-1 snippet: "...respiratory and hemodynamic signs of tension pneumothorax should be considered a medical emergency and addressed immediately, as this requires urgent needle decompression."
 > > Model output: "The presence of bilateral wheezes could also be consistent with a severe COPD exacerbation, but the clinical picture is more suggestive of a tension pneumothorax… Therefore, the answer is (D) Needle decompression." ❌
 >
 > **RAG² with rationale-guided filtering**:
-> > 필터 모델이 tension pneumothorax snippet을 Not-Helpful로 제거 → Top-3 snippet 남음:
+> > The filter model removes the tension pneumothorax snippet as Not-Helpful → the Top-3 snippet remains:
 > > "...Non-invasive positive pressure ventilation is considered to be effective in reversing acute respiratory failure in selected patients with elevated carbon dioxide and no other life-threatening comorbidities…"
 > > Model output: "These findings suggest an exacerbation of COPD with respiratory failure. … Non-invasive positive pressure ventilation can be used in COPD exacerbations to decrease the work of breathing and improve oxygenation. … Therefore, the answer is (A) BiPAP." ✓
 >
-> **저자 해석 (논문 §5)**: "the initial error stems from the model's distraction by irrelevant information, but proper filtering lead to the correct diagnosis and management plan."
+> **Author interpretation (paper §5)**: "the initial error stems from the model's distraction by irrelevant information, but proper filtering lead to the correct diagnosis and management plan."
 
-## 주요 평가 결과
+## Main evaluation results
 **Table 2 — Accuracy on 3 medical QA benchmarks**
 | Model + RAG | MedQA | MedMCQA | MMLU-Med | Avg |
 |---|---|---|---|---|
@@ -142,28 +142,28 @@ LLM이 먼저 chain-of-thought rationale을 생성해 이를 검색 쿼리로 �
 |   + Adaptive-RAG | 88.5 | 76.7 | 92.5 | 85.9 |
 |   **+ RAG² (Ours)** | **91.1** | **77.2** | **92.5** | **86.9** |
 
-**핵심 관찰**
-- 평균 향상: Llama-3-8B **+6.1**, Meerkat-7B **+3.8**, GPT-4o **+0.9** (소형 모델일수록 RAG² 효과 큼)
-- MMLU-Med은 학습 데이터가 없으나 MedMCQA로 훈련한 필터 모델이 transfer (Llama +5.3, Meerkat +4.9)
-- 일부 baseline RAG는 base보다 성능 저하 → "RAG frameworks do not always guarantee improved performance, especially in the medical domain" (§4.3)
-- Filtering 모델 ensemble + GPT-4o on MedQA → 91.6 (단일 패스 원칙 위배라 main table 미포함)
+**Key observations**
+- Average improvement: Llama-3-8B **+6.1**, Meerkat-7B **+3.8**, GPT-4o **+0.9** (the smaller the model, the larger the RAG² effect)
+- MMLU-Med has no training data, but the filter model trained on MedMCQA transfers (Llama +5.3, Meerkat +4.9)
+- Some baseline RAGs degrade performance below base → "RAG frameworks do not always guarantee improved performance, especially in the medical domain" (§4.3)
+- Filtering model ensemble + GPT-4o on MedQA → 91.6 (not included in the main table as it violates the single-pass principle)
 
-## 핵심 기여
-1. **Rationale-as-query**: 환자 정보가 검색에 노이즈가 되는 문제를 rationale로 대체 우회
-2. **Perplexity-based 자동 라벨링**: 의료 어노테이션 희소성 문제 해결
-3. **Balanced retrieval**: PubMed 일변도에서 벗어나 4 소스 동등 활용
-4. **소형 필터링 모델**: 770M Flan-T5만으로 RTX 3090 단일 GPU에서 학습 가능
+## Key contributions
+1. **Rationale-as-query**: bypasses the problem of patient information becoming noise in retrieval by replacing it with the rationale
+2. **Perplexity-based automatic labeling**: solves the scarcity problem of medical annotation
+3. **Balanced retrieval**: moves away from a PubMed-only approach to use 4 sources equally
+4. **Small filtering model**: trainable on a single RTX 3090 GPU with only 770M Flan-T5
 
-## 한계점
-- Closed-book 설정에서만 평가 (오라클 문서 없는 환경)
-- MMLU-Med 학습 데이터 부재 → MedMCQA로 transfer 학습 (도메인 mismatch 가능)
-- Filter 모델은 base LLM에 의존적 → backbone 변경 시 재훈련 필요 (논문 §6 Limitations)
-- Rationale가 잘못된 경우 잘못된 검색 → 다만 저자는 "incorrect rationale make up only a small portion" 주장
+## Limitations
+- Evaluated only in the closed-book setting (an environment without oracle documents)
+- No MMLU-Med training data → transfer learning via MedMCQA (possible domain mismatch)
+- The filter model is dependent on the base LLM → requires retraining when the backbone is changed (paper §6 Limitations)
+- If the rationale is wrong, retrieval is wrong → though the authors claim "incorrect rationale make up only a small portion"
 
-## 관련 정보
+## Related links
 - **ACL Anthology**: [https://aclanthology.org/2025.naacl-long.635/](https://aclanthology.org/2025.naacl-long.635/)
 - **arXiv**: [https://arxiv.org/abs/2411.00300](https://arxiv.org/abs/2411.00300)
 - **GitHub**: [https://github.com/dmis-lab/RAG2](https://github.com/dmis-lab/RAG2)
-- **저자 소속**: Korea University (DMIS Lab), Kyung Hee University, AIGEN Sciences
-- **비교 baseline**: MedCPT, MedRAG, query2doc, Adaptive-RAG, InstructRAG, Self-BioRAG
-- **K×O 분류**: K1.O1 (PubMed/PMC/교과서/가이드라인 4소스) — multi-source 균등 검색의 대표 사례
+- **Author affiliations**: Korea University (DMIS Lab), Kyung Hee University, AIGEN Sciences
+- **Comparison baselines**: MedCPT, MedRAG, query2doc, Adaptive-RAG, InstructRAG, Self-BioRAG
+- **K×O classification**: K1.O1 (4 sources: PubMed/PMC/textbooks/guidelines) — a representative case of multi-source balanced retrieval

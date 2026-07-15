@@ -13,25 +13,25 @@ paper_link: https://proceedings.neurips.cc/paper/2020/hash/fb60d411a5c5b72b2e7d3
 > Weihua Hu, Matthias Fey, Marinka Zitnik, Yuxiao Dong, Hongyu Ren, Bowen Liu, Michele Catasta, Jure Leskovec — Stanford / TU Dortmund / Harvard / Microsoft Research
 > DBLP: [conf/nips/HuFZDRLCL20](https://dblp.org/rec/conf/nips/HuFZDRLCL20.html)
 
-## 한 줄 요약
-**15개 large-scale graph dataset의 표준 benchmark** (node/link/graph property prediction × Nature/Society/Information 도메인). 핵심 contribution: **realistic application-specific data splits** (random이 아닌 time / scaffold / species 기반) + **표준 evaluator + public leaderboard**. **ogbl-biokg** subset은 heterogeneous biomedical knowledge graph (93,773 nodes / 5,088,434 edges) 위에서 MRR 기반 link prediction을 평가하는 §o3-weakverifier 관련 task.
+## TL;DR
+**A standard benchmark of 15 large-scale graph datasets** (node/link/graph property prediction × Nature/Society/Information domains). Key contribution: **realistic application-specific data splits** (not random, but time / scaffold / species based) + **standard evaluator + public leaderboard**. The **ogbl-biokg** subset is a task related to §o3-weakverifier that evaluates MRR-based link prediction over a heterogeneous biomedical knowledge graph (93,773 nodes / 5,088,434 edges).
 
 ---
 
-## 어떻게 만들었나 (Construction Methodology)
+## How it was built (Construction Methodology)
 
 ```
-Step 1 — 문제 인식: 기존 graph ML benchmark의 약점
+Step 1 — Problem recognition: weaknesses of existing graph ML benchmarks
   ┌──────────────────────────────────────────────┐
   │ - CORA/CITESEER/PUBMED: 2,700~20K nodes      │
   │ - TU collection: 200~5K graphs               │
   │ - FB15K/WN18: 15K~40K entities               │
-  │   → real graph (1M+ nodes)에 비해 작음        │
-  │ - Random split은 비현실적 (overly optimistic) │
-  │ - 일관된 protocol 부재                       │
+  │   → small vs. real graphs (1M+ nodes)         │
+  │ - Random split is unrealistic (overly optimistic) │
+  │ - Lack of a consistent protocol              │
   └──────────────────────────────────────────────┘
 
-Step 2 — 15 dataset 구성 (3 task category × 5 domain)
+Step 2 — 15 dataset composition (3 task categories × 5 domains)
   ┌──────────────┬──────────────────────────────┐
   │ Node (ogbn-) │ products / proteins / arxiv  │
   │              │ papers100M / mag             │
@@ -42,35 +42,35 @@ Step 2 — 15 dataset 구성 (3 task category × 5 domain)
   │ Graph (ogbg-)│ molhiv / molpcba / ppa / code│
   └──────────────┴──────────────────────────────┘
 
-Step 3 — Realistic splits (논문 핵심 contribution)
-  · Time: 학술 그래프 (arxiv, citation, wikikg) →
+Step 3 — Realistic splits (the paper's key contribution)
+  · Time: academic graphs (arxiv, citation, wikikg) →
           past → future
-  · Scaffold: 분자 그래프 (molhiv, molpcba) →
+  · Scaffold: molecular graphs (molhiv, molpcba) →
               structurally distinct test molecules
-  · Species: protein graph (proteins, ppa) →
+  · Species: protein graphs (proteins, ppa) →
              species-disjoint train/test
   · Random: biokg (heterogeneous KG)
   · Sales rank: ogbn-products (Amazon)
 
 Step 4 — Dataset-specific evaluator
-  · 각 dataset마다 표준 metric class 제공
+  · Provides a standard metric class for each dataset
   · Hits@K (ppa, collab, ddi), MRR (citation, biokg, wikikg)
   · ROC-AUC (proteins, molhiv), AP (molpcba)
   · Accuracy (products, arxiv, papers100M, mag, ppa graph)
   · F1 (code sub-token prediction)
 
 Step 5 — End-to-end pipeline
-  · PyTorch + PyG + DGL 호환 data loader
+  · PyTorch + PyG + DGL compatible data loader
   · OGB Evaluator class (dataset-specific)
   · Public leaderboard (ogb.stanford.edu)
-  · Submission via GitHub (코드 필수)
+  · Submission via GitHub (code required)
 ```
 
 ---
 
-## 실제 데이터 형식 예시 (논문 §3-5 + Table 1-2)
+## Example of the actual data format (paper §3-5 + Table 1-2)
 
-### 유형 A — OGB-biokg (heterogeneous biomedical KG)
+### Type A — OGB-biokg (heterogeneous biomedical KG)
 
 > **Task**: KG completion (link prediction)
 >
@@ -86,9 +86,9 @@ Step 5 — End-to-end pipeline
 > ```
 >
 > Triple example: `(Drug:Aspirin, treats, Disease:Headache)`
-> 평가: 각 test (h,r,t)에 대해 head/tail 손상 후 ranking
+> Evaluation: for each test (h,r,t), rank after corrupting head/tail
 
-### 유형 B — OGB Link prediction 6 dataset summary
+### Type B — OGB Link prediction 6 dataset summary
 
 > | Dataset | Domain | Split | Metric | #Nodes | #Edges |
 > |---|---|---|---|---|---|
@@ -99,7 +99,7 @@ Step 5 — End-to-end pipeline
 > | ogbl-wikikg | Information | Time 94/3/3 | MRR | 2.5M | 17M |
 > | **ogbl-biokg** | **Information** | **Random 94/3/3** | **MRR** | **94K** | **5M** |
 
-### 유형 C — End-to-end pipeline (논문 Figure 2)
+### Type C — End-to-end pipeline (paper Figure 2)
 
 > ```
 > (a) OGB datasets → (b) OGB data loader →
@@ -117,7 +117,7 @@ Step 5 — End-to-end pipeline
 > # result_dict = evaluator.eval(input_dict)  # MRR
 > ```
 
-### 유형 D — 평가 protocol (Filtered MRR for KG completion)
+### Type D — Evaluation protocol (Filtered MRR for KG completion)
 
 > ```
 > For each test triple (h, r, t):
@@ -132,7 +132,7 @@ Step 5 — End-to-end pipeline
 
 ---
 
-## 평가 framework 요약
+## Evaluation framework summary
 
 | Category | Datasets | Primary metric | Eval protocol |
 |---|---|---|---|
@@ -140,39 +140,39 @@ Step 5 — End-to-end pipeline
 | **Link** (ogbl-) | ppa, collab, ddi, citation, wikikg, **biokg** | Hits@K / **MRR** | Filtered ranking |
 | **Graph** (ogbg-) | molhiv, molpcba, ppa, code | ROC-AUC / AP / Accuracy / F1 | Scaffold / Species / Project |
 
-→ ogbl-biokg는 §o3-weakverifier의 KG embedding 평가 substrate; 다른 dataset은 graph ML 일반.
+→ ogbl-biokg is the KG embedding evaluation substrate for §o3-weakverifier; the other datasets are general graph ML.
 
 ---
 
-## 주요 결과 (논문 §3-5 + Table 3)
+## Key results (paper §3-5 + Table 3)
 
-| 발견 | 의미 |
+| Finding | Meaning |
 |---|---|
-| 작은 데이터셋 (CORA 등) 위 GNN 성능이 통계적으로 무의미 | 대규모 benchmark 필요 |
-| Random split이 application-specific split보다 8.46pp 쉬움 | 비현실적 |
-| Scaffold split의 ogbg-molhiv는 ROC-AUC 5.66pp 어려움 | OOD test |
-| Mini-batch GNN이 full-batch과 동등 또는 우위 | scalable 가능 |
-| OGB datasets 전반에 GNN 일반화 능력 부족 | OOD 일반화 frontier |
+| GNN performance on small datasets (e.g., CORA) is statistically insignificant | Large-scale benchmark needed |
+| Random split is 8.46pp easier than application-specific split | Unrealistic |
+| ogbg-molhiv with scaffold split is 5.66pp harder in ROC-AUC | OOD test |
+| Mini-batch GNN matches or outperforms full-batch | Scalability feasible |
+| GNNs lack generalization across OGB datasets | OOD generalization frontier |
 
-→ **결론**: graph ML 발전에 필수 인프라; 모든 후속 graph ML 논문이 OGB leaderboard에서 비교됨.
-
----
-
-## 한계점
-- **Static benchmark**: 5년 경과로 일부 dataset 포화
-- **ogbl-biokg는 작은 편**: 다른 KG benchmark (Freebase, Wikidata) 대비
-- **Random split이 biokg에서만 사용**: time/structure split도 흥미로움
-- **단일 task per dataset**: multi-task / multi-objective 평가 부족
-- **PyG/DGL 의존**: 다른 framework는 별도 wrapper 필요
-- **Public leaderboard 의존**: dataset/leaderboard 종료 위험 (Stanford 호스팅)
+→ **Conclusion**: essential infrastructure for advancing graph ML; every subsequent graph ML paper is compared on the OGB leaderboard.
 
 ---
 
-## 관련 정보
-- **논문 (NeurIPS 2020)**: [proceedings.neurips.cc](https://proceedings.neurips.cc/paper/2020/hash/fb60d411a5c5b72b2e7d3527cfc84fd0-Abstract.html)
+## Limitations
+- **Static benchmark**: after 5 years, some datasets are saturated
+- **ogbl-biokg is relatively small**: compared to other KG benchmarks (Freebase, Wikidata)
+- **Random split used only on biokg**: time/structure splits would also be interesting
+- **Single task per dataset**: lacks multi-task / multi-objective evaluation
+- **PyG/DGL dependency**: other frameworks require a separate wrapper
+- **Public leaderboard dependency**: risk of dataset/leaderboard shutdown (Stanford hosting)
+
+---
+
+## Related links
+- **Paper (NeurIPS 2020)**: [proceedings.neurips.cc](https://proceedings.neurips.cc/paper/2020/hash/fb60d411a5c5b72b2e7d3527cfc84fd0-Abstract.html)
 - **DBLP**: [conf/nips/HuFZDRLCL20](https://dblp.org/rec/conf/nips/HuFZDRLCL20.html)
-- **공식 사이트**: [ogb.stanford.edu](https://ogb.stanford.edu/)
+- **Official site**: [ogb.stanford.edu](https://ogb.stanford.edu/)
 - **GitHub**: [snap-stanford/ogb](https://github.com/snap-stanford/ogb)
-- **저자 소속**: Stanford SNAP (Jure Leskovec) + TU Dortmund + Harvard + Microsoft Research
-- **이 benchmark의 ogbl-biokg subset 사용 후속 작업**: 생의학 KG embedding 연구 다수
-- **관련 benchmark**: [[DBLP:journals/bioinformatics/BreitOAS20]] (OpenBioLink — 같은 도메인, leakage-control 강조), FB15K-237 / WN18RR (general KG)
+- **Author affiliations**: Stanford SNAP (Jure Leskovec) + TU Dortmund + Harvard + Microsoft Research
+- **Follow-up work using this benchmark's ogbl-biokg subset**: numerous biomedical KG embedding studies
+- **Related benchmarks**: [[DBLP:journals/bioinformatics/BreitOAS20]] (OpenBioLink — same domain, emphasizes leakage-control), FB15K-237 / WN18RR (general KG)

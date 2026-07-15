@@ -13,50 +13,50 @@ paper_link: https://doi.org/10.1021/ci400709d
 > Jing Tang, Agnieszka Szwajda, Sushil Shakyawar, Tao Xu, Petteri Hintsanen, Krister Wennerberg, Tero Aittokallio — Institute for Molecular Medicine Finland (FIMM), University of Helsinki
 > DOI: [10.1021/ci400709d](https://doi.org/10.1021/ci400709d) · PMID 24521231
 
-## 한 줄 요약
-**3종의 large-scale 생화학 kinase inhibitor assay** + **ChEMBL** + **STITCH** 데이터를 **52,498 compounds × 467 kinases**의 단일 통합 매트릭스로 합쳐, IC50/Ki/Kd를 **246,088개 KIBA score**로 변환한 대규모 DTI benchmark. Davis (2011)의 대형 짝꿍으로 거의 항상 함께 보고됨.
+## TL;DR
+A large-scale DTI benchmark that merges data from **three large-scale biochemical kinase inhibitor assays** + **ChEMBL** + **STITCH** into a single integrated matrix of **52,498 compounds × 467 kinases**, converting IC50/Ki/Kd into **246,088 KIBA scores**. As the large-scale counterpart to Davis (2011), it is almost always reported together with it.
 
 ---
 
-## 어떻게 만들었나 (Construction Methodology)
+## Construction Methodology
 
 ```
-Step 1 — 3개 large-scale kinase assay 소스 통합
+Step 1 — Integrate 3 large-scale kinase assay sources
   ├─ Anastassiadis et al. 2011 (Nature Biotech) — ~30K activities
-  ├─ Davis et al. 2011 (Nat Biotech) — Kd 매트릭스
-  ├─ Metz et al. 2011 (Nature Chem Biol) — pIC50 매트릭스
+  ├─ Davis et al. 2011 (Nat Biotech) — Kd matrix
+  ├─ Metz et al. 2011 (Nature Chem Biol) — pIC50 matrix
   └─ + ChEMBL bioactivities + STITCH chemical-protein
 
-Step 2 — 다양한 측정 단위 통합 (KIBA score 계산)
+Step 2 — Integrate diverse measurement units (KIBA score computation)
   ┌─────────────────────────────────────────────┐
   │ Mixed bioactivity types:                    │
   │   - Kd (dissociation constant)              │
   │   - Ki (inhibition constant)                │
   │   - IC50 (50% inhibitory concentration)     │
   │                                              │
-  │ KIBA score: 모델-기반 통합                  │
-  │   → 서로 다른 assay/단위를 단일 score로     │
+  │ KIBA score: model-based integration         │
+  │   → collapse different assays/units into a single score │
   │   → bias correction + consistency filtering │
   └─────────────────────────────────────────────┘
 
-Step 3 — 매트릭스 결과
+Step 3 — Matrix result
   ┌─────────────────┬──────────────────────┐
-  │ 항목            │ 수치                  │
+  │ Item            │ Value                 │
   ├─────────────────┼──────────────────────┤
   │ Compounds       │ 52,498               │
   │ Kinase targets  │ 467                  │
   │ Integrated      │ 246,088 KIBA scores  │
   └─────────────────┴──────────────────────┘
 
-Step 4 — 결과 분석
-  └─ 각 assay 간 활성 일치율 quantify
-  └─ Compound bioactivity profile 패턴 군집
-  └─ Drug repositioning 후보 시사
+Step 4 — Result analysis
+  └─ Quantify activity concordance across assays
+  └─ Cluster compound bioactivity profile patterns
+  └─ Suggest drug repositioning candidates
 ```
 
 ---
 
-## 원문 직접 인용 (Tang 2014 JCIM §Abstract)
+## Direct Quotations (Tang 2014 JCIM §Abstract)
 
 > "We integrated bioactivity measurements from **three recent large-scale biochemical assays** of kinase inhibitors alongside data from established databases (**ChEMBL** and **STITCH**)."
 
@@ -64,43 +64,43 @@ Step 4 — 결과 분석
 
 ---
 
-## 주요 활용
+## Primary Uses
 
-| 항목 | 내용 |
+| Item | Content |
 |---|---|
-| Task 정의 | Drug-Target Interaction (DTI) regression — 대규모 |
-| Output | KIBA score (낮을수록 강한 결합) |
-| Pairing | Davis dataset과 함께 보고되는 표준 짝꿍 |
-| Pioneer 모델 | DeepDTA (Öztürk 2018) — DAVIS + KIBA 둘 다 baseline |
-| 대비 Davis | 약 700× 큰 규모, sparsity 더 높음 |
-| TDC 통합 | `multi_pred.DTI.KIBA` |
+| Task definition | Drug-Target Interaction (DTI) regression — large-scale |
+| Output | KIBA score (lower means stronger binding) |
+| Pairing | Standard counterpart reported together with the Davis dataset |
+| Pioneer model | DeepDTA (Öztürk 2018) — baseline on both DAVIS + KIBA |
+| Vs. Davis | About 700× larger scale, with higher sparsity |
+| TDC integration | `multi_pred.DTI.KIBA` |
 
 ---
 
-## 데이터셋 통계
+## Dataset Statistics
 
-| Subset | 수치 |
+| Subset | Value |
 |---|---|
 | Compounds (drugs/inhibitors) | 52,498 |
 | Kinase targets | 467 |
-| 통합 KIBA scores | 246,088 |
-| Sparsity | ~99% (drug × target 매트릭스 대부분 비어 있음) |
-| Bioactivity 원본 단위 | Kd, Ki, IC50 모두 통합 |
+| Integrated KIBA scores | 246,088 |
+| Sparsity | ~99% (most of the drug × target matrix is empty) |
+| Original bioactivity units | Kd, Ki, IC50 all integrated |
 
 ---
 
-## 한계점
-- **여전한 sparsity**: 246K scores / (52K × 467) ≈ 1% — matrix completion task로 어려움
-- **단위 통합 model assumption**: KIBA score 변환 시 정확도 가정 (Kd/Ki/IC50 ≠ 정확히 비교 가능)
-- **Kinase 외 무관**: kinase-specific, 다른 단백질 family 미포함
-- **시간**: 2014년 데이터, 최신 inhibitor (kinase degrader, allosteric) 미반영
-- **단일 통합 score**: type-specific binding mode 정보 손실 (예: type I vs II)
+## Limitations
+- **Persistent sparsity**: 246K scores / (52K × 467) ≈ 1% — difficult as a matrix completion task
+- **Unit-integration model assumption**: assumes accuracy in the KIBA score conversion (Kd/Ki/IC50 are not exactly comparable)
+- **Kinase-only, nothing else**: kinase-specific, does not include other protein families
+- **Time**: 2014 data, does not reflect the latest inhibitors (kinase degraders, allosteric)
+- **Single integrated score**: loses type-specific binding mode information (e.g., type I vs II)
 
 ---
 
-## 관련 정보
-- **논문 (DOI)**: [10.1021/ci400709d](https://doi.org/10.1021/ci400709d)
+## Related links
+- **Paper (DOI)**: [10.1021/ci400709d](https://doi.org/10.1021/ci400709d)
 - **PubMed**: [PMID 24521231](https://pubmed.ncbi.nlm.nih.gov/24521231/)
-- **저자 소속**: FIMM, University of Helsinki (now Aittokallio Lab)
-- **이 benchmark를 사용한 주요 작업**: DeepDTA, GraphDTA, AttentionDTA, MolTrans, KronRLS, SimBoost 등 거의 모든 DTI deep learning 논문
-- **함께 보고되는 짝꿍**: [Davis](davis2011kinase.html) (Davis et al. 2011 Nat Biotechnol)
+- **Author affiliation**: FIMM, University of Helsinki (now Aittokallio Lab)
+- **Major works using this benchmark**: DeepDTA, GraphDTA, AttentionDTA, MolTrans, KronRLS, SimBoost, and nearly every DTI deep learning paper
+- **Counterpart reported together**: [Davis](davis2011kinase.html) (Davis et al. 2011 Nat Biotechnol)

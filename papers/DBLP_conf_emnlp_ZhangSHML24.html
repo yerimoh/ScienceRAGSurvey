@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HoneyComb: A Flexible LLM-Based Agent System for Materials Science — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>HoneyComb: A Flexible LLM-Based Agent System for Materials Science, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,40 +117,40 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#input-입력">Input (입력)</a></li><li class="toc-l2"><a href="#output-출력-정답-형식">Output (출력 / 정답 형식)</a></li><li class="toc-l2"><a href="#실제-태스크-예시">실제 태스크 예시</a></li><li class="toc-l3"><a href="#mascqa-gate-기출-zaki-et-al-2023-활용-650문항">MaScQA — GATE 기출 (Zaki et al. 2023 활용, 650문항)</a></li><li class="toc-l3"><a href="#sciq-11679-multiple-choice-과학-welbl-et-al-2017-활용-본-논문에서는-sciqa로-표기">SciQ — 11,679 multiple-choice 과학 (Welbl et al. 2017 활용; 본 논문에서는 SciQA로 표기)</a></li><li class="toc-l3"><a href="#real-world-쿼리-시스템-데모">Real-world 쿼리 (시스템 데모)</a></li><li class="toc-l2"><a href="#주요-평가-결과">주요 평가 결과</a></li><li class="toc-l3"><a href="#table-3-honeycomb-통합-효과-accuracy">Table 3 — HoneyComb 통합 효과 (Accuracy %)</a></li><li class="toc-l3"><a href="#table-5-ablation-study-gpt-4-기준">Table 5 — Ablation Study (GPT-4 기준)</a></li><li class="toc-l3"><a href="#table-4-material-category별-성능-예-atomic-structure">Table 4 — Material Category별 성능 (예: Atomic Structure)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#background">Background</a></li><li class="toc-l2"><a href="#construction-methodology">Construction Methodology</a></li><li class="toc-l2"><a href="#input">Input</a></li><li class="toc-l2"><a href="#output-answer-format">Output (answer format)</a></li><li class="toc-l2"><a href="#real-task-examples">Real task examples</a></li><li class="toc-l3"><a href="#mascqa-gate-past-exams-using-zaki-et-al-2023-650-questions">MaScQA — GATE past exams (using Zaki et al. 2023, 650 questions)</a></li><li class="toc-l3"><a href="#sciq-11679-multiple-choice-science-using-welbl-et-al-2017-denoted-sciqa-in-this-paper">SciQ — 11,679 multiple-choice science (using Welbl et al. 2017; denoted SciQA in this paper)</a></li><li class="toc-l3"><a href="#real-world-queries-system-demo">Real-world queries (system demo)</a></li><li class="toc-l2"><a href="#key-evaluation-results">Key evaluation results</a></li><li class="toc-l3"><a href="#table-3-honeycomb-integration-effect-accuracy">Table 3 — HoneyComb integration effect (Accuracy %)</a></li><li class="toc-l3"><a href="#table-5-ablation-study-gpt-4-basis">Table 5 — Ablation Study (GPT-4 basis)</a></li><li class="toc-l3"><a href="#table-4-performance-by-material-category-eg-atomic-structure">Table 4 — Performance by material category (e.g., Atomic Structure)</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>HoneyComb: A Flexible LLM-Based Agent System for Materials Science</h1>
 <blockquote>
 <p>Findings of EMNLP 2024 (pp. 3369–3382) | Method | material
-Zhang, Su, Huang, Ma, Li 외 · DBLP: <code>conf/emnlp/ZhangSHML24</code></p>
+Zhang, Su, Huang, Ma, Li et al. · DBLP: <code>conf/emnlp/ZhangSHML24</code></p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>재료과학에 특화된 <strong>MatSciKB (38,469 entry KB)</strong> + <strong>ToolHub (general + Inductive Tool Construction 기반 specialized API)</strong> + <strong>하이브리드 Retriever (BM25 + Contriever)</strong>의 3-컴포넌트 LLM 에이전트 시스템. GPT-4 기반 HoneyComb이 <strong>MaScQA 79.07% (vs GPT-4 단독 58.46%, +20.61pp)</strong>, <strong>SciQA 96.54% (vs 90.84%, +5.70pp)</strong> 달성. 16.62% baseline의 HoneyBee-7B를 79.69%로 끌어올려 +63pp 증가의 극적 효과.</p>
-<h2 id="제작-배경">제작 배경</h2>
+<h2 id="tldr">TL;DR</h2>
+<p>A three-component LLM agent system for materials science combining <strong>MatSciKB (38,469 entry KB)</strong> + <strong>ToolHub (general + specialized APIs based on Inductive Tool Construction)</strong> + a <strong>hybrid Retriever (BM25 + Contriever)</strong>. GPT-4-based HoneyComb achieves <strong>MaScQA 79.07% (vs GPT-4 alone 58.46%, +20.61pp)</strong> and <strong>SciQA 96.54% (vs 90.84%, +5.70pp)</strong>. It lifts HoneyBee-7B from a 16.62% baseline to 79.69%, a dramatic +63pp increase.</p>
+<h2 id="background">Background</h2>
 <ul>
-<li><strong>재료과학 LLM의 한계</strong>: 기존 모델들은 일반 도메인 학습 데이터에 의존 → 재료과학 특화 (arXiv preprint, Wikipedia 재료 항목, textbook formula 등) 지식 부재.</li>
-<li><strong>Coscientist (Boiko et al. 2023) 등 도메인 agent의 성공</strong>이 재료과학에도 적용 가능함을 시사.</li>
-<li>정적(static) LLM은 PubMed/Materials Project 같이 매일 업데이트되는 데이터 소스를 반영 못함 → real-time tool augmentation 필요.</li>
-<li><strong>MaScQA (Zaki et al. 2023)</strong> 발표로 재료과학 평가 셋이 마련됨 → tool-augmented system을 정량적으로 검증할 기반 마련.</li>
+<li><strong>Limitations of materials-science LLMs</strong>: existing models rely on general-domain training data → they lack materials-science-specific knowledge (arXiv preprints, Wikipedia materials entries, textbook formulas, etc.).</li>
+<li><strong>The success of domain agents such as Coscientist (Boiko et al. 2023)</strong> suggests the approach is applicable to materials science as well.</li>
+<li>Static LLMs cannot reflect data sources that are updated daily, such as PubMed / Materials Project → real-time tool augmentation is needed.</li>
+<li>The release of <strong>MaScQA (Zaki et al. 2023)</strong> provided a materials-science evaluation set → establishing a basis for quantitatively validating tool-augmented systems.</li>
 </ul>
-<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
-<pre><code>HoneyComb 전체 아키텍처 (Fig. 1, p.4)
+<h2 id="construction-methodology">Construction Methodology</h2>
+<pre><code>HoneyComb overall architecture (Fig. 1, p.4)
 
 Query → [Knowledge Retrieval Phase]
             │
-            ├─ MatSciKB (시맨틱 검색)
+            ├─ MatSciKB (semantic search)
             └─ ToolHub Tool Selection
                   ↓ Executor (iterative)
-            ┌─ Tool Assessor: 어떤 도구 쓸지 결정
-            └─ Tool Executor: 실행 + 결과 평가 → refine
+            ┌─ Tool Assessor: decides which tool to use
+            └─ Tool Executor: execute + evaluate result → refine
                   ↓
-            Retriever (BM25 + Contriever 하이브리드)
+            Retriever (BM25 + Contriever hybrid)
                   ↓
             LLM → Final Answer
 
 ────────────────────────────────────────
-Component 1: MatSciKB (Table 1, p.6 verbatim 수치)
+Component 1: MatSciKB (Table 1, p.6 verbatim figures)
   Total entries: 38,469
   ┌──────────────────────────────────┬────────┐
   │ Source                           │ Entries│
@@ -162,8 +162,8 @@ Component 1: MatSciKB (Table 1, p.6 verbatim 수치)
   │ Materials Science Formula        │     57 │
   │ GPT-generated Examples           │  2,005 │
   └──────────────────────────────────┴────────┘
-  · 16개 카테고리 트리 구조
-  · CRUD operation 지원 (실시간 갱신)
+  · 16-category tree structure
+  · CRUD operation support (real-time updates)
 
 ────────────────────────────────────────
 Component 2: ToolHub (Inductive Tool Construction, Algorithm 1)
@@ -171,70 +171,70 @@ Component 2: ToolHub (Inductive Tool Construction, Algorithm 1)
     Google Search, Arxiv Search, Wikipedia Search,
     YouTube Search, Python REPL
   Specialized Tools:
-    Materials Project API 등 도메인 함수
-    + ITC로 자동 합성된 sub-tool 세트
+    domain functions such as the Materials Project API
+    + a set of sub-tools auto-synthesized by ITC
 
   Inductive Tool Construction (ITC):
-    1. 무작위 computational 질문 subset D_train 선정
-    2. LLM이 도구 description·파라미터 자동 파싱
-    3. 태스크별로 sub-tool로 decompose
-    4. 중복·불필요 tool 제거 (refine)
+    1. Select a random subset D_train of computational questions
+    2. LLM automatically parses tool descriptions and parameters
+    3. Decompose into sub-tools per task
+    4. Remove duplicate and unnecessary tools (refine)
 
 ────────────────────────────────────────
 Component 3: Hybrid Retriever
-  · BM25 (lexical) → 빠른 keyword match
-  · Contriever (dense) → 의미적/문맥적 매칭
-  · 단순 쿼리: BM25 / 복잡 쿼리: Contriever (m &lt; k+1 결과)
+  · BM25 (lexical) → fast keyword match
+  · Contriever (dense) → semantic/contextual matching
+  · Simple queries: BM25 / complex queries: Contriever (m &lt; k+1 results)
 
 ────────────────────────────────────────
 Agent-ToolHub 2-phase Protocol
   Phase 1 — Tool Assessor:
-     &quot;원본 쿼리 → 후보 도구 subset 선택&quot;
+     &quot;original query → select a candidate subset of tools&quot;
   Phase 2 — Tool Executor (Fig. 2):
-     thought-process 수행
-     ├─ 단일 tool로 해결 가능 → 실행
-     └─ 복잡 → multi-tool decompose
+     perform the thought-process
+     ├─ solvable with a single tool → execute
+     └─ complex → multi-tool decompose
 </code></pre>
-<h2 id="input-입력">Input (입력)</h2>
+<h2 id="input">Input</h2>
 <ul>
-<li><strong>사용자 자연어 쿼리</strong> (재료과학 도메인)</li>
-<li><strong>태스크 유형</strong>:<ul>
-<li>factoid (예: &quot;Fe₂O₃의 결정 구조?&quot;)</li>
-<li>computational (예: &quot;BaTiO₃의 formation energy?&quot;)</li>
-<li>reasoning (예: GATE 시험 NUM/MATCH/MCQ)</li>
+<li><strong>User natural-language query</strong> (materials-science domain)</li>
+<li><strong>Task types</strong>:<ul>
+<li>factoid (e.g., &quot;The crystal structure of Fe₂O₃?&quot;)</li>
+<li>computational (e.g., &quot;The formation energy of BaTiO₃?&quot;)</li>
+<li>reasoning (e.g., GATE exam NUM/MATCH/MCQ)</li>
 </ul>
 </li>
 </ul>
-<h2 id="output-출력-정답-형식">Output (출력 / 정답 형식)</h2>
+<h2 id="output-answer-format">Output (answer format)</h2>
 <ul>
-<li>자연어 답변 (인용 + 출처)</li>
-<li>MaScQA 형식: A/B/C/D 또는 수치</li>
-<li>SciQA 형식: 4지 선다 정답</li>
+<li>Natural-language answer (with citations + sources)</li>
+<li>MaScQA format: A/B/C/D or a numeric value</li>
+<li>SciQA format: 4-choice answer</li>
 </ul>
-<h2 id="실제-태스크-예시">실제 태스크 예시</h2>
-<h3 id="mascqa-gate-기출-zaki-et-al-2023-활용-650문항">MaScQA — GATE 기출 (Zaki et al. 2023 활용, 650문항)</h3>
+<h2 id="real-task-examples">Real task examples</h2>
+<h3 id="mascqa-gate-past-exams-using-zaki-et-al-2023-650-questions">MaScQA — GATE past exams (using Zaki et al. 2023, 650 questions)</h3>
 <blockquote>
-<p><strong>태스크 분포</strong>:
+<p><strong>Task distribution</strong>:
 · MCQ 285 / MATCH 70 / MCQN 67 / NUM 228
-· 14개 재료과학 sub-domain (thermodynamics, atomic structure, mechanical behavior, …)</p>
-<p>HoneyComb 처리 흐름:
-· MCQ 개념형 → MatSciKB 검색 → 관련 textbook chunk + Wikipedia 항목 회수 → LLM 답변
-· NUM 계산형 → ToolHub의 Python REPL 또는 specialized formula tool → 수치 산출</p>
+· 14 materials-science sub-domains (thermodynamics, atomic structure, mechanical behavior, …)</p>
+<p>HoneyComb processing flow:
+· MCQ conceptual → MatSciKB search → retrieve relevant textbook chunks + Wikipedia entries → LLM answer
+· NUM computational → ToolHub's Python REPL or specialized formula tool → compute numeric value</p>
 </blockquote>
-<h3 id="sciq-11679-multiple-choice-과학-welbl-et-al-2017-활용-본-논문에서는-sciqa로-표기">SciQ — 11,679 multiple-choice 과학 (Welbl et al. 2017 활용; 본 논문에서는 SciQA로 표기)</h3>
+<h3 id="sciq-11679-multiple-choice-science-using-welbl-et-al-2017-denoted-sciqa-in-this-paper">SciQ — 11,679 multiple-choice science (using Welbl et al. 2017; denoted SciQA in this paper)</h3>
 <blockquote>
-<p><strong>태스크</strong>: 4지 선다 생물·화학·물리 학부 초반 수준 문제
-HoneyComb는 SciQ에 대해 ToolHub만 사용해도 +5.5%p 향상 (Table 5)</p>
+<p><strong>Task</strong>: 4-choice biology/chemistry/physics questions at an early-undergraduate level
+On SciQ, HoneyComb improves by +5.5%p using ToolHub alone (Table 5)</p>
 </blockquote>
-<h3 id="real-world-쿼리-시스템-데모">Real-world 쿼리 (시스템 데모)</h3>
+<h3 id="real-world-queries-system-demo">Real-world queries (system demo)</h3>
 <blockquote>
 <p><strong>Q (factoid):</strong> &quot;What is the crystal structure of perovskite BaTiO₃?&quot;
-→ MatSciKB 검색 → &quot;BaTiO₃: 페로브스카이트 구조, 입방정계, a≈4.01Å&quot; → 답변</p>
+→ MatSciKB search → &quot;BaTiO₃: perovskite structure, cubic system, a≈4.01Å&quot; → answer</p>
 <p><strong>Q (computational):</strong> &quot;What is the formation energy of Fe₂O₃?&quot;
-→ ToolHub → Materials Project API → ΔH_f ≈ -2.03 eV/atom → 답변 + DOI</p>
+→ ToolHub → Materials Project API → ΔH_f ≈ -2.03 eV/atom → answer + DOI</p>
 </blockquote>
-<h2 id="주요-평가-결과">주요 평가 결과</h2>
-<h3 id="table-3-honeycomb-통합-효과-accuracy">Table 3 — HoneyComb 통합 효과 (Accuracy %)</h3>
+<h2 id="key-evaluation-results">Key evaluation results</h2>
+<h3 id="table-3-honeycomb-integration-effect-accuracy">Table 3 — HoneyComb integration effect (Accuracy %)</h3>
 <table>
 <thead>
 <tr>
@@ -249,7 +249,7 @@ HoneyComb는 SciQ에 대해 ToolHub만 사용해도 +5.5%p 향상 (Table 5)</p>
 </thead>
 <tbody>
 <tr>
-  <td><strong>HoneyBee-7B</strong> (재료과학 SFT)</td>
+  <td><strong>HoneyBee-7B</strong> (materials-science SFT)</td>
   <td>16.62</td>
   <td><strong>33.38</strong></td>
   <td><strong>+16.76</strong></td>
@@ -295,8 +295,8 @@ HoneyComb는 SciQ에 대해 ToolHub만 사용해도 +5.5%p 향상 (Table 5)</p>
 </tr>
 </tbody>
 </table>
-<p>→ <strong>HoneyBee+HoneyComb이 SciQA에서 +45.73pp 점프</strong> (16.62 → 79.69) — domain-specific SFT 모델에 RAG가 결합되었을 때 가장 큰 효과.</p>
-<h3 id="table-5-ablation-study-gpt-4-기준">Table 5 — Ablation Study (GPT-4 기준)</h3>
+<p>→ <strong>HoneyBee+HoneyComb jumps +45.73pp on SciQA</strong> (16.62 → 79.69) — the largest effect occurs when RAG is combined with a domain-specific SFT model.</p>
+<h3 id="table-5-ablation-study-gpt-4-basis">Table 5 — Ablation Study (GPT-4 basis)</h3>
 <table>
 <thead>
 <tr>
@@ -343,9 +343,9 @@ HoneyComb는 SciQ에 대해 ToolHub만 사용해도 +5.5%p 향상 (Table 5)</p>
 </tr>
 </tbody>
 </table>
-<p>→ MaScQA: MatSciKB가 단독 효과 최대 (+16.93pp), ToolHub와 조합 시 +17.69pp 도달.
-→ SciQA: ToolHub만으로 96%대 달성 (단순 사실 검증에 일반 도구가 충분).</p>
-<h3 id="table-4-material-category별-성능-예-atomic-structure">Table 4 — Material Category별 성능 (예: Atomic Structure)</h3>
+<p>→ MaScQA: MatSciKB has the largest standalone effect (+16.93pp), reaching +17.69pp when combined with ToolHub.
+→ SciQA: reaching the 96% range with ToolHub alone (general tools suffice for simple fact verification).</p>
+<h3 id="table-4-performance-by-material-category-eg-atomic-structure">Table 4 — Performance by material category (e.g., Atomic Structure)</h3>
 <table>
 <thead>
 <tr>
@@ -368,7 +368,7 @@ HoneyComb는 SciQ에 대해 ToolHub만 사용해도 +5.5%p 향상 (Table 5)</p>
 <tr>
   <td>GPT-4</td>
   <td>55.00</td>
-  <td>(HoneyComb 적용)</td>
+  <td>(HoneyComb applied)</td>
 </tr>
 <tr>
   <td>...</td>
@@ -377,27 +377,27 @@ HoneyComb는 SciQ에 대해 ToolHub만 사용해도 +5.5%p 향상 (Table 5)</p>
 </tr>
 </tbody>
 </table>
-<p>→ <strong>LLaMA-3는 Material Testing에서 +33.34pp</strong> 향상. GPT-3.5는 일부 카테고리에서 성능 하락 — domain mismatch 시나리오 존재.</p>
-<h2 id="한계점">한계점</h2>
+<p>→ <strong>LLaMA-3 improves +33.34pp on Material Testing.</strong> GPT-3.5 shows performance drops in some categories — domain-mismatch scenarios exist.</p>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li><strong>MaScQA·SciQA 외 generalizability 미검증</strong> (저자 인정, Limitations section).</li>
-<li><strong>MatSciKB curation 비공개 세부</strong>: arXiv 20,384 papers의 선정 기준·중복 처리 절차가 본문에 명시되지 않음.</li>
-<li><strong>ToolHub는 Materials Project API 가용성에 의존</strong> — 서비스 중단·rate limit 시 취약.</li>
-<li><strong>재료과학 외 도메인 확장성 미검증</strong> (저자 자체 평가).</li>
-<li><strong>GPT-3.5에서 일부 카테고리 성능 하락</strong> — RAG가 항상 도움되지 않는 modality mismatch 사례 존재.</li>
-<li><strong>연구 design·예측 같은 open-ended 태스크 평가 부재</strong> (MCQ/NUM 중심).</li>
-<li><strong>MatSciKB가 정적 스냅샷일 가능성</strong>: 실시간 갱신 메커니즘은 언급되나 평가는 batch.</li>
+<li><strong>Generalizability beyond MaScQA/SciQA is unverified</strong> (acknowledged by the authors, Limitations section).</li>
+<li><strong>MatSciKB curation details are undisclosed</strong>: the selection criteria and deduplication procedure for the 20,384 arXiv papers are not specified in the text.</li>
+<li><strong>ToolHub depends on Materials Project API availability</strong> — vulnerable to service outages or rate limits.</li>
+<li><strong>Extensibility to domains beyond materials science is unverified</strong> (authors' own assessment).</li>
+<li><strong>Performance drops in some categories with GPT-3.5</strong> — a modality-mismatch case where RAG is not always helpful.</li>
+<li><strong>No evaluation of open-ended tasks such as research design and prediction</strong> (focus is on MCQ/NUM).</li>
+<li><strong>MatSciKB may be a static snapshot</strong>: a real-time update mechanism is mentioned, but evaluation is batch.</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.18653/v1/2024.findings-emnlp.192">EMNLP Findings 2024</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.18653/v1/2024.findings-emnlp.192">EMNLP Findings 2024</a></li>
 <li><strong>DBLP</strong>: <a href="https://dblp.org/rec/conf/emnlp/ZhangSHML24">conf/emnlp/ZhangSHML24</a></li>
-<li><strong>사용 벤치마크</strong>:<ul>
-<li>MaScQA — Zaki et al. 2023 (Digital Discovery), 650 GATE 문제</li>
-<li>SciQA → 실제로는 SciQ (Welbl et al. 2017), 11,679 MC 과학 문제</li>
+<li><strong>Benchmarks used</strong>:<ul>
+<li>MaScQA — Zaki et al. 2023 (Digital Discovery), 650 GATE questions</li>
+<li>SciQA → actually SciQ (Welbl et al. 2017), 11,679 MC science questions</li>
 </ul>
 </li>
-<li><strong>비교 대상 시스템</strong>: LLaMP (Chiang et al. 2025), Darwin, StructChem, HoneyBee-7B SFT</li>
+<li><strong>Compared systems</strong>: LLaMP (Chiang et al. 2025), Darwin, StructChem, HoneyBee-7B SFT</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/emnlp/ZhangSHML24)</a></p>
@@ -418,14 +418,14 @@ HoneyComb는 SciQ에 대해 ToolHub만 사용해도 +5.5%p 향상 (Table 5)</p>
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>INSPIRE-HEP: The information system for high-energy physics — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>INSPIRE-HEP: The information system for high-energy physics, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,7 +121,7 @@
 <p>inspirehep | 2012 | INSPIRE Collaboration (system reference) | dataset | [physics] | <a href="https://inspirehep.net">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">INSPIRE-HEP high-energy physics literature database</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">~1,858,514 records (2025년 5월 기준, INSPIRE API `/api/literature` 조회)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">~1,858,514 records (as of May 2025, queried via INSPIRE API `/api/literature`)</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">INSPIRE REST API</td></tr>
@@ -129,89 +129,89 @@
 
 <blockquote>
 <p>INSPIRE Collaboration (system reference) | 2012 | dataset | physics</p>
-<h4>📌 한 줄 요약</h4>
-<p>고에너지 물리학(HEP) 문헌 <strong>약 185만 건 이상</strong>을 보유하는 물리학 커뮤니티 전용 문헌 정보 시스템. 1974년 SPIRES에서 출발하여 CERN·DESY·Fermilab·IHEP·IN2P3가 공동 운영하며, 저자 중의성 해소와 arXiv 전문 검색을 통합 제공한다. <strong>정식 학술 논문이 아닌 기관 시스템 참고 항목(<code>@misc</code>)임에 유의.</strong></p>
+<h4>📌 TL;DR</h4>
+<p>A literature information system dedicated to the physics community, holding <strong>more than ~1.85 million</strong> high-energy physics (HEP) documents. Originating from SPIRES in 1974, it is jointly operated by CERN, DESY, Fermilab, IHEP, and IN2P3, and provides integrated author disambiguation and arXiv fulltext search. <strong>Note that this is an institutional system reference entry (<code>@misc</code>), not a formal academic paper.</strong></p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>1974년 SLAC/DESY에서 SPIRES(Stanford Physics Information REtrieval System) 시작 — 수십 년간 HEP 커뮤니티 표준 서지 시스템이었으나 현대적 기능 부재</li>
-<li>저자 중의성 해소, 전문(fulltext) 검색, 개인화 저자 페이지 등 기능이 구형 시스템에서 지원되지 않음</li>
+<li>SPIRES (Stanford Physics Information REtrieval System) began at SLAC/DESY in 1974 — the standard bibliographic system for the HEP community for decades, but lacking modern features</li>
+<li>Features such as author disambiguation, fulltext search, and personalized author pages were not supported by the legacy system</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>INSPIRE는 &quot;SPIRES의 신뢰받는 큐레이션 콘텐츠&quot;와 &quot;CERN에서 개발된 Invenio 디지털 도서관 기술&quot;을 결합하여 구축</li>
-<li>운영 기관: CERN(스위스), DESY(독일), Fermilab(미국), IHEP(중국), IN2P3(프랑스)</li>
-<li>협력 기관: arXiv.org, NASA-ADS, PDG(입자 데이터 그룹), HEPDATA, HEP 출판사</li>
+<li>INSPIRE was built by combining &quot;SPIRES's trusted curated content&quot; with &quot;the Invenio digital library technology developed at CERN&quot;</li>
+<li>Operating institutions: CERN (Switzerland), DESY (Germany), Fermilab (USA), IHEP (China), IN2P3 (France)</li>
+<li>Partner institutions: arXiv.org, NASA-ADS, PDG (Particle Data Group), HEPDATA, HEP publishers</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>INSPIRE REST API를 통해 논문(Literature)·저자(Authors)·기관(Institutions)·실험(Experiments)·학술행사(Conferences)·채용 공고(Jobs) 6개 엔티티 유형 조회 제공. arXiv hep-* 카테고리 자동 수집 및 즉시 색인. LHC 실험(ATLAS, CMS, LHCb 등) 내부 기술 노트 색인 포함. 저자 중의성 해소: 고품질 저자 프로필 생성 및 자동 저자 식별. 최근 arXiv 논문의 본문·그림 캡션 전문 검색 및 스니펫 표시.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>Provides queries over six entity types through the INSPIRE REST API: Literature, Authors, Institutions, Experiments, Conferences, and Jobs. Automatic harvesting and immediate indexing of arXiv hep-* categories. Includes indexing of internal technical notes from LHC experiments (ATLAS, CMS, LHCb, etc.). Author disambiguation: generation of high-quality author profiles and automatic author identification. Fulltext search and snippet display over the body text and figure captions of recent arXiv papers.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>웹 인터페이스</td>
-  <td>inspirehep.net — 무료 브라우저 검색</td>
+  <td>Web interface</td>
+  <td>inspirehep.net — free browser-based search</td>
 </tr>
 <tr>
   <td>REST API</td>
-  <td><code>/api/literature</code> 등 엔티티별 엔드포인트 — 무료, 속도 제한 있음</td>
+  <td>Per-entity endpoints such as <code>/api/literature</code> — free, with rate limits</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>논문(Literature): arXiv 프리프린트, 저널 논문, 보고서 메타데이터</li>
-<li>저자(Authors): 중의성 해소된 연구자 프로필, h-index</li>
-<li>기관(Institutions): 소속 기관 레코드</li>
-<li>실험(Experiments): 고에너지 물리학 실험 정보</li>
-<li>학술행사(Conferences): HEP 분야 학술대회 목록</li>
-<li>채용 공고(Jobs): HEP 분야 포지션 목록</li>
+<li>Literature: arXiv preprints, journal articles, report metadata</li>
+<li>Authors: disambiguated researcher profiles, h-index</li>
+<li>Institutions: affiliated-institution records</li>
+<li>Experiments: high-energy physics experiment information</li>
+<li>Conferences: list of HEP-field conferences</li>
+<li>Jobs: list of HEP-field positions</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (literature basis)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>논문 레코드</td>
-  <td><strong>~1,858,514건</strong> (2025년 5월 기준)</td>
+  <td>Literature records</td>
+  <td><strong>~1,858,514</strong> (as of May 2025)</td>
 </tr>
 <tr>
-  <td>접근</td>
-  <td>무료 (공개 API, 속도 제한 있음)</td>
+  <td>Access</td>
+  <td>Free (public API, with rate limits)</td>
 </tr>
 <tr>
-  <td>갱신</td>
-  <td>실시간 (arXiv 자동 수집)</td>
+  <td>Updates</td>
+  <td>Real-time (automatic arXiv harvesting)</td>
 </tr>
 <tr>
-  <td>전신 시스템</td>
-  <td>SPIRES (1974년 SLAC/DESY 시작)</td>
+  <td>Predecessor system</td>
+  <td>SPIRES (started at SLAC/DESY in 1974)</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li><strong>HEP 특화 범위</strong>: 고에너지 물리학 중심으로 천체물리학·핵물리학 일부는 포함되나 물리학 전 분야 미커버</li>
-<li><strong>파트너 변동</strong>: SLAC이 2021년 파트너 탈퇴 — 장기 운영 구조의 불안정성</li>
-<li><strong>출처 한계</strong>: 공식 학술 논문이 아닌 <code>@misc</code> 시스템 참고 항목 — 시스템 설계·방법론에 대한 동료 심사 문헌 부재</li>
-<li><strong>과거 이력 한정</strong>: SPIRES 시대 구형 레코드 중 일부는 메타데이터 품질이 불균일</li>
-<li><strong>미래 계획(공식 문서 언급)</strong>: 제3자용 API 확장, 과거 콘텐츠 추가, 사용자 오류 수정 기능 확대</li>
+<li><strong>HEP-specialized scope</strong>: Centered on high-energy physics; some astrophysics and nuclear physics are included, but the full range of physics is not covered</li>
+<li><strong>Partner changes</strong>: SLAC withdrew as a partner in 2021 — instability in the long-term operational structure</li>
+<li><strong>Source limitation</strong>: An <code>@misc</code> system reference entry rather than a formal academic paper — no peer-reviewed literature on the system's design and methodology</li>
+<li><strong>Limited historical records</strong>: Among legacy records from the SPIRES era, some have uneven metadata quality</li>
+<li><strong>Future plans (mentioned in official documents)</strong>: Expansion of the API for third parties, addition of historical content, and expanded user error-correction features</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://inspirehep.net">https://inspirehep.net</a></li>
+<li><strong>Paper</strong>: <a href="https://inspirehep.net">https://inspirehep.net</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (inspirehep)</a></p>
@@ -233,14 +233,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

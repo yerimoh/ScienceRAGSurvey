@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CIViC is a community knowledgebase for expert crowdsourcing the clinical interpretation of variants in cancer — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>CIViC is a community knowledgebase for expert crowdsourcing the clinical interpretation of variants in cancer, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,109 +121,109 @@
 <p>griffith2017civic | 2017 | Nature Genetics | dataset | [medical] | <a href="https://doi.org/10.1038/ng.3774">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">CIViC (Clinical Interpretation of Variants in Cancer)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">출판 시점 수백 개 변이·유전자; 지속적 커뮤니티 큐레이션으로 성장</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">hundreds of variants and genes at publication time; grows through continuous community curation</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">CIViC REST API / civicdb.org 웹 인터페이스</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">CIViC REST API / civicdb.org web interface</td></tr>
 </table>
 
 <blockquote>
 <p>Nature Genetics | 2017 | dataset | medical</p>
-<h4>📌 한 줄 요약</h4>
-<p>암 변이의 치료적·예후적·진단적·소인적 임상 해석을 전문가 크라우드소싱으로 구축하는 오픈소스·오픈액세스 암 정밀 의학 지식 베이스로, 큐레이터-편집자 검증 워크플로를 갖춘다.</p>
+<h4>📌 TL;DR</h4>
+<p>An open-source, open-access cancer precision-medicine knowledge base that builds therapeutic, prognostic, diagnostic, and predisposing clinical interpretations of cancer variants through expert crowdsourcing, with a curator-editor verification workflow.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>암 변이의 임상적 해석이 개별 논문과 내부 실험실 시스템에 분산되어 있어 체계적 접근이 어려웠다</li>
-<li>OncoKB, JAX-CKB 등 기존 DB는 소수 전문 기관이 폐쇄적으로 큐레이션; 커뮤니티 기여 불가</li>
-<li>같은 변이의 임상적 의미에 대한 근거 출처를 투명하게 추적할 수 없었다</li>
+<li>The clinical interpretation of cancer variants was scattered across individual papers and internal laboratory systems, making systematic access difficult</li>
+<li>Existing DBs such as OncoKB and JAX-CKB were curated in a closed manner by a small number of specialized institutions; community contribution was not possible</li>
+<li>The evidence sources for the clinical significance of the same variant could not be tracked transparently</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>암 정밀 의학의 빠른 발전 속도에 맞추려면 전 세계 전문가 커뮤니티의 분산 큐레이션이 필요하다</li>
-<li>치료적(predictive), 예후적(prognostic), 진단적(diagnostic), 소인적(predisposing) 4가지 변이 임상 역할을 통합 관리해야 한다</li>
+<li>To keep pace with the rapid advance of cancer precision medicine, distributed curation by a worldwide community of experts is required</li>
+<li>The four clinical variant roles — predictive, prognostic, diagnostic, and predisposing — must be managed in an integrated way</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>CIViC는 위키 방식의 큐레이션 워크플로를 갖는다.</p>
+<h4>🔨 Architecture</h4>
+<p>CIViC has a wiki-style curation workflow.</p>
 <ul>
-<li><strong>Evidence Item</strong>: 개별 변이-임상 연관의 단위; 하나의 문헌 근거 + 임상 유의성 레이블</li>
-<li><strong>Variant</strong>: 유전자 내 특정 변이 (SNV, 삽입/삭제, 융합 등)</li>
-<li><strong>Gene</strong>: 변이가 속하는 유전자 항목</li>
-<li><strong>큐레이터 → 편집자 → 승인</strong> 3단계 워크플로; 편집자 검토 후 공개</li>
+<li><strong>Evidence Item</strong>: the unit of an individual variant-clinical association; a single literature source + clinical-significance label</li>
+<li><strong>Variant</strong>: a specific variant within a gene (SNV, insertion/deletion, fusion, etc.)</li>
+<li><strong>Gene</strong>: the gene entry to which a variant belongs</li>
+<li><strong>Curator → Editor → Approval</strong> three-stage workflow; published after editor review</li>
 </ul>
-<p>임상 역할 4가지: <strong>Predictive</strong> (치료 반응 예측), <strong>Prognostic</strong> (예후), <strong>Diagnostic</strong> (진단 분류), <strong>Predisposing</strong> (유전적 소인)</p>
-<h4>📥 데이터 접근 방법</h4>
+<p>Four clinical roles: <strong>Predictive</strong> (predicting therapeutic response), <strong>Prognostic</strong> (prognosis), <strong>Diagnostic</strong> (diagnostic classification), <strong>Predisposing</strong> (genetic predisposition)</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>CIViC REST API</td>
-  <td>api.civicdb.org — 유전자·변이·근거 항목 쿼리; 공개 무료</td>
+  <td>api.civicdb.org — query genes, variants, and evidence items; publicly free</td>
 </tr>
 <tr>
-  <td>웹 인터페이스</td>
-  <td>civicdb.org — 검색, 큐레이션, 시각화</td>
+  <td>Web interface</td>
+  <td>civicdb.org — search, curation, visualization</td>
 </tr>
 <tr>
-  <td>데이터 다운로드</td>
-  <td>nightly TSV/VCF 덤프; 완전 오픈액세스</td>
+  <td>Data download</td>
+  <td>nightly TSV/VCF dumps; fully open access</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>Evidence Item (변이-임상 연관 + 문헌 PMC/PMID)</li>
-<li>Variant summary (변이 기술 + 연관 항목 집계)</li>
-<li>VCF 형식 변이 파일</li>
+<li>Evidence Item (variant-clinical association + literature PMC/PMID)</li>
+<li>Variant summary (variant description + aggregation of associated entries)</li>
+<li>VCF-format variant files</li>
 <li>Open-source code (GitHub: griffithlab/civic-client)</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>임상 역할 범주</td>
-  <td>Predictive, Prognostic, Diagnostic, Predisposing (4가지)</td>
+  <td>Clinical role categories</td>
+  <td>Predictive, Prognostic, Diagnostic, Predisposing (4 types)</td>
 </tr>
 <tr>
-  <td>큐레이션 워크플로</td>
-  <td>큐레이터 제출 → 편집자 검토 → 승인</td>
+  <td>Curation workflow</td>
+  <td>curator submission → editor review → approval</td>
 </tr>
 <tr>
-  <td>라이선스</td>
-  <td>CC0 (공개 도메인)</td>
+  <td>License</td>
+  <td>CC0 (public domain)</td>
 </tr>
 <tr>
-  <td>코드 라이선스</td>
+  <td>Code license</td>
   <td>MIT</td>
 </tr>
 <tr>
-  <td>운영 기관</td>
+  <td>Operating institution</td>
   <td>Washington University in St. Louis (Griffith Lab)</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>커뮤니티 큐레이션 특성상 특정 유명 유전자(EGFR, BRAF, KRAS 등)에 항목이 집중</li>
-<li>편집자 수 제한으로 신규 항목 검토에 시간 지연 발생 가능</li>
-<li>희귀 암·희귀 변이는 근거 문헌 부족으로 커버리지 낮음</li>
-<li>체세포·생식세포 구분이 항목별로 일관성이 부족할 수 있음</li>
+<li>Due to the nature of community curation, entries are concentrated on certain well-known genes (EGFR, BRAF, KRAS, etc.)</li>
+<li>The limited number of editors can cause time delays in reviewing new entries</li>
+<li>Coverage is low for rare cancers and rare variants due to a lack of supporting literature</li>
+<li>The distinction between somatic and germline may lack consistency across entries</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1038/ng.3774">Griffith et al., Nature Genetics 2017</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1038/ng.3774">Griffith et al., Nature Genetics 2017</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (griffith2017civic)</a></p>
@@ -249,14 +249,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

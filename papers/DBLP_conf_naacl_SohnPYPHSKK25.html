@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Rationale-Guided Retrieval Augmented Generation for Medical Question Answering — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Rationale-Guided Retrieval Augmented Generation for Medical Question Answering, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,30 +117,30 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#시스템-아키텍처-논문-figure-1">시스템 아키텍처 (논문 Figure 1)</a></li><li class="toc-l2"><a href="#핵심-모듈-상세-설명">핵심 모듈 상세 설명</a></li><li class="toc-l3"><a href="#rationale-guided-filtering-핵심-혁신">Rationale-Guided Filtering (핵심 혁신)</a></li><li class="toc-l3"><a href="#rationale-based-query">Rationale-Based Query</a></li><li class="toc-l3"><a href="#balanced-retrieval">Balanced Retrieval</a></li><li class="toc-l2"><a href="#inputoutput">Input/Output</a></li><li class="toc-l2"><a href="#예시-사례">예시 사례</a></li><li class="toc-l3"><a href="#copd-exacerbation-case-medqa-논문-figure-4-전체-인용">COPD Exacerbation Case (MedQA, 논문 Figure 4 — 전체 인용)</a></li><li class="toc-l2"><a href="#주요-평가-결과">주요 평가 결과</a></li><li class="toc-l2"><a href="#핵심-기여">핵심 기여</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#background">Background</a></li><li class="toc-l2"><a href="#architecture-paper-figure-1">Architecture (paper Figure 1)</a></li><li class="toc-l2"><a href="#detailed-description-of-core-modules">Detailed description of core modules</a></li><li class="toc-l3"><a href="#rationale-guided-filtering-core-innovation">Rationale-Guided Filtering (core innovation)</a></li><li class="toc-l3"><a href="#rationale-based-query">Rationale-Based Query</a></li><li class="toc-l3"><a href="#balanced-retrieval">Balanced Retrieval</a></li><li class="toc-l2"><a href="#inputoutput">Input/Output</a></li><li class="toc-l2"><a href="#example-case">Example case</a></li><li class="toc-l3"><a href="#copd-exacerbation-case-medqa-paper-figure-4-quoted-in-full">COPD Exacerbation Case (MedQA, paper Figure 4 — quoted in full)</a></li><li class="toc-l2"><a href="#main-evaluation-results">Main evaluation results</a></li><li class="toc-l2"><a href="#key-contributions">Key contributions</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>Rationale-Guided Retrieval Augmented Generation for Medical Question Answering (RAG²)</h1>
 <blockquote>
 <p>NAACL | 2025 | Method | medical</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>LLM이 먼저 chain-of-thought rationale을 생성해 이를 검색 쿼리로 활용하고, <strong>PubMed/PMC/Textbooks/Clinical Guidelines</strong> 4개 코퍼스에서 균등 검색하며, perplexity 변화량으로 자동 라벨링된 데이터로 Flan-T5-large 770M 필터링 모델을 학습해 정보성 스니펫만 LLM에 전달. 단일 단계 검색만 사용하면서도 MedQA·MedMCQA·MMLU-Med에서 Llama-3-8B 평균 <strong>+6.1%</strong>, GPT-4o <strong>+0.9%</strong> 향상.</p>
-<h2 id="제작-배경">제작 배경</h2>
-<p><strong>기존 의료 RAG의 한계</strong></p>
+<h2 id="tldr">TL;DR</h2>
+<p>The LLM first generates a chain-of-thought rationale and uses it as the retrieval query, retrieves evenly from 4 corpora — <strong>PubMed/PMC/Textbooks/Clinical Guidelines</strong> — and trains a Flan-T5-large 770M filtering model on data automatically labeled by perplexity change, so that only informative snippets are passed to the LLM. While using only single-stage retrieval, it improves Llama-3-8B by an average of <strong>+6.1%</strong> and GPT-4o by <strong>+0.9%</strong> on MedQA, MedMCQA, and MMLU-Med.</p>
+<h2 id="background">Background</h2>
+<p><strong>Limitations of existing medical RAG</strong></p>
 <ul>
-<li>의료 쿼리에 환자 정보 등 광범위한 맥락을 포함하면 검색기가 혼란, 너무 짧으면 암묵적 의료 지식 의존 필요</li>
-<li>MedCPT 같은 PubMed-편향 retriever는 임상 가이드라인/교과서 소외 → retriever bias</li>
-<li>Self-BioRAG는 LLM 전체 파인튜닝 필요 (Llama-2 7B/13B 학습) → 학습 비용 큼</li>
-<li>Adaptive-RAG는 정답/오답만 라벨로 사용 → 문서 유용성의 미세 신호 무시</li>
+<li>Including broad context such as patient information in a medical query confuses the retriever, while a query that is too short requires relying on implicit medical knowledge</li>
+<li>PubMed-biased retrievers like MedCPT marginalize clinical guidelines/textbooks → retriever bias</li>
+<li>Self-BioRAG requires full fine-tuning of the LLM (training Llama-2 7B/13B) → high training cost</li>
+<li>Adaptive-RAG uses only correct/incorrect as labels → ignores the fine-grained signal of document usefulness</li>
 </ul>
-<p><strong>왜 필요한가</strong></p>
+<p><strong>Why it is needed</strong></p>
 <ul>
-<li>단일 패스 + 770M 소형 필터링 모델만으로 SOTA에 근접하는 효율적 의료 RAG가 필요</li>
-<li>의료 도메인은 어노테이션 비용이 매우 높으므로 perplexity 차이로 자동 라벨링하는 방법이 매력적</li>
-<li>저자 인용: &quot;These rationale-based queries help identify key... and they refine poorly targeted retrieval results&quot; (§1)</li>
+<li>An efficient medical RAG that approaches SOTA using only a single pass + a 770M small filtering model is needed</li>
+<li>Since annotation is very costly in the medical domain, automatic labeling by perplexity difference is attractive</li>
+<li>Author quote: &quot;These rationale-based queries help identify key... and they refine poorly targeted retrieval results&quot; (§1)</li>
 </ul>
-<h2 id="시스템-아키텍처-논문-figure-1">시스템 아키텍처 (논문 Figure 1)</h2>
+<h2 id="architecture-paper-figure-1">Architecture (paper Figure 1)</h2>
 <pre><code>                       [Initial Query x]
                             │
                             ▼
@@ -149,126 +149,126 @@
         │  ────────────────────────────────    │
         │  Base LLM (Llama-3-8B / Meerkat-7B / │
         │            GPT-4o) at temp=0         │
-        │  Chain-of-Thought로 rationale 생성   │
-        │  → rationale 텍스트 자체가 새 쿼리   │
-        │    (초기 쿼리 미포함 — token 한계)   │
+        │  Generate rationale via Chain-of-Thought │
+        │  → the rationale text itself is the new query │
+        │    (initial query excluded — token limit) │
         └──────────────┬───────────────────────┘
                        │
         ┌──────────────▼───────────────────────┐
         │  ② Balanced Retrieval                │
         │  ────────────────────────────────    │
-        │  4개 corpus 각각에서 동일 비율 검색  │
-        │  - PubMed (대형, MedCPT 학습 소스)   │
-        │  - PMC (대형, open access)           │
-        │  - Medical Textbooks (소형, 전문)    │
-        │  - Clinical Guidelines (소형, 최신)  │
-        │  → MedCPT cross-encoder가 초기 쿼리  │
-        │    기준 재순위                       │
+        │  Retrieve in equal proportion from each of 4 corpora │
+        │  - PubMed (large, MedCPT training source) │
+        │  - PMC (large, open access)          │
+        │  - Medical Textbooks (small, specialized) │
+        │  - Clinical Guidelines (small, up-to-date) │
+        │  → MedCPT cross-encoder reranks based on │
+        │    the initial query                 │
         └──────────────┬───────────────────────┘
                        │
         ┌──────────────▼───────────────────────┐
         │  ③ Rationale-Guided Filtering        │
         │  ────────────────────────────────    │
-        │  Flan-T5-large (770M, 단일 RTX 3090) │
-        │  ΔPPL = PPL(x) − PPL(x, d) 기반 학습 │
-        │  → 각 snippet의 Helpful / Not Helpful│
-        │    판정 후 Helpful만 LLM에 투입      │
+        │  Flan-T5-large (770M, single RTX 3090) │
+        │  Trained based on ΔPPL = PPL(x) − PPL(x, d) │
+        │  → judges each snippet Helpful / Not Helpful │
+        │    then feeds only Helpful ones to the LLM │
         └──────────────┬───────────────────────┘
                        │
                        ▼
                 [Final LLM Answer]
 </code></pre>
-<h2 id="핵심-모듈-상세-설명">핵심 모듈 상세 설명</h2>
-<h3 id="rationale-guided-filtering-핵심-혁신">Rationale-Guided Filtering (핵심 혁신)</h3>
+<h2 id="detailed-description-of-core-modules">Detailed description of core modules</h2>
+<h3 id="rationale-guided-filtering-core-innovation">Rationale-Guided Filtering (core innovation)</h3>
 <ul>
-<li>훈련 데이터 생성:<ul>
-<li>x: 질의, d: 검색된 문서, r: rationale</li>
-<li>라벨: <code>ΔPPL = PPL(x) − PPL(x, d)</code></li>
-<li>상위 25% ΔPPL → &quot;Helpful&quot; (문서가 rationale의 perplexity를 크게 낮춤 = 유용)</li>
-<li>하위 25% → &quot;Not Helpful&quot;</li>
+<li>Training data generation:<ul>
+<li>x: query, d: retrieved document, r: rationale</li>
+<li>Label: <code>ΔPPL = PPL(x) − PPL(x, d)</code></li>
+<li>Top 25% ΔPPL → &quot;Helpful&quot; (the document greatly lowers the perplexity of the rationale = useful)</li>
+<li>Bottom 25% → &quot;Not Helpful&quot;</li>
 </ul>
 </li>
-<li>Flan-T5-large (770M)를 binary classifier로 SFT</li>
-<li>추론 시 각 snippet에 대해 filter 적용 → Helpful만 유지</li>
+<li>SFT Flan-T5-large (770M) as a binary classifier</li>
+<li>At inference, apply the filter to each snippet → keep only Helpful ones</li>
 </ul>
 <h3 id="rationale-based-query">Rationale-Based Query</h3>
 <ul>
-<li>CoT prompt로 base LLM이 rationale 생성 (temperature=0)</li>
-<li>Rationale 자체가 검색 쿼리 (초기 쿼리는 reranker에서만 사용)</li>
-<li>이유: &quot;the initial query and the rationale exceeds the maximum length of MedCPT&quot;</li>
-<li>짧은 쿼리는 자동 확장, 긴 쿼리는 핵심 추론 단계만 추출</li>
+<li>The base LLM generates a rationale with a CoT prompt (temperature=0)</li>
+<li>The rationale itself is the retrieval query (the initial query is used only in the reranker)</li>
+<li>Reason: &quot;the initial query and the rationale exceeds the maximum length of MedCPT&quot;</li>
+<li>Short queries are automatically expanded, and long queries have only the key reasoning steps extracted</li>
 </ul>
 <h3 id="balanced-retrieval">Balanced Retrieval</h3>
 <table>
 <thead>
 <tr>
-  <th>코퍼스</th>
-  <th>규모</th>
-  <th>특징</th>
+  <th>Corpus</th>
+  <th>Scale</th>
+  <th>Characteristics</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>PubMed</td>
-  <td>대형 (MedCorp)</td>
-  <td>생의학 논문 abstract</td>
+  <td>large (MedCorp)</td>
+  <td>biomedical paper abstracts</td>
 </tr>
 <tr>
   <td>PMC</td>
-  <td>대형</td>
+  <td>large</td>
   <td>open access full text</td>
 </tr>
 <tr>
   <td>Medical Textbooks</td>
-  <td>소형</td>
-  <td>StatPearls 등 표준 교과서</td>
+  <td>small</td>
+  <td>standard textbooks such as StatPearls</td>
 </tr>
 <tr>
   <td>Clinical Guidelines</td>
-  <td>소형</td>
-  <td>최신 임상 진료 가이드라인</td>
+  <td>small</td>
+  <td>up-to-date clinical practice guidelines</td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li>각 corpus에서 동일 개수 retrieval → MedCPT-편향 완화</li>
-<li>&quot;balanced approach consistently outperforms others, highlighting the...&quot; (Appendix Figure A3 캡션)</li>
+<li>Retrieve an equal number from each corpus → mitigates MedCPT bias</li>
+<li>&quot;balanced approach consistently outperforms others, highlighting the...&quot; (Appendix Figure A3 caption)</li>
 </ul>
 <h2 id="inputoutput">Input/Output</h2>
 <p><strong>Input</strong></p>
 <ul>
-<li>USMLE/AIIMS/MMLU 스타일 multi-choice 의료 질의 (4-5 선택지)</li>
+<li>USMLE/AIIMS/MMLU-style multi-choice medical queries (4-5 options)</li>
 </ul>
 <p><strong>Output</strong></p>
 <ul>
-<li>정답 선택지 + 추론 과정 (rationale)</li>
+<li>Correct-answer option + reasoning process (rationale)</li>
 </ul>
-<h2 id="예시-사례">예시 사례</h2>
-<h3 id="copd-exacerbation-case-medqa-논문-figure-4-전체-인용">COPD Exacerbation Case (MedQA, 논문 Figure 4 — 전체 인용)</h3>
+<h2 id="example-case">Example case</h2>
+<h3 id="copd-exacerbation-case-medqa-paper-figure-4-quoted-in-full">COPD Exacerbation Case (MedQA, paper Figure 4 — quoted in full)</h3>
 <blockquote>
 <p><strong>Initial Query (full case)</strong>:</p>
 <blockquote>
 <p>&quot;A 62-year-old man presents to the emergency department with shortness of breath. … He feels as if he is unable to take a deep breath. The patient has a past medical history of COPD and a 44-pack-year smoking history. The patient has been admitted before for a similar presentation. Vitals: T 98.7°F, BP 177/118 mmHg, P 123/min, R 33/min, O2 sat 80% on room air. The patient is started on 100% oxygen, albuterol, ipratropium, magnesium, and prednisone. … He is still short of breath. Physical exam: bilateral wheezes, poor air movement.
 Which of the following is the best next step in management? (A) BiPAP (B) Chest tube placement (C) Intubation (D) Needle Decompression&quot;</p>
 </blockquote>
-<p><strong>Meerkat-7B without RAG (자체 추론)</strong>:</p>
+<p><strong>Meerkat-7B without RAG (its own reasoning)</strong>:</p>
 <blockquote>
 <p>&quot;...The presence of bilateral wheezes and poor air movement on physical examination suggests exacerbation of COPD with significant airflow obstruction. … (C) Intubation may be necessary for patients who are in respiratory failure and not responding to medical therapy… Therefore, the answer is (C) Intubation.&quot; ❌</p>
 </blockquote>
-<p><strong>RAG with rationale query (no filtering — distractor 유입)</strong>:</p>
+<p><strong>RAG with rationale query (no filtering — distractor introduced)</strong>:</p>
 <blockquote>
 <p>Top-1 snippet: &quot;...respiratory and hemodynamic signs of tension pneumothorax should be considered a medical emergency and addressed immediately, as this requires urgent needle decompression.&quot;
 Model output: &quot;The presence of bilateral wheezes could also be consistent with a severe COPD exacerbation, but the clinical picture is more suggestive of a tension pneumothorax… Therefore, the answer is (D) Needle decompression.&quot; ❌</p>
 </blockquote>
 <p><strong>RAG² with rationale-guided filtering</strong>:</p>
 <blockquote>
-<p>필터 모델이 tension pneumothorax snippet을 Not-Helpful로 제거 → Top-3 snippet 남음:
+<p>The filter model removes the tension pneumothorax snippet as Not-Helpful → the Top-3 snippet remains:
 &quot;...Non-invasive positive pressure ventilation is considered to be effective in reversing acute respiratory failure in selected patients with elevated carbon dioxide and no other life-threatening comorbidities…&quot;
 Model output: &quot;These findings suggest an exacerbation of COPD with respiratory failure. … Non-invasive positive pressure ventilation can be used in COPD exacerbations to decrease the work of breathing and improve oxygenation. … Therefore, the answer is (A) BiPAP.&quot; ✓</p>
 </blockquote>
-<p><strong>저자 해석 (논문 §5)</strong>: &quot;the initial error stems from the model's distraction by irrelevant information, but proper filtering lead to the correct diagnosis and management plan.&quot;</p>
+<p><strong>Author interpretation (paper §5)</strong>: &quot;the initial error stems from the model's distraction by irrelevant information, but proper filtering lead to the correct diagnosis and management plan.&quot;</p>
 </blockquote>
-<h2 id="주요-평가-결과">주요 평가 결과</h2>
+<h2 id="main-evaluation-results">Main evaluation results</h2>
 <p><strong>Table 2 — Accuracy on 3 medical QA benchmarks</strong></p>
 <table>
 <thead>
@@ -388,35 +388,35 @@ Model output: &quot;These findings suggest an exacerbation of COPD with respirat
 </tr>
 </tbody>
 </table>
-<p><strong>핵심 관찰</strong></p>
+<p><strong>Key observations</strong></p>
 <ul>
-<li>평균 향상: Llama-3-8B <strong>+6.1</strong>, Meerkat-7B <strong>+3.8</strong>, GPT-4o <strong>+0.9</strong> (소형 모델일수록 RAG² 효과 큼)</li>
-<li>MMLU-Med은 학습 데이터가 없으나 MedMCQA로 훈련한 필터 모델이 transfer (Llama +5.3, Meerkat +4.9)</li>
-<li>일부 baseline RAG는 base보다 성능 저하 → &quot;RAG frameworks do not always guarantee improved performance, especially in the medical domain&quot; (§4.3)</li>
-<li>Filtering 모델 ensemble + GPT-4o on MedQA → 91.6 (단일 패스 원칙 위배라 main table 미포함)</li>
+<li>Average improvement: Llama-3-8B <strong>+6.1</strong>, Meerkat-7B <strong>+3.8</strong>, GPT-4o <strong>+0.9</strong> (the smaller the model, the larger the RAG² effect)</li>
+<li>MMLU-Med has no training data, but the filter model trained on MedMCQA transfers (Llama +5.3, Meerkat +4.9)</li>
+<li>Some baseline RAGs degrade performance below base → &quot;RAG frameworks do not always guarantee improved performance, especially in the medical domain&quot; (§4.3)</li>
+<li>Filtering model ensemble + GPT-4o on MedQA → 91.6 (not included in the main table as it violates the single-pass principle)</li>
 </ul>
-<h2 id="핵심-기여">핵심 기여</h2>
+<h2 id="key-contributions">Key contributions</h2>
 <ol>
-<li><strong>Rationale-as-query</strong>: 환자 정보가 검색에 노이즈가 되는 문제를 rationale로 대체 우회</li>
-<li><strong>Perplexity-based 자동 라벨링</strong>: 의료 어노테이션 희소성 문제 해결</li>
-<li><strong>Balanced retrieval</strong>: PubMed 일변도에서 벗어나 4 소스 동등 활용</li>
-<li><strong>소형 필터링 모델</strong>: 770M Flan-T5만으로 RTX 3090 단일 GPU에서 학습 가능</li>
+<li><strong>Rationale-as-query</strong>: bypasses the problem of patient information becoming noise in retrieval by replacing it with the rationale</li>
+<li><strong>Perplexity-based automatic labeling</strong>: solves the scarcity problem of medical annotation</li>
+<li><strong>Balanced retrieval</strong>: moves away from a PubMed-only approach to use 4 sources equally</li>
+<li><strong>Small filtering model</strong>: trainable on a single RTX 3090 GPU with only 770M Flan-T5</li>
 </ol>
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li>Closed-book 설정에서만 평가 (오라클 문서 없는 환경)</li>
-<li>MMLU-Med 학습 데이터 부재 → MedMCQA로 transfer 학습 (도메인 mismatch 가능)</li>
-<li>Filter 모델은 base LLM에 의존적 → backbone 변경 시 재훈련 필요 (논문 §6 Limitations)</li>
-<li>Rationale가 잘못된 경우 잘못된 검색 → 다만 저자는 &quot;incorrect rationale make up only a small portion&quot; 주장</li>
+<li>Evaluated only in the closed-book setting (an environment without oracle documents)</li>
+<li>No MMLU-Med training data → transfer learning via MedMCQA (possible domain mismatch)</li>
+<li>The filter model is dependent on the base LLM → requires retraining when the backbone is changed (paper §6 Limitations)</li>
+<li>If the rationale is wrong, retrieval is wrong → though the authors claim &quot;incorrect rationale make up only a small portion&quot;</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
 <li><strong>ACL Anthology</strong>: <a href="https://aclanthology.org/2025.naacl-long.635/">https://aclanthology.org/2025.naacl-long.635/</a></li>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2411.00300">https://arxiv.org/abs/2411.00300</a></li>
 <li><strong>GitHub</strong>: <a href="https://github.com/dmis-lab/RAG2">https://github.com/dmis-lab/RAG2</a></li>
-<li><strong>저자 소속</strong>: Korea University (DMIS Lab), Kyung Hee University, AIGEN Sciences</li>
-<li><strong>비교 baseline</strong>: MedCPT, MedRAG, query2doc, Adaptive-RAG, InstructRAG, Self-BioRAG</li>
-<li><strong>K×O 분류</strong>: K1.O1 (PubMed/PMC/교과서/가이드라인 4소스) — multi-source 균등 검색의 대표 사례</li>
+<li><strong>Author affiliations</strong>: Korea University (DMIS Lab), Kyung Hee University, AIGEN Sciences</li>
+<li><strong>Comparison baselines</strong>: MedCPT, MedRAG, query2doc, Adaptive-RAG, InstructRAG, Self-BioRAG</li>
+<li><strong>K×O classification</strong>: K1.O1 (4 sources: PubMed/PMC/textbooks/guidelines) — a representative case of multi-source balanced retrieval</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/naacl/SohnPYPHSKK25)</a></p>
@@ -459,14 +459,14 @@ Model output: &quot;These findings suggest an exacerbation of COPD with respirat
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

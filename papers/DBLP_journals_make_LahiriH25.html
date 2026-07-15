@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DBLP:journals/make/LahiriH25 — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>DBLP:journals/make/LahiriH25, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,7 +117,7 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#원문-직접-인용-arxiv241216701">원문 직접 인용 (arXiv:2412.16701)</a></li><li class="toc-l2"><a href="#주요-평가-결과">주요 평가 결과</a></li><li class="toc-l2"><a href="#case-study-논문-discussion">Case Study (논문 §Discussion)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#construction-methodology">Construction Methodology</a></li><li class="toc-l2"><a href="#direct-quotes-from-the-source-arxiv241216701">Direct quotes from the source (arXiv:2412.16701)</a></li><li class="toc-l2"><a href="#key-evaluation-results">Key evaluation results</a></li><li class="toc-l2"><a href="#case-study-paper-discussion">Case Study (paper §Discussion)</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>AlzheimerRAG: Cross-modal Attention Fusion for Alzheimer Clinical RAG</h1>
@@ -126,17 +126,17 @@
 Aritra Kumar Lahiri, Qinmin Vivian Hu — Toronto Metropolitan University (Canada)
 DBLP: <code>journals/make/LahiriH25</code> · arXiv: <a href="https://arxiv.org/abs/2412.16701">2412.16701</a></p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>PubMed 논문의 텍스트와 추출된 시각 자료(그림·도표)를 <strong>cross-modal attention fusion</strong> 으로 통합하여 알츠하이머 임상 질의응답을 수행하는 멀티모달 RAG 시스템. QLoRA 기반 PEFT로 Llama-2-7b-pubmed를 미세조정하고, <strong>BioASQ + PubMedQA</strong> 벤치마크에서 텍스트 전용 RAG 대비 검색·합성 품질이 개선됨.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>A multimodal RAG system that performs Alzheimer clinical question answering by integrating the text of PubMed papers with extracted visual materials (figures and diagrams) via <strong>cross-modal attention fusion</strong>. It fine-tunes Llama-2-7b-pubmed using QLoRA-based PEFT and, on the <strong>BioASQ + PubMedQA</strong> benchmarks, improves retrieval and synthesis quality over text-only RAG.</p>
 <hr />
-<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
-<pre><code>Step 1 — 데이터 소스 (멀티모달 PubMed)
-  PubMed Alzheimer's 관련 논문에서 추출:
-    • 텍스트 청크 (introduction, methods, results, discussion)
-    • 시각 요소: figure 이미지, table 이미지
-  시각 요소는 Vision Language Model로 자동 captioning
+<h2 id="construction-methodology">Construction Methodology</h2>
+<pre><code>Step 1 — Data source (multimodal PubMed)
+  Extracted from PubMed Alzheimer's-related papers:
+    • Text chunks (introduction, methods, results, discussion)
+    • Visual elements: figure images, table images
+  Visual elements are automatically captioned with a Vision Language Model
 
-Step 2 — Cross-modal Embedding 생성
+Step 2 — Cross-modal embedding generation
   ┌────────────┐                ┌──────────────┐
   │ Text chunks │ ─ tokenize ─►  │ Text encoder │ ─► text emb
   └────────────┘                └──────────────┘
@@ -145,28 +145,28 @@ Step 2 — Cross-modal Embedding 생성
   └────────────┘                └──────────────┘
                        │
                        ▼
-          Cross-modal embedding fusion (어텐션)
+          Cross-modal embedding fusion (attention)
                        │
                        ▼
                 FAISS Vector Store + Object Store
 
-Step 3 — PEFT 기반 미세조정
+Step 3 — PEFT-based fine-tuning
   Base model: Llama-2-7b-pubmed
   Training: QLoRA + PubMedQA dataset
-  목적: 의학 도메인 특화 + 멀티모달 입력 처리
+  Purpose: medical domain specialization + multimodal input handling
 
-Step 4 — 추론 파이프라인 (Cross-modal Attention Fusion)
-  사용자 쿼리 → similarity 검색 (text + visual 동시) →
-    Cross-modal attention으로 retrieved context 정렬 →
-    Fine-tuned LLM이 답변 생성
+Step 4 — Inference pipeline (Cross-modal Attention Fusion)
+  User query → similarity search (text + visual simultaneously) →
+    Align retrieved context via cross-modal attention →
+    Fine-tuned LLM generates the answer
 
-Step 5 — 평가
+Step 5 — Evaluation
   Benchmarks: BioASQ, PubMedQA
   Comparison: text-only RAG baseline + non-RAG LLM
   Metric: retrieval accuracy, hallucination rate, human comparison
 </code></pre>
 <hr />
-<h2 id="원문-직접-인용-arxiv241216701">원문 직접 인용 (arXiv:2412.16701)</h2>
+<h2 id="direct-quotes-from-the-source-arxiv241216701">Direct quotes from the source (arXiv:2412.16701)</h2>
 <blockquote>
 <p>&quot;incorporates <strong>cross-modal attention fusion techniques</strong> to integrate textual and visual data processing by efficiently indexing and accessing vast amounts of biomedical literature&quot;</p>
 </blockquote>
@@ -180,17 +180,17 @@ Step 5 — 평가
 <p>&quot;fine-tuned the <strong>'Llama-2-7b-pubmed'</strong> model by training it with the PubMedQA dataset from HuggingFace. The fine-tuning used parameter-efficient fine-tuning (PEFT) techniques like <strong>QLoRA</strong>&quot;</p>
 </blockquote>
 <hr />
-<h2 id="주요-평가-결과">주요 평가 결과</h2>
+<h2 id="key-evaluation-results">Key evaluation results</h2>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>도메인</td>
+  <td>Domain</td>
   <td>Alzheimer's disease (clinical use cases)</td>
 </tr>
 <tr>
@@ -198,48 +198,48 @@ Step 5 — 평가
   <td>Llama-2-7b-pubmed (PEFT/QLoRA fine-tuned)</td>
 </tr>
 <tr>
-  <td>평가 벤치마크</td>
+  <td>Evaluation benchmarks</td>
   <td>BioASQ, PubMedQA</td>
 </tr>
 <tr>
-  <td>모달리티</td>
+  <td>Modalities</td>
   <td>Text + Image (PubMed articles + extracted figures)</td>
 </tr>
 <tr>
-  <td>정확도</td>
+  <td>Accuracy</td>
   <td>Human-level non-inferior</td>
 </tr>
 <tr>
-  <td>환각률</td>
-  <td>Low (텍스트 전용 baseline 대비 감소)</td>
+  <td>Hallucination rate</td>
+  <td>Low (reduced relative to text-only baseline)</td>
 </tr>
 </tbody>
 </table>
-<p>→ 텍스트 전용 RAG, 비-RAG LLM 모두 대비 일관되게 우위.</p>
+<p>→ Consistently superior to both text-only RAG and non-RAG LLMs.</p>
 <hr />
-<h2 id="case-study-논문-discussion">Case Study (논문 §Discussion)</h2>
+<h2 id="case-study-paper-discussion">Case Study (paper §Discussion)</h2>
 <ul>
-<li>알츠하이머 진단 보조 시나리오</li>
-<li>임상 의사결정 지원</li>
-<li>약물 상호작용 + 부작용 정보 통합</li>
-<li>환자 교육 자료 생성</li>
+<li>Alzheimer diagnosis assistance scenario</li>
+<li>Clinical decision support</li>
+<li>Integration of drug interaction + side-effect information</li>
+<li>Generation of patient education materials</li>
 </ul>
 <hr />
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li>Alzheimer 단일 도메인 특화 → 일반화 범위 제한</li>
-<li>대규모 이미지 인덱싱 계산 비용 증가</li>
-<li>정량 성능 수치(F1, exact accuracy)가 논문에 명시적 표 형태로 제공되지 않음 (정성 비교 위주)</li>
-<li>Llama-2-7b 기반이라 최신 frontier LLM 대비 제한 존재</li>
-<li>이미지 captioning 품질이 fusion 결과에 큰 영향을 미침</li>
+<li>Specialized to the single Alzheimer domain → limited generalization scope</li>
+<li>Increased computational cost of large-scale image indexing</li>
+<li>Quantitative performance figures (F1, exact accuracy) are not provided in explicit table form in the paper (mostly qualitative comparison)</li>
+<li>Being Llama-2-7b-based, there are limitations relative to the latest frontier LLMs</li>
+<li>Image captioning quality has a large impact on the fusion results</li>
 </ul>
 <hr />
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문 (MDPI)</strong>: <a href="https://doi.org/10.3390/make7030089">doi.org/10.3390/make7030089</a></li>
+<li><strong>Paper (MDPI)</strong>: <a href="https://doi.org/10.3390/make7030089">doi.org/10.3390/make7030089</a></li>
 <li><strong>arXiv preprint</strong>: <a href="https://arxiv.org/abs/2412.16701">arXiv:2412.16701</a></li>
 <li><strong>DBLP</strong>: <a href="https://dblp.org/rec/journals/make/LahiriH25.html">journals/make/LahiriH25</a></li>
-<li><strong>GitHub</strong>: 공개 코드 미확인</li>
+<li><strong>GitHub</strong>: public code not confirmed</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/make/LahiriH25)</a></p>
@@ -271,14 +271,14 @@ Step 5 — 평가
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>KG-Rank: Enhancing Large Language Models for Medical QA with Knowledge Graphs and Ranking Techniques — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>KG-Rank: Enhancing Large Language Models for Medical QA with Knowledge Graphs and Ranking Techniques, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,41 +117,41 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-kg-rank-architecture">시스템 구조 (KG-Rank Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l2"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#architecture-kg-rank-architecture">Architecture (KG-Rank Architecture)</a></li><li class="toc-l2"><a href="#pipeline-inference">Pipeline (inference)</a></li><li class="toc-l2"><a href="#key-results">Key results</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>KG-Rank: Knowledge-Graph + Ranking for Long-form Medical QA</h1>
 <blockquote>
 <p>BioNLP@ACL 2024 | Method | medical</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>KG-Rank는 의학 질문에서 의료 엔티티를 추출해 UMLS에서 one-hop 트리플(사실)을 가져온 뒤, IR의 ranking/re-ranking 기법(유사도·Answer Expansion·MMR·MedCPT 재랭킹)으로 가장 관련성 높은 사실만 추려 LLM에 주입함으로써, 파인튜닝 없이 장문(long-form) 의료 답변의 사실성·품질을 높이는 프레임워크다.</p>
-<h2 id="시스템-구조-kg-rank-architecture">시스템 구조 (KG-Rank Architecture)</h2>
+<h2 id="tldr">TL;DR</h2>
+<p>KG-Rank is a framework that extracts medical entities from a medical question, retrieves one-hop triples (facts) from UMLS, and then uses IR ranking/re-ranking techniques (similarity, Answer Expansion, MMR, MedCPT re-ranking) to select only the most relevant facts and inject them into an LLM, thereby improving the factuality and quality of long-form medical answers without fine-tuning.</p>
+<h2 id="architecture-kg-rank-architecture">Architecture (KG-Rank Architecture)</h2>
 <ol>
-<li><strong>의료 NER:</strong> 프롬프트로 LLM이 질문에서 의료 엔티티를 추출, UMLS 엔티티로 매핑.</li>
-<li><strong>UMLS one-hop 검색:</strong> 엔티티별 one-hop 관계 트리플 (e_i', r, e_j') 수집(한 엔티티가 수천 관계 → ranking 필수).</li>
-<li><strong>Ranking/Re-ranking(핵심):</strong> UmlsBERT 임베딩으로 질문-트리플 정렬. 4가지 변형 — Similarity / Answer Expansion(가짜 답변 생성 후 [Q,A]로 검색) / MMR(관련성+다양성, 선택 수에 따라 다양성 페널티 증가) / Re-ranking(MedCPT cross-encoder).</li>
-<li><strong>장문 합성:</strong> 상위 트리플 + task 프롬프트를 LLM에 주입해 free-text 답변 생성.</li>
+<li><strong>Medical NER:</strong> The LLM extracts medical entities from the question via a prompt and maps them to UMLS entities.</li>
+<li><strong>UMLS one-hop retrieval:</strong> Collect one-hop relation triples (e_i', r, e_j') per entity (a single entity can have thousands of relations, so ranking is essential).</li>
+<li><strong>Ranking/Re-ranking (core):</strong> Align questions and triples using UmlsBERT embeddings. Four variants — Similarity / Answer Expansion (generate a pseudo answer, then retrieve with [Q,A]) / MMR (relevance + diversity, with the diversity penalty increasing as more items are selected) / Re-ranking (MedCPT cross-encoder).</li>
+<li><strong>Long-form synthesis:</strong> Inject the top triples plus a task prompt into the LLM to generate a free-text answer.</li>
 </ol>
-<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
+<h2 id="pipeline-inference">Pipeline (inference)</h2>
 <ol>
-<li>질문 → 의료 엔티티 추출 → UMLS 매핑.</li>
-<li>one-hop 트리플 검색.</li>
-<li>Similarity/AE/MMR/Re-ranking으로 트리플 정렬.</li>
-<li>상위 트리플 + 프롬프트 → LLM 장문 답변.</li>
+<li>Question → medical entity extraction → UMLS mapping.</li>
+<li>one-hop triple retrieval.</li>
+<li>Rank triples with Similarity/AE/MMR/Re-ranking.</li>
+<li>Top triples + prompt → LLM long-form answer.</li>
 </ol>
-<h2 id="주요-결과">주요 결과</h2>
-<p>백본 GPT-4 등, 데이터셋 ExpertQA-Bio/Med, LiveQA, MedicationQA. GPT-4 기준 Zero-Shot→KG-Rank ROUGE-L: ExpertQA-Bio 23.00→<strong>27.20</strong>, ExpertQA-Med 25.45→<strong>28.08</strong>, MedicationQA 14.41→<strong>16.19</strong>; BERTScore도 일관 향상. 일반 도메인(Law/Business/Music/History)에서도 ROUGE-L 향상으로 확장성 시사.</p>
-<h2 id="한계점">한계점</h2>
+<h2 id="key-results">Key results</h2>
+<p>Backbones include GPT-4 and others; datasets are ExpertQA-Bio/Med, LiveQA, and MedicationQA. On GPT-4, Zero-Shot→KG-Rank ROUGE-L: ExpertQA-Bio 23.00→<strong>27.20</strong>, ExpertQA-Med 25.45→<strong>28.08</strong>, MedicationQA 14.41→<strong>16.19</strong>; BERTScore also improves consistently. ROUGE-L improvements in general domains (Law/Business/Music/History) suggest extensibility.</p>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li>사실성에 대한 physician 평가는 향후 과제(현재 미수행).</li>
-<li>의료 특화 base model 평가 부족.</li>
-<li>ranking 단계가 추가 연산 시간 증가.</li>
+<li>Physician evaluation of factuality is future work (not yet performed).</li>
+<li>Insufficient evaluation on medical-specialized base models.</li>
+<li>The ranking step increases additional computation time.</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
 <li>arXiv: 2403.05881 · BioNLP@ACL 2024 (Yang et al.)</li>
-<li>코드: <a href="https://github.com/YangRui525/KG-Rank">https://github.com/YangRui525/KG-Rank</a> · 소스 UMLS, 임베딩 UmlsBERT, 재랭커 MedCPT</li>
+<li>Code: <a href="https://github.com/YangRui525/KG-Rank">https://github.com/YangRui525/KG-Rank</a> · source UMLS, embeddings UmlsBERT, re-ranker MedCPT</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/bionlp/YangLMZKLCCCML24)</a></p>
@@ -197,14 +197,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

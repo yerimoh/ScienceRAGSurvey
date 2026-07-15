@@ -15,65 +15,65 @@ originSessionId: e17a6512-257b-4eac-96cc-808523cf24a8
 > Ines Besrour, Jingbo He, Tobias Schreieder, Michael Färber — TU Dresden (faerber-lab)
 > DBLP: `conf/cikm/BesrourHS025` · DOI: 10.1145/3746252.3761471
 
-## 한 줄 요약
-unarXive 2024 arXiv 풀텍스트 코퍼스 위에서 작동하는 **4-agent multi-agent RAG 시스템** SQuAI와 함께 제안된 **Q-A-E (Question-Answer-Evidence) 트리플렛 1,000문항** 벤치마크. 복합 질문을 **sub-question decomposition** 으로 풀어 단계적 retrieval+합성을 수행하며, faithfulness가 standard RAG 대비 최대 **12%p** 향상.
+## TL;DR
+A **Q-A-E (Question-Answer-Evidence) triplet 1,000-question** benchmark proposed together with SQuAI, a **4-agent multi-agent RAG system** operating over the unarXive 2024 arXiv full-text corpus. It solves complex questions via **sub-question decomposition**, performing staged retrieval + synthesis, and improves faithfulness by up to **12%p** compared to standard RAG.
 
 ---
 
-## 어떻게 만들었나 (Construction Methodology)
+## Construction Methodology
 
 ```
-Step 1 — 데이터 출처: unarXive 2024
-  └─ arXiv 풀텍스트 (1991-2024, 약 230만 편)
-  └─ 분야: CS, 수학, 물리, 생물, 화학 등 전 과학 분야
+Step 1 — Data source: unarXive 2024
+  └─ arXiv full text (1991-2024, about 2.3 million papers)
+  └─ Fields: CS, mathematics, physics, biology, chemistry, and all scientific fields
 
-Step 2 — Q-A-E 트리플렛 합성 (DeepEval + LLaMA 3.3 70B Instruct)
+Step 2 — Q-A-E triplet synthesis (DeepEval + LLaMA 3.3 70B Instruct)
   ┌──────────────────────────────────────────────────────────┐
-  │ 각 question에 대해:                                       │
-  │   Q (Question)     ← LLaMA 3.3 70B로 합성                 │
-  │   A (Answer)       ← 인라인 인용 [1][2] 포함 long-form    │
-  │   E (Evidence)     ← Q의 정답 근거가 되는 원논문 인용      │
+  │ For each question:                                        │
+  │   Q (Question)     ← synthesized with LLaMA 3.3 70B       │
+  │   A (Answer)       ← long-form with inline citations [1][2]│
+  │   E (Evidence)     ← original-paper citations grounding Q  │
   └──────────────────────────────────────────────────────────┘
 
-Step 3 — 두 서브셋 구성
+Step 3 — Two subsets
   ┌─────────────────────────┬────────┬──────────────────────┐
-  │ Subset                  │ 문항수 │ 특성                  │
+  │ Subset                  │ #Qs    │ Characteristics       │
   ├─────────────────────────┼────────┼──────────────────────┤
-  │ unarXive Simple         │   500  │ 비전문가용, 광범위    │
-  │ unarXive Expert         │   500  │ 전문가용, 본문 증거   │
+  │ unarXive Simple         │   500  │ non-expert, broad     │
+  │ unarXive Expert         │   500  │ expert, body evidence │
   ├─────────────────────────┼────────┼──────────────────────┤
-  │ 합계                    │ 1,000  │                      │
+  │ Total                   │ 1,000  │                      │
   └─────────────────────────┴────────┴──────────────────────┘
 
-Step 4 — 평가 protocol
-  · 합성 reference answer와 직접 비교 지양
-  · 대신 retrieved evidence ↔ generated answer 관계성 평가
-  · 지표: Answer Relevance / Contextual Relevance / Faithfulness
-    (DeepEval framework, 각 0–1)
+Step 4 — Evaluation protocol
+  · Avoids direct comparison against the synthetic reference answer
+  · Instead evaluates the retrieved evidence ↔ generated answer relationship
+  · Metrics: Answer Relevance / Contextual Relevance / Faithfulness
+    (DeepEval framework, each 0–1)
 ```
 
 ---
 
-## SQuAI System: 4-Agent Architecture (논문/GitHub 직접 인용)
+## SQuAI System: 4-Agent Architecture (direct quotes from paper/GitHub)
 
 ```
-[사용자 복합 질문]
+[User complex question]
        │
        ▼
 ┌──────────────────────────────────────┐
-│ Agent 1 — Decomposer                 │ ← 핵심 차별점
+│ Agent 1 — Decomposer                 │ ← key differentiator
 │   "Decomposes complex user queries   │
 │    into simpler, semantically        │
 │    distinct sub-questions"           │
 └──────────┬───────────────────────────┘
-           │ sub-question 들
+           │ sub-questions
            ▼
 ┌──────────────────────────────────────┐
 │ Agent 2 — Generator                  │
-│   각 sub-question에 대해 retrieve →   │
-│   Q–A–E 트리플렛 생성                 │
+│   retrieve for each sub-question →    │
+│   generate Q–A–E triplets            │
 └──────────┬───────────────────────────┘
-           │ 후보 Q-A-E 다수
+           │ many candidate Q-A-E
            ▼
 ┌──────────────────────────────────────┐
 │ Agent 3 — Judge                      │
@@ -90,28 +90,28 @@ Step 4 — 평가 protocol
 │    triplets" with in-line citations  │
 └──────────┬───────────────────────────┘
            ▼
-   [최종 long-form 답변 + [1][2]... 인용]
+   [Final long-form answer + [1][2]... citations]
 ```
 
-→ Aggregative Synthesis의 **"sub-question decomposition"** 메커니즘의 대표 사례.
+→ A representative case of Aggregative Synthesis's **"sub-question decomposition"** mechanism.
 
 ---
 
-## 예시 Q-A-E 트리플렛 (논문/GitHub 발췌)
+## Example Q-A-E triplet (excerpt from paper/GitHub)
 
 > **Q**: "What is quantum computing and how is it used in cryptography?"
 >
 > **A**: "Quantum computing uses qubits to perform computations based on quantum mechanics [1]. It has potential applications in cryptography, particularly for breaking classical encryption schemes [2]."
 >
 > **E**:
-> - `[1]` → 원논문(unarXive 내 quantum computing 도입 paper)의 specific citation context
-> - `[2]` → Shor's algorithm / post-quantum cryptography 관련 원논문 context
+> - `[1]` → specific citation context of the original paper (a quantum-computing introductory paper within unarXive)
+> - `[2]` → original-paper context related to Shor's algorithm / post-quantum cryptography
 
-→ 각 인용 `[i]`이 원문 `cited paragraph` 와 1:1 매핑되어, faithfulness 평가 가능.
+→ Each citation `[i]` maps 1:1 to the original `cited paragraph`, enabling faithfulness evaluation.
 
 ---
 
-## 주요 평가 결과 (논문 본문 인용)
+## Key evaluation results (quoted from paper body)
 
 ### unarXive Simple/Expert (combined score, 0–1)
 | Approach | unarXive Simple | unarXive Expert |
@@ -120,40 +120,40 @@ Step 4 — 평가 protocol
 | SQuAI (Abstract retrieval) | 0.828 | 0.812 |
 | **SQuAI (Full-Text retrieval)** | **0.847** | **0.864** |
 
-### Faithfulness 개선 (GitHub README 인용)
+### Faithfulness improvement (quoted from GitHub README)
 > "SQuAI improves combined scores by up to **12%** in faithfulness compared to a standard RAG baseline."
 
-핵심 발견:
-- **Full-text retrieval > Abstract retrieval** (Expert subset에서 차이 더 큼: +5.2%p)
-- **Sub-question decomposition** 이 복합 질문에서 단일 query baseline 대비 일관 향상
-- Judge agent의 quality filtering이 hallucination 억제에 기여
+Key findings:
+- **Full-text retrieval > Abstract retrieval** (larger gap on the Expert subset: +5.2%p)
+- **Sub-question decomposition** consistently improves over the single-query baseline on complex questions
+- The Judge agent's quality filtering contributes to suppressing hallucination
 
 ---
 
-## 평가 지표 상세 (DeepEval)
+## Evaluation metrics detail (DeepEval)
 
-| 지표 | 정의 | 측정 대상 |
+| Metric | Definition | Measured on |
 |---|---|---|
-| **Answer Relevance** | 질문 ↔ 생성 답변의 의미적 일치도 | Q → A |
-| **Contextual Relevance** | 제공 증거가 답변에 효과적으로 통합된 정도 | E → A |
-| **Faithfulness** | 답변이 증거에 의해 지지되는지 (unsupported claim 없음) | A ↔ E |
+| **Answer Relevance** | Semantic match between question ↔ generated answer | Q → A |
+| **Contextual Relevance** | Degree to which the provided evidence is effectively integrated into the answer | E → A |
+| **Faithfulness** | Whether the answer is supported by the evidence (no unsupported claims) | A ↔ E |
 
-3개 지표 모두 0–1 범위, LLM-as-judge 방식.
-
----
-
-## 한계점
-- **합성 질문**: LLaMA 3.3 70B 로 생성 → 실제 인간 연구자의 복잡한 의도/표현 다양성 부분 미반영
-- **합성 reference answer**: gold answer가 LLM 생성이라 직접 비교 회피 → 평가가 evidence-answer 관계성에 한정
-- **LitSearch 등 추가 평가 셋도 사용**: 본 1,000 Q-A-E benchmark 외에도 평가에 활용
-- **CIKM 2025 short/full paper**: arXiv preprint 미확인, ACM DL 게재본만 정식 출처
+All three metrics range 0–1, using an LLM-as-judge approach.
 
 ---
 
-## 관련 정보
-- **논문 (ACM DL)**: [doi.org/10.1145/3746252.3761471](https://doi.org/10.1145/3746252.3761471)
+## Limitations
+- **Synthetic questions**: generated with LLaMA 3.3 70B → does not fully reflect the complex intent/expression diversity of real human researchers
+- **Synthetic reference answer**: since the gold answer is LLM-generated, direct comparison is avoided → evaluation is limited to the evidence-answer relationship
+- **Additional evaluation sets such as LitSearch are also used**: employed in evaluation beyond this 1,000 Q-A-E benchmark
+- **CIKM 2025 short/full paper**: no arXiv preprint confirmed; only the ACM DL published version is an official source
+
+---
+
+## Related links
+- **Paper (ACM DL)**: [doi.org/10.1145/3746252.3761471](https://doi.org/10.1145/3746252.3761471)
 - **GitHub**: [github.com/faerber-lab/SQuAI](https://github.com/faerber-lab/SQuAI)
-- **데이터셋 (HuggingFace)**: [ines-besrour/unarxive_2024](https://huggingface.co/datasets/ines-besrour/unarxive_2024)
+- **Dataset (HuggingFace)**: [ines-besrour/unarxive_2024](https://huggingface.co/datasets/ines-besrour/unarxive_2024)
 - **DBLP**: [conf/cikm/BesrourHS025](https://dblp.org/rec/conf/cikm/BesrourHS025.html)
-- **저자 소속**: TU Dresden (faerber-lab)
-- **이 벤치마크를 사용한 후속 작업**: SQuAI 자체 (CIKM 2025)
+- **Author affiliation**: TU Dresden (faerber-lab)
+- **Follow-up work using this benchmark**: SQuAI itself (CIKM 2025)

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DBLP:journals/corr/abs-2603-15712 — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>DBLP:journals/corr/abs-2603-15712, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -129,78 +129,78 @@
 
 <blockquote>
 <p>arXiv 2026 | 2026 | Method | material</p>
-<h4>📌 한 줄 요약</h4>
-<p>50,000개 이상의 기지(known) 재료 데이터베이스에 RAG로 접지된 GPT-4 기반 프레임워크로 250개 이상의 고엔트로피 합금(HEA) CO2 환원 촉매 후보를 생성하여 82% 열역학적 안정성과 IrO2 대비 25% 향상된 0.285V 제한 전위를 달성하였다.</p>
+<h4>📌 TL;DR</h4>
+<p>Using a GPT-4-based framework grounded via RAG on a database of 50,000+ known materials, the work generates 250+ high-entropy alloy (HEA) CO2 reduction catalyst candidates, achieving 82% thermodynamic stability and a limiting potential of 0.285V, a 25% improvement over IrO2.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 접근법의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing approaches</strong></p>
 <ul>
-<li>재료 발견은 10-20년의 개발 주기를 요구하며 깊은 도메인 전문 지식이 필요함</li>
-<li>기존 고처리량 스크리닝(HTS)은 넓은 화학 공간 탐색에 계산 비용이 과도함</li>
+<li>Materials discovery requires development cycles of 10-20 years and demands deep domain expertise</li>
+<li>Conventional high-throughput screening (HTS) incurs excessive computational cost when exploring broad chemical spaces</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>CO2 환원 효율 촉매 개발을 위한 화학 공간 탐색 가속화가 필요</li>
-<li>LLM이 재료 데이터베이스를 실시간으로 참조하며 다목적 제약(비용, 전도성, 안정성) 하에 후보를 생성하는 시스템 필요</li>
+<li>Accelerated exploration of chemical space is needed to develop efficient CO2 reduction catalysts</li>
+<li>A system is needed in which the LLM references materials databases in real time and generates candidates under multi-objective constraints (cost, conductivity, stability)</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>Materials Project, NOMAD, Open Catalyst 2020 (OC20) 데이터셋을 통합한 50,000개 이상의 기지 재료 벡터 데이터베이스를 구축한다. GPT-4가 이 데이터베이스에서 RAG를 통해 화학 공간을 탐색하고, DFT(밀도범함수이론) 계산으로 후보 안정성을 검증한다. Volcano plot 분석으로 이론적 활성 최적점 근접 여부를 평가한다.</p>
-<h4>📊 주요 결과</h4>
+<h4>🔨 Architecture</h4>
+<p>A vector database of 50,000+ known materials is built by integrating the Materials Project, NOMAD, and Open Catalyst 2020 (OC20) datasets. GPT-4 explores the chemical space via RAG over this database, and candidate stability is verified with DFT (density functional theory) calculations. Volcano plot analysis assesses proximity to the theoretical activity optimum.</p>
+<h4>📊 Key results</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>재료 데이터베이스 규모</td>
-  <td>50,000개 이상 기지 재료</td>
+  <td>Materials database scale</td>
+  <td>50,000+ known materials</td>
 </tr>
 <tr>
-  <td>생성된 촉매 후보 수</td>
-  <td>250개 이상</td>
+  <td>Number of generated catalyst candidates</td>
+  <td>250+</td>
 </tr>
 <tr>
-  <td>열역학적 안정성 비율</td>
+  <td>Thermodynamic stability rate</td>
   <td>82%</td>
 </tr>
 <tr>
-  <td>비용·전도성·기계 안정성 달성</td>
+  <td>Cost/conductivity/mechanical stability achievement</td>
   <td>68% (&lt;$100/kg, band gap&lt;0.1eV, B/G&gt;1.75)</td>
 </tr>
 <tr>
-  <td>최고 성능 합금</td>
-  <td>Fe0.2Co0.2Ni0.2Ir0.1Ru0.3, 제한 전위 0.285V</td>
+  <td>Best-performing alloy</td>
+  <td>Fe0.2Co0.2Ni0.2Ir0.1Ru0.3, limiting potential 0.285V</td>
 </tr>
 <tr>
-  <td>IrO2 대비 개선</td>
-  <td>25% 향상</td>
+  <td>Improvement over IrO2</td>
+  <td>25% improvement</td>
 </tr>
 <tr>
-  <td>비용-성능 최적 합금</td>
+  <td>Cost-performance optimal alloy</td>
   <td>Cr0.2Fe0.2Co0.3Ni0.2Mo0.1, $18/kg</td>
 </tr>
 <tr>
-  <td>Volcano plot 근접 비율</td>
-  <td>78% LLM 생성 촉매</td>
+  <td>Volcano plot proximity rate</td>
+  <td>78% of LLM-generated catalysts</td>
 </tr>
 <tr>
-  <td>계산 효율</td>
-  <td>기존 HTS 대비 200배 향상</td>
+  <td>Computational efficiency</td>
+  <td>200x improvement over conventional HTS</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>DFT 검증 단계가 여전히 계산 집약적</li>
-<li>고엔트로피 합금의 실제 합성 가능성은 검증되지 않은 경우 포함</li>
-<li>CO2 환원에 특화되어 다른 촉매 응용 분야로의 직접 전이 제한</li>
+<li>The DFT verification step remains computationally intensive</li>
+<li>The actual synthesizability of the high-entropy alloys includes cases that are not verified</li>
+<li>Being specialized for CO2 reduction limits direct transfer to other catalytic application domains</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문 (arXiv)</strong>: <a href="https://arxiv.org/abs/2603.15712">https://arxiv.org/abs/2603.15712</a></li>
+<li><strong>Paper (arXiv)</strong>: <a href="https://arxiv.org/abs/2603.15712">https://arxiv.org/abs/2603.15712</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/corr/abs-2603-15712)</a></p>
@@ -234,14 +234,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

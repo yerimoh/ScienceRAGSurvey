@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Inorganic Crystal Structure Database (ICSD) — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Inorganic Crystal Structure Database (ICSD), Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,81 +121,81 @@
 <p>icsd | 1978 | FIZ Karlsruhe | dataset | [chem] | <a href="https://icsd.fiz-karlsruhe.de">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">ICSD (Inorganic Crystal Structure Database)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">구독 기반 (공개적 수치 미기재; 수십만 엔트리)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">Subscription-based (no public figure reported; hundreds of thousands of entries)</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Subscription</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Structured</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">ICSD 웹 인터페이스 (icsd.fiz-karlsruhe.de)</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">ICSD web interface (icsd.fiz-karlsruhe.de)</td></tr>
 </table>
 
 <blockquote>
 <p>FIZ Karlsruhe | 1978 | dataset | chem</p>
-<h4>📌 한 줄 요약</h4>
-<p>ICSD는 FIZ Karlsruhe가 1978년부터 운영하는 무기물 결정 구조 DB로, CSD와 함께 결정학 인프라의 양대 축을 이루며 재료 과학·고체 화학 연구의 표준 자원이다.</p>
+<h4>📌 TL;DR</h4>
+<p>ICSD is an inorganic crystal structure DB operated by FIZ Karlsruhe since 1978. Together with the CSD, it forms one of the two pillars of crystallographic infrastructure and is a standard resource for materials science and solid-state chemistry research.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>무기물 및 금속 결정 구조 데이터가 여러 저널에 분산되어 체계적 접근이 어려웠음</li>
-<li>CSD가 유기·금속유기에 특화된 반면 순수 무기물 구조를 전문으로 하는 DB 필요
-<strong>이 시스템이 필요한 이유</strong></li>
-<li>산화물, 질화물, 합금, 세라믹 등 무기물 재료의 결정 구조 표준 저장소</li>
-<li>재료 설계 및 DFT 계산 초기 구조 참조에 필수</li>
+<li>Inorganic and metallic crystal structure data were scattered across many journals, making systematic access difficult</li>
+<li>While the CSD specializes in organic and organometallic compounds, a DB dedicated to purely inorganic structures was needed
+<strong>Why this system is needed</strong></li>
+<li>A standard repository of crystal structures for inorganic materials such as oxides, nitrides, alloys, and ceramics</li>
+<li>Essential as an initial-structure reference for materials design and DFT calculations</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>출판된 무기물 결정 구조를 수집하여 표준화된 형식으로 저장한다. FIZ Karlsruhe(독일 카를스루에 정보 기술 센터)가 운영. 화학 조성, 공간군, 격자 파라미터, 원자 좌표 등을 포함.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>It collects published inorganic crystal structures and stores them in a standardized format. Operated by FIZ Karlsruhe (Leibniz Institute for Information Infrastructure in Karlsruhe, Germany). Includes chemical composition, space group, lattice parameters, atomic coordinates, and more.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>구독 웹 인터페이스</td>
-  <td>icsd.fiz-karlsruhe.de (기관 구독 필요)</td>
+  <td>Subscription web interface</td>
+  <td>icsd.fiz-karlsruhe.de (institutional subscription required)</td>
 </tr>
 <tr>
-  <td>데이터 다운로드</td>
-  <td>CIF 형식 구조 파일</td>
+  <td>Data download</td>
+  <td>Structure files in CIF format</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
 <li>CIF (Crystallographic Information File)</li>
-<li>결정 구조 좌표 및 대칭 정보</li>
-<li>물리화학적 성질 메타데이터</li>
+<li>Crystal structure coordinates and symmetry information</li>
+<li>Physicochemical property metadata</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (as reported in the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>운영 시작</td>
-  <td>1978년</td>
+  <td>Operation started</td>
+  <td>1978</td>
 </tr>
 <tr>
-  <td>데이터 범위</td>
-  <td>무기물·금속유기 결정 구조 (구독 기반, 공개 수치 없음)</td>
+  <td>Data scope</td>
+  <td>Inorganic and organometallic crystal structures (subscription-based, no public figure)</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>구독 기반으로 오픈 과학 RAG 시스템의 직접 접근 불가</li>
-<li>CSD(유기)와 ICSD(무기)의 영역 구분이 금속유기 화합물에서 중첩됨</li>
-<li>비용이 높아 소규모 기관 접근 제한</li>
+<li>Being subscription-based, it is not directly accessible to open-science RAG systems</li>
+<li>The domain boundary between the CSD (organic) and ICSD (inorganic) overlaps for organometallic compounds</li>
+<li>High cost limits access for small institutions</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>공식 페이지</strong>: <a href="https://icsd.fiz-karlsruhe.de">ICSD</a></li>
+<li><strong>Official page</strong>: <a href="https://icsd.fiz-karlsruhe.de">ICSD</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (icsd)</a></p>
@@ -217,14 +217,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

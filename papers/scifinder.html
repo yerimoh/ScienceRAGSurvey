@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SciFinder-n — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>SciFinder-n, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,85 +121,85 @@
 <p>scifinder | 1995 | CAS | dataset | [chem] | <a href="https://scifinder-n.cas.org">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">SciFinder-n (CAS, a division of the American Chemical Society)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">구독 기반 (공개적 수치 미기재)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">Subscription-based (no public figures disclosed)</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Subscription</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text, Structured</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">SciFinder-n 웹 플랫폼</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">SciFinder-n web platform</td></tr>
 </table>
 
 <blockquote>
 <p>CAS | 1995 | dataset | chem</p>
-<h4>📌 한 줄 요약</h4>
-<p>SciFinder-n은 미국화학회(ACS) CAS 부서가 운영하는 구독 기반 화학 문헌·물질 DB로, 합성 화학자들이 반응 검색, 물질 탐색, 특허 정보 접근에 가장 광범위하게 활용하는 상업용 인프라이다.</p>
+<h4>📌 TL;DR</h4>
+<p>SciFinder-n is a subscription-based chemical literature and substance DB operated by the CAS division of the American Chemical Society (ACS). It is the commercial infrastructure most widely used by synthetic chemists for reaction search, substance discovery, and patent information access.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>화학 반응, 물질, 문헌 정보를 통합 검색하는 표준 상업 도구가 없었음
-<strong>이 시스템이 필요한 이유</strong></li>
-<li>합성 화학자의 일상적 반응 탐색, 선행 기술 조사, 물질 특성 확인 수요</li>
-<li>특허 및 저널 화학 정보의 통합 접근</li>
+<li>There was no standard commercial tool that provided integrated search across chemical reactions, substances, and literature information
+<strong>Why this system is needed</strong></li>
+<li>Demand from synthetic chemists for everyday reaction search, prior-art investigation, and verification of substance properties</li>
+<li>Integrated access to patent and journal chemical information</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>CAS가 화학 문헌·특허에서 추출하여 큐레이션한 화합물, 반응, 문헌 데이터를 통합한다. CAS Registry Number(CAS 번호)가 각 화합물의 표준 식별자. 구조, 부분구조, 반응, 연구자, 주제 등 다양한 검색 방식 지원.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>It integrates compound, reaction, and literature data that CAS extracts and curates from the chemical literature and patents. The CAS Registry Number (CAS number) is the standard identifier for each compound. It supports various search modes such as structure, substructure, reaction, researcher, and topic.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>구독 플랫폼</td>
-  <td>scifinder-n.cas.org (기관 구독 필요)</td>
+  <td>Subscription platform</td>
+  <td>scifinder-n.cas.org (institutional subscription required)</td>
 </tr>
 <tr>
-  <td>구조 검색</td>
-  <td>SMILES/구조 그리기 기반 검색</td>
+  <td>Structure search</td>
+  <td>Search based on SMILES / structure drawing</td>
 </tr>
 <tr>
-  <td>반응 검색</td>
-  <td>반응 유형·조건 기반 탐색</td>
+  <td>Reaction search</td>
+  <td>Search based on reaction type and conditions</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>화합물 레코드 (CAS 번호, 구조, 성질)</li>
-<li>반응 레코드 (반응물, 생성물, 조건, 수율)</li>
-<li>문헌 및 특허 참조</li>
-<li>CAS 번호 (표준 식별자)</li>
+<li>Compound records (CAS number, structure, properties)</li>
+<li>Reaction records (reactants, products, conditions, yield)</li>
+<li>Literature and patent references</li>
+<li>CAS number (standard identifier)</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>출시</td>
-  <td>1995년 (SciFinder), 2019년 SciFinder-n 리뉴얼</td>
+  <td>Release</td>
+  <td>1995 (SciFinder), 2019 SciFinder-n relaunch</td>
 </tr>
 <tr>
-  <td>데이터 범위</td>
-  <td>구독 기반; CAS에서 공개적 수치 미발표</td>
+  <td>Data scope</td>
+  <td>Subscription-based; no public figures released by CAS</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>구독 기반으로 오픈 과학 RAG 시스템이 직접 접근 불가</li>
-<li>비용이 높아 소규모 기관 및 개발도상국 연구자 접근 제한</li>
-<li>화학 RAG 인프라와의 가장 큰 격차 대표 사례</li>
+<li>Being subscription-based, it cannot be directly accessed by open-science RAG systems</li>
+<li>High cost limits access for small institutions and researchers in developing countries</li>
+<li>A representative example of the largest gap with chemical RAG infrastructure</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>공식 페이지</strong>: <a href="https://scifinder-n.cas.org">SciFinder-n</a></li>
+<li><strong>Official page</strong>: <a href="https://scifinder-n.cas.org">SciFinder-n</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (scifinder)</a></p>
@@ -221,14 +221,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MatClaw: Autonomous Code-First Agent for Materials Science — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>MatClaw: Autonomous Code-First Agent for Materials Science, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -129,70 +129,70 @@
 
 <blockquote>
 <p>arXiv 2026 | 2026 | Method | material</p>
-<h4>📌 한 줄 요약</h4>
-<p>Python 코드를 직접 작성·실행하는 코드 우선(code-first) LLM 에이전트로, 도메인 소스 코드에 대한 RAG와 4층 메모리 아키텍처를 결합하여 ~99% API 호출 정확도와 HPC 클러스터 기반 다중 코드 워크플로 오케스트레이션을 달성하는 재료 탐색 자율 에이전트이다.</p>
+<h4>📌 TL;DR</h4>
+<p>A code-first LLM agent that directly writes and executes Python code. It is an autonomous agent for materials exploration that combines RAG over domain source code with a four-layer memory architecture to achieve ~99% API-call accuracy and HPC-cluster-based multi-code workflow orchestration.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 접근법의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing approaches</strong></p>
 <ul>
-<li>기존 계산 재료과학용 LLM 에이전트는 특정 시뮬레이션 코드에 고정된 파이프라인 아키텍처와 수동 작성 도구 함수에 의존</li>
-<li>태스크 범위가 확대될수록 도구 함수 수도 급증하는 확장성 문제</li>
+<li>Existing LLM agents for computational materials science rely on pipeline architectures fixed to specific simulation codes and on manually written tool functions</li>
+<li>A scalability problem in which the number of tool functions surges as the task scope expands</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>여러 도메인 라이브러리(pymatgen, atomate2 등)를 자유롭게 조합하는 멀티 코드 워크플로 자동화 필요</li>
-<li>다중 일 단위의 긴 워크플로에서 컨텍스트 손실 방지 메모리 관리 필요</li>
+<li>The need to automate multi-code workflows that freely combine multiple domain libraries (pymatgen, atomate2, etc.)</li>
+<li>The need for memory management that prevents context loss in long, multi-day workflows</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>MatClaw는 사전 정의된 도구 함수 없이 Python을 직접 생성·실행하여 설치된 도메인 라이브러리를 자유롭게 조합한다. <strong>4층 메모리 아키텍처</strong>: 진행 중 컨텍스트 손실을 방지한다. <strong>RAG over 도메인 소스 코드</strong>: pymatgen, atomate2, jobflow, dpdata, DeePMD-kit 소스 코드를 검색하여 per-step API 호출 정확도를 ~99%로 향상시킨다. 원격 HPC 클러스터에서 워크플로를 오케스트레이션한다.</p>
-<h4>📊 주요 결과</h4>
+<h4>🔨 Architecture</h4>
+<p>MatClaw directly generates and executes Python without predefined tool functions, freely combining installed domain libraries. <strong>Four-layer memory architecture</strong>: prevents context loss during progress. <strong>RAG over domain source code</strong>: retrieves pymatgen, atomate2, jobflow, dpdata, and DeePMD-kit source code to improve per-step API-call accuracy to ~99%. It orchestrates workflows on remote HPC clusters.</p>
+<h4>📊 Key Results</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>API 호출 정확도</td>
+  <td>API-call accuracy</td>
   <td>~99% (RAG over domain source code)</td>
 </tr>
 <tr>
-  <td>지원 라이브러리</td>
+  <td>Supported libraries</td>
   <td>pymatgen, atomate2, jobflow, dpdata, DeePMD-kit</td>
 </tr>
 <tr>
-  <td>시연 태스크 1</td>
-  <td>CuInP2S6 머신러닝 포스 필드 훈련 (active learning)</td>
+  <td>Demonstration task 1</td>
+  <td>CuInP2S6 machine-learning force field training (active learning)</td>
 </tr>
 <tr>
-  <td>시연 태스크 2</td>
-  <td>Curie 온도 예측</td>
+  <td>Demonstration task 2</td>
+  <td>Curie temperature prediction</td>
 </tr>
 <tr>
-  <td>시연 태스크 3</td>
-  <td>휴리스틱 파라미터 공간 탐색</td>
+  <td>Demonstration task 3</td>
+  <td>Heuristic parameter-space search</td>
 </tr>
 <tr>
-  <td>코드 생성 신뢰성</td>
-  <td>높음 (강점 확인)</td>
+  <td>Code-generation reliability</td>
+  <td>High (strength confirmed)</td>
 </tr>
 <tr>
-  <td>tacit 도메인 지식 처리</td>
-  <td>부족 (한계 확인)</td>
+  <td>Tacit domain knowledge handling</td>
+  <td>Insufficient (limitation confirmed)</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>묵시적(tacit) 도메인 지식(적절한 시뮬레이션 타임스케일, 평형화 프로토콜, 샘플링 전략)에서 어려움</li>
-<li>문헌 자기학습(literature self-learning) 및 전문가 제약 지정으로 이 격차를 부분적으로 보완하지만 완전 자율은 아직 미달</li>
-<li>다중 일 단위 워크플로에서 중간 오류 복구가 과제</li>
+<li>Struggles with tacit domain knowledge (appropriate simulation timescales, equilibration protocols, sampling strategies)</li>
+<li>Literature self-learning and expert constraint specification partially compensate for this gap, but full autonomy is not yet achieved</li>
+<li>Intermediate error recovery in multi-day workflows remains a challenge</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문 (arXiv)</strong>: <a href="https://arxiv.org/abs/2604.02688">https://arxiv.org/abs/2604.02688</a></li>
+<li><strong>Paper (arXiv)</strong>: <a href="https://arxiv.org/abs/2604.02688">https://arxiv.org/abs/2604.02688</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (zhang2026matclaw)</a></p>
@@ -214,14 +214,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

@@ -4,7 +4,7 @@
       "bib_key": "asai2024openscholar",
       "name": "OpenScholar",
       "tagline": "0% citation hallucination vs GPT-4o's 78–90%",
-      "subtitle": "45M open-access papers · Contriever retriever · synthetic SFT data",
+      "subtitle": "45M open-access papers, Contriever retriever, synthetic SFT data",
       "headline_stats": [
         [
           "0%",
@@ -28,7 +28,7 @@
       "bib_key": "DBLP:conf/nips/LeeKV0RPVN24",
       "name": "f-RAG",
       "tagline": "21/23 PMO benchmarks at SOTA",
-      "subtitle": "Fragment-vocabulary retrieval over ZINC250K · drug-like molecule generation",
+      "subtitle": "Fragment-vocabulary retrieval over ZINC250K, drug-like molecule generation",
       "headline_stats": [
         [
           "21/23",
@@ -42,13 +42,13 @@
       "cell": "K2.O3",
       "domain": "chem",
       "venue": "NeurIPS 2024",
-      "why": "Demonstrates the dominant K2.O3 pattern — curated DB feeds generative model with downstream physical verification."
+      "why": "Demonstrates the dominant K2.O3 pattern, curated DB feeds generative model with downstream physical verification."
     },
     {
       "bib_key": "DBLP:conf/aaai/LeeBHBPS26",
       "name": "CLADD",
       "tagline": "4-agent collaborative drug discovery",
-      "subtitle": "PrimeKG · PubChem · DrugBank · STITCH cross-source · anchor-drug technique",
+      "subtitle": "PrimeKG, PubChem, DrugBank, STITCH cross-source, anchor-drug technique",
       "headline_stats": [
         [
           "4",
@@ -62,13 +62,13 @@
       "cell": "K2.O3",
       "domain": "chem",
       "venue": "AAAI 2026",
-      "why": "Canonical example of relational knowledge coupling (Requirement #2) — traverses PrimeKG drug-protein-disease links."
+      "why": "Canonical example of relational knowledge coupling (Requirement #2), traverses PrimeKG drug-protein-disease links."
     },
     {
       "bib_key": "DBLP:conf/acl/WuZQCXMJG25",
       "name": "MedGraphRAG",
       "tagline": "Triple-tier graph: MIMIC IV + MedC-K + UMLS/ICD",
-      "subtitle": "U-Retrieval · evidence-based citations · ★ K1+K2+K4 cross-source",
+      "subtitle": "U-Retrieval, evidence-based citations, ★ K1+K2+K4 cross-source",
       "headline_stats": [
         [
           "3",
@@ -82,13 +82,13 @@
       "cell": "K1.O2",
       "domain": "medical",
       "venue": "ACL 2025",
-      "why": "The clearest demonstration of all four K sources working in concert — primary literature, curated ontology, and tacit private EHR."
+      "why": "The clearest demonstration of all four K sources working in concert, primary literature, curated ontology, and tacit private EHR."
     },
     {
       "bib_key": "DBLP:journals/corr/abs-2603-09800",
       "name": "MITRA",
-      "tagline": "Physics collaboration tacit memory · +6× over BM25",
-      "subtitle": "CMS Analysis Notes · internal wikis · on-prem 4-bit deployment",
+      "tagline": "Physics collaboration tacit memory, +6× over BM25",
+      "subtitle": "CMS Analysis Notes, internal wikis, on-prem 4-bit deployment",
       "headline_stats": [
         [
           "6×",
@@ -102,13 +102,13 @@
       "cell": "K4.O1",
       "domain": "physics",
       "venue": "arXiv 2026",
-      "why": "Bellwether for K4 tacit knowledge — institutional memory that ChatGPT structurally cannot access."
+      "why": "Bellwether for K4 tacit knowledge, institutional memory that ChatGPT structurally cannot access."
     },
     {
       "bib_key": "DBLP:conf/aaai/ZhangGZZCZZYB26",
       "name": "Patho-AgenticRAG",
       "tagline": "+38pp over baseline on pathology QA",
-      "subtitle": "600 textbook pages · agentic router · GRPO training · multimodal",
+      "subtitle": "600 textbook pages, agentic router, GRPO training, multimodal",
       "headline_stats": [
         [
           "+38",
@@ -127,8 +127,8 @@
     {
       "bib_key": "DBLP:conf/acl/Xiong0LZ24",
       "name": "MEDRAG",
-      "tagline": "Canonical medical RAG · 4-corpus retrieval",
-      "subtitle": "PubMed + StatPearls + Textbooks + Wikipedia · MedCPT retriever · RRF fusion",
+      "tagline": "Canonical medical RAG, 4-corpus retrieval",
+      "subtitle": "PubMed + StatPearls + Textbooks + Wikipedia, MedCPT retriever, RRF fusion",
       "headline_stats": [
         [
           "4",
@@ -142,13 +142,13 @@
       "cell": "K1.O1",
       "domain": "medical",
       "venue": "ACL Findings 2024",
-      "why": "Established the source-reliability-tiering benchmark (Requirement #3) — different epistemic weight per corpus."
+      "why": "Established the source-reliability-tiering benchmark (Requirement #3), different epistemic weight per corpus."
     },
     {
       "bib_key": "DBLP:journals/corr/abs-2312-07559",
       "name": "PaperQA",
       "tagline": "Sentence-level claim attribution",
-      "subtitle": "Paper-grounded retrieve-cite-answer · the K1.O1 reference design",
+      "subtitle": "Paper-grounded retrieve-cite-answer, the K1.O1 reference design",
       "headline_stats": [
         [
           "Sentence-",
@@ -164,7 +164,7 @@
       "bib_key": "DBLP:conf/emnlp/ChiangHCR25",
       "name": "LLaMP",
       "tagline": "Materials Project KB-grounded science",
-      "subtitle": "Property lookup · simulation tools · K1+K2 cross-source",
+      "subtitle": "Property lookup, simulation tools, K1+K2 cross-source",
       "headline_stats": [
         [
           "EMNLP '25",
@@ -174,7 +174,7 @@
       "cell": "K2.O1",
       "domain": "material",
       "venue": "EMNLP 2025",
-      "why": "Bridges primary literature and the Materials Project KB — sets the K2 materials science pattern."
+      "why": "Bridges primary literature and the Materials Project KB, sets the K2 materials science pattern."
     }
   ],
   "bib_only_titles": {
@@ -183,7 +183,9 @@
       "year": 2025,
       "venue": "ICLR",
       "method": "MADGEN",
-      "domain": ["chem"],
+      "domain": [
+        "chem"
+      ],
       "paper_link": "https://openreview.net/forum?id=78tc3EiUrN"
     },
     "DBLP:conf/iclr/0001NQXBA23": {
@@ -191,7 +193,9 @@
       "year": 2023,
       "venue": "ICLR",
       "method": "RetMol",
-      "domain": ["chem"],
+      "domain": [
+        "chem"
+      ],
       "paper_link": "https://openreview.net/forum?id=vDFA1tpuLvk"
     },
     "DBLP:conf/icml/Huang0ZQYZZZWY24": {
@@ -199,7 +203,10 @@
       "year": 2024,
       "venue": "ICML",
       "method": "IRDiff",
-      "domain": ["chem", "bio"],
+      "domain": [
+        "chem",
+        "bio"
+      ],
       "paper_link": "https://proceedings.mlr.press/v235/huang24ab.html"
     },
     "DBLP:journals/corr/abs-2506-14488": {
@@ -207,7 +214,9 @@
       "year": 2025,
       "venue": "arXiv",
       "method": "READ",
-      "domain": ["chem"],
+      "domain": [
+        "chem"
+      ],
       "paper_link": "https://arxiv.org/abs/2506.14488"
     },
     "DBLP:conf/aaai/LeeBHBPS26": {
@@ -463,7 +472,7 @@
     "wang2016admet": {
       "title": "ADMET Evaluation: hERG Channel Blockers",
       "year": 2016,
-      "venue": "—",
+      "venue": ", ",
       "method": "ADMET hERG",
       "domain": [
         "chem"

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ChEMBL: a large-scale bioactivity database for drug discovery — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>ChEMBL: a large-scale bioactivity database for drug discovery, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,7 +121,7 @@
 <p>DBLP:journals/nar/GaultonBBCDHLMMAO12 | 2012 | Nucleic Acids Research | dataset | [chem] | <a href="https://doi.org/10.1093/nar/gkr777">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">ChEMBL (EBI, initial description)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">5.4M 바이오활성 측정치, 1M+ 화합물, 5,200 단백질 타겟</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">5.4M bioactivity measurements, 1M+ compounds, 5,200 protein targets</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text, Structured</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">ChEMBL web interface + data download + web services</td></tr>
@@ -129,82 +129,82 @@
 
 <blockquote>
 <p>Nucleic Acids Research | 2012 | dataset | chem</p>
-<h4>📌 한 줄 요약</h4>
-<p>EBI가 구축한 ChEMBL은 저널 문헌에서 수동 추출한 결합·기능·ADMET 데이터를 포함하는 대규모 오픈 바이오활성 데이터베이스이다.</p>
+<h4>📌 TL;DR</h4>
+<p>ChEMBL, built by EBI, is a large-scale open bioactivity database containing binding, functional, and ADMET data manually extracted from journal literature.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>약물 발견에 필요한 바이오활성 데이터가 논문 전문에 분산되어 있어 계산 가능한 형태로 접근하기 어려웠음</li>
-<li>화합물 구조와 생물학적 활성 데이터를 통합한 표준화된 공개 DB가 부재했음
-<strong>이 시스템이 필요한 이유</strong></li>
-<li>화학생물학 및 약물 발견 연구에서 대규모 구조-활성 관계(SAR) 분석 기반 필요</li>
-<li>계산화학 및 머신러닝 모델 학습용 큐레이션된 바이오활성 데이터셋 수요</li>
+<li>Bioactivity data needed for drug discovery was scattered across full-text papers, making it hard to access in a computable form</li>
+<li>A standardized public DB integrating compound structures and biological activity data was lacking
+<strong>Why this system is needed</strong></li>
+<li>Chemical biology and drug discovery research require a foundation for large-scale structure-activity relationship (SAR) analysis</li>
+<li>There is demand for curated bioactivity datasets for training computational chemistry and machine learning models</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>핵심 의약화학 저널 전문에서 화합물·어세이·바이오활성 정보를 수동으로 추출한다. 화합물 구조는 표준화되고 Standard InChI 기반 식별자가 부여된다. 어세이 기술은 제어 어휘로 매핑되고, 활성 측정치는 표준 형식으로 변환된다. 웹 인터페이스, 데이터 다운로드, 웹 서비스를 통해 제공된다.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>Compound, assay, and bioactivity information is manually extracted from the full text of core medicinal chemistry journals. Compound structures are standardized and assigned Standard InChI-based identifiers. Assay descriptions are mapped to a controlled vocabulary, and activity measurements are converted to standard formats. It is provided through a web interface, data download, and web services.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>웹 인터페이스</td>
-  <td><a href="https://www.ebi.ac.uk/chembldb">https://www.ebi.ac.uk/chembldb</a> 텍스트·구조 검색</td>
+  <td>Web interface</td>
+  <td><a href="https://www.ebi.ac.uk/chembldb">https://www.ebi.ac.uk/chembldb</a> text and structure search</td>
 </tr>
 <tr>
-  <td>데이터 다운로드</td>
-  <td>전체 DB SQL/SDF 다운로드</td>
+  <td>Data download</td>
+  <td>Full DB SQL/SDF download</td>
 </tr>
 <tr>
-  <td>웹 서비스 (REST)</td>
-  <td>구조·타겟·바이오활성 API</td>
+  <td>Web services (REST)</td>
+  <td>Structure, target, bioactivity API</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>화합물 구조 (SMILES, InChI, SDF)</li>
-<li>바이오활성 측정치 (IC50, Ki, EC50 등)</li>
-<li>타겟 단백질 정보 (UniProt 연동)</li>
-<li>어세이 기술 (표준화된 어휘)</li>
+<li>Compound structures (SMILES, InChI, SDF)</li>
+<li>Bioactivity measurements (IC50, Ki, EC50, etc.)</li>
+<li>Target protein information (UniProt integration)</li>
+<li>Assay descriptions (standardized vocabulary)</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>바이오활성 측정치</td>
+  <td>Bioactivity measurements</td>
   <td>5.4M</td>
 </tr>
 <tr>
-  <td>화합물</td>
+  <td>Compounds</td>
   <td>1M+</td>
 </tr>
 <tr>
-  <td>단백질 타겟</td>
+  <td>Protein targets</td>
   <td>5,200</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>수동 큐레이션 방식으로 데이터 추가 속도가 제한적</li>
-<li>논문 전문이 필요하므로 오픈액세스가 아닌 경우 접근 제한 발생</li>
-<li>초기 버전으로 직접 데이터 기탁(deposition) 기능 미지원</li>
+<li>Manual curation limits the speed of data additions</li>
+<li>Since full-text papers are required, access is restricted when they are not open access</li>
+<li>As an early version, it does not support direct data deposition</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/gkr777">ChEMBL: a large-scale bioactivity database for drug discovery</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1093/nar/gkr777">ChEMBL: a large-scale bioactivity database for drug discovery</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/nar/GaultonBBCDHLMMAO12)</a></p>
@@ -244,14 +244,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

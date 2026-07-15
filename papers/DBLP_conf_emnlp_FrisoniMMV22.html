@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BioReader: a Retrieval-Enhanced Text-to-Text Transformer for Biomedical Literature — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>BioReader: a Retrieval-Enhanced Text-to-Text Transformer for Biomedical Literature, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,48 +117,48 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-bioreader-architecture">시스템 구조 (BioReader Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l2"><a href="#학습구성-training">학습/구성 (training)</a></li><li class="toc-l2"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#architecture-bioreader-architecture">Architecture (BioReader Architecture)</a></li><li class="toc-l2"><a href="#pipeline-inference">Pipeline (inference)</a></li><li class="toc-l2"><a href="#training-configuration-training">Training / configuration (training)</a></li><li class="toc-l2"><a href="#key-results">Key results</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>BioReader: Retrieval-Enhanced T5 for Biomedical Literature</h1>
 <blockquote>
 <p>EMNLP 2022 | Method | bio · medical</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>BioReader는 생의학 문헌을 위한 최초의 retrieval-enhanced text-to-text 모델로, T5 백본에 RETRO의 chunked cross-attention을 이식하고 frozen CONTRIEVER 검색기로 PubMed 기반 외부 데이터스토어(약 6,000만 토큰)에서 관련 문헌 청크를 실시간으로 가져와 입력을 보강한다. 모든 생의학 NLP 태스크를 &quot;외부 지식의 도움을 받아 텍스트를 변환하는&quot; 문제로 캐스팅하며, 최대 3배 적은 파라미터로 여러 SOTA를 능가한다.</p>
-<h2 id="시스템-구조-bioreader-architecture">시스템 구조 (BioReader Architecture)</h2>
-<p><strong>백본 (T5 + RETRO-blocks).</strong> BioReader는 T5 encoder–decoder를 확장한 모델이다. GPT 기반의 RETRO와 달리 원래 T5 skeleton을 유지하며, decoder에서 RETRO-block과 표준 T5-block을 번갈아 배치한다.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>BioReader is the first retrieval-enhanced text-to-text model for biomedical literature. It grafts RETRO's chunked cross-attention onto a T5 backbone and uses a frozen CONTRIEVER retriever to fetch relevant literature chunks in real time from a PubMed-based external datastore (about 60M tokens), augmenting the input. It casts every biomedical NLP task as a problem of &quot;transforming text with the help of external knowledge,&quot; and outperforms several SOTA systems with up to 3x fewer parameters.</p>
+<h2 id="architecture-bioreader-architecture">Architecture (BioReader Architecture)</h2>
+<p><strong>Backbone (T5 + RETRO-blocks).</strong> BioReader is a model that extends the T5 encoder–decoder. Unlike the GPT-based RETRO, it keeps the original T5 skeleton and, in the decoder, alternates RETRO-blocks with standard T5-blocks.</p>
 <ul>
-<li>T5 encoder는 그대로 유지한다.</li>
-<li>RETRO-block은 fully-connected(FFW), self-attention(ATT), chunked cross-attention(CCA)를 조합한다: <code>RETRO(H,E) = FFW(CCA(ATT(H), E))</code>, 표준 블록은 <code>T5(H) = FFW(ATT(H))</code>.</li>
-<li>T5-base(12층, d=768)에서 9·12번째 층에 RETRO-block을 둔다(P={9,12}). 이 지점에서 neighbor encoding과 입력 encoding이 CCA로 병합되어 encoder 출력을 대체한다.</li>
-<li>최종 구성은 229.5M 파라미터.</li>
+<li>The T5 encoder is kept as is.</li>
+<li>The RETRO-block combines fully-connected (FFW), self-attention (ATT), and chunked cross-attention (CCA): <code>RETRO(H,E) = FFW(CCA(ATT(H), E))</code>, while the standard block is <code>T5(H) = FFW(ATT(H))</code>.</li>
+<li>In T5-base (12 layers, d=768), RETRO-blocks are placed at the 9th and 12th layers (P={9,12}). At these points, the neighbor encoding and the input encoding are merged via CCA, replacing the encoder output.</li>
+<li>The final configuration has 229.5M parameters.</li>
 </ul>
-<p><strong>Neural retrieval DB (Evidence Datastore).</strong> 학습 코퍼스와 다른 검색 풀을 쓴다(도메인 적응·지식 갱신에 유리). 데이터스토어는 PubMed-RCT에서 유도된 무작위 대조시험(RCT) 영문 초록 약 200K개로 구성되며, 전체적으로 PubMed 중심 약 6,000만 토큰 규모다. 각 value는 인접한 두 청크 [N, F](neighbor + 원본 초록에서의 연속)로 구성되고, key는 미리 계산된 f(N)이다.</p>
-<p><strong>검색기 (Retriever).</strong> 매핑 함수 f(·)는 frozen, bi-directional encoder인 CONTRIEVER(BERT-base 기반 dual-encoder, MoCo contrastive로 unsupervised 학습)로 구현되며, 마지막 층 출력에 average pooling을 적용한다.</p>
-<p><strong>Chunked Cross-Attention (CCA) — neighbor 융합.</strong> 출력 확률을 보간하거나 입력을 단순 concat하는 방식과 달리, BioReader는 입력 프롬프트와 neighbor를 따로 인코딩한 뒤 CCA로 조립한다.</p>
+<p><strong>Neural retrieval DB (Evidence Datastore).</strong> It uses a retrieval pool that is different from the training corpus (advantageous for domain adaptation and knowledge updating). The datastore consists of about 200K English abstracts of randomized controlled trials (RCTs) derived from PubMed-RCT, amounting to roughly 60M tokens overall, centered on PubMed. Each value consists of two adjacent chunks [N, F] (neighbor + its continuation in the original abstract), and the key is the precomputed f(N).</p>
+<p><strong>Retriever.</strong> The mapping function f(·) is implemented with CONTRIEVER, a frozen, bi-directional encoder (a BERT-base-based dual-encoder trained unsupervised with MoCo contrastive learning), applying average pooling to the last-layer output.</p>
+<p><strong>Chunked Cross-Attention (CCA) — neighbor fusion.</strong> Unlike approaches that interpolate output probabilities or simply concatenate the input, BioReader encodes the input prompt and the neighbors separately and then assembles them via CCA.</p>
 <ul>
-<li>입력을 크기 m=16의 청크로 분할(n=512)하고, 각 청크 C_u에 대해 dot product로 top-k 문서를 FAISS로 검색한다.</li>
-<li>검색된 [N, F]는 각각 길이 16 → neighbor 토큰은 k×32 형태로 T5-encoder가 인코딩한다.</li>
-<li>각 입력 청크는 직전(preceding) 청크의 neighbor에만 attend하며, one-token overlap으로 autoregression이 보장된다.</li>
+<li>The input is split into chunks of size m=16 (n=512), and for each chunk C_u the top-k documents are retrieved with FAISS via dot product.</li>
+<li>The retrieved [N, F] are each of length 16 → neighbor tokens are encoded by the T5-encoder in a k×32 form.</li>
+<li>Each input chunk attends only to the neighbors of the preceding chunk, and a one-token overlap guarantees autoregression.</li>
 </ul>
-<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
+<h2 id="pipeline-inference">Pipeline (inference)</h2>
 <ol>
-<li><strong>입력 분할:</strong> 입력을 크기 16의 청크로 나눈다(n=512).</li>
-<li><strong>검색:</strong> 각 청크를 frozen CONTRIEVER로 인코딩하고 FAISS로 데이터스토어에서 top-k 검색 → neighbor + continuation 획득.</li>
-<li><strong>인코딩:</strong> 입력 프롬프트와 검색된 neighbor를 (같은) T5 encoder로 따로 인코딩.</li>
-<li><strong>융합:</strong> decoder의 RETRO-block(P={9,12})에서 CCA가 입력·neighbor encoding을 병합해 encoder 출력을 대체.</li>
-<li><strong>디코딩:</strong> 표준 T5 greedy decoding. 첫 청크는 neighbor에 의존하지 않게 둔다. 입력에 task-specific prefix를 붙여 모든 태스크를 text-to-text로 캐스팅.</li>
+<li><strong>Input splitting:</strong> The input is divided into chunks of size 16 (n=512).</li>
+<li><strong>Retrieval:</strong> Each chunk is encoded with the frozen CONTRIEVER, and top-k retrieval is performed from the datastore with FAISS → obtaining neighbor + continuation.</li>
+<li><strong>Encoding:</strong> The input prompt and the retrieved neighbors are encoded separately by the (same) T5 encoder.</li>
+<li><strong>Fusion:</strong> In the decoder's RETRO-blocks (P={9,12}), CCA merges the input and neighbor encodings, replacing the encoder output.</li>
+<li><strong>Decoding:</strong> Standard T5 greedy decoding. The first chunk is kept independent of neighbors. A task-specific prefix is prepended to the input to cast every task as text-to-text.</li>
 </ol>
-<h2 id="학습구성-training">학습/구성 (training)</h2>
+<h2 id="training-configuration-training">Training / configuration (training)</h2>
 <ul>
-<li><strong>백본 초기화:</strong> T5-block은 SCIFIVE(PubMed)-base 가중치로 초기화.</li>
-<li><strong>파라미터 효율:</strong> RETRO를 따라 pre-trained 가중치를 freeze하고 새 CCA 파라미터(전체의 5% 미만)만 span-mask 학습한다. 따라서 검색 없이 평가하면 원래 SCIFIVE 성능이 유지된다. CCA 학습에는 pre-training 인스턴스의 약 3%만 사용.</li>
-<li><strong>Fine-tuning:</strong> 이후 target task에서 전체 층을 fine-tune(teacher forcing MLE), task-specific prefix로 multi-task 학습.</li>
-<li><strong>평가:</strong> 18개 데이터셋 6개 카테고리(NER, RE, NLI, DC, QA, OpenQA), 대부분 BLURB에서 차용.</li>
+<li><strong>Backbone initialization:</strong> T5-blocks are initialized with SCIFIVE(PubMed)-base weights.</li>
+<li><strong>Parameter efficiency:</strong> Following RETRO, the pre-trained weights are frozen and only the new CCA parameters (less than 5% of the total) are trained with span-mask. Therefore, when evaluated without retrieval, the original SCIFIVE performance is retained. CCA training uses only about 3% of the pre-training instances.</li>
+<li><strong>Fine-tuning:</strong> Subsequently, all layers are fine-tuned on the target task (teacher forcing MLE), with multi-task training via task-specific prefixes.</li>
+<li><strong>Evaluation:</strong> 18 datasets across 6 categories (NER, RE, NLI, DC, QA, OpenQA), most borrowed from BLURB.</li>
 </ul>
-<h2 id="주요-결과">주요 결과</h2>
-<p>약 3배 큰 SCIFIVE-large(770M)를 여러 태스크에서 능가(BioReader 229.5M).</p>
+<h2 id="key-results">Key results</h2>
+<p>It outperforms the roughly 3x larger SCIFIVE-large (770M) on several tasks (BioReader 229.5M).</p>
 <p><strong>QA / OpenQA — Exact Match</strong></p>
 <table>
 <thead>
@@ -198,19 +198,19 @@
 </tr>
 </tbody>
 </table>
-<p>NER/RE/DC에서도 BC4CHEMD 92.81, Species-800 77.44, DDI 84.34, HoC(F1*) 87.78 등으로 SOTA를 갱신. 전문가 3인 human evaluation에서도 자동평가보다 높은 정확성을 확인(평가자 간 Kendall 0.91). 데이터스토어에 COVID-19 RCT 초록을 추가하면 재학습 없이 최신 답변을 생성(zero-shot datastore update).</p>
-<h2 id="한계점">한계점</h2>
+<p>It also sets new SOTA on NER/RE/DC with BC4CHEMD 92.81, Species-800 77.44, DDI 84.34, HoC(F1*) 87.78, and so on. A human evaluation by three experts also confirmed higher accuracy than automatic evaluation (inter-annotator Kendall 0.91). Adding COVID-19 RCT abstracts to the datastore lets it generate up-to-date answers without retraining (zero-shot datastore update).</p>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li>청크가 근거의 부분만 담아 불완전·비사실 텍스트나 반복·모순을 유발할 수 있다.</li>
-<li>청크가 단어/엔티티 경계를 가로질러 분할될 위험(생의학에서 특히 위험).</li>
-<li>지식 베이스에 초록만 사용 → 데이터스토어 topic coverage가 성능 상한을 정한다(full-text 활용은 future work).</li>
-<li>높은 메모리·FAISS 인덱스 디스크 소비; 백본 SCIFIVE가 적은 자원으로 학습되어 undertrained일 수 있음.</li>
+<li>A chunk may hold only part of the evidence, which can induce incomplete or non-factual text, or repetition and contradiction.</li>
+<li>There is a risk that chunks are split across word/entity boundaries (especially risky in biomedicine).</li>
+<li>Only abstracts are used in the knowledge base → the datastore's topic coverage sets the performance ceiling (using full text is future work).</li>
+<li>High memory and FAISS index disk consumption; the backbone SCIFIVE may be undertrained, having been trained with limited resources.</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
 <li>ACL Anthology: <a href="https://aclanthology.org/2022.emnlp-main.390/">https://aclanthology.org/2022.emnlp-main.390/</a> (EMNLP 2022, pp. 5770–5793)</li>
 <li>Code: <a href="https://github.com/disi-unibo-nlp">https://github.com/disi-unibo-nlp</a></li>
-<li>저자: Giacomo Frisoni, Miki Mizutani, Gianluca Moro, Lorenzo Valgimigli (University of Bologna)</li>
+<li>Authors: Giacomo Frisoni, Miki Mizutani, Gianluca Moro, Lorenzo Valgimigli (University of Bologna)</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/emnlp/FrisoniMMV22)</a></p>
@@ -242,14 +242,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

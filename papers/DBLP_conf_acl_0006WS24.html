@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MindMap: Knowledge Graph Prompting Sparks Graph of Thoughts in Large Language Models — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>MindMap: Knowledge Graph Prompting Sparks Graph of Thoughts in Large Language Models, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,45 +117,45 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-mindmap-architecture">시스템 구조 (MindMap Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l2"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#architecture-mindmap-architecture">Architecture (MindMap Architecture)</a></li><li class="toc-l2"><a href="#pipeline-inference">Pipeline (inference)</a></li><li class="toc-l2"><a href="#key-results">Key results</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>MindMap: Knowledge Graph Prompting for Medical QA</h1>
 <blockquote>
 <p>ACL 2024 | Method | medical</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>MindMap는 큐레이티드 임상 지식그래프(질병-증상-약물-검사)에서 질의 관련 증거 서브그래프를 검색하고, 이를 자연어 추론 경로(&quot;graph of thoughts&quot;)로 통합하여 LLM이 명시적 KG 지식과 암묵 지식을 결합한 근거 답변 + 추론 경로(mind map)를 생성하도록 프롬프팅하는 KG-프롬프팅 프레임워크다.</p>
-<h2 id="시스템-구조-mindmap-architecture">시스템 구조 (MindMap Architecture)</h2>
+<h2 id="tldr">TL;DR</h2>
+<p>MindMap is a KG-prompting framework that retrieves query-relevant evidence subgraphs from a curated clinical knowledge graph (disease-symptom-drug-test) and integrates them into natural-language reasoning paths (&quot;graph of thoughts&quot;), prompting the LLM to combine explicit KG knowledge with implicit knowledge and produce grounded answers together with a reasoning path (mind map).</p>
+<h2 id="architecture-mindmap-architecture">Architecture (MindMap Architecture)</h2>
 <ul>
-<li><strong>큐레이티드 임상 KG:</strong> EMCKG(영어, 1,122 노드 / 5,802 트리플 / 6 관계)와 CMCKG(중국어, 62,282 노드 / 506,490 트리플 / 12 관계). 증상→질병→검사/약물 임상 흐름.</li>
-<li><strong>증거 서브그래프 검색(상보적 2종):</strong> LLM으로 질의 엔티티 추출 + BERT 유사도로 KG 노드 매칭 → ① path-based(질의 엔티티를 ≤k hop 경로로 연결), ② neighbor-based(경로 노드의 1-hop 이웃 확장). 클러스터링·샘플링으로 pruning.</li>
-<li><strong>Graph-of-thoughts:</strong> 검색 서브그래프의 엔티티 체인을 LLM이 자연어로 변환·집계해 단일 추론 그래프로 통합.</li>
-<li><strong>프롬프트:</strong> system instruction + question + 증거 그래프 + graph-of-thought instruction + exemplars.</li>
+<li><strong>Curated clinical KG:</strong> EMCKG (English, 1,122 nodes / 5,802 triples / 6 relations) and CMCKG (Chinese, 62,282 nodes / 506,490 triples / 12 relations). Clinical flow of symptom→disease→test/drug.</li>
+<li><strong>Evidence subgraph retrieval (two complementary types):</strong> query entity extraction with an LLM + KG node matching via BERT similarity → ① path-based (connecting query entities via ≤k hop paths), ② neighbor-based (expanding 1-hop neighbors of path nodes). Pruning via clustering and sampling.</li>
+<li><strong>Graph-of-thoughts:</strong> the LLM converts and aggregates the entity chains of the retrieved subgraphs into natural language, integrating them into a single reasoning graph.</li>
+<li><strong>Prompt:</strong> system instruction + question + evidence graph + graph-of-thought instruction + exemplars.</li>
 </ul>
-<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
+<h2 id="pipeline-inference">Pipeline (inference)</h2>
 <ol>
-<li><strong>Evidence graph mining:</strong> 엔티티 인식(LLM+BERT) → path/neighbor 서브그래프 검색.</li>
-<li><strong>Aggregation:</strong> 서브그래프들을 단일 추론 그래프로 통합·정제.</li>
-<li><strong>Reasoning:</strong> 프롬프트로 LLM이 그래프와 암묵 지식을 결합 → (a) 요약 답변, (b) 추론 과정, (c) mind map(구조화 텍스트) 출력.</li>
+<li><strong>Evidence graph mining:</strong> entity recognition (LLM+BERT) → path/neighbor subgraph retrieval.</li>
+<li><strong>Aggregation:</strong> integrate and refine the subgraphs into a single reasoning graph.</li>
+<li><strong>Reasoning:</strong> via the prompt, the LLM combines the graph with implicit knowledge → outputs (a) a summary answer, (b) the reasoning process, (c) a mind map (structured text).</li>
 </ol>
-<h2 id="주요-결과">주요 결과</h2>
-<p>backbone GPT-3.5로 일부 baseline에서 GPT-4 능가. 데이터셋: GenMedGPT-5k, CMCQA, ExplainCPE.</p>
+<h2 id="key-results">Key results</h2>
+<p>With GPT-3.5 as the backbone, it surpasses GPT-4 on some baselines. Datasets: GenMedGPT-5k, CMCQA, ExplainCPE.</p>
 <ul>
-<li>GenMedGPT-5k BERTScore F1: MindMap <strong>0.7954</strong> &gt; KG Retriever 0.7868 &gt; GPT-4 0.7786. GPT-4 평가 ranking에서 MindMap 1.87 vs GPT-4 4.18.</li>
-<li>쌍대 비교(MindMap vs GPT-4 승률): diversity/integrity 100%, 약물 추천 83%, 진단 73%.</li>
-<li>ExplainCPE 정확도 61.7%. Ablation: path+neighbor 결합이 단일 대비 우수.</li>
+<li>GenMedGPT-5k BERTScore F1: MindMap <strong>0.7954</strong> &gt; KG Retriever 0.7868 &gt; GPT-4 0.7786. In GPT-4-evaluated ranking, MindMap 1.87 vs GPT-4 4.18.</li>
+<li>Pairwise comparison (MindMap vs GPT-4 win rate): diversity/integrity 100%, drug recommendation 83%, diagnosis 73%.</li>
+<li>ExplainCPE accuracy 61.7%. Ablation: combining path+neighbor outperforms either alone.</li>
 </ul>
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li>성능이 큐레이티드 임상 KG의 완전성·정확성에 의존, KG 없는 영역 일반화 제한.</li>
-<li>엔티티 인식·매칭 오류 시 서브그래프 오염 가능.</li>
-<li>평가가 GPT-4 심판·BERTScore에 의존(편향 가능), 의료 3개 데이터셋에 국한.</li>
+<li>Performance depends on the completeness and accuracy of the curated clinical KG, with limited generalization to domains lacking a KG.</li>
+<li>Errors in entity recognition and matching can contaminate the subgraph.</li>
+<li>Evaluation relies on GPT-4 judges and BERTScore (potentially biased) and is limited to three medical datasets.</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
 <li>arXiv: 2308.09729 · ACL 2024 (Wen, Wang, Sun)</li>
-<li>코드: <a href="https://github.com/wyl-willing/MindMap">https://github.com/wyl-willing/MindMap</a></li>
+<li>Code: <a href="https://github.com/wyl-willing/MindMap">https://github.com/wyl-willing/MindMap</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/acl/0006WS24)</a></p>
@@ -187,14 +187,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

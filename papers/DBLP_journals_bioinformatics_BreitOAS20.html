@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>OpenBioLink: a benchmarking framework for large-scale biomedical link prediction — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>OpenBioLink: a benchmarking framework for large-scale biomedical link prediction, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,7 +117,7 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#실제-데이터-형식-예시-논문-2-figure-1">실제 데이터 형식 예시 (논문 §2 + Figure 1)</a></li><li class="toc-l3"><a href="#유형-a-triple-format-head-relation-tail">유형 A — Triple format (head, relation, tail)</a></li><li class="toc-l3"><a href="#유형-b-quality-filtered-subset">유형 B — Quality-filtered subset</a></li><li class="toc-l3"><a href="#유형-c-leakage-controlled-split-protocol">유형 C — Leakage-controlled split protocol</a></li><li class="toc-l3"><a href="#유형-d-evaluation-metric-protocol">유형 D — Evaluation metric protocol</a></li><li class="toc-l2"><a href="#평가-framework-요약">평가 framework 요약</a></li><li class="toc-l2"><a href="#주요-활용-논문-후속">주요 활용 (논문 + 후속)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#construction-methodology">Construction Methodology</a></li><li class="toc-l2"><a href="#example-of-actual-data-format-paper-2-figure-1">Example of Actual Data Format (paper §2 + Figure 1)</a></li><li class="toc-l3"><a href="#type-a-triple-format-head-relation-tail">Type A — Triple format (head, relation, tail)</a></li><li class="toc-l3"><a href="#type-b-quality-filtered-subset">Type B — Quality-filtered subset</a></li><li class="toc-l3"><a href="#type-c-leakage-controlled-split-protocol">Type C — Leakage-controlled split protocol</a></li><li class="toc-l3"><a href="#type-d-evaluation-metric-protocol">Type D — Evaluation metric protocol</a></li><li class="toc-l2"><a href="#evaluation-framework-summary">Evaluation Framework Summary</a></li><li class="toc-l2"><a href="#main-uses-paper-follow-up">Main Uses (paper + follow-up)</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>OpenBioLink: 7-node × 30-edge biomedical KG benchmark with leakage-controlled splits</h1>
@@ -126,25 +126,25 @@
 Anna Breit, Simon Ott, Asan Agibetov, Matthias Samwald — Medical University of Vienna
 DOI: <a href="https://doi.org/10.1093/bioinformatics/btaa274">10.1093/bioinformatics/btaa274</a> · DBLP: <code>journals/bioinformatics/BreitOAS20</code></p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p><strong>Biomedical knowledge graph (KG) link prediction</strong>을 위한 <strong>표준 benchmark framework</strong>. <strong>7 node types × 30 edge types</strong>, 4-tier quality cutoff (high/medium/low/all), <strong>leakage-controlled train-test split</strong> (symmetric reverse edge / inverse relation / super-relation 제거), <strong>typed negative sampling</strong> 으로 task난이도 조절. PyKEEN 인터페이스로 다양한 embedding 모델 비교 가능. <strong>Hits@K / MRR / ROC-AUC / PR-AUC</strong> 표준 metric 제공.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>A <strong>standard benchmark framework</strong> for <strong>biomedical knowledge graph (KG) link prediction</strong>. <strong>7 node types × 30 edge types</strong>, a 4-tier quality cutoff (high/medium/low/all), a <strong>leakage-controlled train-test split</strong> (removing symmetric reverse edges / inverse relations / super-relations), and <strong>typed negative sampling</strong> to tune task difficulty. Allows comparison across various embedding models through the PyKEEN interface. Provides standard metrics: <strong>Hits@K / MRR / ROC-AUC / PR-AUC</strong>.</p>
 <hr />
-<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
-<pre><code>Step 1 — 문제 인식: 기존 link prediction benchmark의 약점
+<h2 id="construction-methodology">Construction Methodology</h2>
+<pre><code>Step 1 — Problem recognition: weaknesses of existing link prediction benchmarks
   ┌──────────────────────────────────────────────┐
   │ FB15K (Freebase), WN18 (WordNet), UMLS:      │
-  │  · train-test leakage (역방향 edge 등)        │
-  │  · 단일 도메인 / hierarchical taxonomy       │
-  │  · 생의학 특유 heterogeneity 미반영          │
-  │ → 생의학 graph는 7+ node × 30+ relation       │
-  │   typed structure 필요                       │
+  │  · train-test leakage (reverse edges, etc.)   │
+  │  · single domain / hierarchical taxonomy     │
+  │  · biomedical-specific heterogeneity unmodeled│
+  │ → biomedical graphs need a 7+ node × 30+      │
+  │   relation typed structure                    │
   └──────────────────────────────────────────────┘
 
 Step 2 — Graph creation module
   ┌──────────────────────────────────────────────┐
-  │ Source databases (예시):                      │
+  │ Source databases (examples):                  │
   │  · UniProt, DrugBank, KEGG, Reactome,        │
-  │    DisGeNET, OMIM, STITCH, GO 등              │
+  │    DisGeNET, OMIM, STITCH, GO, etc.           │
   │ Output: 7 node types × 30 edge types graph  │
   │   - Gene / Protein / Drug / Disease /        │
   │     Anatomy / Phenotype / GO term            │
@@ -153,22 +153,22 @@ Step 2 — Graph creation module
   └──────────────────────────────────────────────┘
 
 Step 3 — Quality cutoff (4-tier)
-  · all      : 모든 confidence 포함 (noisy)
+  · all      : includes all confidence levels (noisy)
   · low      : low confidence filter
   · medium   : medium confidence filter
   · high     : high confidence only (smallest, cleanest)
-  → 사용자가 task 난이도 선택
+  → user selects task difficulty
 
-Step 4 — Train-test split module (핵심 contribution)
+Step 4 — Train-test split module (core contribution)
   ┌──────────────────────────────────────────────┐
-  │ Robustness 보장:                              │
+  │ Robustness guarantees:                        │
   │  · Test entities must appear in train        │
-  │  · Reverse edges of symmetric relations     │
-  │    제거 (e.g., gene-gene interaction)        │
-  │  · Inverse relation 제거                     │
+  │  · Remove reverse edges of symmetric          │
+  │    relations (e.g., gene-gene interaction)   │
+  │  · Remove inverse relations                  │
   │    (e.g., drug-target vs target-drug)        │
-  │  · Super-relation 제거 (subsumption)         │
-  │ Split type: random 또는 time-slice          │
+  │  · Remove super-relations (subsumption)      │
+  │ Split type: random or time-slice            │
   └──────────────────────────────────────────────┘
 
 Step 5 — Negative sampling
@@ -178,33 +178,33 @@ Step 5 — Negative sampling
     explicit negatives
 
 Step 6 — Training + Evaluation module
-  · External libraries 지원 (PyKEEN 인터페이스)
+  · Supports external libraries (PyKEEN interface)
   · Metrics: Hits@K, MRR, ROC-AUC, PR-AUC
-  · Baseline 결과 제공 (TransE, ComplEx, RotatE 등)
+  · Provides baseline results (TransE, ComplEx, RotatE, etc.)
 </code></pre>
 <hr />
-<h2 id="실제-데이터-형식-예시-논문-2-figure-1">실제 데이터 형식 예시 (논문 §2 + Figure 1)</h2>
-<h3 id="유형-a-triple-format-head-relation-tail">유형 A — Triple format (head, relation, tail)</h3>
+<h2 id="example-of-actual-data-format-paper-2-figure-1">Example of Actual Data Format (paper §2 + Figure 1)</h2>
+<h3 id="type-a-triple-format-head-relation-tail">Type A — Triple format (head, relation, tail)</h3>
 <blockquote>
 <pre><code>(Drug:Aspirin, drug_treats_disease, Disease:Headache)
 (Gene:TP53, gene_associated_disease, Disease:LiFraumeni)
 (Protein:P53, protein_in_pathway, Pathway:Apoptosis)
 (Gene:BRCA1, gene_expressed_in_anatomy, Anatomy:Breast)
 </code></pre>
-<p><strong>Node types</strong> (7개): Gene, Protein, Drug, Disease, Anatomy, Phenotype, GO term</p>
+<p><strong>Node types</strong> (7 total): Gene, Protein, Drug, Disease, Anatomy, Phenotype, GO term</p>
 </blockquote>
-<h3 id="유형-b-quality-filtered-subset">유형 B — Quality-filtered subset</h3>
+<h3 id="type-b-quality-filtered-subset">Type B — Quality-filtered subset</h3>
 <blockquote>
 <pre><code>High-quality subset:
-  · 노이즈 최소화 (high-confidence edge만)
+  · minimized noise (high-confidence edges only)
   · Smaller graph, faster training
 All subset:
-  · 전체 (most challenging, noisiest)
+  · full set (most challenging, noisiest)
   · Larger graph, realistic
-사용자 task: 'OpenBioLink_HQ' vs 'OpenBioLink_All'
+User task: 'OpenBioLink_HQ' vs 'OpenBioLink_All'
 </code></pre>
 </blockquote>
-<h3 id="유형-c-leakage-controlled-split-protocol">유형 C — Leakage-controlled split protocol</h3>
+<h3 id="type-c-leakage-controlled-split-protocol">Type C — Leakage-controlled split protocol</h3>
 <blockquote>
 <pre><code>┌──────────────────────────────────────────────┐
 │ For relation R between A and B:               │
@@ -221,10 +221,10 @@ All subset:
 │   - Test (A, R, B) present →                  │
 │     remove (A, R_super, B) from train         │
 └──────────────────────────────────────────────┘
-→ &quot;trivially inferred&quot; edges 제거
+→ remove &quot;trivially inferred&quot; edges
 </code></pre>
 </blockquote>
-<h3 id="유형-d-evaluation-metric-protocol">유형 D — Evaluation metric protocol</h3>
+<h3 id="type-d-evaluation-metric-protocol">Type D — Evaluation metric protocol</h3>
 <blockquote>
 <pre><code>For each test triple (h, r, t):
   1. Generate corruptions: (h, r, ?) and (?, r, t)
@@ -240,7 +240,7 @@ Metrics:
 </code></pre>
 </blockquote>
 <hr />
-<h2 id="평가-framework-요약">평가 framework 요약</h2>
+<h2 id="evaluation-framework-summary">Evaluation Framework Summary</h2>
 <table>
 <thead>
 <tr>
@@ -279,63 +279,63 @@ Metrics:
 </tr>
 <tr>
   <td><strong>Models</strong></td>
-  <td>PyKEEN 라이브러리 호환 (TransE, ComplEx, RotatE, etc.)</td>
+  <td>PyKEEN library compatible (TransE, ComplEx, RotatE, etc.)</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="주요-활용-논문-후속">주요 활용 (논문 + 후속)</h2>
+<h2 id="main-uses-paper-follow-up">Main Uses (paper + follow-up)</h2>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>내용</th>
+  <th>Item</th>
+  <th>Content</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>표준 biomedical KG benchmark</td>
-  <td>FB15K-237 / WN18RR의 생의학 대응품</td>
+  <td>Standard biomedical KG benchmark</td>
+  <td>Biomedical counterpart to FB15K-237 / WN18RR</td>
 </tr>
 <tr>
-  <td>Leakage 통제</td>
-  <td>KG embedding 평가의 fair comparison</td>
+  <td>Leakage control</td>
+  <td>fair comparison for KG embedding evaluation</td>
 </tr>
 <tr>
-  <td>PyKEEN 통합</td>
-  <td>다양한 embedding 모델 빠른 비교</td>
+  <td>PyKEEN integration</td>
+  <td>fast comparison across various embedding models</td>
 </tr>
 <tr>
   <td>Bioinformatics application note</td>
-  <td>짧은 (~2 페이지) 형식, 코드/데이터 강조</td>
+  <td>short (~2 page) format, emphasizes code/data</td>
 </tr>
 <tr>
-  <td>후속 작업</td>
-  <td>OGB-biokg (Hu 2020 NeurIPS), CLADD/MedGraphRAG의 사용 substrate</td>
+  <td>Follow-up work</td>
+  <td>substrate used by OGB-biokg (Hu 2020 NeurIPS), CLADD/MedGraphRAG</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li><strong>Static dataset</strong>: 데이터 update 시 leaderboard 재계산 필요</li>
-<li><strong>Source DB 의존</strong>: UniProt/DrugBank 등의 라이센스 / coverage 제약</li>
-<li><strong>Confidence cutoff 임의성</strong>: 4-tier 분류 기준이 source-specific</li>
-<li><strong>2020 cutoff</strong>: 최신 DrugBank / DisGeNET 업데이트 미반영</li>
-<li><strong>English-only / public DB만</strong>: 폐쇄 (UpToDate 등) 미커버</li>
-<li><strong>Edge type sparsity</strong>: 일부 type은 sample 수 적음</li>
-<li><strong>Limited expressiveness</strong>: 단순 (h,r,t) 구조 → 시간/조건 정보 없음</li>
+<li><strong>Static dataset</strong>: leaderboard must be recomputed when data is updated</li>
+<li><strong>Source DB dependence</strong>: license / coverage constraints from UniProt/DrugBank, etc.</li>
+<li><strong>Arbitrariness of confidence cutoff</strong>: 4-tier classification criteria are source-specific</li>
+<li><strong>2020 cutoff</strong>: latest DrugBank / DisGeNET updates not reflected</li>
+<li><strong>English-only / public DBs only</strong>: closed sources (UpToDate, etc.) not covered</li>
+<li><strong>Edge type sparsity</strong>: some types have few samples</li>
+<li><strong>Limited expressiveness</strong>: simple (h,r,t) structure → no temporal/conditional information</li>
 </ul>
 <hr />
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문 (Bioinformatics)</strong>: <a href="https://doi.org/10.1093/bioinformatics/btaa274">10.1093/bioinformatics/btaa274</a></li>
+<li><strong>Paper (Bioinformatics)</strong>: <a href="https://doi.org/10.1093/bioinformatics/btaa274">10.1093/bioinformatics/btaa274</a></li>
 <li><strong>DBLP</strong>: <a href="https://dblp.org/rec/journals/bioinformatics/BreitOAS20.html">journals/bioinformatics/BreitOAS20</a></li>
 <li><strong>GitHub</strong>: <a href="https://github.com/OpenBioLink/OpenBioLink">OpenBioLink/OpenBioLink</a></li>
-<li><strong>저자 소속</strong>: Medical University of Vienna — Section for AI and Decision Support</li>
-<li><strong>이 benchmark가 평가한 모델 family</strong>: TransE, ComplEx, RotatE, DistMult, R-GCN 등 (PyKEEN-호환)</li>
-<li><strong>이 benchmark를 사용한 후속 작업</strong>: OGB-biokg [[DBLP:conf/nips/HuFZDRLCL20]], 생의학 KG embedding 논문 다수</li>
-<li><strong>관련 benchmark</strong>: FB15K-237, WN18RR (general), UMLS (KGE 표준), OGB-biokg (heterogeneous)</li>
+<li><strong>Author affiliation</strong>: Medical University of Vienna — Section for AI and Decision Support</li>
+<li><strong>Model family evaluated by this benchmark</strong>: TransE, ComplEx, RotatE, DistMult, R-GCN, etc. (PyKEEN-compatible)</li>
+<li><strong>Follow-up work using this benchmark</strong>: OGB-biokg [[DBLP:conf/nips/HuFZDRLCL20]], many biomedical KG embedding papers</li>
+<li><strong>Related benchmarks</strong>: FB15K-237, WN18RR (general), UMLS (KGE standard), OGB-biokg (heterogeneous)</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/bioinformatics/BreitOAS20)</a></p>
@@ -365,14 +365,14 @@ Metrics:
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

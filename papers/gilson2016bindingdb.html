@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BindingDB in 2015: a public database for medicinal chemistry, computational chemistry and systems pharmacology — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>BindingDB in 2015: a public database for medicinal chemistry, computational chemistry and systems pharmacology, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,85 +121,85 @@
 <p>gilson2016bindingdb | 2016 | Nucleic Acids Research | dataset | [chem] | <a href="https://doi.org/10.1093/nar/gkv1072">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">BindingDB (2015 update)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">1M+ 데이터 항목 (주로 문헌 및 US 특허 기반)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">1M+ data entries (mostly based on literature and US patents)</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Structured</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">BindingDB web interface + 고급 교차 검색</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">BindingDB web interface + advanced cross-search</td></tr>
 </table>
 
 <blockquote>
 <p>Nucleic Acids Research | 2016 | dataset | chem</p>
-<h4>📌 한 줄 요약</h4>
-<p>BindingDB의 2015년 업데이트로, 1백만 개 이상의 단백질-소분자 상호작용 데이터와 US 특허 바이오활성 데이터를 통합하고 타겟 예측·가상 스크리닝 도구를 강화하였다.</p>
+<h4>📌 TL;DR</h4>
+<p>The 2015 update of BindingDB, which integrates more than one million protein-small molecule interaction data entries and bioactivity data from US patents, and strengthens target prediction and virtual screening tools.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>2007년 이후 데이터 규모가 크게 확장되었으나 특허 데이터 통합이 이루어지지 않았음</li>
-<li>시스템 약리학 분석을 위한 도구가 부족했음
-<strong>이 시스템이 필요한 이유</strong></li>
-<li>US 특허에서 대량의 새로운 결합 데이터 추출 가능성</li>
-<li>화합물의 잠재적 단백질 타겟 예측(폴리파마콜로지) 도구 수요</li>
+<li>The data scale had expanded greatly since 2007, but patent data had not been integrated</li>
+<li>Tools for systems pharmacology analysis were lacking
+<strong>Why this system is needed</strong></li>
+<li>The possibility of extracting large amounts of new binding data from US patents</li>
+<li>Demand for tools to predict the potential protein targets of compounds (polypharmacology)</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>과학 논문 및 US 특허에서 단백질-소분자 결합 데이터를 추출한다. 고급 검색 도구(텍스트, 화학 구조, 단백질 서열, 수치 친화도 교차 검색)를 제공한다. PDB, PubMed, ZINC, 경로 정보와 연동. 타겟 예측 및 가상 스크리닝 도구 포함. 동족체(congeneric series) 데이터셋 제공.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>It extracts protein-small molecule binding data from scientific papers and US patents. It provides advanced search tools (cross-search by text, chemical structure, protein sequence, and numeric affinity). It links with PDB, PubMed, ZINC, and pathway information. It includes target prediction and virtual screening tools. It provides congeneric series datasets.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>웹 인터페이스</td>
-  <td>www.bindingdb.org 고급 교차 검색</td>
+  <td>Web interface</td>
+  <td>www.bindingdb.org advanced cross-search</td>
 </tr>
 <tr>
-  <td>다운로드</td>
-  <td>SDF, TSV 형식 데이터셋</td>
+  <td>Download</td>
+  <td>SDF, TSV format datasets</td>
 </tr>
 <tr>
-  <td>프로그래밍 방식</td>
-  <td>웹 서비스 API</td>
+  <td>Programmatic</td>
+  <td>Web service API</td>
 </tr>
 <tr>
-  <td>동족체 데이터셋</td>
-  <td>약물 설계 방법 검증용 특별 세트</td>
+  <td>Congeneric datasets</td>
+  <td>Special sets for validating drug design methods</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>단백질-리간드 결합 친화도 (Ki, IC50, Kd, EC50)</li>
-<li>화합물 구조 (SMILES, SDF)</li>
-<li>단백질 서열 정보</li>
-<li>특허 및 문헌 출처 정보</li>
+<li>Protein-ligand binding affinity (Ki, IC50, Kd, EC50)</li>
+<li>Compound structures (SMILES, SDF)</li>
+<li>Protein sequence information</li>
+<li>Patent and literature source information</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (as reported in the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>데이터 항목</td>
+  <td>Data entries</td>
   <td>1M+</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>특허 데이터 추출은 구조화되지 않은 텍스트 처리의 어려움으로 오류 가능성 존재</li>
-<li>타겟 예측 도구는 훈련 데이터 편향에 영향을 받을 수 있음</li>
+<li>Patent data extraction carries the possibility of errors due to the difficulty of processing unstructured text</li>
+<li>Target prediction tools may be affected by training data bias</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/gkv1072">BindingDB in 2015</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1093/nar/gkv1072">BindingDB in 2015</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (gilson2016bindingdb)</a></p>
@@ -225,14 +225,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

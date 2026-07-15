@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Commentary: The Materials Project: A materials genome approach to accelerating materials innovation — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Commentary: The Materials Project: A materials genome approach to accelerating materials innovation, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,7 +121,7 @@
 <p>jain2013commentary | 2013 | APL Materials | dataset | [material] | <a href="https://doi.org/10.1063/1.4812323">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">Materials Project</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">논문 기준 "all known inorganic materials"의 DFT 특성 계산 (2013년 기준 수만 개, 현재 ~15만 개 이상으로 성장)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">DFT property calculations for "all known inorganic materials" per the paper (tens of thousands as of 2013, now grown to over ~150,000)</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">Materials Project REST API (MPRester), www.materialsproject.org</td></tr>
@@ -129,92 +129,92 @@
 
 <blockquote>
 <p>APL Materials | 2013 | dataset | material</p>
-<h4>📌 한 줄 요약</h4>
-<p>미국 재료게놈이니셔티브(Materials Genome Initiative)의 핵심 프로그램으로, 모든 알려진 무기 재료의 DFT 계산 특성(전자 구조, 안정성, 탄성, 자성 등)을 무료로 제공하는 고처리량 재료 데이터베이스.</p>
+<h4>📌 TL;DR</h4>
+<p>A core program of the U.S. Materials Genome Initiative: a high-throughput materials database that freely provides DFT-computed properties (electronic structure, stability, elasticity, magnetism, etc.) for all known inorganic materials.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>새로운 재료 발견·최적화는 수년의 실험 시간과 높은 비용을 요구</li>
-<li>계산 재료과학 데이터가 개별 연구 그룹에 분산되어 재현·공유가 어려움</li>
-<li>새로운 기능성 재료 탐색(배터리, 태양전지, 촉매 등)에 체계적 데이터 인프라 부재</li>
+<li>Discovering and optimizing new materials requires years of experimental time and high cost</li>
+<li>Computational materials science data is scattered across individual research groups, making reproduction and sharing difficult</li>
+<li>No systematic data infrastructure for exploring new functional materials (batteries, solar cells, catalysts, etc.)</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>고처리량 DFT 계산으로 재료 특성 데이터를 대규모로 자동 생성·축적</li>
-<li>인실리코(in silico) 재료 설계 및 데이터 기반 발견을 위한 오픈 플랫폼 필요</li>
-<li>인터랙티브 탐색과 데이터 마이닝을 모두 지원하는 다채널 접근 환경 요구</li>
+<li>Automatically generate and accumulate materials property data at scale via high-throughput DFT calculations</li>
+<li>Need for an open platform for in silico materials design and data-driven discovery</li>
+<li>Demand for a multi-channel access environment supporting both interactive exploration and data mining</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>Materials Project는 VASP 기반 DFT 계산 엔진으로 무기 결정 구조의 전자 구조, 형성 에너지, 밴드갭, 탄성 상수, 자성 특성, Li 이온 배터리 삽입 전압 등 다수의 특성을 자동 계산한다. 계산 결과는 MongoDB 기반 데이터베이스에 저장되며 Materials Project API(MPRester)를 통해 프로그래밍 방식으로 접근 가능하다. FireWorks 워크플로 엔진과 pymatgen 오픈소스 라이브러리 생태계와 연계된다.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>Materials Project uses a VASP-based DFT calculation engine to automatically compute many properties of inorganic crystal structures, including electronic structure, formation energy, band gap, elastic constants, magnetic properties, and Li-ion battery insertion voltages. Calculation results are stored in a MongoDB-based database and can be accessed programmatically through the Materials Project API (MPRester). It integrates with the FireWorks workflow engine and the pymatgen open-source library ecosystem.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>웹 포털</td>
-  <td>www.materialsproject.org — 인터랙티브 구조 탐색, 대시보드</td>
+  <td>Web portal</td>
+  <td>www.materialsproject.org — interactive structure exploration, dashboard</td>
 </tr>
 <tr>
   <td>REST API</td>
-  <td>MPRester (Python) — 구조·특성 쿼리, 재료 ID(mp-xxx) 기반 조회</td>
+  <td>MPRester (Python) — structure/property queries, lookup by material ID (mp-xxx)</td>
 </tr>
 <tr>
-  <td>데이터 마이닝</td>
-  <td>오픈 데이터셋 다운로드 지원</td>
+  <td>Data mining</td>
+  <td>Open dataset download support</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>결정 구조 (CIF, POSCAR 형식)</li>
-<li>DFT 계산 특성: 형성 에너지, 밴드갭, 전자 상태밀도, 탄성 상수</li>
-<li>Li/Na/K 이온 배터리 삽입 전압, 용량, 확산 계수</li>
-<li>표면 에너지, 작업 함수</li>
-<li>자기 모멘트, 자성 배열</li>
+<li>Crystal structures (CIF, POSCAR formats)</li>
+<li>DFT-computed properties: formation energy, band gap, electronic density of states, elastic constants</li>
+<li>Li/Na/K-ion battery insertion voltages, capacity, diffusion coefficients</li>
+<li>Surface energy, work function</li>
+<li>Magnetic moment, magnetic ordering</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>데이터베이스 목표</td>
-  <td>모든 알려진 무기 재료의 DFT 특성 계산</td>
+  <td>Database goal</td>
+  <td>DFT property calculations for all known inorganic materials</td>
 </tr>
 <tr>
-  <td>계산 엔진</td>
-  <td>VASP (GGA + U, HSE06 선택적)</td>
+  <td>Calculation engine</td>
+  <td>VASP (GGA + U, HSE06 optional)</td>
 </tr>
 <tr>
-  <td>API 방식</td>
-  <td>REST API (MPRester), 무료·오픈</td>
+  <td>API method</td>
+  <td>REST API (MPRester), free and open</td>
 </tr>
 <tr>
-  <td>논문 출판 연도</td>
+  <td>Paper publication year</td>
   <td>2013 (APL Materials vol.1, no.1)</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>논문 출판 시점(2013)에는 데이터베이스 규모가 상대적으로 작았으며, 이후 지속적으로 확장됨 (논문에 구체적 레코드 수 미기재)</li>
-<li>DFT 계산값이므로 실험값과 체계적 오차 존재 (예: GGA 밴드갭 과소평가)</li>
-<li>주로 정적(0 K) 특성에 집중하며, 유한 온도·압력 조건 특성은 별도 처리 필요</li>
-<li>구조 안정성 예측이 핵심이나 합성 가능성까지 보장하지는 않음</li>
+<li>At the time of the paper's publication (2013), the database was relatively small in scale and has since expanded continuously (no specific record count is stated in the paper)</li>
+<li>Because these are DFT-computed values, systematic errors relative to experimental values exist (e.g., GGA underestimates band gaps)</li>
+<li>Focuses primarily on static (0 K) properties; finite-temperature and finite-pressure properties require separate treatment</li>
+<li>Structural stability prediction is central, but it does not guarantee synthesizability</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1063/1.4812323">Commentary: The Materials Project (APL Materials, 2013)</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1063/1.4812323">Commentary: The Materials Project (APL Materials, 2013)</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (jain2013commentary)</a></p>
@@ -239,14 +239,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

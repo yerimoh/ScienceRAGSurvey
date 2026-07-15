@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Seeing the Forest Through the Trees: Knowledge Retrieval for Streamlining Particle Physics Analysis — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Seeing the Forest Through the Trees: Knowledge Retrieval for Streamlining Particle Physics Analysis, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,7 +117,7 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#input-입력">Input (입력)</a></li><li class="toc-l2"><a href="#output-출력">Output (출력)</a></li><li class="toc-l2"><a href="#예시-문항-논문-본문-appendix-a2b2-직접-인용">예시 문항 (논문 본문 + Appendix A.2·B.2 직접 인용)</a></li><li class="toc-l3"><a href="#hflav-eval-example-query-①-b-hadron-lifetime">📘 HFLAV Eval Example Query ① — b-hadron lifetime</a></li><li class="toc-l3"><a href="#hflav-eval-example-query-②-vcb">📘 HFLAV Eval Example Query ② — |Vcb|</a></li><li class="toc-l3"><a href="#hflav-eval-example-query-③-polarization-fractions">📘 HFLAV Eval Example Query ③ — Polarization fractions</a></li><li class="toc-l3"><a href="#scigraphrag-example-query-γ-sec-4">📘 SCIGRAPHRAG Example — Query γ (Sec. 4)</a></li><li class="toc-l3"><a href="#scigraphrag-example-query-ms-sec-b2">📘 SCIGRAPHRAG Example — Query ∆ms (Sec. B.2)</a></li><li class="toc-l2"><a href="#주요-평가-결과-sec-4-sec-b1">주요 평가 결과 (Sec. 4, Sec. B.1)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#background">Background</a></li><li class="toc-l2"><a href="#construction-methodology">Construction Methodology</a></li><li class="toc-l2"><a href="#input">Input</a></li><li class="toc-l2"><a href="#output">Output</a></li><li class="toc-l2"><a href="#example-queries-direct-quotes-from-paper-body-appendix-a2b2">Example queries (direct quotes from paper body + Appendix A.2·B.2)</a></li><li class="toc-l3"><a href="#hflav-eval-example-query-①-b-hadron-lifetime">📘 HFLAV Eval Example Query ① — b-hadron lifetime</a></li><li class="toc-l3"><a href="#hflav-eval-example-query-②-vcb">📘 HFLAV Eval Example Query ② — |Vcb|</a></li><li class="toc-l3"><a href="#hflav-eval-example-query-③-polarization-fractions">📘 HFLAV Eval Example Query ③ — Polarization fractions</a></li><li class="toc-l3"><a href="#scigraphrag-example-query-γ-sec-4">📘 SCIGRAPHRAG Example — Query γ (Sec. 4)</a></li><li class="toc-l3"><a href="#scigraphrag-example-query-ms-sec-b2">📘 SCIGRAPHRAG Example — Query ∆ms (Sec. B.2)</a></li><li class="toc-l2"><a href="#key-evaluation-results-sec-4-sec-b1">Key evaluation results (Sec. 4, Sec. B.1)</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>Seeing the Forest Through the Trees: Knowledge Retrieval for Streamlining Particle Physics Analysis</h1>
@@ -125,27 +125,27 @@
 <p>arXiv:2509.06855 | 2025 | method | physics
 McGreivy, Delaney, Beck, Williams — MIT (NSF AI Institute for AI and Fundamental Interactions, LHCb)</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>LHCb 코퍼스를 대상으로, 표준 RAG의 chunk fragmentation 한계를 극복하는 두 가지 구조화 검색 시스템 제안: <strong>SCITREERAG</strong>(논문 LaTeX 섹션 트리 + recursive attention-weighted 임베딩) + <strong>SCIGRAPHRAG</strong>(LLM-구축 Neo4j Knowledge Graph + NL→CYPHER). HFLAV에서 자동 생성한 <strong>56개 평가 질의</strong>로 검증, SCITREERAG가 baseRAG 대비 &quot;poor&quot; rating을 25% → 10%로 감소.</p>
-<h2 id="제작-배경">제작 배경</h2>
-<p><strong>표준 RAG의 세 가지 한계 (저자 분류, Sec. 1)</strong></p>
+<h2 id="tldr">TL;DR</h2>
+<p>Targeting the LHCb corpus, this work proposes two structured retrieval systems that overcome the chunk fragmentation limitation of standard RAG: <strong>SCITREERAG</strong> (paper LaTeX section tree + recursive attention-weighted embeddings) + <strong>SCIGRAPHRAG</strong> (LLM-constructed Neo4j Knowledge Graph + NL→CYPHER). Validated with <strong>56 evaluation queries</strong> automatically generated from HFLAV, SCITREERAG reduces &quot;poor&quot; ratings from 25% → 10% compared to baseRAG.</p>
+<h2 id="background">Background</h2>
+<p><strong>Three limitations of standard RAG (author classification, Sec. 1)</strong></p>
 <ol>
-<li><strong>Accidental Semantic Similarity</strong> — 키워드만 공유하는 무관 청크 검색</li>
-<li><strong>Fragmented Context</strong> — 청크 단위 concat이 논리적 관계 손상</li>
-<li><strong>Lack of Global Knowledge</strong> — 코퍼스 전반의 관계·패턴 검색 불가</li>
+<li><strong>Accidental Semantic Similarity</strong> — retrieval of irrelevant chunks that only share keywords</li>
+<li><strong>Fragmented Context</strong> — chunk-wise concatenation damages logical relationships</li>
+<li><strong>Lack of Global Knowledge</strong> — inability to retrieve relationships and patterns across the corpus</li>
 </ol>
-<p><strong>왜 이 시스템이 필요했는지</strong></p>
+<p><strong>Why this system was needed</strong></p>
 <ul>
-<li>LHCb 협업: 수천 편 논문, 1,600명+ 협력자 — CERN open data 사용한 비전문가 분석 지원 필요</li>
-<li>LHC publications가 INSPIRE-HEP 등에 산재 → 종합적 cross-document synthesis 부재</li>
-<li>신규 PhD 학생의 진입 장벽 완화</li>
+<li>LHCb collaboration: thousands of papers, 1,600+ collaborators — need to support non-expert analysis using CERN open data</li>
+<li>LHC publications are scattered across INSPIRE-HEP and others → lack of comprehensive cross-document synthesis</li>
+<li>Lowering the entry barrier for new PhD students</li>
 </ul>
-<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="construction-methodology">Construction Methodology</h2>
 <pre><code>═══════════════════════════════════════════
 [A] SCITREERAG — Local Knowledge Retrieval
 ═══════════════════════════════════════════
-Step A1 — Tree 구축 (per article)
-  sanitized LaTeX source 파싱
+Step A1 — Tree construction (per article)
+  parse sanitized LaTeX source
   abstract = root
   section/subsection = intermediate nodes
   paragraph / figure caption / table / equation = leaf nodes
@@ -156,63 +156,63 @@ Step A2 — Recursive LLM summary
   root summary = abstract
 
 Step A3 — Refined dense embedding
-  각 노드 summary → paragraph embedding
+  each node summary → paragraph embedding
   recursive attention-weighted refinement:
-    동일 정보의 multi-level 표현 → robust signal 증폭
-    word-choice / 환각 artifact 감쇠
+    multi-level representation of the same information → amplify robust signal
+    attenuate word-choice / hallucination artifacts
 
 Step A4 — Retrieval (Greedy tree traversal)
   abstract → section → subsection → leaf
-  topically relevant section 우선
-  같은 paper의 leaf nodes를 묶어 context에 추가
+  prioritize topically relevant sections
+  group leaf nodes from the same paper and add to context
 
 ═══════════════════════════════════════════
 [B] SCIGRAPHRAG — Global Knowledge Retrieval
 ═══════════════════════════════════════════
 Step B1 — Per-article KG
-  GPT-5 mini가 abstract → high-level KG (observable, decay, period)
-  도메인 normalization: e.g., &quot;Bs → µ+µ−&quot; → &quot;B(s)0 -&gt; mu+ mu-&quot;
-  body text → systematic uncertainty + analysis methods 추출
-  Entity types: 노란(decays) / 자주(observables) /
-                연파랑(uncertainty) / 주황(methods)
+  GPT-5 mini builds abstract → high-level KG (observable, decay, period)
+  domain normalization: e.g., &quot;Bs → µ+µ−&quot; → &quot;B(s)0 -&gt; mu+ mu-&quot;
+  body text → extract systematic uncertainty + analysis methods
+  Entity types: yellow (decays) / purple (observables) /
+                light blue (uncertainty) / orange (methods)
 
 Step B2 — Canonicalization (cross-document merge)
   TF-IDF(name) + semantic emb(description) → hybrid sim
   agglomerative clustering by type
-  LLM-as-judge가 cluster 내 entity 병합 결정
-  ex) &quot;tracking efficiency in vertex&quot; vs &quot;in muon&quot; → 분리 유지
+  LLM-as-judge decides entity merging within clusters
+  ex) &quot;tracking efficiency in vertex&quot; vs &quot;in muon&quot; → kept separate
 
-Step B3 — NL → CYPHER 변환
-  LLM이 schema + 3 few-shot examples 보고
-  CYPHER expression 생성 (Neo4j)
+Step B3 — NL → CYPHER conversion
+  LLM sees schema + 3 few-shot examples
+  generates CYPHER expression (Neo4j)
   semantic similarity search (no exact string)
 
-Step B4 — Query 실행 + LLM synthesis → NL answer
+Step B4 — Query execution + LLM synthesis → NL answer
 
 ═══════════════════════════════════════════
-[C] 평가 — HFLAV Eval Q&amp;A (Sec. A.2)
+[C] Evaluation — HFLAV Eval Q&amp;A (Sec. A.2)
 ═══════════════════════════════════════════
-HFLAV 리포트 &quot;Averages of b-hadron, c-hadron,
+HFLAV report &quot;Averages of b-hadron, c-hadron,
   τ-lepton properties as of 2023&quot;
-  ↳ LHCb corpus에 미포함 → 진정한 retrieval 평가
-  ↳ 7개 chapter × 8 query = 56 queries
-GPT-5 mini가 각 query에 대해 rubric 생성:
+  ↳ not included in LHCb corpus → genuine retrieval evaluation
+  ↳ 7 chapters × 8 query = 56 queries
+GPT-5 mini generates a rubric for each query:
   Essential / Expert-level / Factual benchmarks 3-tier
-LLM-as-judge로 grade {poor / satisfactory / good}
-Human expert가 sub-sample 검증
+grade {poor / satisfactory / good} via LLM-as-judge
+Human expert validates a sub-sample
 </code></pre>
-<h2 id="input-입력">Input (입력)</h2>
+<h2 id="input">Input</h2>
 <ul>
-<li>LHCb 코퍼스 (sanitized LaTeX source 사용)</li>
-<li>사용자 자연어 질의 (b-hadron lifetime, Vcb, CP violation phase 등)</li>
-<li>HFLAV reference values (정량 benchmark)</li>
+<li>LHCb corpus (using sanitized LaTeX source)</li>
+<li>User natural-language queries (b-hadron lifetime, Vcb, CP violation phase, etc.)</li>
+<li>HFLAV reference values (quantitative benchmark)</li>
 </ul>
-<h2 id="output-출력">Output (출력)</h2>
+<h2 id="output">Output</h2>
 <ul>
-<li>SCITREERAG: 트리 traversal 결과 청크 + LLM 응답</li>
-<li>SCIGRAPHRAG: KG 서브그래프 + CYPHER 결과 + NL synthesis</li>
+<li>SCITREERAG: chunks from tree traversal + LLM response</li>
+<li>SCIGRAPHRAG: KG subgraph + CYPHER result + NL synthesis</li>
 </ul>
-<h2 id="예시-문항-논문-본문-appendix-a2b2-직접-인용">예시 문항 (논문 본문 + Appendix A.2·B.2 직접 인용)</h2>
+<h2 id="example-queries-direct-quotes-from-paper-body-appendix-a2b2">Example queries (direct quotes from paper body + Appendix A.2·B.2)</h2>
 <h3 id="hflav-eval-example-query-①-b-hadron-lifetime">📘 HFLAV Eval Example Query ① — b-hadron lifetime</h3>
 <blockquote>
 <p>&quot;What are the most precise measurements of b-hadron lifetimes performed by LHCb, and how do the systematic uncertainties in these measurements compare across different decay channels and methodologies?&quot;</p>
@@ -232,26 +232,26 @@ Human expert가 sub-sample 검증
 <blockquote>
 <p>&quot;Use a combination of tree-level B → D(∗)h modes plus the time-dependent Bs → D∓s K± channel. Practically this means including B± → DK± and B± → Dπ± (with D → KSππ, KSKK, K±π∓, K±π∓π±π∓, 3- and 4-body final states), B± → D∗K±, B0 → DK∗0/± and B0 → DK+π− (GLW/ADS/GGSZ-type approaches) ... combining these channels is the route taken in recent LHCb determinations and gives the best precision on γ [2010.08483, 2410.21115, 2209.03692, 2412.14074]. The dominant systematic uncertainties will be external hadronic inputs and model/theory assumptions: uncertainties on D-decay hadronic parameters (rXD, δXD, κXD, CP-even fractions F+ for multi-body modes) ...&quot;</p>
 </blockquote>
-<p><strong>LLM-as-judge 결과</strong>: SCIGRAPHRAG = &quot;good&quot;, SCITREERAG/RAG = &quot;satisfactory&quot; (저자 동의)</p>
+<p><strong>LLM-as-judge result</strong>: SCIGRAPHRAG = &quot;good&quot;, SCITREERAG/RAG = &quot;satisfactory&quot; (authors agree)</p>
 </blockquote>
 <h3 id="scigraphrag-example-query-ms-sec-b2">📘 SCIGRAPHRAG Example — Query ∆ms (Sec. B.2)</h3>
 <blockquote>
 <p><strong>Q</strong>: &quot;Which decay provides the most precise measurement of the B0s eigenstate oscillation frequency, ∆ms? What are the dominant systematic uncertainties for that measurement?&quot;</p>
-<p><strong>응답 발췌</strong>: <em>&quot;the recent LHCb result quoted in the context gives ∆ms = 17.7683 ± 0.0051 (stat) ± 0.0032 (syst) ps−1 from B0s → D−s π+ [2104.04421]; earlier LHCb measurements on the same channels report compatible values with larger uncertainties (e.g. 17.768 ± 0.023 ± 0.006 [1304.4741])&quot;</em></p>
+<p><strong>Response excerpt</strong>: <em>&quot;the recent LHCb result quoted in the context gives ∆ms = 17.7683 ± 0.0051 (stat) ± 0.0032 (syst) ps−1 from B0s → D−s π+ [2104.04421]; earlier LHCb measurements on the same channels report compatible values with larger uncertainties (e.g. 17.768 ± 0.023 ± 0.006 [1304.4741])&quot;</em></p>
 </blockquote>
-<h2 id="주요-평가-결과-sec-4-sec-b1">주요 평가 결과 (Sec. 4, Sec. B.1)</h2>
-<p><strong>LLM-as-judge Quality Grades (HFLAV 56-Q, context 8k/16k/32k 평균)</strong></p>
+<h2 id="key-evaluation-results-sec-4-sec-b1">Key evaluation results (Sec. 4, Sec. B.1)</h2>
+<p><strong>LLM-as-judge Quality Grades (HFLAV 56-Q, averaged over context 8k/16k/32k)</strong></p>
 <table>
 <thead>
 <tr>
   <th>System</th>
-  <th>&quot;poor&quot; 비율</th>
-  <th>&quot;satisfactory + good&quot; 비율</th>
+  <th>&quot;poor&quot; ratio</th>
+  <th>&quot;satisfactory + good&quot; ratio</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>BaseRAG (표준)</td>
+  <td>BaseRAG (standard)</td>
   <td>25%</td>
   <td>~42%</td>
 </tr>
@@ -268,30 +268,30 @@ Human expert가 sub-sample 검증
 </tbody>
 </table>
 <blockquote>
-<p>저자 결론: &quot;SCITREERAG demonstrates modest but consistent improvements over BaseRAG ... receiving 'poor' ratings only 10% of the time compared to 25% for RAG.&quot;</p>
+<p>Author conclusion: &quot;SCITREERAG demonstrates modest but consistent improvements over BaseRAG ... receiving 'poor' ratings only 10% of the time compared to 25% for RAG.&quot;</p>
 </blockquote>
-<p><strong>KG Canonicalization 검증 (Fig. 1)</strong></p>
+<p><strong>KG Canonicalization validation (Fig. 1)</strong></p>
 <ul>
-<li>Query γ: 17개 &quot;CKM Angle gamma&quot; entity들이 단일 entity로 올바르게 병합</li>
-<li>Query ∆ms: 4개의 중복 &quot;Delta m_s&quot; entity 발견 → <strong>불완전 entity resolution</strong> 사례 (저자 명시)</li>
+<li>Query γ: 17 &quot;CKM Angle gamma&quot; entities correctly merged into a single entity</li>
+<li>Query ∆ms: 4 duplicate &quot;Delta m_s&quot; entities found → case of <strong>incomplete entity resolution</strong> (noted by authors)</li>
 </ul>
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li><strong>수치 표준 벤치마크 부재</strong>: P@k, MRR 같은 IR metric 미사용 (LLM-as-judge만)</li>
-<li>SCIGRAPHRAG는 <strong>work in progress</strong> — KG 구축·NL→Cypher 신뢰성 미흡</li>
-<li>Schema가 좁게 정의(particle physics analysis) → 일반화 미검증</li>
-<li>Human expert validation은 sub-sample만, full evaluation 미시행</li>
-<li>LHCb 코퍼스에 한정 — ATLAS/CMS/ALICE로의 transferability 미검증</li>
-<li>KG 구축은 article별 1회성 upfront cost지만 GPT-5 mini API 비용 누적</li>
+<li><strong>Absence of numerical standard benchmarks</strong>: IR metrics such as P@k, MRR are not used (only LLM-as-judge)</li>
+<li>SCIGRAPHRAG is <strong>work in progress</strong> — KG construction and NL→Cypher reliability are insufficient</li>
+<li>Schema is narrowly defined (particle physics analysis) → generalization not validated</li>
+<li>Human expert validation covers only a sub-sample, full evaluation not performed</li>
+<li>Limited to the LHCb corpus — transferability to ATLAS/CMS/ALICE not validated</li>
+<li>KG construction is a one-time upfront cost per article, but GPT-5 mini API costs accumulate</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://arxiv.org/abs/2509.06855">arXiv:2509.06855</a></li>
-<li><strong>저자 소속</strong>: MIT (NSF AI Institute for AI and Fundamental Interactions)</li>
-<li><strong>사용 LLM</strong>: GPT-5 mini (KG 구축), embedding model (DPR / SciBERT 계열, 본문 미명시)</li>
-<li><strong>평가 reference</strong>: HFLAV 2023 report (Banerjee et al. 2024) — LHCb 코퍼스에 미포함</li>
-<li><strong>KG 도구</strong>: Neo4j (CYPHER query language)</li>
-<li><strong>코드 공개</strong>: workshop camera-ready 버전에서 공개 예정</li>
+<li><strong>Paper</strong>: <a href="https://arxiv.org/abs/2509.06855">arXiv:2509.06855</a></li>
+<li><strong>Author affiliation</strong>: MIT (NSF AI Institute for AI and Fundamental Interactions)</li>
+<li><strong>LLM used</strong>: GPT-5 mini (KG construction), embedding model (DPR / SciBERT family, not specified in the text)</li>
+<li><strong>Evaluation reference</strong>: HFLAV 2023 report (Banerjee et al. 2024) — not included in the LHCb corpus</li>
+<li><strong>KG tools</strong>: Neo4j (CYPHER query language)</li>
+<li><strong>Code release</strong>: to be released in the workshop camera-ready version</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (mcgreivy2025seeing)</a></p>
@@ -313,14 +313,14 @@ Human expert가 sub-sample 검증
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

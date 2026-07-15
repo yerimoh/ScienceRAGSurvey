@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ZINC-22: A Free Multi-Purpose Database of Novel Purchasable Chemistry — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>ZINC-22: A Free Multi-Purpose Database of Novel Purchasable Chemistry, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,7 +121,7 @@
 <p>DBLP:journals/jcisd/TingleTCGKDMI23 | 2023 | Journal of Chemical Information and Modeling | dataset | [chem] | <a href="https://doi.org/10.1021/acs.jcim.2c01253">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">ZINC-22</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">수십억 (tens of billions) 규모 make-on-demand 화합물</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">tens of billions scale make-on-demand compounds</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Structured</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">CartBlanche (GUI), Globus, Amazon AWS, Oracle OCI</td></tr>
@@ -129,83 +129,83 @@
 
 <blockquote>
 <p>Journal of Chemical Information and Modeling | 2023 | dataset | chem</p>
-<h4>📌 한 줄 요약</h4>
-<p>ZINC-22는 수십억 규모의 make-on-demand 화합물 라이브러리를 기반으로 한 멀티-빌리언 스케일 리간드 발견 DB로, 규모에 비선형적으로 확장되는 유사도 검색 도구 CartBlanche와 함께 제공된다.</p>
+<h4>📌 TL;DR</h4>
+<p>ZINC-22 is a multi-billion-scale ligand discovery DB built on a make-on-demand compound library of tens of billions in scale, provided together with CartBlanche, a similarity search tool that scales sublinearly with size.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>구매 가능 화학 공간이 수백억 분자 규모로 급격히 확장되어 기존 DB 조직 방식이 속도 저하 문제 발생</li>
-<li>십억 단위 분자에서의 빠른 유사도 검색 도구가 없었음
-<strong>이 시스템이 필요한 이유</strong></li>
-<li>Make-on-demand 라이브러리의 분자 도킹에 필요한 형태(conformation), 전하, LogP, 용매화 에너지 등 신속 조회 필요</li>
-<li>조 단위 분자 시대를 대비한 확장 가능한 DB 아키텍처 필요</li>
+<li>The purchasable chemical space has expanded rapidly to a scale of tens of billions of molecules, causing slowdown issues with existing DB organization methods</li>
+<li>There was no fast similarity search tool at the billion-molecule scale
+<strong>Why this system is needed</strong></li>
+<li>Rapid lookup of the conformation, charge, LogP, solvation energy, etc. required for molecular docking of make-on-demand libraries</li>
+<li>A scalable DB architecture is needed to prepare for the era of trillion-scale molecules</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>Multi-billion scale make-on-demand 라이브러리에서 파생된 화합물 DB이다. CartBlanche GUI를 통해 유사 분자 검색이 가능하며, 분자 수에 비선형(sublinear) 확장되는 유사도 방법을 사용한다. 분자 다양성 분석 결과 DB 크기 증가에 따라 Bemis-Murcko scaffold도 log-linear하게 증가함. Amazon AWS, Oracle OCI 클라우드에서도 접근 가능.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>It is a compound DB derived from a multi-billion scale make-on-demand library. Similar molecule search is possible through the CartBlanche GUI, using a similarity method that scales sublinearly with the number of molecules. Molecular diversity analysis shows that as the DB size increases, the Bemis-Murcko scaffold count also increases log-linearly. It is also accessible on the Amazon AWS and Oracle OCI clouds.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>CartBlanche GUI</td>
-  <td>cartblanche22.docking.org 유사도 검색</td>
+  <td>cartblanche22.docking.org similarity search</td>
 </tr>
 <tr>
   <td>Globus</td>
-  <td>대용량 데이터 전송</td>
+  <td>large-scale data transfer</td>
 </tr>
 <tr>
   <td>Amazon AWS</td>
-  <td>클라우드 접근</td>
+  <td>cloud access</td>
 </tr>
 <tr>
   <td>Oracle OCI</td>
-  <td>클라우드 접근</td>
+  <td>cloud access</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>3D 형태 (conformations)</li>
-<li>부분 원자 전하</li>
-<li>cLogP 값</li>
-<li>용매화 에너지</li>
+<li>3D conformations</li>
+<li>partial atomic charges</li>
+<li>cLogP values</li>
+<li>solvation energy</li>
 <li>SMILES</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>DB 규모</td>
-  <td>수십억 (tens of billions) make-on-demand 화합물</td>
+  <td>DB scale</td>
+  <td>tens of billions make-on-demand compounds</td>
 </tr>
 <tr>
-  <td>Scaffold 다양성</td>
-  <td>DB 크기 100배 증가당 Bemis-Murcko scaffold log 증가</td>
+  <td>Scaffold diversity</td>
+  <td>log increase in Bemis-Murcko scaffolds per 100x increase in DB size</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>Make-on-demand 특성상 실제 합성 성공률은 화합물에 따라 다름</li>
-<li>도킹 전 전처리에도 상당한 계산 자원이 필요</li>
-<li>조 단위 규모 도달 시 현재 방법론의 한계 논의 필요</li>
+<li>Due to the make-on-demand nature, the actual synthesis success rate varies by compound</li>
+<li>Considerable computational resources are also required for preprocessing before docking</li>
+<li>The limitations of the current methodology need to be discussed when reaching the trillion scale</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1021/acs.jcim.2c01253">ZINC-22 — A Free Multi-Billion-Scale Database of Tangible Compounds</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1021/acs.jcim.2c01253">ZINC-22 — A Free Multi-Billion-Scale Database of Tangible Compounds</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/jcisd/TingleTCGKDMI23)</a></p>
@@ -243,14 +243,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

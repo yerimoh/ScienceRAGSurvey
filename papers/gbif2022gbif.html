@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GBIF: the Global Biodiversity Information Facility — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>GBIF: the Global Biodiversity Information Facility, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,92 +121,92 @@
 <p>gbif2022gbif | 2022 | GBIF Secretariat | dataset | [bio] | <a href="https://www.gbif.org/">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">GBIF (Global Biodiversity Information Facility)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">전 세계 생물다양성 출현 기록 집계 (논문/데이터 인용 기준 수치 제공 없음 — GBIF Secretariat 2022 데이터 인용)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">Aggregation of species occurrence records worldwide (no figure provided on a paper/data-citation basis — cited as GBIF Secretariat 2022 data citation)</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">GBIF API / GBIF.org 웹 포털</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">GBIF API / GBIF.org web portal</td></tr>
 </table>
 
 <blockquote>
 <p>GBIF Secretariat | 2022 | dataset | bio</p>
-<h4>📌 한 줄 요약</h4>
-<p>국제 협력으로 운영되는 전 세계 생물다양성 정보 시설(GBIF)로, 전 세계 다양한 기관에서 수집된 생물 출현 기록(species occurrence records)을 통합하여 공개 제공한다.</p>
+<h4>📌 TL;DR</h4>
+<p>An internationally coordinated global biodiversity information facility (GBIF) that integrates and openly provides species occurrence records collected from diverse institutions worldwide.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>전 세계 생물다양성 데이터가 수많은 기관(자연사 박물관, 대학, 정부 기관)에 분산되어 있어 글로벌 규모의 연구가 어려웠다</li>
-<li>생물다양성 보전, 기후변화 대응, 생태학 연구를 위한 글로벌 데이터 접근 인프라가 필요했다</li>
+<li>Global biodiversity data was scattered across numerous institutions (natural history museums, universities, government agencies), making global-scale research difficult</li>
+<li>A global data-access infrastructure was needed for biodiversity conservation, climate change response, and ecological research</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>생물다양성 연구, 보전, 지속가능한 개발 목표(SDGs) 지원을 위한 공개 인프라</li>
-<li>전 세계 연구자, 정책 입안자, 일반 대중이 생물다양성 데이터에 자유롭게 접근할 수 있도록 지원</li>
-<li>다양한 데이터 제공자(자연사 박물관, 시민과학, 원격탐사 등)의 데이터를 표준화하여 통합</li>
+<li>Open infrastructure to support biodiversity research, conservation, and the Sustainable Development Goals (SDGs)</li>
+<li>Enables researchers, policymakers, and the general public worldwide to freely access biodiversity data</li>
+<li>Standardizes and integrates data from diverse data providers (natural history museums, citizen science, remote sensing, etc.)</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>GBIF는 국제 협력 기반의 개방형 데이터 인프라로, 전 세계 수천 개 기관에서 제출한 생물 출현 기록을 Darwin Core 표준으로 통합한다. GBIF.org 포털과 REST API를 통해 데이터 접근을 제공한다.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>GBIF is an open data infrastructure based on international collaboration, integrating species occurrence records submitted by thousands of institutions worldwide under the Darwin Core standard. It provides data access through the GBIF.org portal and a REST API.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>웹 포털</td>
-  <td><a href="https://www.gbif.org">https://www.gbif.org</a> — 생물다양성 데이터 검색 및 탐색</td>
+  <td>Web portal</td>
+  <td><a href="https://www.gbif.org">https://www.gbif.org</a> — search and explore biodiversity data</td>
 </tr>
 <tr>
   <td>REST API</td>
-  <td>GBIF API — 프로그래밍 방식 데이터 접근</td>
+  <td>GBIF API — programmatic data access</td>
 </tr>
 <tr>
-  <td>데이터 다운로드</td>
-  <td>Darwin Core Archive 형식 bulk 다운로드</td>
+  <td>Data download</td>
+  <td>Bulk download in Darwin Core Archive format</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>생물 출현 기록 (Darwin Core 형식)</li>
-<li>분류학적 체크리스트</li>
-<li>데이터셋 메타데이터</li>
+<li>Species occurrence records (Darwin Core format)</li>
+<li>Taxonomic checklists</li>
+<li>Dataset metadata</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>데이터 인용 형식</td>
-  <td>GBIF Secretariat (2022) 형식으로 인용</td>
+  <td>Data citation format</td>
+  <td>Cited in the GBIF Secretariat (2022) format</td>
 </tr>
 <tr>
-  <td>접근 방식</td>
-  <td>공개 (무료)</td>
+  <td>Access method</td>
+  <td>Open (free)</td>
 </tr>
 <tr>
-  <td>표준</td>
+  <td>Standard</td>
   <td>Darwin Core</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>gbif2022gbif 인용은 GBIF Secretariat 데이터 인용으로 전통적인 저널 논문이 아니다</li>
-<li>데이터 품질이 제공 기관마다 다르며 오분류, 위치 오류가 존재할 수 있다</li>
-<li>전 세계 생물다양성의 지리적·분류학적 편향이 있다 (유럽·북미 데이터 과잉 대표)</li>
+<li>The gbif2022gbif citation is a GBIF Secretariat data citation, not a traditional journal paper</li>
+<li>Data quality varies by contributing institution, and misclassifications or location errors may exist</li>
+<li>There is geographic and taxonomic bias in global biodiversity data (over-representation of European and North American data)</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://www.gbif.org/">GBIF: the global biodiversity information facility</a></li>
+<li><strong>Paper</strong>: <a href="https://www.gbif.org/">GBIF: the global biodiversity information facility</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (gbif2022gbif)</a></p>
@@ -229,14 +229,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

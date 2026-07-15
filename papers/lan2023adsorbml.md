@@ -13,15 +13,15 @@ paper_link: https://doi.org/10.1038/s41524-023-01121-5
 > Janice Lan, Aini Palizhati, Muhammed Shuaibi, Brandon M. Wood, Brook Wander, Abhishek Das, Matt Uyttendaele, C. Lawrence Zitnick, Zachary W. Ulissi — Meta AI (FAIR) / CMU
 > arXiv: [2211.16486](https://arxiv.org/abs/2211.16486) · DOI: [10.1038/s41524-023-01121-5](https://doi.org/10.1038/s41524-023-01121-5)
 
-## 한 줄 요약
-ML interatomic potential을 사용해 **adsorbate-surface 결합 에너지 계산**을 가속하는 알고리즘 + benchmark. **Open Catalyst Dense** 데이터셋 (~1,000 surfaces × ~100,000 configurations) 위에서 **87.36% 최저-에너지 configuration 식별률**과 **~2000× DFT 대비 속도 향상** 달성.
+## TL;DR
+An algorithm + benchmark that accelerates **adsorbate-surface binding energy calculation** using ML interatomic potentials. On the **Open Catalyst Dense** dataset (~1,000 surfaces × ~100,000 configurations), it achieves an **87.36% lowest-energy configuration identification rate** and a **~2000× speedup over DFT**.
 
 ---
 
-## 어떻게 만들었나 (Construction Methodology)
+## How It Was Built (Construction Methodology)
 
 ```
-Step 1 — Task 정의
+Step 1 — Task definition
   ┌────────────────────────────────────────────────┐
   │ Input: adsorbate molecule + catalyst surface   │
   │ Output: lowest-energy adsorbate-surface        │
@@ -29,35 +29,35 @@ Step 1 — Task 정의
   │ Verifier: DFT (ground truth)                   │
   └────────────────────────────────────────────────┘
 
-Step 2 — Open Catalyst Dense dataset 구축
-  └─ ~1,000 catalyst surfaces (binary alloys, oxides, intermetallics 등)
+Step 2 — Building the Open Catalyst Dense dataset
+  └─ ~1,000 catalyst surfaces (binary alloys, oxides, intermetallics, etc.)
   └─ ~100,000 unique adsorbate-surface configurations
   └─ DFT (PBE) ground truth labels
-  └─ 표준화된 benchmark 형식
+  └─ standardized benchmark format
 
-Step 3 — AdsorbML 알고리즘
+Step 3 — AdsorbML algorithm
   ┌──────────────────────────────────────────────┐
   │ 1. Heuristic + random initial configurations │
-  │ 2. ML potential (GemNet-OC 등) energy 예측    │
+  │ 2. ML potential (GemNet-OC, etc.) energy pred.│
   │ 3. Low-energy candidates → ML relaxation     │
-  │ 4. Top-k candidates → DFT 정밀 검증           │
-  │ 5. 최저 에너지 configuration 선택             │
+  │ 4. Top-k candidates → precise DFT validation │
+  │ 5. Select lowest-energy configuration        │
   └──────────────────────────────────────────────┘
 
 Step 4 — Evaluation metrics
-  · Success rate: lowest-energy config 찾기 비율 (target)
-  · Speedup: DFT-only baseline 대비
+  · Success rate: fraction of lowest-energy configs found (target)
+  · Speedup: vs. DFT-only baseline
   · Energy error: vs DFT ground truth
   · Trade-off curve: accuracy × efficiency
 ```
 
 ---
 
-## 실제 데이터 형식 예시 (논문 §Methods + Table I + Table II)
+## Example of Actual Data Format (paper §Methods + Table I + Table II)
 
-### 유형 A — Input/Output schema
+### Type A — Input/Output schema
 
-> **Input**: catalyst surface + adsorbate (반응 중간체, *CHO / *CO / *OH 등)
+> **Input**: catalyst surface + adsorbate (reaction intermediate, *CHO / *CO / *OH, etc.)
 >
 > ```
 > Surface:    slab with 3D periodic boundary
@@ -69,14 +69,14 @@ Step 4 — Evaluation metrics
 >
 > ```
 > E_ads ≡ min over all valid relaxed configs (eV)
-> Valid 기준:
->   - 흡착물이 표면에서 desorption 안 됨
->   - dissociation 안 됨
->   - surface mismatch 없음
-> Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
+> Validity criteria:
+>   - adsorbate does not desorb from the surface
+>   - no dissociation
+>   - no surface mismatch
+> Success: predicted E_ads within 0.1 eV of the DFT minimum
 > ```
 
-### 유형 B — OC20-Dense dataset 구조
+### Type B — OC20-Dense dataset structure
 
 | Split | Unique systems | Unique configs | Adsorbates | Bulks |
 |---|---|---|---|---|
@@ -84,9 +84,9 @@ Step 4 — Evaluation metrics
 | **Test** | 989 | 105,714 | 74 | 837 |
 
 >
-> 각 split은 ~250 systems × 4 subsplits = **ID, OOD-Adsorbate, OOD-Catalyst, OOD-Both**
+> Each split is ~250 systems × 4 subsplits = **ID, OOD-Adsorbate, OOD-Catalyst, OOD-Both**
 
-### 유형 C — Algorithm (ML+SP / ML+RX, top-k)
+### Type C — Algorithm (ML+SP / ML+RX, top-k)
 
 > ```
 > 1. Generate initial configs (heuristic + random sampling)
@@ -97,9 +97,9 @@ Step 4 — Evaluation metrics
 > 4. Return: min(DFT outputs)
 > ```
 >
-> Trade-off knob: **k = 1, 2, 3, 4, 5** (k↑ → 정확도↑, speedup↓)
+> Trade-off knob: **k = 1, 2, 3, 4, 5** (k↑ → accuracy↑, speedup↓)
 
-### 유형 D — Model 비교 (Table I, OC20-Dense Test)
+### Type D — Model comparison (Table I, OC20-Dense Test)
 
 | Model | Success Rate ↑ | Energy MAE [eV] ↓ | OC20 S2EF Force MAE [eV/Å] |
 |---|---|---|---|
@@ -113,48 +113,48 @@ Step 4 — Evaluation metrics
 | **eSCN-MD-Large** | **56.52%** | **0.1739** | **0.0139** |
 
 >
-> → AdsorbML (eSCN-MD-Large, k=3, ML+SP): **89.28% success × ~2000× speedup** (논문 Figure 3 balanced point: 87.36% × 2290×)
+> → AdsorbML (eSCN-MD-Large, k=3, ML+SP): **89.28% success × ~2000× speedup** (paper Figure 3 balanced point: 87.36% × 2290×)
 
 ---
 
-## 주요 평가 결과
+## Key Evaluation Results
 
 | Configuration | Success Rate | Speedup vs DFT |
 |---|---|---|
-| Fast (ML only, top-1) | 낮음 | ~10,000× |
+| Fast (ML only, top-1) | low | ~10,000× |
 | **Balanced (ML+DFT top-k)** | **87.36%** | **~2000×** |
-| Conservative (ML+DFT top-N) | 더 높음 | ~500× |
+| Conservative (ML+DFT top-N) | higher | ~500× |
 
-→ Accuracy-efficiency trade-off spectrum 제공.
+→ Provides an accuracy-efficiency trade-off spectrum.
 
 ---
 
-## 평가 단위
+## Evaluation Setup
 
-| 항목 | 내용 |
+| Item | Details |
 |---|---|
 | Test set | Open Catalyst Dense (~1,000 surfaces) |
 | Metric | Success rate + Speedup |
 | Baseline | DFT-only structure relaxation |
-| ML potential | GemNet-OC, SchNet, eSCN 등 OC family |
-| Adsorbates | OC20 reaction intermediates (CO, CHO, OH, NO 등) |
+| ML potential | GemNet-OC, SchNet, eSCN, and other OC family |
+| Adsorbates | OC20 reaction intermediates (CO, CHO, OH, NO, etc.) |
 
 ---
 
-## 한계점
-- **PBE functional 의존**: 다른 functional과 격차
-- **OC20-trained models 한정**: 다른 chemistry 적용 시 transfer 한계
-- **Initial configuration 의존**: heuristic 시작점 품질이 결과에 영향
-- **메모리·계산비 (대형 unit cell)**: 큰 셀에서 ML 정확도 저하
-- **Catalyst 외 도메인 미커버**: bulk/molecular system 미평가
-- **시간**: 2023년 cutoff, 최신 foundation MLIP 미반영
+## Limitations
+- **PBE functional dependence**: gap relative to other functionals
+- **Limited to OC20-trained models**: transfer limits when applied to other chemistries
+- **Initial configuration dependence**: quality of the heuristic starting point affects results
+- **Memory / compute cost (large unit cells)**: reduced ML accuracy for large cells
+- **Domains beyond catalysts not covered**: bulk/molecular systems not evaluated
+- **Time**: 2023 cutoff, does not reflect the latest foundation MLIPs
 
 ---
 
-## 관련 정보
-- **논문 (npj CompMat)**: [10.1038/s41524-023-01121-5](https://doi.org/10.1038/s41524-023-01121-5)
+## Related links
+- **Paper (npj CompMat)**: [10.1038/s41524-023-01121-5](https://doi.org/10.1038/s41524-023-01121-5)
 - **arXiv**: [2211.16486](https://arxiv.org/abs/2211.16486)
-- **데이터**: Open Catalyst Project Dense subset
-- **공식 사이트**: [opencatalystproject.org](https://opencatalystproject.org/)
+- **Data**: Open Catalyst Project Dense subset
+- **Official site**: [opencatalystproject.org](https://opencatalystproject.org/)
 - **GitHub**: [Open-Catalyst-Project/ocp](https://github.com/Open-Catalyst-Project/ocp)
-- **이 benchmark를 사용한 후속 작업**: Open Catalyst 2022/2024 (OC22, OC24), MLIP Arena (NeurIPS 2025 D&B), foundation MLIP 평가
+- **Follow-up work using this benchmark**: Open Catalyst 2022/2024 (OC22, OC24), MLIP Arena (NeurIPS 2025 D&B), foundation MLIP evaluation

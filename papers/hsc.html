@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HSC Chemistry: Thermodynamic calculation software — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>HSC Chemistry: Thermodynamic calculation software, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -120,106 +120,106 @@
       <h1>HSC Chemistry</h1>
 <p>hsc | ~1974 | Metso Outotec (Commercial Software) | dataset | [material] | <a href="https://www.mogroup.com/portfolio/hsc-chemistry/">website</a></p>
 <table class="prop-table">
-<tr><td class="prop-key">DB</td><td class="prop-val">HSC Chemistry 내장 열역학 데이터베이스 (약 30,000개 화학종의 엔탈피·엔트로피·열용량 등 표준 열역학 데이터)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">~30,000 화학종 (버전에 따라 상이, 비공개 정밀 수치)</td></tr>
-<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Subscription (상용 라이선스)</td></tr>
+<tr><td class="prop-key">DB</td><td class="prop-val">HSC Chemistry built-in thermodynamic database (standard thermodynamic data such as enthalpy, entropy, and heat capacity for approximately 30,000 chemical species)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">~30,000 chemical species (varies by version, undisclosed exact figures)</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Subscription (commercial license)</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Tabular</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">HSC Chemistry (Metso Outotec)</td></tr>
 </table>
 
 <blockquote>
 <p>Metso Outotec | ~1974 | dataset | material</p>
-<h4>📌 한 줄 요약</h4>
-<p>Outotec(현 Metso Outotec)이 개발한 야금학 특화 열역학 계산 소프트웨어로, 약 30,000개 화학종의 열역학 데이터(H, S, Cp)를 내장하여 고온 야금 공정(제련, 소성, 침출)의 물질·에너지 수지, 상평형, 깁스 에너지 최소화를 계산한다.</p>
+<h4>📌 TL;DR</h4>
+<p>A metallurgy-focused thermodynamic calculation software developed by Outotec (now Metso Outotec) that embeds thermodynamic data (H, S, Cp) for approximately 30,000 chemical species to compute mass and energy balances, phase equilibria, and Gibbs energy minimization for high-temperature metallurgical processes (smelting, roasting, leaching).</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 야금 계산의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of conventional metallurgical calculations</strong></p>
 <ul>
-<li>제련소, 광산 처리 공정에서 다성분 고온 반응의 평형 산출물 예측은 수작업으로 불가능</li>
-<li>JANAF, NIST-JANAF 등 개별 데이터 테이블에서 수동으로 추출하는 방법은 시간 소모적이고 오류 발생 가능성이 높음</li>
+<li>In smelters and mineral processing operations, predicting the equilibrium products of multicomponent high-temperature reactions is impossible to do by hand</li>
+<li>Manually extracting from individual data tables such as JANAF and NIST-JANAF is time-consuming and prone to errors</li>
 </ul>
-<p><strong>HSC Chemistry의 위치</strong></p>
+<p><strong>Where HSC Chemistry stands</strong></p>
 <ul>
-<li>비철 금속 제련(구리, 니켈, 납, 아연), 철강, 시멘트, 무기화학 공정 분야의 야금 열역학 표준 도구</li>
-<li>고온(수백~수천 도) 반응 평형 및 ellingham diagram 계산에 특화</li>
+<li>The standard metallurgical thermodynamics tool for non-ferrous metal smelting (copper, nickel, lead, zinc), steelmaking, cement, and inorganic chemistry processes</li>
+<li>Specialized in computing high-temperature (hundreds to thousands of degrees) reaction equilibria and Ellingham diagrams</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
+<h4>🔨 Architecture</h4>
 <ul>
-<li><strong>열역학 데이터베이스</strong>: ~30,000개 화학종의 H°, S°, Cp(T) 다항식 계수 내장</li>
-<li><strong>깁스 에너지 최소화</strong>: 다성분 고온 반응 평형 산출물 자동 계산</li>
-<li><strong>물질·에너지 수지</strong>: 유닛 공정의 mass/energy balance 계산</li>
-<li><strong>Eh-pH 다이어그램</strong>: Pourbaix diagram 생성</li>
-<li><strong>HSC Sim</strong>: 공정 시뮬레이션 모듈</li>
+<li><strong>Thermodynamic database</strong>: Embeds H°, S°, and Cp(T) polynomial coefficients for ~30,000 chemical species</li>
+<li><strong>Gibbs energy minimization</strong>: Automatically computes equilibrium products of multicomponent high-temperature reactions</li>
+<li><strong>Mass and energy balance</strong>: Computes the mass/energy balance of unit processes</li>
+<li><strong>Eh-pH diagram</strong>: Generates Pourbaix diagrams</li>
+<li><strong>HSC Sim</strong>: Process simulation module</li>
 </ul>
-<h4>📥 데이터 접근 방법</h4>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>HSC Chemistry GUI</td>
-  <td>윈도우 기반 인터페이스에서 반응 입력 및 결과 확인</td>
+  <td>Input reactions and view results through a Windows-based interface</td>
 </tr>
 <tr>
-  <td>데이터베이스 검색</td>
-  <td>내장 DB에서 화학종 검색 및 물성값 조회</td>
+  <td>Database search</td>
+  <td>Search chemical species and look up property values in the built-in DB</td>
 </tr>
 <tr>
-  <td>스프레드시트 연동</td>
-  <td>Excel 연동을 통한 결과 내보내기</td>
+  <td>Spreadsheet integration</td>
+  <td>Export results via Excel integration</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>반응 평형 산출물 조성 (mol%)</li>
-<li>열역학 함수 값 (ΔG, ΔH, ΔS, Keq)</li>
+<li>Reaction equilibrium product composition (mol%)</li>
+<li>Thermodynamic function values (ΔG, ΔH, ΔS, Keq)</li>
 <li>Ellingham diagram, Pourbaix diagram</li>
-<li>물질·에너지 수지 표</li>
+<li>Mass and energy balance tables</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (as reported)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>내장 화학종 수</td>
-  <td>~30,000 (버전별 상이)</td>
+  <td>Number of built-in chemical species</td>
+  <td>~30,000 (varies by version)</td>
 </tr>
 <tr>
-  <td>적용 온도 범위</td>
-  <td>25°C ~ 수천°C</td>
+  <td>Applicable temperature range</td>
+  <td>25°C ~ thousands of °C</td>
 </tr>
 <tr>
-  <td>개발사</td>
-  <td>Metso Outotec (핀란드)</td>
+  <td>Developer</td>
+  <td>Metso Outotec (Finland)</td>
 </tr>
 <tr>
-  <td>공개 데이터베이스 규모</td>
-  <td>비공개 (상용 라이선스)</td>
+  <td>Public database size</td>
+  <td>Undisclosed (commercial license)</td>
 </tr>
 </tbody>
 </table>
-<p><strong>NOTE</strong>: <code>hsc</code> 항목은 references.bib에 bib 엔트리가 존재하지 않음 (누락된 인용).</p>
-<h4>⚠️ 한계점</h4>
+<p><strong>NOTE</strong>: The <code>hsc</code> entry has no bib entry in references.bib (missing citation).</p>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>내장 열역학 데이터베이스는 소프트웨어 내에 캡슐화되어 외부 RAG 시스템에서 직접 접근·질의 불가</li>
-<li>데이터베이스 출처(원본 실험 측정값 vs. 추정값)에 대한 메타데이터가 제한적으로 제공됨</li>
-<li>용융 합금 시스템의 CALPHAD 수준 계산에는 FactSage 같은 다성분 용융 데이터베이스가 더 적합</li>
+<li>The built-in thermodynamic database is encapsulated within the software and cannot be directly accessed or queried by external RAG systems</li>
+<li>Metadata on the provenance of the database (original experimental measurements vs. estimated values) is provided only to a limited extent</li>
+<li>For CALPHAD-level calculations of molten alloy systems, multicomponent molten-solution databases such as FactSage are more suitable</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>웹사이트</strong>: <a href="https://www.mogroup.com/portfolio/hsc-chemistry/">Metso Outotec HSC Chemistry</a></li>
-<li><strong>K4 분류</strong>: Embedded in software — 야금학·고온 열역학 tacit knowledge(화학종 열역학 데이터)가 소프트웨어 데이터베이스에 내장됨</li>
-<li><strong>BIB 상태</strong>: references.bib에 bib 엔트리 없음 — 추가 필요</li>
+<li><strong>Website</strong>: <a href="https://www.mogroup.com/portfolio/hsc-chemistry/">Metso Outotec HSC Chemistry</a></li>
+<li><strong>K4 classification</strong>: Embedded in software — metallurgical and high-temperature thermodynamic tacit knowledge (chemical species thermodynamic data) is embedded in the software database</li>
+<li><strong>BIB status</strong>: No bib entry in references.bib — needs to be added</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (hsc)</a></p>
@@ -240,14 +240,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

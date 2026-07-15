@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CardioRAG: A Retrieval-Augmented Generation Framework for Multimodal Chagas Disease Detection — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>CardioRAG: A Retrieval-Augmented Generation Framework for Multimodal Chagas Disease Detection, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,37 +117,37 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-cardiorag-architecture">시스템 구조 (CardioRAG Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l2"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#architecture-cardiorag-architecture">Architecture (CardioRAG Architecture)</a></li><li class="toc-l2"><a href="#pipeline-inference">Pipeline (inference)</a></li><li class="toc-l2"><a href="#key-results">Key Results</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>CardioRAG: Retrieval-Augmented ECG Diagnosis</h1>
 <blockquote>
 <p>arXiv 2025 | Method | medical</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>CardioRAG는 12-lead ECG 기반 샤가스병(Chagas disease) 검출을 위해, 과거 환자 ECG 사례 DB(VAE 잠재표현 + 추출 임상특징 + 진단라벨)에서 잠재공간 코사인 유사도로 가장 유사한 사례를 검색하고, 이를 구조화된 컨텍스트로 LLM에 grounding해 해석 가능한 진단을 생성하는 RAG 프레임워크다. (영상 외 생리신호로 K3 확장)</p>
-<h2 id="시스템-구조-cardiorag-architecture">시스템 구조 (CardioRAG Architecture)</h2>
+<h2 id="tldr">TL;DR</h2>
+<p>CardioRAG is a RAG framework that, for 12-lead ECG-based Chagas disease detection, retrieves the most similar cases from a database of past patient ECG cases (VAE latent representations + extracted clinical features + diagnostic labels) using cosine similarity in latent space, and grounds them as structured context into an LLM to generate interpretable diagnoses. (K3 extension to physiological signals beyond imaging.)</p>
+<h2 id="architecture-cardiorag-architecture">Architecture (CardioRAG Architecture)</h2>
 <ul>
-<li><strong>VAE ECG 잠재표현:</strong> 4개 residual block 인코더로 ECG를 256차원 잠재로 인코딩(L = L_recon + β·L_KL, β=0.1).</li>
-<li><strong>과거 사례 DB:</strong> 각 사례에 VAE 잠재 + 인구통계 + 임상특징(RBBB/LAFB 자동검출, V5 ventricular rate·RMSSD) + 진단 라벨 저장.</li>
-<li><strong>검색→LLM grounding:</strong> 잠재공간 코사인 유사도로 후보 검색 후 복합점수(S_VAE + w_age·S_age)로 재정렬해 top-k 선택. 검색 사례는 <strong>구조화된 텍스트</strong>(인구통계·특징·HRV·라벨)로 변환되어 LLM에 입력(원 파형은 검색 단계에만 사용). LLM=DeepSeek-R1:1.5b.</li>
+<li><strong>VAE ECG latent representation:</strong> An encoder with 4 residual blocks encodes the ECG into a 256-dimensional latent (L = L_recon + β·L_KL, β=0.1).</li>
+<li><strong>Past-case database:</strong> Each case stores the VAE latent + demographics + clinical features (automatic RBBB/LAFB detection, V5 ventricular rate·RMSSD) + diagnostic label.</li>
+<li><strong>Retrieval → LLM grounding:</strong> After retrieving candidates via cosine similarity in latent space, they are re-ranked by a composite score (S_VAE + w_age·S_age) to select top-k. The retrieved cases are converted into <strong>structured text</strong> (demographics·features·HRV·label) and fed into the LLM (the raw waveform is used only in the retrieval stage). LLM = DeepSeek-R1:1.5b.</li>
 </ul>
-<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
+<h2 id="pipeline-inference">Pipeline (inference)</h2>
 <ol>
-<li>ECG 전처리 → 임상특징 자동 추출 → VAE로 256차원 잠재 인코딩.</li>
-<li>잠재 유사도 검색 + 복합점수 재정렬 → top-k(최적 k=8) 사례.</li>
-<li>검색 사례를 구조화 컨텍스트로 프롬프트에 결합.</li>
-<li>LLM이 이진 진단 + confidence + 임상 추론을 JSON으로 출력.</li>
+<li>ECG preprocessing → automatic clinical feature extraction → VAE encoding into a 256-dimensional latent.</li>
+<li>Latent similarity retrieval + composite-score re-ranking → top-k (optimal k=8) cases.</li>
+<li>Combine the retrieved cases into the prompt as structured context.</li>
+<li>The LLM outputs a binary diagnosis + confidence + clinical reasoning as JSON.</li>
 </ol>
-<h2 id="주요-결과">주요 결과</h2>
-<p>데이터: SaMi-Trop(양성)·PTB-XL(음성)·CODE-15%. 테스트 100명(양성50/음성50). RAG 미적용 recall 48.98% → <strong>RAG(k=8) recall 85.7~89.8%</strong>. 최적(P2 간결 프롬프트, k=8): accuracy 58.59% / recall 87.76% / F1 0.68. k=16은 과다검색으로 저하(역U자).</p>
-<h2 id="한계점">한계점</h2>
+<h2 id="key-results">Key Results</h2>
+<p>Data: SaMi-Trop (positive)·PTB-XL (negative)·CODE-15%. Test set of 100 patients (50 positive / 50 negative). Without RAG, recall 48.98% → <strong>with RAG (k=8), recall 85.7~89.8%</strong>. Optimal (P2 concise prompt, k=8): accuracy 58.59% / recall 87.76% / F1 0.68. k=16 degrades due to over-retrieval (inverted-U shape).</p>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li>accuracy 58~59% ceiling — 소형 LLM 한계, 대형 LLM 평가 필요.</li>
-<li>소형 LLM의 confidence score 신뢰 어려움.</li>
-<li>검색 DB 구성 데이터셋·분할이 본문에 명시 부족.</li>
+<li>accuracy 58~59% ceiling — a limitation of the small LLM; evaluation with a larger LLM is needed.</li>
+<li>The confidence scores of the small LLM are hard to trust.</li>
+<li>The datasets and splits used to construct the retrieval DB are insufficiently specified in the main text.</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
 <li>arXiv: 2510.01558 (Shen, Zhai, Tu, Shi; Imperial College London / Oxford)</li>
 </ul>
@@ -183,14 +183,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

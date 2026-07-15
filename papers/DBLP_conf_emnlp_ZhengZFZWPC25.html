@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Benchmarking Foundation Models with Retrieval-Augmented Generation in Olympic-Level Physics Problem Solving — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Benchmarking Foundation Models with Retrieval-Augmented Generation in Olympic-Level Physics Problem Solving, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,49 +117,49 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l3"><a href="#generator-prompt-논문-figure-3-그대로-인용">Generator Prompt (논문 Figure 3, 그대로 인용)</a></li><li class="toc-l3"><a href="#reflection-prompt-figure-4">Reflection Prompt (Figure 4)</a></li><li class="toc-l3"><a href="#judge-prompt-figure-5">Judge Prompt (Figure 5)</a></li><li class="toc-l2"><a href="#inputoutput">Input/Output</a></li><li class="toc-l2"><a href="#예시-사례">예시 사례</a></li><li class="toc-l3"><a href="#예시-①-charged-ring-논문-figure-1-retrieval-pipeline-showcase">예시 ① — Charged Ring (논문 Figure 1, retrieval pipeline showcase)</a></li><li class="toc-l3"><a href="#예시-②-error-analysis-저자가-직접-분류한-negative-case-33">예시 ② — Error Analysis (저자가 직접 분류한 negative case, §3.3)</a></li><li class="toc-l2"><a href="#주요-평가-결과">주요 평가 결과</a></li><li class="toc-l2"><a href="#핵심-기여">핵심 기여</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#background">Background</a></li><li class="toc-l2"><a href="#construction-methodology">Construction Methodology</a></li><li class="toc-l3"><a href="#generator-prompt-paper-figure-3-quoted-verbatim">Generator Prompt (paper Figure 3, quoted verbatim)</a></li><li class="toc-l3"><a href="#reflection-prompt-figure-4">Reflection Prompt (Figure 4)</a></li><li class="toc-l3"><a href="#judge-prompt-figure-5">Judge Prompt (Figure 5)</a></li><li class="toc-l2"><a href="#inputoutput">Input/Output</a></li><li class="toc-l2"><a href="#examples">Examples</a></li><li class="toc-l3"><a href="#example-①-charged-ring-paper-figure-1-retrieval-pipeline-showcase">Example ① — Charged Ring (paper Figure 1, retrieval pipeline showcase)</a></li><li class="toc-l3"><a href="#example-②-error-analysis-negative-cases-classified-directly-by-the-authors-33">Example ② — Error Analysis (negative cases classified directly by the authors, §3.3)</a></li><li class="toc-l2"><a href="#key-evaluation-results">Key Evaluation Results</a></li><li class="toc-l2"><a href="#key-contributions">Key Contributions</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related Links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>Benchmarking Foundation Models with Retrieval-Augmented Generation in Olympic-Level Physics Problem Solving</h1>
 <blockquote>
 <p>EMNLP Findings | 2025 | Method | physics</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p><strong>PhoPile</strong> — 7개 국제 Physics Olympiad(IPhO, APhO, EuPhO, NBPhO, RMPh, USAPhO, BPhO)에서 모은 3,052개 올림피아드 문제(2018년 이전 2,662개 retrieval corpus + 2019-2021년 390개 test) 기반 <strong>최초의 멀티모달 RAG 물리 벤치마크</strong>. 텍스트·이미지가 결합된 진정한 olympiad 난이도 문제에 대해 8개 LLM/LMM × 7개 retriever × 1-3 shot × reflection on/off를 종합 평가.</p>
-<h2 id="제작-배경">제작 배경</h2>
-<p><strong>기존 데이터셋의 한계</strong></p>
+<h2 id="tldr">TL;DR</h2>
+<p><strong>PhoPile</strong> — the <strong>first multimodal RAG physics benchmark</strong>, built on 3,052 olympiad problems collected from 7 international Physics Olympiads (IPhO, APhO, EuPhO, NBPhO, RMPh, USAPhO, BPhO) (2,662 problems from before 2018 as the retrieval corpus + 390 problems from 2019-2021 as the test set). It comprehensively evaluates 8 LLM/LMM × 7 retriever × 1-3 shot × reflection on/off on genuine olympiad-difficulty problems that combine text and images.</p>
+<h2 id="background">Background</h2>
+<p><strong>Limitations of existing datasets</strong></p>
 <ul>
-<li>SciQ, ScienceQA, TheoremQA 등은 &quot;small number of low-difficulty, text-only physics problems&quot; (논문 §1)</li>
-<li>OlympiadBench는 난이도는 올렸지만 RAG 없이 isolation 평가 → retrieval 효용 미평가</li>
-<li>물리 답안은 numerical, symbolic, diagrammatic 다양 → 수학과 달리 자동 채점 매우 어려움</li>
+<li>SciQ, ScienceQA, TheoremQA, and others consist of a &quot;small number of low-difficulty, text-only physics problems&quot; (paper §1)</li>
+<li>OlympiadBench raised the difficulty but evaluated in isolation without RAG → the utility of retrieval was not assessed</li>
+<li>Physics answers are diverse — numerical, symbolic, diagrammatic → unlike mathematics, automatic grading is very difficult</li>
 </ul>
-<p><strong>왜 필요한가</strong></p>
+<p><strong>Why it is needed</strong></p>
 <ul>
-<li>수험생이 과거 유사 문제를 참고하여 새 문제를 푸는 학습 방식 = few-shot retrieval과 유사</li>
-<li>Olympiad는 연도 간 개념이 반복 → 과거 문제 retrieval이 효과적일 것이라는 가설 검증 필요</li>
-<li>저자 인용: &quot;competition problems share similar concepts across years, and past problems capture not only the necessary physics knowledge from basic principles, but also problem-solving strategies&quot; (§1)</li>
+<li>The learning approach where a student solves a new problem by referring to similar past problems = analogous to few-shot retrieval</li>
+<li>Concepts recur across years in the Olympiad → the hypothesis that retrieval of past problems is effective needs to be verified</li>
+<li>Author quote: &quot;competition problems share similar concepts across years, and past problems capture not only the necessary physics knowledge from basic principles, but also problem-solving strategies&quot; (§1)</li>
 </ul>
-<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="construction-methodology">Construction Methodology</h2>
 <p><strong>Step 1: Data Collection</strong></p>
 <ul>
-<li>7개 대회 공식 PDF에서 2009-2021 문제 수집</li>
+<li>Collected 2009-2021 problems from the official PDFs of 7 competitions</li>
 <li>IPhO (International), APhO (Asian), EuPhO (European), NBPhO (Nordic-Baltic), RMPh (Romanian Master), USAPhO (United States), BPhO (British)</li>
-<li>2019-2021 → test set (390문제)</li>
-<li>2009-2018 → retrieval corpus (2,662문제)</li>
+<li>2019-2021 → test set (390 problems)</li>
+<li>2009-2018 → retrieval corpus (2,662 problems)</li>
 </ul>
-<p><strong>Step 2: 표준화 (논문 §2)</strong></p>
+<p><strong>Step 2: Standardization (paper §2)</strong></p>
 <ol>
-<li>LaTeX 변환: 수식·도해를 표준 LaTeX로 변환</li>
-<li>Image placeholder: <code>###img_1###</code> 형태로 이미지 위치 표시</li>
-<li>Hierarchical Question Structure: main problem + sub-questions 계층 보존</li>
-<li>Token statistics 정규화 (Table 2)</li>
+<li>LaTeX conversion: convert formulas and diagrams to standard LaTeX</li>
+<li>Image placeholder: mark image positions in the form <code>###img_1###</code></li>
+<li>Hierarchical Question Structure: preserve the main problem + sub-questions hierarchy</li>
+<li>Token statistics normalization (Table 2)</li>
 </ol>
-<p><strong>Step 3: 시스템 아키텍처</strong></p>
+<p><strong>Step 3: System Architecture</strong></p>
 <pre><code>                  [New Olympiad Question + ###img###]
                                 │
                                 ▼
               ┌──────────────────────────────────┐
-              │   Retrievers (7 종)              │
+              │   Retrievers (7 types)           │
               │   ─────────────────────────      │
               │   Text-only:                     │
               │     - BM25 (sparse)              │
@@ -174,7 +174,7 @@
                            │ Top-k similar (q_i, a_i) pairs
                            ▼
               ┌──────────────────────────────────┐
-              │   Generator (8 종)               │
+              │   Generator (8 types)            │
               │   ─────────────────────────      │
               │   Closed: GPT-3.5, GPT-4,        │
               │           GPT-4V, Gemini-Pro,    │
@@ -182,10 +182,10 @@
               │   Open: Llama-3-70B,             │
               │         DeepSeek-Math,           │
               │         Mistral-7B, Phi-3.5,     │
-              │         Mathstral-7B (FT 가능)   │
+              │         Mathstral-7B (FT-able)   │
               │   - Few-shot prompt with         │
               │     retrieved Q-A pairs          │
-              │   - Sub-question 자동 chain      │
+              │   - Sub-question auto chain      │
               └────────────┬─────────────────────┘
                            │
                            ▼ Candidate answer
@@ -193,7 +193,8 @@
               │   (Optional) Reflection (GPT-4)  │
               │   ─────────────────────────      │
               │   Answer w/RAG vs Answer w/o RAG │
-              │   → 더 정확한 답 선택            │
+              │   → select the more accurate     │
+              │     answer                       │
               └────────────┬─────────────────────┘
                            │
                            ▼
@@ -201,12 +202,13 @@
               │   GPT-4 Judge                    │
               │   ─────────────────────────      │
               │   Reference answer + Student     │
-              │   answer → 0-10 점               │
-              │   (full score 정답 / 부분점수    │
-              │    중간단계 비율)                │
+              │   answer → 0-10 score            │
+              │   (full score for correct answer │
+              │    / partial score by ratio of   │
+              │    intermediate steps)           │
               └──────────────────────────────────┘
 </code></pre>
-<h3 id="generator-prompt-논문-figure-3-그대로-인용">Generator Prompt (논문 Figure 3, 그대로 인용)</h3>
+<h3 id="generator-prompt-paper-figure-3-quoted-verbatim">Generator Prompt (paper Figure 3, quoted verbatim)</h3>
 <blockquote>
 <p>&quot;Your task is to answer the physics questions. The mathematical formulas are provided in Latex code. There are some related questions and their answers you may find helpful.
 Here are the examples:
@@ -230,29 +232,29 @@ Please give a reason and output the final answer number in side '##', for exampl
 <p>&quot;You are a professional physicist and you will grade answers provided by physics students by reference to standard answers. The full score is 10 points, and the minimum score is 0 points. If the student gives the final answer, full marks will be awarded directly. If the student does not give the final answer or the final answer is incorrect, please score based on the proportion of correct calculation steps given by the student. You only need to output a score number.&quot;</p>
 </blockquote>
 <h2 id="inputoutput">Input/Output</h2>
-<p><strong>Input</strong>: Olympiad 물리 문제 (text + LaTeX + optional image) + (선택) k개 retrieved Q-A pair</p>
-<p><strong>Output</strong>: 단계별 풀이 + 최종 답안 (numerical / symbolic / diagrammatic)</p>
-<p><strong>Evaluation</strong>: GPT-4 grader가 reference answer 대비 0-10점 (Pass Rate = 정답 인정 비율, Average Score = 0-10 평균)</p>
-<h2 id="예시-사례">예시 사례</h2>
-<h3 id="예시-①-charged-ring-논문-figure-1-retrieval-pipeline-showcase">예시 ① — Charged Ring (논문 Figure 1, retrieval pipeline showcase)</h3>
+<p><strong>Input</strong>: Olympiad physics problem (text + LaTeX + optional image) + (optional) k retrieved Q-A pairs</p>
+<p><strong>Output</strong>: step-by-step solution + final answer (numerical / symbolic / diagrammatic)</p>
+<p><strong>Evaluation</strong>: a GPT-4 grader scores 0-10 against the reference answer (Pass Rate = proportion of answers accepted as correct, Average Score = 0-10 average)</p>
+<h2 id="examples">Examples</h2>
+<h3 id="example-①-charged-ring-paper-figure-1-retrieval-pipeline-showcase">Example ① — Charged Ring (paper Figure 1, retrieval pipeline showcase)</h3>
 <blockquote>
 <p><strong>New Question (test set)</strong>:</p>
 <blockquote>
 <p>&quot;Consider a uniformly charged metallic ring of radius R and total charge q. The ring is a hollow toroid of thickness 2a≪R. This thickness can be neglected in parts A, B, C, and E. The xy plane coincides with the plane of the ring, while the z-axis is perpendicular to it, as shown in Figure 1. In parts A and B you might need to use the formula (Taylor expansion): (1 + xε) ≈ 1 + εx + 0.5ε(ε−1)x², when x≪1. Calculate the electrostatic potential Φ(z) along the axis of the ring at a z distance from its center (point A in ###img_1###).&quot;</p>
 </blockquote>
-<p><strong>Retrievers tested</strong>: BM25, MiniLM+cosine, Dragon+, Contriever (text-only) 또는 CLIP/VisualBERT/ALIGN (multimodal)
-<strong>Generators tested</strong>: GPT-4, Gemini-Pro, Llama-3, Mistral 등 8종</p>
+<p><strong>Retrievers tested</strong>: BM25, MiniLM+cosine, Dragon+, Contriever (text-only) or CLIP/VisualBERT/ALIGN (multimodal)
+<strong>Generators tested</strong>: 8 models including GPT-4, Gemini-Pro, Llama-3, Mistral</p>
 </blockquote>
-<h3 id="예시-②-error-analysis-저자가-직접-분류한-negative-case-33">예시 ② — Error Analysis (저자가 직접 분류한 negative case, §3.3)</h3>
+<h3 id="example-②-error-analysis-negative-cases-classified-directly-by-the-authors-33">Example ② — Error Analysis (negative cases classified directly by the authors, §3.3)</h3>
 <blockquote>
-<p>검색이 오히려 성능을 떨어뜨린 3가지 원인 (논문 §3.3):</p>
+<p>The 3 causes by which retrieval instead degraded performance (paper §3.3):</p>
 <ol>
 <li>&quot;the general retriever was not effectively applied to physics problems, as retriever specific to physics may consider the questions that using the same theorem as the top-k relevant ones, instead of those with highest semantic similarity&quot;</li>
 <li>&quot;The format in retrieved questions misleads the candidate models' answering. The retrieved questions and their reference answer may provide guidance answers instead of directly answering the question. Therefore, the foundation models may refuse to answer the final answer directly&quot;</li>
 <li>&quot;some wrong answers arise from using conditions in the retrieved questions as if they were the known conditions in the current question&quot;</li>
 </ol>
 </blockquote>
-<h2 id="주요-평가-결과">주요 평가 결과</h2>
+<h2 id="key-evaluation-results">Key Evaluation Results</h2>
 <p><strong>Table 4 — PhoPile-Test (text-only, Pass Rate% / Avg Score)</strong></p>
 <table>
 <thead>
@@ -392,7 +394,7 @@ Please give a reason and output the final answer number in side '##', for exampl
 </tr>
 </tbody>
 </table>
-<p><strong>Table 6 — k-shot 효과 (Avg Score in parens)</strong></p>
+<p><strong>Table 6 — k-shot effect (Avg Score in parens)</strong></p>
 <table>
 <thead>
 <tr>
@@ -455,7 +457,7 @@ Please give a reason and output the final answer number in side '##', for exampl
 </tr>
 </tbody>
 </table>
-<p><strong>Table 3 — GPT-4 Grader 신뢰성 (tolerance k)</strong></p>
+<p><strong>Table 3 — GPT-4 Grader reliability (tolerance k)</strong></p>
 <table>
 <thead>
 <tr>
@@ -476,34 +478,34 @@ Please give a reason and output the final answer number in side '##', for exampl
 </tr>
 </tbody>
 </table>
-<p><strong>핵심 관찰</strong></p>
+<p><strong>Key observations</strong></p>
 <ul>
-<li>최고 성능: GPT-4V + CLIP(multimodal) = <strong>30.10%</strong> ; Gemini-Pro + Contriever(text) = <strong>30.51%</strong></li>
-<li>RAG 효과는 model마다 다름 — 일부 (GPT-3.5 + Contriever) 는 base보다 하락</li>
-<li>Reflection은 약한 모델(Gemini-Pro, Llama-3-70B)에서 큰 향상</li>
-<li>k=1이 종종 k=2,3보다 우수 → &quot;Shot 수 증가가 항상 좋은 것은 아님&quot;</li>
-<li>Open-source FT 모델(Mathstral 29.02)이 GPT-4와 거의 동급</li>
+<li>Best performance: GPT-4V + CLIP (multimodal) = <strong>30.10%</strong> ; Gemini-Pro + Contriever (text) = <strong>30.51%</strong></li>
+<li>The RAG effect varies by model — some (GPT-3.5 + Contriever) drop below the base</li>
+<li>Reflection yields large gains on weaker models (Gemini-Pro, Llama-3-70B)</li>
+<li>k=1 is often better than k=2,3 → &quot;increasing the number of shots is not always beneficial&quot;</li>
+<li>The open-source FT model (Mathstral 29.02) is nearly on par with GPT-4</li>
 </ul>
-<h2 id="핵심-기여">핵심 기여</h2>
+<h2 id="key-contributions">Key Contributions</h2>
 <ol>
-<li><strong>PhoPile</strong> — 7개 대회 기반 최초의 multimodal physics olympiad RAG benchmark</li>
-<li><strong>8 LLM/LMM × 7 retriever × 3 shot × reflection 종합 ablation</strong> — 가장 광범위한 physics RAG 평가</li>
-<li><strong>Step-wise + solution-level GPT-4 judge</strong> — 추론 단계 채점 프레임워크 (tolerance k=3에서 인간 일치율 87%)</li>
-<li><strong>Error taxonomy</strong> — RAG 실패 3가지 원인 분류 (semantic mismatch / format misleading / condition leakage)</li>
+<li><strong>PhoPile</strong> — the first multimodal physics olympiad RAG benchmark, built on 7 competitions</li>
+<li><strong>Comprehensive ablation of 8 LLM/LMM × 7 retriever × 3 shot × reflection</strong> — the most extensive physics RAG evaluation</li>
+<li><strong>Step-wise + solution-level GPT-4 judge</strong> — a reasoning-step grading framework (87% agreement with humans at tolerance k=3)</li>
+<li><strong>Error taxonomy</strong> — classification of 3 causes of RAG failure (semantic mismatch / format misleading / condition leakage)</li>
 </ol>
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li>일반 retriever만 사용 → physics-specific retriever 부재 (&quot;highlights the significance of establishing domain-specific retrievers&quot;, §3.3)</li>
-<li>GPT-4 judge 의존 → judge가 물리 전문성을 보장하지 않음</li>
-<li>영어 문제 중심 (다국어 대회는 영어 번역본)</li>
-<li>검색 노이즈 robustness 미흡 → conditions leakage 빈발</li>
+<li>Only general retrievers are used → absence of a physics-specific retriever (&quot;highlights the significance of establishing domain-specific retrievers&quot;, §3.3)</li>
+<li>Dependence on the GPT-4 judge → the judge does not guarantee physics expertise</li>
+<li>English-problem-centric (multilingual competitions use English translations)</li>
+<li>Insufficient robustness to retrieval noise → conditions leakage occurs frequently</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related Links</h2>
 <ul>
-<li><strong>논문 링크</strong>: <a href="https://aclanthology.org/2025.findings-emnlp.1196/">https://aclanthology.org/2025.findings-emnlp.1196/</a></li>
+<li><strong>Paper link</strong>: <a href="https://aclanthology.org/2025.findings-emnlp.1196/">https://aclanthology.org/2025.findings-emnlp.1196/</a></li>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2510.00919">https://arxiv.org/abs/2510.00919</a></li>
-<li><strong>관련 벤치마크</strong>: SciQ (Welbl et al., 2017), ScienceQA (Lu et al., 2022), TheoremQA (Chen et al., 2023), OlympiadBench (He et al., 2024)</li>
-<li><strong>K×O 분류</strong>: K3 (체계적 지식/educational artifacts) × O1 (closed-form QA) — 과거 olympiad Q-A pair를 demonstration으로 활용</li>
+<li><strong>Related benchmarks</strong>: SciQ (Welbl et al., 2017), ScienceQA (Lu et al., 2022), TheoremQA (Chen et al., 2023), OlympiadBench (He et al., 2024)</li>
+<li><strong>K×O classification</strong>: K3 (systematic knowledge / educational artifacts) × O1 (closed-form QA) — uses past olympiad Q-A pairs as demonstrations</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/emnlp/ZhengZFZWPC25)</a></p>
@@ -543,14 +545,14 @@ Please give a reason and output the final answer number in side '##', for exampl
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

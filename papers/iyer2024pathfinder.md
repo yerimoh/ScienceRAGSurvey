@@ -10,44 +10,44 @@ paper_link: https://doi.org/10.3847/1538-4365/ad7c43
 # Pathfinder: Semantic RAG Framework for Astronomy Literature
 > ApJS 275:38, 2024 | Method | astronomy
 
-## 한 줄 요약
-Pathfinder는 약 35만 편의 천문학 논문(ADS+arXiv astro-ph) 초록을 임베딩 기반 의미 검색으로 색인하고, HyDE 질의 확장·reranking·RAG/ReAct 생성을 결합하여 인용을 단 장문 답변을 생성하는 천문학 문헌 리뷰·지식 발견용 시스템(프레임워크)이다. 키워드 일치에 의존하는 기존 검색을 의미 검색으로 대체한 grounded literature QA 도구이며, 벤치마크가 아니라 실제 배포된 시스템이다.
+## TL;DR
+Pathfinder is a system (framework) for astronomy literature review and knowledge discovery that indexes the abstracts of roughly 350,000 astronomy papers (ADS + arXiv astro-ph) via embedding-based semantic search, and combines HyDE query expansion, reranking, and RAG/ReAct generation to produce long-form answers with citations. It is a grounded literature QA tool that replaces conventional keyword-matching search with semantic search, and it is an actually deployed system rather than a benchmark.
 
-## 시스템 구조 (Pathfinder Architecture)
-- **Corpus:** 총 352,194편의 peer-reviewed 천문학 논문(Kaggle arXiv astro-ph 약 27만 편을 ADS 메타데이터로 보강). 현재 버전은 초록(abstract)만 사용하며 향후 full-text 확장 가능.
-- **Embedding / 벡터 검색:** OpenAI text-embedding-3-small(1536차원)로 임베딩, cosine similarity로 FAISS 인덱싱·검색. 시각화는 UMAP 2D 축소.
-- **키워드 추출:** spaCy·pytextrank로 초록마다 20개 키워드 사전 추출(키워드 reranking에 사용).
+## Architecture (Pathfinder Architecture)
+- **Corpus:** A total of 352,194 peer-reviewed astronomy papers (roughly 270,000 Kaggle arXiv astro-ph papers augmented with ADS metadata). The current version uses only abstracts, with possible future extension to full text.
+- **Embedding / vector search:** Embedded with OpenAI text-embedding-3-small (1536 dimensions), indexed and searched in FAISS using cosine similarity. Visualization uses UMAP 2D reduction.
+- **Keyword extraction:** spaCy and pytextrank pre-extract 20 keywords per abstract (used in keyword reranking).
 - **Reranking (recency / citation / keyword):**
-  - *Recency*: 약 5년 이상 오래된 논문에 시그모이드 페널티.
-  - *Citation*: 피인용이 높은 문헌을 선호하는 시그모이드 가중.
-  - *Keyword*: 천문 전문 용어·천체명·사용자 지정 문자열을 사전 키워드와 비교해 일치 문서를 가중.
-- **2단계 검색 + 신경 reranker:** 초기 top-k=250을 HyDE 의미 검색으로 가져온 뒤, Cohere rerank-english-v3.0으로 재정렬해 최종 1~30편 선택.
-- **생성기 (RAG + ReAct):** LangChain으로 RAG 구성. 검색된 초록 청크를 LLM에 전달해 답을 합성하며, 관련 출처가 없으면 "I don't know"로 응답하도록 제약. 복합·반사실 질의에는 ReAct 에이전트가 추론·검색을 반복. 생성·합의 평가에 GPT-4 / GPT-4o mini 사용.
-- **프론트엔드:** Streamlit UI, HuggingFace Spaces 배포(pathfinder.app). 데이터셋·코드 공개.
+  - *Recency*: a sigmoid penalty for papers older than roughly 5 years.
+  - *Citation*: a sigmoid weighting that favors highly cited literature.
+  - *Keyword*: weights documents that match by comparing astronomy jargon, celestial object names, and user-specified strings against the pre-extracted keywords.
+- **Two-stage retrieval + neural reranker:** an initial top-k=250 is fetched via HyDE semantic search, then reordered with Cohere rerank-english-v3.0 to select a final 1 to 30 papers.
+- **Generator (RAG + ReAct):** RAG is built with LangChain. It synthesizes an answer by passing the retrieved abstract chunks to the LLM, constrained to respond "I don't know" when no relevant source exists. For compound and counterfactual queries, a ReAct agent iterates over reasoning and retrieval. GPT-4 / GPT-4o mini are used for generation and consensus evaluation.
+- **Frontend:** Streamlit UI, deployed on HuggingFace Spaces (pathfinder.app). Dataset and code are public.
 
-## 동작 파이프라인 (inference)
-1. 질의 입력 → 질의 유형 분류(단일/다중 논문 사실, 합의 평가, 복합, What-If·반사실 등) 및 NER·전문용어·시간민감 플래그 판별.
-2. **HyDE 질의 확장:** LLM이 "전문 천문학자"로서 질의를 도메인 특화 가상 초록으로 재작성.
-3. **의미 검색:** 확장 질의 임베딩으로 FAISS에서 top-k=250 후보 검색.
-4. **Reranking:** recency·citation·keyword 가중 + Cohere reranker로 최종 1~30편 선정.
-5. **답변 생성:** 질의 유형별 특화 프롬프트로 RAG 답변 생성(단일=간결, 다중=요약 합성, 넓은 질의=초기답변→자기비판→개선). 복합·반사실은 ReAct 단계로 처리.
-6. **출력:** 답변 + top-k 논문 표 + 질의 유형 + 관련도(0~1) 추정. 합의 질의는 7단계(Strong Agreement … No Clear Consensus … Strong Disagreement)로 평가, 이상치(outlier) 논문도 플래그.
+## Pipeline (inference)
+1. Query input → query type classification (single/multi-paper facts, consensus evaluation, compound, What-If/counterfactual, etc.) and determination of NER, jargon, and time-sensitivity flags.
+2. **HyDE query expansion:** the LLM, acting as an "expert astronomer," rewrites the query into a domain-specific hypothetical abstract.
+3. **Semantic search:** retrieves top-k=250 candidates from FAISS using the expanded query embedding.
+4. **Reranking:** recency/citation/keyword weighting + Cohere reranker to select the final 1 to 30 papers.
+5. **Answer generation:** RAG answer generation with query-type-specific prompts (single = concise, multi = summary synthesis, broad query = initial answer → self-critique → refinement). Compound and counterfactual queries are handled with ReAct steps.
+6. **Output:** answer + top-k paper table + query type + relevance (0-1) estimate. Consensus queries are evaluated on a 7-level scale (Strong Agreement … No Clear Consensus … Strong Disagreement), and outlier papers are also flagged.
 
-## 주요 기능/결과
-- **활용:** 의미 기반 문헌 리뷰, 지식 발견, 합의 평가, 예상 밖 논문 탐지 등 grounded literature QA 워크플로우.
-- **단일 논문 합성 벤치마크**(무작위 500편, top-k=10): Bag-of-Words s=0.46, r⁻¹=0.29 → HyDE+reranking s=0.84, r⁻¹=0.74.
-- **다중 논문 합성 벤치마크**(리뷰 논문 200편, top-k=50): Bag-of-Words recall=0.15, nDCG=0.09 → HyDE+reranking recall=0.29, nDCG=0.19.
-- **Gold QA 데이터셋:** Slack 봇으로 36명 천문학자가 370개 질문 제출, 전문가 답변 수집. 사용자 긍정 상호작용과 검색 점수가 양의 상관(Spearman ρ=+0.33).
+## Key features/results
+- **Applications:** grounded literature QA workflows such as semantic-based literature review, knowledge discovery, consensus evaluation, and detection of unexpected papers.
+- **Single-paper synthesis benchmark** (500 random papers, top-k=10): Bag-of-Words s=0.46, r⁻¹=0.29 → HyDE+reranking s=0.84, r⁻¹=0.74.
+- **Multi-paper synthesis benchmark** (200 review papers, top-k=50): Bag-of-Words recall=0.15, nDCG=0.09 → HyDE+reranking recall=0.29, nDCG=0.19.
+- **Gold QA dataset:** via a Slack bot, 36 astronomers submitted 370 questions, and expert answers were collected. Positive user interactions and retrieval scores were positively correlated (Spearman ρ=+0.33).
 
-## 한계점
-- 초록만 색인 → 본문 깊은 데이터·방법 세부 질의는 자주 놓침.
-- 매우 최신 논문·일부 niche 저널 미포함(불완전 코퍼스).
-- 인용 그래프 미활용 → 상세 bibliometric 분석, 특정 저자·기관 검색, 계산 수행은 부적합.
-- LLM 편향·환각 가능 → 답변을 top-k 논문과 교차 검증 필요.
-- 복합·반사실 질의는 ReAct 없이는 직접 답변 불가하며, ReAct도 루프에 빠질 수 있음.
+## Limitations
+- Only abstracts are indexed → deep data and method-detail queries about the body text are frequently missed.
+- Very recent papers and some niche journals are not included (incomplete corpus).
+- The citation graph is not used → unsuitable for detailed bibliometric analysis, searches for specific authors or institutions, or performing computations.
+- LLM bias and hallucination are possible → answers need to be cross-checked against the top-k papers.
+- Compound and counterfactual queries cannot be answered directly without ReAct, and ReAct itself can get stuck in loops.
 
-## 관련 정보
+## Related links
 - Iyer, Yunus, O'Neill, Ye, et al., ApJS 275:38, 2024.
 - arXiv: 2408.01556 (https://arxiv.org/abs/2408.01556)
 - DOI: https://doi.org/10.3847/1538-4365/ad7c43
-- 라이브 도구: pathfinder.app (HuggingFace Spaces 배포), 코드·데이터셋 공개.
+- Live tool: pathfinder.app (deployed on HuggingFace Spaces), code and dataset public.

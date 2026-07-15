@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DUNE Knowledge Retrieval: Large-scale Indexing of Fermilab Collaboration Documents — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>DUNE Knowledge Retrieval: Large-scale Indexing of Fermilab Collaboration Documents, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,7 +117,7 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#input-입력">Input (입력)</a></li><li class="toc-l2"><a href="#output-출력">Output (출력)</a></li><li class="toc-l2"><a href="#예시-문항-논문-본문-명시-내용">예시 문항 (논문 본문 명시 내용)</a></li><li class="toc-l3"><a href="#평가-질의-카테고리-sec-4-본문-그대로">📘 평가 질의 카테고리 (Sec. 4 본문 그대로)</a></li><li class="toc-l3"><a href="#frontend-예시-fig-3-caption">📘 Frontend 예시 (Fig. 3 caption)</a></li><li class="toc-l3"><a href="#데이터-소스-범위">📘 데이터 소스 범위</a></li><li class="toc-l3"><a href="#보안-정책-sec-3-본문">📘 보안 정책 (Sec. 3 본문)</a></li><li class="toc-l2"><a href="#주요-결과-sec-4-preliminary">주요 결과 (Sec. 4 Preliminary)</a></li><li class="toc-l2"><a href="#한계점-저자-명시">한계점 (저자 명시)</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#background">Background</a></li><li class="toc-l2"><a href="#how-it-was-built-construction-methodology">How It Was Built (Construction Methodology)</a></li><li class="toc-l2"><a href="#input">Input</a></li><li class="toc-l2"><a href="#output">Output</a></li><li class="toc-l2"><a href="#example-questions-content-stated-in-the-paper-body">Example Questions (content stated in the paper body)</a></li><li class="toc-l3"><a href="#evaluation-query-categories-verbatim-from-sec-4-body">📘 Evaluation query categories (verbatim from Sec. 4 body)</a></li><li class="toc-l3"><a href="#frontend-example-fig-3-caption">📘 Frontend example (Fig. 3 caption)</a></li><li class="toc-l3"><a href="#data-source-scope">📘 Data source scope</a></li><li class="toc-l3"><a href="#security-policy-sec-3-body">📘 Security policy (Sec. 3 body)</a></li><li class="toc-l2"><a href="#key-results-sec-4-preliminary">Key Results (Sec. 4 Preliminary)</a></li><li class="toc-l2"><a href="#limitations-stated-by-the-authors">Limitations (stated by the authors)</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>DUNE-GPT: LLM Integration for Knowledge Retrieval in the DUNE Experiment</h1>
@@ -126,34 +126,34 @@
 Rafique, Singh, Srinivas — Argonne National Laboratory (DUNE Collaboration)
 Presented at Lepton Photon 2025, Madison WI</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p><strong>Deep Underground Neutrino Experiment (DUNE)</strong> 의 DocDB·Indico·내부 위키 문서를 Fermilab/ALCF 인프라(Aurora 슈퍼컴퓨터 + Argo + Ollama)에서 검색하는 RAG 프로토타입 시스템. <code>multi-qa-mpnet-base-dot-v1</code> + FAISS로 인덱싱, 다양한 질의 유형에서 <strong>예비 검색 정확도 ~70%</strong> 보고. on-premise · 인증된 DUNE 공동연구자만 접근.</p>
-<h2 id="제작-배경">제작 배경</h2>
-<p><strong>기존 방법의 한계</strong></p>
+<h2 id="tldr">TL;DR</h2>
+<p>A RAG prototype system that retrieves DocDB, Indico, and internal wiki documents of the <strong>Deep Underground Neutrino Experiment (DUNE)</strong> on Fermilab/ALCF infrastructure (Aurora supercomputer + Argo + Ollama). Indexed with <code>multi-qa-mpnet-base-dot-v1</code> + FAISS, reporting <strong>preliminary retrieval accuracy ~70%</strong> across diverse query types. On-premise; accessible only to authenticated DUNE collaborators.</p>
+<h2 id="background">Background</h2>
+<p><strong>Limitations of existing approaches</strong></p>
 <ul>
-<li>DUNE 협업은 DocDB(기술 설계 보고서/TDR, 분석 노트), Indico(미팅·발표), 내부 위키 등 <strong>다수 분산 플랫폼</strong>에 문서 보관</li>
-<li>신규 협력자가 reconstruction, simulation, data analysis, detector operations 정보를 찾는 데 시간 집약적</li>
-<li>상용 LLM 직접 사용 시 <strong>data privacy, reproducibility, network accessibility</strong> 모두 우려</li>
-<li>ATLAS/CMS의 chATLAS/MITRA와 유사한 needs</li>
+<li>The DUNE collaboration stores documents across <strong>multiple distributed platforms</strong> such as DocDB (technical design reports/TDR, analysis notes), Indico (meetings/presentations), and internal wikis</li>
+<li>Finding information on reconstruction, simulation, data analysis, and detector operations is time-intensive for new collaborators</li>
+<li>Directly using commercial LLMs raises concerns about <strong>data privacy, reproducibility, and network accessibility</strong></li>
+<li>Needs similar to chATLAS/MITRA of ATLAS/CMS</li>
 </ul>
-<p><strong>왜 DUNE-GPT가 필요했는지</strong></p>
+<p><strong>Why DUNE-GPT was needed</strong></p>
 <ul>
-<li>&quot;next-generation neutrino experiment&quot;로서 미공개 데이터 외부 전송 금지</li>
-<li>Fermilab compliance 내에서 동작해야 함</li>
-<li>인증된 DUNE 협력자만 접근 가능한 secure interface 필요</li>
+<li>As a &quot;next-generation neutrino experiment,&quot; external transfer of unpublished data is prohibited</li>
+<li>Must operate within Fermilab compliance</li>
+<li>Requires a secure interface accessible only to authenticated DUNE collaborators</li>
 </ul>
-<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
-<pre><code>Step 1 — 데이터 소스 수집
-  ┌─ DocDB : TDR, 분석 노트, 기술 노트
-  ├─ Indico : 회의 발표 자료, 미팅 노트
-  └─ 내부 wiki : DUNE 운영 문서
-  포맷: PDF, DOCX, TXT, PNG 등 다종
-  Sensitive/restricted 콘텐츠는 협업 정책에 따라 **제외**
-  → 협업 전체 접근 가능 문서만 처리
+<h2 id="how-it-was-built-construction-methodology">How It Was Built (Construction Methodology)</h2>
+<pre><code>Step 1 — Data source collection
+  ┌─ DocDB : TDR, analysis notes, technical notes
+  ├─ Indico : meeting presentation materials, meeting notes
+  └─ internal wiki : DUNE operations documents
+  Formats: PDF, DOCX, TXT, PNG, and various others
+  Sensitive/restricted content is **excluded** per collaboration policy
+  → only collaboration-wide accessible documents are processed
 
-Step 2 — 전처리
-  메타데이터 추출 (날짜, 저자, 문서 타입)
-  token-level segmentation → embedding 준비
+Step 2 — Preprocessing
+  Metadata extraction (date, author, document type)
+  token-level segmentation → embedding preparation
 
 Step 3 — Embedding &amp; Retrieval
   Embedding model: multi-qa-mpnet-base-dot-v1
@@ -163,75 +163,75 @@ Step 3 — Embedding &amp; Retrieval
 
 Step 4 — Response Generation (on-premise)
   LLM hosting:
-  ┌─ Argonne (Argo)    : prototype 개발
-  └─ Fermilab (Ollama) : 최종 배포 인프라
-  RAG: retrieved snippets로 LLM 조건화
-       → hallucination 위험 최소화 + grounded answer
-  반환: 답변 + DUNE 내부 출처 인용
+  ┌─ Argonne (Argo)    : prototype development
+  └─ Fermilab (Ollama) : final deployment infrastructure
+  RAG: condition the LLM on retrieved snippets
+       → minimize hallucination risk + grounded answer
+  Returns: answer + citations to DUNE internal sources
 
 Step 5 — Deployment
-  Aurora supercomputer (ALCF) → Fermilab 이전 진행
-  Python backend, 경량 web interface
-  인증된 DUNE 협력자만 접근 (Fermilab SSO 통합 예정)
+  Aurora supercomputer (ALCF) → migration to Fermilab in progress
+  Python backend, lightweight web interface
+  Accessible only to authenticated DUNE collaborators (Fermilab SSO integration planned)
 
-Step 6 — 예비 평가 (Sec. 4)
+Step 6 — Preliminary evaluation (Sec. 4)
   Detector specifics + reconstruction algorithms
     + physics analysis workflows
-  검색 정확도 ~70% (preliminary, 정량 IR 메트릭 미시행)
+  Retrieval accuracy ~70% (preliminary, no quantitative IR metrics conducted)
 </code></pre>
-<h2 id="input-입력">Input (입력)</h2>
+<h2 id="input">Input</h2>
 <ul>
-<li>자연어 질의 (web interface)</li>
-<li>인증된 DUNE 협력자 자격증명</li>
+<li>Natural language queries (web interface)</li>
+<li>Authenticated DUNE collaborator credentials</li>
 </ul>
-<h2 id="output-출력">Output (출력)</h2>
+<h2 id="output">Output</h2>
 <ul>
-<li>검색 컨텍스트 기반 답변 + DUNE 내부 출처 인용</li>
-<li>top-3 retrieved references (Fig. 3 frontend 표시)</li>
+<li>Answers grounded in retrieved context + citations to DUNE internal sources</li>
+<li>top-3 retrieved references (displayed in Fig. 3 frontend)</li>
 </ul>
-<h2 id="예시-문항-논문-본문-명시-내용">예시 문항 (논문 본문 명시 내용)</h2>
+<h2 id="example-questions-content-stated-in-the-paper-body">Example Questions (content stated in the paper body)</h2>
 <blockquote>
-<p>본 논문은 4쪽 짧은 proceedings로, <strong>구체적인 verbatim Q/A 예시는 본문에 포함되어 있지 않음</strong>. 다만 시스템의 평가 범위와 인터페이스를 다음과 같이 명시:</p>
+<p>This paper is a short 4-page proceedings, and <strong>concrete verbatim Q/A examples are not included in the body</strong>. However, it specifies the evaluation scope and interface of the system as follows:</p>
 </blockquote>
-<h3 id="평가-질의-카테고리-sec-4-본문-그대로">📘 평가 질의 카테고리 (Sec. 4 본문 그대로)</h3>
+<h3 id="evaluation-query-categories-verbatim-from-sec-4-body">📘 Evaluation query categories (verbatim from Sec. 4 body)</h3>
 <blockquote>
 <p>&quot;Initial benchmarks demonstrate that the RAG-based system retrieves relevant documentation with high accuracy (∼70%) across <strong>diverse query types, including detector specifics, reconstruction algorithms, and physics analysis workflows</strong>.&quot;</p>
 </blockquote>
-<h3 id="frontend-예시-fig-3-caption">📘 Frontend 예시 (Fig. 3 caption)</h3>
+<h3 id="frontend-example-fig-3-caption">📘 Frontend example (Fig. 3 caption)</h3>
 <blockquote>
 <p>&quot;Frontend web interface showing a sample question, response, and the <strong>top three retrieved references</strong> used in response generation.&quot;
-<em>(구체 question 텍스트는 figure에만 표시되고 본문에 inline 인용 없음)</em></p>
+<em>(the concrete question text is shown only in the figure and is not inline-cited in the body)</em></p>
 </blockquote>
-<h3 id="데이터-소스-범위">📘 데이터 소스 범위</h3>
+<h3 id="data-source-scope">📘 Data source scope</h3>
 <blockquote>
 <p>&quot;We extracted publicly accessible and internal DUNE documentation, including DUNE documents, presentations, meeting notes, technical design reports, and working group materials from DocDB and Indico.&quot;</p>
 </blockquote>
-<h3 id="보안-정책-sec-3-본문">📘 보안 정책 (Sec. 3 본문)</h3>
+<h3 id="security-policy-sec-3-body">📘 Security policy (Sec. 3 body)</h3>
 <blockquote>
 <p>&quot;all operations—including embedding generation and LLM inference—are performed within the DUNE internal computing environment. <strong>Only authenticated DUNE collaborators will be able to use this tool.</strong>&quot;</p>
 </blockquote>
 <blockquote>
-<p>본 paper는 system overview proceedings이며, 정량 평가 + 구체 Q/A 케이스 스터디는 follow-up paper에 예정.</p>
+<p>This paper is a system overview proceedings, and a quantitative evaluation + concrete Q/A case studies are planned for a follow-up paper.</p>
 </blockquote>
-<h2 id="주요-결과-sec-4-preliminary">주요 결과 (Sec. 4 Preliminary)</h2>
+<h2 id="key-results-sec-4-preliminary">Key Results (Sec. 4 Preliminary)</h2>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>값</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td><strong>검색 정확도 (preliminary)</strong></td>
+  <td><strong>Retrieval accuracy (preliminary)</strong></td>
   <td>~70% (across diverse query types)</td>
 </tr>
 <tr>
-  <td>임베딩 모델</td>
+  <td>Embedding model</td>
   <td><code>multi-qa-mpnet-base-dot-v1</code></td>
 </tr>
 <tr>
-  <td>벡터 DB</td>
+  <td>Vector DB</td>
   <td>FAISS</td>
 </tr>
 <tr>
@@ -244,35 +244,35 @@ Step 6 — 예비 평가 (Sec. 4)
 </tr>
 <tr>
   <td>HW (deploy)</td>
-  <td>Fermilab Ollama 인프라</td>
+  <td>Fermilab Ollama infrastructure</td>
 </tr>
 <tr>
-  <td>처리 포맷</td>
-  <td>PDF, DOCX, TXT, PNG 등</td>
+  <td>Processed formats</td>
+  <td>PDF, DOCX, TXT, PNG, etc.</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
-<p><strong>비교 기준 없음</strong>: MITRA(CMS, P@1=0.75 on semantic queries) · chATLAS(ATLAS, GPT-4o-mini API) 같은 BM25 baseline 정량 비교 미수행. 저자가 &quot;preliminary&quot; 명시.</p>
+<p><strong>No comparison baseline</strong>: no quantitative comparison against BM25 baselines such as MITRA (CMS, P@1=0.75 on semantic queries) or chATLAS (ATLAS, GPT-4o-mini API) was conducted. The authors explicitly note it is &quot;preliminary.&quot;</p>
 </blockquote>
-<h2 id="한계점-저자-명시">한계점 (저자 명시)</h2>
+<h2 id="limitations-stated-by-the-authors">Limitations (stated by the authors)</h2>
 <ul>
-<li><strong>프로토타입 단계</strong> — 협업 전체 배포 전, 체계적 벤치마크 부재</li>
-<li><strong>민감 문서 제외</strong>: 협업 정책으로 controlled 자료 인덱싱 불가 → 지식 커버리지 불완전</li>
-<li><strong>정량 메트릭 부재</strong>: P@k, MRR, recall@k 등 IR metric으로 평가 미시행</li>
-<li>BM25 등 베이스라인 대비 정량 비교 없음</li>
-<li>Multi-modal content (plots, figures) 미통합 — future work</li>
-<li>검색 모델과 LLM 조합의 최적화 실험 미수행</li>
-<li>DUNE 외 LBL/SBN/실험 외부 transferability 미검증</li>
+<li><strong>Prototype stage</strong> — before collaboration-wide deployment, systematic benchmarks are absent</li>
+<li><strong>Sensitive documents excluded</strong>: controlled materials cannot be indexed per collaboration policy → incomplete knowledge coverage</li>
+<li><strong>No quantitative metrics</strong>: no evaluation with IR metrics such as P@k, MRR, recall@k</li>
+<li>No quantitative comparison against baselines such as BM25</li>
+<li>Multi-modal content (plots, figures) not integrated — future work</li>
+<li>No optimization experiments on the retrieval-model and LLM combination</li>
+<li>Transferability beyond DUNE to LBL/SBN/external experiments not validated</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://arxiv.org/abs/2601.05278">arXiv:2601.05278</a> (v2, 13 Jan 2026)</li>
-<li><strong>발표</strong>: 32nd International Symposium on Lepton Photon Interactions at High Energies, Madison WI, Aug 25–29, 2025</li>
-<li><strong>저자 소속</strong>: Argonne National Laboratory (DUNE Collaboration)</li>
-<li><strong>인프라</strong>: Aurora (ALCF) + Argo + Fermilab Ollama</li>
-<li><strong>유사 시스템</strong>: chATLAS (ATLAS), MITRA (CMS), AI4EIC RAGS4EIC (EIC)</li>
-<li><strong>그랜트</strong>: U.S. DOE Office of HEP + 다국 funding agencies</li>
+<li><strong>Paper</strong>: <a href="https://arxiv.org/abs/2601.05278">arXiv:2601.05278</a> (v2, 13 Jan 2026)</li>
+<li><strong>Presentation</strong>: 32nd International Symposium on Lepton Photon Interactions at High Energies, Madison WI, Aug 25–29, 2025</li>
+<li><strong>Author affiliation</strong>: Argonne National Laboratory (DUNE Collaboration)</li>
+<li><strong>Infrastructure</strong>: Aurora (ALCF) + Argo + Fermilab Ollama</li>
+<li><strong>Similar systems</strong>: chATLAS (ATLAS), MITRA (CMS), AI4EIC RAGS4EIC (EIC)</li>
+<li><strong>Grant</strong>: U.S. DOE Office of HEP + multinational funding agencies</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (rafique2025large)</a></p>
@@ -294,14 +294,14 @@ Step 6 — 예비 평가 (Sec. 4)
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

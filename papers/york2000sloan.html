@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Sloan Digital Sky Survey: Technical Summary — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>The Sloan Digital Sky Survey: Technical Summary, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -129,102 +129,102 @@
 
 <blockquote>
 <p>The Astronomical Journal | 2000 | dataset | astronomy</p>
-<h4>한 줄 요약</h4>
-<p>2000년 기준 설계 사양을 기술한 SDSS 기술 요약 논문. 5개 광학 필터(ugriz)로 북반구 약 pi 스테라디안을 촬영하고, 약 100만 개 은하와 10만 개 퀘이사의 분광 관측을 목표로 함. 수십 년에 걸친 SDSS 데이터 릴리스(DR1–DR17)를 통해 수억 개의 천체가 카탈로그화되었으며, 현대 천문학 K3 관측 데이터의 핵심 자원이다.</p>
+<h4>TL;DR</h4>
+<p>An SDSS technical-summary paper describing the design specifications as of 2000. It images approximately pi steradians of the northern sky through 5 optical filters (ugriz) and aims to obtain spectra for roughly 1 million galaxies and 100,000 quasars. Across decades of SDSS data releases (DR1–DR17), hundreds of millions of objects have been cataloged, making it a core resource of K3 observational data in modern astronomy.</p>
 </blockquote>
-<h4>개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>기존 하늘 탐사는 필름 기반 사진 건판에 의존하여 균일한 측광 보정과 대규모 분광 관측이 불가</li>
-<li>은하 적색편이 분포, 대규모 구조, 퀘이사 분포에 대한 체계적 데이터 부재</li>
+<li>Prior sky surveys relied on film-based photographic plates, making uniform photometric calibration and large-scale spectroscopy impossible</li>
+<li>Lack of systematic data on galaxy redshift distributions, large-scale structure, and quasar distributions</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>측광과 분광 데이터를 동일 망원경으로 통합하여 광도와 거리를 동시 측정</li>
-<li>5-band CCD 이미저(2048×2048 배열)와 다중 광섬유 분광기(640개 동시)로 대규모 자동화 관측</li>
-<li>보정된 디지털 카탈로그를 공개하여 은하 진화, 퀘이사 연구, 은하수 구조 연구에 활용</li>
+<li>Integrating photometric and spectroscopic data on the same telescope to measure luminosity and distance simultaneously</li>
+<li>Large-scale automated observation with a 5-band CCD imager (2048×2048 arrays) and multi-fiber spectrographs (640 simultaneous)</li>
+<li>Releasing calibrated digital catalogs for use in galaxy evolution, quasar studies, and Milky Way structure research</li>
 </ul>
-<h4>시스템 구성</h4>
-<p>2.5m 전용 망원경(Apache Point Observatory, 뉴멕시코). 5개 필터(u, g, r, i, z): g' ~23등급 심도. 두 광섬유 분광기(각 320개 광섬유): 3800–9200Å, R~2000. 데이터 파이프라인: 실시간 천체 추출, 측광 보정, 분광 추출 자동화. Photo 파이프라인(이미지 처리·별–은하 분리)과 Spectro 파이프라인(적색편이 자동 측정) 포함.</p>
-<h4>데이터 접근 방법</h4>
+<h4>Architecture</h4>
+<p>A dedicated 2.5m telescope (Apache Point Observatory, New Mexico). 5 filters (u, g, r, i, z): g' ~23 mag depth. Two fiber spectrographs (320 fibers each): 3800–9200Å, R~2000. Data pipeline: automated real-time object extraction, photometric calibration, and spectral extraction. Includes the Photo pipeline (image processing and star–galaxy separation) and the Spectro pipeline (automated redshift measurement).</p>
+<h4>Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>SkyServer</td>
-  <td>skyserver.sdss.org — 웹 SQL 쿼리 인터페이스</td>
+  <td>skyserver.sdss.org — web SQL query interface</td>
 </tr>
 <tr>
   <td>CasJobs</td>
-  <td>대용량 배치 쿼리</td>
+  <td>large-volume batch queries</td>
 </tr>
 <tr>
   <td>SciServer</td>
-  <td>클라우드 분석 환경</td>
+  <td>cloud analysis environment</td>
 </tr>
 <tr>
-  <td>FITS 파일</td>
-  <td>das.sdss.org — 원본 이미지·스펙트럼 직접 다운로드</td>
+  <td>FITS files</td>
+  <td>das.sdss.org — direct download of raw images and spectra</td>
 </tr>
 </tbody>
 </table>
-<h4>제공 데이터 형식</h4>
+<h4>Data formats</h4>
 <ul>
-<li>5-band 측광 카탈로그: 위치·등급·형태 파라미터</li>
-<li>분광 카탈로그: 적색편이, 분류(별/은하/퀘이사), 스펙트럼</li>
-<li>이미지 타일 (FITS 형식)</li>
-<li>CasJobs SQL 쿼리 가능 스키마</li>
+<li>5-band photometric catalog: position, magnitude, morphology parameters</li>
+<li>Spectroscopic catalog: redshift, classification (star/galaxy/quasar), spectra</li>
+<li>Image tiles (FITS format)</li>
+<li>CasJobs SQL-queryable schema</li>
 </ul>
-<h4>주요 통계</h4>
+<h4>Key statistics</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>측광 목표 면적</td>
+  <td>Photometric target area</td>
   <td>~10,000 deg² (pi sr)</td>
 </tr>
 <tr>
-  <td>분광 목표 은하</td>
-  <td>~1,000,000 개</td>
+  <td>Spectroscopic target galaxies</td>
+  <td>~1,000,000</td>
 </tr>
 <tr>
-  <td>분광 목표 퀘이사</td>
-  <td>~100,000 개</td>
+  <td>Spectroscopic target quasars</td>
+  <td>~100,000</td>
 </tr>
 <tr>
-  <td>DR17 누적 분광</td>
-  <td>~4.9M 스펙트럼</td>
+  <td>DR17 cumulative spectra</td>
+  <td>~4.9M spectra</td>
 </tr>
 <tr>
-  <td>측광 심도</td>
-  <td>g' ~ 23 등급</td>
+  <td>Photometric depth</td>
+  <td>g' ~ 23 mag</td>
 </tr>
 <tr>
-  <td>파장 범위 (분광)</td>
+  <td>Wavelength range (spectroscopy)</td>
   <td>3800–9200 Å</td>
 </tr>
 </tbody>
 </table>
-<h4>한계점</h4>
+<h4>Limitations</h4>
 <ul>
-<li>2000년 논문은 완성 이전 설계 사양이므로 실제 달성값은 후속 DR 논문 참조 필요</li>
-<li>북반구 고위도 영역 중심이므로 은하면 및 남반구 미커버</li>
-<li>5개 광학 밴드만 제공 (적외선·UV 제외); 후속 WISE·GALEX 데이터와 결합 필요</li>
+<li>The 2000 paper describes pre-completion design specifications, so actual achieved values require reference to subsequent DR papers</li>
+<li>Centered on high-latitude northern-sky regions, so the galactic plane and southern sky are not covered</li>
+<li>Provides only 5 optical bands (excluding infrared and UV); combining with subsequent WISE and GALEX data is required</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://arxiv.org/abs/astro-ph/0006396">https://arxiv.org/abs/astro-ph/0006396</a></li>
-<li><strong>데이터 포털</strong>: <a href="https://www.sdss.org">https://www.sdss.org</a></li>
+<li><strong>Paper</strong>: <a href="https://arxiv.org/abs/astro-ph/0006396">https://arxiv.org/abs/astro-ph/0006396</a></li>
+<li><strong>Data portal</strong>: <a href="https://www.sdss.org">https://www.sdss.org</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (york2000sloan)</a></p>
@@ -249,14 +249,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

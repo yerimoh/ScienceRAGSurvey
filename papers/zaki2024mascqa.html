@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MaScQA: Investigating Materials Science Knowledge of Large Language Models — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>MaScQA: Investigating Materials Science Knowledge of Large Language Models, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,7 +117,7 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#input-입력">Input (입력)</a></li><li class="toc-l2"><a href="#output-출력-정답-형식">Output (출력 / 정답 형식)</a></li><li class="toc-l2"><a href="#실제-문항-예시-논문-본문-figure-1458-캡션-기반-재구성">실제 문항 예시 (논문 본문 + Figure 1·4·5·8 캡션 기반 재구성)</a></li><li class="toc-l3"><a href="#mcq-개념형-논문-본문-인용">MCQ — 개념형 (논문 본문 인용)</a></li><li class="toc-l3"><a href="#match-응용-분야-매칭-논문-본문-인용">MATCH — 응용 분야 매칭 (논문 본문 인용)</a></li><li class="toc-l3"><a href="#mcqn-수치-다중-선택-논문-본문-인용">MCQN — 수치 + 다중 선택 (논문 본문 인용)</a></li><li class="toc-l3"><a href="#num-수치-직접-입력-논문-본문-인용">NUM — 수치 직접 입력 (논문 본문 인용)</a></li><li class="toc-l2"><a href="#주요-평가-결과-table-1">주요 평가 결과 (Table 1)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#background">Background</a></li><li class="toc-l2"><a href="#construction-methodology">Construction Methodology</a></li><li class="toc-l2"><a href="#input">Input</a></li><li class="toc-l2"><a href="#output-answer-format">Output (Answer format)</a></li><li class="toc-l2"><a href="#example-questions-reconstructed-from-the-paper-body-figure-1458-captions">Example Questions (reconstructed from the paper body + Figure 1·4·5·8 captions)</a></li><li class="toc-l3"><a href="#mcq-conceptual-quoted-from-the-paper-body">MCQ — Conceptual (quoted from the paper body)</a></li><li class="toc-l3"><a href="#match-application-domain-matching-quoted-from-the-paper-body">MATCH — Application-domain matching (quoted from the paper body)</a></li><li class="toc-l3"><a href="#mcqn-numerical-multiple-choice-quoted-from-the-paper-body">MCQN — Numerical + multiple choice (quoted from the paper body)</a></li><li class="toc-l3"><a href="#num-direct-numerical-entry-quoted-from-the-paper-body">NUM — Direct numerical entry (quoted from the paper body)</a></li><li class="toc-l2"><a href="#key-evaluation-results-table-1">Key Evaluation Results (Table 1)</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>MaScQA: Investigating Materials Science Knowledge of Large Language Models</h1>
@@ -125,103 +125,106 @@
 <p>Digital Discovery 2024 | Benchmark | material
 Zaki, Mausam, Krishnan — IIT Delhi (M3RG-IITD) · arXiv:2308.09115</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>인도 GATE(Graduate Aptitude Test in Engineering) 재료과학·야금공학 기출문제 <strong>650 문항</strong>을 4가지 문항 구조(MCQ/MATCH/MCQN/NUM) × 14개 재료과학 도메인으로 분류하여 구축한 LLM의 학부 졸업 수준 재료과학 지식 평가 벤치마크. GPT-4-CoT가 62.0%로 최고 성능이며, GPT-4의 conceptual error(64%)가 computational error(36%)를 압도해 도메인 지식 부족이 주요 병목임을 정량화. HoneyComb(GPT-4 + MatSciKB + ToolHub)가 79.07%로 RAG 강화 효과 입증.</p>
-<h2 id="제작-배경">제작 배경</h2>
+<h2 id="tldr">TL;DR</h2>
+<p>A benchmark for evaluating the undergraduate-graduate-level materials science knowledge of LLMs, built from <strong>650 questions</strong> drawn from past papers of India's GATE (Graduate Aptitude Test in Engineering) in Materials Science and Metallurgical Engineering, classified along 4 question structures (MCQ/MATCH/MCQN/NUM) × 14 materials science domains. GPT-4-CoT achieves the best performance at 62.0%, and GPT-4's conceptual errors (64%) far outweigh its computational errors (36%), quantifying that lack of domain knowledge is the main bottleneck. HoneyComb (GPT-4 + MatSciKB + ToolHub) reaches 79.07%, demonstrating the effect of RAG augmentation.</p>
+<h2 id="background">Background</h2>
 <ul>
-<li>화학·생물 분야에는 도메인 특화 LLM(ChemGPT, BioBERT 등)이 다수 존재하나, <strong>재료과학에는 전문 평가 셋이 부재</strong>.</li>
-<li>기존 LLM 벤치마크(MMLU, SciQ 등)는 일반 과학 상식 위주로, 학부 졸업 수준의 thermodynamics·crystallography·phase transition 계산 문제를 포함하지 않음.</li>
-<li>GATE 시험은 인도에서 매년 80만 명 이상이 응시(주요 학과 평균 10만 명)하는 <strong>국가 수준 대학원 입시</strong>로, 재료과학·야금 학부 졸업자의 핵심 역량을 검증하기 위해 IIT 5개 기관이 공동 출제 → 신뢰성 있는 정답 키 보유.</li>
+<li>Domain-specialized LLMs (ChemGPT, BioBERT, etc.) exist in abundance for chemistry and biology, but <strong>materials science lacks a dedicated evaluation set</strong>.</li>
+<li>Existing LLM benchmarks (MMLU, SciQ, etc.) focus on general scientific common sense and do not include undergraduate-graduate-level computational problems in thermodynamics, crystallography, or phase transition.</li>
+<li>The GATE exam is a <strong>national-level graduate admissions test</strong> taken by more than 800,000 candidates in India each year (an average of 100,000 for major departments); it is jointly set by 5 IIT institutions to verify the core competencies of materials science and metallurgy undergraduate graduates → it has a reliable answer key.</li>
 </ul>
-<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
-<pre><code>Step 1 — 소스 선정
-  └─ 인도 IIT 주관 GATE (Graduate Aptitude Test in Engineering)
-      재료과학·야금공학(MT) 파트 기출문제 수집
-  └─ 공식 출처: gate.iitkgp.ac.in/old_question_papers.html
-      (IIT Kharagpur가 GATE 주관 기관 중 하나)
+<h2 id="construction-methodology">Construction Methodology</h2>
+<pre><code>Step 1 — Source selection
+  └─ GATE (Graduate Aptitude Test in Engineering) administered by India's IITs
+      Collection of past papers from the Materials Science and
+      Metallurgical Engineering (MT) section
+  └─ Official source: gate.iitkgp.ac.in/old_question_papers.html
+      (IIT Kharagpur is one of the GATE-administering institutions)
 
-Step 2 — 문항 구조 분류 (Axis A)
+Step 2 — Question structure classification (Axis A)
   ┌──────────┬────────────────────────────────────────┬─────┐
-  │ 유형     │ 설명                                    │ 수  │
+  │ Type     │ Description                             │ Num │
   ├──────────┼────────────────────────────────────────┼─────┤
-  │ MCQ      │ 4지 선다, 개념 이해 중심 (1개 정답)     │ 285 │
-  │ MATCH    │ 두 리스트 매칭, 4지 옵션                │  70 │
-  │ MCQN     │ 4지 옵션 + 수치 계산 필요               │  67 │
-  │ NUM      │ 수치 입력 (선택지 없음)                 │ 228 │
+  │ MCQ      │ 4-option multiple choice, concept-      │ 285 │
+  │          │ focused (1 correct answer)              │     │
+  │ MATCH    │ Matching two lists, 4-option            │  70 │
+  │ MCQN     │ 4 options + numerical calculation req.  │  67 │
+  │ NUM      │ Numerical entry (no options)            │ 228 │
   ├──────────┼────────────────────────────────────────┼─────┤
-  │ 합계     │                                        │ 650 │
+  │ Total    │                                        │ 650 │
   └──────────┴────────────────────────────────────────┴─────┘
-  (MCQ 중 13문제는 복수 정답 형식)
+  (13 of the MCQ questions have a multiple-correct-answer format)
 
-Step 3 — 도메인 분류 (Axis B, 14 카테고리)
+Step 3 — Domain classification (Axis B, 14 categories)
   thermodynamics · atomic structure · mechanical behavior ·
   materials manufacturing · material applications · phase transition ·
   electrical properties · material processing · transport phenomenon ·
   magnetic properties · material characterization · fluid mechanics ·
   material testing · miscellaneous
 
-Step 4 — 전문가 검수
-  └─ 2명의 재료과학 도메인 전문가가 독립적으로 도메인 라벨링
-  └─ 라벨 불일치 → 토론을 통한 합의 도출
-  └─ 정답 검증: IIT Kharagpur 공식 answer key 기준
+Step 4 — Expert review
+  └─ 2 materials science domain experts independently labeled domains
+  └─ Label disagreement → consensus reached through discussion
+  └─ Answer verification: based on the official IIT Kharagpur answer key
 
-Step 5 — 평가 프로토콜
+Step 5 — Evaluation protocol
   ┌─ Zero-shot: &quot;Solve the following question. Write the
   │              correct answer inside a list at the end.&quot;
   └─ Chain-of-Thought(CoT): &quot;Solve the following question with
                             highly detailed step-by-step
                             explanation. Write the correct
                             answer inside a list at the end.&quot;
-  └─ OpenAI API로 GPT-3.5 / GPT-4 평가
-  └─ 모델 출력은 텍스트 파일로 저장 후 수동으로 답안 추출
-     (모델이 항상 지정 포맷을 따르진 않음)
+  └─ Evaluated GPT-3.5 / GPT-4 via the OpenAI API
+  └─ Model outputs were saved as text files and answers were
+     manually extracted afterward
+     (the model does not always follow the specified format)
 
-Step 6 — 공개
+Step 6 — Release
   └─ github.com/M3RG-IITD/MaScQA
-  └─ 전체 650 문항 (Train/Val/Test 분할 없음)
+  └─ All 650 questions (no Train/Val/Test split)
 </code></pre>
-<h2 id="input-입력">Input (입력)</h2>
+<h2 id="input">Input</h2>
 <ul>
-<li><strong>문항 형식</strong>: 텍스트 기반 자연어 질문 (이미지·그래프 없음)</li>
-<li><strong>문항 수</strong>: 650 (MCQ 285 + MATCH 70 + MCQN 67 + NUM 228)</li>
-<li><strong>도메인</strong>: 14개 재료과학 sub-area</li>
-<li><strong>언어</strong>: 영어</li>
-<li><strong>메타데이터</strong>: question_id, structure_type, domain_label, correct_answer</li>
+<li><strong>Question format</strong>: text-based natural language questions (no images or graphs)</li>
+<li><strong>Number of questions</strong>: 650 (MCQ 285 + MATCH 70 + MCQN 67 + NUM 228)</li>
+<li><strong>Domains</strong>: 14 materials science sub-areas</li>
+<li><strong>Language</strong>: English</li>
+<li><strong>Metadata</strong>: question_id, structure_type, domain_label, correct_answer</li>
 </ul>
-<h2 id="output-출력-정답-형식">Output (출력 / 정답 형식)</h2>
+<h2 id="output-answer-format">Output (Answer format)</h2>
 <ul>
-<li><strong>MCQ / MATCH / MCQN</strong>: A/B/C/D 중 한 옵션 (또는 복수 옵션)</li>
-<li><strong>NUM</strong>: 수치 (정수 또는 지정 자릿수의 부동소수점)</li>
-<li><strong>평가 지표</strong>: 정답 일치율 (% accuracy)</li>
-<li><strong>베이스라인</strong>: 무작위 선택 시 MCQ 25%, MATCH 25%, MCQN 25%, NUM 0%</li>
+<li><strong>MCQ / MATCH / MCQN</strong>: one of the options A/B/C/D (or multiple options)</li>
+<li><strong>NUM</strong>: a numerical value (integer or floating point with a specified number of digits)</li>
+<li><strong>Evaluation metric</strong>: answer match rate (% accuracy)</li>
+<li><strong>Baseline</strong>: with random selection, MCQ 25%, MATCH 25%, MCQN 25%, NUM 0%</li>
 </ul>
-<h2 id="실제-문항-예시-논문-본문-figure-1458-캡션-기반-재구성">실제 문항 예시 (논문 본문 + Figure 1·4·5·8 캡션 기반 재구성)</h2>
-<h3 id="mcq-개념형-논문-본문-인용">MCQ — 개념형 (논문 본문 인용)</h3>
+<h2 id="example-questions-reconstructed-from-the-paper-body-figure-1458-captions">Example Questions (reconstructed from the paper body + Figure 1·4·5·8 captions)</h2>
+<h3 id="mcq-conceptual-quoted-from-the-paper-body">MCQ — Conceptual (quoted from the paper body)</h3>
 <blockquote>
-<p>논문 본문에서 GPT-4-CoT가 conceptual error를 보인 사례 중 하나:</p>
+<p>One of the cases where GPT-4-CoT exhibits a conceptual error in the paper body:</p>
 <p><strong>Q (Fig. 4(b)).</strong> Relating lattice parameter (a) and atomic diameter (D) in a given crystal structure.</p>
-<p>GPT-4-CoT는 잘못된 관계식 <code>a = √(8/3) · D</code>를 적용 → 정답인 <code>a = (4/√6) · D</code>와 어긋남.</p>
-<p><em>Atomic structure 영역에서 LLM의 공식 retrieval 오류를 보여주는 대표 사례</em></p>
+<p>GPT-4-CoT applied the incorrect relation <code>a = √(8/3) · D</code> → inconsistent with the correct answer <code>a = (4/√6) · D</code>.</p>
+<p><em>A representative case showing LLM formula-retrieval errors in the Atomic structure area</em></p>
 </blockquote>
-<h3 id="match-응용-분야-매칭-논문-본문-인용">MATCH — 응용 분야 매칭 (논문 본문 인용)</h3>
+<h3 id="match-application-domain-matching-quoted-from-the-paper-body">MATCH — Application-domain matching (quoted from the paper body)</h3>
 <blockquote>
-<p><strong>Q (Fig. 6).</strong> Match materials to their primary application (missile cone heads, semiconductors, refractory uses 등).</p>
-<p><em>논문 본문(p.18) 분석</em>: &quot;GPT-3.5-CoT was only able to determine the material properties required for the missile cone heads ... [it] tries to arrive at the correct answer by eliminating the options.&quot; → GPT-3.5는 elimination 전략에 의존, GPT-4는 개념적 inter-relating으로 정답 도달.</p>
+<p><strong>Q (Fig. 6).</strong> Match materials to their primary application (missile cone heads, semiconductors, refractory uses, etc.).</p>
+<p><em>Analysis in the paper body (p.18)</em>: &quot;GPT-3.5-CoT was only able to determine the material properties required for the missile cone heads ... [it] tries to arrive at the correct answer by eliminating the options.&quot; → GPT-3.5 relies on an elimination strategy, while GPT-4 reaches the correct answer through conceptual inter-relating.</p>
 </blockquote>
-<h3 id="mcqn-수치-다중-선택-논문-본문-인용">MCQN — 수치 + 다중 선택 (논문 본문 인용)</h3>
+<h3 id="mcqn-numerical-multiple-choice-quoted-from-the-paper-body">MCQN — Numerical + multiple choice (quoted from the paper body)</h3>
 <blockquote>
 <p><strong>Q (Fig. 7).</strong> A numerical question with four numeric options.</p>
-<p><em>논문 본문</em>: &quot;The GPT-3.5-CoT solution used the correct concept but made calculation errors leading to a final incorrect answer. However, GPT-4-CoT used the correct concept and did not make calculation mistakes.&quot;</p>
+<p><em>Paper body</em>: &quot;The GPT-3.5-CoT solution used the correct concept but made calculation errors leading to a final incorrect answer. However, GPT-4-CoT used the correct concept and did not make calculation mistakes.&quot;</p>
 </blockquote>
-<h3 id="num-수치-직접-입력-논문-본문-인용">NUM — 수치 직접 입력 (논문 본문 인용)</h3>
+<h3 id="num-direct-numerical-entry-quoted-from-the-paper-body">NUM — Direct numerical entry (quoted from the paper body)</h3>
 <blockquote>
 <p><strong>Q (Fig. 8).</strong> Sample numerical question related to <strong>platinum's crystal structure</strong> (FCC, calculating interplanar distance d).</p>
-<p><em>논문 본문</em>: &quot;Both models applied the correct concept. However, GPT-3.5-CoT made a calculation mistake in obtaining the interplanar distance 'd'...&quot; → 개념은 맞지만 산술 오류로 NUM 정확도가 모든 카테고리 중 가장 낮음.</p>
+<p><em>Paper body</em>: &quot;Both models applied the correct concept. However, GPT-3.5-CoT made a calculation mistake in obtaining the interplanar distance 'd'...&quot; → the concept is correct but an arithmetic error makes NUM accuracy the lowest of all categories.</p>
 </blockquote>
 <blockquote>
-<p>※ 원문 GATE 문제 텍스트는 IIT Kharagpur 공식 question paper PDF에서 확인 가능 (각 fig 캡션은 이미지 형식이라 PDF에서 직접 텍스트 추출 불가).</p>
+<p>※ The original GATE question text can be checked in the official IIT Kharagpur question paper PDFs (each figure caption is in image format, so text cannot be extracted directly from the PDF).</p>
 </blockquote>
-<h2 id="주요-평가-결과-table-1">주요 평가 결과 (Table 1)</h2>
+<h2 id="key-evaluation-results-table-1">Key Evaluation Results (Table 1)</h2>
 <table>
 <thead>
 <tr>
@@ -284,61 +287,61 @@ Step 6 — 공개
 </tr>
 </tbody>
 </table>
-<p><strong>핵심 발견</strong></p>
+<p><strong>Key findings</strong></p>
 <ul>
-<li>GPT-4 → GPT-4-CoT 향상은 미미(+1.85pp) — CoT가 항상 도움되지 않음을 시사.</li>
-<li>NUM 카테고리에서 모든 모델이 최저 성능 → 수치 계산이 주요 병목.</li>
-<li>MATCH에서 GPT-4가 GPT-3.5의 <strong>2배 이상</strong> 정확도 (88.57% vs 40.00%) → 개념 inter-relating 능력 차이.</li>
-<li>13개 multi-correct MCQ 중 GPT-4는 6개, GPT-4-CoT는 7개만 정답.</li>
+<li>The improvement from GPT-4 → GPT-4-CoT is marginal (+1.85pp) — suggesting that CoT does not always help.</li>
+<li>All models perform worst on the NUM category → numerical calculation is the main bottleneck.</li>
+<li>On MATCH, GPT-4 is <strong>more than 2×</strong> as accurate as GPT-3.5 (88.57% vs 40.00%) → a difference in conceptual inter-relating ability.</li>
+<li>Of the 13 multi-correct MCQ questions, GPT-4 gets only 6 correct and GPT-4-CoT only 7.</li>
 </ul>
-<p><strong>Error 분석 (GPT-4-CoT 오답 100 문항 샘플, Table 3)</strong></p>
+<p><strong>Error analysis (sample of 100 GPT-4-CoT incorrect answers, Table 3)</strong></p>
 <table>
 <thead>
 <tr>
   <th>Error Type</th>
-  <th>비율</th>
+  <th>Proportion</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>Conceptual error (지식 부족)</td>
+  <td>Conceptual error (lack of knowledge)</td>
   <td>~64%</td>
 </tr>
 <tr>
-  <td>Computational error (계산 실수)</td>
+  <td>Computational error (calculation mistake)</td>
   <td>~36%</td>
 </tr>
 <tr>
-  <td>Grounding error (개념 적용 오류)</td>
-  <td>~0% (CoT가 거의 제거)</td>
+  <td>Grounding error (error in applying concepts)</td>
+  <td>~0% (CoT almost eliminates it)</td>
 </tr>
 </tbody>
 </table>
-<p>→ 도메인 지식 보강(RAG/SFT)이 계산 능력 향상보다 우선순위.</p>
-<p><strong>Domain 분석 (GPT-4-CoT, Table 2)</strong></p>
+<p>→ Reinforcing domain knowledge (RAG/SFT) takes priority over improving calculation ability.</p>
+<p><strong>Domain analysis (GPT-4-CoT, Table 2)</strong></p>
 <ul>
-<li><strong>최저 정확도 영역</strong>: Electrical properties · Mechanical behavior (~60% 오답)</li>
-<li>Thermodynamics · Atomic structure · Phase transition · Transport phenomena · Magnetic properties: 40%+ 오답</li>
-<li><strong>최고 정확도 영역</strong>: Material testing (오답 0건) · Material characterization</li>
+<li><strong>Lowest-accuracy areas</strong>: Electrical properties · Mechanical behavior (~60% incorrect)</li>
+<li>Thermodynamics · Atomic structure · Phase transition · Transport phenomena · Magnetic properties: 40%+ incorrect</li>
+<li><strong>Highest-accuracy areas</strong>: Material testing (0 incorrect) · Material characterization</li>
 </ul>
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li><strong>이미지·그래프 없음</strong>: 텍스트 기반 문제만 포함 → multimodal 평가 불가 (실제 GATE는 일부 그림 문제 포함).</li>
-<li><strong>인도 커리큘럼 편향</strong>: GATE 문제 특성상 인도 학부 교과서 기반 → 미국·유럽 커리큘럼과 미세한 강조점 차이 가능.</li>
-<li><strong>최신 재료 미커버</strong>: 배터리·2D 소재·나노소재·MOF·perovskite solar cell 등 2010년대 이후 hot topic 문제 부족.</li>
-<li><strong>언어</strong>: 영어 단일 (다국어 평가 불가).</li>
-<li><strong>Train/Val/Test 분할 부재</strong>: 전체 650 문항이 평가 셋으로만 사용 → 학습용 split 따로 필요시 사용자가 직접 구성.</li>
-<li><strong>수치 계산 채점의 모호성</strong>: 부동소수점 반올림 자릿수가 문제별로 다름 → automatic grading 시 tolerance 설정 필요.</li>
+<li><strong>No images or graphs</strong>: only text-based questions are included → multimodal evaluation is not possible (the actual GATE includes some figure-based questions).</li>
+<li><strong>Indian curriculum bias</strong>: given the nature of GATE questions, they are based on Indian undergraduate textbooks → subtle differences in emphasis relative to US/European curricula are possible.</li>
+<li><strong>Latest materials not covered</strong>: a shortage of questions on hot topics since the 2010s such as batteries, 2D materials, nanomaterials, MOF, and perovskite solar cells.</li>
+<li><strong>Language</strong>: English only (multilingual evaluation not possible).</li>
+<li><strong>No Train/Val/Test split</strong>: all 650 questions are used only as an evaluation set → if a separate training split is needed, users must construct it themselves.</li>
+<li><strong>Ambiguity in grading numerical calculations</strong>: the floating-point rounding digits differ per question → a tolerance setting is needed for automatic grading.</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://pubs.rsc.org/en/content/articlelanding/2024/dd/d3dd00188a">Digital Discovery, RSC, 2024 (DOI: 10.1039/D3DD00188A)</a></li>
+<li><strong>Paper</strong>: <a href="https://pubs.rsc.org/en/content/articlelanding/2024/dd/d3dd00188a">Digital Discovery, RSC, 2024 (DOI: 10.1039/D3DD00188A)</a></li>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2308.09115">2308.09115</a></li>
 <li><strong>GitHub</strong>: <a href="https://github.com/M3RG-IITD/MaScQA">M3RG-IITD/MaScQA</a></li>
-<li><strong>공식 GATE 문제 출처</strong>: <a href="https://gate.iitkgp.ac.in/old_question_papers.html">gate.iitkgp.ac.in</a></li>
-<li><strong>이 벤치마크를 사용한 후속 작업</strong>:<ul>
-<li>HoneyComb (EMNLP Findings 2024) — 79.07% 달성 (RAG agent)</li>
-<li>후속 재료과학 RAG 논문들의 표준 벤치마크로 채택</li>
+<li><strong>Official GATE question source</strong>: <a href="https://gate.iitkgp.ac.in/old_question_papers.html">gate.iitkgp.ac.in</a></li>
+<li><strong>Follow-up work using this benchmark</strong>:<ul>
+<li>HoneyComb (EMNLP Findings 2024) — achieves 79.07% (RAG agent)</li>
+<li>Adopted as a standard benchmark by subsequent materials science RAG papers</li>
 </ul>
 </li>
 </ul>
@@ -368,14 +371,14 @@ Step 6 — 공개
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

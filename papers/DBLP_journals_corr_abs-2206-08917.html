@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Open Catalyst 2022 (OC22) Dataset and Challenges for Oxide Electrocatalysis — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>The Open Catalyst 2022 (OC22) Dataset and Challenges for Oxide Electrocatalysis, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,7 +121,7 @@
 <p>DBLP:journals/corr/abs-2206-08917 | 2022 | Journal of Chemical Theory and Computation | dataset | [material] | <a href="https://arxiv.org/abs/2206.08917">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">Open Catalyst 2022 (OC22)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">62,331 DFT relaxations (~9,854,504 single point calculations, 논문 기준)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">62,331 DFT relaxations (~9,854,504 single point calculations, per the paper)</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
 <tr><td class="prop-key">Eval Task</td><td class="prop-val">Total energy prediction (S2EF-Total), IS2RE-Total</td></tr>
@@ -131,95 +131,95 @@
 
 <blockquote>
 <p>Journal of Chemical Theory and Computation | 2022 | dataset | material</p>
-<h4>📌 한 줄 요약</h4>
-<p>OC20에서 다루지 못한 산화물 전기촉매(OER 촉매) 재료를 위한 62,331건의 DFT 이완 데이터셋으로, 흡착 에너지를 넘어 일반화된 총 에너지 예측 태스크를 정의하고 OC20과의 결합 훈련으로 성능 향상을 입증한다.</p>
+<h4>📌 TL;DR</h4>
+<p>A dataset of 62,331 DFT relaxations for oxide electrocatalyst (OER catalyst) materials not covered by OC20, which defines a generalized total energy prediction task beyond adsorption energy and demonstrates performance improvements through joint training with OC20.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>OC20은 질소·탄소·산소 화학계 위주로, 산화물 전기촉매 재료 학습 데이터 부족</li>
-<li>산소 발생 반응(OER) 촉매는 재생에너지 저장·전환에 핵심이나 ML 훈련 데이터 미비</li>
-<li>장거리 정전기 및 자기 상호작용이 중요한 산화물에 대한 별도 벤치마크 필요</li>
+<li>OC20 focuses on nitrogen/carbon/oxygen chemistries, so training data for oxide electrocatalyst materials is lacking</li>
+<li>Oxygen evolution reaction (OER) catalysts are central to renewable energy storage and conversion, yet ML training data is insufficient</li>
+<li>A separate benchmark is needed for oxides where long-range electrostatic and magnetic interactions are important</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>산화물 재료의 다양한 표면 커버리지, 흡착 분자 조합을 체계적으로 포함</li>
-<li>흡착 에너지 너머의 일반화된 총 에너지 예측 태스크로 ML 모델 적용 범위 확장</li>
-<li>OC20과의 결합 훈련(joint training)으로 두 데이터셋 모두에서 성능 향상 가능성 입증</li>
+<li>Systematically covers diverse surface coverages and adsorbate combinations of oxide materials</li>
+<li>Extends the applicability of ML models with a generalized total energy prediction task beyond adsorption energy</li>
+<li>Demonstrates the potential for performance improvements on both datasets through joint training with OC20</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>VASP 기반 DFT 계산(RPBE 범함수)으로 산화물 슬랩 구조의 구조 이완을 수행한다. 다양한 산화물 재료, 표면 커버리지, 흡착 분자를 포함하며, 일반화된 총 에너지 태스크(S2EF-Total, IS2RE-Total)를 통해 흡착 에너지만이 아닌 시스템 전체 에너지 예측에 초점을 맞춘다. GemNet-OC 등 GNN 베이스라인과 함께 제공된다.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>Structural relaxation of oxide slab structures is performed with VASP-based DFT calculations (RPBE functional). It includes diverse oxide materials, surface coverages, and adsorbates, and through the generalized total energy tasks (S2EF-Total, IS2RE-Total) it focuses on predicting the total system energy rather than only the adsorption energy. It is provided together with GNN baselines such as GemNet-OC.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>공식 웹사이트</td>
-  <td>opencatalystproject.org — 데이터 다운로드</td>
+  <td>Official website</td>
+  <td>opencatalystproject.org — data download</td>
 </tr>
 <tr>
   <td>GitHub</td>
-  <td>github.com/Open-Catalyst-Project/ocp — 코드 및 베이스라인</td>
+  <td>github.com/Open-Catalyst-Project/ocp — code and baselines</td>
 </tr>
 <tr>
-  <td>리더보드</td>
-  <td>총 에너지 태스크 공개 벤치마크</td>
+  <td>Leaderboard</td>
+  <td>public benchmark for the total energy task</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>DFT 이완 궤적 (초기~최종 구조, 각 단계 에너지·힘)</li>
-<li>총 에너지 (eV)</li>
-<li>원자 힘 (eV/Å)</li>
-<li>산화물 슬랩 구조 (ASE Atoms 형식)</li>
+<li>DFT relaxation trajectories (initial to final structures, energy and forces at each step)</li>
+<li>Total energy (eV)</li>
+<li>Atomic forces (eV/Å)</li>
+<li>Oxide slab structures (ASE Atoms format)</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>총 DFT 이완 계산</td>
+  <td>Total DFT relaxation calculations</td>
   <td><strong>62,331</strong></td>
 </tr>
 <tr>
-  <td>단일점 에너지 계산</td>
+  <td>Single point energy calculations</td>
   <td><strong>~9,854,504</strong></td>
 </tr>
 <tr>
-  <td>에너지 예측 개선 (결합 훈련, OC20)</td>
-  <td><strong>~19%</strong> (총 에너지 기준)</td>
+  <td>Energy prediction improvement (joint training, OC20)</td>
+  <td><strong>~19%</strong> (based on total energy)</td>
 </tr>
 <tr>
-  <td>힘 예측 개선 (결합 훈련, OC22)</td>
+  <td>Force prediction improvement (joint training, OC22)</td>
   <td><strong>~9%</strong></td>
 </tr>
 <tr>
-  <td>최고 모델 성능 (에너지 예측, OC20+OC22)</td>
-  <td>GemNet-OC ~36% 향상</td>
+  <td>Best model performance (energy prediction, OC20+OC22)</td>
+  <td>GemNet-OC ~36% improvement</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>OC20 대비 데이터 규모 소규모 (6만 건 vs 128만 건)</li>
-<li>산화물 특성상 장거리 정전기·자기 상호작용이 중요하나 현재 GNN은 이를 완전히 포착하지 못함</li>
-<li>용매·전해질 효과 미포함</li>
-<li>RPBE 범함수 사용으로 실험값과 체계적 오차 존재</li>
+<li>Smaller data scale compared to OC20 (60K vs 1.28M entries)</li>
+<li>Long-range electrostatic and magnetic interactions are important given the nature of oxides, but current GNNs do not fully capture them</li>
+<li>Solvent and electrolyte effects are not included</li>
+<li>Systematic errors relative to experimental values exist due to the use of the RPBE functional</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://arxiv.org/abs/2206.08917">The Open Catalyst 2022 (OC22) Dataset (arXiv:2206.08917)</a></li>
+<li><strong>Paper</strong>: <a href="https://arxiv.org/abs/2206.08917">The Open Catalyst 2022 (OC22) Dataset (arXiv:2206.08917)</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/corr/abs-2206-08917)</a></p>
@@ -261,14 +261,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ScienceAgentBench: 102 Tasks × 44 Pubs × API+E2E Code Success — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>ScienceAgentBench: 102 Tasks × 44 Pubs × API+E2E Code Success, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,7 +117,7 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#실제-데이터-형식-예시-논문-2-figure-2-table-1">실제 데이터 형식 예시 (논문 §2 + Figure 2 + Table 1)</a></li><li class="toc-l3"><a href="#유형-a-task-4-component-schema-논문-figure-2">유형 A — Task 4-component schema (논문 Figure 2)</a></li><li class="toc-l3"><a href="#유형-b-task-specific-success-criteria-table-1-예시">유형 B — Task-specific Success Criteria (Table 1 예시)</a></li><li class="toc-l3"><a href="#유형-c-4-disciplines-102-tasks-분포">유형 C — 4 disciplines × 102 tasks 분포</a></li><li class="toc-l3"><a href="#유형-d-evaluation-metrics-논문-23">유형 D — Evaluation metrics (논문 §2.3)</a></li><li class="toc-l3"><a href="#유형-e-기존-benchmark-비교-table-2">유형 E — 기존 benchmark 비교 (Table 2)</a></li><li class="toc-l2"><a href="#평가-metric-상세">평가 metric 상세</a></li><li class="toc-l2"><a href="#주요-평가-결과-논문-본문">주요 평가 결과 (논문 본문)</a></li><li class="toc-l2"><a href="#4개-분야-task-분포">4개 분야 task 분포</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#how-it-was-built-construction-methodology">How It Was Built (Construction Methodology)</a></li><li class="toc-l2"><a href="#example-of-actual-data-format-paper-2-figure-2-table-1">Example of Actual Data Format (paper §2 + Figure 2 + Table 1)</a></li><li class="toc-l3"><a href="#type-a-task-4-component-schema-paper-figure-2">Type A — Task 4-component schema (paper Figure 2)</a></li><li class="toc-l3"><a href="#type-b-task-specific-success-criteria-table-1-examples">Type B — Task-specific Success Criteria (Table 1 examples)</a></li><li class="toc-l3"><a href="#type-c-4-disciplines-102-tasks-distribution">Type C — 4 disciplines × 102 tasks distribution</a></li><li class="toc-l3"><a href="#type-d-evaluation-metrics-paper-23">Type D — Evaluation metrics (paper §2.3)</a></li><li class="toc-l3"><a href="#type-e-comparison-with-existing-benchmarks-table-2">Type E — Comparison with existing benchmarks (Table 2)</a></li><li class="toc-l2"><a href="#evaluation-metric-details">Evaluation Metric Details</a></li><li class="toc-l2"><a href="#key-evaluation-results-paper-body">Key Evaluation Results (paper body)</a></li><li class="toc-l2"><a href="#task-distribution-across-the-4-disciplines">Task Distribution Across the 4 Disciplines</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related Links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>ScienceAgentBench: 102 Tasks × 44 Peer-Reviewed Publications, Per-step API + E2E Code Success</h1>
@@ -126,58 +126,58 @@
 Ziru Chen, Shijie Chen, Yuting Ning, Qianheng Zhang, Boshi Wang, Botao Yu, Yifei Li, Zeyi Liao, Chen Liang, Zixuan Tian, Junlin Wang, Xuechen Li, Hua Xu, Zhen Wang, Yu Su, Huan Sun — Ohio State University
 DBLP: <code>journals/corr/abs-2410-05080</code> · arXiv: <a href="https://arxiv.org/abs/2410.05080">2410.05080</a></p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>LLM agent가 과학 데이터 분석 코드를 작성·실행하는 task <strong>102개</strong>를 <strong>44 peer-reviewed publications</strong>에서 추출하고 <strong>9 domain experts</strong>가 검증한 benchmark. 각 task의 출력은 <strong>self-contained Python file</strong>, 평가는 <strong>per-step API-call accuracy + end-to-end executable code success</strong>. 최고 성능 agent도 task의 <strong>32.4% (independent), 34.3% (expert knowledge)</strong> 만 해결.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>A benchmark of <strong>102</strong> tasks in which an LLM agent writes and executes scientific data-analysis code, extracted from <strong>44 peer-reviewed publications</strong> and validated by <strong>9 domain experts</strong>. Each task's output is a <strong>self-contained Python file</strong>, and evaluation is based on <strong>per-step API-call accuracy + end-to-end executable code success</strong>. Even the best-performing agent solves only <strong>32.4% (independent), 34.3% (expert knowledge)</strong> of the tasks.</p>
 <hr />
-<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
-<pre><code>Step 1 — Task 수집 (peer-reviewed publication 기반)
+<h2 id="how-it-was-built-construction-methodology">How It Was Built (Construction Methodology)</h2>
+<pre><code>Step 1 — Task collection (based on peer-reviewed publications)
   ┌──────────────────────────────────────────────┐
-  │ 44 peer-reviewed publications에서 task 추출  │
+  │ Extract tasks from 44 peer-reviewed publications │
   │ 4 disciplines: bioinformatics, computational │
   │   chemistry, geographical information science,│
   │   psychology &amp; cognitive neuroscience        │
   │                                               │
-  │ 102 tasks 총 수집                            │
+  │ 102 tasks collected in total                 │
   └──────────────────────────────────────────────┘
 
-Step 2 — 전문가 검증 (9 subject matter experts)
+Step 2 — Expert validation (9 subject matter experts)
   └─ Each task: multiple rounds manual validation
-  └─ annotation 품질 + scientific plausibility 확인
-  └─ 비현실 task 제거
+  └─ verify annotation quality + scientific plausibility
+  └─ remove unrealistic tasks
 
-Step 3 — Task 통일 — self-contained Python program
+Step 3 — Task unification — self-contained Python program
   ┌──────────────────────────────────────────────┐
   │ Input: task description + dataset path        │
   │ Required output: single .py file              │
-  │ Execution: agent 작성 코드 실행해서          │
-  │            결과 검증                          │
+  │ Execution: run the code written by the agent │
+  │            and verify results                 │
   └──────────────────────────────────────────────┘
 
 Step 4 — Evaluation metrics
   · Code execution success rate (binary)
   · Per-step API call accuracy (granular)
   · Cost (API tokens used)
-  · Programs / execution results / costs 동시 평가
+  · Programs / execution results / costs evaluated jointly
 
 Step 5 — Agent strategies tested
   · Direct prompting
   · OpenHands CodeAct
   · Self-debug
-  · 각 3 attempts/task
+  · 3 attempts/task each
 </code></pre>
 <hr />
-<h2 id="실제-데이터-형식-예시-논문-2-figure-2-table-1">실제 데이터 형식 예시 (논문 §2 + Figure 2 + Table 1)</h2>
-<h3 id="유형-a-task-4-component-schema-논문-figure-2">유형 A — Task 4-component schema (논문 Figure 2)</h3>
-<p>각 task는 다음 4개 component로 구성:</p>
+<h2 id="example-of-actual-data-format-paper-2-figure-2-table-1">Example of Actual Data Format (paper §2 + Figure 2 + Table 1)</h2>
+<h3 id="type-a-task-4-component-schema-paper-figure-2">Type A — Task 4-component schema (paper Figure 2)</h3>
+<p>Each task consists of the following 4 components:</p>
 <blockquote>
-<p><strong>(a) Task Instruction</strong>: 자연어 task 명세</p>
+<p><strong>(a) Task Instruction</strong>: natural-language task specification</p>
 <pre><code>&quot;Train a multitask model on the Clintox dataset to predict
  a drug's toxicity and FDA approval status. Save the test
  set predictions, including the SMILES representation of
  drugs and the probability of positive labels, to
  pred_results/clintox_test_pred.csv&quot;
 </code></pre>
-<p><strong>(b) Dataset Information</strong> (디렉토리 + preview):</p>
+<p><strong>(b) Dataset Information</strong> (directory + preview):</p>
 <pre><code>Dataset Directory:
 |-- clintox/
 |---- clintox_test.csv
@@ -205,11 +205,11 @@ CLINTOX_TASKS = ['FDA_APPROVED', 'CT_TOX']
 test_scores_df.to_csv('pred_results/clintox_test_pred.csv')
 </code></pre>
 </blockquote>
-<h3 id="유형-b-task-specific-success-criteria-table-1-예시">유형 B — Task-specific Success Criteria (Table 1 예시)</h3>
+<h3 id="type-b-task-specific-success-criteria-table-1-examples">Type B — Task-specific Success Criteria (Table 1 examples)</h3>
 <table>
 <thead>
 <tr>
-  <th>Task instruction (요약)</th>
+  <th>Task instruction (summary)</th>
   <th>Sub-tasks</th>
   <th>Success Criteria</th>
 </tr>
@@ -237,7 +237,7 @@ test_scores_df.to_csv('pred_results/clintox_test_pred.csv')
 </tr>
 </tbody>
 </table>
-<h3 id="유형-c-4-disciplines-102-tasks-분포">유형 C — 4 disciplines × 102 tasks 분포</h3>
+<h3 id="type-c-4-disciplines-102-tasks-distribution">Type C — 4 disciplines × 102 tasks distribution</h3>
 <blockquote>
 <pre><code>┌──────────────────────────────────────────────┬─────┐
 │ Bioinformatics                                │     │
@@ -250,20 +250,20 @@ test_scores_df.to_csv('pred_results/clintox_test_pred.csv')
 │ (senior PhD students + professors)            │     │
 └──────────────────────────────────────────────┴─────┘
 </code></pre>
-<p>Sub-task 빈도 (각 task는 여러 sub-task 조합):</p>
+<p>Sub-task frequency (each task combines several sub-tasks):</p>
 <ul>
 <li>Information Visualization (65), Data Analysis (59), Data Visualization (45)</li>
 <li>Computational Analysis (38), Data Processing (23), Model Development (23)</li>
 <li>Feature Engineering (20), Map Visualization (18), Deep Learning (14)</li>
 </ul>
 </blockquote>
-<h3 id="유형-d-evaluation-metrics-논문-23">유형 D — Evaluation metrics (논문 §2.3)</h3>
+<h3 id="type-d-evaluation-metrics-paper-23">Type D — Evaluation metrics (paper §2.3)</h3>
 <blockquote>
 <pre><code>4 program-level metrics:
-  1. VER (Valid Execution Rate)  — binary: program 실행되고 output 저장됨
-  2. SR  (Success Rate)           — binary: success criteria 충족
-  3. CBS (CodeBERTScore)          — annotated program과 코드 유사도
-  4. Cost                          — API token 비용
+  1. VER (Valid Execution Rate)  — binary: program runs and output is saved
+  2. SR  (Success Rate)           — binary: success criteria met
+  3. CBS (CodeBERTScore)          — code similarity to the annotated program
+  4. Cost                          — API token cost
 
 + 5-stage Rubric (human eval):
   Data Loading | Data Processing | Modeling/Viz | Output Formatting | Output Saving
@@ -271,10 +271,10 @@ test_scores_df.to_csv('pred_results/clintox_test_pred.csv')
 <p>Best agent (OpenAI o1-preview + self-debug, 3 attempts):</p>
 <ul>
 <li><strong>independent</strong>: 32.4% → <strong>42.2%</strong> (with expert knowledge: 34.3%)</li>
-<li>그러나 <strong>10× cost</strong> 증가 → 비용-성능 trade-off 명확</li>
+<li>but a <strong>10× cost</strong> increase → clear cost-performance trade-off</li>
 </ul>
 </blockquote>
-<h3 id="유형-e-기존-benchmark-비교-table-2">유형 E — 기존 benchmark 비교 (Table 2)</h3>
+<h3 id="type-e-comparison-with-existing-benchmarks-table-2">Type E — Comparison with existing benchmarks (Table 2)</h3>
 <table>
 <thead>
 <tr>
@@ -345,39 +345,39 @@ test_scores_df.to_csv('pred_results/clintox_test_pred.csv')
 </tbody>
 </table>
 <hr />
-<h2 id="평가-metric-상세">평가 metric 상세</h2>
-<p>| Metric | 의미 | 단위 |
+<h2 id="evaluation-metric-details">Evaluation Metric Details</h2>
+<p>| Metric | Meaning | Unit |
 |---|---|---|
-| <strong>Execution success</strong> | 코드가 실행 가능한가 | binary (per task) |
-| <strong>Per-step API accuracy</strong> | 각 단계 함수 호출 정확성 | percentage |
-| <strong>End-to-end success</strong> | 최종 결과가 expected output과 일치 | binary |
-| <strong>Cost</strong> | API 토큰 사용량 | $ |
-| 3 attempts allowed | best-of-3 평가 |</p>
+| <strong>Execution success</strong> | whether the code is executable | binary (per task) |
+| <strong>Per-step API accuracy</strong> | correctness of function calls at each step | percentage |
+| <strong>End-to-end success</strong> | whether the final result matches the expected output | binary |
+| <strong>Cost</strong> | API token usage | $ |
+| 3 attempts allowed | best-of-3 evaluation |</p>
 <hr />
-<h2 id="주요-평가-결과-논문-본문">주요 평가 결과 (논문 본문)</h2>
+<h2 id="key-evaluation-results-paper-body">Key Evaluation Results (paper body)</h2>
 <table>
 <thead>
 <tr>
   <th>Agent / Strategy</th>
-  <th>독립 (no expert knowledge)</th>
-  <th>전문가 지식 제공</th>
+  <th>Independent (no expert knowledge)</th>
+  <th>Expert knowledge provided</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>Direct prompting (Claude/GPT-4)</td>
-  <td>(낮음)</td>
-  <td>(낮음+α)</td>
+  <td>(low)</td>
+  <td>(low+α)</td>
 </tr>
 <tr>
   <td>OpenHands CodeAct</td>
-  <td>(중간)</td>
-  <td>(중간+α)</td>
+  <td>(medium)</td>
+  <td>(medium+α)</td>
 </tr>
 <tr>
   <td>Self-debug</td>
-  <td>(개선)</td>
-  <td>(개선+α)</td>
+  <td>(improved)</td>
+  <td>(improved+α)</td>
 </tr>
 <tr>
   <td><strong>Best agent (overall)</strong></td>
@@ -391,14 +391,14 @@ test_scores_df.to_csv('pred_results/clintox_test_pred.csv')
 </tr>
 </tbody>
 </table>
-<p>→ 결론: 현재 LLM agent는 <strong>end-to-end automation 불충분</strong>. &quot;even building a fully automatic AI Scientist is far from complete&quot;</p>
+<p>→ Conclusion: current LLM agents are <strong>insufficient for end-to-end automation</strong>. &quot;even building a fully automatic AI Scientist is far from complete&quot;</p>
 <hr />
-<h2 id="4개-분야-task-분포">4개 분야 task 분포</h2>
+<h2 id="task-distribution-across-the-4-disciplines">Task Distribution Across the 4 Disciplines</h2>
 <table>
 <thead>
 <tr>
   <th>Discipline</th>
-  <th>대표 task</th>
+  <th>Representative tasks</th>
 </tr>
 </thead>
 <tbody>
@@ -421,25 +421,25 @@ test_scores_df.to_csv('pred_results/clintox_test_pred.csv')
 </tbody>
 </table>
 <hr />
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li><strong>102 tasks 만</strong>: 더 큰 scale benchmark 필요</li>
-<li><strong>4 disciplines 한정</strong>: physics, mathematics 등 미커버</li>
-<li><strong>Output as Python</strong>: 다른 언어 / 시각화 / 수학 증명 미평가</li>
-<li><strong>연구 도메인 편향</strong>: data analysis 위주, 가설 생성 미평가</li>
-<li><strong>실험 검증 부재</strong>: 코드 실행 결과는 in silico, wet-lab 검증 없음</li>
-<li><strong>시간</strong>: 2024 cutoff, 최신 agent (Claude 3.7 등) 미평가</li>
+<li><strong>Only 102 tasks</strong>: a larger-scale benchmark is needed</li>
+<li><strong>Limited to 4 disciplines</strong>: physics, mathematics, etc. are not covered</li>
+<li><strong>Output as Python</strong>: other languages / visualizations / mathematical proofs are not evaluated</li>
+<li><strong>Research-domain bias</strong>: focused on data analysis, hypothesis generation is not evaluated</li>
+<li><strong>Lack of experimental validation</strong>: code execution results are in silico, with no wet-lab validation</li>
+<li><strong>Timing</strong>: 2024 cutoff, latest agents (Claude 3.7, etc.) not evaluated</li>
 </ul>
 <hr />
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related Links</h2>
 <ul>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2410.05080">2410.05080</a></li>
 <li><strong>DBLP</strong>: <a href="https://dblp.org/rec/journals/corr/abs-2410-05080.html">journals/corr/abs-2410-05080</a></li>
-<li><strong>공식 사이트</strong>: <a href="https://osu-nlp-group.github.io/ScienceAgentBench/">osu-nlp-group.github.io/ScienceAgentBench</a></li>
+<li><strong>Official site</strong>: <a href="https://osu-nlp-group.github.io/ScienceAgentBench/">osu-nlp-group.github.io/ScienceAgentBench</a></li>
 <li><strong>GitHub</strong>: <a href="https://github.com/OSU-NLP-Group/ScienceAgentBench">OSU-NLP-Group/ScienceAgentBench</a></li>
-<li><strong>저자 소속</strong>: Ohio State University</li>
+<li><strong>Author affiliation</strong>: Ohio State University</li>
 <li><strong>Venue</strong>: ICLR 2025</li>
-<li><strong>관련 작업</strong>: MLAgentBench (Huang et al.), SWE-Bench (Jimenez et al.), MatClaw (Zhang 2026, materials-specific code-as-action)</li>
+<li><strong>Related work</strong>: MLAgentBench (Huang et al.), SWE-Bench (Jimenez et al.), MatClaw (Zhang 2026, materials-specific code-as-action)</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/corr/abs-2410-05080)</a></p>
@@ -468,14 +468,14 @@ test_scores_df.to_csv('pred_results/clintox_test_pred.csv')
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

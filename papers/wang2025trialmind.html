@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Accelerating clinical evidence synthesis with large language models — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Accelerating clinical evidence synthesis with large language models, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,80 +117,80 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-trialmind-architecture">시스템 구조 (TrialMind Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l2"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#architecture-trialmind-architecture">Architecture (TrialMind Architecture)</a></li><li class="toc-l2"><a href="#pipeline-inference">Pipeline (inference)</a></li><li class="toc-l2"><a href="#key-results">Key results</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>TrialMind: LLM Pipeline for Clinical Evidence Synthesis</h1>
 <blockquote>
 <p>npj Digital Medicine 2025 | Method | medical</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>TrialMind는 임상 근거 합성의 핵심 단계인 문헌 검색 → 스크리닝 → 데이터 추출 → 근거 합성을 LLM으로 수행하는 인간-AI 협업(human-in-the-loop) 파이프라인으로, 각 단계 중간 산출물을 사용자가 검토·수정할 수 있게 설계해 체계적 문헌고찰 워크플로를 가속한다.</p>
-<h2 id="시스템-구조-trialmind-architecture">시스템 구조 (TrialMind Architecture)</h2>
-<p>주 backbone은 GPT-4(gpt-4-0125-preview). 근거 합성을 4개 모듈로 분해한다.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>TrialMind is a human-in-the-loop pipeline that uses an LLM to carry out the core stages of clinical evidence synthesis, namely literature search, screening, data extraction, and evidence synthesis. It is designed so that users can review and revise the intermediate outputs of each stage, thereby accelerating the systematic review workflow.</p>
+<h2 id="architecture-trialmind-architecture">Architecture (TrialMind Architecture)</h2>
+<p>The main backbone is GPT-4 (gpt-4-0125-preview). It decomposes evidence synthesis into four modules.</p>
 <ol>
-<li><strong>Literature search:</strong> PICO 요소를 입력받아 Boolean 쿼리 생성 후 PubMed 검색.</li>
-<li><strong>Literature screening:</strong> 적격 기준에 따라 후보 연구의 관련성 평가·순위화.</li>
-<li><strong>Data extraction:</strong> 연구 특성·임상 결과지표 추출(원문 위치 연결).</li>
-<li><strong>Evidence synthesis:</strong> 추출 결과를 표준화해 meta-analysis·forest plot으로 통합.</li>
+<li><strong>Literature search:</strong> Takes PICO elements as input, generates a Boolean query, and then searches PubMed.</li>
+<li><strong>Literature screening:</strong> Assesses and ranks the relevance of candidate studies according to eligibility criteria.</li>
+<li><strong>Data extraction:</strong> Extracts study characteristics and clinical outcome measures (linking to source-text locations).</li>
+<li><strong>Evidence synthesis:</strong> Standardizes the extracted results and integrates them into a meta-analysis and forest plot.</li>
 </ol>
-<p>파이프라인 전반에 In-Context Learning, RAG(검색된 abstract로 프롬프트 보강), Chain-of-Thought를 결합한다. <strong>Human-in-the-loop:</strong> 적격 기준 편집, 추출 데이터의 원문 위치 검증, 집계 전략 조정이 가능해 단계 간 오류 전파를 차단.</p>
-<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
+<p>Throughout the pipeline, it combines In-Context Learning, RAG (augmenting the prompt with retrieved abstracts), and Chain-of-Thought. <strong>Human-in-the-loop:</strong> Users can edit eligibility criteria, verify the source-text locations of extracted data, and adjust the aggregation strategy, which blocks error propagation between stages.</p>
+<h2 id="pipeline-inference">Pipeline (inference)</h2>
 <ol>
-<li><strong>검색:</strong> PICO → ICL로 Boolean 쿼리 생성, RAG+CoT로 용어 보강(식별→필터링→확장) → PubMed 제출.</li>
-<li><strong>스크리닝:</strong> 적격 기준 생성(편집 가능) → 후보를 기준별 −1/0/+1로 병렬 평가·합산해 순위화(상위 2,000개 대상, 근거 동반).</li>
-<li><strong>추출:</strong> 일반 필드는 전체 문서에서 값+위치 추출. 결과는 (i) 식별(CoT) → (ii) 수치 추출 → (iii) LLM이 Python 코드 생성·실행해 표준화 효과측정치 산출.</li>
-<li><strong>합성:</strong> 표준화 수치를 R 'meta' 패키지로 집계해 forest plot·통합 추정치 생성.</li>
+<li><strong>Search:</strong> PICO → generate a Boolean query via ICL, augment terms with RAG+CoT (identify → filter → expand) → submit to PubMed.</li>
+<li><strong>Screening:</strong> Generate eligibility criteria (editable) → evaluate candidates in parallel with −1/0/+1 per criterion and sum to rank them (targeting the top 2,000, with accompanying rationale).</li>
+<li><strong>Extraction:</strong> For general fields, extract value + location from the full document. For results: (i) identification (CoT) → (ii) numerical extraction → (iii) the LLM generates and runs Python code to produce standardized effect measures.</li>
+<li><strong>Synthesis:</strong> Aggregate the standardized numbers with the R 'meta' package to generate forest plots and pooled estimates.</li>
 </ol>
-<h2 id="주요-결과">주요 결과</h2>
+<h2 id="key-results">Key results</h2>
 <table>
 <thead>
 <tr>
-  <th>단계/지표</th>
+  <th>Stage/metric</th>
   <th>TrialMind</th>
-  <th>비교군</th>
+  <th>Comparison</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>검색 Recall(평균)</td>
+  <td>Search Recall (average)</td>
   <td>0.782</td>
   <td>GPT-4 0.073 / Human 0.187</td>
 </tr>
 <tr>
-  <td>스크리닝 상위 100 내 목표 포착</td>
+  <td>Target capture within screening top 100</td>
   <td>&gt;80%</td>
   <td>—</td>
 </tr>
 <tr>
-  <td>결과 추출 정확도(Immunotherapy)</td>
+  <td>Result extraction accuracy (Immunotherapy)</td>
   <td>0.70</td>
   <td>GPT-4 0.54</td>
 </tr>
 <tr>
-  <td>결과 추출 정확도(Hyperthermia)</td>
+  <td>Result extraction accuracy (Hyperthermia)</td>
   <td>0.84</td>
   <td>GPT-4 0.52</td>
 </tr>
 <tr>
-  <td>결과 추출 best baseline 대비</td>
-  <td>중앙값 1.50배</td>
+  <td>Result extraction vs. best baseline</td>
+  <td>1.50× median</td>
   <td>—</td>
 </tr>
 </tbody>
 </table>
-<p>근거 합성 인간 평가(승률, 5개 연구): 87.5/100/62.5/62.5/81.2%. User study: 스크리닝 recall +71.4%·시간 −44.2%, 추출 정확도 +23.5%·시간 −63.4%.</p>
-<h2 id="한계점">한계점</h2>
+<p>Human evaluation of evidence synthesis (win rate, 5 studies): 87.5/100/62.5/62.5/81.2%. User study: screening recall +71.4% and time −44.2%, extraction accuracy +23.5% and time −63.4%.</p>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li>결과(result) 추출이 가장 약한 고리(부정확/추출실패/환각). 'overall response'와 'complete response' 같은 정의 혼동에서 환각 발생.</li>
-<li>표준화·합성의 forest plot은 인간 전문가가 R로 수행(수동 검증 전제).</li>
-<li>평가가 4개 암 치료 영역에 한정.</li>
+<li>Result extraction is the weakest link (inaccuracy/extraction failure/hallucination). Hallucination arises from confusion over definitions such as 'overall response' versus 'complete response'.</li>
+<li>The forest plots for standardization/synthesis are performed by human experts in R (assuming manual verification).</li>
+<li>Evaluation is limited to 4 cancer treatment domains.</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
 <li>arXiv: 2406.17755 · DOI: 10.1038/s41746-025-01840-7 (npj Digital Medicine 2025)</li>
-<li>저자: Zifeng Wang, Lang Cao, Benjamin Danek, Qiao Jin, Zhiyong Lu 외</li>
-<li>데이터 TrialReviewBench: 4개 암 치료 영역 체계적 문헌고찰 100건 + 임상연구 2,220건 주석</li>
+<li>Authors: Zifeng Wang, Lang Cao, Benjamin Danek, Qiao Jin, Zhiyong Lu, et al.</li>
+<li>Dataset TrialReviewBench: 100 systematic reviews across 4 cancer treatment domains + annotations for 2,220 clinical studies</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (wang2025trialmind)</a></p>
@@ -211,14 +211,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

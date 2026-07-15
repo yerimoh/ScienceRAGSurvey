@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Molecule Generation with Fragment Retrieval Augmentation — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Molecule Generation with Fragment Retrieval Augmentation, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,7 +117,7 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-system-architecture">어떻게 만들었나 (System Architecture)</a></li><li class="toc-l2"><a href="#원문-직접-인용-arxiv241112078-본문">원문 직접 인용 (arXiv:2411.12078 §본문)</a></li><li class="toc-l2"><a href="#평가-셋업">평가 셋업</a></li><li class="toc-l3"><a href="#setup-1-pmo-benchmark-gao-et-al-2022-neurips">Setup 1 — PMO Benchmark (Gao et al. 2022, NeurIPS)</a></li><li class="toc-l3"><a href="#setup-2-docking-score-optimization-under-qedsanovelty-constraints-42">Setup 2 — Docking Score Optimization under QED/SA/Novelty constraints (§4.2)</a></li><li class="toc-l2"><a href="#주요-평가-결과-논문-본문-table-1">주요 평가 결과 (논문 본문 Table 1)</a></li><li class="toc-l2"><a href="#핵심-기여">핵심 기여</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#how-it-was-built-system-architecture">How It Was Built (System Architecture)</a></li><li class="toc-l2"><a href="#direct-quotes-from-the-original-arxiv241112078-main-text">Direct Quotes from the Original (arXiv:2411.12078 §main text)</a></li><li class="toc-l2"><a href="#evaluation-setup">Evaluation Setup</a></li><li class="toc-l3"><a href="#setup-1-pmo-benchmark-gao-et-al-2022-neurips">Setup 1 — PMO Benchmark (Gao et al. 2022, NeurIPS)</a></li><li class="toc-l3"><a href="#setup-2-docking-score-optimization-under-qedsanovelty-constraints-42">Setup 2 — Docking Score Optimization under QED/SA/Novelty constraints (§4.2)</a></li><li class="toc-l2"><a href="#main-evaluation-results-paper-main-text-table-1">Main Evaluation Results (paper main text Table 1)</a></li><li class="toc-l2"><a href="#key-contributions">Key Contributions</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related Links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>f-RAG: Molecule Generation with Fragment Retrieval Augmentation</h1>
@@ -126,83 +126,88 @@
 Seul Lee, Karsten Kreis, Srimukh Prasad Veccham, Meng Liu, Danny Reidenbach, Saee Paliwal, Arash Vahdat, Weili Nie — KAIST / NVIDIA / AstraZeneca
 DBLP: <code>conf/nips/LeeKV0RPVN24</code> · arXiv: <a href="https://arxiv.org/abs/2411.12078">2411.12078</a></p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>사전학습된 분자 생성 모델에 <strong>fragment retrieval augmentation</strong> (hard fragments + soft fragments)을 결합하고 <strong>iterative refinement + genetic fragment modification</strong> 으로 fragment vocabulary를 외삽(extrapolation)하여, <strong>PMO benchmark의 23 tasks</strong> 중 12개에서 top-10 AUC를 기록하고 19개 task에서 최고 synthesizability를 달성한 fragment-RAG 방법.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>A fragment-RAG method that combines <strong>fragment retrieval augmentation</strong> (hard fragments + soft fragments) with a pretrained molecule generation model and extrapolates the fragment vocabulary through <strong>iterative refinement + genetic fragment modification</strong>, achieving top-10 AUC on 12 of the <strong>23 tasks in the PMO benchmark</strong> and the best synthesizability on 19 tasks.</p>
 <hr />
-<h2 id="어떻게-만들었나-system-architecture">어떻게 만들었나 (System Architecture)</h2>
-<pre><code>[사전학습된 분자 생성 모델 (LSTM 등)]
+<h2 id="how-it-was-built-system-architecture">How It Was Built (System Architecture)</h2>
+<pre><code>[pretrained molecule generation model (LSTM, etc.)]
               │
               ▼
 ┌──────────────────────────────────────┐
-│ Fragment Vocabulary V                 │ ← ZINC 250K 등에서 추출
-│  - hard fragments: 직접 분자에 포함   │
-│  - soft fragments: injection module로 │
-│    참조해 새 fragment 생성 안내       │
+│ Fragment Vocabulary V                 │ ← extracted from ZINC 250K, etc.
+│  - hard fragments: directly included  │
+│    in the molecule                    │
+│  - soft fragments: referenced via the │
+│    injection module to guide new      │
+│    fragment generation                │
 └──────────┬───────────────────────────┘
            │ retrieve top-k fragments
            ▼
 ┌──────────────────────────────────────┐
 │ Hard Fragment Retrieval               │
-│   property score 높은 단편 우선       │
-│   → 생성 분자에 직접 포함             │
+│   prioritize fragments with high      │
+│   property scores                     │
+│   → directly include in generated     │
+│     molecule                          │
 │                                       │
 │ Soft Fragment Retrieval               │
-│   훈련 가능한 fragment injection mod  │
-│   → 신규 fragment 생성 안내           │
+│   trainable fragment injection module │
+│   → guide novel fragment generation   │
 └──────────┬───────────────────────────┘
            ▼
-[분자 생성 (SMILES) + property prediction]
+[molecule generation (SMILES) + property prediction]
            │
            ▼
 ┌──────────────────────────────────────┐
 │ Iterative Refinement (closed loop):    │
-│   1. property score 계산              │
-│   2. 우수 분자에서 새 fragment 추출    │
-│   3. V 업데이트 (vocabulary expansion)│
-│   4. 다음 라운드 검색에 사용          │
+│   1. compute property score           │
+│   2. extract new fragments from        │
+│      superior molecules                │
+│   3. update V (vocabulary expansion)  │
+│   4. use in next round of retrieval   │
 └──────────┬───────────────────────────┘
            ▼
 [Post-hoc Genetic Fragment Modification]
-   crossover/mutation으로 추가 화학 공간 탐색
+   explore additional chemical space via crossover/mutation
 </code></pre>
 <hr />
-<h2 id="원문-직접-인용-arxiv241112078-본문">원문 직접 인용 (arXiv:2411.12078 §본문)</h2>
+<h2 id="direct-quotes-from-the-original-arxiv241112078-main-text">Direct Quotes from the Original (arXiv:2411.12078 §main text)</h2>
 <blockquote>
-<p><strong>PMO 벤치마크 사용</strong> (§4.1): <em>&quot;We demonstrate the efficacy of f-RAG on the <strong>23 tasks</strong> from the <strong>PMO benchmark</strong>. Following the standard setting of the benchmark, we set the maximum number of oracle calls to 10,000 and evaluate optimization performance with the area under the curve (AUC) of the average property score versus oracle calls.&quot;</em></p>
+<p><strong>Use of the PMO benchmark</strong> (§4.1): <em>&quot;We demonstrate the efficacy of f-RAG on the <strong>23 tasks</strong> from the <strong>PMO benchmark</strong>. Following the standard setting of the benchmark, we set the maximum number of oracle calls to 10,000 and evaluate optimization performance with the area under the curve (AUC) of the average property score versus oracle calls.&quot;</em></p>
 </blockquote>
 <blockquote>
-<p><strong>결과</strong> (§4.1): <em>&quot;f-RAG ... achieves the highest <strong>AUC top-10 values in 12 out of 23 tasks</strong>, demonstrating that the proposed combination of hard fragment retrieval, soft fragment retrieval, and genetic fragment modification is highly effective&quot;</em></p>
+<p><strong>Results</strong> (§4.1): <em>&quot;f-RAG ... achieves the highest <strong>AUC top-10 values in 12 out of 23 tasks</strong>, demonstrating that the proposed combination of hard fragment retrieval, soft fragment retrieval, and genetic fragment modification is highly effective&quot;</em></p>
 </blockquote>
 <blockquote>
 <p><strong>Diversity / Synthesizability</strong>: <em>&quot;f-RAG shows the highest <strong>diversity in 12 out of 23 tasks</strong>, and the highest <strong>synthesizability in 19 out of 23 tasks</strong>&quot;</em></p>
 </blockquote>
 <blockquote>
-<p><strong>Docking score 평가 (§4.2)</strong>: <em>&quot;we use docking score calculated by <strong>QuickVina 2</strong> with five protein targets, <strong>parp1, fa7, 5ht1b, braf, and jak2</strong>, to measure binding affinity. We use quantitative estimates of drug-likeness (<strong>QED</strong>) and <strong>SA</strong> to measure drug-likeness and synthesizability&quot;</em></p>
+<p><strong>Docking score evaluation (§4.2)</strong>: <em>&quot;we use docking score calculated by <strong>QuickVina 2</strong> with five protein targets, <strong>parp1, fa7, 5ht1b, braf, and jak2</strong>, to measure binding affinity. We use quantitative estimates of drug-likeness (<strong>QED</strong>) and <strong>SA</strong> to measure drug-likeness and synthesizability&quot;</em></p>
 </blockquote>
 <hr />
-<h2 id="평가-셋업">평가 셋업</h2>
+<h2 id="evaluation-setup">Evaluation Setup</h2>
 <h3 id="setup-1-pmo-benchmark-gao-et-al-2022-neurips">Setup 1 — PMO Benchmark (Gao et al. 2022, NeurIPS)</h3>
 <ul>
-<li><strong>Tasks</strong>: 23 molecular optimization tasks (TDC oracle 기반)</li>
-<li><strong>Oracle budget</strong>: 10,000 calls 제한</li>
-<li><strong>Primary metric</strong>: AUC top-10 (average property score 누적 vs oracle calls)</li>
+<li><strong>Tasks</strong>: 23 molecular optimization tasks (TDC oracle based)</li>
+<li><strong>Oracle budget</strong>: 10,000 calls limit</li>
+<li><strong>Primary metric</strong>: AUC top-10 (average property score cumulative vs oracle calls)</li>
 <li><strong>Auxiliary metric</strong>: Diversity, Novelty, Synthesizability (SA score)</li>
 </ul>
 <h3 id="setup-2-docking-score-optimization-under-qedsanovelty-constraints-42">Setup 2 — Docking Score Optimization under QED/SA/Novelty constraints (§4.2)</h3>
 <ul>
 <li><strong>Docking program</strong>: QuickVina 2</li>
-<li><strong>Protein targets</strong>: parp1, fa7, 5ht1b, braf, jak2 (5 종)</li>
+<li><strong>Protein targets</strong>: parp1, fa7, 5ht1b, braf, jak2 (5 total)</li>
 <li><strong>Constraint</strong>: target property y = c_DS × c_QED × c_SA × c_Novelty (normalized product)</li>
-<li><strong>Baseline 비교</strong>: Lee et al. (DECOMPDIFF), DST 등 SBDD 방법</li>
+<li><strong>Baseline comparison</strong>: Lee et al. (DECOMPDIFF), DST, and other SBDD methods</li>
 </ul>
 <hr />
-<h2 id="주요-평가-결과-논문-본문-table-1">주요 평가 결과 (논문 본문 Table 1)</h2>
+<h2 id="main-evaluation-results-paper-main-text-table-1">Main Evaluation Results (paper main text Table 1)</h2>
 <table>
 <thead>
 <tr>
-  <th>비교 시스템</th>
+  <th>Comparison system</th>
   <th>Top-7 PMO baselines + 2 SOTA</th>
-  <th>AUC top-10 합계</th>
+  <th>AUC top-10 sum</th>
 </tr>
 </thead>
 <tbody>
@@ -228,39 +233,39 @@ DBLP: <code>conf/nips/LeeKV0RPVN24</code> · arXiv: <a href="https://arxiv.org/a
 </tr>
 </tbody>
 </table>
-<p>핵심 성능 numbers (논문 본문):</p>
+<p>Key performance numbers (paper main text):</p>
 <ul>
 <li>AUC top-10 highest in <strong>12/23 tasks</strong></li>
 <li>Synthesizability highest in <strong>19/23 tasks</strong></li>
 <li>Diversity highest in <strong>12/23 tasks</strong></li>
 </ul>
 <hr />
-<h2 id="핵심-기여">핵심 기여</h2>
+<h2 id="key-contributions">Key Contributions</h2>
 <ol>
-<li><strong>Fragment retrieval as RAG for molecules</strong> — 텍스트 RAG 패러다임을 분자 생성으로 확장</li>
-<li><strong>Hard + Soft 이중 검색</strong> — 명시적 포함(hard) + injection module(soft) 결합</li>
-<li><strong>Iterative refinement로 vocabulary 외삽</strong> — 데이터베이스 밖 fragment 탐색</li>
-<li><strong>Post-hoc genetic modification</strong> — crossover/mutation으로 추가 다양성 확보</li>
-<li><strong>PMO benchmark에서 SOTA 갱신</strong> — 12/23 task에서 AUC top-10 1위</li>
+<li><strong>Fragment retrieval as RAG for molecules</strong> — extends the text RAG paradigm to molecule generation</li>
+<li><strong>Hard + Soft dual retrieval</strong> — combines explicit inclusion (hard) with an injection module (soft)</li>
+<li><strong>Vocabulary extrapolation via iterative refinement</strong> — explores fragments outside the database</li>
+<li><strong>Post-hoc genetic modification</strong> — secures additional diversity via crossover/mutation</li>
+<li><strong>New SOTA on the PMO benchmark</strong> — 1st in AUC top-10 on 12/23 tasks</li>
 </ol>
 <hr />
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li><strong>Fragment vocabulary 크기 의존성</strong>: 작은 DB → 성능 저하</li>
-<li><strong>Docking score는 proxy</strong>: 실제 binding affinity의 근사값</li>
-<li><strong>계산 비용 선형 증가</strong>: refinement 반복 수에 비례</li>
-<li><strong>5 protein targets만 평가</strong>: 다양한 단백질 가족 일반화 미검증</li>
-<li><strong>합성 합리성</strong>: SA score는 reaction template 기반 추정으로 실제 합성 실현성과 차이</li>
+<li><strong>Dependence on fragment vocabulary size</strong>: small DB → degraded performance</li>
+<li><strong>Docking score is a proxy</strong>: an approximation of actual binding affinity</li>
+<li><strong>Linear increase in computational cost</strong>: proportional to the number of refinement iterations</li>
+<li><strong>Only 5 protein targets evaluated</strong>: generalization across diverse protein families unverified</li>
+<li><strong>Synthetic feasibility</strong>: the SA score is a reaction-template-based estimate that differs from actual synthetic realizability</li>
 </ul>
 <hr />
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related Links</h2>
 <ul>
-<li><strong>논문 (arXiv)</strong>: <a href="https://arxiv.org/abs/2411.12078">2411.12078</a></li>
+<li><strong>Paper (arXiv)</strong>: <a href="https://arxiv.org/abs/2411.12078">2411.12078</a></li>
 <li><strong>NeurIPS 2024 OpenReview</strong>: search &quot;Molecule Generation with Fragment Retrieval Augmentation&quot;</li>
 <li><strong>DBLP</strong>: <a href="https://dblp.org/rec/conf/nips/LeeKV0RPVN24.html">conf/nips/LeeKV0RPVN24</a></li>
-<li><strong>저자 소속</strong>: KAIST, NVIDIA, AstraZeneca</li>
-<li><strong>사용 벤치마크</strong>: <strong>PMO</strong> (Wenhao Gao et al., NeurIPS 2022, <a href="https://arxiv.org/abs/2206.12411">arXiv:2206.12411</a>)</li>
-<li><strong>사용 docking tool</strong>: <a href="https://qvina.github.io/">QuickVina 2</a> (Alhossary et al. 2015, Bioinformatics)</li>
+<li><strong>Author affiliations</strong>: KAIST, NVIDIA, AstraZeneca</li>
+<li><strong>Benchmark used</strong>: <strong>PMO</strong> (Wenhao Gao et al., NeurIPS 2022, <a href="https://arxiv.org/abs/2206.12411">arXiv:2206.12411</a>)</li>
+<li><strong>Docking tool used</strong>: <a href="https://qvina.github.io/">QuickVina 2</a> (Alhossary et al. 2015, Bioinformatics)</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/nips/LeeKV0RPVN24)</a></p>
@@ -302,14 +307,14 @@ DBLP: <code>conf/nips/LeeKV0RPVN24</code> · arXiv: <a href="https://arxiv.org/a
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

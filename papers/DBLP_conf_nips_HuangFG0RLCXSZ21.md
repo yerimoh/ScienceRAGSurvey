@@ -13,28 +13,28 @@ paper_link: https://arxiv.org/abs/2102.09548
 > Kexin Huang, Tianfan Fu, Wenhao Gao, Yue Zhao, Yusuf H. Roohani, Jure Leskovec, Connor W. Coley, Cao Xiao, Jimeng Sun, Marinka Zitnik — Harvard / Stanford / MIT / Georgia Tech / IBM / UIUC
 > DBLP: `conf/nips/HuangFG0RLCXSZ21` · arXiv: [2102.09548](https://arxiv.org/abs/2102.09548) · Web: [tdcommons.ai](https://tdcommons.ai)
 
-## 한 줄 요약
-약물 발견·개발 전 범위(small molecule → biologics → clinical trial)에 걸친 **66개 AI-ready 데이터셋 × 22개 learning task** 통합 평가 플랫폼. **29 public leaderboards**, **17 molecule generation oracles**, **23 evaluation 전략**, **33 data 분할/함수**, 오픈 Python 라이브러리 제공. Database-verified Prediction 시스템 (CLADD 등)의 사실상 표준 평가 hub.
+## TL;DR
+An integrated evaluation platform spanning the full range of drug discovery and development (small molecule → biologics → clinical trial), with **66 AI-ready datasets × 22 learning tasks**. It provides **29 public leaderboards**, **17 molecule generation oracles**, **23 evaluation strategies**, **33 data splits/functions**, and an open Python library. It is effectively the standard evaluation hub for Database-verified Prediction systems (e.g., CLADD).
 
 ---
 
-## 어떻게 만들었나 (Construction Methodology)
+## Construction Methodology
 
 ```
-3개 학습 패러다임 × 22 tasks × 66 datasets 구조
+Structure: 3 learning paradigms × 22 tasks × 66 datasets
 
 ┌──────────────────────────────────────────────────────────────┐
-│ 1. single_pred (단일 인스턴스 예측) — 9 tasks                │
-│    └─ ADME (흡수·분포·대사·배설) Property Prediction         │
-│    └─ Tox (독성) Prediction                                  │
+│ 1. single_pred (single-instance prediction) — 9 tasks       │
+│    └─ ADME (Absorption·Distribution·Metabolism·Excretion) Property Prediction │
+│    └─ Tox (Toxicity) Prediction                             │
 │    └─ HTS (high-throughput screening) Prediction             │
-│    └─ QM (양자역학 properties)                               │
-│    └─ Yields (반응 수율) Prediction                          │
-│    └─ Paratope / Epitope Prediction (항체 결합 부위)         │
+│    └─ QM (quantum-mechanical properties)                    │
+│    └─ Yields (reaction yield) Prediction                    │
+│    └─ Paratope / Epitope Prediction (antibody binding site) │
 │    └─ Antibody Developability Prediction                     │
 │    └─ CRISPR Repair Outcome Prediction                       │
 │                                                               │
-│ 2. multi_pred (다중 인스턴스 예측) — 7 tasks                 │
+│ 2. multi_pred (multi-instance prediction) — 7 tasks         │
 │    └─ DTI (Drug-Target Interaction)                          │
 │    └─ DDI (Drug-Drug Interaction)                            │
 │    └─ PPI (Protein-Protein Interaction)                      │
@@ -51,31 +51,31 @@ paper_link: https://arxiv.org/abs/2102.09548
 │    └─ MolOpt (Molecule Optimization with 17 oracles)         │
 └──────────────────────────────────────────────────────────────┘
 
-Step 1 — 데이터셋 수집 + 정제
-  공개 임상/생화학 DB 66종에서 raw data 다운로드
-  → 통합 schema로 정규화 (SMILES, sequence, label 형식 표준화)
-  → 결측치/중복 제거, train/val/test split 표준화
+Step 1 — Dataset collection + curation
+  Download raw data from 66 public clinical/biochemical DBs
+  → Normalize into a unified schema (standardize SMILES, sequence, label formats)
+  → Remove missing values/duplicates, standardize train/val/test splits
 
-Step 2 — 평가 프로토콜 표준화
-  · 33 data functions/splits: random/scaffold/cold-start/temporal/등
-  · 23 evaluation strategies: AUROC/AUPRC/RMSE/MAE/Top-K/등
-  · 17 molecule generation oracles: QED/SA/LogP/JNK3/GSK3β/DRD2/등
-                                    (PMO benchmark 의 oracle 모음)
+Step 2 — Standardize the evaluation protocol
+  · 33 data functions/splits: random/scaffold/cold-start/temporal/etc.
+  · 23 evaluation strategies: AUROC/AUPRC/RMSE/MAE/Top-K/etc.
+  · 17 molecule generation oracles: QED/SA/LogP/JNK3/GSK3β/DRD2/etc.
+                                    (the oracle collection from the PMO benchmark)
 
 Step 3 — 29 Public Leaderboards
   · ADMET Group Leaderboard
   · Docking Group Leaderboard
-  · 시간 추적 가능한 공개 비교 (reproducibility 보장)
+  · Time-trackable public comparisons (reproducibility guaranteed)
 
 Step 4 — Python Library + Documentation
   └─ pip install PyTDC
-  └─ 통일된 `from tdc.single_pred import ADME` 식 API
-  └─ tdcommons.ai 공식 문서 + Tutorial
+  └─ Unified API in the style of `from tdc.single_pred import ADME`
+  └─ tdcommons.ai official documentation + Tutorial
 ```
 
 ---
 
-## 원문 직접 인용 (arXiv:2102.09548 §Abstract 본문)
+## Direct quotations from the original (arXiv:2102.09548 §Abstract body)
 
 > *"Therapeutics machine learning is an emerging field with incredible opportunities for innovation and impact ... we introduce **Therapeutics Data Commons (TDC), the first unifying platform** to systematically access and evaluate machine learning across the entire range of therapeutics. To date, TDC includes **66 AI-ready datasets spread across 22 learning tasks** and spanning the discovery and development of safe and effective medicines."*
 
@@ -85,39 +85,39 @@ Step 4 — Python Library + Documentation
 
 ---
 
-## Input / Output (학습 패러다임별)
+## Input / Output (by learning paradigm)
 
-| 패러다임 | Input | Output | 대표 task |
+| Paradigm | Input | Output | Representative task |
 |---|---|---|---|
-| **single_pred** | 단일 분자/단백질 (SMILES, sequence) | scalar/class label | ADMET, Toxicity (Tox21, SIDER, ClinTox 등 포함) |
-| **multi_pred** | (drug, target) 또는 (drug, drug) pair | interaction score / class | DTI (BindingDB, DAVIS, KIBA 포함), DDI |
-| **generation** | constraint / oracle 점수 | 신규 분자 SMILES | MolOpt, retrosynthesis |
+| **single_pred** | single molecule/protein (SMILES, sequence) | scalar/class label | ADMET, Toxicity (includes Tox21, SIDER, ClinTox, etc.) |
+| **multi_pred** | (drug, target) or (drug, drug) pair | interaction score / class | DTI (includes BindingDB, DAVIS, KIBA), DDI |
+| **generation** | constraint / oracle score | novel molecule SMILES | MolOpt, retrosynthesis |
 
-**오라클 사용 시 예시**:
-- QED / SA → 분자 약물성
+**Examples when using oracles**:
+- QED / SA → molecular druglikeness
 - DRD2 / JNK3 / GSK3β → bioactivity prediction
-- Docking 모듈 → Vina score (PMO subset)
+- Docking module → Vina score (PMO subset)
 
 ---
 
-## 주요 평가 결과 (논문 §본문 + Table)
+## Key evaluation results (paper §body + Table)
 
-### 평가 환경
-- **29 public leaderboards** 운영 (ADMET Group, Docking Group 등)
-- **23 evaluation strategies** (AUROC, AUPRC, RMSE, MAE, Top-K Recall, Spearman 등)
-- **33 data splits** (random, scaffold, cold-start, temporal, lo-shot 등)
+### Evaluation setup
+- Operates **29 public leaderboards** (ADMET Group, Docking Group, etc.)
+- **23 evaluation strategies** (AUROC, AUPRC, RMSE, MAE, Top-K Recall, Spearman, etc.)
+- **33 data splits** (random, scaffold, cold-start, temporal, lo-shot, etc.)
 
-### 핵심 발견 (논문 §본문 인용)
+### Core findings (quoted from paper §body)
 - "even the **strongest algorithms fall short** of solving key therapeutics challenges"
-- **Distribution shift** (시계열·실험실 간) 강건성 부족
-- **Multi-scale modeling** (small molecule ↔ protein ↔ disease) 통합 미숙
-- **Novel data points** 일반화 한계
+- Lack of robustness to **Distribution shift** (across time and across labs)
+- Immature integration of **Multi-scale modeling** (small molecule ↔ protein ↔ disease)
+- Generalization limits on **Novel data points**
 
 ---
 
-## 데이터셋 통계 (대표 subset)
+## Dataset statistics (representative subset)
 
-| Category | 대표 datasets |
+| Category | Representative datasets |
 |---|---|
 | ADMET | Caco2, HIA, Pgp, Bioavailability, Lipophilicity, Solubility, BBBP, PAMPA, Half-Life, Clearance, hERG, AMES, DILI |
 | Toxicity | ClinTox, Tox21, ToxCast, LD50 |
@@ -128,24 +128,24 @@ Step 4 — Python Library + Documentation
 | DrugRes | GDSC cell-line response |
 | Generation | MOSES, ZINC 250K, ChEMBL, USPTO retrosynthesis |
 
-→ Database-verified Prediction RAG 시스템 (CLADD 등) 평가 시 자주 활용.
+→ Frequently used when evaluating Database-verified Prediction RAG systems (e.g., CLADD).
 
 ---
 
-## 한계점 (논문 §Limitations + 후속 연구 지적)
-- **데이터셋 품질 편차**: 일부 small-scale dataset은 충분한 변동 통계 부족
-- **Distribution shift** 평가가 부족 (시간/실험실/도메인 간 동일성 가정)
-- **시간 의존성 데이터**: 새로 발견된 drug-target은 leaderboard에 천천히 반영
-- **Benchmark gaming**: leaderboard 최적화가 실제 의학적 가치와 분리 가능
-- **타입별 dataset 균형**: small molecule 위주, biologics/macromolecule 비율 낮음
-- **Closed-set evaluation**: 미발견 분자/단백질에 대한 generalization 측정 불가
+## Limitations (paper §Limitations + points raised by follow-up work)
+- **Dataset quality variance**: some small-scale datasets lack sufficient variation statistics
+- **Distribution shift** evaluation is insufficient (assumes uniformity across time/lab/domain)
+- **Time-dependent data**: newly discovered drug-targets are reflected slowly in the leaderboards
+- **Benchmark gaming**: leaderboard optimization can become decoupled from real medical value
+- **Balance across dataset types**: skewed toward small molecules, with a low proportion of biologics/macromolecules
+- **Closed-set evaluation**: cannot measure generalization to undiscovered molecules/proteins
 
 ---
 
-## 관련 정보
-- **논문 (arXiv)**: [2102.09548](https://arxiv.org/abs/2102.09548)
+## Related links
+- **Paper (arXiv)**: [2102.09548](https://arxiv.org/abs/2102.09548)
 - **NeurIPS 2021 Datasets and Benchmarks Track**: [Round 1 paper](https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/4c7a167bb329bd92580a99ce422d6fa6-Abstract-round1.html)
 - **DBLP**: [conf/nips/HuangFG0RLCXSZ21](https://dblp.org/rec/conf/nips/HuangFG0RLCXSZ21.html)
-- **공식 홈페이지**: [tdcommons.ai](https://tdcommons.ai)
+- **Official homepage**: [tdcommons.ai](https://tdcommons.ai)
 - **PyPI**: `pip install PyTDC`
-- **이 benchmark를 사용한 후속 RAG 작업**: CLADD (Database-verified Prediction), PMO (MolOpt subset reuse), Patho-AgenticRAG (Pathology subset), 등 의약 RAG 표준 평가 hub
+- **Follow-up RAG work using this benchmark**: CLADD (Database-verified Prediction), PMO (MolOpt subset reuse), Patho-AgenticRAG (Pathology subset), etc. — a standard evaluation hub for pharmaceutical RAG

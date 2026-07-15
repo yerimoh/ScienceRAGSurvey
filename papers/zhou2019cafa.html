@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CAFA3: Critical Assessment of Function Annotation — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>CAFA3: Critical Assessment of Function Annotation, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,7 +117,7 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-cafa-challenge-methodology">어떻게 만들었나 (CAFA Challenge Methodology)</a></li><li class="toc-l2"><a href="#원문-직접-인용-zhou-2019-genome-biol-title">원문 직접 인용 (Zhou 2019 Genome Biol §Title)</a></li><li class="toc-l2"><a href="#평가-셋업">평가 셋업</a></li><li class="toc-l2"><a href="#주요-평가-결과-논문-본문">주요 평가 결과 (논문 본문)</a></li><li class="toc-l2"><a href="#주요-활용">주요 활용</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#how-it-was-built-cafa-challenge-methodology">How it was built (CAFA Challenge Methodology)</a></li><li class="toc-l2"><a href="#direct-quotes-from-the-source-zhou-2019-genome-biol-title">Direct quotes from the source (Zhou 2019 Genome Biol §Title)</a></li><li class="toc-l2"><a href="#evaluation-setup">Evaluation setup</a></li><li class="toc-l2"><a href="#key-evaluation-results-paper-body">Key evaluation results (paper body)</a></li><li class="toc-l2"><a href="#main-uses">Main uses</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>CAFA3: Time-delayed Protein-GO Function Prediction Benchmark</h1>
@@ -126,47 +126,51 @@
 Naihui Zhou, Yuxiang Jiang, ... Iddo Friedberg (and ~100 co-authors) — international CAFA consortium
 DOI: <a href="https://doi.org/10.1186/s13059-019-1835-8">10.1186/s13059-019-1835-8</a> · PMID 31744546</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>단백질의 기능(Gene Ontology term)을 시퀀스/구조로부터 예측하는 task의 <strong>국제 challenge benchmark</strong>. CAFA1(2010) → CAFA2(2013) → CAFA3(2017–2019) 3회 cycle 운영. <strong>time-delayed evaluation</strong> 프로토콜로 challenge 시작 시점에 GO annotation이 없는 단백질이 챌린지 기간 동안 실험으로 검증된 결과를 hidden test set으로 사용.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>An <strong>international challenge benchmark</strong> for the task of predicting protein function (Gene Ontology terms) from sequence/structure. Run over three cycles: CAFA1 (2010) → CAFA2 (2013) → CAFA3 (2017–2019). Using a <strong>time-delayed evaluation</strong> protocol, proteins that had no GO annotation at the challenge start but were experimentally verified during the challenge period are used as the hidden test set.</p>
 <hr />
-<h2 id="어떻게-만들었나-cafa-challenge-methodology">어떻게 만들었나 (CAFA Challenge Methodology)</h2>
-<pre><code>Step 1 — Challenge timeline (3년 주기)
+<h2 id="how-it-was-built-cafa-challenge-methodology">How it was built (CAFA Challenge Methodology)</h2>
+<pre><code>Step 1 — Challenge timeline (3-year cycle)
   ┌──────────────────────────────────────────────┐
-  │ T0: Challenge 개시 — UniProt-GO annotation   │
-  │     snapshot 공개                            │
+  │ T0: Challenge opens — UniProt-GO annotation  │
+  │     snapshot released                        │
   │                                               │
-  │ T0 ~ T0+9개월: 참가자 예측 제출 마감          │
-  │     (각 미주석 단백질에 대해 GO term 후보들  │
-  │      을 확률 점수와 함께 ranked list 제출)   │
+  │ T0 ~ T0+9 months: participant prediction     │
+  │     submission deadline                       │
+  │     (for each unannotated protein, submit a  │
+  │      ranked list of candidate GO terms with  │
+  │      probability scores)                     │
   │                                               │
-  │ T0+9 ~ T0+30개월: 자연 실험적 검증 누적       │
-  │     UniProt이 새 GO annotation 등록          │
+  │ T0+9 ~ T0+30 months: natural experimental    │
+  │     validation accumulates                    │
+  │     UniProt registers new GO annotations     │
   │                                               │
-  │ T0+30개월: Held-out test set 확정             │
-  │     T0 시점 unannotated였으나 챌린지 기간    │
-  │     실험으로 새 annotation을 받은 단백질들    │
+  │ T0+30 months: Held-out test set finalized    │
+  │     proteins that were unannotated at T0 but │
+  │     received new experimental annotations    │
+  │     during the challenge period               │
   └──────────────────────────────────────────────┘
 
 Step 2 — Evaluation: time-delayed held-out
-  └─ 챌린지 시작 후 새로 annotated된 단백질만 test
-  └─ data leakage 원천 차단 (전체 시간축으로)
-  └─ &quot;retrieve-then-rank GO term&quot; task 형식
+  └─ only proteins newly annotated after the challenge start are tested
+  └─ blocks data leakage at its source (across the full time axis)
+  └─ &quot;retrieve-then-rank GO term&quot; task format
 
-Step 3 — Target 종 + 분야
-  └─ 18+ target species (human, mouse, yeast, A. thaliana 등)
+Step 3 — Target species + fields
+  └─ 18+ target species (human, mouse, yeast, A. thaliana, etc.)
   └─ 3 GO sub-ontologies: BP (Biological Process),
                           MF (Molecular Function),
                           CC (Cellular Component)
   └─ NK (No Knowledge) + LK (Limited Knowledge) categories
 
 Step 4 — Evaluation metric
-  └─ Fmax (precision-recall curve의 max F1)
-  └─ Smin (semantic distance, GO 계층 고려)
+  └─ Fmax (max F1 on the precision-recall curve)
+  └─ Smin (semantic distance, accounts for GO hierarchy)
   └─ ROC-AUC (per-term basis)
-  └─ Coverage (얼마나 많은 단백질에 예측 제공)
+  └─ Coverage (how many proteins predictions are provided for)
 </code></pre>
 <hr />
-<h2 id="원문-직접-인용-zhou-2019-genome-biol-title">원문 직접 인용 (Zhou 2019 Genome Biol §Title)</h2>
+<h2 id="direct-quotes-from-the-source-zhou-2019-genome-biol-title">Direct quotes from the source (Zhou 2019 Genome Biol §Title)</h2>
 <blockquote>
 <p>Title: <em>&quot;The <strong>CAFA challenge reports improved protein function prediction</strong> and new functional annotations for hundreds of genes through experimental screens&quot;</em></p>
 </blockquote>
@@ -177,11 +181,11 @@ Step 4 — Evaluation metric
 <p>CAFA series: CAFA1 (2010–2011, 18 species), CAFA2 (2013–2014, ~100,000 proteins), CAFA3 (2016–2018, ~92,000 proteins)</p>
 </blockquote>
 <hr />
-<h2 id="평가-셋업">평가 셋업</h2>
+<h2 id="evaluation-setup">Evaluation setup</h2>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
+  <th>Item</th>
   <th>CAFA3 (2017–2019)</th>
 </tr>
 </thead>
@@ -192,11 +196,11 @@ Step 4 — Evaluation metric
 </tr>
 <tr>
   <td>Target proteins</td>
-  <td>~92,000 (challenge 시작 시 unannotated)</td>
+  <td>~92,000 (unannotated at challenge start)</td>
 </tr>
 <tr>
   <td>Held-out test size</td>
-  <td>챌린지 기간 동안 새로 annotated된 ~3,000–10,000 단백질</td>
+  <td>~3,000–10,000 proteins newly annotated during the challenge period</td>
 </tr>
 <tr>
   <td>GO sub-ontologies</td>
@@ -212,7 +216,7 @@ Step 4 — Evaluation metric
 </tr>
 <tr>
   <td>Primary metric</td>
-  <td>Fmax (precision-recall 기반)</td>
+  <td>Fmax (precision-recall based)</td>
 </tr>
 <tr>
   <td>Secondary metrics</td>
@@ -221,44 +225,44 @@ Step 4 — Evaluation metric
 </tbody>
 </table>
 <hr />
-<h2 id="주요-평가-결과-논문-본문">주요 평가 결과 (논문 본문)</h2>
+<h2 id="key-evaluation-results-paper-body">Key evaluation results (paper body)</h2>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>내용</th>
+  <th>Item</th>
+  <th>Content</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>참가 팀</td>
-  <td>50+ 국제 그룹</td>
+  <td>Participating teams</td>
+  <td>50+ international groups</td>
 </tr>
 <tr>
-  <td>최고 성능 모델</td>
+  <td>Top-performing models</td>
   <td>DeepGOPlus, NetGO, GOLabeler, ... (CAFA3)</td>
 </tr>
 <tr>
-  <td>인간 단백질 GO MF Fmax</td>
+  <td>Human protein GO MF Fmax</td>
   <td>~0.6 (top systems)</td>
 </tr>
 <tr>
-  <td>종 횡단 generalization</td>
-  <td>인간 외 종에서 성능 저하</td>
+  <td>Cross-species generalization</td>
+  <td>performance drops on species other than human</td>
 </tr>
 <tr>
-  <td>&quot;Improved&quot; 키워드</td>
-  <td>CAFA1 → CAFA3로 일관된 성능 향상 입증</td>
+  <td>&quot;Improved&quot; keyword</td>
+  <td>demonstrates consistent performance gains from CAFA1 → CAFA3</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="주요-활용">주요 활용</h2>
+<h2 id="main-uses">Main uses</h2>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>내용</th>
+  <th>Item</th>
+  <th>Content</th>
 </tr>
 </thead>
 <tbody>
@@ -268,7 +272,7 @@ Step 4 — Evaluation metric
 </tr>
 <tr>
   <td>Retrieval-then-rank</td>
-  <td>retrieve homologs → rank candidate GO terms canonical 패턴</td>
+  <td>canonical pattern of retrieve homologs → rank candidate GO terms</td>
 </tr>
 <tr>
   <td>Database verifier</td>
@@ -279,30 +283,30 @@ Step 4 — Evaluation metric
   <td>sequence embedding retrieval → GO term proposal</td>
 </tr>
 <tr>
-  <td>후속 작업</td>
+  <td>Follow-up work</td>
   <td>CAFA4 (2020–), CAFA5 (Kaggle 2023)</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li><strong>Sparse annotation</strong>: GO term은 인간조차 부분 annotated, full ground truth 없음</li>
-<li><strong>Bias toward studied proteins</strong>: 잘 연구된 단백질이 over-represented</li>
-<li><strong>GO ontology drift</strong>: 챌린지 도중 ontology 자체 업데이트 가능</li>
-<li><strong>Long-tail GO terms</strong>: 희귀 function은 examples 부족</li>
-<li><strong>3년 cycle</strong>: 평가 결과 발표가 모델 개발 후 한참 뒤</li>
-<li><strong>Domain bias</strong>: human/model organism 비율 높음, microbial protein 적음</li>
+<li><strong>Sparse annotation</strong>: GO terms are only partially annotated even for humans; no full ground truth</li>
+<li><strong>Bias toward studied proteins</strong>: well-studied proteins are over-represented</li>
+<li><strong>GO ontology drift</strong>: the ontology itself may be updated during the challenge</li>
+<li><strong>Long-tail GO terms</strong>: rare functions lack examples</li>
+<li><strong>3-year cycle</strong>: evaluation results are published long after model development</li>
+<li><strong>Domain bias</strong>: high proportion of human/model organism, few microbial proteins</li>
 </ul>
 <hr />
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문 (Genome Biol)</strong>: <a href="https://doi.org/10.1186/s13059-019-1835-8">10.1186/s13059-019-1835-8</a></li>
+<li><strong>Paper (Genome Biol)</strong>: <a href="https://doi.org/10.1186/s13059-019-1835-8">10.1186/s13059-019-1835-8</a></li>
 <li><strong>PubMed</strong>: <a href="https://pubmed.ncbi.nlm.nih.gov/31744546/">PMID 31744546</a></li>
-<li><strong>공식 사이트</strong>: <a href="https://www.biofunctionprediction.org/cafa">biofunctionprediction.org</a> (CAFA consortium)</li>
-<li><strong>CAFA3 데이터</strong>: synapse.org/cafa3</li>
+<li><strong>Official site</strong>: <a href="https://www.biofunctionprediction.org/cafa">biofunctionprediction.org</a> (CAFA consortium)</li>
+<li><strong>CAFA3 data</strong>: synapse.org/cafa3</li>
 <li><strong>Kaggle CAFA5 (2023)</strong>: <a href="https://www.kaggle.com/competitions/cafa-5-protein-function-prediction">kaggle.com/competitions/cafa-5-protein-function-prediction</a></li>
-<li><strong>이 challenge를 사용한 주요 모델</strong>: DeepGOPlus, NetGO, GOLabeler, Funfams, Argot, INGA, TALE, ProteInfer 등</li>
+<li><strong>Major models using this challenge</strong>: DeepGOPlus, NetGO, GOLabeler, Funfams, Argot, INGA, TALE, ProteInfer, etc.</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (zhou2019cafa)</a></p>
@@ -328,14 +332,14 @@ Step 4 — Evaluation metric
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Benchmarking Retrieval-Augmented Generation for Medicine — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Benchmarking Retrieval-Augmented Generation for Medicine, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,27 +117,27 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-medrag-architecture">시스템 구조 (MEDRAG Architecture)</a></li><li class="toc-l3"><a href="#1-corpora-medcorp">(1) Corpora — MedCorp</a></li><li class="toc-l3"><a href="#2-retrievers-4종">(2) Retrievers (4종)</a></li><li class="toc-l3"><a href="#3-rrf-reciprocal-rank-fusion">(3) RRF — Reciprocal Rank Fusion</a></li><li class="toc-l3"><a href="#4-llms-6종">(4) LLMs (6종)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l3"><a href="#핵심-평가-설정-두-가지">핵심 평가 설정 두 가지</a></li><li class="toc-l2"><a href="#핵심-방법적-발견">핵심 방법적 발견</a></li><li class="toc-l2"><a href="#함께-제안한-벤치마크-mirage">함께 제안한 벤치마크: MIRAGE</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#architecture-medrag-architecture">Architecture (MEDRAG Architecture)</a></li><li class="toc-l3"><a href="#1-corpora-medcorp">(1) Corpora — MedCorp</a></li><li class="toc-l3"><a href="#2-retrievers-4-types">(2) Retrievers (4 types)</a></li><li class="toc-l3"><a href="#3-rrf-reciprocal-rank-fusion">(3) RRF — Reciprocal Rank Fusion</a></li><li class="toc-l3"><a href="#4-llms-6-types">(4) LLMs (6 types)</a></li><li class="toc-l2"><a href="#pipeline-inference">Pipeline (inference)</a></li><li class="toc-l3"><a href="#two-core-evaluation-settings">Two core evaluation settings</a></li><li class="toc-l2"><a href="#key-methodological-findings">Key methodological findings</a></li><li class="toc-l2"><a href="#the-jointly-proposed-benchmark-mirage">The jointly proposed benchmark: MIRAGE</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>MEDRAG: Benchmarking Retrieval-Augmented Generation for Medicine</h1>
 <blockquote>
 <p>ACL Findings 2024 | Method | medical · bio</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p><strong>MEDRAG</strong>는 의학 QA를 위한 first-stage RAG 툴킷/파이프라인으로, 4개 도메인 corpus를 묶은 <strong>MedCorp</strong>에서 4종 retriever(BM25/Contriever/SPECTER/MedCPT)와 RRF fusion으로 관련 snippet을 검색하고, 이를 6종 LLM의 chain-of-thought 프롬프트에 주입해 답을 생성한다. corpus·retriever·LLM을 자유롭게 조합·교체할 수 있는 모듈형 시스템으로, 각 구성요소가 의학 RAG 성능에 미치는 영향을 체계적으로 비교할 수 있게 설계되었다.</p>
-<h2 id="시스템-구조-medrag-architecture">시스템 구조 (MEDRAG Architecture)</h2>
-<p>MEDRAG는 <strong>corpus → retriever → LLM</strong> 세 층으로 이루어진 모듈형 파이프라인이며, 각 층의 구성요소를 plug-and-play로 교체할 수 있다.</p>
+<h2 id="tldr">TL;DR</h2>
+<p><strong>MEDRAG</strong> is a first-stage RAG toolkit/pipeline for medical QA. On <strong>MedCorp</strong>, which bundles corpora from four domains, it retrieves relevant snippets using four retrievers (BM25/Contriever/SPECTER/MedCPT) with RRF fusion, then injects them into the chain-of-thought prompts of six LLMs to generate answers. It is a modular system in which corpus, retriever, and LLM can be freely combined and swapped, designed to enable systematic comparison of how each component affects medical RAG performance.</p>
+<h2 id="architecture-medrag-architecture">Architecture (MEDRAG Architecture)</h2>
+<p>MEDRAG is a modular pipeline made of three layers, <strong>corpus → retriever → LLM</strong>, and the components of each layer can be swapped in a plug-and-play fashion.</p>
 <h3 id="1-corpora-medcorp">(1) Corpora — MedCorp</h3>
-<p>네 개의 이질적 의학 문서 집합을 통합한 코퍼스. 각 document를 검색 단위인 <strong>snippet</strong>으로 분할해 사용한다.</p>
+<p>A corpus that integrates four heterogeneous collections of medical documents. Each document is split into <strong>snippets</strong>, the unit of retrieval, for use.</p>
 <table>
 <thead>
 <tr>
   <th>Corpus</th>
   <th>Documents</th>
   <th>Snippets</th>
-  <th>평균 길이</th>
-  <th>성격</th>
+  <th>Average length</th>
+  <th>Character</th>
 </tr>
 </thead>
 <tbody>
@@ -146,173 +146,173 @@
   <td>23.9M</td>
   <td>23.9M</td>
   <td>296 tokens</td>
-  <td>생의학 논문 abstract</td>
+  <td>Biomedical paper abstracts</td>
 </tr>
 <tr>
   <td>StatPearls</td>
   <td>9.3k</td>
   <td>301.2k</td>
   <td>119 tokens</td>
-  <td>임상 의사결정 지원 자료 (NCBI Bookshelf)</td>
+  <td>Clinical decision-support material (NCBI Bookshelf)</td>
 </tr>
 <tr>
   <td>Textbooks</td>
   <td>18</td>
   <td>125.8k</td>
   <td>182 tokens</td>
-  <td>의학 교과서</td>
+  <td>Medical textbooks</td>
 </tr>
 <tr>
   <td>Wikipedia</td>
   <td>6.5M</td>
   <td>29.9M</td>
   <td>162 tokens</td>
-  <td>일반 백과사전</td>
+  <td>General encyclopedia</td>
 </tr>
 <tr>
-  <td><strong>MedCorp (합계)</strong></td>
+  <td><strong>MedCorp (total)</strong></td>
   <td><strong>30.4M</strong></td>
   <td><strong>54.2M</strong></td>
   <td><strong>221 tokens</strong></td>
-  <td>통합 코퍼스</td>
+  <td>Integrated corpus</td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li>StatPearls는 본 논문이 biomedical NLP 커뮤니티에서 <strong>처음 평가</strong>한 corpus다.</li>
-<li>서로 다른 도메인(논문/임상/교과서/일반)을 섞어 질문 유형별로 어떤 출처가 유효한지 비교 가능하게 했다.</li>
+<li>StatPearls is a corpus that this paper is the <strong>first to evaluate</strong> in the biomedical NLP community.</li>
+<li>By mixing different domains (papers/clinical/textbooks/general), it makes it possible to compare which source is effective for each question type.</li>
 </ul>
-<h3 id="2-retrievers-4종">(2) Retrievers (4종)</h3>
-<p>서로 다른 매칭 전략을 가진 retriever를 동일 인터페이스로 제공한다.</p>
+<h3 id="2-retrievers-4-types">(2) Retrievers (4 types)</h3>
+<p>Retrievers with different matching strategies are provided under a single unified interface.</p>
 <ul>
-<li><strong>BM25</strong> — lexical retriever (bag-of-words + TF-IDF, Pyserini). 정확한 용어 일치에 강함.</li>
-<li><strong>Contriever</strong> — dense retriever. Wikipedia·CCNet에서 contrastive learning으로 사전학습된 범용 semantic 임베딩.</li>
-<li><strong>SPECTER</strong> — 과학 문헌 도메인 dense retriever. 유사 문서를 임베딩 공간에서 가깝게 인코딩.</li>
-<li><strong>MedCPT</strong> — 생의학 특화 dense retriever. 255M PubMed 사용자 click 데이터로 학습, biomedical IR에서 SOTA.</li>
+<li><strong>BM25</strong> — lexical retriever (bag-of-words + TF-IDF, Pyserini). Strong at exact term matching.</li>
+<li><strong>Contriever</strong> — dense retriever. A general-purpose semantic embedding pretrained with contrastive learning on Wikipedia and CCNet.</li>
+<li><strong>SPECTER</strong> — dense retriever for the scientific-literature domain. Encodes similar documents close together in the embedding space.</li>
+<li><strong>MedCPT</strong> — biomedical-specialized dense retriever. Trained on 255M PubMed user click data, SOTA in biomedical IR.</li>
 </ul>
 <h3 id="3-rrf-reciprocal-rank-fusion">(3) RRF — Reciprocal Rank Fusion</h3>
-<p>여러 retriever의 순위를 결합해 공통적으로 상위에 오는 snippet을 우대하는 fusion 기법.</p>
+<p>A fusion technique that combines the rankings of multiple retrievers, favoring snippets that commonly rank near the top.</p>
 <ul>
-<li><strong>RRF-2</strong>: BM25 + MedCPT (lexical/dense 한 쌍의 최적 조합)</li>
-<li><strong>RRF-4</strong>: 4개 retriever 전부 결합 (가장 넓은 커버리지)</li>
-<li>단일 retriever 대비 MedCorp에서 평균 성능을 <strong>+1.4% ~ +10.7%</strong> 향상.</li>
+<li><strong>RRF-2</strong>: BM25 + MedCPT (the best pairing of one lexical and one dense retriever)</li>
+<li><strong>RRF-4</strong>: all four retrievers combined (the broadest coverage)</li>
+<li>Improves average performance on MedCorp by <strong>+1.4% ~ +10.7%</strong> over a single retriever.</li>
 </ul>
-<h3 id="4-llms-6종">(4) LLMs (6종)</h3>
-<p>검색된 context를 받아 답을 생성하는 reader. 범용/생의학, 상용/오픈소스를 망라.</p>
+<h3 id="4-llms-6-types">(4) LLMs (6 types)</h3>
+<p>The reader that takes the retrieved context and generates the answer. Spanning general-purpose/biomedical and proprietary/open-source.</p>
 <table>
 <thead>
 <tr>
   <th>Model</th>
-  <th>크기</th>
-  <th>유형</th>
-  <th>도메인</th>
+  <th>Size</th>
+  <th>Type</th>
+  <th>Domain</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>GPT-4</td>
   <td>proprietary</td>
-  <td>상용</td>
-  <td>범용</td>
+  <td>Proprietary</td>
+  <td>General</td>
 </tr>
 <tr>
   <td>GPT-3.5</td>
   <td>proprietary</td>
-  <td>상용</td>
-  <td>범용</td>
+  <td>Proprietary</td>
+  <td>General</td>
 </tr>
 <tr>
   <td>Mixtral</td>
   <td>8×7B</td>
-  <td>오픈소스</td>
-  <td>범용</td>
+  <td>Open-source</td>
+  <td>General</td>
 </tr>
 <tr>
   <td>Llama2</td>
   <td>70B</td>
-  <td>오픈소스</td>
-  <td>범용</td>
+  <td>Open-source</td>
+  <td>General</td>
 </tr>
 <tr>
   <td>MEDITRON</td>
   <td>70B</td>
-  <td>오픈소스</td>
-  <td>생의학</td>
+  <td>Open-source</td>
+  <td>Biomedical</td>
 </tr>
 <tr>
   <td>PMC-LLaMA</td>
   <td>13B</td>
-  <td>오픈소스</td>
-  <td>생의학</td>
+  <td>Open-source</td>
+  <td>Biomedical</td>
 </tr>
 </tbody>
 </table>
-<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
-<p>질문 한 건이 들어오면 다음 단계를 거친다.</p>
+<h2 id="pipeline-inference">Pipeline (inference)</h2>
+<p>When a single question comes in, it goes through the following steps.</p>
 <ol>
-<li><strong>질문 입력</strong> — 객관식 의학 질문을 query로 받는다.</li>
-<li><strong>검색 (Question-Only Retrieval)</strong> — 질문 텍스트만 retriever에 전달한다(아래 설정 참고).</li>
-<li><strong>랭킹 / RRF fusion</strong> — 선택된 retriever가 snippet을 순위화하고, 복수 retriever면 RRF로 순위를 병합한다.</li>
-<li><strong>Context 구성</strong> — 상위 <strong>k개 snippet(default k=32)</strong>을 프롬프트 앞에 prepend.</li>
-<li><strong>생성</strong> — LLM이 검색 context를 바탕으로 <strong>chain-of-thought</strong>로 추론.</li>
-<li><strong>출력</strong> — step-by-step 사고 과정과 선택 답안을 담은 JSON 산출.</li>
+<li><strong>Question input</strong> — takes a multiple-choice medical question as the query.</li>
+<li><strong>Retrieval (Question-Only Retrieval)</strong> — passes only the question text to the retriever (see the setting below).</li>
+<li><strong>Ranking / RRF fusion</strong> — the selected retriever ranks snippets, and if multiple retrievers are used, their rankings are merged with RRF.</li>
+<li><strong>Context construction</strong> — prepends the top <strong>k snippets (default k=32)</strong> to the front of the prompt.</li>
+<li><strong>Generation</strong> — the LLM reasons with <strong>chain-of-thought</strong> based on the retrieved context.</li>
+<li><strong>Output</strong> — produces JSON containing the step-by-step reasoning process and the selected answer.</li>
 </ol>
-<h3 id="핵심-평가-설정-두-가지">핵심 평가 설정 두 가지</h3>
+<h3 id="two-core-evaluation-settings">Two core evaluation settings</h3>
 <ul>
-<li><strong>Zero-shot (ZSL)</strong>: few-shot 예시 없이 동작. 예시를 구하기 어려운 실제 의료 상황을 반영.</li>
-<li><strong>Question-Only Retrieval (QOR)</strong>: 검색 시 <strong>정답 선택지(options)를 입력으로 주지 않고 질문만</strong> 사용. 선택지를 retriever에 노출해 정답이 새어 나가던 기존 RAG 평가의 누수를 차단하는 설정으로, 의학 QA 평가에서 본 논문이 처음 제안·채택했다.</li>
+<li><strong>Zero-shot (ZSL)</strong>: operates without few-shot examples. Reflects real-world medical situations where examples are hard to obtain.</li>
+<li><strong>Question-Only Retrieval (QOR)</strong>: uses <strong>only the question, without giving the answer options as input</strong> during retrieval. This setting blocks the leakage in prior RAG evaluations where exposing the options to the retriever let the answer leak through, and this paper is the first to propose and adopt it in medical QA evaluation.</li>
 </ul>
-<h2 id="핵심-방법적-발견">핵심 방법적 발견</h2>
+<h2 id="key-methodological-findings">Key methodological findings</h2>
 <table>
 <thead>
 <tr>
-  <th>발견</th>
-  <th>내용 (검증된 수치)</th>
+  <th>Finding</th>
+  <th>Content (verified figures)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td><strong>MEDRAG 전반적 향상</strong></td>
-  <td>6개 LLM에서 CoT 대비 최대 <strong>+18%</strong> 향상. GPT-3.5는 <strong>+17.9%</strong>로 최대, PMC-LLaMA는 약 <strong>+0.52%</strong>로 최소.</td>
+  <td><strong>Overall MEDRAG improvement</strong></td>
+  <td>Up to <strong>+18%</strong> improvement over CoT across six LLMs. GPT-3.5 shows the largest at <strong>+17.9%</strong>, while PMC-LLaMA shows the smallest at about <strong>+0.52%</strong>.</td>
 </tr>
 <tr>
-  <td><strong>좋은 retriever가 LLM 크기를 대체</strong></td>
-  <td>GPT-3.5 + MEDRAG(MedCorp + RRF-4) = <strong>71.57%</strong>, GPT-4 + CoT = <strong>73.44%</strong> (격차 1.87pp). GPT-3.5/Mixtral을 GPT-4-level로 끌어올림.</td>
+  <td><strong>A good retriever substitutes for LLM size</strong></td>
+  <td>GPT-3.5 + MEDRAG(MedCorp + RRF-4) = <strong>71.57%</strong>, GPT-4 + CoT = <strong>73.44%</strong> (gap of 1.87pp). Lifts GPT-3.5/Mixtral to GPT-4-level.</td>
 </tr>
 <tr>
-  <td><strong>RRF-4가 최적 fusion</strong></td>
-  <td>전체 4 retriever 결합(RRF-4)이 MIRAGE 평균 최고(GPT-3.5 기준 71.57%). 단일 retriever 대비 <strong>+1.4~10.7%</strong>. BioASQ-Y/N처럼 개별 retriever가 약한 과제는 RRF-2(BM25+MedCPT)가 유리.</td>
+  <td><strong>RRF-4 is the optimal fusion</strong></td>
+  <td>Combining all 4 retrievers (RRF-4) gives the best MIRAGE average (71.57% for GPT-3.5). <strong>+1.4~10.7%</strong> over a single retriever. For tasks where individual retrievers are weak, such as BioASQ-Y/N, RRF-2 (BM25+MedCPT) is favorable.</td>
 </tr>
 <tr>
   <td><strong>log-linear scaling</strong></td>
-  <td>MMLU-Med·MedQA-US·MedMCQA에서 snippet 수 k≤32 구간 동안 성능이 대략 log-linear로 증가, 이후 noise 증가로 하락.</td>
+  <td>On MMLU-Med, MedQA-US, and MedMCQA, performance increases roughly log-linearly over the snippet-count range k≤32, then declines afterward due to increased noise.</td>
 </tr>
 <tr>
   <td><strong>&quot;lost-in-the-middle&quot;</strong></td>
-  <td>ground-truth snippet이 context의 앞·뒤에 있을 때 정확도 최고, <strong>중간</strong>에 위치하면 크게 하락하는 U자형 패턴. snippet 배치 순서가 성능에 영향.</td>
+  <td>A U-shaped pattern where accuracy is highest when the ground-truth snippet is at the front or back of the context, and drops sharply when it sits in the <strong>middle</strong>. The ordering of snippet placement affects performance.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="함께-제안한-벤치마크-mirage">함께 제안한 벤치마크: MIRAGE</h2>
-<p>MEDRAG 평가를 위해 함께 공개한 의학 QA 벤치마크.</p>
+<h2 id="the-jointly-proposed-benchmark-mirage">The jointly proposed benchmark: MIRAGE</h2>
+<p>A medical QA benchmark released together for evaluating MEDRAG.</p>
 <ul>
-<li><strong>5개 데이터셋, 총 7,663개 객관식 문항</strong>: MMLU-Med(1,089), MedQA-US(1,273), MedMCQA(4,183), PubMedQA(500), BioASQ-Y/N(618).</li>
-<li>모두 zero-shot · question-only retrieval 설정에서 평가.</li>
-<li>(자세한 구축 과정은 본 요약에서 생략 — 본 요약은 MEDRAG 시스템 중심.)</li>
+<li><strong>5 datasets, 7,663 multiple-choice questions in total</strong>: MMLU-Med(1,089), MedQA-US(1,273), MedMCQA(4,183), PubMedQA(500), BioASQ-Y/N(618).</li>
+<li>All evaluated under the zero-shot · question-only retrieval setting.</li>
+<li>(The detailed construction process is omitted from this summary — this summary centers on the MEDRAG system.)</li>
 </ul>
-<h2 id="한계점">한계점</h2>
-<p>저자들이 Limitations에서 명시한 내용.</p>
+<h2 id="limitations">Limitations</h2>
+<p>The content the authors explicitly stated in Limitations.</p>
 <ol>
-<li>최신 RAG 변형이 아닌 <strong>vanilla RAG</strong> 구조에 집중.</li>
-<li>corpus 커버리지가 불완전 (예: PubMed full-text, FAQ 등 미포함).</li>
-<li>ground-truth snippet 평가가 <strong>두 개 데이터셋에만</strong> 가능.</li>
-<li><strong>객관식(multiple-choice)</strong> 포맷의 제약 — 생성된 rationale(근거 서술)에 대한 평가 부재.</li>
+<li>Focuses on the <strong>vanilla RAG</strong> structure rather than the latest RAG variants.</li>
+<li>Corpus coverage is incomplete (e.g., PubMed full-text, FAQs, etc. not included).</li>
+<li>Ground-truth snippet evaluation is possible <strong>only on two datasets</strong>.</li>
+<li>The constraint of the <strong>multiple-choice</strong> format — the absence of evaluation of the generated rationale (the reasoning description).</li>
 </ol>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li>논문: <a href="https://aclanthology.org/2024.findings-acl.372">https://aclanthology.org/2024.findings-acl.372</a> · arXiv: <a href="https://arxiv.org/abs/2402.13178">https://arxiv.org/abs/2402.13178</a> (HTML: <a href="https://arxiv.org/html/2402.13178">https://arxiv.org/html/2402.13178</a>)</li>
-<li>MedRAG 툴킷: <a href="https://github.com/Teddy-XiongGZ/MedRAG">https://github.com/Teddy-XiongGZ/MedRAG</a></li>
-<li>MIRAGE 벤치마크: <a href="https://github.com/Teddy-XiongGZ/MIRAGE">https://github.com/Teddy-XiongGZ/MIRAGE</a></li>
+<li>Paper: <a href="https://aclanthology.org/2024.findings-acl.372">https://aclanthology.org/2024.findings-acl.372</a> · arXiv: <a href="https://arxiv.org/abs/2402.13178">https://arxiv.org/abs/2402.13178</a> (HTML: <a href="https://arxiv.org/html/2402.13178">https://arxiv.org/html/2402.13178</a>)</li>
+<li>MedRAG toolkit: <a href="https://github.com/Teddy-XiongGZ/MedRAG">https://github.com/Teddy-XiongGZ/MedRAG</a></li>
+<li>MIRAGE benchmark: <a href="https://github.com/Teddy-XiongGZ/MIRAGE">https://github.com/Teddy-XiongGZ/MIRAGE</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/acl/Xiong0LZ24)</a></p>
@@ -349,14 +349,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

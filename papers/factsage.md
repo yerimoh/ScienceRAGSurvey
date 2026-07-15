@@ -11,65 +11,65 @@ paper_link: https://www.factsage.com
 
 factsage | 1976 | GTT-Technologies/CRCT (Commercial Software) | dataset | [material] | [website](https://www.factsage.com)
 
-**DB**: FactSage 내장 열화학 데이터베이스 (순수 물질 FACT-Pure-Substances DB + 다성분 용융 상 FToxid, FTstel, FTsalt 등 솔루션 데이터베이스)
-**DB size**: ~60,000개 화합물 및 다수의 다성분 용융 상 파라미터 세트 (공개 수치 제한적)
-**DB Open/Private**: Subscription (상용 라이선스; 학술 및 무료 기본 버전 존재)
+**DB**: FactSage built-in thermochemical databases (pure-substance FACT-Pure-Substances DB + multicomponent molten-phase solution databases such as FToxid, FTstel, FTsalt)
+**DB size**: ~60,000 compounds and numerous multicomponent molten-phase parameter sets (published figures are limited)
+**DB Open/Private**: Subscription (commercial license; academic and free basic versions exist)
 **Modality**: Tabular
-**Retriever**: N/A (K4 상업용 시뮬레이터 — 직접 queryable API 없음)
+**Retriever**: N/A (K4 commercial simulator — no directly queryable API)
 **Eval Task**: N/A
 **Eval Metric**: N/A
 **Method Name**: FactSage (GTT-Technologies / CRCT)
 
 > GTT-Technologies/CRCT | 1976 | dataset | material
-#### 📌 한 줄 요약
-GTT-Technologies(독일)와 캐나다 CRCT(Polytechnique Montréal)가 공동 개발·유지하는 열화학 소프트웨어로, 야금·유리·세라믹·핵연료 공정에서 다성분 고온 반응의 CALPHAD 기반 상평형과 깁스 에너지 최소화를 계산하며, 철강·비철 야금 산업이 의존하는 가장 포괄적인 열역학 데이터베이스를 내장하고 있다.
+#### 📌 TL;DR
+A thermochemical software jointly developed and maintained by GTT-Technologies (Germany) and Canada's CRCT (Polytechnique Montréal). It computes CALPHAD-based phase equilibria and Gibbs energy minimization for multicomponent high-temperature reactions in metallurgical, glass, ceramic, and nuclear-fuel processes, and it embeds the most comprehensive thermodynamic databases that the ferrous and non-ferrous metallurgy industries rely on.
 
-#### 🎯 개발/구축 배경
-**기존 열역학 계산 도구의 한계**
-- 단순 이성분·삼성분 합금 시스템은 수동으로 계산 가능하나 다성분 슬래그·합금 시스템(Fe-Cr-Ni-O-S-...)은 전용 CALPHAD 데이터베이스 없이 계산 불가
-- JANAF 같은 순수 성분 데이터는 다성분 혼합물의 용융 상거동을 기술하지 못함
+#### 🎯 Background
+**Limitations of existing thermodynamic computation tools**
+- Simple binary and ternary alloy systems can be computed by hand, but multicomponent slag and alloy systems (Fe-Cr-Ni-O-S-...) cannot be computed without a dedicated CALPHAD database
+- Pure-component data like JANAF cannot describe the molten-phase behavior of multicomponent mixtures
 
-**FactSage의 위치**
-- CALPHAD 방법론의 산업 표준: 용융 합금, 슬래그, 용융 염의 비이상 용액 거동을 Modified Quasichemical Model(MQM) 등으로 기술
-- 철강(FTstel), 산화물 슬래그(FToxid), 핵연료(FTnucl), 용융 염(FTsalt) 등 20개 이상의 전용 솔루션 데이터베이스
-- 철강·알루미늄·구리 제련, 유리 제조, 원자로 핵연료 거동 예측에 산업 표준
+**FactSage's position**
+- The industry standard for CALPHAD methodology: describes the non-ideal solution behavior of molten alloys, slags, and molten salts using models such as the Modified Quasichemical Model (MQM)
+- More than 20 dedicated solution databases, including steel (FTstel), oxide slags (FToxid), nuclear fuel (FTnucl), and molten salts (FTsalt)
+- The industry standard for steel, aluminum, and copper smelting, glass manufacturing, and predicting reactor nuclear-fuel behavior
 
-#### 🔨 시스템 구성
-- **FACT-Pure-Substances Database**: ~60,000 화합물의 열역학 데이터 (H, S, Cp, 상전이 엔탈피)
-- **Solution Databases**: FToxid (산화물), FTstel (강철), FTsalt (용융 염), FTnucl (핵연료) 등
-- **CALPHAD 엔진**: Gibbs energy minimization 기반 상평형 계산 (EquiliB, Phase Diagram 모듈)
-- **공정 시뮬레이션**: 반응로 시뮬레이션(Reaction Web), 혼합 계산
+#### 🔨 Architecture
+- **FACT-Pure-Substances Database**: thermodynamic data for ~60,000 compounds (H, S, Cp, phase-transition enthalpies)
+- **Solution Databases**: FToxid (oxides), FTstel (steel), FTsalt (molten salts), FTnucl (nuclear fuel), and others
+- **CALPHAD engine**: Gibbs energy minimization-based phase-equilibrium computation (EquiliB, Phase Diagram modules)
+- **Process simulation**: reactor simulation (Reaction Web), mixing computation
 
-#### 📥 데이터 접근 방법
-| 방법 | 설명 |
+#### 📥 Access
+| Method | Description |
 |---|---|
-| FactSage GUI | 윈도우 기반 모듈 인터페이스 |
-| FactSage Web (제한적) | 기본 계산 접근 (일부 기능 무료 제공) |
-| ChemSheet/Matlab 연동 | Excel ChemSheet 또는 MATLAB 통한 배치 계산 |
+| FactSage GUI | Windows-based modular interface |
+| FactSage Web (limited) | Access to basic computations (some features offered free) |
+| ChemSheet/Matlab integration | Batch computation via Excel ChemSheet or MATLAB |
 
-#### 📤 제공 데이터 형식
-- 상평형 결과: 안정 상 목록, 조성 (mol%)
-- 깁스 에너지 함수 값, 화학 포텐셜
-- 상다이어그램 (binary/ternary/pseudo-binary)
-- 물성값: 밀도, 점도 (일부 데이터베이스)
+#### 📤 Data formats
+- Phase-equilibrium results: list of stable phases, compositions (mol%)
+- Gibbs energy function values, chemical potentials
+- Phase diagrams (binary/ternary/pseudo-binary)
+- Physical properties: density, viscosity (in some databases)
 
-#### 📊 주요 통계 (논문 기준)
-| 항목 | 수치 |
+#### 📊 Key statistics (per the paper)
+| Item | Value |
 |---|---|
-| FACT 프로젝트 시작 | ~1976 (F*A*C*T 프로젝트) |
-| 내장 화합물 수 (Pure-Substances) | ~60,000 |
-| 솔루션 데이터베이스 수 | 20개 이상 (FToxid, FTstel, FTsalt 등) |
-| 개발 기관 | GTT-Technologies(독일) + CRCT, Polytechnique Montréal(캐나다) |
-| 공개 데이터베이스 규모 | 비공개 (상용 라이선스) |
+| FACT project start | ~1976 (F*A*C*T project) |
+| Built-in compound count (Pure-Substances) | ~60,000 |
+| Number of solution databases | More than 20 (FToxid, FTstel, FTsalt, etc.) |
+| Developing institutions | GTT-Technologies (Germany) + CRCT, Polytechnique Montréal (Canada) |
+| Public database size | Not public (commercial license) |
 
-**NOTE**: `factsage` 항목은 references.bib에 bib 엔트리가 존재하지 않음 (누락된 인용).
+**NOTE**: The `factsage` entry has no bib entry in references.bib (missing citation).
 
-#### ⚠️ 한계점
-- CALPHAD 솔루션 데이터베이스는 수십 년간 축적된 실험 데이터를 기반으로 하지만 파라미터 출처가 완전히 공개되지 않음
-- 내장 데이터베이스는 소프트웨어 외부에서 직접 접근·질의 불가 (RAG 통합 불가)
-- 특정 합금계나 신소재의 경우 검증된 CALPHAD 파라미터가 없어 외삽 오류 발생 가능
+#### ⚠️ Limitations
+- The CALPHAD solution databases are based on decades of accumulated experimental data, but the provenance of the parameters is not fully disclosed
+- The built-in databases cannot be directly accessed or queried from outside the software (RAG integration is not possible)
+- For certain alloy systems or novel materials, validated CALPHAD parameters may be unavailable, which can cause extrapolation errors
 
-## 관련 정보
-- **웹사이트**: [FactSage](https://www.factsage.com)
-- **K4 분류**: Embedded in software — 야금·고온화학 tacit knowledge(CALPHAD 솔루션 파라미터)가 소프트웨어 데이터베이스에 내장됨
-- **BIB 상태**: references.bib에 bib 엔트리 없음 — 추가 필요
+## Related links
+- **Website**: [FactSage](https://www.factsage.com)
+- **K4 classification**: Embedded in software — metallurgical and high-temperature-chemistry tacit knowledge (CALPHAD solution parameters) is embedded in the software's databases
+- **BIB status**: No bib entry in references.bib — needs to be added

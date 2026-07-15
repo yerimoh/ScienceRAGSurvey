@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Materials Dual-Source Knowledge Retrieval-Augmented Generation for Local Large Language Models in Photocatalysts — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Materials Dual-Source Knowledge Retrieval-Augmented Generation for Local Large Language Models in Photocatalysts, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,112 +117,112 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#연구-배경-및-동기">연구 배경 및 동기</a></li><li class="toc-l2"><a href="#시스템-아키텍처">시스템 아키텍처</a></li><li class="toc-l2"><a href="#핵심-모듈-상세-설명">핵심 모듈 상세 설명</a></li><li class="toc-l3"><a href="#1-이중-데이터베이스-구성">1. 이중 데이터베이스 구성</a></li><li class="toc-l3"><a href="#2-csv-template-based-text-변환">2. CSV → Template-based Text 변환</a></li><li class="toc-l3"><a href="#3-dual-retriever">3. Dual Retriever</a></li><li class="toc-l3"><a href="#4-post-retrieval-요약-및-병합">4. Post-retrieval: 요약 및 병합</a></li><li class="toc-l3"><a href="#5-generator-로컬-llm">5. Generator (로컬 LLM)</a></li><li class="toc-l2"><a href="#실험-및-평가">실험 및 평가</a></li><li class="toc-l3"><a href="#평가-태스크-및-데이터셋">평가 태스크 및 데이터셋</a></li><li class="toc-l3"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#핵심-기여">핵심 기여</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-연구-및-관련-정보">관련 연구 및 관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#background-and-motivation">Background and Motivation</a></li><li class="toc-l2"><a href="#architecture">Architecture</a></li><li class="toc-l2"><a href="#detailed-description-of-core-modules">Detailed Description of Core Modules</a></li><li class="toc-l3"><a href="#1-dual-database-construction">1. Dual-Database Construction</a></li><li class="toc-l3"><a href="#2-csv-template-based-text-conversion">2. CSV → Template-based Text Conversion</a></li><li class="toc-l3"><a href="#3-dual-retriever">3. Dual Retriever</a></li><li class="toc-l3"><a href="#4-post-retrieval-summarization-and-merging">4. Post-retrieval: Summarization and Merging</a></li><li class="toc-l3"><a href="#5-generator-local-llm">5. Generator (Local LLM)</a></li><li class="toc-l2"><a href="#experiments-and-evaluation">Experiments and Evaluation</a></li><li class="toc-l3"><a href="#evaluation-tasks-and-datasets">Evaluation Tasks and Datasets</a></li><li class="toc-l3"><a href="#main-results">Main Results</a></li><li class="toc-l2"><a href="#key-contributions">Key Contributions</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-work-and-related-links">Related Work and Related Links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>Materials Dual-Source Knowledge Retrieval-Augmented Generation for Local Large Language Models in Photocatalysts</h1>
 <blockquote>
 <p>J. Chem. Inf. Model. | 2025 | Method | material, chem</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>CSV 실험 데이터와 PDF 문헌을 이중 소스로 통합하여, 완전 오프라인 환경에서 로컬 LLM을 광촉매 재료 도메인에 특화시키는 RAG 프레임워크(MDSK-RAG).</p>
-<h2 id="연구-배경-및-동기">연구 배경 및 동기</h2>
+<h2 id="tldr">TL;DR</h2>
+<p>A RAG framework (MDSK-RAG) that integrates CSV experimental data and PDF literature as dual sources, specializing a local LLM to the photocatalyst materials domain in a fully offline environment.</p>
+<h2 id="background-and-motivation">Background and Motivation</h2>
 <ul>
-<li><strong>기존 방법의 한계점</strong>: 클라우드 기반 LLM(예: GPT-4o)은 성능이 우수하나, 연구실 내 미공개 실험 데이터를 다루는 환경에서 데이터 기밀성 문제로 외부 API 활용이 불가. 기존 RAG는 주로 텍스트 문헌만 다루며, 연구실 자체 보유 CSV 실험 데이터를 통합하는 방법이 부재.</li>
-<li><strong>이 연구가 필요한 이유</strong>: 실험실 환경에서 비공개 실험 레코드와 과학 문헌을 동시에 활용하면서도 완전한 오프라인 운용이 가능한 도메인 특화 RAG 시스템이 필요. 모델 재학습(fine-tuning) 없이 로컬 LLM의 전문성을 빠르게 끌어올릴 수 있는 실용적 방법론 요구.</li>
+<li><strong>Limitations of existing methods</strong>: Cloud-based LLMs (e.g., GPT-4o) offer excellent performance, but in environments handling unpublished in-lab experimental data, external API use is not possible due to data confidentiality concerns. Existing RAG mainly handles only text literature, and lacks a method to integrate the lab's own CSV experimental data.</li>
+<li><strong>Why this research is needed</strong>: A domain-specialized RAG system is needed that can simultaneously leverage confidential experimental records and scientific literature while enabling fully offline operation in a laboratory environment. There is a demand for a practical methodology that can rapidly boost the expertise of a local LLM without model retraining (fine-tuning).</li>
 </ul>
-<h2 id="시스템-아키텍처">시스템 아키텍처</h2>
-<pre><code>[사용자 쿼리]
+<h2 id="architecture">Architecture</h2>
+<pre><code>[User query]
     |
-    +---&gt; [CSV Retriever] --&gt; CSV 변환 텍스트 DB (740 records) --&gt; 관련 k개 passage 추출 --&gt; 로컬 LLM 요약
+    +---&gt; [CSV Retriever] --&gt; CSV-converted text DB (740 records) --&gt; extract top-k relevant passages --&gt; local LLM summary
     |
-    +---&gt; [PDF Retriever] --&gt; PDF 문헌 DB (20 papers)         --&gt; 관련 k개 passage 추출 --&gt; 로컬 LLM 요약
+    +---&gt; [PDF Retriever] --&gt; PDF literature DB (20 papers)        --&gt; extract top-k relevant passages --&gt; local LLM summary
     |
-    +---&gt; [두 요약 병합 + 원본 쿼리] --&gt; 로컬 LLM (gemma-2-9b-it) --&gt; 최종 응답 생성
+    +---&gt; [merge the two summaries + original query] --&gt; local LLM (gemma-2-9b-it) --&gt; final response generation
 </code></pre>
-<h2 id="핵심-모듈-상세-설명">핵심 모듈 상세 설명</h2>
-<h3 id="1-이중-데이터베이스-구성">1. 이중 데이터베이스 구성</h3>
+<h2 id="detailed-description-of-core-modules">Detailed Description of Core Modules</h2>
+<h3 id="1-dual-database-construction">1. Dual-Database Construction</h3>
 <table>
 <thead>
 <tr>
-  <th>소스</th>
-  <th>내용</th>
-  <th>규모</th>
-  <th>공개 여부</th>
+  <th>Source</th>
+  <th>Content</th>
+  <th>Scale</th>
+  <th>Public availability</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>CSV 실험 레코드</td>
-  <td>자체 금속황화물 광촉매 실험 데이터</td>
-  <td>740건</td>
+  <td>CSV experimental records</td>
+  <td>In-house metal sulfide photocatalyst experimental data</td>
+  <td>740 records</td>
   <td>Private</td>
 </tr>
 <tr>
-  <td>PDF 과학 논문</td>
-  <td>동료심사 완료 과학 논문</td>
-  <td>20편</td>
+  <td>PDF scientific papers</td>
+  <td>Peer-reviewed scientific papers</td>
+  <td>20 papers</td>
   <td>Private</td>
 </tr>
 </tbody>
 </table>
-<h3 id="2-csv-template-based-text-변환">2. CSV → Template-based Text 변환</h3>
+<h3 id="2-csv-template-based-text-conversion">2. CSV → Template-based Text Conversion</h3>
 <ul>
-<li>구조화된 CSV 테이블 데이터를 자연어 템플릿 텍스트로 변환하여 벡터 검색 가능하게 전처리.</li>
-<li>예: <code>{재료명}의 수소 발생률은 {값} μmol/h이며, 조건은 {조건}이다.</code> 형태로 변환.</li>
+<li>Preprocesses structured CSV table data into natural-language template text so it becomes searchable via vector retrieval.</li>
+<li>Example: converted into the form <code>The hydrogen evolution rate of {material name} is {value} μmol/h, and the conditions are {conditions}.</code></li>
 </ul>
 <h3 id="3-dual-retriever">3. Dual Retriever</h3>
 <ul>
-<li>CSV 변환 텍스트용 Retriever와 PDF용 Retriever를 독립 구성.</li>
-<li>코사인 유사도 기반 벡터 검색으로 각각 k개 관련 passage 반환.</li>
-<li>모든 연산 완전 로컬 처리(no-Internet).</li>
+<li>A Retriever for the CSV-converted text and a Retriever for the PDFs are configured independently.</li>
+<li>Each returns top-k relevant passages via cosine-similarity-based vector retrieval.</li>
+<li>All computation is fully local (no-Internet).</li>
 </ul>
-<h3 id="4-post-retrieval-요약-및-병합">4. Post-retrieval: 요약 및 병합</h3>
+<h3 id="4-post-retrieval-summarization-and-merging">4. Post-retrieval: Summarization and Merging</h3>
 <ul>
-<li>각 retriever 결과를 로컬 LLM이 개별 요약.</li>
-<li>두 요약을 병합(fusion)하여 원본 쿼리와 함께 최종 생성 LLM에 입력.</li>
+<li>The local LLM individually summarizes each retriever's results.</li>
+<li>The two summaries are merged (fusion) and, together with the original query, fed into the final generation LLM.</li>
 </ul>
-<h3 id="5-generator-로컬-llm">5. Generator (로컬 LLM)</h3>
+<h3 id="5-generator-local-llm">5. Generator (Local LLM)</h3>
 <table>
 <thead>
 <tr>
-  <th>모델</th>
-  <th>크기</th>
-  <th>하드웨어</th>
+  <th>Model</th>
+  <th>Size</th>
+  <th>Hardware</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>gemma-2-9b-it (primary, quantized)</td>
   <td>~9B</td>
-  <td>노트북 GPU (16GB VRAM)</td>
+  <td>Laptop GPU (16GB VRAM)</td>
 </tr>
 <tr>
   <td>Qwen2.5-7B-Instruct</td>
   <td>~7B</td>
-  <td>노트북 GPU</td>
+  <td>Laptop GPU</td>
 </tr>
 <tr>
   <td>gemma-2-27b-it</td>
   <td>~27B</td>
-  <td>전용 서버 (RTX 3090, 24GB VRAM)</td>
+  <td>Dedicated server (RTX 3090, 24GB VRAM)</td>
 </tr>
 </tbody>
 </table>
-<h2 id="실험-및-평가">실험 및 평가</h2>
-<h3 id="평가-태스크-및-데이터셋">평가 태스크 및 데이터셋</h3>
+<h2 id="experiments-and-evaluation">Experiments and Evaluation</h2>
+<h3 id="evaluation-tasks-and-datasets">Evaluation Tasks and Datasets</h3>
 <ul>
-<li><strong>Photocatalyst Expert QA</strong>: 도메인 전문가가 정의한 14개 질문으로 구성된 자체 제작 벤치마크.</li>
-<li>질문 유형: 실험 조건 관련 사실형, 추론·해석형 혼합.</li>
+<li><strong>Photocatalyst Expert QA</strong>: An in-house benchmark composed of 14 questions defined by domain experts.</li>
+<li>Question types: a mix of factual questions related to experimental conditions and reasoning/interpretation questions.</li>
 </ul>
-<h3 id="주요-결과">주요 결과</h3>
+<h3 id="main-results">Main Results</h3>
 <table>
 <thead>
 <tr>
-  <th>모델</th>
-  <th>조건</th>
-  <th>Cosine Similarity (중앙값)</th>
-  <th>Expert 5점 평가 (중앙값)</th>
+  <th>Model</th>
+  <th>Condition</th>
+  <th>Cosine Similarity (median)</th>
+  <th>Expert 5-point rating (median)</th>
 </tr>
 </thead>
 <tbody>
@@ -247,28 +247,28 @@
 </tbody>
 </table>
 <ul>
-<li>Wilcoxon signed-rank test: W=14.0, p=1.34×10⁻² (통계적으로 유의)</li>
-<li>MDSK-RAG 적용 gemma-2-9b-it이 GPT-4o(without RAG)를 코사인 유사도 기준으로 상회.</li>
+<li>Wilcoxon signed-rank test: W=14.0, p=1.34×10⁻² (statistically significant)</li>
+<li>gemma-2-9b-it with MDSK-RAG applied surpasses GPT-4o (without RAG) on the cosine similarity metric.</li>
 </ul>
-<h2 id="핵심-기여">핵심 기여</h2>
+<h2 id="key-contributions">Key Contributions</h2>
 <ul>
-<li>CSV(실험 레코드)와 PDF(문헌) 이중 소스를 통합하는 최초 수준의 오프라인 재료과학 RAG 프레임워크 제안.</li>
-<li>모델 재학습 없이 로컬 소형 LLM(&lt;10B)의 도메인 전문성을 강화.</li>
-<li>기밀 실험 데이터를 외부 유출 없이 활용 가능한 실용적 솔루션 제시.</li>
-<li>10B 미만 로컬 LLM + MDSK-RAG가 고성능 클라우드 모델(GPT-4o, without RAG)을 특정 도메인에서 능가함을 실증.</li>
+<li>Proposes a near-first offline materials-science RAG framework that integrates CSV (experimental records) and PDF (literature) dual sources.</li>
+<li>Strengthens the domain expertise of local small LLMs (&lt;10B) without model retraining.</li>
+<li>Presents a practical solution that can leverage confidential experimental data without external leakage.</li>
+<li>Empirically demonstrates that a sub-10B local LLM + MDSK-RAG can outperform a high-performance cloud model (GPT-4o, without RAG) in a specific domain.</li>
 </ul>
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li>추론형 질문에서 불완전한 컨텍스트 검색 시 오류 추론 유발 (reasoning failure mode 존재).</li>
-<li>금속황화물 광촉매 도메인에 특화되어 있어 타 재료계 적용 시 도메인별 조정 필요.</li>
-<li>평가 벤치마크가 14개 질문으로 소규모 (통계적 파워 제한).</li>
-<li>향후 과제: 하이브리드 심볼릭 접근법, 도메인 특화 지식 그래프 구축 등 제안.</li>
+<li>In reasoning-type questions, incomplete context retrieval induces erroneous reasoning (a reasoning failure mode exists).</li>
+<li>Being specialized for the metal sulfide photocatalyst domain, applying it to other materials systems requires domain-specific adjustment.</li>
+<li>The evaluation benchmark is small at 14 questions (limited statistical power).</li>
+<li>Future work: proposals such as a hybrid symbolic approach and building a domain-specific knowledge graph.</li>
 </ul>
-<h2 id="관련-연구-및-관련-정보">관련 연구 및 관련 정보</h2>
+<h2 id="related-work-and-related-links">Related Work and Related Links</h2>
 <ul>
-<li><strong>논문 링크</strong>: <a href="https://doi.org/10.1021/acs.jcim.5c01941">https://doi.org/10.1021/acs.jcim.5c01941</a></li>
-<li><strong>관련 방법론</strong>: HoneyComb, G-RAG, TopoChat (재료과학 RAG 계열)</li>
-<li><strong>사용 벤치마크</strong>: Photocatalyst Expert QA (자체 제작, 14문항)</li>
+<li><strong>Paper link</strong>: <a href="https://doi.org/10.1021/acs.jcim.5c01941">https://doi.org/10.1021/acs.jcim.5c01941</a></li>
+<li><strong>Related methodologies</strong>: HoneyComb, G-RAG, TopoChat (materials-science RAG family)</li>
+<li><strong>Benchmark used</strong>: Photocatalyst Expert QA (in-house, 14 questions)</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/jcisd/TakaharaYOKHTTKF25)</a></p>
@@ -307,14 +307,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

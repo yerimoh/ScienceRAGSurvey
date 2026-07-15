@@ -13,208 +13,208 @@ originSessionId: e17a6512-257b-4eac-96cc-808523cf24a8
 
 > arXiv | 2024 | Method | bio
 
-## 한 줄 요약
-PaperQA2는 과학 문헌 검색·요약·모순탐지 세 가지 실제 태스크에서 제한 없는 인간 전문가(PhD/박사과정)를 초과하는 성능을 달성한 최초의 RAG 에이전트 시스템이다.
+## TL;DR
+PaperQA2 is the first RAG agent system to achieve performance exceeding unrestricted human experts (PhDs / PhD students) across three real-world tasks: scientific literature search, summarization, and contradiction detection.
 
 ---
-## 연구 배경 및 동기
-**기존 방법의 한계**
-- LLM은 hallucination(잘못된 정보를 자신 있게 생성) 문제가 있어 과학적 정확성 요구 충족 어려움
-- 기존 과학문헌 벤치마크(PubMedQA, BioASQ 등)는 초록만 사용하거나 고정 코퍼스를 사용해 실제 연구 환경을 반영하지 못함
-- 기존 벤치마크 대부분이 인간 성능과 직접 비교하지 않아 실용적 가치 불분명
-- 단순 RAG(Perplexity, Elicit 등)는 검색 청크를 변환 없이 컨텍스트에 주입하여 distracting context 문제 발생
+## Background and Motivation
+**Limitations of existing methods**
+- LLMs suffer from hallucination (confidently generating incorrect information), making it hard to meet the demands of scientific accuracy
+- Existing scientific-literature benchmarks (PubMedQA, BioASQ, etc.) use only abstracts or fixed corpora, failing to reflect real research settings
+- Most existing benchmarks do not compare directly against human performance, leaving their practical value unclear
+- Simple RAG (Perplexity, Elicit, etc.) injects retrieved chunks into the context without transformation, causing a distracting-context problem
 
-**이 연구가 필요한 이유**
-- 과학 연구에서 문헌 검색·요약·모순탐지를 자동화하면 연구자 생산성 획기적 향상 가능
-- 문헌 폭증으로 인간이 전체 문헌을 일일이 확인하는 것이 불가능해져 AI 기반 자동 탐지 시스템 필요
-- 특히 모순 탐지는 "many vs many" 문제로 인간에게 실현 불가능한 규모에서 동작 가능
+**Why this research is needed**
+- Automating literature search, summarization, and contradiction detection in scientific research can dramatically improve researcher productivity
+- With the explosion of literature, it has become impossible for humans to check the entire body of work one by one, creating a need for AI-based automated detection systems
+- In particular, contradiction detection is a "many vs many" problem that can operate at a scale infeasible for humans
 
 ---
-## 시스템 아키텍처
+## Architecture
 
 ```
-[사용자 쿼리]
+[User query]
      ↓
-[PaperQA2 Agent (GPT-4-Turbo, ReAct 패턴)]
+[PaperQA2 Agent (GPT-4-Turbo, ReAct pattern)]
      ├── Paper Search Tool
-     │     키워드+연도범위 생성 → Semantic Scholar API 검색
-     │     → Grobid/PyMuPDF 파싱 → Hybrid 임베딩 (dense+sparse)
-     │     → 청크 저장 (agent state)
+     │     Generate keywords + year range → search Semantic Scholar API
+     │     → Grobid/PyMuPDF parsing → Hybrid embedding (dense+sparse)
+     │     → store chunks (agent state)
      │
      ├── Citation Traversal Tool  ← NEW
-     │     RCS 점수 ≥ 8인 논문의 인용/피인용 1hop 탐색
-     │     → overlap fraction 필터링 → 최대 12편 추가
+     │     Traverse 1-hop citations/references of papers with RCS score ≥ 8
+     │     → overlap fraction filtering → add up to 12 papers
      │
      ├── Gather Evidence Tool
-     │     top-k (기본 30) cosine 유사도 검색
-     │     → RCS: 각 청크에 LLM completion
-     │         → 요약(200~400토큰) + 관련성점수(0~10)
-     │     → 점수 기반 재순위화 → 상위 summaries 저장
+     │     top-k (default 30) cosine-similarity search
+     │     → RCS: LLM completion on each chunk
+     │         → summary (200~400 tokens) + relevance score (0~10)
+     │     → score-based reranking → store top summaries
      │
      └── Generate Answer Tool
-           상위 N개(기본 15) summaries → LLM 최종 답변 생성
-           → cited Wikipedia-style 답변 출력
+           Top N (default 15) summaries → LLM final answer generation
+           → output cited Wikipedia-style answer
 ```
 
-**WikiCrow** (요약 특화): 유전자명 → 구조/기능/상호작용/임상의의 각 섹션별 PaperQA2 호출 4회 + overview LLM 1회 → Python으로 합성
+**WikiCrow** (summarization-specialized): gene name → 4 PaperQA2 calls for each of the structure/function/interaction/clinical-significance sections + 1 overview LLM → synthesized with Python
 
-**ContraCrow** (모순탐지 특화): 논문 청크 분할 → LLM 클레임 추출 → 품질 필터링(≥8/10) → PaperQA2로 각 클레임에 모순탐지 쿼리 → 11점 Likert 스코어 출력
+**ContraCrow** (contradiction-detection-specialized): split paper into chunks → LLM claim extraction → quality filtering (≥8/10) → contradiction-detection query on each claim via PaperQA2 → output 11-point Likert score
 
 ---
-## 핵심 모듈 상세 설명
+## Key Module Details
 ### RCS (Reranking & Contextual Summarization)
-| 항목 | 내용 |
+| Item | Content |
 |---|---|
-| 입력 | top-k 청크 (기본 30개) |
-| 처리 | 각 청크에 LLM completion: 요약 + 관련성점수(0~10) JSON 출력 |
-| 출력 | 점수순 재정렬된 contextual summaries |
-| 특징 | 병렬 처리로 고효율; 소스 메타데이터(인용수·저널명) 포함 주입 |
-| 효과 | No RCS 대비 accuracy 유의미하게 향상 (t=9.29, p<0.001) |
+| Input | top-k chunks (default 30) |
+| Processing | LLM completion on each chunk: JSON output of summary + relevance score (0~10) |
+| Output | contextual summaries reordered by score |
+| Characteristics | high efficiency via parallel processing; injects source metadata (citation count, journal name) |
+| Effect | significantly improves accuracy vs. No RCS (t=9.29, p<0.001) |
 
 ### Citation Traversal Tool
-| 항목 | 내용 |
+| Item | Content |
 |---|---|
-| 기원 | RCS 점수 ≥ 8 논문에서 출발 |
-| 방향 | 전방(future citers) + 후방(past references) 모두 |
+| Origin | starts from papers with RCS score ≥ 8 |
+| Direction | both forward (future citers) and backward (past references) |
 | API | Semantic Scholar + Crossref |
-| 필터 | overlap fraction α=1/3: 여러 소스논문이 공통 인용하는 논문만 유지 |
-| 한도 | 최대 12편/호출 |
-| 효과 | DOI recall 유의미하게 향상 (t=3.4, p=0.022) |
+| Filter | overlap fraction α=1/3: keep only papers commonly cited by multiple source papers |
+| Limit | up to 12 papers per call |
+| Effect | significantly improves DOI recall (t=3.4, p=0.022) |
 
-### 도구·DB 연동 테이블
-| 도구 | 역할 | 비고 |
+### Tool / DB Integration Table
+| Tool | Role | Notes |
 |---|---|---|
-| Semantic Scholar API | 논문 검색 및 인용 탐색 | 기본 12편/검색 |
-| Crossref API | 과거 참고문헌 탐색 | Semantic Scholar 보완 |
-| Grobid | 섹션·표·인용 파싱 | WikiCrow에 필수; 토큰 44% 절감 |
-| PyMuPDF | 기본 PDF 파싱 | LitQA2 실험 기본값 |
-| OpenAI Embeddings | 임베딩 생성 | text-embedding-3-large |
+| Semantic Scholar API | Paper search and citation traversal | default 12 papers/search |
+| Crossref API | Traversal of past references | complements Semantic Scholar |
+| Grobid | Section/table/citation parsing | essential for WikiCrow; 44% token savings |
+| PyMuPDF | Default PDF parsing | default for LitQA2 experiments |
+| OpenAI Embeddings | Embedding generation | text-embedding-3-large |
 
 ---
-## LitQA2 벤치마크 상세 (이 논문이 제작한 closed-form QA benchmark)
+## LitQA2 Benchmark Details (the closed-form QA benchmark built by this paper)
 
-본 논문은 system(PaperQA2)과 함께 **LitQA2** 벤치마크를 제안. LitQA (PaperQA 원전, 47문항)의 확장판으로, **248개 객관식(MCQ) 생의학 질문**으로 구성. 답은 논문 **본문에만** 등장하고 초록에는 없는 사실에 기반.
+Along with the system (PaperQA2), this paper proposes the **LitQA2** benchmark. It is an extension of LitQA (the original PaperQA one, 47 questions), consisting of **248 multiple-choice (MCQ) biomedical questions**. The answers are based on facts that appear **only in the main body** of a paper and not in the abstract.
 
-### 어떻게 만들었나 (Construction Methodology)
+### Construction Methodology
 
 ```
-Step 1 — 소스 논문 선정 원칙 (논문 §LitQA2 본문 인용)
+Step 1 — Source-paper selection principle (quoted from the paper's §LitQA2 body)
   "LitQA2 questions are designed to have answers that appear in
    the main body of a paper, but not in the abstract, and ideally
    appear only once in the set of all scientific literature."
-  → 학습 데이터 cut-off 이후 발표 논문 + 본문 검색이 필요한 사실 위주
+  → papers published after the training-data cut-off + facts that require main-body search
 
-Step 2 — 단계적 release (논문 §8.4 본문 인용)
+Step 2 — Staged release (quoted from the paper's §8.4 body)
   "LitQA2 was built up from LitQA (47 questions) in two stages
    of releases, first 100 questions (147), then an additional 101
    questions, adding to the original subset to make 248 total
    questions."
-  ┌──────────────────────────┬──────┐
-  │ Stage                    │ 누적 │
-  ├──────────────────────────┼──────┤
-  │ Original LitQA           │   47 │
-  │ + Stage 1 (development)  │  147 │
-  │ + Stage 2 (held-out new) │  248 │
-  └──────────────────────────┴──────┘
-  Stage 2는 PaperQA2 engineering 변경 이후 새로 작성되어,
-  PaperQA2가 LitQA2에 overfit 안 되었음을 검증.
+  ┌──────────────────────────┬────────────┐
+  │ Stage                    │ Cumulative │
+  ├──────────────────────────┼────────────┤
+  │ Original LitQA           │         47 │
+  │ + Stage 1 (development)  │        147 │
+  │ + Stage 2 (held-out new) │        248 │
+  └──────────────────────────┴────────────┘
+  Stage 2 was newly written after the PaperQA2 engineering changes,
+  verifying that PaperQA2 did not overfit to LitQA2.
 
-Step 3 — 평가 metric (논문 §LitQA2 metric 정의)
-  · Accuracy = CorrectAll / All       (전체 정답 비율)
+Step 3 — Evaluation metrics (defined in the paper's §LitQA2 metric)
+  · Accuracy = CorrectAll / All       (fraction of all questions answered correctly)
   · Precision = CorrectSure / AnsweredSure
-    (답한 것 중 정답 비율; "Insufficient information" 옵션 활용)
-  Insufficient-information 옵션이 있어 모름을 인정 가능 → precision/accuracy 분리
+    (fraction correct among those answered; leverages the "Insufficient information" option)
+  The presence of the Insufficient-information option allows admitting ignorance → separates precision/accuracy
 
-Step 4 — 자동 평가 파이프라인 (논문 §8.2 본문 인용)
+Step 4 — Automatic evaluation pipeline (quoted from the paper's §8.2 body)
   "LitQA2 was automatically evaluated using an evaluation LLM call
    (GPT-4-0613), which extracted the letter answer from PaperQA2's
    output."
-  → 추출된 letter answer를 ideal answer와 매칭, "Insufficient information"
-    선택 시 별도 처리 (null 정답에 대해서는 Correct로 채점)
+  → match the extracted letter answer against the ideal answer; when "Insufficient information"
+    is chosen, handle separately (scored as Correct for null answers)
 ```
 
-### 실제 LitQA2 문항 형식 (논문 Figure 2A 본문 발췌)
+### Actual LitQA2 Question Format (excerpt from the paper's Figure 2A body)
 
 > "LitQA2 questions are MCQ with the option to refuse via 'Insufficient information to answer this question'. Each question has a single correct option, multiple incorrect distractors, and metadata indicating the source DOI."
 
-LitQA2 question은 답이 논문의 **단 한 곳**에만 등장하도록 설계되어, 모델이 단순 키워드 매칭이 아닌 정확한 retrieval+reasoning을 수행해야 함.
+LitQA2 questions are designed so that the answer appears in only **a single place** in the paper, so the model must perform accurate retrieval + reasoning rather than simple keyword matching.
 
-### 주요 평가 결과 (논문 본문 Table + Figure 2B 직접 인용)
+### Key Evaluation Results (directly quoted from the paper's body Table + Figure 2B)
 
-| 시스템 | LitQA2 Precision | LitQA2 Accuracy |
+| System | LitQA2 Precision | LitQA2 Accuracy |
 |---|---|---|
 | **PaperQA2** | **85.2% ± 1.1%** | **66.0% ± 1.2%** |
-| Human expert (PhD/박사과정, 9명) | 73.8% ± 9.6% | 67.7% ± 11.9% |
+| Human expert (PhD/PhD students, 9 people) | 73.8% ± 9.6% | 67.7% ± 11.9% |
 | Perplexity Pro (GPT-4o) | 69.7% | – |
 | Elicit | – | – |
-| GPT-4-Turbo (RAG 없음) | 43.6% | – |
-| Claude-Opus (RAG 없음) | 23.6% | – |
-| PaperQA (구버전) | 76.5% | 36.7% |
+| GPT-4-Turbo (no RAG) | 43.6% | – |
+| Claude-Opus (no RAG) | 23.6% | – |
+| PaperQA (old version) | 76.5% | 36.7% |
 
-**핵심 발견 (논문 §본문 인용)**
-- PaperQA2 precision **인간 전문가 초과**: t(8.6)=3.49, p=0.0036 (통계적 유의)
+**Key findings (quoted from the paper's body)**
+- PaperQA2 precision **exceeds human experts**: t(8.6)=3.49, p=0.0036 (statistically significant)
 - "PaperQA2 outperforms other RAG systems on the LitQA2 benchmark in both precision and accuracy"
-- Stage 1(147) vs Stage 2(101) 결과 차이 없음 → overfit 없음
+- No difference between Stage 1 (147) vs Stage 2 (101) results → no overfitting
 
-### LitQA2의 의의
+### Significance of LitQA2
 
-LitQA2는 closed-form benchmark이지만 RAG 시스템의 **전체 파이프라인**(검색 → 본문 발췌 → 추론 → 답변)을 한 번에 평가할 수 있도록 설계됨:
-- 답이 abstract에 없음 → retrieval이 전체 본문을 다뤄야 함
-- 답이 학습 데이터 cut-off 이후 → parametric memory로는 답 불가
-- "Insufficient information" 옵션 → 모름을 인정하는 신중함도 평가
+LitQA2 is a closed-form benchmark, yet it is designed to evaluate the **entire pipeline** of a RAG system (search → main-body extraction → reasoning → answering) at once:
+- The answer is not in the abstract → retrieval must cover the entire main body
+- The answer comes after the training-data cut-off → cannot be answered from parametric memory
+- The "Insufficient information" option → also evaluates the prudence of admitting ignorance
 
 ---
-## 실험 및 평가
-### 평가 태스크 및 데이터셋
-| 태스크 | 벤치마크 | 규모 | 비교 대상 |
+## Experiments and Evaluation
+### Evaluation Tasks and Datasets
+| Task | Benchmark | Scale | Comparison target |
 |---|---|---|---|
-| 문헌 QA | LitQA2 (자체 제작) | 248문항 (MCQ) | 인간 전문가 9명 |
-| 과학 요약 | WikiCrow vs Wikipedia | 240 유전자 기사, 375 문장 평가 | 인간 작성 Wikipedia |
-| 모순 탐지 | ContraDetect (자체 제작) | 93 생물학 논문, 3,180 클레임 | 전문가 5명 검증 |
+| Literature QA | LitQA2 (self-built) | 248 questions (MCQ) | 9 human experts |
+| Scientific summarization | WikiCrow vs Wikipedia | 240 gene articles, 375 sentences evaluated | human-written Wikipedia |
+| Contradiction detection | ContraDetect (self-built) | 93 biology papers, 3,180 claims | verified by 5 experts |
 
-### 주요 결과
-| 시스템 | Precision |
+### Key Results
+| System | Precision |
 |---|---|
 | **PaperQA2** | **85.2%** |
-| 인간 전문가 | 73.8% |
+| Human experts | 73.8% |
 | Perplexity Pro | 69.7% |
-| GPT-4-Turbo (직접) | 43.6% |
-| Claude-Opus (직접) | 23.6% |
+| GPT-4-Turbo (direct) | 43.6% |
+| Claude-Opus (direct) | 23.6% |
 
-| 시스템 | Precision (인용·지지 비율) |
+| System | Precision (cited/supported fraction) |
 |---|---|
 | **WikiCrow** | **86.1%** |
 | Wikipedia | 71.2% |
 
-| 지표 | 수치 |
+| Metric | Value |
 |---|---|
-| 논문당 평균 클레임 수 | 35.16 ± 21.72 |
-| 논문당 탐지 모순 수 | 2.34 ± 1.99 |
-| 전문가 검증 모순 수 | 1.64/논문 (하한) |
+| Average number of claims per paper | 35.16 ± 21.72 |
+| Number of contradictions detected per paper | 2.34 ± 1.99 |
+| Number of expert-verified contradictions | 1.64/paper (lower bound) |
 | ContraDetect AUC | 0.842 |
 | ContraDetect Precision | 88% |
 
 ---
-## 핵심 기여
-- **인간 초과 성능 최초 달성**: 제한 없는 인간 전문가 대비 LitQA2 precision 유의미하게 초과 (p=0.0036)
-- **RCS 기법**: top-k 검색 후 LLM으로 각 청크를 요약+점수화하여 노이즈 청크 제거 → precision 대폭 향상
-- **Citation Traversal 도구**: 인용 그래프를 계층적 인덱싱으로 활용 → recall 유의미하게 향상
-- **WikiCrow**: 인간 작성 Wikipedia보다 정확한 유전자 기사 자동 생성 (reasoning error 12 vs 26개)
-- **ContraCrow**: 생물학 문헌에서 논문당 평균 1.64개의 검증 가능 모순 자동 탐지
-- **엄격한 인간 비교 방법론**: 인터넷·도구 완전 허용 상태의 PhD 전문가와 동일 조건 비교
+## Key Contributions
+- **First achievement of superhuman performance**: LitQA2 precision significantly exceeds unrestricted human experts (p=0.0036)
+- **RCS technique**: after top-k retrieval, use an LLM to summarize + score each chunk to remove noisy chunks → substantial precision improvement
+- **Citation Traversal tool**: leverages the citation graph via hierarchical indexing → significant recall improvement
+- **WikiCrow**: automatically generates gene articles more accurate than human-written Wikipedia (reasoning errors 12 vs 26)
+- **ContraCrow**: automatically detects an average of 1.64 verifiable contradictions per paper in biology literature
+- **Rigorous human-comparison methodology**: comparison under identical conditions with PhD experts given full access to the internet and tools
 
 ---
-## 한계점
-- **폐쇄 접근 논문 누락**: 라이선스 제약으로 오픈액세스 논문만 사용 가능 → 중요 결과 누락 가능성
-- **ContraCrow 오버컨피던스**: 인간 간 일치율 75.5% vs ContraCrow-인간 일치율 60.4% → 과도한 확신 경향
-- **비용**: 쿼리당 $1~3, WikiCrow 기사당 $4.48 → 대규모 배포 시 비용 부담
-- **소형 모델 성능 저하**: RCS에 Llama3-70B, GPT-3.5-Turbo 사용 시 accuracy 오히려 감소 → 고성능 LLM 의존
-- **추상적 추론 한계**: LLM 자체의 추론 오류(hallucination) 여전히 존재 (WikiCrow reasoning issue 12개)
+## Limitations
+- **Omission of closed-access papers**: due to licensing constraints, only open-access papers can be used → possibility of missing important results
+- **ContraCrow overconfidence**: human-human agreement 75.5% vs ContraCrow-human agreement 60.4% → tendency toward excessive confidence
+- **Cost**: $1~3 per query, $4.48 per WikiCrow article → cost burden at large-scale deployment
+- **Degraded performance with small models**: using Llama3-70B or GPT-3.5-Turbo for RCS actually reduces accuracy → dependence on high-performance LLMs
+- **Limits of abstract reasoning**: the LLM's own reasoning errors (hallucination) still exist (12 WikiCrow reasoning issues)
 
 ---
-## 관련 연구 및 관련 정보
-- **원 논문**: [https://arxiv.org/abs/2409.13740](https://arxiv.org/abs/2409.13740)
-- **GitHub**: [https://github.com/Future-House/paper-qa](https://github.com/Future-House/paper-qa) (paperqa 오픈소스)
-- **WikiCrow 생성 기사**: [https://storage.googleapis.com/fh-public/wikicrow2/](https://storage.googleapis.com/fh-public/wikicrow2/)
-- **선행 연구**: PaperQA (arXiv 2312.07559), Lab-bench (arXiv 2407.10362)
-- **이 논문이 제작한 벤치마크**: LitQA2 (248 MCQ), ContraDetect
+## Related Work and Related Links
+- **Original paper**: [https://arxiv.org/abs/2409.13740](https://arxiv.org/abs/2409.13740)
+- **GitHub**: [https://github.com/Future-House/paper-qa](https://github.com/Future-House/paper-qa) (paperqa open source)
+- **WikiCrow generated articles**: [https://storage.googleapis.com/fh-public/wikicrow2/](https://storage.googleapis.com/fh-public/wikicrow2/)
+- **Prior work**: PaperQA (arXiv 2312.07559), Lab-bench (arXiv 2407.10362)
+- **Benchmarks built by this paper**: LitQA2 (248 MCQ), ContraDetect

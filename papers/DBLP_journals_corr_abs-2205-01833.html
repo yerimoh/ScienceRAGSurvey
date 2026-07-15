@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>OpenAlex: A fully-open index of scholarly works, authors, venues, institutions, and concepts — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>OpenAlex: A fully-open index of scholarly works, authors, venues, institutions, and concepts, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,7 +121,7 @@
 <p>DBLP:journals/corr/abs-2205-01833 | 2022 | arXiv (CoRR) | dataset | [general] | <a href="https://arxiv.org/abs/2205.01833">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">OpenAlex scholarly knowledge graph</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">209M works, 2,013M authors, 124K venues, 109K institutions, 65K concepts (2022년 논문 기준)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">209M works, 2,013M authors, 124K venues, 109K institutions, 65K concepts (as of the 2022 paper)</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">OpenAlex REST API / Full data dump</td></tr>
@@ -129,99 +129,99 @@
 
 <blockquote>
 <p>arXiv (CoRR) | 2022 | dataset | general</p>
-<h4>📌 한 줄 요약</h4>
-<p>Microsoft Academic Graph(MAG) 종료 이후의 공백을 메우기 위해 출시된 <strong>완전 오픈</strong> 학술 지식 그래프로, <strong>2억 900만 개 저작물</strong>, <strong>20억 1,300만 명</strong> 저자식별 데이터, <strong>12만 4천 개</strong> 저널·리포지토리, <strong>10만 9천 개</strong> 기관, <strong>6만 5천 개</strong> 개념을 웹 GUI·전체 데이터 덤프·REST API로 무료 제공한다.</p>
+<h4>📌 TL;DR</h4>
+<p>A <strong>fully-open</strong> scholarly knowledge graph launched to fill the gap left after Microsoft Academic Graph (MAG) was discontinued, providing <strong>209 million works</strong>, <strong>2.013 billion</strong> author-identification records, <strong>124 thousand</strong> journals and repositories, <strong>109 thousand</strong> institutions, and <strong>65 thousand</strong> concepts free of charge through a web GUI, a full data dump, and a REST API.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>Microsoft Academic Graph(MAG)가 서비스 종료되면서 대규모 공개 학술 그래프 인프라가 사라짐</li>
-<li>Scopus, Web of Science 등 상용 DB는 비용·접근 제한이 존재하여 오픈 대안의 필요성 증대</li>
+<li>The discontinuation of Microsoft Academic Graph (MAG) removed a large-scale public scholarly graph infrastructure</li>
+<li>Commercial databases such as Scopus and Web of Science come with cost and access restrictions, increasing the need for an open alternative</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>MAG를 대체하는 <strong>완전 무료·완전 공개(fully-open)</strong> 학술 지식 그래프 제공</li>
-<li>Works·Authors·Venues·Institutions·Concepts 5개 엔티티 유형을 상호 연결된 그래프로 구조화</li>
+<li>Provides a <strong>fully free, fully-open</strong> scholarly knowledge graph to replace MAG</li>
+<li>Structures the five entity types (Works, Authors, Venues, Institutions, Concepts) into an interconnected graph</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>Crossref(서지 메타데이터), PubMed(생의학 문헌), ORCID(저자 식별자), ROR(연구기관 레지스트리), MAG 레거시 데이터, Unpaywall(오픈 액세스 정보), OpenCitations(인용 데이터) 등 다수 소스를 통합하여 5개 엔티티(Works·Authors·Venues·Institutions·Concepts)를 구성. Wikidata 기반 계층적 다중 태그 분류기로 개념 태깅 자동화. CC BY 4.0 라이선스 적용.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>Integrates numerous sources including Crossref (bibliographic metadata), PubMed (biomedical literature), ORCID (author identifiers), ROR (research organization registry), MAG legacy data, Unpaywall (open-access information), and OpenCitations (citation data) to construct five entities (Works, Authors, Venues, Institutions, Concepts). Concept tagging is automated with a Wikidata-based hierarchical multi-tag classifier. Licensed under CC BY 4.0.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>웹 기반 GUI</td>
-  <td>브라우저에서 직접 탐색</td>
+  <td>Web-based GUI</td>
+  <td>Explore directly in the browser</td>
 </tr>
 <tr>
-  <td>전체 데이터 덤프</td>
-  <td>전체 스냅샷 일괄 다운로드</td>
+  <td>Full data dump</td>
+  <td>Bulk download of the full snapshot</td>
 </tr>
 <tr>
   <td>REST API</td>
-  <td>필터링·정렬·페이지네이션 지원 (JSON 응답)</td>
+  <td>Supports filtering, sorting, and pagination (JSON responses)</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li><strong>Works</strong>: 저널 논문, 도서 등 학술 저작물 메타데이터 (제목, 저자, 인용 등)</li>
-<li><strong>Authors</strong>: 중복 제거된 저자 식별자 및 프로필</li>
-<li><strong>Venues</strong>: 저널 및 온라인 리포지토리 정보</li>
-<li><strong>Institutions</strong>: ROR 연계 연구기관 레코드</li>
-<li><strong>Concepts</strong>: Wikidata 기반 계층적 주제 분류 (다중 태그)</li>
-<li>라이선스: CC BY 4.0 (상업적 활용 포함 자유 재사용)</li>
+<li><strong>Works</strong>: Metadata for scholarly works such as journal articles and books (title, authors, citations, etc.)</li>
+<li><strong>Authors</strong>: Deduplicated author identifiers and profiles</li>
+<li><strong>Venues</strong>: Information on journals and online repositories</li>
+<li><strong>Institutions</strong>: ROR-linked research organization records</li>
+<li><strong>Concepts</strong>: Wikidata-based hierarchical topic classification (multi-tag)</li>
+<li>License: CC BY 4.0 (free reuse including commercial use)</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (as reported in the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>Works (학술 저작물)</td>
-  <td><strong>209M</strong> (2022년 기준)</td>
+  <td>Works (scholarly works)</td>
+  <td><strong>209M</strong> (as of 2022)</td>
 </tr>
 <tr>
-  <td>Authors (중복 제거)</td>
-  <td><strong>2,013M</strong> (2022년 기준)</td>
+  <td>Authors (deduplicated)</td>
+  <td><strong>2,013M</strong> (as of 2022)</td>
 </tr>
 <tr>
-  <td>Venues (저널·리포지토리)</td>
-  <td><strong>124K</strong> (2022년 기준)</td>
+  <td>Venues (journals/repositories)</td>
+  <td><strong>124K</strong> (as of 2022)</td>
 </tr>
 <tr>
-  <td>Institutions (기관)</td>
-  <td><strong>109K</strong> (2022년 기준)</td>
+  <td>Institutions</td>
+  <td><strong>109K</strong> (as of 2022)</td>
 </tr>
 <tr>
-  <td>Concepts (주제 분류)</td>
-  <td><strong>65K</strong> (2022년 기준)</td>
+  <td>Concepts (topic classification)</td>
+  <td><strong>65K</strong> (as of 2022)</td>
 </tr>
 <tr>
-  <td>라이선스</td>
+  <td>License</td>
   <td>CC BY 4.0</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>논문에서 &quot;현재 활발히 개발 중(under active development)&quot;임을 명시</li>
-<li>인용 정보의 정확도 및 커버리지 개선이 향후 과제로 기술</li>
-<li>저자 및 기관 파싱·중복 제거(parsing and deduplication)의 정확도 개선 필요</li>
-<li>분야별 커버리지 불균일 (이공계 위주로 강함)</li>
+<li>The paper explicitly states that it is &quot;under active development&quot;</li>
+<li>Improving the accuracy and coverage of citation information is described as future work</li>
+<li>The accuracy of author and institution parsing and deduplication needs improvement</li>
+<li>Coverage is uneven across fields (stronger in the STEM disciplines)</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://arxiv.org/abs/2205.01833">https://arxiv.org/abs/2205.01833</a></li>
+<li><strong>Paper</strong>: <a href="https://arxiv.org/abs/2205.01833">https://arxiv.org/abs/2205.01833</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/corr/abs-2205-01833)</a></p>
@@ -254,14 +254,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

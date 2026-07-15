@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tissue-based map of the human proteome — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Tissue-based map of the human proteome, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,43 +121,43 @@
 <p>uhlen2015tissue | 2015 | Science | dataset | [medical, bio] | <a href="https://doi.org/10.1126/science.1260419">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">Human Protein Atlas (HPA)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">32개 조직 및 장기; 추정 단백질 코딩 유전자 90% 이상 검출</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">32 tissues and organs; over 90% of estimated protein-coding genes detected</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (proteinatlas.org)</td></tr>
-<tr><td class="prop-key">Modality</td><td class="prop-val">Image (면역조직화학), Genomic (전사체), Structured Table (단백질 발현 데이터)</td></tr>
+<tr><td class="prop-key">Modality</td><td class="prop-val">Image (immunohistochemistry), Genomic (transcriptome), Structured Table (protein expression data)</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">Human Protein Atlas (proteinatlas.org)</td></tr>
 </table>
 
 <blockquote>
 <p>Science | 2015 | dataset | medical, bio</p>
 </blockquote>
-<h4>📌 한 줄 요약</h4>
-<p>32개 인체 조직·장기에서 정량적 전사체학과 조직 마이크로어레이 기반 면역조직화학을 통합하여 단백질 공간 발현 지도를 단세포 수준까지 구축하고, 인간 단백질체의 90% 이상을 검출한 인터랙티브 웹 데이터베이스.</p>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>📌 TL;DR</h4>
+<p>An interactive web database that integrates quantitative transcriptomics and tissue-microarray-based immunohistochemistry across 32 human tissues and organs to build a spatial protein expression map down to the single-cell level, detecting over 90% of the human proteome.</p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>조직 및 장기 수준의 단백질 공간적 위치 정보 부재</li>
-<li>전사체 데이터만으로는 단백질 발현 패턴과 세포 내 위치 파악 불가</li>
-<li>인간 분비체·막 단백질체·암 단백질체의 통합 자원 없음</li>
+<li>Lack of spatial protein localization information at the tissue and organ level</li>
+<li>Transcriptomic data alone cannot capture protein expression patterns and subcellular localization</li>
+<li>No integrated resource for the human secretome, membrane proteome, and cancer proteome</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>인간 생물학 및 질환 이해를 위한 단백질 공간 발현 지도 필요</li>
-<li>약물 표적, 바이오마커 발굴을 위한 통합 오믹스 플랫폼 필요</li>
+<li>A spatial protein expression map is needed to understand human biology and disease</li>
+<li>An integrated omics platform is needed for drug target and biomarker discovery</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>KTH Royal Institute of Technology(스웨덴) 주도 통합 오믹스 접근법. 32개 조직·장기에서 정량적 전사체학(mRNA) + 조직 마이크로어레이 기반 면역조직화학 통합. 단세포 수준의 단백질 공간 위치 파악. 인간 분비체, 막 단백질체, 약물 가능 단백질체, 암 단백질체, 대사 기능 탐색. 전체 데이터는 인터랙티브 웹 기반 데이터베이스(proteinatlas.org)로 통합 제공.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>An integrated omics approach led by KTH Royal Institute of Technology (Sweden). Integrates quantitative transcriptomics (mRNA) + tissue-microarray-based immunohistochemistry across 32 tissues and organs. Captures spatial protein localization at the single-cell level. Explores the human secretome, membrane proteome, druggable proteome, cancer proteome, and metabolic functions. All data is integrated and provided through an interactive web-based database (proteinatlas.org).</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>Human Protein Atlas 포털</td>
-  <td><a href="https://www.proteinatlas.org">https://www.proteinatlas.org</a> — 무료 공개 접근</td>
+  <td>Human Protein Atlas portal</td>
+  <td><a href="https://www.proteinatlas.org">https://www.proteinatlas.org</a> — free public access</td>
 </tr>
 <tr>
   <td>DOI</td>
@@ -165,41 +165,41 @@
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>면역조직화학 영상 (조직 마이크로어레이)</li>
-<li>RNA 발현 데이터 (TPM, 조직별)</li>
-<li>단백질 발현 수준 (조직/세포 유형별)</li>
-<li>항체 특이도 정보</li>
+<li>Immunohistochemistry images (tissue microarray)</li>
+<li>RNA expression data (TPM, per tissue)</li>
+<li>Protein expression levels (per tissue/cell type)</li>
+<li>Antibody specificity information</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (as reported in the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>분석 조직/장기 수</td>
-  <td><strong>32개</strong></td>
+  <td>Number of tissues/organs analyzed</td>
+  <td><strong>32</strong></td>
 </tr>
 <tr>
-  <td>검출된 단백질 코딩 유전자 비율</td>
-  <td><strong>90% 이상</strong></td>
+  <td>Proportion of protein-coding genes detected</td>
+  <td><strong>over 90%</strong></td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>항체 기반 검출법으로 교차 반응성 가능</li>
-<li>단백질 발현량은 반정량적 수준</li>
-<li>세포주 및 일부 희귀 조직 미포함</li>
+<li>Antibody-based detection methods are subject to potential cross-reactivity</li>
+<li>Protein expression levels are semi-quantitative</li>
+<li>Cell lines and some rare tissues are not included</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1126/science.1260419">Tissue-based map of the human proteome</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1126/science.1260419">Tissue-based map of the human proteome</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (uhlen2015tissue)</a></p>
@@ -225,14 +225,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

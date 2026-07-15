@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Repurposing non-pharmacological interventions for Alzheimer&amp;#x27;s disease through link prediction on biomedical literature — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Repurposing non-pharmacological interventions for Alzheimer&amp;#x27;s disease through link prediction on biomedical literature, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -129,58 +129,58 @@
 
 <blockquote>
 <p>Scientific Reports | 2024 | Method | medical</p>
-<h4>📌 한 줄 요약</h4>
-<p>생물의학 문헌에서 구축한 지식 그래프의 링크 예측을 통해 알츠하이머병에 대한 비약리학적 중재법(non-pharmacological interventions) 후보를 재목적화(repurposing)하는 시스템으로, 문헌 검색 기반의 약한 검증(weakly-verified) 가설 생성 사례를 제시한다.</p>
+<h4>📌 TL;DR</h4>
+<p>A system that repurposes non-pharmacological interventions as candidate treatments for Alzheimer's disease through link prediction on a knowledge graph built from biomedical literature, presenting a case of weakly-verified hypothesis generation based on literature retrieval.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 접근법의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing approaches</strong></p>
 <ul>
-<li>알츠하이머 약물 발굴은 높은 실패율과 긴 개발 기간으로 비약리학적 중재법 탐색이 부각</li>
-<li>대규모 생물의학 문헌에 분산된 지식을 체계적으로 연결하는 시스템이 부재</li>
+<li>Alzheimer's drug discovery has a high failure rate and long development timelines, bringing the search for non-pharmacological interventions to the fore</li>
+<li>There is no system that systematically connects knowledge dispersed across large-scale biomedical literature</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>기존 약물 재목적화 방법은 주로 약리학적 화합물에 집중; 비약리학적 중재(운동, 인지 훈련 등)에 대한 체계적 평가 필요</li>
-<li>강한 외부 검증자(docking, 데이터베이스 직접 조회) 없이 문헌 유도 가설을 생성하는 평가 프레임워크 필요</li>
+<li>Existing drug repurposing methods mainly focus on pharmacological compounds; systematic evaluation of non-pharmacological interventions (exercise, cognitive training, etc.) is needed</li>
+<li>An evaluation framework is needed that generates literature-derived hypotheses without a strong external verifier (docking, direct database lookup)</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>생물의학 문헌에서 엔티티(질병, 중재법, 유전자, 생물학적 과정)와 관계를 추출하여 지식 그래프를 구축한다. 그래프 기반 링크 예측 모델을 통해 알츠하이머와 비약리학적 중재법 간의 잠재적 연결(후보 가설)을 생성한다. 평가는 기존 문헌 기반 근거와의 비교로 수행된다.</p>
-<h4>📊 주요 결과</h4>
+<h4>🔨 Architecture</h4>
+<p>Entities (diseases, interventions, genes, biological processes) and their relations are extracted from biomedical literature to build a knowledge graph. A graph-based link prediction model generates potential connections (candidate hypotheses) between Alzheimer's disease and non-pharmacological interventions. Evaluation is performed by comparison against existing literature-based evidence.</p>
+<h4>📊 Key Results</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>출판 저널</td>
+  <td>Publication journal</td>
   <td>Scientific Reports, vol.14, p.8693, 2024</td>
 </tr>
 <tr>
-  <td>평가 방식</td>
-  <td>다운스트림 태스크 정확도, 전문가 검증</td>
+  <td>Evaluation method</td>
+  <td>Downstream task accuracy, expert validation</td>
 </tr>
 <tr>
-  <td>검증 유형</td>
-  <td>약한 검증 (weak verification — 문헌 기반)</td>
+  <td>Verification type</td>
+  <td>Weak verification (weak verification — literature-based)</td>
 </tr>
 <tr>
-  <td>적용 도메인</td>
-  <td>알츠하이머 비약리학적 중재법 재목적화</td>
+  <td>Application domain</td>
+  <td>Alzheimer's non-pharmacological intervention repurposing</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>강력한 외부 검증자(실험, DFT, 데이터베이스 직접 조회)가 없어 신규성과 타당성이 주요 평가 부담을 짐</li>
-<li>문헌 품질 및 편향에 평가 결과가 민감</li>
-<li>예측된 연결의 실험적 검증이 별도로 필요</li>
+<li>Without a strong external verifier (experiments, DFT, direct database lookup), novelty and validity bear the main evaluation burden</li>
+<li>Evaluation results are sensitive to literature quality and bias</li>
+<li>Experimental validation of the predicted connections is separately required</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1038/s41598-024-59537-6">https://doi.org/10.1038/s41598-024-59537-6</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1038/s41598-024-59537-6">https://doi.org/10.1038/s41598-024-59537-6</a></li>
 <li><strong>PubMed</strong>: <a href="https://pubmed.ncbi.nlm.nih.gov/38615044/">https://pubmed.ncbi.nlm.nih.gov/38615044/</a></li>
 </ul>
 
@@ -207,14 +207,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

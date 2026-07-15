@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Matbench Discovery: ML Crystal Stability Benchmark on 257K WBM Structures — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Matbench Discovery: ML Crystal Stability Benchmark on 257K WBM Structures, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,7 +117,7 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#실제-데이터-형식-예시-논문-2-table-1">실제 데이터 형식 예시 (논문 §2 + Table 1)</a></li><li class="toc-l3"><a href="#유형-a-test-inputoutput-schema-is2re-style">유형 A — Test input/output schema (IS2RE-style)</a></li><li class="toc-l3"><a href="#유형-b-test-set-scale-amp-cleaning">유형 B — Test set scale &amp;amp; cleaning</a></li><li class="toc-l3"><a href="#유형-c-leaderboard-model-정렬-table-1">유형 C — Leaderboard model 정렬 (Table 1)</a></li><li class="toc-l3"><a href="#유형-d-regression-vs-classification-불일치-예시">유형 D — Regression vs Classification 불일치 예시</a></li><li class="toc-l2"><a href="#평가-metric-상세">평가 metric 상세</a></li><li class="toc-l2"><a href="#주요-평가-결과-논문-본문">주요 평가 결과 (논문 본문)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#construction-methodology">Construction Methodology</a></li><li class="toc-l2"><a href="#example-data-formats-paper-2-table-1">Example Data Formats (paper §2 + Table 1)</a></li><li class="toc-l3"><a href="#type-a-test-inputoutput-schema-is2re-style">Type A — Test input/output schema (IS2RE-style)</a></li><li class="toc-l3"><a href="#type-b-test-set-scale-amp-cleaning">Type B — Test set scale &amp;amp; cleaning</a></li><li class="toc-l3"><a href="#type-c-leaderboard-model-ranking-table-1">Type C — Leaderboard model ranking (Table 1)</a></li><li class="toc-l3"><a href="#type-d-regression-vs-classification-disagreement-example">Type D — Regression vs Classification disagreement example</a></li><li class="toc-l2"><a href="#evaluation-metric-details">Evaluation Metric Details</a></li><li class="toc-l2"><a href="#main-evaluation-results-paper-body">Main Evaluation Results (paper body)</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>Matbench Discovery: ML Crystal Stability Benchmark on 257K WBM Structures</h1>
@@ -126,18 +126,18 @@
 Janosh Riebesell, Rhys E. A. Goodall, Philipp Benner, Yuan Chiang, Bowen Deng, Gerbrand Ceder, Mark Asta, Alpha A. Lee, Anubhav Jain, Kristin A. Persson — Cambridge / LBNL / BAM / UC Berkeley
 arXiv: <a href="https://arxiv.org/abs/2308.14920">2308.14920</a> · DOI: <a href="https://doi.org/10.1038/s42256-025-01055-1">10.1038/s42256-025-01055-1</a></p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>ML energy 모델을 <strong>고처리량 안정 무기 결정 탐색의 pre-filter</strong>로 평가하는 task-based benchmark. <strong>WBM 데이터셋의 257K+ 구조</strong>에 대해 <strong>convex hull distance</strong>의 F$_1$, DAF, precision/recall을 측정하며, <strong>UIP(Universal Interatomic Potential)</strong> 들이 F$_1$ 0.57–0.82, <strong>discovery acceleration factor up to 6×</strong>로 최고 성능.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>A task-based benchmark that evaluates ML energy models as a <strong>pre-filter for high-throughput discovery of stable inorganic crystals</strong>. It measures F$_1$, DAF, and precision/recall of the <strong>convex hull distance</strong> over the <strong>257K+ structures of the WBM dataset</strong>, with <strong>UIPs (Universal Interatomic Potentials)</strong> achieving the best performance at F$_1$ 0.57–0.82 and a <strong>discovery acceleration factor up to 6×</strong>.</p>
 <hr />
-<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
+<h2 id="construction-methodology">Construction Methodology</h2>
 <pre><code>Step 1 — Test corpus: WBM dataset
   └─ Wang et al. 2021 npj CompMat
-  └─ 257,487 구조 (relaxed + unrelaxed)
-  └─ Materials Project을 합성한 chemistry 확장
+  └─ 257,487 structures (relaxed + unrelaxed)
+  └─ Chemistry expansion synthesized from Materials Project
 
-Step 2 — Task 정의
+Step 2 — Task definition
   ┌──────────────────────────────────────────┐
-  │ Input: 미relaxed candidate crystal       │
+  │ Input: unrelaxed candidate crystal       │
   │ Predict: distance from convex hull       │
   │   (relaxed → E_hull &lt; 0 → stable)        │
   │ Threshold: 0 eV/atom above convex hull   │
@@ -161,10 +161,10 @@ Step 5 — Public leaderboard + Python package
   └─ Online leaderboard maintained
 </code></pre>
 <hr />
-<h2 id="실제-데이터-형식-예시-논문-2-table-1">실제 데이터 형식 예시 (논문 §2 + Table 1)</h2>
-<h3 id="유형-a-test-inputoutput-schema-is2re-style">유형 A — Test input/output schema (IS2RE-style)</h3>
+<h2 id="example-data-formats-paper-2-table-1">Example Data Formats (paper §2 + Table 1)</h2>
+<h3 id="type-a-test-inputoutput-schema-is2re-style">Type A — Test input/output schema (IS2RE-style)</h3>
 <blockquote>
-<p><strong>Input</strong>: WBM 데이터셋의 <strong>unrelaxed</strong> prototype structure (5 batches of elemental substitution, 1–5회 치환)</p>
+<p><strong>Input</strong>: <strong>unrelaxed</strong> prototype structure from the WBM dataset (5 batches of elemental substitution, 1–5 substitutions)</p>
 <pre><code>Structure:   periodic unit cell (initial, not DFT-relaxed)
 Prototype:   ICSD-based with elemental substitution
 Batch ID:    1 ~ 5 (substitution depth, OOD progressing)
@@ -180,7 +180,7 @@ Batch ID:    1 ~ 5 (substitution depth, OOD progressing)
 <li>Auxiliary tasks (charge, magmom) allowed</li>
 </ul>
 </blockquote>
-<h3 id="유형-b-test-set-scale-amp-cleaning">유형 B — Test set scale &amp; cleaning</h3>
+<h3 id="type-b-test-set-scale-amp-cleaning">Type B — Test set scale &amp; cleaning</h3>
 <blockquote>
 <pre><code>┌────────────────────────────────────────────────┬──────────┐
 │ Source: WBM (Wang et al. 2021 npj CompMat)     │  257,487 │
@@ -192,7 +192,7 @@ Batch ID:    1 ~ 5 (substitution depth, OOD progressing)
 └────────────────────────────────────────────────┴──────────┘
 </code></pre>
 </blockquote>
-<h3 id="유형-c-leaderboard-model-정렬-table-1">유형 C — Leaderboard model 정렬 (Table 1)</h3>
+<h3 id="type-c-leaderboard-model-ranking-table-1">Type C — Leaderboard model ranking (Table 1)</h3>
 <table>
 <thead>
 <tr>
@@ -320,21 +320,21 @@ Batch ID:    1 ~ 5 (substitution depth, OOD progressing)
 </tbody>
 </table>
 <blockquote>
-<p>→ UIPs (energy+force+stress) &gt; energy-only one-shot 모델: 명확한 격차</p>
+<p>→ UIPs (energy+force+stress) &gt; energy-only one-shot models: a clear gap</p>
 </blockquote>
-<h3 id="유형-d-regression-vs-classification-불일치-예시">유형 D — Regression vs Classification 불일치 예시</h3>
+<h3 id="type-d-regression-vs-classification-disagreement-example">Type D — Regression vs Classification disagreement example</h3>
 <blockquote>
-<p>&quot;Accurate regressors can yield <strong>high false-positive rates near the decision boundary at 0 eV/atom</strong>&quot; — 작은 MAE라도 hull 근처에서는 stable/unstable 오분류 다수 발생.</p>
-<p>예시: CGCNN+P, Wrenformer, BOWSR — regression MAE는 양호하나 F$_1$이 낮음 (task-based 평가 필요성 증명)</p>
+<p>&quot;Accurate regressors can yield <strong>high false-positive rates near the decision boundary at 0 eV/atom</strong>&quot; — even a small MAE produces many stable/unstable misclassifications near the hull.</p>
+<p>Examples: CGCNN+P, Wrenformer, BOWSR — regression MAE is good but F$_1$ is low (demonstrating the need for task-based evaluation)</p>
 </blockquote>
 <hr />
-<h2 id="평가-metric-상세">평가 metric 상세</h2>
+<h2 id="evaluation-metric-details">Evaluation Metric Details</h2>
 <table>
 <thead>
 <tr>
   <th>Metric</th>
-  <th>의미</th>
-  <th>우선순위</th>
+  <th>Meaning</th>
+  <th>Priority</th>
 </tr>
 </thead>
 <tbody>
@@ -365,9 +365,9 @@ Batch ID:    1 ~ 5 (substitution depth, OOD progressing)
 </tr>
 </tbody>
 </table>
-<p>→ <strong>task-based 평가</strong>를 강조 (regression metric은 부수적). 작은 MAE라도 decision boundary 근처에서 false positive 많을 수 있음.</p>
+<p>→ Emphasizes <strong>task-based evaluation</strong> (regression metrics are secondary). Even a small MAE can produce many false positives near the decision boundary.</p>
 <hr />
-<h2 id="주요-평가-결과-논문-본문">주요 평가 결과 (논문 본문)</h2>
+<h2 id="main-evaluation-results-paper-body">Main Evaluation Results (paper body)</h2>
 <table>
 <thead>
 <tr>
@@ -379,12 +379,12 @@ Batch ID:    1 ~ 5 (substitution depth, OOD progressing)
 <tbody>
 <tr>
   <td>Voronoi RF</td>
-  <td>(낮음)</td>
+  <td>(low)</td>
   <td>–</td>
 </tr>
 <tr>
   <td>MEGNet / CGCNN</td>
-  <td>(중간)</td>
+  <td>(medium)</td>
   <td>–</td>
 </tr>
 <tr>
@@ -394,7 +394,7 @@ Batch ID:    1 ~ 5 (substitution depth, OOD progressing)
 </tr>
 <tr>
   <td>CHGNet, MACE, SevenNet, Orb</td>
-  <td>(높음)</td>
+  <td>(high)</td>
   <td>–</td>
 </tr>
 <tr>
@@ -406,25 +406,25 @@ Batch ID:    1 ~ 5 (substitution depth, OOD progressing)
 </table>
 <p>→ Universal Interatomic Potentials (UIP) &gt; task-specific models &gt; one-shot predictors</p>
 <hr />
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li><strong>WBM 데이터셋 한계</strong>: 합성된 구조 → 실험 검증 미반영</li>
-<li><strong>Regression vs classification 갈등</strong>: 작은 MAE도 boundary near false positive</li>
-<li><strong>DFT functional 의존</strong>: PBE 기반 ground truth, 다른 functional과 격차</li>
-<li><strong>Stable ≠ synthesizable</strong>: 열역학적 stability만 평가, 합성 경로/속도론 미반영</li>
-<li><strong>Open Catalyst 등 다른 도메인 미포함</strong>: 표면, 분자 미커버</li>
-<li><strong>데이터 leakage 위험</strong>: 일부 모델이 WBM 인접 구조로 학습되었을 가능성</li>
+<li><strong>WBM dataset limitation</strong>: synthesized structures → experimental validation not reflected</li>
+<li><strong>Regression vs classification conflict</strong>: even a small MAE yields false positives near the boundary</li>
+<li><strong>DFT functional dependence</strong>: PBE-based ground truth, a gap with other functionals</li>
+<li><strong>Stable ≠ synthesizable</strong>: only thermodynamic stability is evaluated; synthesis pathways/kinetics not reflected</li>
+<li><strong>Other domains such as Open Catalyst not included</strong>: surfaces and molecules not covered</li>
+<li><strong>Data leakage risk</strong>: some models may have been trained on structures adjacent to WBM</li>
 </ul>
 <hr />
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문 (Nature MI)</strong>: <a href="https://doi.org/10.1038/s42256-025-01055-1">10.1038/s42256-025-01055-1</a></li>
+<li><strong>Paper (Nature MI)</strong>: <a href="https://doi.org/10.1038/s42256-025-01055-1">10.1038/s42256-025-01055-1</a></li>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2308.14920">2308.14920</a></li>
-<li><strong>공식 사이트</strong>: <a href="https://matbench-discovery.materialsproject.org/">matbench-discovery.materialsproject.org</a></li>
+<li><strong>Official site</strong>: <a href="https://matbench-discovery.materialsproject.org/">matbench-discovery.materialsproject.org</a></li>
 <li><strong>Python package</strong>: <code>pip install matbench-discovery</code></li>
 <li><strong>GitHub</strong>: <a href="https://github.com/janosh/matbench-discovery">janosh/matbench-discovery</a></li>
-<li><strong>WBM 데이터셋</strong>: Wang et al. 2021 npj CompMat (Matbench Discovery의 test corpus)</li>
-<li><strong>이 benchmark를 사용한 후속 작업</strong>: MLIP Arena (NeurIPS 2025 D&amp;B), foundation MLIP papers</li>
+<li><strong>WBM dataset</strong>: Wang et al. 2021 npj CompMat (the test corpus of Matbench Discovery)</li>
+<li><strong>Follow-up work using this benchmark</strong>: MLIP Arena (NeurIPS 2025 D&amp;B), foundation MLIP papers</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (riebesell2025matbench)</a></p>
@@ -445,14 +445,14 @@ Batch ID:    1 ~ 5 (substitution depth, OOD progressing)
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

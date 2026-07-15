@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The NIST Chemistry WebBook: A Chemical Data Resource on the Internet — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>The NIST Chemistry WebBook: A Chemical Data Resource on the Internet, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,7 +121,7 @@
 <p>linstrom2001nist | 2001 | Journal of Chemical &amp; Engineering Data | dataset | [chem] | <a href="https://doi.org/10.1021/je000225m">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">NIST Chemistry WebBook</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">논문 미기재 (열화학 데이터 중심; 수만 화합물)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">Not reported in the paper (thermochemistry-data focused; tens of thousands of compounds)</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text, Structured</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">NIST Chemistry WebBook (webbook.nist.gov)</td></tr>
@@ -129,75 +129,75 @@
 
 <blockquote>
 <p>Journal of Chemical &amp; Engineering Data | 2001 | dataset | chem</p>
-<h4>📌 한 줄 요약</h4>
-<p>NIST Chemistry WebBook은 미국 NIST(국립표준기술연구소)가 제공하는 공개 화학 데이터 자원으로, 열화학·분광학 데이터 분야에서 독보적 깊이와 신뢰성을 가진다.</p>
+<h4>📌 TL;DR</h4>
+<p>The NIST Chemistry WebBook is an open chemical data resource provided by the U.S. NIST (National Institute of Standards and Technology), offering unrivaled depth and reliability in the fields of thermochemical and spectroscopic data.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>열화학, 분광학 등 물리화학 데이터가 여러 NIST 출판물에 분산되어 있었음</li>
-<li>인터넷을 통한 신속하고 통합적인 데이터 접근이 불가능했음
-<strong>이 시스템이 필요한 이유</strong></li>
-<li>화학 공학, 환경 과학, 재료 과학 연구자들이 표준 물리화학 성질을 즉시 조회할 수 있는 단일 자원 필요</li>
-<li>NIST의 신뢰성 있는 평가 데이터를 인터넷으로 광범위하게 배포</li>
+<li>Physicochemical data such as thermochemistry and spectroscopy were scattered across multiple NIST publications</li>
+<li>Rapid, integrated data access over the internet was not possible
+<strong>Why this system is needed</strong></li>
+<li>Researchers in chemical engineering, environmental science, and materials science need a single resource to instantly look up standard physicochemical properties</li>
+<li>To broadly distribute NIST's reliable, evaluated data over the internet</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>NIST-JANAF Thermochemical Tables, NIST Webbook Standard Reference Database 등 NIST의 기존 데이터 자원을 인터넷 접근 가능한 형태로 통합한다. 화합물명, 화학식, CAS 등록번호, InChI 등으로 검색 가능. 이름, 분자식, CAS 번호, 구조 검색 지원.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>It integrates NIST's existing data resources, such as the NIST-JANAF Thermochemical Tables and the NIST Webbook Standard Reference Database, into an internet-accessible form. It can be searched by compound name, chemical formula, CAS registry number, InChI, and more. Supports name, molecular formula, CAS number, and structure search.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>웹 인터페이스</td>
-  <td>webbook.nist.gov 직접 검색</td>
+  <td>Web interface</td>
+  <td>Direct search at webbook.nist.gov</td>
 </tr>
 <tr>
   <td>JSON API</td>
-  <td>NIST WebBook JSON API (화합물 데이터 조회)</td>
+  <td>NIST WebBook JSON API (compound data lookup)</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>열화학 데이터 (ΔHf°, S°, Cp 등)</li>
-<li>분광학 데이터 (IR, MS, NMR, UV-Vis)</li>
-<li>열역학 상 전이 데이터</li>
-<li>이온화 에너지 및 이온 에너지 데이터</li>
+<li>Thermochemical data (ΔHf°, S°, Cp, etc.)</li>
+<li>Spectroscopic data (IR, MS, NMR, UV-Vis)</li>
+<li>Thermodynamic phase-transition data</li>
+<li>Ionization energy and ion energetics data</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>출시 연도</td>
-  <td>1996년 (논문은 2001년 업데이트 기술)</td>
+  <td>Release year</td>
+  <td>1996 (the paper describes the 2001 update)</td>
 </tr>
 <tr>
-  <td>데이터 유형</td>
-  <td>열화학, 분광학, 상 전이, 이온화 에너지 등</td>
+  <td>Data types</td>
+  <td>Thermochemistry, spectroscopy, phase transitions, ionization energy, etc.</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>유기·무기 화합물 모두를 포함하나 drug-like 분자의 바이오활성 데이터는 없음</li>
-<li>일부 오래된 데이터는 현대 계산 방법과 비교하면 정확도 제한</li>
-<li>데이터 범위가 열화학·분광학 중심으로 특화</li>
+<li>Includes both organic and inorganic compounds, but has no bioactivity data for drug-like molecules</li>
+<li>Some older data has limited accuracy compared with modern computational methods</li>
+<li>The data scope is specialized around thermochemistry and spectroscopy</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>공식 페이지</strong>: <a href="https://webbook.nist.gov">NIST Chemistry WebBook</a></li>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1021/je000225m">The NIST Chemistry WebBook</a></li>
+<li><strong>Official page</strong>: <a href="https://webbook.nist.gov">NIST Chemistry WebBook</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1021/je000225m">The NIST Chemistry WebBook</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (linstrom2001nist)</a></p>
@@ -223,14 +223,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

@@ -12,65 +12,65 @@ paper_link: https://doi.org/10.1093/nar/gki033
 hamosh2005online | 2005 | Nucleic Acids Research | dataset | [medical] | [paper](https://doi.org/10.1093/nar/gki033)
 
 **DB**: OMIM (Online Mendelian Inheritance in Man)
-**DB size**: 15,593개 항목 (2004년 9월 기준); 유전자 9,816개, 표현형 5,777개
+**DB size**: 15,593 entries (as of September 2004); 9,816 genes, 5,777 phenotypes
 **DB Open/Private**: Open
 **Modality**: ['Text']
-**Retriever**: N/A (지식 소스 인프라)
+**Retriever**: N/A (knowledge source infrastructure)
 **Eval Task**: N/A
 **Eval Metric**: N/A
-**Method Name**: OMIM 웹사이트 / NCBI Entrez 통합 검색
+**Method Name**: OMIM website / NCBI Entrez integrated search
 
 > Nucleic Acids Research | 2005 | dataset | medical
-#### 📌 한 줄 요약
-존스홉킨스대학교 McKusick-Nathans 연구소가 관리하고 NCBI가 배포하는 인간 유전자·유전 질환의 권위 있는 카탈로그로, 2004년 기준 15,593개 항목과 12,715개의 대립형질 변이를 수록한다.
+#### 📌 TL;DR
+An authoritative catalog of human genes and genetic disorders, maintained by the McKusick-Nathans Institute at Johns Hopkins University and distributed by NCBI, containing 15,593 entries and 12,715 allelic variants as of 2004.
 
-#### 🎯 개발/구축 배경
-**기존 인프라의 한계**
-- Victor McKusick의 1966년 인쇄물 "Mendelian Inheritance in Man(MIM)"이 기원이나, 인쇄 갱신 주기로는 급증하는 유전 발견을 따라잡기 어려웠다
-- 인쇄·CD-ROM 형식으로는 일일 문헌 업데이트 및 외부 DB 링크 기능이 불가했다
+#### 🎯 Background
+**Limitations of existing infrastructure**
+- It originates from Victor McKusick's 1966 print work "Mendelian Inheritance in Man (MIM)," but the print update cycle could not keep up with the rapidly growing volume of genetic discoveries
+- Print and CD-ROM formats could not support daily literature updates or links to external DBs
 
-**이 시스템이 필요한 이유**
-- 유전체 혁명으로 매일 새로운 유전자-질환 연관이 보고되어 실시간 온라인 갱신이 필수가 됐다
-- 임상 의사와 연구자가 단일 플랫폼에서 유전자·표현형·문헌·시퀀스 DB를 교차 검색해야 했다
+**Why this system is needed**
+- The genomic revolution meant new gene-disease associations were reported daily, making real-time online updates essential
+- Clinicians and researchers needed to cross-search gene, phenotype, literature, and sequence DBs on a single platform
 
-#### 🔨 시스템 구성
-각 OMIM 항목은 고유한 6자리 MIM 번호로 식별되며 유전자(별 기호), 표현형, 유전자-표현형 관계를 기술한다.
-- **MIM 번호 체계**: 앞자리로 항목 유형 구분 (1xxxx = 상염색체 우성, 2xxxx = 상염색체 열성, 3xxxx = X-연결 등)
-- **Allelic Variant 섹션**: 각 항목 내 임상적으로 중요한 돌연변이 기재 (2004년 기준 1,651개 항목에 12,715개 변이)
-- **Clinical Synopsis**: 표현형별 임상 특징 요약 (4,500개 이상)
-- **Morbid Map**: 유전자-질환 매핑 알파벳 순 목록
+#### 🔨 Architecture
+Each OMIM entry is identified by a unique six-digit MIM number and describes genes (star symbol), phenotypes, and gene-phenotype relationships.
+- **MIM number scheme**: the leading digit distinguishes the entry type (1xxxx = autosomal dominant, 2xxxx = autosomal recessive, 3xxxx = X-linked, etc.)
+- **Allelic Variant section**: clinically significant mutations listed within each entry (12,715 variants across 1,651 entries as of 2004)
+- **Clinical Synopsis**: summary of clinical features by phenotype (more than 4,500)
+- **Morbid Map**: alphabetically ordered list of gene-disease mappings
 
-#### 📥 데이터 접근 방법
-| 방법 | 설명 |
+#### 📥 Access
+| Method | Description |
 |---|---|
-| 웹 인터페이스 | omim.org — 무료 검색; 개인·비영리 사용 |
-| NCBI Entrez | PubMed, Gene, OMIM 통합 검색 연결 |
-| FTP 다운로드 | 상업적 사용 시 별도 라이선스 필요 |
+| Web interface | omim.org — free search; personal and non-profit use |
+| NCBI Entrez | integrated search links across PubMed, Gene, and OMIM |
+| FTP download | separate license required for commercial use |
 
-#### 📤 제공 데이터 형식
-- MIM 번호별 텍스트 항목 (유전자 기술, 표현형, 임상 시놉시스)
-- 대립형질 변이 목록 (Allelic Variant 섹션)
-- 유전자-표현형 매핑 테이블 (Morbid Map)
-- NCBI Gene, sequence DB, PubMed 상호 링크
+#### 📤 Data formats
+- Text entries by MIM number (gene descriptions, phenotypes, clinical synopses)
+- Allelic variant lists (Allelic Variant section)
+- Gene-phenotype mapping tables (Morbid Map)
+- Cross-links to NCBI Gene, sequence DB, and PubMed
 
-#### 📊 주요 통계 (논문 기준)
-| 항목 | 수치 |
+#### 📊 Key statistics (per the paper)
+| Item | Value |
 |---|---|
-| 전체 항목 수 | **15,593개** (2004년 9월 기준) |
-| 유전자 항목 (분자 서열 확인) | **9,816개** |
-| 표현형/질환 항목 | **5,777개** |
-| 대립형질 변이 수 | **12,715개** (1,651개 항목) |
-| 임상 시놉시스 수 | **4,500개 이상** |
-| 매핑된 질환 수 | **3,659개** (2,558개 유전자 좌위에 분포) |
-| 분자 기전 확인 질환 | **2,563개** |
-| 일일 고유 방문자 | **약 8,500명** |
-| 일일 쿼리 수 | **약 100,000건** |
-| 월간 신규 항목/업데이트 | 신규 약 70개, 업데이트 약 600건 |
+| Total number of entries | **15,593** (as of September 2004) |
+| Gene entries (molecular sequence confirmed) | **9,816** |
+| Phenotype/disorder entries | **5,777** |
+| Number of allelic variants | **12,715** (across 1,651 entries) |
+| Number of clinical synopses | **more than 4,500** |
+| Number of mapped disorders | **3,659** (distributed across 2,558 gene loci) |
+| Disorders with confirmed molecular basis | **2,563** |
+| Daily unique visitors | **about 8,500** |
+| Daily number of queries | **about 100,000** |
+| Monthly new entries/updates | about 70 new, about 600 updates |
 
-#### ⚠️ 한계점
-- 멘델 유전 질환 중심: 복합(다유전자·환경) 질환은 포함 범위가 제한적
-- 상업적 재배포·활용 시 별도 라이선스 협의 필요
-- 텍스트 중심 서술로 구조화된 쿼리(SPARQL 등)에 직접 활용 어려움
+#### ⚠️ Limitations
+- Focused on Mendelian genetic disorders: coverage of complex (polygenic and environmental) disorders is limited
+- Separate license negotiation required for commercial redistribution and use
+- Text-centric narrative makes it difficult to use directly for structured queries (SPARQL, etc.)
 
-## 관련 정보
-- **논문**: [Hamosh et al., Nucleic Acids Research 2005](https://doi.org/10.1093/nar/gki033)
+## Related links
+- **Paper**: [Hamosh et al., Nucleic Acids Research 2005](https://doi.org/10.1093/nar/gki033)

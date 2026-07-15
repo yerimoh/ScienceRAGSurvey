@@ -12,57 +12,57 @@ paper_link: https://doi.org/10.1162/jocn.2007.19.9.1498
 DBLP:journals/jocn/MarcusWPCMB07 | 2007 | J. Cogn. Neurosci. | dataset | [medical] | [paper](https://doi.org/10.1162/jocn.2007.19.9.1498)
 
 **DB**: OASIS (Open Access Series of Imaging Studies) — Cross-sectional
-**DB size**: 416명 (연령 18–96세); 100명 이상 60세 이상 알츠하이머병 진단 포함
+**DB size**: 416 subjects (ages 18–96); includes 100+ subjects aged 60 and older with an Alzheimer's disease diagnosis
 **DB Open/Private**: Open (oasis-brains.org)
-**Modality**: Image (MRI, T1-weighted), Structured Table (임상 평가)
-**Retriever**: N/A (지식 소스 인프라)
+**Modality**: Image (MRI, T1-weighted), Structured Table (clinical assessment)
+**Retriever**: N/A (knowledge-source infrastructure)
 **Eval Task**: N/A
 **Eval Metric**: N/A
-**Method Name**: OASIS 포털 (oasis-brains.org)
+**Method Name**: OASIS portal (oasis-brains.org)
 
 > J. Cogn. Neurosci. | 2007 | dataset | medical
 
-#### 📌 한 줄 요약
-18–96세 416명을 대상으로 한 횡단적 MRI 데이터셋으로, 정상 노화와 알츠하이머병을 포함한 폭넓은 연령대의 뇌 구조 영상을 자유롭게 제공하는 최초의 대규모 공개 뇌 영상 데이터베이스.
+#### 📌 TL;DR
+A cross-sectional MRI dataset of 416 subjects aged 18–96, and the first large-scale publicly available brain imaging database to freely provide brain structural images across a broad age range, including both normal aging and Alzheimer's disease.
 
-#### 🎯 개발/구축 배경
-**기존 인프라의 한계**
-- 신경영상 데이터의 공개 접근 경로 부재로 연구 재현성 저하
-- 정상 노화와 치매를 아우르는 광범위 연령대 영상 데이터 없음
+#### 🎯 Background
+**Limitations of existing infrastructure**
+- Lack of open-access pathways for neuroimaging data reduced research reproducibility
+- No imaging data spanning a broad age range covering both normal aging and dementia
 
-**이 시스템이 필요한 이유**
-- 정상 노화 및 알츠하이머병에 관한 뇌 구조 변화 연구를 위한 공개 자료 필요
-- 자동 계산 분석을 포함한 다양한 분석 접근법 지원
-- 신경영상 분야의 개방형 데이터 공유 문화 선도
+**Why this system is needed**
+- A need for public data to study brain structural changes related to normal aging and Alzheimer's disease
+- Support for a variety of analytical approaches, including automated computational analysis
+- Leading an open data-sharing culture in the neuroimaging field
 
-#### 🔨 시스템 구성
-워싱턴대학교 기반 횡단적 MRI 데이터셋. 416명(18–96세), 오른손잡이, 남녀 포함. 60세 이상 피험자 중 100명은 경증~중등도 알츠하이머병 임상 진단. 각 피험자별 단일 세션에서 T1-weighted MRI 3–4회 촬영(세션 내 고신호대잡음비). 비치매 피험자 20명의 재검사 신뢰도 데이터셋(90일 이내 재촬영) 포함. 전뇌 용적 및 추정 두개내 용적 자동 계산값 제공.
+#### 🔨 Architecture
+A cross-sectional MRI dataset based at Washington University. 416 subjects (ages 18–96), right-handed, including both men and women. Among subjects aged 60 and older, 100 have a clinical diagnosis of mild to moderate Alzheimer's disease. For each subject, 3–4 T1-weighted MRI scans were acquired in a single session (high signal-to-noise ratio within the session). Includes a test-retest reliability dataset of 20 nondemented subjects (rescanned within 90 days). Provides automatically computed values for whole-brain volume and estimated intracranial volume.
 
-#### 📥 데이터 접근 방법
-| 방법 | 설명 |
+#### 📥 Access
+| Method | Description |
 |---|---|
-| OASIS 포털 | https://www.oasis-brains.org — 무료 공개 접근 |
+| OASIS portal | https://www.oasis-brains.org — free open access |
 | DOI | https://doi.org/10.1162/jocn.2007.19.9.1498 |
 
-#### 📤 제공 데이터 형식
-- T1-weighted MRI 영상 (NIFTI/Analyze 형식)
-- 임상 평가 (CDR, 인지기능 검사)
-- 인구통계 정보 (연령, 성별, 교육 수준, 사회경제적 지위)
-- 자동 계산 뇌 용적 측정값
+#### 📤 Data formats
+- T1-weighted MRI images (NIFTI/Analyze format)
+- Clinical assessments (CDR, cognitive function tests)
+- Demographic information (age, sex, education level, socioeconomic status)
+- Automatically computed brain volume measurements
 
-#### 📊 주요 통계 (논문 기준)
-| 항목 | 수치 |
+#### 📊 Key statistics (per the paper)
+| Item | Value |
 |---|---|
-| 총 피험자 수 | **416명** |
-| 연령 범위 | **18–96세** |
-| 알츠하이머병 진단 (60세 이상) | **100명** |
-| 재검사 신뢰도 서브셋 | **20명** |
-| 재검사 간격 | **90일 이내** |
+| Total number of subjects | **416** |
+| Age range | **18–96 years** |
+| Alzheimer's disease diagnosis (aged 60+) | **100** |
+| Test-retest reliability subset | **20** |
+| Test-retest interval | **within 90 days** |
 
-#### ⚠️ 한계점
-- 단일 기관(워싱턴대) 데이터로 다양성 제한
-- 전원 오른손잡이 — 왼손잡이 뇌 구조 연구 적용 불가
-- 횡단적 설계로 개인 내 종단적 변화 추적 불가
+#### ⚠️ Limitations
+- Single-institution (Washington University) data limits diversity
+- All right-handed — not applicable to studies of left-handed brain structure
+- Cross-sectional design cannot track longitudinal within-individual changes
 
-## 관련 정보
-- **논문**: [Open Access Series of Imaging Studies (OASIS)](https://doi.org/10.1162/jocn.2007.19.9.1498)
+## Related links
+- **Paper**: [Open Access Series of Imaging Studies (OASIS)](https://doi.org/10.1162/jocn.2007.19.9.1498)

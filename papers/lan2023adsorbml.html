@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AdsorbML: 1000 Adsorbate-Surface DFT-Success Benchmark — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>AdsorbML: 1000 Adsorbate-Surface DFT-Success Benchmark, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,7 +117,7 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#실제-데이터-형식-예시-논문-methods-table-i-table-ii">실제 데이터 형식 예시 (논문 §Methods + Table I + Table II)</a></li><li class="toc-l3"><a href="#유형-a-inputoutput-schema">유형 A — Input/Output schema</a></li><li class="toc-l3"><a href="#유형-b-oc20-dense-dataset-구조">유형 B — OC20-Dense dataset 구조</a></li><li class="toc-l3"><a href="#유형-c-algorithm-mlsp-mlrx-top-k">유형 C — Algorithm (ML+SP / ML+RX, top-k)</a></li><li class="toc-l3"><a href="#유형-d-model-비교-table-i-oc20-dense-test">유형 D — Model 비교 (Table I, OC20-Dense Test)</a></li><li class="toc-l2"><a href="#주요-평가-결과">주요 평가 결과</a></li><li class="toc-l2"><a href="#평가-단위">평가 단위</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#how-it-was-built-construction-methodology">How It Was Built (Construction Methodology)</a></li><li class="toc-l2"><a href="#example-of-actual-data-format-paper-methods-table-i-table-ii">Example of Actual Data Format (paper §Methods + Table I + Table II)</a></li><li class="toc-l3"><a href="#type-a-inputoutput-schema">Type A — Input/Output schema</a></li><li class="toc-l3"><a href="#type-b-oc20-dense-dataset-structure">Type B — OC20-Dense dataset structure</a></li><li class="toc-l3"><a href="#type-c-algorithm-mlsp-mlrx-top-k">Type C — Algorithm (ML+SP / ML+RX, top-k)</a></li><li class="toc-l3"><a href="#type-d-model-comparison-table-i-oc20-dense-test">Type D — Model comparison (Table I, OC20-Dense Test)</a></li><li class="toc-l2"><a href="#key-evaluation-results">Key Evaluation Results</a></li><li class="toc-l2"><a href="#evaluation-setup">Evaluation Setup</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>AdsorbML: 1,000 Adsorbate-Surface Pairs DFT-Success Benchmark</h1>
@@ -126,11 +126,11 @@
 Janice Lan, Aini Palizhati, Muhammed Shuaibi, Brandon M. Wood, Brook Wander, Abhishek Das, Matt Uyttendaele, C. Lawrence Zitnick, Zachary W. Ulissi — Meta AI (FAIR) / CMU
 arXiv: <a href="https://arxiv.org/abs/2211.16486">2211.16486</a> · DOI: <a href="https://doi.org/10.1038/s41524-023-01121-5">10.1038/s41524-023-01121-5</a></p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>ML interatomic potential을 사용해 <strong>adsorbate-surface 결합 에너지 계산</strong>을 가속하는 알고리즘 + benchmark. <strong>Open Catalyst Dense</strong> 데이터셋 (~1,000 surfaces × ~100,000 configurations) 위에서 <strong>87.36% 최저-에너지 configuration 식별률</strong>과 <strong>~2000× DFT 대비 속도 향상</strong> 달성.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>An algorithm + benchmark that accelerates <strong>adsorbate-surface binding energy calculation</strong> using ML interatomic potentials. On the <strong>Open Catalyst Dense</strong> dataset (~1,000 surfaces × ~100,000 configurations), it achieves an <strong>87.36% lowest-energy configuration identification rate</strong> and a <strong>~2000× speedup over DFT</strong>.</p>
 <hr />
-<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
-<pre><code>Step 1 — Task 정의
+<h2 id="how-it-was-built-construction-methodology">How It Was Built (Construction Methodology)</h2>
+<pre><code>Step 1 — Task definition
   ┌────────────────────────────────────────────────┐
   │ Input: adsorbate molecule + catalyst surface   │
   │ Output: lowest-energy adsorbate-surface        │
@@ -138,46 +138,46 @@ arXiv: <a href="https://arxiv.org/abs/2211.16486">2211.16486</a> · DOI: <a href
   │ Verifier: DFT (ground truth)                   │
   └────────────────────────────────────────────────┘
 
-Step 2 — Open Catalyst Dense dataset 구축
-  └─ ~1,000 catalyst surfaces (binary alloys, oxides, intermetallics 등)
+Step 2 — Building the Open Catalyst Dense dataset
+  └─ ~1,000 catalyst surfaces (binary alloys, oxides, intermetallics, etc.)
   └─ ~100,000 unique adsorbate-surface configurations
   └─ DFT (PBE) ground truth labels
-  └─ 표준화된 benchmark 형식
+  └─ standardized benchmark format
 
-Step 3 — AdsorbML 알고리즘
+Step 3 — AdsorbML algorithm
   ┌──────────────────────────────────────────────┐
   │ 1. Heuristic + random initial configurations │
-  │ 2. ML potential (GemNet-OC 등) energy 예측    │
+  │ 2. ML potential (GemNet-OC, etc.) energy pred.│
   │ 3. Low-energy candidates → ML relaxation     │
-  │ 4. Top-k candidates → DFT 정밀 검증           │
-  │ 5. 최저 에너지 configuration 선택             │
+  │ 4. Top-k candidates → precise DFT validation │
+  │ 5. Select lowest-energy configuration        │
   └──────────────────────────────────────────────┘
 
 Step 4 — Evaluation metrics
-  · Success rate: lowest-energy config 찾기 비율 (target)
-  · Speedup: DFT-only baseline 대비
+  · Success rate: fraction of lowest-energy configs found (target)
+  · Speedup: vs. DFT-only baseline
   · Energy error: vs DFT ground truth
   · Trade-off curve: accuracy × efficiency
 </code></pre>
 <hr />
-<h2 id="실제-데이터-형식-예시-논문-methods-table-i-table-ii">실제 데이터 형식 예시 (논문 §Methods + Table I + Table II)</h2>
-<h3 id="유형-a-inputoutput-schema">유형 A — Input/Output schema</h3>
+<h2 id="example-of-actual-data-format-paper-methods-table-i-table-ii">Example of Actual Data Format (paper §Methods + Table I + Table II)</h2>
+<h3 id="type-a-inputoutput-schema">Type A — Input/Output schema</h3>
 <blockquote>
-<p><strong>Input</strong>: catalyst surface + adsorbate (반응 중간체, *CHO / *CO / *OH 등)</p>
+<p><strong>Input</strong>: catalyst surface + adsorbate (reaction intermediate, *CHO / *CO / *OH, etc.)</p>
 <pre><code>Surface:    slab with 3D periodic boundary
 Adsorbate:  reaction intermediate (e.g., *CHO for CO2 reduction)
 Initial config: heuristic (symmetry-based) + random sampling
 </code></pre>
 <p><strong>Output</strong>: lowest adsorption energy + valid relaxed structure</p>
 <pre><code>E_ads ≡ min over all valid relaxed configs (eV)
-Valid 기준:
-  - 흡착물이 표면에서 desorption 안 됨
-  - dissociation 안 됨
-  - surface mismatch 없음
-Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
+Validity criteria:
+  - adsorbate does not desorb from the surface
+  - no dissociation
+  - no surface mismatch
+Success: predicted E_ads within 0.1 eV of the DFT minimum
 </code></pre>
 </blockquote>
-<h3 id="유형-b-oc20-dense-dataset-구조">유형 B — OC20-Dense dataset 구조</h3>
+<h3 id="type-b-oc20-dense-dataset-structure">Type B — OC20-Dense dataset structure</h3>
 <table>
 <thead>
 <tr>
@@ -206,9 +206,9 @@ Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
 </tbody>
 </table>
 <blockquote>
-<p>각 split은 ~250 systems × 4 subsplits = <strong>ID, OOD-Adsorbate, OOD-Catalyst, OOD-Both</strong></p>
+<p>Each split is ~250 systems × 4 subsplits = <strong>ID, OOD-Adsorbate, OOD-Catalyst, OOD-Both</strong></p>
 </blockquote>
-<h3 id="유형-c-algorithm-mlsp-mlrx-top-k">유형 C — Algorithm (ML+SP / ML+RX, top-k)</h3>
+<h3 id="type-c-algorithm-mlsp-mlrx-top-k">Type C — Algorithm (ML+SP / ML+RX, top-k)</h3>
 <blockquote>
 <pre><code>1. Generate initial configs (heuristic + random sampling)
 2. ML potential relaxation → rank by energy (lowest first)
@@ -217,9 +217,9 @@ Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
    Option B (ML+RX): full DFT relaxation from ML state → take min
 4. Return: min(DFT outputs)
 </code></pre>
-<p>Trade-off knob: <strong>k = 1, 2, 3, 4, 5</strong> (k↑ → 정확도↑, speedup↓)</p>
+<p>Trade-off knob: <strong>k = 1, 2, 3, 4, 5</strong> (k↑ → accuracy↑, speedup↓)</p>
 </blockquote>
-<h3 id="유형-d-model-비교-table-i-oc20-dense-test">유형 D — Model 비교 (Table I, OC20-Dense Test)</h3>
+<h3 id="type-d-model-comparison-table-i-oc20-dense-test">Type D — Model comparison (Table I, OC20-Dense Test)</h3>
 <table>
 <thead>
 <tr>
@@ -281,10 +281,10 @@ Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
 </tbody>
 </table>
 <blockquote>
-<p>→ AdsorbML (eSCN-MD-Large, k=3, ML+SP): <strong>89.28% success × ~2000× speedup</strong> (논문 Figure 3 balanced point: 87.36% × 2290×)</p>
+<p>→ AdsorbML (eSCN-MD-Large, k=3, ML+SP): <strong>89.28% success × ~2000× speedup</strong> (paper Figure 3 balanced point: 87.36% × 2290×)</p>
 </blockquote>
 <hr />
-<h2 id="주요-평가-결과">주요 평가 결과</h2>
+<h2 id="key-evaluation-results">Key Evaluation Results</h2>
 <table>
 <thead>
 <tr>
@@ -296,7 +296,7 @@ Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
 <tbody>
 <tr>
   <td>Fast (ML only, top-1)</td>
-  <td>낮음</td>
+  <td>low</td>
   <td>~10,000×</td>
 </tr>
 <tr>
@@ -306,19 +306,19 @@ Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
 </tr>
 <tr>
   <td>Conservative (ML+DFT top-N)</td>
-  <td>더 높음</td>
+  <td>higher</td>
   <td>~500×</td>
 </tr>
 </tbody>
 </table>
-<p>→ Accuracy-efficiency trade-off spectrum 제공.</p>
+<p>→ Provides an accuracy-efficiency trade-off spectrum.</p>
 <hr />
-<h2 id="평가-단위">평가 단위</h2>
+<h2 id="evaluation-setup">Evaluation Setup</h2>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>내용</th>
+  <th>Item</th>
+  <th>Details</th>
 </tr>
 </thead>
 <tbody>
@@ -336,33 +336,33 @@ Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
 </tr>
 <tr>
   <td>ML potential</td>
-  <td>GemNet-OC, SchNet, eSCN 등 OC family</td>
+  <td>GemNet-OC, SchNet, eSCN, and other OC family</td>
 </tr>
 <tr>
   <td>Adsorbates</td>
-  <td>OC20 reaction intermediates (CO, CHO, OH, NO 등)</td>
+  <td>OC20 reaction intermediates (CO, CHO, OH, NO, etc.)</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li><strong>PBE functional 의존</strong>: 다른 functional과 격차</li>
-<li><strong>OC20-trained models 한정</strong>: 다른 chemistry 적용 시 transfer 한계</li>
-<li><strong>Initial configuration 의존</strong>: heuristic 시작점 품질이 결과에 영향</li>
-<li><strong>메모리·계산비 (대형 unit cell)</strong>: 큰 셀에서 ML 정확도 저하</li>
-<li><strong>Catalyst 외 도메인 미커버</strong>: bulk/molecular system 미평가</li>
-<li><strong>시간</strong>: 2023년 cutoff, 최신 foundation MLIP 미반영</li>
+<li><strong>PBE functional dependence</strong>: gap relative to other functionals</li>
+<li><strong>Limited to OC20-trained models</strong>: transfer limits when applied to other chemistries</li>
+<li><strong>Initial configuration dependence</strong>: quality of the heuristic starting point affects results</li>
+<li><strong>Memory / compute cost (large unit cells)</strong>: reduced ML accuracy for large cells</li>
+<li><strong>Domains beyond catalysts not covered</strong>: bulk/molecular systems not evaluated</li>
+<li><strong>Time</strong>: 2023 cutoff, does not reflect the latest foundation MLIPs</li>
 </ul>
 <hr />
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문 (npj CompMat)</strong>: <a href="https://doi.org/10.1038/s41524-023-01121-5">10.1038/s41524-023-01121-5</a></li>
+<li><strong>Paper (npj CompMat)</strong>: <a href="https://doi.org/10.1038/s41524-023-01121-5">10.1038/s41524-023-01121-5</a></li>
 <li><strong>arXiv</strong>: <a href="https://arxiv.org/abs/2211.16486">2211.16486</a></li>
-<li><strong>데이터</strong>: Open Catalyst Project Dense subset</li>
-<li><strong>공식 사이트</strong>: <a href="https://opencatalystproject.org/">opencatalystproject.org</a></li>
+<li><strong>Data</strong>: Open Catalyst Project Dense subset</li>
+<li><strong>Official site</strong>: <a href="https://opencatalystproject.org/">opencatalystproject.org</a></li>
 <li><strong>GitHub</strong>: <a href="https://github.com/Open-Catalyst-Project/ocp">Open-Catalyst-Project/ocp</a></li>
-<li><strong>이 benchmark를 사용한 후속 작업</strong>: Open Catalyst 2022/2024 (OC22, OC24), MLIP Arena (NeurIPS 2025 D&amp;B), foundation MLIP 평가</li>
+<li><strong>Follow-up work using this benchmark</strong>: Open Catalyst 2022/2024 (OC22, OC24), MLIP Arena (NeurIPS 2025 D&amp;B), foundation MLIP evaluation</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (lan2023adsorbml)</a></p>
@@ -390,14 +390,14 @@ Success: predicted E_ads가 DFT 최솟값과 0.1 eV 이내
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

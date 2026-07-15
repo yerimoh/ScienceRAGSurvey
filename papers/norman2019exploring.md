@@ -13,67 +13,74 @@ paper_link: https://doi.org/10.1126/science.aax4438
 > Thomas M. Norman, Max A. Horlbeck, Joseph M. Replogle, Alex Y. Ge, Albert Xu, Marco Jost, Luke A. Gilbert, Jonathan S. Weissman — UCSF / Whitehead Institute
 > DOI: [10.1126/science.aax4438](https://doi.org/10.1126/science.aax4438)
 
-## 한 줄 요약
-**287 dual-CRISPRi (CRISPR interference) gene-pair × K562 erythroleukemia cells**에서 측정한 **Perturb-seq atlas**. 각 dual perturbation은 두 sgRNA를 동일 세포에 발현시켜 두 유전자를 동시 knockdown. **rich single-cell transcriptomic phenotype** 기반으로 **genetic interaction manifold**를 구성, 유전자 쌍의 **synergy / suppression / redirection / neomorphism** 등 GI subtype을 phenotype 공간에서 직접 분류. 이후 GEARS / PerturBench / scGPT 등 **모든 dual-gene perturbation prediction 모델의 표준 substrate**.
+## TL;DR
+A **Perturb-seq atlas** measured across **287 dual-CRISPRi (CRISPR interference) gene pairs × K562 erythroleukemia cells**. Each dual perturbation expresses two sgRNAs in the same cell to simultaneously knock down two genes. Based on **rich single-cell transcriptomic phenotypes**, it constructs a **genetic interaction manifold** and directly classifies GI subtypes of gene pairs such as **synergy / suppression / redirection / neomorphism** in phenotype space. It has since become the **standard substrate for all dual-gene perturbation prediction models**, including GEARS / PerturBench / scGPT.
 
 ---
 
-## 어떻게 만들었나 (Construction Methodology)
+## Construction Methodology
 
 ```
-Step 1 — 동기: GI 측정의 한계
+Step 1 — Motivation: limits of GI measurement
   ┌──────────────────────────────────────────────┐
-  │ 전통 GI 측정 (epistasis):                    │
-  │   · single readout (성장률, 사멸 등)         │
-  │   · scalar GI score만 산출                   │
-  │   · 같은 score여도 분자적 기전 다름           │
-  │ → rich phenotype (전사체) 기반 GI 필요       │
+  │ Traditional GI measurement (epistasis):       │
+  │   · single readout (growth rate, death, etc.) │
+  │   · only a scalar GI score is produced        │
+  │   · same score can hide distinct molecular    │
+  │     mechanisms                                │
+  │ → need GI based on rich phenotype             │
+  │   (transcriptome)                             │
   └──────────────────────────────────────────────┘
 
-Step 2 — Cell line + perturbation library 구축
+Step 2 — Building cell line + perturbation library
   ┌──────────────────────────────────────────────┐
   │ Cell line: K562 (erythroleukemia)            │
   │ CRISPRi machinery: dCas9-KRAB stable line   │
   │ sgRNA library:                                │
-  │   · 단일 유전자 sgRNA pool                    │
-  │   · 모든 페어 조합 → dual sgRNA constructs   │
+  │   · single-gene sgRNA pool                    │
+  │   · all pair combinations → dual sgRNA        │
+  │     constructs                                │
   │ Pair selection: TF + cell-fate regulator     │
-  │   focus (myeloid/erythroid lineage 관련)    │
+  │   focus (myeloid/erythroid lineage related)  │
   └──────────────────────────────────────────────┘
 
-Step 3 — Perturb-seq 실험 규모
+Step 3 — Perturb-seq experiment scale
   ┌──────────────────────────────────────────────┐
-  │ Single-gene perturbations:     ~107–155 게놈  │
-  │ Dual-gene combinations:        ~131–287 쌍   │
-  │ (보고된 값은 분석 단계 / 필터링에 따라 변동)  │
-  │ Per-perturbation cell count:   ~수백          │
-  │ Total cells profiled:          ~수십만        │
+  │ Single-gene perturbations:     ~107–155 genes │
+  │ Dual-gene combinations:        ~131–287 pairs │
+  │ (reported values vary by analysis stage /     │
+  │  filtering)                                    │
+  │ Per-perturbation cell count:   ~hundreds       │
+  │ Total cells profiled:          ~hundreds of    │
+  │                                thousands        │
   │ Readout: 10x Chromium single-cell RNA-seq    │
   └──────────────────────────────────────────────┘
 
-Step 4 — GI manifold 분석
-  · 각 perturbation의 mean transcriptomic delta 계산
-  · UMAP/PCA로 perturbation 임베딩 시각화
-  · single + dual perturbation을 동일 공간에 배치
-  · dual의 위치를 single 두 점의 선형/비선형 조합과
-    비교 → GI subtype 분류
+Step 4 — GI manifold analysis
+  · compute the mean transcriptomic delta of each
+    perturbation
+  · visualize perturbation embeddings with UMAP/PCA
+  · place single + dual perturbations in the same space
+  · compare the position of the dual against the
+    linear/nonlinear combination of the two single
+    points → classify GI subtypes
 
-Step 5 — GI subtype 분류 체계
+Step 5 — GI subtype classification scheme
   ┌──────────────────────────────────────────────┐
-  │ NEOMORPHIC: dual이 single 어느 것과도 다름  │
+  │ NEOMORPHIC: dual differs from either single │
   │ REDUNDANT:  dual ≈ single A ≈ single B      │
-  │ SUPPRESSOR: dual ≈ control (B가 A 억제)     │
-  │ EPISTASIS_A: dual ≈ single A (A 우세)       │
+  │ SUPPRESSOR: dual ≈ control (B suppresses A) │
+  │ EPISTASIS_A: dual ≈ single A (A dominant)   │
   │ POTENTIATION: dual >> single A + single B   │
-  │ ADDITIVE: dual ≈ single A + single B (선형) │
+  │ ADDITIVE: dual ≈ single A + single B (linear)│
   └──────────────────────────────────────────────┘
 ```
 
 ---
 
-## 실제 데이터 형식 예시 (논문 §Methods + Supplementary)
+## Example of actual data formats (paper §Methods + Supplementary)
 
-### 유형 A — Single-gene CRISPRi perturbation record
+### Type A — Single-gene CRISPRi perturbation record
 
 > ```
 > Cell:        K562 (CRISPRi-ready, dCas9-KRAB stable)
@@ -84,7 +91,7 @@ Step 5 — GI subtype 분류 체계
 > Gene exp:    raw UMI count matrix (cells × genes)
 > ```
 
-### 유형 B — Dual-gene combinatorial perturbation
+### Type B — Dual-gene combinatorial perturbation
 
 > ```
 > Dual sgRNA construct: sgRNA-A (targets CEBPA)
@@ -95,7 +102,7 @@ Step 5 — GI subtype 분류 체계
 >                     simultaneous CEBPA + CEBPB KD
 > ```
 
-### 유형 C — GI manifold input/output
+### Type C — GI manifold input/output
 
 > **Input**:
 > ```
@@ -114,7 +121,7 @@ Step 5 — GI subtype 분류 체계
 >         → classify into 6 GI subtypes
 > ```
 
-### 유형 D — Downstream ML 사용 예시 (GEARS 기준)
+### Type D — Example downstream ML usage (GEARS convention)
 
 > ```
 > Standard split (GEARS, PerturBench):
@@ -130,50 +137,50 @@ Step 5 — GI subtype 분류 체계
 
 ---
 
-## 평가 framework (downstream model이 사용)
+## Evaluation framework (used by downstream models)
 
-| Metric | 의미 | 사용처 |
+| Metric | Meaning | Used by |
 |---|---|---|
-| **MSE on top-20 DEG** | DEG에서의 예측 정확도 | GEARS, PerturBench |
-| **Pearson correlation** | 전체 Δexpression 상관 | 일반적 |
-| **Precision@10 (GI subtype)** | 상위 10개 예측 GI 분류 정확도 | GEARS GI head |
-| **MMD (PCA top-256)** | 분포 일치 | PerturBench |
-| **rank metric** | 모든 perturbation 간 순서 | PerturBench (mode-collapse 탐지) |
+| **MSE on top-20 DEG** | Prediction accuracy on DEGs | GEARS, PerturBench |
+| **Pearson correlation** | Correlation of the overall Δexpression | General |
+| **Precision@10 (GI subtype)** | Accuracy of the top 10 predicted GI classifications | GEARS GI head |
+| **MMD (PCA top-256)** | Distribution match | PerturBench |
+| **rank metric** | Ordering across all perturbations | PerturBench (mode-collapse detection) |
 
-→ Norman 2019는 데이터 그 자체로는 metric 없음; downstream model이 위 metric으로 평가.
+→ Norman 2019 by itself has no metric; downstream models evaluate using the metrics above.
 
 ---
 
-## 주요 발견 (논문 §Results)
+## Key findings (paper §Results)
 
-| 발견 | 의미 |
+| Finding | Meaning |
 |---|---|
-| GI manifold가 cell-fate program으로 정렬 | erythroid / myeloid lineage 축 |
-| Suppressor pair 다수 검출 | scalar GI score로 못 잡던 |
-| Neomorphic pair (CEBPA+CEBPB 등) 발견 | 새 program 출현 |
-| Dual phenotype의 ~70%는 가산 (linear) | 비가산 GI는 30% 정도 |
-| rich phenotype이 epistasis 분류 가능 | scalar fitness 한계 극복 |
+| GI manifold aligns with cell-fate programs | erythroid / myeloid lineage axes |
+| Many suppressor pairs detected | ones that a scalar GI score could not capture |
+| Neomorphic pairs (e.g., CEBPA+CEBPB) discovered | emergence of new programs |
+| ~70% of dual phenotypes are additive (linear) | non-additive GI is around 30% |
+| Rich phenotype enables epistasis classification | overcomes the limits of scalar fitness |
 
-→ **결론**: scRNA-seq 기반 rich phenotype으로 GI analysis 패러다임 전환, 후속 perturbation prediction 모델의 표준 substrate가 됨.
-
----
-
-## 한계점
-- **K562 cell line만**: 다른 cell type / 1차 세포 미커버
-- **CRISPRi (knockdown)만**: knockout, overexpression, drug perturbation 별도
-- **TF + cell-fate regulator 위주 pair 선택**: 다른 pathway 미포함
-- **단일 시점**: time-course 정보 없음
-- **287 pair << 4억 가능 조합**: combinatorial space 극히 일부
-- **scRNA-seq dropout**: 저발현 유전자 정확도 제한
+→ **Conclusion**: scRNA-seq-based rich phenotypes triggered a paradigm shift in GI analysis, becoming the standard substrate for subsequent perturbation prediction models.
 
 ---
 
-## 관련 정보
-- **논문 (Science)**: [10.1126/science.aax4438](https://doi.org/10.1126/science.aax4438)
-- **데이터 접근**: GEO + GEARS 전처리 버전 (`gears.PertData.load('norman')`)
-- **저자 소속**: UCSF (Weissman lab) / Whitehead Institute
-- **이 dataset을 사용한 후속 작업**:
-  - GEARS [[roohani2024gears]] (102 sg + 131 dg 표준 split)
+## Limitations
+- **K562 cell line only**: does not cover other cell types / primary cells
+- **CRISPRi (knockdown) only**: knockout, overexpression, and drug perturbation are separate
+- **Pair selection focused on TF + cell-fate regulators**: other pathways not included
+- **Single time point**: no time-course information
+- **287 pairs << ~400 million possible combinations**: an extremely small fraction of the combinatorial space
+- **scRNA-seq dropout**: limited accuracy for low-expression genes
+
+---
+
+## Related links
+- **Paper (Science)**: [10.1126/science.aax4438](https://doi.org/10.1126/science.aax4438)
+- **Data access**: GEO + GEARS preprocessed version (`gears.PertData.load('norman')`)
+- **Author affiliation**: UCSF (Weissman lab) / Whitehead Institute
+- **Subsequent work using this dataset**:
+  - GEARS [[roohani2024gears]] (102 sg + 131 dg standard split)
   - PerturBench [[DBLP:journals/corr/abs-2408-10609]] (155 sg + 131 dg, combo prediction task)
-  - scGPT, scFoundation — Norman19를 fine-tuning benchmark로 사용
-- **선행 연구**: Adamson 2016 (UPR), Dixit 2016 (Perturb-seq 원형), Replogle 2022 (genome-scale Perturb-seq)
+  - scGPT, scFoundation — use Norman19 as a fine-tuning benchmark
+- **Prior work**: Adamson 2016 (UPR), Dixit 2016 (Perturb-seq prototype), Replogle 2022 (genome-scale Perturb-seq)

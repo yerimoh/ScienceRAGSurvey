@@ -12,61 +12,61 @@ paper_link: https://doi.org/10.1101/833400
 sever2019biorxiv | 2019 | bioRxiv (Cold Spring Harbor Laboratory) | dataset | [bio] | [paper](https://doi.org/10.1101/833400)
 
 **DB**: bioRxiv preprint server
-**DB size**: 310,000+ manuscripts (논문 기재 시점)
+**DB size**: 310,000+ manuscripts (at time of paper writing)
 **DB Open/Private**: Open
 **Modality**: ['Text']
-**Retriever**: N/A (지식 소스 인프라)
+**Retriever**: N/A (knowledge-source infrastructure)
 **Eval Task**: N/A
 **Eval Metric**: N/A
 **Method Name**: bioRxiv OAI-PMH / REST API
 
 > bioRxiv (Cold Spring Harbor Laboratory) | 2019 | dataset | bio
-#### 📌 한 줄 요약
-Cold Spring Harbor Laboratory가 2013년 시작한 생명과학 분야 프리프린트 서버로, 논문 작성 시점 기준 31만 편 이상을 수록하며 피어리뷰 전에 연구를 즉시 공개함으로써 과학 커뮤니케이션을 가속화한다.
+#### 📌 TL;DR
+A preprint server for the life sciences launched by Cold Spring Harbor Laboratory in 2013. It hosts more than 310,000 manuscripts as of the time of writing and accelerates scientific communication by making research immediately public before peer review.
 
-#### 🎯 개발/구축 배경
-**기존 인프라의 한계**
-- 전통적인 학술 출판 과정은 수개월~수년의 동료 심사 기간으로 인해 연구 성과 공유가 지연됨
-- 연구자들은 초고 단계에서 광범위한 피드백을 받을 창구가 없었음
-- 연구비 생산성 증빙을 위한 조기 공개 필요성 증가
+#### 🎯 Background
+**Limitations of existing infrastructure**
+- The traditional scholarly publishing process delays the sharing of research findings due to peer-review periods lasting months to years
+- Researchers had no venue for obtaining broad feedback at the draft stage
+- Growing need for early disclosure to demonstrate research-funding productivity
 
-**이 시스템이 필요한 이유**
-- 논문 저널 제출·심사와 독립적으로 즉시 공개하여 광범위한 독자로부터 피드백 수집
-- 연구 우선권을 공식 출판 이전에 확립 가능
-- 저널 정책과의 통합(Easy Journal Transfer)으로 저자 부담 최소화
+**Why this system is needed**
+- Immediate publication independent of journal submission and review, collecting feedback from a broad readership
+- Ability to establish research priority ahead of formal publication
+- Minimizes author burden through integration with journal policies (Easy Journal Transfer)
 
-#### 🔨 시스템 구성
-Cold Spring Harbor Laboratory(CSHL)가 운영하는 비영리 오픈 프리프린트 저장소. 저자가 제출하면 스크리닝(비과학적 내용·표절 등) 후 OAI-PMH 인터페이스를 통해 전문 공개. 생물학 전 분야(진화생물학, 유전체학, 전산생물학, 신경과학, 세포·발생생물학 등) 수록. 자매 서버 medRxiv(임상의학)와 함께 Cold Spring Harbor Laboratory 운영. 분야별 Subject Category는 저자가 직접 지정.
+#### 🔨 Architecture
+A non-profit open preprint repository operated by Cold Spring Harbor Laboratory (CSHL). Once an author submits, the full text is made public through the OAI-PMH interface after screening (for non-scientific content, plagiarism, etc.). It covers all fields of biology (evolutionary biology, genomics, computational biology, neuroscience, cell and developmental biology, etc.). Cold Spring Harbor Laboratory operates it together with the sister server medRxiv (clinical medicine). The Subject Category for each field is designated directly by the author.
 
-#### 📥 데이터 접근 방법
-| 방법 | 설명 |
+#### 📥 Access
+| Method | Description |
 |---|---|
-| OAI-PMH API | 메타데이터 및 전문 배치 수집 지원 |
-| 개별 DOI | 각 프리프린트는 10.1101/XXXXXX 형식 DOI 부여 |
-| RSS/Atom 피드 | 분야별 신규 프리프린트 구독 가능 |
-| 전문 PDF/HTML | 직접 다운로드 가능 (오픈 액세스) |
+| OAI-PMH API | Supports batch harvesting of metadata and full text |
+| Individual DOI | Each preprint is assigned a DOI in the 10.1101/XXXXXX format |
+| RSS/Atom feed | Subscription to new preprints by field is available |
+| Full-text PDF/HTML | Directly downloadable (open access) |
 
-#### 📤 제공 데이터 형식
-- 논문 전문 (PDF 및 HTML)
-- 구조화된 메타데이터: 제목, 저자, 초록, 날짜, DOI, subject category
-- 버전 이력: 동일 프리프린트의 여러 버전 추적 가능
-- 저널 연동 링크: 최종 게재 저널 정보 (가능한 경우)
+#### 📤 Data formats
+- Full paper text (PDF and HTML)
+- Structured metadata: title, authors, abstract, date, DOI, subject category
+- Version history: multiple versions of the same preprint can be tracked
+- Journal linkage: information on the final publishing journal (where available)
 
-#### 📊 주요 통계 (논문 기준)
-| 항목 | 수치 |
+#### 📊 Key statistics (as reported in the paper)
+| Item | Value |
 |---|---|
-| 총 수록 프리프린트 | **310,000+** (2019년 11월 시점) |
-| 월간 페이지뷰 | **약 10,000,000** |
-| 서비스 시작 | **2013년** |
-| 운영 기관 | Cold Spring Harbor Laboratory (비영리) |
-| 조기 제출 비율 (저널 제출 전) | **30%** |
-| 저널 제출 시점 제출 비율 | **55%** |
+| Total preprints hosted | **310,000+** (as of November 2019) |
+| Monthly page views | **~10,000,000** |
+| Service launch | **2013** |
+| Operating institution | Cold Spring Harbor Laboratory (non-profit) |
+| Early submission rate (before journal submission) | **30%** |
+| Submission rate at time of journal submission | **55%** |
 
-#### ⚠️ 한계점
-- **피어리뷰 미완료**: 수록 논문은 정식 동료 심사를 거치지 않아 과학적 신뢰성 보장 없음
-- **품질 편차**: 스크리닝은 기초적 수준(비과학적 내용 필터링)이며 방법론·결과 검증 없음
-- **버전 다수**: 동일 연구가 여러 버전으로 존재하여 최신 버전 추적 필요
-- **생명과학 한정**: 물리·화학·지구과학 등 타 분야는 별도 서버(arXiv, ChemRxiv, EarthArXiv) 이용 필요
+#### ⚠️ Limitations
+- **No peer review**: Hosted papers have not undergone formal peer review, so there is no guarantee of scientific reliability
+- **Quality variance**: Screening is at a basic level (filtering non-scientific content) and does not verify methodology or results
+- **Multiple versions**: The same study exists in several versions, so tracking the latest version is necessary
+- **Life-sciences only**: Other fields such as physics, chemistry, and earth science require separate servers (arXiv, ChemRxiv, EarthArXiv)
 
-## 관련 정보
-- **논문**: [https://doi.org/10.1101/833400](https://doi.org/10.1101/833400)
+## Related links
+- **Paper**: [https://doi.org/10.1101/833400](https://doi.org/10.1101/833400)

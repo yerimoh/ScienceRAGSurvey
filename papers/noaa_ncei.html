@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NOAA National Centers for Environmental Information (NCEI) — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>NOAA National Centers for Environmental Information (NCEI), Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,50 +121,50 @@
 <p>noaa_ncei | 2015 | National Oceanic and Atmospheric Administration (system reference) | dataset | [earth, climate] | <a href="https://www.ncei.noaa.gov">portal</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">NOAA NCEI — world's largest archive for weather, climate, and geophysical data</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">~60 PB (archive + backup copy, per ncei.noaa.gov/about); 매일 ~20 TB 신규 수집</td></tr>
-<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (대부분 공개)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">~60 PB (archive + backup copy, per ncei.noaa.gov/about); ~20 TB newly ingested daily</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (mostly public)</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Time series, Satellite image, Gridded data, Station data</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">NOAA NCEI 포털 / CDO (Climate Data Online) API</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">NOAA NCEI portal / CDO (Climate Data Online) API</td></tr>
 </table>
 
 <blockquote>
 <p>National Oceanic and Atmospheric Administration (system reference) | 2015 | dataset | earth, climate</p>
-<h4>한 줄 요약</h4>
-<p>2015년 NOAA의 세 개 데이터 센터(NCDC·NGDC·NODC) 통합으로 출범한 세계 최대 기상·기후 아카이브. 100 PB 이상의 기후 기록(지상 관측, 위성, 해양, 지구물리)을 보유하며 GHCN, GSOD, OISST 등 수십 개 핵심 기후 데이터셋을 공개 배포. <strong>정식 학술 논문이 아닌 기관 시스템 참고 항목(<code>@misc</code>)임에 유의.</strong></p>
+<h4>TL;DR</h4>
+<p>The world's largest weather and climate archive, launched in 2015 by consolidating NOAA's three data centers (NCDC, NGDC, NODC). It holds more than 100 PB of climate records (surface observations, satellite, ocean, geophysical) and publicly distributes dozens of core climate datasets such as GHCN, GSOD, and OISST. <strong>Note that this is an institutional system reference entry (<code>@misc</code>), not a formal academic paper.</strong></p>
 </blockquote>
-<h4>개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>Background</h4>
+<p><strong>Limitations of prior infrastructure</strong></p>
 <ul>
-<li>NOAA 내 기상(NCDC)·지구물리(NGDC)·해양(NODC) 데이터가 분산 운영되어 통합 탐색 불가</li>
-<li>1970년대 디지털화 이전 기상 관측 기록의 장기 보존 필요</li>
-<li>기후 변화 모니터링을 위한 100년 이상 연속 균질 시계열 필요</li>
+<li>Within NOAA, weather (NCDC), geophysical (NGDC), and ocean (NODC) data were operated separately, making unified search impossible</li>
+<li>Long-term preservation was needed for weather observation records predating 1970s digitization</li>
+<li>Continuous, homogeneous time series spanning more than 100 years were needed for climate change monitoring</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>기후 기준치(Climate Normals), 극단값 기록, 지구 온도 변화 추적의 단일 권위 출처</li>
-<li>IPCC, 미국 국가 기후 평가(NCA), 기상 예보 모델 검증의 기초 데이터</li>
-<li>보험·농업·에너지·도시 계획 등 기후 관련 의사결정 지원</li>
+<li>A single authoritative source for Climate Normals, extreme-value records, and tracking of global temperature change</li>
+<li>Foundational data for the IPCC, the U.S. National Climate Assessment (NCA), and weather forecast model verification</li>
+<li>Supports climate-related decision-making in insurance, agriculture, energy, urban planning, and more</li>
 </ul>
-<h4>시스템 구성</h4>
-<p>NCEI는 3개 전임 기관의 통합:</p>
+<h4>Architecture</h4>
+<p>NCEI is the consolidation of three predecessor agencies:</p>
 <ul>
-<li><strong>NCDC</strong> (National Climatic Data Center, 1951~): 기상·기후 기록</li>
-<li><strong>NGDC</strong> (National Geophysical Data Center, 1964~): 지자기·지진·해안 데이터</li>
-<li><strong>NODC</strong> (National Oceanographic Data Center, 1961~): 해양 온도·염분·해류</li>
+<li><strong>NCDC</strong> (National Climatic Data Center, 1951~): weather and climate records</li>
+<li><strong>NGDC</strong> (National Geophysical Data Center, 1964~): geomagnetic, seismic, and coastal data</li>
+<li><strong>NODC</strong> (National Oceanographic Data Center, 1961~): ocean temperature, salinity, and currents</li>
 </ul>
-<p>주요 데이터셋: GHCN (Global Historical Climatology Network), GSOD (Global Surface Summary of Day), OISST (Optimum Interpolation SST), NSIDC 협력 빙하·적설, NEXRAD 레이더 아카이브.</p>
-<h4>데이터 접근 방법</h4>
+<p>Major datasets: GHCN (Global Historical Climatology Network), GSOD (Global Surface Summary of Day), OISST (Optimum Interpolation SST), NSIDC-collaborated ice and snow cover, NEXRAD radar archive.</p>
+<h4>Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>CDO (Climate Data Online)</td>
-  <td>ncei.noaa.gov/cdo-web/ — 관측소별 데이터 다운로드</td>
+  <td>ncei.noaa.gov/cdo-web/ — per-station data download</td>
 </tr>
 <tr>
   <td>NCEI API</td>
@@ -172,67 +172,67 @@
 </tr>
 <tr>
   <td>THREDDS/OPeNDAP</td>
-  <td>격자 데이터 원격 부분 다운로드</td>
+  <td>remote partial download of gridded data</td>
 </tr>
 <tr>
-  <td>S3 클라우드</td>
-  <td>AWS Open Data — NOAA 위성·기상 데이터</td>
+  <td>S3 cloud</td>
+  <td>AWS Open Data — NOAA satellite and weather data</td>
 </tr>
 </tbody>
 </table>
-<h4>제공 데이터 형식</h4>
+<h4>Data formats</h4>
 <ul>
-<li>지상 관측: CSV/JSON (GHCN-D, GSOD, ISD)</li>
-<li>격자 데이터: NetCDF (OISST, 재분석)</li>
-<li>위성 이미지: GOES, AVHRR, VIIRS</li>
-<li>지구물리: 지자기·지진·쓰나미 이벤트</li>
-<li>해양: CTD(수온·염분), 파도, 해수면 변화</li>
+<li>Surface observations: CSV/JSON (GHCN-D, GSOD, ISD)</li>
+<li>Gridded data: NetCDF (OISST, reanalysis)</li>
+<li>Satellite imagery: GOES, AVHRR, VIIRS</li>
+<li>Geophysical: geomagnetic, seismic, and tsunami events</li>
+<li>Ocean: CTD (water temperature and salinity), waves, sea-level change</li>
 </ul>
-<h4>주요 통계 (ncei.noaa.gov/about 기준)</h4>
+<h4>Key statistics (per ncei.noaa.gov/about)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>총 보유 데이터</td>
-  <td><strong>~60 PB</strong> (archive + backup copy, ncei.noaa.gov/about 확인)</td>
+  <td>Total data held</td>
+  <td><strong>~60 PB</strong> (archive + backup copy, confirmed at ncei.noaa.gov/about)</td>
 </tr>
 <tr>
-  <td>일일 신규 수집</td>
+  <td>Daily new ingest</td>
   <td><strong>~20 TB</strong></td>
 </tr>
 <tr>
-  <td>GHCN-D 관측소 수</td>
-  <td><strong>~100,000</strong> 개+</td>
+  <td>Number of GHCN-D stations</td>
+  <td><strong>~100,000</strong>+</td>
 </tr>
 <tr>
-  <td>기록 기간</td>
-  <td><strong>140+ 년</strong> (일부 1880년대 시작)</td>
+  <td>Record period</td>
+  <td><strong>140+ years</strong> (some beginning in the 1880s)</td>
 </tr>
 <tr>
-  <td>설립</td>
-  <td>2015년 (NCDC+NGDC+NODC 통합)</td>
+  <td>Established</td>
+  <td>2015 (NCDC+NGDC+NODC consolidation)</td>
 </tr>
 <tr>
-  <td>접근</td>
-  <td>공개 (무료)</td>
+  <td>Access</td>
+  <td>Public (free)</td>
 </tr>
 </tbody>
 </table>
-<h4>한계점</h4>
+<h4>Limitations</h4>
 <ul>
-<li>데이터 형식과 API가 다양하여 일관된 RAG 파이프라인 구축 어려움</li>
-<li>역사 관측소 데이터의 품질 관리 불균일 (균질화 필요)</li>
-<li>일부 고해상도 실시간 데이터는 상업적 재배포 제한</li>
-<li>아카이브 규모가 방대하여 특정 데이터셋 탐색에 도메인 지식 필요</li>
+<li>The diversity of data formats and APIs makes building a consistent RAG pipeline difficult</li>
+<li>Quality control of historical station data is uneven (homogenization needed)</li>
+<li>Some high-resolution real-time data have commercial redistribution restrictions</li>
+<li>The archive's vast scale requires domain knowledge to navigate specific datasets</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>포털</strong>: <a href="https://www.ncei.noaa.gov">https://www.ncei.noaa.gov</a></li>
+<li><strong>Portal</strong>: <a href="https://www.ncei.noaa.gov">https://www.ncei.noaa.gov</a></li>
 <li><strong>CDO</strong>: <a href="https://www.ncei.noaa.gov/cdo-web/">https://www.ncei.noaa.gov/cdo-web/</a></li>
 </ul>
 
@@ -255,14 +255,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

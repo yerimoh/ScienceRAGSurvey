@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Gene Expression Omnibus: NCBI gene expression and hybridization array data repository — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Gene Expression Omnibus: NCBI gene expression and hybridization array data repository, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,89 +121,89 @@
 <p>DBLP:journals/nar/EdgarDL03 | 2002 | Nucleic Acids Research | dataset | [bio] | <a href="https://doi.org/10.1093/nar/30.1.207">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">GEO (Gene Expression Omnibus)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">고처리량 유전자 발현 및 게놈 혼성화 실험 데이터의 공개 저장소 (3개 핵심 엔티티: 플랫폼, 샘플, 시리즈)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">Public repository of high-throughput gene expression and genomic hybridization experiment data (3 core entities: Platform, Sample, Series)</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">NCBI GEO 웹 (http://www.ncbi.nlm.nih.gov/geo)</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">NCBI GEO web (http://www.ncbi.nlm.nih.gov/geo)</td></tr>
 </table>
 
 <blockquote>
 <p>Nucleic Acids Research | 2002 | dataset | bio</p>
-<h4>📌 한 줄 요약</h4>
-<p>고처리량 유전자 발현 데이터의 증가하는 수요에 대응하여 NCBI가 구축한 공개 저장소로, 플랫폼(프로브 목록), 샘플(측정 데이터), 시리즈(실험 묶음) 세 가지 핵심 데이터 엔티티로 구성된다.</p>
+<h4>📌 TL;DR</h4>
+<p>A public repository built by NCBI in response to the growing demand for high-throughput gene expression data, composed of three core data entities: Platform (probe list), Sample (measurement data), and Series (experiment grouping).</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>고처리량 유전자 발현 데이터에 대한 공개 저장소의 수요가 급증하였으나 중앙 집중식 공개 데이터 허브가 부재했다</li>
-<li>개별 연구실의 데이터베이스는 특정 분석 방법에 특화되어 있어 데이터 공유와 재활용에 한계가 있었다</li>
+<li>Demand for a public repository of high-throughput gene expression data surged, but a centralized public data hub was lacking</li>
+<li>Individual laboratory databases were specialized for particular analysis methods, limiting data sharing and reuse</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>GEO는 개별 유전자 발현 데이터베이스를 대체하지 않고 보완하는 3차 중앙 데이터 배포 허브로 설계</li>
-<li>유전자 발현 및 게놈 혼성화 실험의 이종 데이터셋을 제출·저장·검색할 수 있는 유연하고 개방된 설계</li>
-<li>국제 공개 데이터 공유 요건을 충족하는 표준화된 제출 플랫폼 제공</li>
+<li>GEO is designed as a tertiary central data distribution hub that complements rather than replaces individual gene expression databases</li>
+<li>A flexible and open design that allows heterogeneous datasets from gene expression and genomic hybridization experiments to be submitted, stored, and retrieved</li>
+<li>Provides a standardized submission platform that meets international public data sharing requirements</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>GEO의 세 가지 핵심 데이터 엔티티: (1) <strong>플랫폼(Platform)</strong> — 어떤 분자 집합을 검출할 수 있는지 정의하는 프로브 목록, (2) <strong>샘플(Sample)</strong> — 측정 대상 분자 집합을 기술하고 단일 플랫폼을 참조하는 분자 풍도 데이터, (3) <strong>시리즈(Series)</strong> — 실험을 구성하는 의미 있는 데이터셋으로 샘플들을 조직화. GEO는 <a href="http://www.ncbi.nlm.nih.gov/geo%EB%A5%BC">http://www.ncbi.nlm.nih.gov/geo를</a> 통해 공개 접근 가능하다.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>GEO's three core data entities: (1) <strong>Platform</strong> — a probe list defining which set of molecules can be detected, (2) <strong>Sample</strong> — molecular abundance data describing the set of molecules being measured and referencing a single Platform, (3) <strong>Series</strong> — meaningful datasets that constitute an experiment, organizing Samples. GEO is publicly accessible through <a href="http://www.ncbi.nlm.nih.gov/geo">http://www.ncbi.nlm.nih.gov/geo</a>.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>웹 인터페이스</td>
-  <td><a href="http://www.ncbi.nlm.nih.gov/geo">http://www.ncbi.nlm.nih.gov/geo</a> — 무료 브라우저 검색</td>
+  <td>Web interface</td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/geo">http://www.ncbi.nlm.nih.gov/geo</a> — free browser search</td>
 </tr>
 <tr>
-  <td>SOFT 형식 다운로드</td>
-  <td>플랫폼·샘플·시리즈 데이터 다운로드</td>
+  <td>SOFT format download</td>
+  <td>Download of Platform, Sample, and Series data</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>SOFT (Simple Omnibus Format in Text) 형식</li>
-<li>플랫폼 정의 파일</li>
-<li>샘플 분자 풍도 데이터</li>
-<li>시리즈 메타데이터</li>
+<li>SOFT (Simple Omnibus Format in Text) format</li>
+<li>Platform definition files</li>
+<li>Sample molecular abundance data</li>
+<li>Series metadata</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>핵심 데이터 엔티티</td>
-  <td><strong>3개</strong> (Platform, Sample, Series)</td>
+  <td>Core data entities</td>
+  <td><strong>3</strong> (Platform, Sample, Series)</td>
 </tr>
 <tr>
-  <td>설립 기관</td>
+  <td>Founding institutions</td>
   <td>NCBI, NLM, NIH</td>
 </tr>
 <tr>
-  <td>접근 방식</td>
-  <td>공개 웹 (무료)</td>
+  <td>Access method</td>
+  <td>Public web (free)</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>GEO는 분석 특화 인하우스 데이터베이스를 대체하지 않고 보완하는 중앙 허브로 설계되어 직접 분석 기능이 제한적이다</li>
-<li>이종 데이터셋 간 표준화(정규화)가 제출자에 따라 달라 직접 비교에 주의가 필요하다</li>
-<li>2002년 창립 논문으로 초기 수록 데이터셋 수가 현재에 비해 매우 적었다</li>
+<li>GEO is designed as a central hub that complements rather than replaces analysis-specialized in-house databases, so its direct analysis capabilities are limited</li>
+<li>Standardization (normalization) across heterogeneous datasets varies by submitter, so care is needed for direct comparison</li>
+<li>As a 2002 founding paper, the number of datasets initially included was very small compared to the present</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/30.1.207">Gene Expression Omnibus: NCBI gene expression and hybridization array data repository</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1093/nar/30.1.207">Gene Expression Omnibus: NCBI gene expression and hybridization array data repository</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/nar/EdgarDL03)</a></p>
@@ -236,14 +236,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

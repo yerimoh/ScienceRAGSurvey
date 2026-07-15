@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ClinVar: improving access to variant interpretations and supporting evidence — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>ClinVar: improving access to variant interpretations and supporting evidence, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -120,117 +120,117 @@
       <h1>ClinVar: improving access to variant interpretations and supporting evidence</h1>
 <p>DBLP:journals/nar/LandrumLBBCCGHH18 | 2018 | Nucleic Acids Research | dataset | [medical] | <a href="https://doi.org/10.1093/nar/gkx1153">paper</a></p>
 <table class="prop-table">
-<tr><td class="prop-key">DB</td><td class="prop-val">ClinVar (NCBI 임상 변이 해석 아카이브)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">331,000개 이상 변이; 500,000개 이상 제출 레코드; 800개 이상 기관 참여</td></tr>
+<tr><td class="prop-key">DB</td><td class="prop-val">ClinVar (NCBI clinical variant interpretation archive)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">331,000+ variants; 500,000+ submission records; 800+ participating organizations</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">ClinVar 웹사이트 / NCBI E-utilities (Entrez) API / FTP</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">ClinVar website / NCBI E-utilities (Entrez) API / FTP</td></tr>
 </table>
 
 <blockquote>
 <p>Nucleic Acids Research | 2018 | dataset | medical</p>
-<h4>📌 한 줄 요약</h4>
-<p>NCBI가 운영하는 임상 변이 해석 공개 아카이브로, 2018년 기준 60개국 800개 이상 기관이 제출한 33만 개 이상의 변이와 50만 건 이상의 제출 레코드를 무료로 제공한다.</p>
+<h4>📌 TL;DR</h4>
+<p>A public archive of clinical variant interpretations operated by NCBI that, as of 2018, freely provides more than 330,000 variants and more than 500,000 submission records contributed by over 800 organizations across 60 countries.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>임상 유전체 실험실들이 각자 내부 시스템에 변이 해석을 보관하여 공유·재사용이 불가능했다</li>
-<li>HGMD, LOVD 등 기존 DB는 일부 데이터를 유료 또는 등록 제한으로 제공했다</li>
-<li>같은 변이에 대해 기관마다 해석이 다를 때 불일치를 파악하고 해결할 메커니즘이 없었다</li>
+<li>Clinical genomics laboratories each kept variant interpretations in their own internal systems, making sharing and reuse impossible</li>
+<li>Existing databases such as HGMD and LOVD provided some data behind paywalls or registration restrictions</li>
+<li>When organizations interpreted the same variant differently, there was no mechanism to identify and resolve the discrepancies</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>임상 유전체 해석의 재현성·투명성을 위해 근거 출처를 공개하는 변이 해석 저장소가 필요하다</li>
-<li>다른 임상 데이터(EHR, 환자 표현형)와 변이 해석을 연결하는 공공 인프라 역할이 요구됐다</li>
+<li>A variant interpretation repository that discloses the sources of evidence is needed for the reproducibility and transparency of clinical genomics interpretation</li>
+<li>A public infrastructure role linking variant interpretations to other clinical data (EHR, patient phenotypes) was required</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>ClinVar는 변이-질환 임상 해석을 제출받아 집계·공개한다.</p>
+<h4>🔨 Architecture</h4>
+<p>ClinVar receives submissions of variant-disease clinical interpretations and aggregates and publishes them.</p>
 <ul>
-<li><strong>VCV (Variation in ClinVar)</strong>: 변이 단위로 모든 제출 레코드를 집계하는 최상위 식별자 (2018 신규)</li>
-<li><strong>RCV (Reference ClinVar Assertion)</strong>: 변이-질환 쌍 단위 집계 레코드</li>
-<li><strong>Submission</strong>: 개별 기관의 해석 제출 단위; 임상 유의성(pathogenic/benign 등) + 근거 포함</li>
-<li><strong>증거 유형</strong>: 문헌, 가족 이력, 기능 실험, 공개 데이터베이스</li>
+<li><strong>VCV (Variation in ClinVar)</strong>: the top-level identifier that aggregates all submission records at the variant level (new in 2018)</li>
+<li><strong>RCV (Reference ClinVar Assertion)</strong>: an aggregate record at the variant-disease pair level</li>
+<li><strong>Submission</strong>: the unit of interpretation submitted by an individual organization; includes clinical significance (pathogenic/benign, etc.) plus evidence</li>
+<li><strong>Evidence types</strong>: literature, family history, functional experiments, public databases</li>
 </ul>
-<h4>📥 데이터 접근 방법</h4>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>ClinVar 웹사이트</td>
-  <td>ncbi.nlm.nih.gov/clinvar — 무료 검색</td>
+  <td>ClinVar website</td>
+  <td>ncbi.nlm.nih.gov/clinvar — free search</td>
 </tr>
 <tr>
   <td>NCBI E-utilities</td>
-  <td>Entrez API — 프로그래밍 쿼리</td>
+  <td>Entrez API — programmatic queries</td>
 </tr>
 <tr>
-  <td>FTP 다운로드</td>
-  <td>XML·VCF 포맷 전체 덤프; ftp.ncbi.nlm.nih.gov/pub/clinvar/</td>
+  <td>FTP download</td>
+  <td>full dumps in XML/VCF formats; ftp.ncbi.nlm.nih.gov/pub/clinvar/</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>VCV XML (변이 단위 집계 레코드)</li>
-<li>VCF 파일 (dbSNP rs 번호 대신 Variation ID 사용, 2018 개선)</li>
-<li>임상 유의성 레이블 + ACMG 분류 기준</li>
-<li>HPO 표현형 용어 연결</li>
+<li>VCV XML (variant-level aggregate records)</li>
+<li>VCF files (using Variation ID instead of dbSNP rs numbers, improved in 2018)</li>
+<li>clinical significance labels + ACMG classification criteria</li>
+<li>HPO phenotype term links</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>총 변이 수</td>
-  <td><strong>331,000개 이상</strong></td>
+  <td>Total variants</td>
+  <td><strong>331,000+</strong></td>
 </tr>
 <tr>
-  <td>제출 레코드 수</td>
-  <td><strong>500,000개 이상</strong></td>
+  <td>Submission records</td>
+  <td><strong>500,000+</strong></td>
 </tr>
 <tr>
-  <td>참여 기관 수</td>
-  <td><strong>800개 이상</strong> (60개국)</td>
+  <td>Participating organizations</td>
+  <td><strong>800+</strong> (60 countries)</td>
 </tr>
 <tr>
-  <td>직접 임상 검사 실험실</td>
-  <td><strong>76개</strong></td>
+  <td>Direct clinical testing laboratories</td>
+  <td><strong>76</strong></td>
 </tr>
 <tr>
-  <td>대형 구조 변이 (&gt;1kb)</td>
-  <td><strong>15,000개 이상</strong></td>
+  <td>Large structural variants (&gt;1kb)</td>
+  <td><strong>15,000+</strong></td>
 </tr>
 <tr>
-  <td>소마틱(체세포) 변이</td>
-  <td>약 <strong>3,000개</strong></td>
+  <td>Somatic variants</td>
+  <td>approximately <strong>3,000</strong></td>
 </tr>
 <tr>
-  <td>일일 웹 방문자</td>
-  <td>약 <strong>4,700명</strong></td>
+  <td>Daily web visitors</td>
+  <td>approximately <strong>4,700</strong></td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>기관 간 해석 불일치: 동일 변이에 대해 pathogenic/benign 상충 해석 존재</li>
-<li>제출 품질 편차: 제출 기관마다 근거 수준과 분류 기준이 다름</li>
-<li>소마틱 변이 포함 초기 단계 (2018 기준 ~3,000개로 생식세포 변이 대비 미미)</li>
-<li>RAG 활용 시 임상 유의성 텍스트 레이블의 세분화 정도가 쿼리 의도와 불일치할 수 있음</li>
+<li>Interpretation discrepancies across organizations: conflicting pathogenic/benign interpretations exist for the same variant</li>
+<li>Submission quality variance: evidence levels and classification criteria differ across submitting organizations</li>
+<li>Inclusion of somatic variants is at an early stage (~3,000 as of 2018, negligible compared to germline variants)</li>
+<li>When used for RAG, the granularity of the clinical significance text labels may not match the query intent</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/gkx1153">Landrum et al., Nucleic Acids Research 2018</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1093/nar/gkx1153">Landrum et al., Nucleic Acids Research 2018</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/nar/LandrumLBBCCGHH18)</a></p>
@@ -282,14 +282,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

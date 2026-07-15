@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BindingDB: a web-accessible database of experimentally determined protein-ligand binding affinities — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>BindingDB: a web-accessible database of experimentally determined protein-ligand binding affinities, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -120,8 +120,8 @@
       <h1>BindingDB: a web-accessible database of experimentally determined protein-ligand binding affinities</h1>
 <p>DBLP:journals/nar/LiuLWJG07 | 2007 | Nucleic Acids Research | dataset | [chem] | <a href="https://doi.org/10.1093/nar/gkl999">paper</a></p>
 <table class="prop-table">
-<tr><td class="prop-key">DB</td><td class="prop-val">BindingDB (초기 버전)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">~20,000 결합 친화도 측정치, 110 단백질 타겟, ~11,000 소분자 리간드</td></tr>
+<tr><td class="prop-key">DB</td><td class="prop-val">BindingDB (initial version)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">~20,000 binding affinity measurements, 110 protein targets, ~11,000 small-molecule ligands</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Structured</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">BindingDB web interface (bindingdb.org)</td></tr>
@@ -129,81 +129,81 @@
 
 <blockquote>
 <p>Nucleic Acids Research | 2007 | dataset | chem</p>
-<h4>📌 한 줄 요약</h4>
-<p>BindingDB는 실험적으로 결정된 단백질-리간드 결합 친화도를 수집한 공개 DB로, 약물 타겟 단백질을 중심으로 문헌에서 추출한 ~2만 개의 결합 데이터를 제공한다.</p>
+<h4>📌 TL;DR</h4>
+<p>BindingDB is a public database collecting experimentally determined protein-ligand binding affinities, providing ~20,000 binding data points extracted from the literature and centered on drug-target proteins.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>실험적 단백질-리간드 결합 친화도 데이터가 문헌에 분산되어 계산화학 및 약물 발견에 활용하기 어려웠음</li>
-<li>PDB 구조 데이터와 결합 친화도 정량 데이터의 통합 자원이 없었음
-<strong>이 시스템이 필요한 이유</strong></li>
-<li>가상 스크리닝 방법 검증에 필요한 실험적 결합 데이터셋 필요</li>
-<li>약물 타겟 단백질에 대한 SAR 분석 지원</li>
+<li>Experimental protein-ligand binding affinity data was scattered across the literature, making it difficult to leverage for computational chemistry and drug discovery</li>
+<li>There was no integrated resource combining PDB structural data with quantitative binding affinity data
+<strong>Why this system is needed</strong></li>
+<li>A dataset of experimental binding data is needed to validate virtual screening methods</li>
+<li>To support SAR analysis for drug-target proteins</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>과학 문헌에서 약물 타겟 또는 후보 약물 타겟 단백질에 대한 결합 친화도 데이터를 추출한다. PDB의 구조 데이터와 PubMed의 문헌과 연결. 구조, 부분구조, 유사도 검색; 단백질 서열 검색; 친화도 범위·분자량 검색 지원. 가상 스크리닝 도구도 포함.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>Binding affinity data for drug-target or candidate drug-target proteins is extracted from the scientific literature. It is linked to structural data in the PDB and to the literature in PubMed. It supports structure, substructure, and similarity search; protein sequence search; and affinity-range and molecular-weight search. Virtual screening tools are also included.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>웹 인터페이스</td>
-  <td>bindingdb.org 다양한 검색 유형 지원</td>
+  <td>Web interface</td>
+  <td>bindingdb.org supports various search types</td>
 </tr>
 <tr>
-  <td>SDfile 다운로드</td>
-  <td>주석된 SDF 형식 데이터셋 다운로드</td>
+  <td>SDfile download</td>
+  <td>Download annotated SDF-format datasets</td>
 </tr>
 <tr>
-  <td>사용자 화합물 DB</td>
-  <td>업로드한 화합물에 대한 가상 스크리닝</td>
+  <td>User compound DB</td>
+  <td>Virtual screening against uploaded compounds</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>주석된 SDfile (화합물 구조 + 결합 친화도)</li>
-<li>단백질 서열 정보</li>
-<li>PDB ID 링크</li>
-<li>PubMed ID 링크</li>
+<li>Annotated SDfile (compound structures + binding affinities)</li>
+<li>Protein sequence information</li>
+<li>PDB ID links</li>
+<li>PubMed ID links</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>결합 친화도 측정치</td>
+  <td>Binding affinity measurements</td>
   <td>~20,000</td>
 </tr>
 <tr>
-  <td>단백질 타겟 (isoform·변이체 포함)</td>
+  <td>Protein targets (including isoforms/variants)</td>
   <td>110</td>
 </tr>
 <tr>
-  <td>소분자 리간드</td>
+  <td>Small-molecule ligands</td>
   <td>~11,000</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>초기 버전으로 데이터 범위가 제한적 (약물 타겟 중심)</li>
-<li>수동 추출 방식으로 데이터 추가 속도 제한</li>
+<li>As an initial version, data coverage is limited (drug-target focused)</li>
+<li>Manual extraction limits the pace of adding data</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/gkl999">BindingDB: a web-accessible database of experimentally determined protein-ligand binding affinities</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1093/nar/gkl999">BindingDB: a web-accessible database of experimentally determined protein-ligand binding affinities</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/nar/LiuLWJG07)</a></p>
@@ -238,14 +238,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

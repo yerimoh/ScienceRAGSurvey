@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Open Materials 2024 (OMat24) Inorganic Materials Dataset and Models — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Open Materials 2024 (OMat24) Inorganic Materials Dataset and Models, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,7 +117,7 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#실제-데이터-형식-예시-논문-21-table-1">실제 데이터 형식 예시 (논문 §2.1 + Table 1)</a></li><li class="toc-l3"><a href="#유형-a-single-point-dft-calculation-entry-s2ef-학습-단위">유형 A — Single-point DFT calculation entry (S2EF 학습 단위)</a></li><li class="toc-l3"><a href="#유형-b-train-validation-test-split">유형 B — Train / validation / test split</a></li><li class="toc-l3"><a href="#유형-c-source-dataset-비교-compositionalconfigurational-coverage">유형 C — Source dataset 비교 (compositional/configurational coverage)</a></li><li class="toc-l3"><a href="#유형-d-다운스트림-평가-task">유형 D — 다운스트림 평가 task</a></li><li class="toc-l2"><a href="#평가-framework">평가 framework</a></li><li class="toc-l2"><a href="#주요-결과-논문-2-tables">주요 결과 (논문 §2 + Tables)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#construction-methodology">Construction Methodology</a></li><li class="toc-l2"><a href="#data-format-examples-paper-21-table-1">Data Format Examples (paper §2.1 + Table 1)</a></li><li class="toc-l3"><a href="#type-a-single-point-dft-calculation-entry-s2ef-training-unit">Type A — Single-point DFT calculation entry (S2EF training unit)</a></li><li class="toc-l3"><a href="#type-b-train-validation-test-split">Type B — Train / validation / test split</a></li><li class="toc-l3"><a href="#type-c-source-dataset-comparison-compositionalconfigurational-coverage">Type C — Source dataset comparison (compositional/configurational coverage)</a></li><li class="toc-l3"><a href="#type-d-downstream-evaluation-tasks">Type D — Downstream evaluation tasks</a></li><li class="toc-l2"><a href="#evaluation-framework">Evaluation framework</a></li><li class="toc-l2"><a href="#key-results-paper-2-tables">Key Results (paper §2 + Tables)</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>OMat24: 110M-DFT MLIP Training &amp; Evaluation Suite (Matbench Discovery F1 &gt; 0.9)</h1>
@@ -126,20 +126,21 @@
 Luis Barroso-Luque, Muhammed Shuaibi, Xiang Fu, Brandon M. Wood, Misko Dzamba, Meng Gao, Ammar Rizvi, Matt Uyttendaele, C. Lawrence Zitnick, Zachary W. Ulissi — Fundamental AI Research (FAIR) at Meta
 arXiv: <a href="https://arxiv.org/abs/2410.12771">2410.12771</a> · CoRR: <code>journals/corr/abs-2410-12771</code></p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>무기 재료(inorganic material)용 <strong>110M+ DFT calculation 공개 데이터셋</strong> + <strong>EquiformerV2/eSEN MLIP 모델 체크포인트</strong> + <strong>Matbench Discovery 평가 프로토콜</strong>을 묶은 large-scale training+benchmark suite. 기존 데이터의 약 100배 규모이며, <strong>F1 &gt; 0.9 (stability)</strong>, <strong>MAE 20 meV/atom (formation energy)</strong> 달성. <strong>공개된 모든 leaderboard top model이 OMat24 채택</strong>.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>A large-scale training+benchmark suite bundling a <strong>110M+ DFT calculation open dataset</strong> for inorganic materials + <strong>EquiformerV2/eSEN MLIP model checkpoints</strong> + a <strong>Matbench Discovery evaluation protocol</strong>. It is roughly 100x the scale of prior data, and achieves <strong>F1 &gt; 0.9 (stability)</strong> and <strong>MAE 20 meV/atom (formation energy)</strong>. <strong>Every publicly available leaderboard top model adopts OMat24</strong>.</p>
 <hr />
-<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
-<pre><code>Step 1 — 문제 인식: open MLIP training data 부족
+<h2 id="construction-methodology">Construction Methodology</h2>
+<pre><code>Step 1 — Problem recognition: shortage of open MLIP training data
   ┌──────────────────────────────────────────────┐
   │ &quot;the state-of-the-art in openly available    │
   │  and reproducible datasets and models        │
   │  lagged behind proprietary models&quot;           │
-  │ + MPTrj/MPF 같은 기존 dataset은 equilibrium  │
-  │   위주, far-from-equilibrium 부족             │
+  │ + existing datasets like MPTrj/MPF are       │
+  │   equilibrium-centric, lacking               │
+  │   far-from-equilibrium                        │
   └──────────────────────────────────────────────┘
 
-Step 2 — OMat24 dataset 구성
+Step 2 — OMat24 dataset composition
   ┌──────────────────────────────────────────────┐
   │ - 110M+ single-point DFT calculations         │
   │ - 118M structures total (energy, forces,      │
@@ -153,11 +154,11 @@ Step 2 — OMat24 dataset 구성
   └──────────────────────────────────────────────┘
 
 Step 3 — Three core design principles
-  · Scale: ~2 orders of magnitude &gt; 기존 open dataset
-  · Diversity: periodic table 전반 + far-from-equilibrium
+  · Scale: ~2 orders of magnitude &gt; existing open dataset
+  · Diversity: entire periodic table + far-from-equilibrium
   · Open-science: CC-by license, full reproducibility
 
-Step 4 — Pretrained MLIP 모델
+Step 4 — Pretrained MLIP models
   · EquiformerV2 variants (Liao 2023, 2024)
   · eSEN variants (Fu 2024)
   · Pretrained on OMat24, fine-tuned for MPtrj
@@ -174,20 +175,20 @@ Step 5 — Evaluation protocol
   │     underestimation correction)                │
   └──────────────────────────────────────────────┘
 
-Step 6 — 공개 자원
+Step 6 — Open resources
   · Dataset: HuggingFace fairchem/OMAT24 (CC-by-4.0)
   · Models: HuggingFace fairchem/OMAT24
   · Code: github.com/FAIR-Chem/fairchem (MIT)
 </code></pre>
 <hr />
-<h2 id="실제-데이터-형식-예시-논문-21-table-1">실제 데이터 형식 예시 (논문 §2.1 + Table 1)</h2>
-<h3 id="유형-a-single-point-dft-calculation-entry-s2ef-학습-단위">유형 A — Single-point DFT calculation entry (S2EF 학습 단위)</h3>
+<h2 id="data-format-examples-paper-21-table-1">Data Format Examples (paper §2.1 + Table 1)</h2>
+<h3 id="type-a-single-point-dft-calculation-entry-s2ef-training-unit">Type A — Single-point DFT calculation entry (S2EF training unit)</h3>
 <blockquote>
 <p><strong>Input</strong> (periodic unit cell):</p>
 <pre><code>Structure:    1–100 atoms (majority &lt; 20 atoms)
 Composition:  diverse across periodic table
               (oxides over-represented per open-data prevalence)
-Configuration: equilibrium + far-from-equilibrium 혼합
+Configuration: mix of equilibrium + far-from-equilibrium
 </code></pre>
 <p><strong>Labels (DFT ground truth)</strong>:</p>
 <pre><code>Energy:       eV (per structure)
@@ -195,7 +196,7 @@ Forces:       eV/Å (per atom, 3D vector)
 Cell stress:  eV/Å³ (3×3 tensor)
 </code></pre>
 </blockquote>
-<h3 id="유형-b-train-validation-test-split">유형 B — Train / validation / test split</h3>
+<h3 id="type-b-train-validation-test-split">Type B — Train / validation / test split</h3>
 <blockquote>
 <pre><code>┌────────────────────────┬──────────────┐
 │ Split                  │ # structures │
@@ -210,9 +211,9 @@ Cell stress:  eV/Å³ (3×3 tensor)
 │ Total OMat24           │  118,000,000 │
 └────────────────────────┴──────────────┘
 </code></pre>
-<p>WBM Test split이 &quot;highest prediction errors → most informative test of model generalization&quot; (논문 §2.1.1)</p>
+<p>The WBM Test split has &quot;highest prediction errors → most informative test of model generalization&quot; (paper §2.1.1)</p>
 </blockquote>
-<h3 id="유형-c-source-dataset-비교-compositionalconfigurational-coverage">유형 C — Source dataset 비교 (compositional/configurational coverage)</h3>
+<h3 id="type-c-source-dataset-comparison-compositionalconfigurational-coverage">Type C — Source dataset comparison (compositional/configurational coverage)</h3>
 <table>
 <thead>
 <tr>
@@ -227,7 +228,7 @@ Cell stress:  eV/Å³ (3×3 tensor)
   <td><strong>OMat24</strong></td>
   <td>118M</td>
   <td>equilibrium + far-from-eq</td>
-  <td>periodic table 전반, oxide over-represented</td>
+  <td>entire periodic table, oxide over-represented</td>
 </tr>
 <tr>
   <td>MPtrj</td>
@@ -245,31 +246,31 @@ Cell stress:  eV/Å³ (3×3 tensor)
   <td>OC20</td>
   <td>130M</td>
   <td>catalyst surface only</td>
-  <td>적은 chemistry</td>
+  <td>limited chemistry</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
 <p>→ OMat24 = <strong>2 orders of magnitude larger</strong> than other open datasets</p>
 </blockquote>
-<h3 id="유형-d-다운스트림-평가-task">유형 D — 다운스트림 평가 task</h3>
+<h3 id="type-d-downstream-evaluation-tasks">Type D — Downstream evaluation tasks</h3>
 <blockquote>
 <ol>
 <li><strong>Matbench Discovery</strong> — WBM 257K structures, F$_1$ + DAF + MAE</li>
 <li><strong>Phonon prediction</strong> — force-derivative properties (newly added benchmark)</li>
 <li><strong>Thermal conductivity</strong> — transport properties (newly added benchmark)</li>
-<li><strong>Softening bias 측정</strong> — energy/force/phonon 체계적 underestimation 정량화</li>
+<li><strong>Softening bias measurement</strong> — quantifying systematic energy/force/phonon underestimation</li>
 </ol>
-<p>→ OMat24-trained model: F$_1$ &gt; 0.9, formation E MAE = 20 meV/atom, <strong>모든 Matbench Discovery top model이 OMat24 채택</strong>.</p>
+<p>→ OMat24-trained model: F$_1$ &gt; 0.9, formation E MAE = 20 meV/atom, <strong>every Matbench Discovery top model adopts OMat24</strong>.</p>
 </blockquote>
 <hr />
-<h2 id="평가-framework">평가 framework</h2>
+<h2 id="evaluation-framework">Evaluation framework</h2>
 <table>
 <thead>
 <tr>
   <th>Benchmark</th>
   <th>Metric</th>
-  <th>의미</th>
+  <th>Meaning</th>
 </tr>
 </thead>
 <tbody>
@@ -305,55 +306,55 @@ Cell stress:  eV/Å³ (3×3 tensor)
 </tr>
 </tbody>
 </table>
-<p>→ OMat24 train 모델: F$_1$ &gt; 0.9, MAE = 20 meV/atom (Matbench Discovery top)</p>
+<p>→ OMat24-trained model: F$_1$ &gt; 0.9, MAE = 20 meV/atom (Matbench Discovery top)</p>
 <hr />
-<h2 id="주요-결과-논문-2-tables">주요 결과 (논문 §2 + Tables)</h2>
+<h2 id="key-results-paper-2-tables">Key Results (paper §2 + Tables)</h2>
 <table>
 <thead>
 <tr>
   <th>Metric</th>
-  <th>OMat24-trained 모델</th>
-  <th>의미</th>
+  <th>OMat24-trained model</th>
+  <th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>Matbench F$_1$ (stability)</td>
   <td><strong>&gt; 0.9</strong></td>
-  <td>이전 best 대비 향상</td>
+  <td>improvement over previous best</td>
 </tr>
 <tr>
   <td>Formation E MAE</td>
   <td><strong>20 meV/atom</strong></td>
-  <td>DFT-level 정확도</td>
+  <td>DFT-level accuracy</td>
 </tr>
 <tr>
   <td>Softening bias</td>
-  <td>사라지거나 reduce됨</td>
-  <td>non-equilibrium 학습 효과</td>
+  <td>eliminated or reduced</td>
+  <td>effect of non-equilibrium training</td>
 </tr>
 <tr>
   <td>Phonon prediction</td>
   <td>highest accuracy</td>
-  <td>force-derivative 정확</td>
+  <td>accurate force-derivative</td>
 </tr>
 <tr>
   <td>Architecture</td>
   <td>EquiformerV2, eSEN</td>
-  <td>동일 데이터로 다른 아키텍처도 향상</td>
+  <td>different architectures also improve on the same data</td>
 </tr>
 </tbody>
 </table>
-<p>→ <strong>결론</strong>: dataset diversity (특히 far-from-equilibrium)가 MLIP 정확도 결정적, 모든 leaderboard top model이 OMat24를 채택.</p>
+<p>→ <strong>Conclusion</strong>: dataset diversity (especially far-from-equilibrium) is decisive for MLIP accuracy, and every leaderboard top model adopts OMat24.</p>
 <hr />
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li><strong>DFT settings compatibility</strong>: MPtrj와 다른 functional/parameter → fine-tuning 필요</li>
-<li><strong>Inorganic bulk material 한정</strong>: 분자, 표면, 인터페이스 미커버</li>
+<li><strong>DFT settings compatibility</strong>: functional/parameters differ from MPtrj → fine-tuning required</li>
+<li><strong>Limited to inorganic bulk materials</strong>: molecules, surfaces, and interfaces not covered</li>
 <li><strong>License</strong>: dataset CC-by, model checkpoint custom license</li>
-<li><strong>Compute requirement</strong>: 110M DFT 계산은 reproducibility를 제한</li>
-<li><strong>Static dataset</strong>: 후속 OMat25/26 등장 시 비교 필요</li>
-<li><strong>시간</strong>: 2024 cutoff (논문 명시 2026-05-21 revision)</li>
+<li><strong>Compute requirement</strong>: 110M DFT calculations limit reproducibility</li>
+<li><strong>Static dataset</strong>: comparison needed when successors like OMat25/26 appear</li>
+<li><strong>Time</strong>: 2024 cutoff (paper states 2026-05-21 revision)</li>
 </ul>
 <hr />
 <h2 id="관련-정보">관련 정보</h2>
@@ -394,14 +395,14 @@ Cell stress:  eV/Å³ (3×3 tensor)
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

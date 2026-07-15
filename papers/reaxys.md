@@ -12,50 +12,50 @@ paper_link: https://www.reaxys.com
 reaxys | 2009 | Elsevier | dataset | [chem] | [paper](https://www.reaxys.com)
 
 **DB**: Reaxys (Elsevier)
-**DB size**: 구독 기반 (공개적 수치 미기재)
+**DB size**: Subscription-based (no public figures reported)
 **DB Open/Private**: Subscription
 **Modality**: ['Text', 'Structured']
-**Retriever**: N/A (지식 소스 인프라)
+**Retriever**: N/A (knowledge-source infrastructure)
 **Eval Task**: N/A
 **Eval Metric**: N/A
-**Method Name**: Reaxys 웹 플랫폼
+**Method Name**: Reaxys web platform
 
 > Elsevier | 2009 | dataset | chem
-#### 📌 한 줄 요약
-Reaxys는 Elsevier가 운영하는 구독 기반 화학 반응·물질·바이오활성 DB로, Beilstein(유기화학)과 Gmelin(무기·금속유기화학) DB를 통합하여 합성 화학자의 반응 검색과 합성 경로 계획을 지원한다.
+#### 📌 TL;DR
+Reaxys is a subscription-based chemical reaction, substance, and bioactivity DB operated by Elsevier. It integrates the Beilstein (organic chemistry) and Gmelin (inorganic and organometallic chemistry) DBs to support reaction search and synthetic route planning for synthetic chemists.
 
-#### 🎯 개발/구축 배경
-**기존 인프라의 한계**
-- Beilstein(유기)과 Gmelin(무기) DB가 별도로 운영되어 통합 접근이 불편했음
-**이 시스템이 필요한 이유**
-- 합성 경로 계획(retrosynthesis)을 위한 통합 반응-물질 DB 필요
-- SciFinder와 함께 합성 화학자의 양대 상업 인프라 역할
+#### 🎯 Background
+**Limitations of existing infrastructure**
+- The Beilstein (organic) and Gmelin (inorganic) DBs were operated separately, making integrated access inconvenient
+**Why this system is needed**
+- A unified reaction-substance DB is needed for synthetic route planning (retrosynthesis)
+- Alongside SciFinder, it serves as one of the two major commercial infrastructures for synthetic chemists
 
-#### 🔨 시스템 구성
-Beilstein Database(유기 화학 반응·물질), Gmelin Database(무기·금속유기 화학), 특허 화학 데이터를 통합한다. 2009년 Reaxys 브랜드로 통합 출시. 구조, 반응, 물리화학적 성질 통합 검색 가능.
+#### 🔨 Architecture
+It integrates the Beilstein Database (organic chemistry reactions and substances), the Gmelin Database (inorganic and organometallic chemistry), and patent chemistry data. Launched in 2009 as the unified Reaxys brand. Enables integrated search across structures, reactions, and physicochemical properties.
 
-#### 📥 데이터 접근 방법
-| 방법 | 설명 |
+#### 📥 Access
+| Method | Description |
 |---|---|
-| 구독 플랫폼 | reaxys.com (기관 구독 필요) |
-| 구조 검색 | 화합물·반응 구조 기반 검색 |
-| API | Reaxys API (기관 협약에 따라 제공) |
+| Subscription platform | reaxys.com (institutional subscription required) |
+| Structure search | Search based on compound and reaction structures |
+| API | Reaxys API (provided under institutional agreements) |
 
-#### 📤 제공 데이터 형식
-- 화합물 레코드 (구조, 물리화학적 성질)
-- 반응 레코드 (반응물, 생성물, 조건, 수율, 출처)
-- 바이오활성 데이터
+#### 📤 Data formats
+- Compound records (structures, physicochemical properties)
+- Reaction records (reactants, products, conditions, yields, sources)
+- Bioactivity data
 
-#### 📊 주요 통계 (논문 기준)
-| 항목 | 수치 |
+#### 📊 Key statistics (per paper)
+| Item | Figure |
 |---|---|
-| 출시 | 2009년 (Beilstein+Gmelin 통합) |
-| 데이터 범위 | 구독 기반; Elsevier에서 공개적 수치 미발표 |
+| Launch | 2009 (Beilstein+Gmelin integration) |
+| Data coverage | Subscription-based; no public figures released by Elsevier |
 
-#### ⚠️ 한계점
-- 구독 기반으로 오픈 과학 RAG 시스템이 직접 접근 불가
-- SciFinder와 함께 화학 분야 오픈-클로즈드 격차를 대표하는 인프라
-- 고비용으로 소규모 기관 접근 제한
+#### ⚠️ Limitations
+- Being subscription-based, it is not directly accessible to open-science RAG systems
+- Alongside SciFinder, it represents the open-closed gap in the chemistry field
+- High cost limits access for small institutions
 
-## 관련 정보
-- **공식 페이지**: [Reaxys](https://www.reaxys.com)
+## Related links
+- **Official page**: [Reaxys](https://www.reaxys.com)

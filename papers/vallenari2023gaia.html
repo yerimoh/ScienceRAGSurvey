@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Gaia Data Release 3: Summary of the content and survey properties — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Gaia Data Release 3: Summary of the content and survey properties, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -129,123 +129,123 @@
 
 <blockquote>
 <p>Astronomy &amp; Astrophysics | 2023 | dataset | astronomy</p>
-<h4>한 줄 요약</h4>
-<p>유럽우주국(ESA) Gaia 위성의 세 번째 데이터 공개로, 임무 초기 34개월 관측 데이터를 처리한 카탈로그. <strong>약 15억 개 광원</strong>에 대한 천체위치, 시차, 고유운동 및 광도 데이터 제공. 3,300만 개 광원의 시선속도, 2.2억 개 BP/RP 저해상도 스펙트럼, 4.7억 개 광원의 천체물리 파라미터를 포함하는 천문학 역사상 최대 규모 전천 목록 중 하나.</p>
+<h4>TL;DR</h4>
+<p>The third data release of the European Space Agency (ESA) Gaia satellite, a catalogue processing the first 34 months of mission observations. It provides astrometry, parallaxes, proper motions, and photometry for <strong>about 1.5 billion sources</strong>. One of the largest all-sky catalogues in the history of astronomy, including radial velocities for 33 million sources, 220 million BP/RP low-resolution spectra, and astrophysical parameters for 470 million sources.</p>
 </blockquote>
-<h4>개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>Hipparcos(1997) 카탈로그: 118,218개 항성의 시차 측정으로 당시 혁신적이었으나 규모와 정밀도 한계</li>
-<li>지상 측성 카탈로그: 대기 굴절·온도 변화로 정밀도 제한, 전천 균일 관측 불가</li>
+<li>Hipparcos (1997) catalogue: revolutionary at the time with parallax measurements for 118,218 stars, but limited in scale and precision</li>
+<li>Ground-based astrometric catalogues: precision limited by atmospheric refraction and temperature variations, and unable to observe the whole sky uniformly</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>마이크로초각(μas) 정밀도 시차로 은하계 3D 구조 지도 작성</li>
-<li>단일 위성으로 전천을 반복 스캔하여 균일한 천체측성 기준 틀(ICRF 연결) 제공</li>
-<li>시선속도·스펙트럼 포함으로 6D 위상공간(위치+속도) 완성</li>
+<li>Mapping the 3D structure of the Galaxy with microarcsecond (μas) precision parallaxes</li>
+<li>Providing a uniform astrometric reference frame (linked to the ICRF) by repeatedly scanning the whole sky with a single satellite</li>
+<li>Completing the 6D phase space (position + velocity) by including radial velocities and spectra</li>
 </ul>
-<h4>시스템 구성</h4>
-<p>Gaia 위성: L2 리사쥬 궤도, 두 망원경(각도 106.5° 고정), SiC 경면. 주 카메라: 106 CCD (0.7 Giga-pixel). 스캐닝 법칙: 5~6시간마다 자전, 63.3일마다 세차. 데이터 처리: Gaia Data Processing and Analysis Consortium (DPAC, 유럽 9개국 450명+).</p>
+<h4>Architecture</h4>
+<p>Gaia satellite: L2 Lissajous orbit, two telescopes (fixed at an angle of 106.5°), SiC mirrors. Main camera: 106 CCDs (0.7 Giga-pixel). Scanning law: rotation every 5–6 hours, precession every 63.3 days. Data processing: Gaia Data Processing and Analysis Consortium (DPAC, 450+ people across 9 European countries).</p>
 <ul>
-<li><strong>천체측성</strong>: 위치·시차·고유운동 (G &lt; 21 등급)</li>
-<li><strong>측광</strong>: G, G_BP, G_RP 3-밴드</li>
-<li><strong>분광</strong>: RVS (시선속도), BP/RP (저해상도 광학 스펙트럼)</li>
+<li><strong>Astrometry</strong>: position, parallax, proper motion (G &lt; 21 mag)</li>
+<li><strong>Photometry</strong>: G, G_BP, G_RP 3-band</li>
+<li><strong>Spectroscopy</strong>: RVS (radial velocity), BP/RP (low-resolution optical spectra)</li>
 </ul>
-<h4>데이터 접근 방법</h4>
+<h4>Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>Gaia Archive</td>
-  <td>gea.esac.esa.int — ADQL 쿼리</td>
+  <td>gea.esac.esa.int — ADQL queries</td>
 </tr>
 <tr>
   <td>CDS VizieR</td>
-  <td>vizier.cds.unistra.fr — 카탈로그 조회</td>
+  <td>vizier.cds.unistra.fr — catalogue lookup</td>
 </tr>
 <tr>
-  <td>Gaia DR3 직접 다운로드</td>
+  <td>Gaia DR3 direct download</td>
   <td>ESA Science Data Centre</td>
 </tr>
 <tr>
-  <td>TAP 서비스</td>
-  <td>표준 IVOA TAP 프로토콜</td>
+  <td>TAP service</td>
+  <td>standard IVOA TAP protocol</td>
 </tr>
 </tbody>
 </table>
-<h4>제공 데이터 형식</h4>
+<h4>Data formats</h4>
 <ul>
-<li>주 소스 카탈로그 (위치, 시차, 고유운동, G/GBP/GRP 측광)</li>
-<li>시선속도 카탈로그 (RVS, ~33M 광원)</li>
-<li>BP/RP 평균 스펙트럼 (~220M 광원)</li>
-<li>RVS 평균 스펙트럼 (~1M 광원)</li>
-<li>천체물리 파라미터 (Teff, logg, [Fe/H] 등, ~470M 광원)</li>
-<li>변광성 카탈로그 (~10M, 24가지 유형)</li>
-<li>태양계 천체 (~150,000개)</li>
-<li>쌍성 궤도 요소 (~800,000쌍)</li>
+<li>Main source catalogue (position, parallax, proper motion, G/GBP/GRP photometry)</li>
+<li>Radial velocity catalogue (RVS, ~33M sources)</li>
+<li>BP/RP mean spectra (~220M sources)</li>
+<li>RVS mean spectra (~1M sources)</li>
+<li>Astrophysical parameters (Teff, logg, [Fe/H], etc., ~470M sources)</li>
+<li>Variable star catalogue (~10M, 24 types)</li>
+<li>Solar system objects (~150,000)</li>
+<li>Binary star orbital elements (~800,000 pairs)</li>
 </ul>
-<h4>주요 통계</h4>
+<h4>Key statistics</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>전체 광원 수</td>
-  <td><strong>~1,500,000,000</strong> (15억)</td>
+  <td>Total number of sources</td>
+  <td><strong>~1,500,000,000</strong> (1.5 billion)</td>
 </tr>
 <tr>
-  <td>시선속도 광원</td>
+  <td>Radial velocity sources</td>
   <td><strong>~33,000,000</strong></td>
 </tr>
 <tr>
-  <td>BP/RP 스펙트럼</td>
+  <td>BP/RP spectra</td>
   <td><strong>~220,000,000</strong></td>
 </tr>
 <tr>
-  <td>천체물리 파라미터</td>
-  <td><strong>~470,000,000</strong> 광원</td>
+  <td>Astrophysical parameters</td>
+  <td><strong>~470,000,000</strong> sources</td>
 </tr>
 <tr>
-  <td>변광성</td>
-  <td><strong>~10,000,000</strong> 개, 24유형</td>
+  <td>Variable stars</td>
+  <td><strong>~10,000,000</strong>, 24 types</td>
 </tr>
 <tr>
-  <td>태양계 천체</td>
-  <td><strong>~150,000</strong> 개</td>
+  <td>Solar system objects</td>
+  <td><strong>~150,000</strong></td>
 </tr>
 <tr>
-  <td>소행성 반사 스펙트럼</td>
-  <td><strong>~60,000</strong> 개</td>
+  <td>Asteroid reflectance spectra</td>
+  <td><strong>~60,000</strong></td>
 </tr>
 <tr>
-  <td>쌍성</td>
-  <td><strong>~800,000</strong> 쌍</td>
+  <td>Binary stars</td>
+  <td><strong>~800,000</strong> pairs</td>
 </tr>
 <tr>
-  <td>관측 기간 (GDR3)</td>
-  <td>34개월 (임무 초기)</td>
+  <td>Observation period (GDR3)</td>
+  <td>34 months (early mission)</td>
 </tr>
 </tbody>
 </table>
-<h4>한계점</h4>
+<h4>Limitations</h4>
 <ul>
-<li>GDR3는 임무 초기 34개월 데이터로 최종 Gaia DR4/DR5 대비 정밀도와 완전성 낮음</li>
-<li>밝은 별(G &lt; 6) 및 빽빽한 성단 영역에서 포화·혼잡도 문제로 정밀도 저하</li>
-<li>BP/RP 스펙트럼의 해상도 매우 낮음(R~50–100): 세부 원소 풍요도 측정 불가</li>
-<li>시선속도 완전성은 G_RVS &lt; 14 등급에 한정</li>
+<li>GDR3 is based on the first 34 months of mission data, so it has lower precision and completeness than the final Gaia DR4/DR5</li>
+<li>Precision degrades for bright stars (G &lt; 6) and in dense cluster regions due to saturation and crowding issues</li>
+<li>The resolution of BP/RP spectra is very low (R~50–100): detailed elemental abundances cannot be measured</li>
+<li>Radial velocity completeness is limited to G_RVS &lt; 14 mag</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://arxiv.org/abs/2208.00211">https://arxiv.org/abs/2208.00211</a></li>
+<li><strong>Paper</strong>: <a href="https://arxiv.org/abs/2208.00211">https://arxiv.org/abs/2208.00211</a></li>
 <li><strong>Gaia Archive</strong>: <a href="https://gea.esac.esa.int/archive/">https://gea.esac.esa.int/archive/</a></li>
 </ul>
 
@@ -271,14 +271,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

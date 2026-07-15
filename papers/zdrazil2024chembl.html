@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The ChEMBL Database in 2023: a drug discovery platform spanning multiple bioactivity data types and time periods — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>The ChEMBL Database in 2023: a drug discovery platform spanning multiple bioactivity data types and time periods, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,7 +121,7 @@
 <p>zdrazil2024chembl | 2024 | Nucleic Acids Research | dataset | [chem] | <a href="https://doi.org/10.1093/nar/gkad1004">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">ChEMBL (2023 release)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">기탁 데이터가 문헌 추출 데이터 양 초과 (구체적 수치 abstract 미기재)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">Deposited data exceeds the volume of literature-extracted data (specific figures not stated in the abstract)</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text, Structured</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">ChEMBL web interface + REST API</td></tr>
@@ -129,77 +129,77 @@
 
 <blockquote>
 <p>Nucleic Acids Research | 2024 | dataset | chem</p>
-<h4>📌 한 줄 요약</h4>
-<p>ChEMBL의 2023년 상태를 기술한 논문으로, 기탁 데이터가 최초로 문헌 추출 데이터를 초과하고, 항-SARS-CoV-2 화합물 스크리닝 데이터, 특허 바이오활성 데이터, Chemical Probe 플래그 등이 추가되었다.</p>
+<h4>📌 TL;DR</h4>
+<p>A paper describing the 2023 state of ChEMBL, in which deposited data exceeds literature-extracted data for the first time, and anti-SARS-CoV-2 compound screening data, patent bioactivity data, Chemical Probe flags, and more have been added.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>ChEMBL 2009년 출시 이후 문헌 추출 데이터가 주를 이루었으나, 비문헌 기탁 데이터 필요성 증가</li>
-<li>COVID-19 대응을 위한 항바이러스 화합물 데이터 신속 통합이 요구됨
-<strong>이 시스템이 필요한 이유</strong></li>
-<li>EUbOPEN 컨소시엄과 협력하여 Chemical Probe 데이터 정기 기탁 체계 수립</li>
-<li>Natural Product 특성 점수, Chemical Probe 플래그 등 새로운 주석 기능 추가</li>
+<li>Since ChEMBL's launch in 2009, literature-extracted data had been dominant, but the need for non-literature deposited data increased</li>
+<li>Rapid integration of antiviral compound data was required for the COVID-19 response
+<strong>Why this system is needed</strong></li>
+<li>Established a regular deposition scheme for Chemical Probe data in collaboration with the EUbOPEN consortium</li>
+<li>Added new annotation features such as Natural Product characteristic scores and Chemical Probe flags</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>EUbOPEN Chemical Probe 데이터 정기 기탁. Release 27에서 항-SARS-CoV-2 활성 스크리닝 데이터 통합. 특허 바이오활성 데이터 추가. Natural Product 유사성 점수 및 Chemical Probe 플래그 신설. 약 270,000개 바이오활성 측정치에 action type 초기 주석 작업 수행.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>Regular deposition of EUbOPEN Chemical Probe data. Integration of anti-SARS-CoV-2 activity screening data in Release 27. Addition of patent bioactivity data. Introduction of Natural Product likeness scores and Chemical Probe flags. Initial annotation of action type performed on approximately 270,000 bioactivity measurements.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>웹 인터페이스</td>
+  <td>Web interface</td>
   <td><a href="https://www.ebi.ac.uk/chembl/">https://www.ebi.ac.uk/chembl/</a></td>
 </tr>
 <tr>
   <td>REST API</td>
-  <td>구조·타겟·바이오활성 조회</td>
+  <td>Structure, target, and bioactivity queries</td>
 </tr>
 <tr>
-  <td>데이터 다운로드</td>
-  <td>SQL, SDF, FASTA 전체 덤프</td>
+  <td>Data download</td>
+  <td>Full dumps in SQL, SDF, FASTA</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>화합물 구조 (SMILES, InChI)</li>
-<li>바이오활성 측정치</li>
-<li>Chemical Probe / Natural Product 플래그</li>
-<li>Action type 주석</li>
+<li>Compound structures (SMILES, InChI)</li>
+<li>Bioactivity measurements</li>
+<li>Chemical Probe / Natural Product flags</li>
+<li>Action type annotations</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Figure</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>Action type 주석 바이오활성</td>
-  <td>~270,000개</td>
+  <td>Action type annotated bioactivities</td>
+  <td>~270,000</td>
 </tr>
 <tr>
-  <td>데이터 구성</td>
-  <td>기탁 &gt; 문헌 추출 (최초)</td>
+  <td>Data composition</td>
+  <td>Deposited &gt; literature-extracted (for the first time)</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>기탁 데이터 비중 증가로 품질 일관성 관리 복잡성 상승</li>
-<li>상업적 특허 바이오활성 데이터는 완전한 재배포에 제한이 있을 수 있음</li>
+<li>Increasing proportion of deposited data raises the complexity of managing quality consistency</li>
+<li>Commercial patent bioactivity data may have restrictions on full redistribution</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/gkad1004">The ChEMBL Database in 2023</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1093/nar/gkad1004">The ChEMBL Database in 2023</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (zdrazil2024chembl)</a></p>
@@ -225,14 +225,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

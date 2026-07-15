@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MITRA: Knowledge Retrieval over Physics Collaborations&amp;#x27; Tacit Memory — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>MITRA: Knowledge Retrieval over Physics Collaborations&amp;#x27; Tacit Memory, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,7 +117,7 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">제작 배경</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#input-입력">Input (입력)</a></li><li class="toc-l2"><a href="#output-출력">Output (출력)</a></li><li class="toc-l2"><a href="#예시-문항-논문-본문-verbatim-인용">예시 문항 (논문 본문 verbatim 인용)</a></li><li class="toc-l3"><a href="#cross-analysis-confusion-예시-sec-3-본문">📘 Cross-Analysis Confusion 예시 (Sec. 3 본문)</a></li><li class="toc-l3"><a href="#set-2-semantic-query-sec-4-본문">📘 Set 2 Semantic Query (Sec. 4 본문)</a></li><li class="toc-l3"><a href="#out-of-context-거절-sec-4-정성-테스트-본문">📘 Out-of-Context 거절 (Sec. 4 정성 테스트 본문)</a></li><li class="toc-l2"><a href="#주요-평가-결과-tables-1-2">주요 평가 결과 (Tables 1, 2)</a></li><li class="toc-l2"><a href="#한계점-저자-명시">한계점 (저자 명시)</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#background">Background</a></li><li class="toc-l2"><a href="#construction-methodology">Construction Methodology</a></li><li class="toc-l2"><a href="#input">Input</a></li><li class="toc-l2"><a href="#output">Output</a></li><li class="toc-l2"><a href="#example-items-verbatim-quotes-from-the-paper-body">Example items (verbatim quotes from the paper body)</a></li><li class="toc-l3"><a href="#cross-analysis-confusion-example-sec-3-body">📘 Cross-Analysis Confusion example (Sec. 3 body)</a></li><li class="toc-l3"><a href="#set-2-semantic-query-sec-4-body">📘 Set 2 Semantic Query (Sec. 4 body)</a></li><li class="toc-l3"><a href="#out-of-context-refusal-sec-4-qualitative-test-body">📘 Out-of-Context refusal (Sec. 4 qualitative-test body)</a></li><li class="toc-l2"><a href="#key-evaluation-results-tables-1-2">Key evaluation results (Tables 1, 2)</a></li><li class="toc-l2"><a href="#limitations-stated-by-the-authors">Limitations (stated by the authors)</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>MITRA: An AI Assistant for Knowledge Retrieval in Physics Collaborations</h1>
@@ -126,91 +126,91 @@
 University of Wisconsin-Madison (CMS Collaboration) — NeurIPS 2025 ML4PS Workshop
 &quot;MITRA&quot; = Sanskrit &quot;friend&quot;</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>CERN CMS 협업의 방대한 내부 분석 노트·위키·가이드라인을 <strong>on-premise</strong>(NVIDIA Tesla T4, 15GB)에서 검색하는 RAG 시스템. DPR + cross-encoder 재랭킹 + 4-bit Mistral-7B를 결합하고 <strong>2-tier DB</strong>(abstracts → full-text)로 cross-analysis 혼동 방지. <strong>의미론적 질의(Set 2)에서 BM25 대비 P@1 5.8배(0.13 → 0.75)</strong> 향상.</p>
-<h2 id="제작-배경">제작 배경</h2>
-<p><strong>기존 방법의 한계</strong></p>
+<h2 id="tldr">TL;DR</h2>
+<p>A RAG system that searches the vast internal analysis notes, wikis, and guidelines of the CERN CMS collaboration <strong>on-premise</strong> (NVIDIA Tesla T4, 15GB). It combines DPR + cross-encoder reranking + 4-bit Mistral-7B, and uses a <strong>2-tier DB</strong> (abstracts → full-text) to prevent cross-analysis confusion. On <strong>semantic queries (Set 2), it improves P@1 by 5.8x over BM25 (0.13 → 0.75)</strong>.</p>
+<h2 id="background">Background</h2>
+<p><strong>Limitations of existing methods</strong></p>
 <ul>
-<li>CMS 협업: 수천 명 멤버, 수 TB 분석 노트·내부 위키·가이드라인 → 수동 키워드 검색 비효율</li>
-<li>BM25 등 정확 키워드 매칭은 &quot;transverse momentum&quot; ↔ &quot;pT cut&quot; 같은 도메인 동의어 처리 불가</li>
-<li>미공개 분석 데이터는 외부 LLM API(예: chATLAS의 GPT-4o-mini) 사용 시 프라이버시 우려</li>
-<li>대규모 협업의 누적 API 비용은 자체 호스팅 대비 비합리적</li>
-<li>단일 DB에서 다중 분석(Higgs vs Dark Matter)을 다루면 cross-analysis confusion 발생</li>
+<li>CMS collaboration: thousands of members, several TB of analysis notes, internal wikis, and guidelines → manual keyword search is inefficient</li>
+<li>Exact keyword matching such as BM25 cannot handle domain synonyms like &quot;transverse momentum&quot; ↔ &quot;pT cut&quot;</li>
+<li>Using external LLM APIs (e.g., chATLAS's GPT-4o-mini) for unpublished analysis data raises privacy concerns</li>
+<li>The cumulative API cost of a large collaboration is unreasonable compared to self-hosting</li>
+<li>Handling multiple analyses (Higgs vs Dark Matter) in a single DB causes cross-analysis confusion</li>
 </ul>
-<p><strong>왜 MITRA가 필요했는지</strong></p>
+<p><strong>Why MITRA was needed</strong></p>
 <ul>
-<li>&quot;Higgs→di-muon 분석&quot;의 &quot;the most important background&quot;와 &quot;dark matter search&quot;의 그것은 답이 다름 → context-aware DB 분리 필요</li>
-<li>인스턴스별 키워드보다 <strong>semantic equivalence</strong>가 실사용에서 더 중요</li>
+<li>&quot;the most important background&quot; for a &quot;Higgs→di-muon analysis&quot; and for a &quot;dark matter search&quot; have different answers → context-aware DB separation is needed</li>
+<li><strong>semantic equivalence</strong> matters more than instance-level keywords in real-world use</li>
 </ul>
-<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
-<pre><code>Step 1 — 문서 수집 (Offline)
-  Selenium 자동화 스크립트 → CMS 내부 DB 로그인 + PDF 다운로드
+<h2 id="construction-methodology">Construction Methodology</h2>
+<pre><code>Step 1 — Document collection (Offline)
+  Selenium automation script → CMS internal DB login + PDF download
   OCR + layout parsing (Surya, Tesseract)
-  단순 PyPDF/PDFPlumber 미사용 (복잡 레이아웃에서 손실)
-  paragraph 단위 chunking
+  Plain PyPDF/PDFPlumber not used (loss on complex layouts)
+  chunking at paragraph granularity
 
-Step 2 — 임베딩 (DPR)
+Step 2 — Embedding (DPR)
   facebook/dpr-question_encoder-multiset-base
-  → 768-차원 벡터
-  Chroma DB 저장
+  → 768-dimensional vector
+  stored in Chroma DB
 
-Step 3 — 2-Tier 벡터 DB 구조
-  ┌─ Abstracts DB    : 모든 분석의 초록만
-  └─ Full-Text DB    : 분석별 chunked 전문
+Step 3 — 2-Tier vector DB structure
+  ┌─ Abstracts DB    : abstracts of all analyses only
+  └─ Full-Text DB    : chunked full text per analysis
 
-  쿼리 처리:
-    1) 첫 질문 → Abstracts DB에서 가장 가까운 분석 선택
-    2) 사용자가 분석 선택 확인 (human-in-the-loop)
-    3) 이후 모든 질문 → 해당 분석의 Full-Text DB만 검색
-       → cross-analysis confusion 방지
+  Query processing:
+    1) first question → select the closest analysis from the Abstracts DB
+    2) user confirms the analysis selection (human-in-the-loop)
+    3) all subsequent questions → search only that analysis's Full-Text DB
+       → prevents cross-analysis confusion
 
 Step 4 — Reranking (Cross-Encoder)
   cross-encoder/ms-marco-MiniLM-L-6-v2
-  Top-k (tunable) → rerank → 정렬
+  Top-k (tunable) → rerank → sort
 
 Step 5 — Generation (On-Premise)
   Mistral-7B 4-bit quantized (Ollama, LangChain)
-  명시적 prompt: &quot;ground answers strictly within retrieved context&quot;
+  explicit prompt: &quot;ground answers strictly within retrieved context&quot;
   HW: NVIDIA Tesla T4 (15GB VRAM)
   UI: Streamlit
 
-Step 6 — 평가 (전문가 설계 2 쿼리 세트)
-  Set 1: 정확 키워드 phrasing
-  Set 2: paraphrase / synonym (예: &quot;transverse momentum requirement&quot;
-                                ↔ 문서의 &quot;pT cut&quot;)
+Step 6 — Evaluation (2 expert-designed query sets)
+  Set 1: exact keyword phrasing
+  Set 2: paraphrase / synonym (e.g., &quot;transverse momentum requirement&quot;
+                                ↔ document's &quot;pT cut&quot;)
   Baselines: BM25 (Okapi)
   Metrics: P@1/3/5, R@1/3/5, MRR, NDCG@3/5
 </code></pre>
-<h2 id="input-입력">Input (입력)</h2>
+<h2 id="input">Input</h2>
 <ul>
-<li>사용자 자연어 질문 (Streamlit UI)</li>
-<li>첫 질의로 분석 선택 후 conversation 락온 (session-bound context)</li>
+<li>user natural-language question (Streamlit UI)</li>
+<li>after selecting an analysis with the first query, the conversation locks on (session-bound context)</li>
 </ul>
-<h2 id="output-출력">Output (출력)</h2>
+<h2 id="output">Output</h2>
 <ul>
-<li>검색된 passages + Mistral-7B가 생성한 cited 답변</li>
-<li>Out-of-context 질문에 대한 <strong>거절 능력</strong> (저자가 별도 정성 테스트)</li>
+<li>retrieved passages + a cited answer generated by Mistral-7B</li>
+<li><strong>refusal capability</strong> for out-of-context questions (the authors ran a separate qualitative test)</li>
 </ul>
-<h2 id="예시-문항-논문-본문-verbatim-인용">예시 문항 (논문 본문 verbatim 인용)</h2>
-<h3 id="cross-analysis-confusion-예시-sec-3-본문">📘 Cross-Analysis Confusion 예시 (Sec. 3 본문)</h3>
+<h2 id="example-items-verbatim-quotes-from-the-paper-body">Example items (verbatim quotes from the paper body)</h2>
+<h3 id="cross-analysis-confusion-example-sec-3-body">📘 Cross-Analysis Confusion example (Sec. 3 body)</h3>
 <blockquote>
 <p><strong>Q</strong>: &quot;What is the most important background?&quot;</p>
-<p>저자 분석: <em>&quot;will have a different, and potentially conflicting, answer for a Higgs to di-muon analysis versus a search for dark matter&quot;</em>
-→ 2-tier DB로 분석 컨텍스트를 락온함으로써 해결</p>
+<p>Authors' analysis: <em>&quot;will have a different, and potentially conflicting, answer for a Higgs to di-muon analysis versus a search for dark matter&quot;</em>
+→ resolved by locking on the analysis context with the 2-tier DB</p>
 </blockquote>
-<h3 id="set-2-semantic-query-sec-4-본문">📘 Set 2 Semantic Query (Sec. 4 본문)</h3>
+<h3 id="set-2-semantic-query-sec-4-body">📘 Set 2 Semantic Query (Sec. 4 body)</h3>
 <blockquote>
-<p><strong>Q (사용자 phrasing)</strong>: &quot;transverse momentum requirement&quot;</p>
-<p><strong>문서 내 표현</strong>: <code>&quot;pT cut&quot;</code></p>
-<p><strong>결과</strong>: BM25 P@1 = 0.13, MITRA P@1 = <strong>0.75</strong> (5.8× 향상)</p>
+<p><strong>Q (user phrasing)</strong>: &quot;transverse momentum requirement&quot;</p>
+<p><strong>expression in the document</strong>: <code>&quot;pT cut&quot;</code></p>
+<p><strong>result</strong>: BM25 P@1 = 0.13, MITRA P@1 = <strong>0.75</strong> (5.8× improvement)</p>
 </blockquote>
-<h3 id="out-of-context-거절-sec-4-정성-테스트-본문">📘 Out-of-Context 거절 (Sec. 4 정성 테스트 본문)</h3>
+<h3 id="out-of-context-refusal-sec-4-qualitative-test-body">📘 Out-of-Context refusal (Sec. 4 qualitative-test body)</h3>
 <blockquote>
-<p><strong>세션 컨텍스트</strong>: dark matter search 분석에 락온됨
+<p><strong>session context</strong>: locked on to a dark matter search analysis
 <strong>Q</strong>: &quot;How many Higgs bosons were discovered in this search?&quot;
-<strong>MITRA 응답 (저자 인용)</strong>: <em>&quot;it did not hallucinate an answer. Instead, it correctly inferred from the retrieved passages that the document was unrelated to Higgs bosons and informed the user that the analysis in question is a dark matter search.&quot;</em></p>
+<strong>MITRA response (authors' quote)</strong>: <em>&quot;it did not hallucinate an answer. Instead, it correctly inferred from the retrieved passages that the document was unrelated to Higgs bosons and informed the user that the analysis in question is a dark matter search.&quot;</em></p>
 </blockquote>
-<h2 id="주요-평가-결과-tables-1-2">주요 평가 결과 (Tables 1, 2)</h2>
+<h2 id="key-evaluation-results-tables-1-2">Key evaluation results (Tables 1, 2)</h2>
 <p><strong>Table 1 — Precision / Recall @k</strong></p>
 <table>
 <thead>
@@ -311,24 +311,24 @@ Step 6 — 평가 (전문가 설계 2 쿼리 세트)
 </tbody>
 </table>
 <blockquote>
-<p><strong>핵심 인사이트</strong>: Set 1(정확 키워드)에서는 BM25 = MITRA. Set 2(현실적 paraphrase)에서 MITRA가 압도. &quot;실사용자가 source document 정확 용어를 알고 검색하는 경우는 거의 없다&quot;는 저자 주장.</p>
+<p><strong>Key insight</strong>: On Set 1 (exact keywords), BM25 = MITRA. On Set 2 (realistic paraphrases), MITRA dominates. The authors argue that &quot;real users rarely know and search for the exact terminology of the source document.&quot;</p>
 </blockquote>
-<h2 id="한계점-저자-명시">한계점 (저자 명시)</h2>
+<h2 id="limitations-stated-by-the-authors">Limitations (stated by the authors)</h2>
 <ul>
-<li><strong>프로토타입 단계</strong> — CMS 협업 전체 배포 전, multiple document types로 확장 예정</li>
-<li>평가 쿼리 집합이 소규모 (전문가 설계 2세트)</li>
-<li><strong>검색 품질만 측정</strong>, LLM 답변의 faithfulness/relevancy LLM-as-judge 평가 미수행</li>
-<li>쿼리 latency·throughput 정량 벤치마크는 future work</li>
-<li>멀티턴 conversation, vLLM/llama.cpp 등 고성능 inference engine으로의 production 이전 예정</li>
-<li>다른 물리 협업(ATLAS의 chATLAS, ALICE 등) 외부 일반화 미검증</li>
+<li><strong>Prototype stage</strong> — before full CMS-collaboration deployment; planned expansion to multiple document types</li>
+<li>The evaluation query set is small (2 expert-designed sets)</li>
+<li><strong>Only retrieval quality is measured</strong>; LLM-as-judge evaluation of the LLM answers' faithfulness/relevancy was not performed</li>
+<li>Quantitative benchmarks of query latency and throughput are future work</li>
+<li>Multi-turn conversation and migration to production with high-performance inference engines such as vLLM/llama.cpp are planned</li>
+<li>Generalization to other physics collaborations (ATLAS's chATLAS, ALICE, etc.) is not validated</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://arxiv.org/abs/2603.09800">arXiv:2603.09800</a></li>
-<li><strong>수락</strong>: NeurIPS 2025 Machine Learning for Physical Sciences Workshop</li>
-<li><strong>저자 소속</strong>: University of Wisconsin-Madison (CMS Collaboration)</li>
-<li><strong>그랜트</strong>: U.S. DOE, Office of Science, DE-SC0017647</li>
-<li><strong>비교 시스템</strong>: chATLAS (ATLAS, GPT-4o-mini 기반 API 의존) ↔ MITRA (on-premise 4-bit Mistral-7B)</li>
+<li><strong>Paper</strong>: <a href="https://arxiv.org/abs/2603.09800">arXiv:2603.09800</a></li>
+<li><strong>Acceptance</strong>: NeurIPS 2025 Machine Learning for Physical Sciences Workshop</li>
+<li><strong>Author affiliation</strong>: University of Wisconsin-Madison (CMS Collaboration)</li>
+<li><strong>Grant</strong>: U.S. DOE, Office of Science, DE-SC0017647</li>
+<li><strong>Comparison system</strong>: chATLAS (ATLAS, GPT-4o-mini-based, API-dependent) ↔ MITRA (on-premise 4-bit Mistral-7B)</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/corr/abs-2603-09800)</a></p>
@@ -359,14 +359,14 @@ Step 6 — 평가 (전문가 설계 2 쿼리 세트)
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

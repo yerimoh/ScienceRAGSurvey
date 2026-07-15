@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>KEGG: Kyoto Encyclopedia of Genes and Genomes — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>KEGG: Kyoto Encyclopedia of Genes and Genomes, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,93 +121,93 @@
 <p>kanehisa2000kegg | 2000 | Nucleic Acids Research | dataset | [bio] | <a href="https://doi.org/10.1093/nar/28.1.27">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">KEGG (Kyoto Encyclopedia of Genes and Genomes)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">3개 핵심 데이터베이스 (GENES, PATHWAY, LIGAND) — 논문 기준 완전 해독된 전체 게놈의 유전자 카탈로그</td></tr>
-<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (무료 공개)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">3 core databases (GENES, PATHWAY, LIGAND) — a gene catalog of all completely sequenced genomes as of the paper</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (freely available)</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">KEGG API / FTP (http://www.genome.ad.jp/kegg/)</td></tr>
 </table>
 
 <blockquote>
 <p>Nucleic Acids Research | 2000 | dataset | bio</p>
-<h4>📌 한 줄 요약</h4>
-<p>게놈 정보와 고차원 기능 정보를 연결하는 생물정보학 지식 베이스로, GENES(유전자 카탈로그), PATHWAY(세포 경로), LIGAND(화합물 및 효소 반응) 세 데이터베이스로 구성된다.</p>
+<h4>📌 TL;DR</h4>
+<p>A bioinformatics knowledge base that links genomic information with higher-order functional information, composed of three databases: GENES (gene catalog), PATHWAY (cellular pathways), and LIGAND (chemical compounds and enzyme reactions).</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>유전체 서열 분석 프로젝트가 대량의 유전자 서열을 생산하지만, 이를 세포 수준의 기능과 연결하는 체계적 수단이 부족했다</li>
-<li>서열 정보와 대사 경로, 신호 전달 등 고차원 기능 정보 사이의 간극을 메울 통합 데이터베이스가 필요했다</li>
+<li>Genome sequencing projects produce large volumes of gene sequences, but a systematic means of linking them to cell-level functions was lacking</li>
+<li>An integrated database was needed to bridge the gap between sequence information and higher-order functional information such as metabolic pathways and signal transduction</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>완전 해독된 게놈의 유전자를 기능적 경로와 연결하는 체계적 분석 지원</li>
-<li>종간 기능 보존 경로(pathway motif)의 비교 분석 및 유전자 기능 예측 가능</li>
-<li>Java 기반 시각화 도구로 게놈 지도, 비교 게놈 분석, 발현 지도 탐색 지원</li>
+<li>Supports systematic analysis that links genes of completely sequenced genomes to functional pathways</li>
+<li>Enables comparative analysis of functionally conserved cross-species pathways (pathway motifs) and prediction of gene function</li>
+<li>Supports genome map exploration, comparative genome analysis, and expression map browsing through Java-based visualization tools</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>KEGG는 세 가지 핵심 데이터베이스로 구성된다: (1) <strong>GENES</strong> — 완전 해독된 모든 게놈의 유전자 카탈로그, 일일 갱신, (2) <strong>PATHWAY</strong> — 대사, 막 수송, 신호 전달, 세포 주기 등 세포 과정의 그래픽 표현, (3) <strong>LIGAND</strong> — 화합물, 효소 분자, 효소 반응 정보. 보존 서브경로(pathway motif) 정보는 직교 그룹 테이블로 제공된다.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>KEGG is composed of three core databases: (1) <strong>GENES</strong> — a gene catalog of all completely sequenced genomes, updated daily, (2) <strong>PATHWAY</strong> — graphical representations of cellular processes such as metabolism, membrane transport, signal transduction, and the cell cycle, (3) <strong>LIGAND</strong> — information on chemical compounds, enzyme molecules, and enzyme reactions. Conserved subpathway (pathway motif) information is provided as ortholog group tables.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>웹 인터페이스</td>
-  <td><a href="http://www.genome.ad.jp/kegg/">http://www.genome.ad.jp/kegg/</a> — 무료 브라우저 접근</td>
+  <td>Web interface</td>
+  <td><a href="http://www.genome.ad.jp/kegg/">http://www.genome.ad.jp/kegg/</a> — free browser access</td>
 </tr>
 <tr>
-  <td>Java 도구</td>
-  <td>게놈 지도 탐색, 게놈 비교, 발현 지도 조작</td>
+  <td>Java tools</td>
+  <td>Genome map exploration, genome comparison, expression map manipulation</td>
 </tr>
 <tr>
   <td>FTP</td>
-  <td>전체 데이터셋 다운로드</td>
+  <td>Full dataset download</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>유전자 카탈로그 (GENES 데이터베이스)</li>
-<li>경로 그래픽 표현 (PATHWAY 데이터베이스)</li>
-<li>화합물·효소·반응 정보 (LIGAND 데이터베이스)</li>
-<li>직교 그룹 테이블 (경로 모티프)</li>
+<li>Gene catalog (GENES database)</li>
+<li>Pathway graphical representations (PATHWAY database)</li>
+<li>Compound, enzyme, and reaction information (LIGAND database)</li>
+<li>Ortholog group tables (pathway motifs)</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (as reported in the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>수록 게놈</td>
-  <td>완전 해독된 전체 게놈 + 일부 부분 게놈</td>
+  <td>Genomes included</td>
+  <td>All completely sequenced genomes + some partial genomes</td>
 </tr>
 <tr>
-  <td>데이터 갱신</td>
-  <td>매일 업데이트</td>
+  <td>Data updates</td>
+  <td>Updated daily</td>
 </tr>
 <tr>
-  <td>주요 구성 요소</td>
-  <td>GENES, PATHWAY, LIGAND 3개 DB</td>
+  <td>Main components</td>
+  <td>3 DBs: GENES, PATHWAY, LIGAND</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>2000년 당시 기반 논문으로, 완전 해독된 게놈 수가 현재에 비해 매우 적었다</li>
-<li>세포 경로 정보는 수작업 큐레이션에 의존하여 신규 발견 경로의 반영 속도에 제한이 있다</li>
-<li>LIGAND 화합물 데이터베이스는 당시 효소 반응 중심으로 소분자 약물 정보가 제한적이었다</li>
+<li>As a foundational paper from 2000, the number of completely sequenced genomes was very small compared to the present</li>
+<li>Cellular pathway information relies on manual curation, which limits how quickly newly discovered pathways are incorporated</li>
+<li>The LIGAND compound database was centered on enzyme reactions at the time, so information on small-molecule drugs was limited</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/28.1.27">KEGG: kyoto encyclopedia of genes and genomes</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1093/nar/28.1.27">KEGG: kyoto encyclopedia of genes and genomes</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (kanehisa2000kegg)</a></p>
@@ -233,14 +233,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

@@ -10,29 +10,29 @@ paper_link: https://aclanthology.org/2024.bionlp-1.13/
 # KG-Rank: Knowledge-Graph + Ranking for Long-form Medical QA
 > BioNLP@ACL 2024 | Method | medical
 
-## 한 줄 요약
-KG-Rank는 의학 질문에서 의료 엔티티를 추출해 UMLS에서 one-hop 트리플(사실)을 가져온 뒤, IR의 ranking/re-ranking 기법(유사도·Answer Expansion·MMR·MedCPT 재랭킹)으로 가장 관련성 높은 사실만 추려 LLM에 주입함으로써, 파인튜닝 없이 장문(long-form) 의료 답변의 사실성·품질을 높이는 프레임워크다.
+## TL;DR
+KG-Rank is a framework that extracts medical entities from a medical question, retrieves one-hop triples (facts) from UMLS, and then uses IR ranking/re-ranking techniques (similarity, Answer Expansion, MMR, MedCPT re-ranking) to select only the most relevant facts and inject them into an LLM, thereby improving the factuality and quality of long-form medical answers without fine-tuning.
 
-## 시스템 구조 (KG-Rank Architecture)
-1. **의료 NER:** 프롬프트로 LLM이 질문에서 의료 엔티티를 추출, UMLS 엔티티로 매핑.
-2. **UMLS one-hop 검색:** 엔티티별 one-hop 관계 트리플 (e_i', r, e_j') 수집(한 엔티티가 수천 관계 → ranking 필수).
-3. **Ranking/Re-ranking(핵심):** UmlsBERT 임베딩으로 질문-트리플 정렬. 4가지 변형 — Similarity / Answer Expansion(가짜 답변 생성 후 [Q,A]로 검색) / MMR(관련성+다양성, 선택 수에 따라 다양성 페널티 증가) / Re-ranking(MedCPT cross-encoder).
-4. **장문 합성:** 상위 트리플 + task 프롬프트를 LLM에 주입해 free-text 답변 생성.
+## Architecture (KG-Rank Architecture)
+1. **Medical NER:** The LLM extracts medical entities from the question via a prompt and maps them to UMLS entities.
+2. **UMLS one-hop retrieval:** Collect one-hop relation triples (e_i', r, e_j') per entity (a single entity can have thousands of relations, so ranking is essential).
+3. **Ranking/Re-ranking (core):** Align questions and triples using UmlsBERT embeddings. Four variants — Similarity / Answer Expansion (generate a pseudo answer, then retrieve with [Q,A]) / MMR (relevance + diversity, with the diversity penalty increasing as more items are selected) / Re-ranking (MedCPT cross-encoder).
+4. **Long-form synthesis:** Inject the top triples plus a task prompt into the LLM to generate a free-text answer.
 
-## 동작 파이프라인 (inference)
-1. 질문 → 의료 엔티티 추출 → UMLS 매핑.
-2. one-hop 트리플 검색.
-3. Similarity/AE/MMR/Re-ranking으로 트리플 정렬.
-4. 상위 트리플 + 프롬프트 → LLM 장문 답변.
+## Pipeline (inference)
+1. Question → medical entity extraction → UMLS mapping.
+2. one-hop triple retrieval.
+3. Rank triples with Similarity/AE/MMR/Re-ranking.
+4. Top triples + prompt → LLM long-form answer.
 
-## 주요 결과
-백본 GPT-4 등, 데이터셋 ExpertQA-Bio/Med, LiveQA, MedicationQA. GPT-4 기준 Zero-Shot→KG-Rank ROUGE-L: ExpertQA-Bio 23.00→**27.20**, ExpertQA-Med 25.45→**28.08**, MedicationQA 14.41→**16.19**; BERTScore도 일관 향상. 일반 도메인(Law/Business/Music/History)에서도 ROUGE-L 향상으로 확장성 시사.
+## Key results
+Backbones include GPT-4 and others; datasets are ExpertQA-Bio/Med, LiveQA, and MedicationQA. On GPT-4, Zero-Shot→KG-Rank ROUGE-L: ExpertQA-Bio 23.00→**27.20**, ExpertQA-Med 25.45→**28.08**, MedicationQA 14.41→**16.19**; BERTScore also improves consistently. ROUGE-L improvements in general domains (Law/Business/Music/History) suggest extensibility.
 
-## 한계점
-- 사실성에 대한 physician 평가는 향후 과제(현재 미수행).
-- 의료 특화 base model 평가 부족.
-- ranking 단계가 추가 연산 시간 증가.
+## Limitations
+- Physician evaluation of factuality is future work (not yet performed).
+- Insufficient evaluation on medical-specialized base models.
+- The ranking step increases additional computation time.
 
-## 관련 정보
+## Related links
 - arXiv: 2403.05881 · BioNLP@ACL 2024 (Yang et al.)
-- 코드: https://github.com/YangRui525/KG-Rank · 소스 UMLS, 임베딩 UmlsBERT, 재랭커 MedCPT
+- Code: https://github.com/YangRui525/KG-Rank · source UMLS, embeddings UmlsBERT, re-ranker MedCPT

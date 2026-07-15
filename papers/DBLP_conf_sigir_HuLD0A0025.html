@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CG-RAG: Research Question Answering by Citation Graph Retrieval-Augmented LLMs — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>CG-RAG: Research Question Answering by Citation Graph Retrieval-Augmented LLMs, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,40 +117,40 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-cg-rag-architecture">시스템 구조 (CG-RAG Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l2"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#architecture-cg-rag-architecture">Architecture (CG-RAG Architecture)</a></li><li class="toc-l2"><a href="#pipeline-inference">Pipeline (inference)</a></li><li class="toc-l2"><a href="#key-results">Key Results</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>CG-RAG: Citation-Graph Retrieval-Augmented LLMs for Research QA</h1>
 <blockquote>
 <p>SIGIR 2025 | Method | general (scientific research)</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>연구 논문을 청크(chunk) 단위로 분해해 인용 관계로 연결한 계층적 인용 그래프(hierarchical citation graph)를 구축하고, sparse(어휘)·dense(의미) 신호를 그래프 위에서 얽힘 융합(entangled fusion)하는 검색기 <strong>LeSeGR</strong>를 제안하여, 검색된 근거 청크의 문맥 이웃까지 LLM에 제공해 grounded 답변을 생성하는 연구 QA 프레임워크.</p>
-<h2 id="시스템-구조-cg-rag-architecture">시스템 구조 (CG-RAG Architecture)</h2>
-<p>CG-RAG는 (1) 계층적 인용 그래프 구성, (2) LeSeGR 검색기, (3) 문맥 인지 답변 생성기의 세 부분으로 이루어진다.</p>
-<p><strong>계층적 인용 그래프 (논문 청크 노드 + 인용 엣지).</strong> 논문 본문은 related work / method / experiment 등 섹션마다 역할이 다른 이질적 정보를 담으므로, 논문 단위가 아니라 고정 길이 청크 단위로 분해한다(최대 청크 길이 8,192 토큰). 엣지는 두 종류다.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>A research QA framework that decomposes research papers into chunks and links them by citation relationships to build a hierarchical citation graph, and proposes the retriever <strong>LeSeGR</strong>, which performs entangled fusion of sparse (lexical) and dense (semantic) signals over the graph, so that the LLM is provided not only with retrieved evidence chunks but also with their contextual neighbors to generate grounded answers.</p>
+<h2 id="architecture-cg-rag-architecture">Architecture (CG-RAG Architecture)</h2>
+<p>CG-RAG consists of three parts: (1) hierarchical citation graph construction, (2) the LeSeGR retriever, and (3) the context-aware answer generator.</p>
+<p><strong>Hierarchical citation graph (paper chunk nodes + citation edges).</strong> Because the body of a paper contains heterogeneous information whose role differs by section, such as related work / method / experiment, it is decomposed not at the paper level but at the level of fixed-length chunks (maximum chunk length 8,192 tokens). There are two kinds of edges.</p>
 <ul>
-<li><strong>문서 내(intra-document) 엣지:</strong> 순차적 인접(adjacency)과 명시적 상호참조(cross-reference).</li>
-<li><strong>문서 간(inter-document) 엣지:</strong> 두 논문에 인용 관계가 있을 때, 한 청크에 대해 상대 논문에서 가장 관련 높은 Top-n 청크를 연결한다(관련도는 sparse·dense 점수의 합).</li>
+<li><strong>Intra-document edges:</strong> sequential adjacency and explicit cross-reference.</li>
+<li><strong>Inter-document edges:</strong> when two papers have a citation relationship, for a given chunk the Top-n most relevant chunks from the counterpart paper are connected (relevance is the sum of the sparse and dense scores).</li>
 </ul>
-<p><strong>LeSeGR (Lexical-Semantic Graph Retrieval) — sparse+dense의 그래프 상 통합.</strong> 기존 hybrid 검색이 두 신호를 검색 후 단순 결합(post-retrieval)하는 것과 달리, LeSeGR는 그래프 위상 안에서 두 신호를 얽어 융합한다.</p>
+<p><strong>LeSeGR (Lexical-Semantic Graph Retrieval) — integration of sparse+dense over the graph.</strong> Unlike existing hybrid retrieval that simply combines the two signals after retrieval (post-retrieval), LeSeGR entangles and fuses the two signals within the graph topology.</p>
 <ul>
-<li><strong>Sparse 신호:</strong> 질의–청크 어휘 관련도(코사인/내적).</li>
-<li><strong>Dense 신호:</strong> 청크 간 의미 유사도(MLP로 청크 임베딩 차이를 변환).</li>
-<li><strong>GNN 메시지 패싱:</strong> 각 층에서 &quot;질의-청크 sparse 점수 × 청크 간 dense 점수&quot; 곱이 메시지 흐름을 게이팅(gating)하여 관련 정보만 이웃으로 전파한다. K층을 거친 최종 얽힘 표현으로 모든 청크를 점수화한다.</li>
-<li><strong>이론적 일반성:</strong> 이웃이 없고 집계가 mean/sum이면 LeSeGR 점수가 &quot;log(sparse) + log(dense)&quot;로 환원되어, 기존 post-retrieval hybrid 융합이 LeSeGR의 특수 경우임을 보인다(그래프 DB로 hybrid 검색을 일반화).</li>
+<li><strong>Sparse signal:</strong> query–chunk lexical relevance (cosine/inner product).</li>
+<li><strong>Dense signal:</strong> semantic similarity between chunks (an MLP transforms the difference of chunk embeddings).</li>
+<li><strong>GNN message passing:</strong> at each layer, the product &quot;query–chunk sparse score × chunk-to-chunk dense score&quot; gates the message flow so that only relevant information propagates to neighbors. After K layers, all chunks are scored using the final entangled representation.</li>
+<li><strong>Theoretical generality:</strong> when there are no neighbors and aggregation is mean/sum, the LeSeGR score reduces to &quot;log(sparse) + log(dense)&quot;, showing that existing post-retrieval hybrid fusion is a special case of LeSeGR (generalizing hybrid retrieval to a graph DB).</li>
 </ul>
-<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
+<h2 id="pipeline-inference">Pipeline (inference)</h2>
 <ol>
-<li>계층적 인용 그래프 구성.</li>
-<li>sparse·dense 인코더로 질의·청크 인코딩, 질의-청크 어휘 관련도와 청크 간 의미 유사도 계산.</li>
-<li>K층 메시지 패싱으로 두 신호를 얽혀 전파, 최종 표현으로 청크 점수화.</li>
-<li><strong>서브그래프 검색:</strong> Top-N 청크와 그 문맥 이웃을 합쳐 유도 부분그래프를 추출.</li>
-<li><strong>grounded 생성:</strong> 각 문맥 서브그래프를 LLM이 요약한 뒤, 질의와 함께 최종 답변을 생성.</li>
+<li>Construct the hierarchical citation graph.</li>
+<li>Encode the query and chunks with the sparse and dense encoders, and compute query–chunk lexical relevance and chunk-to-chunk semantic similarity.</li>
+<li>Entangle and propagate the two signals through K layers of message passing, and score chunks with the final representation.</li>
+<li><strong>Subgraph retrieval:</strong> combine the Top-N chunks and their contextual neighbors to extract an induced subgraph.</li>
+<li><strong>Grounded generation:</strong> the LLM summarizes each contextual subgraph, then generates the final answer together with the query.</li>
 </ol>
-<p>구현: 생성 LLM은 GPT-4o(2024-05-13), sparse 신호 BGE-M3, dense 신호 MiniLM, 그래프 인코더는 2층·4헤드·은닉차원 1024의 Graph Transformer.</p>
-<h2 id="주요-결과">주요 결과</h2>
-<p><strong>데이터셋:</strong> PubMedQA-1k(QA 1,000쌍, 논문 7,849편), PapersWithCodeQA(질문 924개, 논문 12,171편).</p>
+<p>Implementation: the generation LLM is GPT-4o (2024-05-13), the sparse signal uses BGE-M3, the dense signal uses MiniLM, and the graph encoder is a Graph Transformer with 2 layers, 4 heads, and hidden dimension 1024.</p>
+<h2 id="key-results">Key Results</h2>
+<p><strong>Datasets:</strong> PubMedQA-1k (1,000 QA pairs, 7,849 papers), PapersWithCodeQA (924 questions, 12,171 papers).</p>
 <p>PapersWithCodeQA</p>
 <table>
 <thead>
@@ -186,7 +186,7 @@
 </tr>
 </tbody>
 </table>
-<p>PubMedQA — QA / 검색(Hit@1)</p>
+<p>PubMedQA — QA / retrieval (Hit@1)</p>
 <table>
 <thead>
 <tr>
@@ -217,14 +217,14 @@
 </tr>
 </tbody>
 </table>
-<p>효율(PapersWithCodeQA): LeSeGR는 GPU 메모리 1,921MB / 질의 지연 403.94ms로 ColBERT(12,674MB / 561.91ms)보다 메모리·지연 모두 우수. Ablation: 문맥 이웃 수 n=4가 최적, 그래프 인코더는 Graph Transformer &gt; GCN &gt; GAT.</p>
-<h2 id="한계점">한계점</h2>
-<p>논문에 명시적 Limitations 절은 없다. (요약자 주: 검증 도메인이 PubMed·PapersWithCode 두 과학 코퍼스에 한정, 생성에 GPT-4o API 의존, Top-n 등 그래프 구성 하이퍼파라미터 민감성은 ablation에서만 다룸.)</p>
-<h2 id="관련-정보">관련 정보</h2>
+<p>Efficiency (PapersWithCodeQA): LeSeGR, with 1,921MB of GPU memory / 403.94ms query latency, outperforms ColBERT (12,674MB / 561.91ms) in both memory and latency. Ablation: a contextual neighbor count of n=4 is optimal, and among graph encoders Graph Transformer &gt; GCN &gt; GAT.</p>
+<h2 id="limitations">Limitations</h2>
+<p>The paper has no explicit Limitations section. (Summarizer's note: the validation domains are limited to two scientific corpora, PubMed and PapersWithCode; generation relies on the GPT-4o API; and the sensitivity to graph-construction hyperparameters such as Top-n is addressed only in the ablation.)</p>
+<h2 id="related-links">Related links</h2>
 <ul>
 <li>arXiv: 2501.15067 (<a href="https://arxiv.org/abs/2501.15067">https://arxiv.org/abs/2501.15067</a>)</li>
 <li>DOI: <a href="https://doi.org/10.1145/3726302.3729920">https://doi.org/10.1145/3726302.3729920</a> (SIGIR 2025, pp. 678–687)</li>
-<li>저자: Yuntong Hu, Zhihan Lei, Zhongjie Dai, Allen Zhang, Abhinav Angirekula, Zhengwu Zhang, Liang Zhao</li>
+<li>Authors: Yuntong Hu, Zhihan Lei, Zhongjie Dai, Allen Zhang, Abhinav Angirekula, Zhengwu Zhang, Liang Zhao</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/sigir/HuLD0A0025)</a></p>
@@ -258,14 +258,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

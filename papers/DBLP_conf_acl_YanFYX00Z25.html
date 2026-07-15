@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SurveyForge: On the Outline Heuristics, Memory-Driven Generation, and Multi-dimensional Evaluation for Automated Survey Writing — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>SurveyForge: On the Outline Heuristics, Memory-Driven Generation, and Multi-dimensional Evaluation for Automated Survey Writing, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,34 +117,34 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-surveyforge-architecture">시스템 구조 (SurveyForge Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l2"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#architecture-surveyforge-architecture">Architecture (SurveyForge Architecture)</a></li><li class="toc-l2"><a href="#pipeline-inference">Pipeline (inference)</a></li><li class="toc-l2"><a href="#main-results">Main Results</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>SurveyForge: Outline-Heuristic, Memory-Driven Survey Generation</h1>
 <blockquote>
 <p>ACL 2025 | Method | general</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>SurveyForge는 인간이 쓴 서베이의 구조를 휴리스틱으로 학습해 개요를 생성하고, 메모리 기반 검색 에이전트(SANA)로 고품질 참고문헌을 확보한 뒤 섹션을 병렬 생성·정제해 자동으로 학술 서베이를 작성하는 프레임워크다.</p>
-<h2 id="시스템-구조-surveyforge-architecture">시스템 구조 (SurveyForge Architecture)</h2>
-<p>두 개의 지식 베이스를 사용한다: arXiv CS 약 600,000편(제목·초록)의 Research Paper DB와, 약 20,000편 리뷰에서 추출한 계층 개요의 Survey Outline DB.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>SurveyForge is a framework that automatically writes academic surveys: it heuristically learns the structure of human-written surveys to generate an outline, secures high-quality references with a memory-based retrieval agent (SANA), and then generates and refines sections in parallel.</p>
+<h2 id="architecture-surveyforge-architecture">Architecture (SurveyForge Architecture)</h2>
+<p>It uses two knowledge bases: a Research Paper DB of about 600,000 arXiv CS papers (titles and abstracts), and a Survey Outline DB of hierarchical outlines extracted from about 20,000 reviews.</p>
 <ul>
-<li><strong>(A) Outline Heuristics — 인간 서베이에서 구조 학습:</strong> 주제 T에 대해 관련 논문과 인간 서베이 개요를 함께 검색하고, 인간 개요를 데모로 제공해 1차 개요 생성 → 섹션별 재검색으로 2차 개요 생성 → 병합. (개요 품질: 휴리스틱 미사용 81.78 → 도메인 특화 개요 사용 86.67.)</li>
-<li><strong>(B) Memory-driven Scholar Navigation Agent (SANA):</strong> ① Memory for Sub-query(MS) — 메모리를 컨텍스트로 복잡 쿼리를 서브쿼리로 분해, ② Memory for Retrieval(MR) — 전체 DB 대신 개요 연관 메모리로 후보 검색(섹션 간 고립·중복 방지), ③ Temporal-aware Reranking(TRE) — 관련성·인용 영향력·최신성을 2년 버킷으로 균형 재랭킹.</li>
-<li><strong>섹션 생성:</strong> 재랭킹된 문헌으로 서브섹션을 병렬 생성 → 초안 결합 → LLM 정제로 중복 제거·통합.</li>
+<li><strong>(A) Outline Heuristics — learning structure from human surveys:</strong> For a topic T, it retrieves relevant papers together with human survey outlines, provides the human outlines as demonstrations to generate a first-pass outline → re-retrieves per section to generate a second-pass outline → merges them. (Outline quality: without heuristics 81.78 → with domain-specific outlines 86.67.)</li>
+<li><strong>(B) Memory-driven Scholar Navigation Agent (SANA):</strong> ① Memory for Sub-query (MS) — decomposes a complex query into sub-queries using memory as context, ② Memory for Retrieval (MR) — retrieves candidates from outline-associated memory rather than the entire DB (preventing cross-section isolation and duplication), ③ Temporal-aware Reranking (TRE) — balances relevance, citation influence, and recency via 2-year buckets for reranking.</li>
+<li><strong>Section generation:</strong> Generates subsections in parallel from the reranked literature → combines drafts → LLM refinement to remove duplication and integrate.</li>
 </ul>
-<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
+<h2 id="pipeline-inference">Pipeline (inference)</h2>
 <ol>
-<li>주제 입력 → 논문·인간 개요 검색.</li>
-<li>휴리스틱으로 1차 개요 → 섹션별 재검색 후 2차 개요 → 병합.</li>
-<li>SANA: 서브쿼리 분해(MS) → 메모리 기반 검색(MR) → 시간·인용·관련성 재랭킹(TRE).</li>
-<li>서브섹션 병렬 생성 → 결합 → 정제 → 최종 서베이.</li>
+<li>Topic input → retrieve papers and human outlines.</li>
+<li>First-pass outline via heuristics → re-retrieve per section for the second-pass outline → merge.</li>
+<li>SANA: sub-query decomposition (MS) → memory-based retrieval (MR) → temporal/citation/relevance reranking (TRE).</li>
+<li>Parallel subsection generation → combine → refine → final survey.</li>
 </ol>
 <ul>
-<li>효율(GPT-4o mini): 약 $0.43/서베이, 약 10분.</li>
+<li>Efficiency (GPT-4o mini): about $0.43/survey, about 10 minutes.</li>
 </ul>
-<h2 id="주요-결과">주요 결과</h2>
-<p>평가 벤치마크 <strong>SurveyBench</strong>(CS 10개 주제, 인간 서베이 ~100편), 지표 SAM-R/O/C.</p>
+<h2 id="main-results">Main Results</h2>
+<p>Evaluation benchmark <strong>SurveyBench</strong> (10 CS topics, ~100 human surveys), metrics SAM-R/O/C.</p>
 <table>
 <thead>
 <tr>
@@ -179,17 +179,17 @@
 </tr>
 </tbody>
 </table>
-<p>Win-rate(vs AutoSurvey): Outline 73~75%, Content 69~70%(PhD 20인 평가, Cohen's κ 0.65~0.72). Ablation: MR+MS+TRE가 최고(Reference Cov. 0.397).</p>
-<h2 id="한계점">한계점</h2>
+<p>Win-rate (vs AutoSurvey): Outline 73~75%, Content 69~70% (evaluated by 20 PhDs, Cohen's κ 0.65~0.72). Ablation: MR+MS+TRE is best (Reference Cov. 0.397).</p>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li>여러 출처 간 관계 분석·종합 능력이 부족(요약은 강하나 비교·진화 분석 약함).</li>
-<li>LLM 환각으로 부정확 인용·주장이 간헐 발생.</li>
-<li>인간 저자 특유의 비판적 사고·독창성 결여.</li>
+<li>Weak at analyzing and synthesizing relationships across multiple sources (strong at summarization but weak at comparative and evolutionary analysis).</li>
+<li>Inaccurate citations and claims occasionally arise due to LLM hallucination.</li>
+<li>Lacks the critical thinking and originality characteristic of human authors.</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
 <li>arXiv: 2503.04629 (<a href="https://arxiv.org/abs/2503.04629">https://arxiv.org/abs/2503.04629</a>) · ACL 2025</li>
-<li>코드: <a href="https://github.com/Alpha-Innovator/SurveyForge">https://github.com/Alpha-Innovator/SurveyForge</a> · 데이터 SurveyBench(HuggingFace U4R/SurveyBench)</li>
+<li>Code: <a href="https://github.com/Alpha-Innovator/SurveyForge">https://github.com/Alpha-Innovator/SurveyForge</a> · Data SurveyBench (HuggingFace U4R/SurveyBench)</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/acl/YanFYX00Z25)</a></p>
@@ -221,14 +221,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

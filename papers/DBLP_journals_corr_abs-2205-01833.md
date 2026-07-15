@@ -12,60 +12,60 @@ paper_link: https://arxiv.org/abs/2205.01833
 DBLP:journals/corr/abs-2205-01833 | 2022 | arXiv (CoRR) | dataset | [general] | [paper](https://arxiv.org/abs/2205.01833)
 
 **DB**: OpenAlex scholarly knowledge graph
-**DB size**: 209M works, 2,013M authors, 124K venues, 109K institutions, 65K concepts (2022년 논문 기준)
+**DB size**: 209M works, 2,013M authors, 124K venues, 109K institutions, 65K concepts (as of the 2022 paper)
 **DB Open/Private**: Open
 **Modality**: ['Text']
-**Retriever**: N/A (지식 소스 인프라)
+**Retriever**: N/A (knowledge-source infrastructure)
 **Eval Task**: N/A
 **Eval Metric**: N/A
 **Method Name**: OpenAlex REST API / Full data dump
 
 > arXiv (CoRR) | 2022 | dataset | general
-#### 📌 한 줄 요약
-Microsoft Academic Graph(MAG) 종료 이후의 공백을 메우기 위해 출시된 **완전 오픈** 학술 지식 그래프로, **2억 900만 개 저작물**, **20억 1,300만 명** 저자식별 데이터, **12만 4천 개** 저널·리포지토리, **10만 9천 개** 기관, **6만 5천 개** 개념을 웹 GUI·전체 데이터 덤프·REST API로 무료 제공한다.
+#### 📌 TL;DR
+A **fully-open** scholarly knowledge graph launched to fill the gap left after Microsoft Academic Graph (MAG) was discontinued, providing **209 million works**, **2.013 billion** author-identification records, **124 thousand** journals and repositories, **109 thousand** institutions, and **65 thousand** concepts free of charge through a web GUI, a full data dump, and a REST API.
 
-#### 🎯 개발/구축 배경
-**기존 인프라의 한계**
-- Microsoft Academic Graph(MAG)가 서비스 종료되면서 대규모 공개 학술 그래프 인프라가 사라짐
-- Scopus, Web of Science 등 상용 DB는 비용·접근 제한이 존재하여 오픈 대안의 필요성 증대
+#### 🎯 Background
+**Limitations of existing infrastructure**
+- The discontinuation of Microsoft Academic Graph (MAG) removed a large-scale public scholarly graph infrastructure
+- Commercial databases such as Scopus and Web of Science come with cost and access restrictions, increasing the need for an open alternative
 
-**이 시스템이 필요한 이유**
-- MAG를 대체하는 **완전 무료·완전 공개(fully-open)** 학술 지식 그래프 제공
-- Works·Authors·Venues·Institutions·Concepts 5개 엔티티 유형을 상호 연결된 그래프로 구조화
+**Why this system is needed**
+- Provides a **fully free, fully-open** scholarly knowledge graph to replace MAG
+- Structures the five entity types (Works, Authors, Venues, Institutions, Concepts) into an interconnected graph
 
-#### 🔨 시스템 구성
-Crossref(서지 메타데이터), PubMed(생의학 문헌), ORCID(저자 식별자), ROR(연구기관 레지스트리), MAG 레거시 데이터, Unpaywall(오픈 액세스 정보), OpenCitations(인용 데이터) 등 다수 소스를 통합하여 5개 엔티티(Works·Authors·Venues·Institutions·Concepts)를 구성. Wikidata 기반 계층적 다중 태그 분류기로 개념 태깅 자동화. CC BY 4.0 라이선스 적용.
+#### 🔨 Architecture
+Integrates numerous sources including Crossref (bibliographic metadata), PubMed (biomedical literature), ORCID (author identifiers), ROR (research organization registry), MAG legacy data, Unpaywall (open-access information), and OpenCitations (citation data) to construct five entities (Works, Authors, Venues, Institutions, Concepts). Concept tagging is automated with a Wikidata-based hierarchical multi-tag classifier. Licensed under CC BY 4.0.
 
-#### 📥 데이터 접근 방법
-| 방법 | 설명 |
+#### 📥 Access
+| Method | Description |
 |---|---|
-| 웹 기반 GUI | 브라우저에서 직접 탐색 |
-| 전체 데이터 덤프 | 전체 스냅샷 일괄 다운로드 |
-| REST API | 필터링·정렬·페이지네이션 지원 (JSON 응답) |
+| Web-based GUI | Explore directly in the browser |
+| Full data dump | Bulk download of the full snapshot |
+| REST API | Supports filtering, sorting, and pagination (JSON responses) |
 
-#### 📤 제공 데이터 형식
-- **Works**: 저널 논문, 도서 등 학술 저작물 메타데이터 (제목, 저자, 인용 등)
-- **Authors**: 중복 제거된 저자 식별자 및 프로필
-- **Venues**: 저널 및 온라인 리포지토리 정보
-- **Institutions**: ROR 연계 연구기관 레코드
-- **Concepts**: Wikidata 기반 계층적 주제 분류 (다중 태그)
-- 라이선스: CC BY 4.0 (상업적 활용 포함 자유 재사용)
+#### 📤 Data formats
+- **Works**: Metadata for scholarly works such as journal articles and books (title, authors, citations, etc.)
+- **Authors**: Deduplicated author identifiers and profiles
+- **Venues**: Information on journals and online repositories
+- **Institutions**: ROR-linked research organization records
+- **Concepts**: Wikidata-based hierarchical topic classification (multi-tag)
+- License: CC BY 4.0 (free reuse including commercial use)
 
-#### 📊 주요 통계 (논문 기준)
-| 항목 | 수치 |
+#### 📊 Key statistics (as reported in the paper)
+| Item | Value |
 |---|---|
-| Works (학술 저작물) | **209M** (2022년 기준) |
-| Authors (중복 제거) | **2,013M** (2022년 기준) |
-| Venues (저널·리포지토리) | **124K** (2022년 기준) |
-| Institutions (기관) | **109K** (2022년 기준) |
-| Concepts (주제 분류) | **65K** (2022년 기준) |
-| 라이선스 | CC BY 4.0 |
+| Works (scholarly works) | **209M** (as of 2022) |
+| Authors (deduplicated) | **2,013M** (as of 2022) |
+| Venues (journals/repositories) | **124K** (as of 2022) |
+| Institutions | **109K** (as of 2022) |
+| Concepts (topic classification) | **65K** (as of 2022) |
+| License | CC BY 4.0 |
 
-#### ⚠️ 한계점
-- 논문에서 "현재 활발히 개발 중(under active development)"임을 명시
-- 인용 정보의 정확도 및 커버리지 개선이 향후 과제로 기술
-- 저자 및 기관 파싱·중복 제거(parsing and deduplication)의 정확도 개선 필요
-- 분야별 커버리지 불균일 (이공계 위주로 강함)
+#### ⚠️ Limitations
+- The paper explicitly states that it is "under active development"
+- Improving the accuracy and coverage of citation information is described as future work
+- The accuracy of author and institution parsing and deduplication needs improvement
+- Coverage is uneven across fields (stronger in the STEM disciplines)
 
-## 관련 정보
-- **논문**: [https://arxiv.org/abs/2205.01833](https://arxiv.org/abs/2205.01833)
+## Related links
+- **Paper**: [https://arxiv.org/abs/2205.01833](https://arxiv.org/abs/2205.01833)

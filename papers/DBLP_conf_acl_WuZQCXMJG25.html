@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Medical Graph RAG: Towards Safe Medical Large Language Model via Graph Retrieval-Augmented Generation — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Medical Graph RAG: Towards Safe Medical Large Language Model via Graph Retrieval-Augmented Generation, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,7 +117,7 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#평가-셋업-논문-test-data-직접-인용">평가 셋업 (논문 §Test Data 직접 인용)</a></li><li class="toc-l2"><a href="#주요-평가-결과-논문-table-2-발췌">주요 평가 결과 (논문 Table 2 발췌)</a></li><li class="toc-l2"><a href="#ablation-3-tier-증분-영향-논문-fig3">Ablation (3-tier 증분 영향, 논문 Fig.3)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#how-it-was-built-construction-methodology">How It Was Built (Construction Methodology)</a></li><li class="toc-l2"><a href="#evaluation-setup-directly-quoted-from-the-papers-test-data">Evaluation Setup (directly quoted from the paper&#x27;s §Test Data)</a></li><li class="toc-l2"><a href="#key-evaluation-results-excerpted-from-the-papers-table-2">Key Evaluation Results (excerpted from the paper&#x27;s Table 2)</a></li><li class="toc-l2"><a href="#ablation-incremental-impact-of-the-3-tiers-paper-fig3">Ablation (incremental impact of the 3 tiers, paper Fig.3)</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related Links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>MedGraphRAG: Evidence-based Medical RAG via Triple Graph Construction + U-Retrieval</h1>
@@ -126,72 +126,72 @@
 Junde Wu, Jiayuan Zhu, Yunli Qi, Jingkun Chen, Min Xu, Filippo Menolascina, Yueming Jin, Vicente Grau — Univ. of Oxford / CMU / MBZUAI / Univ. of Edinburgh / NUS
 DBLP: <code>conf/acl/WuZQCXMJG25</code></p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>사용자 의료 문서 → 의학 문헌 → 의학 사전의 <strong>3-tier hierarchical graph</strong> 구조와 <strong>U-Retrieval</strong>(top-down 태그 매칭 + bottom-up 그래프 traversal)을 결합한 evidence-based 의료 RAG 프레임워크. <strong>9개 MultiMedQA MCQ + 2개 fact-verification + DiverseHealth (12개)</strong> 벤치마크에서 GraphRAG·MedRAG·NaiveRAG 등 베이스라인을 일관되게 능가.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>An evidence-based medical RAG framework that combines a <strong>3-tier hierarchical graph</strong> structure (user medical documents → medical literature → medical dictionary) with <strong>U-Retrieval</strong> (top-down tag matching + bottom-up graph traversal). It consistently outperforms baselines such as GraphRAG, MedRAG, and NaiveRAG on the <strong>9 MultiMedQA MCQ + 2 fact-verification + DiverseHealth (12 total)</strong> benchmarks.</p>
 <hr />
-<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
-<pre><code>Step 1 — Triple Graph Construction (3-tier 계층)
+<h2 id="how-it-was-built-construction-methodology">How It Was Built (Construction Methodology)</h2>
+<pre><code>Step 1 — Triple Graph Construction (3-tier hierarchy)
   ┌───────────────────────────────┐
-  │ Tier 1: User documents        │  ← 환자 기록·임상 노트 등
-  │ Tier 2: Medical literature    │  ← 논문·교과서 (MedC-K corpus)
+  │ Tier 1: User documents        │  ← patient records, clinical notes, etc.
+  │ Tier 2: Medical literature    │  ← papers, textbooks (MedC-K corpus)
   │ Tier 3: Medical dictionary    │  ← UMLS / Medical Dictionary
   └──────────────┬────────────────┘
                  │  hierarchical link
                  ▼
-  엔티티가 3-tier 그래프에 의미 단위로 연결됨
+  Entities are connected into the 3-tier graph as semantic units
 
 Step 2 — Tag-based clustering
-  유사 그래프들을 반복적으로 클러스터링
-  → broad-to-detail multi-layer hierarchical tag 구조 형성
+  Iteratively cluster similar graphs
+  → forms a broad-to-detail multi-layer hierarchical tag structure
 
-Step 3 — U-Retrieval (이름의 'U'자 형태)
-  ▼ Top-down 단계: LLM이 쿼리 태그 생성 → 태그 유사도로 그래프 인덱싱
-  ▲ Bottom-up 단계: 가장 관련성 높은 detailed 그래프부터 entity 단위로
-                   상위 broader 그래프까지 traversal
-  → 검색 효율과 응답 컨텍스트 폭을 동시에 확보
+Step 3 — U-Retrieval (named after the 'U' shape)
+  ▼ Top-down phase: LLM generates query tags → index graphs by tag similarity
+  ▲ Bottom-up phase: traverse from the most relevant detailed graph, entity by
+                   entity, up to the higher-level broader graphs
+  → simultaneously secures retrieval efficiency and breadth of response context
 
 Step 4 — Evidence-based response generation
-  검색된 의학 용어와 공식 정의를 함께 prompting
+  Prompt with the retrieved medical terms together with their official definitions
   → &quot;evidence-based responses and official medical term explanation&quot;
 </code></pre>
 <hr />
-<h2 id="평가-셋업-논문-test-data-직접-인용">평가 셋업 (논문 §Test Data 직접 인용)</h2>
+<h2 id="evaluation-setup-directly-quoted-from-the-papers-test-data">Evaluation Setup (directly quoted from the paper's §Test Data)</h2>
 <blockquote>
 <p>&quot;Our test set are the test split of <strong>9 multiple-choice biomedical datasets from the MultiMedQA suite</strong>, 2 fact verification datasets about public health, i.e., FakeHealth and PubHealth, and 1 test set we collected, called DiverseHealth.&quot;</p>
 </blockquote>
 <table>
 <thead>
 <tr>
-  <th>카테고리</th>
-  <th>데이터셋</th>
-  <th>비고</th>
+  <th>Category</th>
+  <th>Dataset</th>
+  <th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>MultiMedQA MCQ (9)</td>
   <td>MedQA, MedMCQA, PubMedQA, MMLU-Med (clinical knowledge / medical genetics / anatomy / college medicine / professional medicine / college biology), LiveQA, MedicationQA</td>
-  <td>정답 선택 정확도</td>
+  <td>Answer-selection accuracy</td>
 </tr>
 <tr>
   <td>Fact verification (2)</td>
   <td>FakeHealth, PubHealth</td>
-  <td>사실 검증</td>
+  <td>Fact verification</td>
 </tr>
 <tr>
   <td>In-house (1)</td>
   <td>DiverseHealth</td>
-  <td>일반 의학 광범위 커버</td>
+  <td>Broad coverage of general medicine</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="주요-평가-결과-논문-table-2-발췌">주요 평가 결과 (논문 Table 2 발췌)</h2>
+<h2 id="key-evaluation-results-excerpted-from-the-papers-table-2">Key Evaluation Results (excerpted from the paper's Table 2)</h2>
 <table>
 <thead>
 <tr>
-  <th>시스템</th>
-  <th>평균 MultiMedQA Acc. (대표 9 dataset)</th>
+  <th>System</th>
+  <th>Avg. MultiMedQA Acc. (representative 9 datasets)</th>
   <th>DiverseHealth Acc.</th>
 </tr>
 </thead>
@@ -223,14 +223,14 @@ Step 4 — Evidence-based response generation
 </tr>
 </tbody>
 </table>
-<p>→ Triple Graph + U-Retrieval 결합 시 단순 GraphRAG 대비 평균 +10%p 향상.</p>
+<p>→ Combining the Triple Graph + U-Retrieval yields an average +10%p improvement over plain GraphRAG.</p>
 <hr />
-<h2 id="ablation-3-tier-증분-영향-논문-fig3">Ablation (3-tier 증분 영향, 논문 Fig.3)</h2>
+<h2 id="ablation-incremental-impact-of-the-3-tiers-paper-fig3">Ablation (incremental impact of the 3 tiers, paper Fig.3)</h2>
 <table>
 <thead>
 <tr>
-  <th>추가된 tier</th>
-  <th>MCQ Acc. 증분</th>
+  <th>Tier added</th>
+  <th>MCQ Acc. increment</th>
 </tr>
 </thead>
 <tbody>
@@ -240,34 +240,34 @@ Step 4 — Evidence-based response generation
 </tr>
 <tr>
   <td>+ Medical literature (Tier 2)</td>
-  <td>+2% (단독)</td>
+  <td>+2% (alone)</td>
 </tr>
 <tr>
   <td>+ Medical dictionary (Tier 3)</td>
-  <td>+1% (단독)</td>
+  <td>+1% (alone)</td>
 </tr>
 <tr>
-  <td>세 tier 누적 + U-Retrieval</td>
+  <td>Three tiers accumulated + U-Retrieval</td>
   <td>+6~10%p</td>
 </tr>
 </tbody>
 </table>
-<p>핵심 발견: 데이터 누적 + 적절한 검색 방법이 함께 작동해야 full potential.</p>
+<p>Key finding: data accumulation + an appropriate retrieval method must work together to reach full potential.</p>
 <hr />
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li>UMLS / Medical Dictionary 어휘 범위 밖의 희귀·신흥 의학 용어 처리 제한</li>
-<li>3-tier 그래프 traversal cost가 높아 실시간 임상 응용 시 지연 발생 가능</li>
-<li>MedC-K 코퍼스 규모·구성 세부 사항이 논문에 충분히 기술되지 않음</li>
-<li>MultiMedQA의 일부 데이터셋은 LLM 학습 데이터와 중첩 가능성 존재</li>
+<li>Limited handling of rare and emerging medical terms outside the vocabulary coverage of UMLS / Medical Dictionary</li>
+<li>High 3-tier graph traversal cost, which may introduce latency in real-time clinical applications</li>
+<li>The scale and composition details of the MedC-K corpus are not sufficiently described in the paper</li>
+<li>Some MultiMedQA datasets may overlap with the LLM's training data</li>
 </ul>
 <hr />
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related Links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://aclanthology.org/2025.acl-long.1381/">ACL Anthology 2025.acl-long.1381</a></li>
+<li><strong>Paper</strong>: <a href="https://aclanthology.org/2025.acl-long.1381/">ACL Anthology 2025.acl-long.1381</a></li>
 <li><strong>DOI</strong>: <a href="https://doi.org/10.18653/v1/2025.acl-long.1381">10.18653/v1/2025.acl-long.1381</a></li>
 <li><strong>DBLP</strong>: <a href="https://dblp.org/rec/conf/acl/WuZQCXMJG25.html">conf/acl/WuZQCXMJG25</a></li>
-<li><strong>GitHub (저자 구현 추정)</strong>: <a href="https://github.com/MedicineToken/Medical-Graph-RAG">https://github.com/MedicineToken/Medical-Graph-RAG</a></li>
+<li><strong>GitHub (presumed author implementation)</strong>: <a href="https://github.com/MedicineToken/Medical-Graph-RAG">https://github.com/MedicineToken/Medical-Graph-RAG</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/acl/WuZQCXMJG25)</a></p>
@@ -309,14 +309,14 @@ Step 4 — Evidence-based response generation
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

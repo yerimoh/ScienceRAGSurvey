@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MIMIC-III, a freely accessible critical care database — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>MIMIC-III, a freely accessible critical care database, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -130,35 +130,35 @@
 <blockquote>
 <p>Scientific Data | 2016 | dataset | medical</p>
 </blockquote>
-<h4>📌 한 줄 요약</h4>
-<p>Beth Israel Deaconess Medical Center의 중환자실 입원 데이터를 포함한 대규모 단일 기관 임상 데이터베이스로, 활력징후·의약품·검사 결과·영상 보고서·임상 기록 등을 자유롭게 접근 가능하게 제공한다.</p>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>📌 TL;DR</h4>
+<p>A large-scale single-institution clinical database containing intensive care unit admission data from Beth Israel Deaconess Medical Center, providing freely accessible vital signs, medications, laboratory results, imaging reports, clinical notes, and more.</p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>임상 연구에 활용 가능한 공개 ICU 데이터베이스 부재</li>
-<li>기존 데이터는 병원 내부 아카이브에 묶여 있어 연구 접근 불가</li>
-<li>단편적 데이터셋은 규모가 작고 특정 연구 목적에 한정</li>
+<li>Absence of a public ICU database usable for clinical research</li>
+<li>Existing data is locked in hospital internal archives, inaccessible for research</li>
+<li>Fragmentary datasets are small in scale and limited to specific research purposes</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>학술·산업 연구, 품질 향상, 의학 교육을 위한 범용 플랫폼 필요</li>
-<li>ICU 환자의 임상 경과 및 치료 반응을 장기적으로 분석할 데이터 필요</li>
-<li>재현 가능한 임상 연구를 위한 표준화된 개방형 데이터 필요</li>
+<li>A general-purpose platform is needed for academic and industry research, quality improvement, and medical education</li>
+<li>Data is needed to analyze the clinical course and treatment response of ICU patients over the long term</li>
+<li>Standardized open data is needed for reproducible clinical research</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>Beth Israel Deaconess Medical Center ICU의 2001–2012년 데이터를 통합한 단일 기관 EHR 데이터베이스. 성인 환자 53,423건의 중환자실 입원과 신생아 7,870건을 포함하며, 38,597명의 고유 성인 환자 데이터를 수록. 활력징후, 의약품, 검사 측정값, care provider 차트 기록, 체액 균형, 시술 코드, 진단 코드, 영상 보고서, 재원 기간, 생존 데이터 등을 포함. ICU 재원 기간 중앙값 2.1일. PhysioNet을 통해 자격 증명 후 무료 접근 가능.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>A single-institution EHR database integrating 2001–2012 data from the Beth Israel Deaconess Medical Center ICU. It includes 53,423 ICU admissions of adult patients and 7,870 neonates, and records data on 38,597 distinct adult patients. It contains vital signs, medications, laboratory measurements, care provider chart records, fluid balance, procedure codes, diagnosis codes, imaging reports, length of stay, survival data, and more. The median ICU length of stay is 2.1 days. Free access is available through PhysioNet after credentialing.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>PhysioNet 포털</td>
-  <td><a href="https://physionet.org/content/mimiciii/">https://physionet.org/content/mimiciii/</a> — 자격 증명 후 무료 다운로드</td>
+  <td>PhysioNet portal</td>
+  <td><a href="https://physionet.org/content/mimiciii/">https://physionet.org/content/mimiciii/</a> — free download after credentialing</td>
 </tr>
 <tr>
   <td>DOI</td>
@@ -166,68 +166,68 @@
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>정형 테이블 (CSV): 활력징후, 검사 결과, 의약품, 청구 코드</li>
-<li>비정형 텍스트: 임상 노트, 영상 보고서, 퇴원 요약</li>
-<li>ICD-9 진단/시술 코드</li>
+<li>Structured tables (CSV): vital signs, laboratory results, medications, billing codes</li>
+<li>Unstructured text: clinical notes, imaging reports, discharge summaries</li>
+<li>ICD-9 diagnosis/procedure codes</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>성인 ICU 입원 건수</td>
+  <td>Adult ICU admissions</td>
   <td><strong>53,423</strong></td>
 </tr>
 <tr>
-  <td>고유 성인 환자 수</td>
+  <td>Distinct adult patients</td>
   <td><strong>38,597</strong></td>
 </tr>
 <tr>
-  <td>병원 입원 건수</td>
+  <td>Hospital admissions</td>
   <td><strong>49,785</strong></td>
 </tr>
 <tr>
-  <td>신생아 입원 건수</td>
+  <td>Neonatal admissions</td>
   <td><strong>7,870</strong></td>
 </tr>
 <tr>
-  <td>데이터 기간 (성인)</td>
+  <td>Data period (adults)</td>
   <td><strong>2001–2012</strong></td>
 </tr>
 <tr>
-  <td>성인 환자 중앙 연령</td>
-  <td><strong>65.8세</strong></td>
+  <td>Median adult patient age</td>
+  <td><strong>65.8 years</strong></td>
 </tr>
 <tr>
-  <td>남성 비율</td>
+  <td>Male proportion</td>
   <td><strong>55.9%</strong></td>
 </tr>
 <tr>
-  <td>원내 사망률</td>
+  <td>In-hospital mortality</td>
   <td><strong>11.5%</strong></td>
 </tr>
 <tr>
-  <td>ICU 재원 기간 중앙값</td>
-  <td><strong>2.1일</strong></td>
+  <td>Median ICU length of stay</td>
+  <td><strong>2.1 days</strong></td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>단일 기관(BIDMC) 데이터로 일반화 제한</li>
-<li>접근에 자격 증명 절차 필요 (완전 개방 아님)</li>
-<li>ICD-9 코드 기반으로 최신 코딩 체계와 불일치</li>
+<li>Single-institution (BIDMC) data limits generalizability</li>
+<li>Access requires a credentialing process (not fully open)</li>
+<li>Based on ICD-9 codes, which are inconsistent with the latest coding systems</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1038/sdata.2016.35">MIMIC-III, a freely accessible critical care database</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1038/sdata.2016.35">MIMIC-III, a freely accessible critical care database</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (johnson2016mimic)</a></p>
@@ -253,14 +253,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

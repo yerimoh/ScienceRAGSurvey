@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AutoSurvey: Large Language Models Can Automatically Write Surveys — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>AutoSurvey: Large Language Models Can Automatically Write Surveys, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,37 +117,37 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-autosurvey-architecture">시스템 구조 (AutoSurvey Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l2"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#architecture-autosurvey-architecture">Architecture (AutoSurvey Architecture)</a></li><li class="toc-l2"><a href="#pipeline-inference">Pipeline (inference)</a></li><li class="toc-l2"><a href="#key-results">Key results</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>AutoSurvey: Automatic Survey Writing with LLMs</h1>
 <blockquote>
 <p>NeurIPS 2024 | Method | general</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>AutoSurvey는 (1) 검색 → (2) 개요 생성 → (3) 병렬 섹션 초안 → (4) 인용 인지 통합·정제의 4단계 파이프라인으로, LLM의 컨텍스트 한계와 전문성 부족을 우회해 종합적 학술 서베이를 자동 작성하는 시스템이다.</p>
-<h2 id="시스템-구조-autosurvey-architecture">시스템 구조 (AutoSurvey Architecture)</h2>
+<h2 id="tldr">TL;DR</h2>
+<p>AutoSurvey is a system that automatically writes comprehensive academic surveys through a four-stage pipeline of (1) retrieval → (2) outline generation → (3) parallel section drafting → (4) citation-aware integration and refinement, circumventing the LLM's context limitations and lack of expertise.</p>
+<h2 id="architecture-autosurvey-architecture">Architecture (AutoSurvey Architecture)</h2>
 <ul>
-<li><strong>검색(Retrieval):</strong> RAG 방식. arXiv CS 논문 약 530,000편을 코퍼스로 두고, <code>nomic-embed-text-v1.5</code>로 각 논문 제목·초록을 임베딩해 유사도로 랭킹. 초기 1,200편, 서브섹션 단계에서 설명별 60편 검색.</li>
-<li><strong>개요(outline) 생성:</strong> 초기 검색 논문을 30,000 토큰 청크로 나눠 청크별 개요를 만든 뒤 병합. 섹션 수는 8개로 고정.</li>
-<li><strong>병렬 섹션 초안:</strong> 작성 LLM은 Claude-3-Haiku(속도·비용). 개요에 따라 각 서브섹션을 병렬 생성하며 참조 논문을 인용.</li>
-<li><strong>통합·정제(Integration &amp; Refinement):</strong> 인용을 추출해 arXiv 논문에 매핑, 앞뒤 섹션 문맥을 고려해 중복 제거·가독성 향상·인용 정확성 점검.</li>
-<li><strong>평가용 LLM judge:</strong> GPT-4·Claude-3-Haiku·Gemini-1.5-Pro 조합으로 후보 서베이를 평가해 최고본 선택(N=2).</li>
+<li><strong>Retrieval:</strong> RAG approach. Using a corpus of about 530,000 arXiv CS papers, each paper's title and abstract is embedded with <code>nomic-embed-text-v1.5</code> and ranked by similarity. 1,200 papers initially, and 60 papers per description at the subsection stage.</li>
+<li><strong>Outline generation:</strong> The initially retrieved papers are split into 30,000-token chunks, a per-chunk outline is created, and then merged. The number of sections is fixed at 8.</li>
+<li><strong>Parallel section drafting:</strong> The writing LLM is Claude-3-Haiku (speed and cost). Each subsection is generated in parallel according to the outline, citing reference papers.</li>
+<li><strong>Integration &amp; Refinement:</strong> Citations are extracted and mapped to arXiv papers, and considering the context of the preceding and following sections, redundancy is removed, readability is improved, and citation accuracy is checked.</li>
+<li><strong>Evaluation LLM judge:</strong> Candidate surveys are evaluated with a combination of GPT-4, Claude-3-Haiku, and Gemini-1.5-Pro to select the best version (N=2).</li>
 </ul>
-<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
+<h2 id="pipeline-inference">Pipeline (inference)</h2>
 <ol>
-<li>주제 입력.</li>
-<li>초기 검색(1,200편) + 청크별 개요 생성 → 병합 → 8개 섹션 개요 확정.</li>
-<li>서브섹션별 60편 추가 검색 → Claude-3-Haiku가 병렬 초안 작성(인용 포함).</li>
-<li>인용 추출·매핑 → 섹션 정제(중복 제거, 인용 점검).</li>
-<li>Multi-LLM-as-Judge 평가 → 후보 중 최고 서베이 선택.</li>
+<li>Topic input.</li>
+<li>Initial retrieval (1,200 papers) + per-chunk outline generation → merge → finalize the 8-section outline.</li>
+<li>60 additional papers retrieved per subsection → Claude-3-Haiku writes parallel drafts (including citations).</li>
+<li>Citation extraction and mapping → section refinement (redundancy removal, citation check).</li>
+<li>Multi-LLM-as-Judge evaluation → select the best survey among candidates.</li>
 </ol>
-<h2 id="주요-결과">주요 결과</h2>
+<h2 id="key-results">Key results</h2>
 <p><strong>Citation Quality (64k tokens)</strong></p>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
+  <th>Method</th>
   <th>Recall(%)</th>
   <th>Precision(%)</th>
 </tr>
@@ -170,19 +170,19 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Content Quality (64k, 5점)</strong>: AutoSurvey Coverage 4.73 / Structure 4.33 / Relevance 4.86 (Human 5.00 / 4.66 / 5.00).
-<strong>속도</strong>: AutoSurvey 73.6 surveys/hour vs Human 0.07. 도메인 지식 문제 정확도 직접 답변 대비 +9.2%.</p>
-<h2 id="한계점">한계점</h2>
+<p><strong>Content Quality (64k, 5-point)</strong>: AutoSurvey Coverage 4.73 / Structure 4.33 / Relevance 4.86 (Human 5.00 / 4.66 / 5.00).
+<strong>Speed</strong>: AutoSurvey 73.6 surveys/hour vs Human 0.07. Domain-knowledge question accuracy +9.2% over direct answering.</p>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li>인용 recall·content 품질이 인간에 약간 못 미침(특히 recall·structure).</li>
-<li>섹션 수 8개 고정으로 구조 유연성 제한.</li>
-<li>검색 코퍼스가 arXiv CS 약 530K편에 한정(도메인 일반화 미검증).</li>
-<li>초기 단계는 초록만, 초안 단계는 본문 앞부분(~1,500 토큰)만 사용.</li>
+<li>Citation recall and content quality fall slightly short of humans (especially recall and structure).</li>
+<li>Fixing the number of sections at 8 limits structural flexibility.</li>
+<li>The retrieval corpus is limited to about 530K arXiv CS papers (domain generalization unverified).</li>
+<li>The initial stage uses only abstracts, and the drafting stage uses only the front part of the body text (~1,500 tokens).</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
 <li>arXiv: 2406.10252 (<a href="https://arxiv.org/abs/2406.10252">https://arxiv.org/abs/2406.10252</a>) · NeurIPS 2024</li>
-<li>작성 LLM Claude-3-Haiku / 평가 LLM GPT-4·Claude-3-Haiku·Gemini-1.5-Pro / 임베딩 nomic-embed-text-v1.5</li>
+<li>Writing LLM Claude-3-Haiku / evaluation LLMs GPT-4, Claude-3-Haiku, Gemini-1.5-Pro / embedding nomic-embed-text-v1.5</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/nips/WangGYZZ0ZD0W0Z24)</a></p>
@@ -213,14 +213,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

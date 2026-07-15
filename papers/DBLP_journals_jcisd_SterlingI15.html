@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ZINC15: Ligand Discovery for Everyone — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>ZINC15: Ligand Discovery for Everyone, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,7 +121,7 @@
 <p>DBLP:journals/jcisd/SterlingI15 | 2015 | Journal of Chemical Information and Modeling | dataset | [chem] | <a href="https://doi.org/10.1021/acs.jcim.5b00559">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">ZINC15</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">120M+ 구매 가능 drug-like 화합물</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">120M+ purchasable drug-like compounds</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Structured</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">ZINC15 web interface (zinc15.docking.org)</td></tr>
@@ -129,77 +129,77 @@
 
 <blockquote>
 <p>Journal of Chemical Information and Modeling | 2015 | dataset | chem</p>
-<h4>📌 한 줄 요약</h4>
-<p>ZINC15는 1억 2천만 개 이상의 구매 가능한 drug-like 화합물을 포함하며, 대사산물·약물·천연물 등 고가치 화합물과의 연결, 유전자 및 타겟 클래스별 접근, 비전문가 친화적 분석 도구를 통합하였다.</p>
+<h4>📌 TL;DR</h4>
+<p>ZINC15 contains more than 120 million purchasable drug-like compounds, and integrates links to high-value compounds such as metabolites, drugs, and natural products, access organized by gene and target class, and analysis tools that are friendly to non-experts.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>이전 ZINC 버전은 계산 전문가 중심이어서 생물학자가 활용하기 어려웠음</li>
-<li>화합물-타겟 연결 및 생물학적 주석이 부족했음
-<strong>이 시스템이 필요한 이유</strong></li>
-<li>비전문가도 리간드 발견에 활용 가능한 통합 플랫폼 필요</li>
-<li>화합물을 유전자, 타겟 클래스, 생물학적 활성과 연결하는 주석 체계 구축</li>
+<li>Earlier ZINC versions were centered on computational experts, making them difficult for biologists to use</li>
+<li>Compound-target links and biological annotations were lacking
+<strong>Why this system is needed</strong></li>
+<li>An integrated platform that even non-experts can use for ligand discovery is needed</li>
+<li>Build an annotation scheme that links compounds to genes, target classes, and biological activity</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>약 1억 2천만 개의 구매 가능 drug-like 화합물(4분의 1은 즉시 배송 가능)을 3D ready-to-dock 포맷으로 제공한다. 대사산물, 승인 약물, 천연물, 문헌 주석 화합물 등 고가치 화합물과 연결. 유전자 및 주요·부수 타겟 클래스별 접근 기능. 리간드 주석·구매 가능성·타겟·생물학 연결 도구 통합.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>It provides about 120 million purchasable drug-like compounds (a quarter of which are available for immediate delivery) in a 3D ready-to-dock format. Links to high-value compounds such as metabolites, approved drugs, natural products, and literature-annotated compounds. Access functionality organized by gene and by major and minor target classes. Integration of tools for ligand annotation, purchasability, targets, and biology links.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>웹 인터페이스</td>
-  <td>zinc15.docking.org 검색·분석</td>
+  <td>Web interface</td>
+  <td>Search and analysis at zinc15.docking.org</td>
 </tr>
 <tr>
-  <td>서브셋 다운로드</td>
-  <td>유전자/타겟별, 성질별 필터링 후 다운로드</td>
+  <td>Subset download</td>
+  <td>Filter by gene/target and by property, then download</td>
 </tr>
 <tr>
-  <td>3D 포맷</td>
-  <td>모든 분자를 ready-to-dock 형태로 제공</td>
+  <td>3D format</td>
+  <td>All molecules provided in ready-to-dock form</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>3D 구조 (ready-to-dock, MOL2, SDF)</li>
+<li>3D structures (ready-to-dock, MOL2, SDF)</li>
 <li>SMILES</li>
-<li>생물학적 활성 주석</li>
-<li>타겟-화합물 매핑</li>
+<li>Biological activity annotations</li>
+<li>Target-compound mappings</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>구매 가능 drug-like 화합물</td>
+  <td>Purchasable drug-like compounds</td>
   <td>120M+</td>
 </tr>
 <tr>
-  <td>즉시 배송 가능 화합물</td>
-  <td>~25% (약 30M)</td>
+  <td>Compounds available for immediate delivery</td>
+  <td>~25% (about 30M)</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>카탈로그 기반이므로 실제 구매 가능성은 지속적 업데이트 필요</li>
-<li>일부 타겟-화합물 주석은 계산 예측에 기반</li>
+<li>Because it is catalog-based, actual purchasability requires continuous updates</li>
+<li>Some target-compound annotations are based on computational prediction</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1021/acs.jcim.5b00559">ZINC 15 - Ligand Discovery for Everyone</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1021/acs.jcim.5b00559">ZINC 15 - Ligand Discovery for Everyone</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/jcisd/SterlingI15)</a></p>
@@ -230,14 +230,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

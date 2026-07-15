@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Open Catalyst 2020 (OC20) Dataset and Community Challenges — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>The Open Catalyst 2020 (OC20) Dataset and Community Challenges, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,106 +121,106 @@
 <p>DBLP:journals/corr/abs-2010-09990 | 2020 | ACS Catalysis | dataset | [material] | <a href="https://arxiv.org/abs/2010.09990">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">Open Catalyst 2020 (OC20)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">1,281,040 DFT relaxations (~264,890,000 single point evaluations, 논문 기준)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">1,281,040 DFT relaxations (~264,890,000 single point evaluations, per the paper)</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
-<tr><td class="prop-key">Eval Task</td><td class="prop-val">IS2RE (초기 → 이완 에너지), S2EF (구조 → 에너지·힘), IS2RS (초기 → 이완 구조)</td></tr>
+<tr><td class="prop-key">Eval Task</td><td class="prop-val">IS2RE (initial → relaxed energy), S2EF (structure → energy/forces), IS2RS (initial → relaxed structure)</td></tr>
 <tr><td class="prop-key">Eval Metric</td><td class="prop-val">MAE, EwT (Energy within Threshold), Force MAE</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">OC20 Dataset, Open Catalyst Project (opencatalystproject.org)</td></tr>
 </table>
 
 <blockquote>
 <p>ACS Catalysis | 2020/2021 | dataset | material</p>
-<h4>📌 한 줄 요약</h4>
-<p>Facebook AI Research(현 Meta)와 Carnegie Mellon University가 공개한 태양연료·장기에너지저장·재생비료 합성 등에 쓰이는 촉매 발견을 위한 128만 건의 DFT 이완 계산 데이터셋으로, 머신러닝 잠재력 함수 개발을 위한 커뮤니티 벤치마크를 제공한다.</p>
+<h4>📌 TL;DR</h4>
+<p>A dataset of 1.28 million DFT relaxation calculations released by Facebook AI Research (now Meta) and Carnegie Mellon University for catalyst discovery used in applications such as solar fuels, long-term energy storage, and renewable fertilizer synthesis; it provides a community benchmark for developing machine-learning potential functions.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>전산 촉매 분야에서 ML 모델 훈련에 필요한 데이터셋 규모가 관련 분야보다 현저히 작음</li>
-<li>태양 연료, 재생 암모니아 합성, 장기 에너지 저장용 촉매 발견을 가속화할 체계적 데이터 필요</li>
-<li>표면 조성·흡착 분자 다양성 모두를 커버하는 범용 ML 모델 개발을 위한 대규모 벤치마크 부재</li>
+<li>In computational catalysis, the dataset scale needed for training ML models is markedly smaller than in related fields</li>
+<li>A systematic dataset is needed to accelerate the discovery of catalysts for solar fuels, renewable ammonia synthesis, and long-term energy storage</li>
+<li>There is no large-scale benchmark for developing general-purpose ML models that cover both surface composition and adsorbate-molecule diversity</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>질소·탄소·산소 화학계에서의 광범위한 재료 표면과 흡착 분자를 체계적으로 포함</li>
-<li>훈련/검증/테스트 분할 사전 정의로 재현 가능한 ML 모델 개발 기반 마련</li>
-<li>공개 리더보드를 통한 커뮤니티 기여 촉진</li>
+<li>Systematically includes a broad range of material surfaces and adsorbate molecules across nitrogen/carbon/oxygen chemistries</li>
+<li>Establishes a foundation for reproducible ML model development through predefined train/validation/test splits</li>
+<li>Promotes community contributions through a public leaderboard</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>DFT 기반 구조 이완(VASP, RPBE 범함수) 계산으로 촉매 표면의 흡착 에너지 및 원자 힘을 생성한다. 다양한 bulk 재료, 표면 밀러 지수, 흡착 분자(N, C, O 화학계)를 체계적으로 결합하여 광범위한 화학 공간을 커버한다. GNN 기반 베이스라인(CGCNN, SchNet, DimeNet++)과 함께 제공된다.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>DFT-based structural relaxation (VASP, RPBE functional) calculations generate adsorption energies and atomic forces for catalyst surfaces. It covers a broad chemical space by systematically combining diverse bulk materials, surface Miller indices, and adsorbate molecules (N, C, O chemistries). It is provided together with GNN-based baselines (CGCNN, SchNet, DimeNet++).</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>공식 웹사이트</td>
-  <td>opencatalystproject.org — 데이터 다운로드</td>
+  <td>Official website</td>
+  <td>opencatalystproject.org — data download</td>
 </tr>
 <tr>
   <td>GitHub</td>
-  <td>github.com/Open-Catalyst-Project/ocp — 코드 및 베이스라인</td>
+  <td>github.com/Open-Catalyst-Project/ocp — code and baselines</td>
 </tr>
 <tr>
-  <td>리더보드</td>
-  <td>공개 벤치마크 리더보드</td>
+  <td>Leaderboard</td>
+  <td>public benchmark leaderboard</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>DFT 이완 궤적 (초기~최종 구조, 각 단계 에너지·힘)</li>
-<li>흡착 에너지 (eV)</li>
-<li>원자 힘 (eV/Å)</li>
-<li>표면 슬랩 구조 (ASE Atoms 형식)</li>
+<li>DFT relaxation trajectories (initial to final structures, energy/forces at each step)</li>
+<li>Adsorption energy (eV)</li>
+<li>Atomic forces (eV/Å)</li>
+<li>Surface slab structures (ASE Atoms format)</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>총 DFT 이완 계산</td>
+  <td>Total DFT relaxations</td>
   <td><strong>1,281,040</strong></td>
 </tr>
 <tr>
-  <td>단일점 에너지 계산</td>
+  <td>Single point energy calculations</td>
   <td><strong>~264,890,000</strong></td>
 </tr>
 <tr>
-  <td>화학계</td>
-  <td>질소(N), 탄소(C), 산소(O) 화학</td>
+  <td>Chemistry</td>
+  <td>nitrogen (N), carbon (C), oxygen (O) chemistry</td>
 </tr>
 <tr>
-  <td>중심 태스크</td>
-  <td>3개 (IS2RE, S2EF, IS2RS)</td>
+  <td>Core tasks</td>
+  <td>3 (IS2RE, S2EF, IS2RS)</td>
 </tr>
 <tr>
-  <td>베이스라인 GNN</td>
+  <td>Baseline GNNs</td>
   <td>CGCNN, SchNet, DimeNet++</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>질소·탄소·산소 화학계로 범위 한정 (산화물 촉매는 OC22에서 확장)</li>
-<li>RPBE 범함수 사용으로 실험값과 체계적 오차 존재</li>
-<li>용매·전해질 효과 미포함 (기상 흡착 조건만 고려)</li>
-<li>ML 모델 크기에 대한 상한이 확인되지 않아 더 큰 모델이 더 좋은 성능 달성 가능성</li>
+<li>Scope limited to nitrogen/carbon/oxygen chemistries (oxide catalysts are expanded in OC22)</li>
+<li>Systematic errors relative to experimental values due to the use of the RPBE functional</li>
+<li>Solvent/electrolyte effects not included (only gas-phase adsorption conditions considered)</li>
+<li>No upper bound on ML model size has been established, so larger models may achieve better performance</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://arxiv.org/abs/2010.09990">The Open Catalyst 2020 (OC20) Dataset (arXiv:2010.09990)</a></li>
-<li><strong>출판 버전</strong>: <a href="https://doi.org/10.1021/acscatal.0c04525">ACS Catalysis, 2021, DOI:10.1021/acscatal.0c04525</a></li>
+<li><strong>Paper</strong>: <a href="https://arxiv.org/abs/2010.09990">The Open Catalyst 2020 (OC20) Dataset (arXiv:2010.09990)</a></li>
+<li><strong>Published version</strong>: <a href="https://doi.org/10.1021/acscatal.0c04525">ACS Catalysis, 2021, DOI:10.1021/acscatal.0c04525</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:journals/corr/abs-2010-09990)</a></p>
@@ -265,14 +265,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

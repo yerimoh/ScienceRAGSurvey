@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MIMIC-IV, a freely accessible electronic health record dataset — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>MIMIC-IV, a freely accessible electronic health record dataset, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,7 +121,7 @@
 <p>johnson2023mimic | 2023 | Scientific Data | dataset | [medical] | <a href="https://doi.org/10.1038/s41597-022-01899-x">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">MIMIC-IV (Medical Information Mart for Intensive Care IV)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">431,231 병원 입원; 180,733 고유 환자; ICU 입원 73,181건; 기간 2008–2019</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">431,231 hospital admissions; 180,733 unique patients; 73,181 ICU stays; period 2008–2019</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (credentialed access via PhysioNet)</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text, Structured Table (EHR)</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">PhysioNet / MIMIC-IV portal</td></tr>
@@ -130,35 +130,35 @@
 <blockquote>
 <p>Scientific Data | 2023 | dataset | medical</p>
 </blockquote>
-<h4>📌 한 줄 요약</h4>
-<p>Beth Israel Deaconess Medical Center의 전자의무기록에서 추출한 2008–2019년 데이터를 기반으로, 환자 측정값·처방·진단·처치·치료·비식별 임상 노트를 포함하는 공개 EHR 데이터베이스.</p>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>📌 TL;DR</h4>
+<p>A public EHR database built from electronic health records at Beth Israel Deaconess Medical Center covering 2008–2019, containing patient measurements, prescriptions, diagnoses, procedures, treatments, and de-identified clinical notes.</p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>MIMIC-III는 2001–2012년 데이터로 노후화; 현대 임상 관행 반영 불가</li>
-<li>기존 공개 데이터셋은 단일 모달리티(임상 관찰)에 한정</li>
-<li>연구자 접근성 장벽이 높아 임상 연구 속도 저하</li>
+<li>MIMIC-III uses 2001–2012 data and is outdated; it cannot reflect modern clinical practice</li>
+<li>Existing public datasets are limited to a single modality (clinical observations)</li>
+<li>High barriers to researcher access slow down clinical research</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>현대 디지털 의료 환경(2008–2019)을 반영하는 최신 EHR 데이터 필요</li>
-<li>전자 의약품 투여 기록 등 새로운 정밀 디지털 정보원 통합</li>
-<li>광범위한 연구 및 교육 활용을 위한 개방형 플랫폼 필요</li>
+<li>A need for up-to-date EHR data reflecting the modern digital healthcare environment (2008–2019)</li>
+<li>Integration of new, precise digital information sources such as electronic medication administration records</li>
+<li>A need for an open platform for broad research and educational use</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>BIDMC의 2008–2019년 EHR 데이터를 모듈화 구조로 제공. 병원 입원 431,231건(고유 환자 180,733명), ICU 입원 73,181건(고유 환자 50,920명)을 포함. 환자 측정값, 주문, 진단, 처치, 치료, 비식별 자유형식 임상 노트 제공. 병원 모듈과 ICU 모듈로 분리된 스키마 구조.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>Provides BIDMC's 2008–2019 EHR data in a modular structure. Includes 431,231 hospital admissions (180,733 unique patients) and 73,181 ICU stays (50,920 unique patients). Provides patient measurements, orders, diagnoses, procedures, treatments, and de-identified free-text clinical notes. A schema structure separated into a hospital module and an ICU module.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>PhysioNet 포털</td>
-  <td><a href="https://physionet.org/content/mimiciv/">https://physionet.org/content/mimiciv/</a> — 자격 증명 후 무료 다운로드</td>
+  <td>PhysioNet portal</td>
+  <td><a href="https://physionet.org/content/mimiciv/">https://physionet.org/content/mimiciv/</a> — free download after credentialing</td>
 </tr>
 <tr>
   <td>DOI</td>
@@ -166,64 +166,64 @@
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>정형 테이블 (CSV): 활력징후, 검사 결과, 의약품, 처치 코드</li>
-<li>비정형 텍스트: 비식별 임상 노트 (퇴원 요약, 방사선 보고서)</li>
-<li>ICD-10 진단/시술 코드 (MIMIC-III 대비 업그레이드)</li>
+<li>Structured tables (CSV): vital signs, lab results, medications, procedure codes</li>
+<li>Unstructured text: de-identified clinical notes (discharge summaries, radiology reports)</li>
+<li>ICD-10 diagnosis/procedure codes (an upgrade relative to MIMIC-III)</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>병원 입원 건수</td>
+  <td>Hospital admissions</td>
   <td><strong>431,231</strong></td>
 </tr>
 <tr>
-  <td>고유 환자 수 (병원)</td>
+  <td>Unique patients (hospital)</td>
   <td><strong>180,733</strong></td>
 </tr>
 <tr>
-  <td>ICU 입원 건수</td>
+  <td>ICU stays</td>
   <td><strong>73,181</strong></td>
 </tr>
 <tr>
-  <td>고유 환자 수 (ICU)</td>
+  <td>Unique patients (ICU)</td>
   <td><strong>50,920</strong></td>
 </tr>
 <tr>
-  <td>데이터 기간</td>
+  <td>Data period</td>
   <td><strong>2008–2019</strong></td>
 </tr>
 <tr>
-  <td>평균 연령 (병원)</td>
-  <td><strong>58.8세 (SD 19.2)</strong></td>
+  <td>Mean age (hospital)</td>
+  <td><strong>58.8 years (SD 19.2)</strong></td>
 </tr>
 <tr>
-  <td>평균 연령 (ICU)</td>
-  <td><strong>64.7세 (SD 16.9)</strong></td>
+  <td>Mean age (ICU)</td>
+  <td><strong>64.7 years (SD 16.9)</strong></td>
 </tr>
 <tr>
-  <td>여성 비율 (병원)</td>
+  <td>Proportion female (hospital)</td>
   <td><strong>52.2%</strong></td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>단일 기관(BIDMC) 데이터로 일반화 제한</li>
-<li>접근에 자격 증명 절차 필요</li>
-<li>임상 노트는 비식별화로 일부 정보 손실</li>
+<li>Single-institution (BIDMC) data limits generalizability</li>
+<li>Access requires a credentialing process</li>
+<li>De-identification of clinical notes causes some information loss</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1038/s41597-022-01899-x">MIMIC-IV, a freely accessible electronic health record dataset</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1038/s41597-022-01899-x">MIMIC-IV, a freely accessible electronic health record dataset</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (johnson2023mimic)</a></p>
@@ -249,14 +249,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

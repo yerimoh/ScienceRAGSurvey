@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FactSage: Thermochemical software and databases — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>FactSage: Thermochemical software and databases, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -120,110 +120,110 @@
       <h1>FactSage</h1>
 <p>factsage | 1976 | GTT-Technologies/CRCT (Commercial Software) | dataset | [material] | <a href="https://www.factsage.com">website</a></p>
 <table class="prop-table">
-<tr><td class="prop-key">DB</td><td class="prop-val">FactSage 내장 열화학 데이터베이스 (순수 물질 FACT-Pure-Substances DB + 다성분 용융 상 FToxid, FTstel, FTsalt 등 솔루션 데이터베이스)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">~60,000개 화합물 및 다수의 다성분 용융 상 파라미터 세트 (공개 수치 제한적)</td></tr>
-<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Subscription (상용 라이선스; 학술 및 무료 기본 버전 존재)</td></tr>
+<tr><td class="prop-key">DB</td><td class="prop-val">FactSage built-in thermochemical databases (pure-substance FACT-Pure-Substances DB + multicomponent molten-phase solution databases such as FToxid, FTstel, FTsalt)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">~60,000 compounds and numerous multicomponent molten-phase parameter sets (published figures are limited)</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Subscription (commercial license; academic and free basic versions exist)</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Tabular</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">FactSage (GTT-Technologies / CRCT)</td></tr>
 </table>
 
 <blockquote>
 <p>GTT-Technologies/CRCT | 1976 | dataset | material</p>
-<h4>📌 한 줄 요약</h4>
-<p>GTT-Technologies(독일)와 캐나다 CRCT(Polytechnique Montréal)가 공동 개발·유지하는 열화학 소프트웨어로, 야금·유리·세라믹·핵연료 공정에서 다성분 고온 반응의 CALPHAD 기반 상평형과 깁스 에너지 최소화를 계산하며, 철강·비철 야금 산업이 의존하는 가장 포괄적인 열역학 데이터베이스를 내장하고 있다.</p>
+<h4>📌 TL;DR</h4>
+<p>A thermochemical software jointly developed and maintained by GTT-Technologies (Germany) and Canada's CRCT (Polytechnique Montréal). It computes CALPHAD-based phase equilibria and Gibbs energy minimization for multicomponent high-temperature reactions in metallurgical, glass, ceramic, and nuclear-fuel processes, and it embeds the most comprehensive thermodynamic databases that the ferrous and non-ferrous metallurgy industries rely on.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 열역학 계산 도구의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing thermodynamic computation tools</strong></p>
 <ul>
-<li>단순 이성분·삼성분 합금 시스템은 수동으로 계산 가능하나 다성분 슬래그·합금 시스템(Fe-Cr-Ni-O-S-...)은 전용 CALPHAD 데이터베이스 없이 계산 불가</li>
-<li>JANAF 같은 순수 성분 데이터는 다성분 혼합물의 용융 상거동을 기술하지 못함</li>
+<li>Simple binary and ternary alloy systems can be computed by hand, but multicomponent slag and alloy systems (Fe-Cr-Ni-O-S-...) cannot be computed without a dedicated CALPHAD database</li>
+<li>Pure-component data like JANAF cannot describe the molten-phase behavior of multicomponent mixtures</li>
 </ul>
-<p><strong>FactSage의 위치</strong></p>
+<p><strong>FactSage's position</strong></p>
 <ul>
-<li>CALPHAD 방법론의 산업 표준: 용융 합금, 슬래그, 용융 염의 비이상 용액 거동을 Modified Quasichemical Model(MQM) 등으로 기술</li>
-<li>철강(FTstel), 산화물 슬래그(FToxid), 핵연료(FTnucl), 용융 염(FTsalt) 등 20개 이상의 전용 솔루션 데이터베이스</li>
-<li>철강·알루미늄·구리 제련, 유리 제조, 원자로 핵연료 거동 예측에 산업 표준</li>
+<li>The industry standard for CALPHAD methodology: describes the non-ideal solution behavior of molten alloys, slags, and molten salts using models such as the Modified Quasichemical Model (MQM)</li>
+<li>More than 20 dedicated solution databases, including steel (FTstel), oxide slags (FToxid), nuclear fuel (FTnucl), and molten salts (FTsalt)</li>
+<li>The industry standard for steel, aluminum, and copper smelting, glass manufacturing, and predicting reactor nuclear-fuel behavior</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
+<h4>🔨 Architecture</h4>
 <ul>
-<li><strong>FACT-Pure-Substances Database</strong>: ~60,000 화합물의 열역학 데이터 (H, S, Cp, 상전이 엔탈피)</li>
-<li><strong>Solution Databases</strong>: FToxid (산화물), FTstel (강철), FTsalt (용융 염), FTnucl (핵연료) 등</li>
-<li><strong>CALPHAD 엔진</strong>: Gibbs energy minimization 기반 상평형 계산 (EquiliB, Phase Diagram 모듈)</li>
-<li><strong>공정 시뮬레이션</strong>: 반응로 시뮬레이션(Reaction Web), 혼합 계산</li>
+<li><strong>FACT-Pure-Substances Database</strong>: thermodynamic data for ~60,000 compounds (H, S, Cp, phase-transition enthalpies)</li>
+<li><strong>Solution Databases</strong>: FToxid (oxides), FTstel (steel), FTsalt (molten salts), FTnucl (nuclear fuel), and others</li>
+<li><strong>CALPHAD engine</strong>: Gibbs energy minimization-based phase-equilibrium computation (EquiliB, Phase Diagram modules)</li>
+<li><strong>Process simulation</strong>: reactor simulation (Reaction Web), mixing computation</li>
 </ul>
-<h4>📥 데이터 접근 방법</h4>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>FactSage GUI</td>
-  <td>윈도우 기반 모듈 인터페이스</td>
+  <td>Windows-based modular interface</td>
 </tr>
 <tr>
-  <td>FactSage Web (제한적)</td>
-  <td>기본 계산 접근 (일부 기능 무료 제공)</td>
+  <td>FactSage Web (limited)</td>
+  <td>Access to basic computations (some features offered free)</td>
 </tr>
 <tr>
-  <td>ChemSheet/Matlab 연동</td>
-  <td>Excel ChemSheet 또는 MATLAB 통한 배치 계산</td>
+  <td>ChemSheet/Matlab integration</td>
+  <td>Batch computation via Excel ChemSheet or MATLAB</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>상평형 결과: 안정 상 목록, 조성 (mol%)</li>
-<li>깁스 에너지 함수 값, 화학 포텐셜</li>
-<li>상다이어그램 (binary/ternary/pseudo-binary)</li>
-<li>물성값: 밀도, 점도 (일부 데이터베이스)</li>
+<li>Phase-equilibrium results: list of stable phases, compositions (mol%)</li>
+<li>Gibbs energy function values, chemical potentials</li>
+<li>Phase diagrams (binary/ternary/pseudo-binary)</li>
+<li>Physical properties: density, viscosity (in some databases)</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>FACT 프로젝트 시작</td>
-  <td>~1976 (F<em>A</em>C*T 프로젝트)</td>
+  <td>FACT project start</td>
+  <td>~1976 (F<em>A</em>C*T project)</td>
 </tr>
 <tr>
-  <td>내장 화합물 수 (Pure-Substances)</td>
+  <td>Built-in compound count (Pure-Substances)</td>
   <td>~60,000</td>
 </tr>
 <tr>
-  <td>솔루션 데이터베이스 수</td>
-  <td>20개 이상 (FToxid, FTstel, FTsalt 등)</td>
+  <td>Number of solution databases</td>
+  <td>More than 20 (FToxid, FTstel, FTsalt, etc.)</td>
 </tr>
 <tr>
-  <td>개발 기관</td>
-  <td>GTT-Technologies(독일) + CRCT, Polytechnique Montréal(캐나다)</td>
+  <td>Developing institutions</td>
+  <td>GTT-Technologies (Germany) + CRCT, Polytechnique Montréal (Canada)</td>
 </tr>
 <tr>
-  <td>공개 데이터베이스 규모</td>
-  <td>비공개 (상용 라이선스)</td>
+  <td>Public database size</td>
+  <td>Not public (commercial license)</td>
 </tr>
 </tbody>
 </table>
-<p><strong>NOTE</strong>: <code>factsage</code> 항목은 references.bib에 bib 엔트리가 존재하지 않음 (누락된 인용).</p>
-<h4>⚠️ 한계점</h4>
+<p><strong>NOTE</strong>: The <code>factsage</code> entry has no bib entry in references.bib (missing citation).</p>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>CALPHAD 솔루션 데이터베이스는 수십 년간 축적된 실험 데이터를 기반으로 하지만 파라미터 출처가 완전히 공개되지 않음</li>
-<li>내장 데이터베이스는 소프트웨어 외부에서 직접 접근·질의 불가 (RAG 통합 불가)</li>
-<li>특정 합금계나 신소재의 경우 검증된 CALPHAD 파라미터가 없어 외삽 오류 발생 가능</li>
+<li>The CALPHAD solution databases are based on decades of accumulated experimental data, but the provenance of the parameters is not fully disclosed</li>
+<li>The built-in databases cannot be directly accessed or queried from outside the software (RAG integration is not possible)</li>
+<li>For certain alloy systems or novel materials, validated CALPHAD parameters may be unavailable, which can cause extrapolation errors</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>웹사이트</strong>: <a href="https://www.factsage.com">FactSage</a></li>
-<li><strong>K4 분류</strong>: Embedded in software — 야금·고온화학 tacit knowledge(CALPHAD 솔루션 파라미터)가 소프트웨어 데이터베이스에 내장됨</li>
-<li><strong>BIB 상태</strong>: references.bib에 bib 엔트리 없음 — 추가 필요</li>
+<li><strong>Website</strong>: <a href="https://www.factsage.com">FactSage</a></li>
+<li><strong>K4 classification</strong>: Embedded in software — metallurgical and high-temperature-chemistry tacit knowledge (CALPHAD solution parameters) is embedded in the software's databases</li>
+<li><strong>BIB status</strong>: No bib entry in references.bib — needs to be added</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (factsage)</a></p>
@@ -244,14 +244,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

@@ -13,29 +13,29 @@ paper_link: https://doi.org/10.1093/bioinformatics/btaa274
 > Anna Breit, Simon Ott, Asan Agibetov, Matthias Samwald — Medical University of Vienna
 > DOI: [10.1093/bioinformatics/btaa274](https://doi.org/10.1093/bioinformatics/btaa274) · DBLP: `journals/bioinformatics/BreitOAS20`
 
-## 한 줄 요약
-**Biomedical knowledge graph (KG) link prediction**을 위한 **표준 benchmark framework**. **7 node types × 30 edge types**, 4-tier quality cutoff (high/medium/low/all), **leakage-controlled train-test split** (symmetric reverse edge / inverse relation / super-relation 제거), **typed negative sampling** 으로 task난이도 조절. PyKEEN 인터페이스로 다양한 embedding 모델 비교 가능. **Hits@K / MRR / ROC-AUC / PR-AUC** 표준 metric 제공.
+## TL;DR
+A **standard benchmark framework** for **biomedical knowledge graph (KG) link prediction**. **7 node types × 30 edge types**, a 4-tier quality cutoff (high/medium/low/all), a **leakage-controlled train-test split** (removing symmetric reverse edges / inverse relations / super-relations), and **typed negative sampling** to tune task difficulty. Allows comparison across various embedding models through the PyKEEN interface. Provides standard metrics: **Hits@K / MRR / ROC-AUC / PR-AUC**.
 
 ---
 
-## 어떻게 만들었나 (Construction Methodology)
+## Construction Methodology
 
 ```
-Step 1 — 문제 인식: 기존 link prediction benchmark의 약점
+Step 1 — Problem recognition: weaknesses of existing link prediction benchmarks
   ┌──────────────────────────────────────────────┐
   │ FB15K (Freebase), WN18 (WordNet), UMLS:      │
-  │  · train-test leakage (역방향 edge 등)        │
-  │  · 단일 도메인 / hierarchical taxonomy       │
-  │  · 생의학 특유 heterogeneity 미반영          │
-  │ → 생의학 graph는 7+ node × 30+ relation       │
-  │   typed structure 필요                       │
+  │  · train-test leakage (reverse edges, etc.)   │
+  │  · single domain / hierarchical taxonomy     │
+  │  · biomedical-specific heterogeneity unmodeled│
+  │ → biomedical graphs need a 7+ node × 30+      │
+  │   relation typed structure                    │
   └──────────────────────────────────────────────┘
 
 Step 2 — Graph creation module
   ┌──────────────────────────────────────────────┐
-  │ Source databases (예시):                      │
+  │ Source databases (examples):                  │
   │  · UniProt, DrugBank, KEGG, Reactome,        │
-  │    DisGeNET, OMIM, STITCH, GO 등              │
+  │    DisGeNET, OMIM, STITCH, GO, etc.           │
   │ Output: 7 node types × 30 edge types graph  │
   │   - Gene / Protein / Drug / Disease /        │
   │     Anatomy / Phenotype / GO term            │
@@ -44,22 +44,22 @@ Step 2 — Graph creation module
   └──────────────────────────────────────────────┘
 
 Step 3 — Quality cutoff (4-tier)
-  · all      : 모든 confidence 포함 (noisy)
+  · all      : includes all confidence levels (noisy)
   · low      : low confidence filter
   · medium   : medium confidence filter
   · high     : high confidence only (smallest, cleanest)
-  → 사용자가 task 난이도 선택
+  → user selects task difficulty
 
-Step 4 — Train-test split module (핵심 contribution)
+Step 4 — Train-test split module (core contribution)
   ┌──────────────────────────────────────────────┐
-  │ Robustness 보장:                              │
+  │ Robustness guarantees:                        │
   │  · Test entities must appear in train        │
-  │  · Reverse edges of symmetric relations     │
-  │    제거 (e.g., gene-gene interaction)        │
-  │  · Inverse relation 제거                     │
+  │  · Remove reverse edges of symmetric          │
+  │    relations (e.g., gene-gene interaction)   │
+  │  · Remove inverse relations                  │
   │    (e.g., drug-target vs target-drug)        │
-  │  · Super-relation 제거 (subsumption)         │
-  │ Split type: random 또는 time-slice          │
+  │  · Remove super-relations (subsumption)      │
+  │ Split type: random or time-slice            │
   └──────────────────────────────────────────────┘
 
 Step 5 — Negative sampling
@@ -69,16 +69,16 @@ Step 5 — Negative sampling
     explicit negatives
 
 Step 6 — Training + Evaluation module
-  · External libraries 지원 (PyKEEN 인터페이스)
+  · Supports external libraries (PyKEEN interface)
   · Metrics: Hits@K, MRR, ROC-AUC, PR-AUC
-  · Baseline 결과 제공 (TransE, ComplEx, RotatE 등)
+  · Provides baseline results (TransE, ComplEx, RotatE, etc.)
 ```
 
 ---
 
-## 실제 데이터 형식 예시 (논문 §2 + Figure 1)
+## Example of Actual Data Format (paper §2 + Figure 1)
 
-### 유형 A — Triple format (head, relation, tail)
+### Type A — Triple format (head, relation, tail)
 
 > ```
 > (Drug:Aspirin, drug_treats_disease, Disease:Headache)
@@ -87,21 +87,21 @@ Step 6 — Training + Evaluation module
 > (Gene:BRCA1, gene_expressed_in_anatomy, Anatomy:Breast)
 > ```
 >
-> **Node types** (7개): Gene, Protein, Drug, Disease, Anatomy, Phenotype, GO term
+> **Node types** (7 total): Gene, Protein, Drug, Disease, Anatomy, Phenotype, GO term
 
-### 유형 B — Quality-filtered subset
+### Type B — Quality-filtered subset
 
 > ```
 > High-quality subset:
->   · 노이즈 최소화 (high-confidence edge만)
+>   · minimized noise (high-confidence edges only)
 >   · Smaller graph, faster training
 > All subset:
->   · 전체 (most challenging, noisiest)
+>   · full set (most challenging, noisiest)
 >   · Larger graph, realistic
-> 사용자 task: 'OpenBioLink_HQ' vs 'OpenBioLink_All'
+> User task: 'OpenBioLink_HQ' vs 'OpenBioLink_All'
 > ```
 
-### 유형 C — Leakage-controlled split protocol
+### Type C — Leakage-controlled split protocol
 
 > ```
 > ┌──────────────────────────────────────────────┐
@@ -119,10 +119,10 @@ Step 6 — Training + Evaluation module
 > │   - Test (A, R, B) present →                  │
 > │     remove (A, R_super, B) from train         │
 > └──────────────────────────────────────────────┘
-> → "trivially inferred" edges 제거
+> → remove "trivially inferred" edges
 > ```
 
-### 유형 D — Evaluation metric protocol
+### Type D — Evaluation metric protocol
 
 > ```
 > For each test triple (h, r, t):
@@ -140,7 +140,7 @@ Step 6 — Training + Evaluation module
 
 ---
 
-## 평가 framework 요약
+## Evaluation Framework Summary
 
 | Dimension | Options |
 |---|---|
@@ -151,38 +151,38 @@ Step 6 — Training + Evaluation module
 | **Edge type filter** | exclude specific relation types |
 | **Negatives** | from-source / typed-random |
 | **Metrics** | Hits@K / MRR / ROC-AUC / PR-AUC |
-| **Models** | PyKEEN 라이브러리 호환 (TransE, ComplEx, RotatE, etc.) |
+| **Models** | PyKEEN library compatible (TransE, ComplEx, RotatE, etc.) |
 
 ---
 
-## 주요 활용 (논문 + 후속)
+## Main Uses (paper + follow-up)
 
-| 항목 | 내용 |
+| Item | Content |
 |---|---|
-| 표준 biomedical KG benchmark | FB15K-237 / WN18RR의 생의학 대응품 |
-| Leakage 통제 | KG embedding 평가의 fair comparison |
-| PyKEEN 통합 | 다양한 embedding 모델 빠른 비교 |
-| Bioinformatics application note | 짧은 (~2 페이지) 형식, 코드/데이터 강조 |
-| 후속 작업 | OGB-biokg (Hu 2020 NeurIPS), CLADD/MedGraphRAG의 사용 substrate |
+| Standard biomedical KG benchmark | Biomedical counterpart to FB15K-237 / WN18RR |
+| Leakage control | fair comparison for KG embedding evaluation |
+| PyKEEN integration | fast comparison across various embedding models |
+| Bioinformatics application note | short (~2 page) format, emphasizes code/data |
+| Follow-up work | substrate used by OGB-biokg (Hu 2020 NeurIPS), CLADD/MedGraphRAG |
 
 ---
 
-## 한계점
-- **Static dataset**: 데이터 update 시 leaderboard 재계산 필요
-- **Source DB 의존**: UniProt/DrugBank 등의 라이센스 / coverage 제약
-- **Confidence cutoff 임의성**: 4-tier 분류 기준이 source-specific
-- **2020 cutoff**: 최신 DrugBank / DisGeNET 업데이트 미반영
-- **English-only / public DB만**: 폐쇄 (UpToDate 등) 미커버
-- **Edge type sparsity**: 일부 type은 sample 수 적음
-- **Limited expressiveness**: 단순 (h,r,t) 구조 → 시간/조건 정보 없음
+## Limitations
+- **Static dataset**: leaderboard must be recomputed when data is updated
+- **Source DB dependence**: license / coverage constraints from UniProt/DrugBank, etc.
+- **Arbitrariness of confidence cutoff**: 4-tier classification criteria are source-specific
+- **2020 cutoff**: latest DrugBank / DisGeNET updates not reflected
+- **English-only / public DBs only**: closed sources (UpToDate, etc.) not covered
+- **Edge type sparsity**: some types have few samples
+- **Limited expressiveness**: simple (h,r,t) structure → no temporal/conditional information
 
 ---
 
-## 관련 정보
-- **논문 (Bioinformatics)**: [10.1093/bioinformatics/btaa274](https://doi.org/10.1093/bioinformatics/btaa274)
+## Related links
+- **Paper (Bioinformatics)**: [10.1093/bioinformatics/btaa274](https://doi.org/10.1093/bioinformatics/btaa274)
 - **DBLP**: [journals/bioinformatics/BreitOAS20](https://dblp.org/rec/journals/bioinformatics/BreitOAS20.html)
 - **GitHub**: [OpenBioLink/OpenBioLink](https://github.com/OpenBioLink/OpenBioLink)
-- **저자 소속**: Medical University of Vienna — Section for AI and Decision Support
-- **이 benchmark가 평가한 모델 family**: TransE, ComplEx, RotatE, DistMult, R-GCN 등 (PyKEEN-호환)
-- **이 benchmark를 사용한 후속 작업**: OGB-biokg [[DBLP:conf/nips/HuFZDRLCL20]], 생의학 KG embedding 논문 다수
-- **관련 benchmark**: FB15K-237, WN18RR (general), UMLS (KGE 표준), OGB-biokg (heterogeneous)
+- **Author affiliation**: Medical University of Vienna — Section for AI and Decision Support
+- **Model family evaluated by this benchmark**: TransE, ComplEx, RotatE, DistMult, R-GCN, etc. (PyKEEN-compatible)
+- **Follow-up work using this benchmark**: OGB-biokg [[DBLP:conf/nips/HuFZDRLCL20]], many biomedical KG embedding papers
+- **Related benchmarks**: FB15K-237, WN18RR (general), UMLS (KGE standard), OGB-biokg (heterogeneous)

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RULE: Reliable Multimodal RAG for Factuality in Medical Vision Language Models — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>RULE: Reliable Multimodal RAG for Factuality in Medical Vision Language Models, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,39 +117,39 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#시스템-구조-rule-architecture">시스템 구조 (RULE Architecture)</a></li><li class="toc-l2"><a href="#동작-파이프라인-inference">동작 파이프라인 (inference)</a></li><li class="toc-l2"><a href="#주요-결과">주요 결과</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#architecture-rule-architecture">Architecture (RULE Architecture)</a></li><li class="toc-l2"><a href="#pipeline-inference">Pipeline (inference)</a></li><li class="toc-l2"><a href="#key-results">Key results</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>RULE: Reliable Multimodal RAG for Medical VLMs</h1>
 <blockquote>
 <p>EMNLP 2024 | Method | medical</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>RULE은 의료 영상-리포트 검색 기반 멀티모달 RAG로, (1) 검색 컨텍스트 개수를 통계적 위험 제어(Factuality Risk Control)로 보정해 사실성 위험을 사용자 지정 상한 이하로 보장하고, (2) 검색 과의존을 줄이는 선호 튜닝(Knowledge-Balanced Preference Tuning)을 결합해 Med-LVLM의 사실 정확도를 평균 47.4% 개선한다.</p>
-<h2 id="시스템-구조-rule-architecture">시스템 구조 (RULE Architecture)</h2>
+<h2 id="tldr">TL;DR</h2>
+<p>RULE is a multimodal RAG based on medical image-report retrieval that (1) calibrates the number of retrieved contexts via statistical risk control (Factuality Risk Control) to guarantee that the factuality risk stays below a user-specified upper bound, and (2) combines this with preference tuning (Knowledge-Balanced Preference Tuning) that reduces over-reliance on retrieval, improving the factual accuracy of Med-LVLMs by 47.4% on average.</p>
+<h2 id="architecture-rule-architecture">Architecture (RULE Architecture)</h2>
 <ul>
-<li><strong>멀티모달 retriever:</strong> CLIP 스타일 대조학습(ResNet-50 영상 + BioClinicalBERT 텍스트). 입력 영상으로 코사인 유사도 top-K 리포트 검색. 백본 Med-LVLM은 LLaVA-Med-1.5 7B.</li>
-<li><strong>Calibrated context selection (FRC):</strong> 검색 개수 k를 Learn-then-Test 위험제어로 보정 — 사실성 위험 FR(k)이 상한 α를 넘지 않는 k만 채택(확률 1−δ 보장). 너무 많은 검색이 주는 노이즈를 통계적으로 차단.</li>
-<li><strong>RAG-based preference fine-tuning (KBPT):</strong> 검색 없이는 맞히던 문제를 검색 후 틀리는 &quot;과의존&quot; 샘플을 dispreferred로 두는 DPO식 LoRA 선호 학습.</li>
+<li><strong>Multimodal retriever:</strong> CLIP-style contrastive learning (ResNet-50 image + BioClinicalBERT text). Retrieves top-K reports by cosine similarity from the input image. The backbone Med-LVLM is LLaVA-Med-1.5 7B.</li>
+<li><strong>Calibrated context selection (FRC):</strong> Calibrates the number of retrievals k via Learn-then-Test risk control — only k values for which the factuality risk FR(k) does not exceed the upper bound α are accepted (guaranteed with probability 1−δ). Statistically blocks the noise introduced by too many retrievals.</li>
+<li><strong>RAG-based preference fine-tuning (KBPT):</strong> DPO-style LoRA preference learning that treats &quot;over-reliance&quot; samples — those answered correctly without retrieval but incorrectly after retrieval — as dispreferred.</li>
 </ul>
-<h2 id="동작-파이프라인-inference">동작 파이프라인 (inference)</h2>
+<h2 id="pipeline-inference">Pipeline (inference)</h2>
 <ol>
-<li>입력 영상·질의 → retriever가 코사인 유사도 top-K 리포트 검색.</li>
-<li>FRC로 보정된 k개 컨텍스트 선택.</li>
-<li>(질의+선택 리포트+영상)을 KBPT로 튜닝된 LLaVA-Med에 입력.</li>
-<li>사실성 보정된 VQA 답 또는 리포트 생성.</li>
+<li>Input image and query → retriever retrieves top-K reports by cosine similarity.</li>
+<li>Select k contexts calibrated by FRC.</li>
+<li>Feed (query + selected reports + image) into LLaVA-Med tuned with KBPT.</li>
+<li>Generate factuality-calibrated VQA answers or reports.</li>
 </ol>
-<h2 id="주요-결과">주요 결과</h2>
-<p>Medical VQA 정확도(%): IU-Xray 75.47→<strong>87.84</strong>, MIMIC-CXR 75.79→<strong>83.92</strong>, Harvard-FairVLMed 63.03→<strong>87.12</strong>. 사실 정확도 평균 +47.4%, 기존 환각완화 대비 +14.46%, 과의존 error/ratio 각각 −42.9%/−47.3%.</p>
-<h2 id="한계점">한계점</h2>
+<h2 id="key-results">Key results</h2>
+<p>Medical VQA accuracy (%): IU-Xray 75.47→<strong>87.84</strong>, MIMIC-CXR 75.79→<strong>83.92</strong>, Harvard-FairVLMed 63.03→<strong>87.12</strong>. Factual accuracy +47.4% on average, +14.46% over prior hallucination-mitigation methods, over-reliance error/ratio reduced by −42.9%/−47.3% respectively.</p>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li>사실성에 초점 — 안전성·공정성·강건성·프라이버시는 향후 과제.</li>
-<li>retriever 코퍼스(도메인 영상-리포트 쌍) 커버리지 밖 영상에서는 검색 품질 저하 가능.</li>
+<li>Focused on factuality — safety, fairness, robustness, and privacy are left for future work.</li>
+<li>Retrieval quality may degrade for images outside the coverage of the retriever corpus (domain image-report pairs).</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
 <li>arXiv: 2407.05131 · EMNLP 2024 (Xia et al.)</li>
-<li>코드: <a href="https://github.com/richard-peng-xia/RULE">https://github.com/richard-peng-xia/RULE</a></li>
+<li>Code: <a href="https://github.com/richard-peng-xia/RULE">https://github.com/richard-peng-xia/RULE</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/emnlp/XiaZLZLLZY24)</a></p>
@@ -191,14 +191,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

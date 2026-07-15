@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>UniProt: the Universal Protein Knowledgebase in 2023 — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>UniProt: the Universal Protein Knowledgebase in 2023, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,7 +121,7 @@
 <p>uniprot2023uniprot | 2023 | Nucleic Acids Research | dataset | [bio] | <a href="https://doi.org/10.1093/nar/gkac1052">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">UniProt Knowledgebase (UniProtKB = Swiss-Prot + TrEMBL)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">227M+ sequences (2023년 논문 기준)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">227M+ sequences (per the 2023 paper)</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">UniProt REST API / FTP</td></tr>
@@ -129,85 +129,85 @@
 
 <blockquote>
 <p>Nucleic Acids Research | 2023 | dataset | bio</p>
-<h4>📌 한 줄 요약</h4>
-<p>전 세계 단백질 서열과 기능 주석의 표준 인프라로, 2억 2,700만 개 이상의 단백질 서열을 무료로 제공하며 150개 이상의 외부 데이터베이스와 교차 참조를 지원한다.</p>
+<h4>📌 TL;DR</h4>
+<p>As the standard infrastructure for protein sequences and functional annotations worldwide, it provides more than 227 million protein sequences free of charge and supports cross-references to over 150 external databases.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of prior infrastructure</strong></p>
 <ul>
-<li>기존 단백질 데이터베이스들은 수작업 검토 데이터(Swiss-Prot)와 자동 주석 데이터(TrEMBL)가 분리되어 있어 통합 접근이 불편했다</li>
-<li>시퀀싱 기술의 발전으로 단백질 서열 수가 폭발적으로 증가하면서 자동화된 품질 관리 필요성이 대두되었다</li>
+<li>Existing protein databases kept manually curated data (Swiss-Prot) and automatically annotated data (TrEMBL) separate, making unified access inconvenient</li>
+<li>As advances in sequencing technology caused an explosive increase in the number of protein sequences, the need for automated quality control came to the fore</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>고품질 수작업 검토 항목(Swiss-Prot)과 자동 주석 항목(TrEMBL)을 단일 데이터베이스로 통합 제공</li>
-<li>기계 학습 기법을 활용한 자동 주석 시스템으로 미검토 항목의 품질을 보완</li>
-<li>모든 분류 그룹에 대한 참조 프로테옴 구축을 목표로 진행 중</li>
+<li>Provides high-quality manually curated entries (Swiss-Prot) and automatically annotated entries (TrEMBL) integrated into a single database</li>
+<li>Complements the quality of unreviewed entries with an automated annotation system leveraging machine learning techniques</li>
+<li>Ongoing effort aimed at building reference proteomes for all taxonomic groups</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>UniProtKB는 수작업 검토된 Swiss-Prot 항목과 자동 주석의 TrEMBL 항목으로 구성된다. 서열, 기능 주석, 분류 정보, 도메인 정보, 변이체, 하위 세포 위치, 150개 이상의 다른 데이터베이스 교차 참조를 포함한다. 2023년 업데이트에서는 새 웹사이트(<a href="https://www.uniprot.org/)%EA%B0%80">https://www.uniprot.org/)가</a> 공개되었고, 전체 항목의 85% 이상에 AlphaFold 구조를 연결했다.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>UniProtKB consists of manually curated Swiss-Prot entries and automatically annotated TrEMBL entries. It includes sequences, functional annotations, taxonomic information, domain information, variants, subcellular location, and cross-references to more than 150 other databases. In the 2023 update, a new website (<a href="https://www.uniprot.org/">https://www.uniprot.org/</a>) was released, and AlphaFold structures were linked to more than 85% of all entries.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>웹 인터페이스</td>
-  <td><a href="https://www.uniprot.org/">https://www.uniprot.org/</a> — 무료 브라우저 검색</td>
+  <td>Web interface</td>
+  <td><a href="https://www.uniprot.org/">https://www.uniprot.org/</a> — free browser-based search</td>
 </tr>
 <tr>
   <td>REST API</td>
-  <td>UniProt REST API — 프로그래밍 방식 쿼리</td>
+  <td>UniProt REST API — programmatic queries</td>
 </tr>
 <tr>
   <td>FTP</td>
-  <td>전체 데이터셋 bulk 다운로드</td>
+  <td>bulk download of the full dataset</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>단백질 서열 (FASTA)</li>
-<li>기능 주석 (UniProtKB 형식)</li>
-<li>XML, TSV, JSON 형식 지원</li>
-<li>150개 이상의 외부 데이터베이스 교차 참조</li>
+<li>Protein sequences (FASTA)</li>
+<li>Functional annotations (UniProtKB format)</li>
+<li>XML, TSV, JSON format support</li>
+<li>Cross-references to more than 150 external databases</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>전체 서열 수</td>
-  <td><strong>227M+</strong> (2023년 기준)</td>
+  <td>Total number of sequences</td>
+  <td><strong>227M+</strong> (as of 2023)</td>
 </tr>
 <tr>
-  <td>AlphaFold 구조 연결 비율</td>
+  <td>AlphaFold structure link ratio</td>
   <td><strong>85%+</strong></td>
 </tr>
 <tr>
-  <td>교차 참조 데이터베이스 수</td>
-  <td><strong>150개 이상</strong></td>
+  <td>Number of cross-reference databases</td>
+  <td><strong>150+</strong></td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>수작업 검토 항목(Swiss-Prot)은 전체 대비 극히 일부로, 대부분의 항목은 자동 주석에 의존한다</li>
-<li>서열 수의 급격한 증가로 수작업 검토의 포괄적 확장이 어렵다</li>
-<li>신규 서열과 기능 사이의 정보 격차(annotation gap)가 지속적으로 존재한다</li>
+<li>Manually curated entries (Swiss-Prot) are only a tiny fraction of the total, and most entries rely on automated annotation</li>
+<li>The rapid increase in the number of sequences makes comprehensive scaling of manual curation difficult</li>
+<li>An annotation gap between new sequences and their functions persists continuously</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문</strong>: <a href="https://doi.org/10.1093/nar/gkac1052">UniProt: the Universal Protein Knowledgebase in 2023</a></li>
+<li><strong>Paper</strong>: <a href="https://doi.org/10.1093/nar/gkac1052">UniProt: the Universal Protein Knowledgebase in 2023</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (uniprot2023uniprot)</a></p>
@@ -232,14 +232,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

@@ -47,7 +47,7 @@
   "eval_task": "BioModels Custom QA",
   "eval_metric": "Token Set Ratio, Cosine Sim",
   "method": "BioModelsRAG",
-  "note": "K2 EXEMPLAR — curated systems-biology DB. SBML→Antimony→LLM-summary→ChromaDB pipeline.",
+  "note": "K2 EXEMPLAR, curated systems-biology DB. SBML→Antimony→LLM-summary→ChromaDB pipeline.",
   "domain": [
    "bio"
   ],
@@ -126,12 +126,12 @@
    "chem"
   ],
   "paper_link": "",
-  "note": "Full-text verified 2026-05-31: a RAG QA/prediction agent system (DTI ranking, toxicity classification, molecular captioning) over biomedical KBs (PubChem, PrimeKG, DrugBank, STITCH) — it does NOT generate de novo molecules, and its verification sources overlap its retrieval (circular). Reclassified from K2.O3 (Strong-verifier Hypothesis) to K2.O1 (KB-grounded prediction).",
+  "note": "Full-text verified 2026-05-31: a RAG QA/prediction agent system (DTI ranking, toxicity classification, molecular captioning) over biomedical KBs (PubChem, PrimeKG, DrugBank, STITCH), it does NOT generate de novo molecules, and its verification sources overlap its retrieval (circular). Reclassified from K2.O3 (Strong-verifier Hypothesis) to K2.O1 (KB-grounded prediction).",
   "ko_cells": [
    "K3.O1"
   ],
   "ko_primary": "K3.O1",
-  "ko_note": "Full-text verified 2026-05-31: a RAG QA/prediction agent system (DTI ranking, toxicity classification, molecular captioning) over biomedical KBs (PubChem, PrimeKG, DrugBank, STITCH) — it does NOT generate de novo molecules, and its verification sources overlap its retrieval (circular). Reclassified from K2.O3 (Strong-verifier Hypothesis) to K2.O1 (KB-grounded prediction).",
+  "ko_note": "Full-text verified 2026-05-31: a RAG QA/prediction agent system (DTI ranking, toxicity classification, molecular captioning) over biomedical KBs (PubChem, PrimeKG, DrugBank, STITCH), it does NOT generate de novo molecules, and its verification sources overlap its retrieval (circular). Reclassified from K2.O3 (Strong-verifier Hypothesis) to K2.O1 (KB-grounded prediction).",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -2027,12 +2027,12 @@
    "chem"
   ],
   "paper_link": "https://openreview.net/forum?id=78tc3EiUrN",
-  "note": "Full-text verified 2026-06-01: MADGEN (ICLR 2025) — the sole genuine retrieval-augmented de novo method for spectrum-to-molecule. Retrieves a molecular scaffold keyed on the MS/MS spectrum (contrastive spectrum-to-scaffold ranking, signal-keyed = K3) then generates the full structure conditioned on the spectrum. Weakly verified by Top-k accuracy / Tanimoto on held-out. (MARASON = spectrum prediction/retrieval, not de novo; FOAM = genetic optimization, not RAG; DiffMS/FlowMS/etc. = no retrieval.)",
+  "note": "Full-text verified 2026-06-01: MADGEN (ICLR 2025), the sole genuine retrieval-augmented de novo method for spectrum-to-molecule. Retrieves a molecular scaffold keyed on the MS/MS spectrum (contrastive spectrum-to-scaffold ranking, signal-keyed = K3) then generates the full structure conditioned on the spectrum. Weakly verified by Top-k accuracy / Tanimoto on held-out. (MARASON = spectrum prediction/retrieval, not de novo; FOAM = genetic optimization, not RAG; DiffMS/FlowMS/etc. = no retrieval.)",
   "ko_cells": [
    "K4.O3"
   ],
   "ko_primary": "K4.O3",
-  "ko_note": "Full-text verified 2026-06-01: MADGEN (ICLR 2025) — the sole genuine retrieval-augmented de novo method for spectrum-to-molecule. Retrieves a molecular scaffold keyed on the MS/MS spectrum (contrastive spectrum-to-scaffold ranking, signal-keyed = K3) then generates the full structure conditioned on the spectrum. Weakly verified by Top-k accuracy / Tanimoto on held-out. (MARASON = spectrum prediction/retrieval, not de novo; FOAM = genetic optimization, not RAG; DiffMS/FlowMS/etc. = no retrieval.)",
+  "ko_note": "Full-text verified 2026-06-01: MADGEN (ICLR 2025), the sole genuine retrieval-augmented de novo method for spectrum-to-molecule. Retrieves a molecular scaffold keyed on the MS/MS spectrum (contrastive spectrum-to-scaffold ranking, signal-keyed = K3) then generates the full structure conditioned on the spectrum. Weakly verified by Top-k accuracy / Tanimoto on held-out. (MARASON = spectrum prediction/retrieval, not de novo; FOAM = genetic optimization, not RAG; DiffMS/FlowMS/etc. = no retrieval.)",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -2129,12 +2129,12 @@
    "physics"
   ],
   "paper_link": "https://arxiv.org/abs/2509.20630",
-  "note": "MLIP Arena — Simulation-verified Materials Discovery benchmark",
+  "note": "MLIP Arena, Simulation-verified Materials Discovery benchmark",
   "ko_cells": [
    "K3.O3"
   ],
   "ko_primary": "K3.O3",
-  "ko_note": "MLIP Arena — Simulation-verified Materials Discovery benchmark",
+  "ko_note": "MLIP Arena, Simulation-verified Materials Discovery benchmark",
   "cross_source": false,
   "type": "benchmark",
   "bib_only": true,
@@ -2240,12 +2240,12 @@
    "physics"
   ],
   "paper_link": "https://doi.org/10.1038/s42256-025-01055-1",
-  "note": "Matbench Discovery — Simulation-verified Materials Discovery benchmark",
+  "note": "Matbench Discovery, Simulation-verified Materials Discovery benchmark",
   "ko_cells": [
    "K3.O3"
   ],
   "ko_primary": "K3.O3",
-  "ko_note": "Matbench Discovery — Simulation-verified Materials Discovery benchmark",
+  "ko_note": "Matbench Discovery, Simulation-verified Materials Discovery benchmark",
   "cross_source": false,
   "type": "benchmark",
   "bib_only": true,
@@ -2433,12 +2433,12 @@
    "medical"
   ],
   "paper_link": "",
-  "note": "Medicine and clinical knowledge — UMLS-aligned retrieval substrate",
+  "note": "Medicine and clinical knowledge, UMLS-aligned retrieval substrate",
   "ko_cells": [
    "K2.O1"
   ],
   "ko_primary": "K2.O1",
-  "ko_note": "Medicine and clinical knowledge — UMLS-aligned retrieval substrate",
+  "ko_note": "Medicine and clinical knowledge, UMLS-aligned retrieval substrate",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -2932,7 +2932,7 @@
   "eval_task": "AP Lab Protocols QA",
   "eval_metric": "RAGAS (Faithfulness/AnswerRel/CtxRecall) + P/R/F1@k",
   "method": "RAG-AP",
-  "note": "K4 NOVELTY EXAMPLE — internal lab protocols as retrieval source. k=1 best F1=0.50. Hybrid + MedEmbed best on RAGAS.",
+  "note": "K4 NOVELTY EXAMPLE, internal lab protocols as retrieval source. k=1 best F1=0.50. Hybrid + MedEmbed best on RAGAS.",
   "bib_key": "DBLP:journals/corr/abs-2602-22216",
   "bib_ver": "v2",
   "domain": [
@@ -3882,12 +3882,12 @@
    "material"
   ],
   "paper_link": "https://doi.org/10.18653/v1/2024.findings-emnlp.192",
-  "note": "Materials science and physics — MatSciKB curated literature knowledge base for materials RAG",
+  "note": "Materials science and physics, MatSciKB curated literature knowledge base for materials RAG",
   "ko_cells": [
    "K3.O1"
   ],
   "ko_primary": "K3.O1",
-  "ko_note": "Materials science and physics — MatSciKB curated literature knowledge base for materials RAG",
+  "ko_note": "Materials science and physics, MatSciKB curated literature knowledge base for materials RAG",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -3975,12 +3975,12 @@
    "physics"
   ],
   "paper_link": "https://doi.org/10.1038/s41524-024-01259-w",
-  "note": "JARVIS-Leaderboard — Simulation-verified Materials Discovery benchmark",
+  "note": "JARVIS-Leaderboard, Simulation-verified Materials Discovery benchmark",
   "ko_cells": [
    "K3.O3"
   ],
   "ko_primary": "K3.O3",
-  "ko_note": "JARVIS-Leaderboard — Simulation-verified Materials Discovery benchmark",
+  "ko_note": "JARVIS-Leaderboard, Simulation-verified Materials Discovery benchmark",
   "cross_source": false,
   "type": "benchmark",
   "bib_only": true,
@@ -4291,12 +4291,12 @@
    "physics"
   ],
   "paper_link": "https://arxiv.org/abs/2410.12771",
-  "note": "OMat24 — 110M+ DFT inorganic-materials dataset + EquiformerV2/eSEN MLIP models; Matbench Discovery F1 > 0.9",
+  "note": "OMat24, 110M+ DFT inorganic-materials dataset + EquiformerV2/eSEN MLIP models; Matbench Discovery F1 > 0.9",
   "ko_cells": [
    "K3.O3"
   ],
   "ko_primary": "K3.O3",
-  "ko_note": "OMat24 — 110M+ DFT inorganic-materials dataset + EquiformerV2/eSEN MLIP models; Matbench Discovery F1 > 0.9",
+  "ko_note": "OMat24, 110M+ DFT inorganic-materials dataset + EquiformerV2/eSEN MLIP models; Matbench Discovery F1 > 0.9",
   "cross_source": false,
   "type": "benchmark",
   "bib_only": true,
@@ -4370,12 +4370,12 @@
    "bio"
   ],
   "paper_link": "https://arxiv.org/abs/2408.10609",
-  "note": "PerturBench — cellular perturbation analysis benchmark with 4 generalization regimes",
+  "note": "PerturBench, cellular perturbation analysis benchmark with 4 generalization regimes",
   "ko_cells": [
    "K3.O3"
   ],
   "ko_primary": "K3.O3",
-  "ko_note": "PerturBench — cellular perturbation analysis benchmark with 4 generalization regimes",
+  "ko_note": "PerturBench, cellular perturbation analysis benchmark with 4 generalization regimes",
   "cross_source": false,
   "type": "benchmark",
   "bib_only": true,
@@ -4393,12 +4393,12 @@
    "bio"
   ],
   "paper_link": "https://doi.org/10.1038/s41587-023-01905-6",
-  "note": "GEARS — held-out perturbation evaluation protocol on Norman 2019 dual-gene combinations",
+  "note": "GEARS, held-out perturbation evaluation protocol on Norman 2019 dual-gene combinations",
   "ko_cells": [
    "K3.O3"
   ],
   "ko_primary": "K3.O3",
-  "ko_note": "GEARS — held-out perturbation evaluation protocol on Norman 2019 dual-gene combinations",
+  "ko_note": "GEARS, held-out perturbation evaluation protocol on Norman 2019 dual-gene combinations",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -4488,12 +4488,12 @@
    "physics"
   ],
   "paper_link": "https://doi.org/10.1103/PhysRevD.110.030001",
-  "note": "Materials science and physics — PDG Review, curated particle properties reference; most-cited in HEP",
+  "note": "Materials science and physics, PDG Review, curated particle properties reference; most-cited in HEP",
   "ko_cells": [
    "K3"
   ],
   "ko_primary": "K3",
-  "ko_note": "Materials science and physics — PDG Review, curated particle properties reference; most-cited in HEP",
+  "ko_note": "Materials science and physics, PDG Review, curated particle properties reference; most-cited in HEP",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -4550,12 +4550,12 @@
    "general"
   ],
   "paper_link": "https://arxiv.org/abs/2410.05080",
-  "note": "ScienceAgentBench — Simulation-verified Materials Discovery benchmark",
+  "note": "ScienceAgentBench, Simulation-verified Materials Discovery benchmark",
   "ko_cells": [
    "K3.O3"
   ],
   "ko_primary": "K3.O3",
-  "ko_note": "ScienceAgentBench — Simulation-verified Materials Discovery benchmark",
+  "ko_note": "ScienceAgentBench, Simulation-verified Materials Discovery benchmark",
   "cross_source": false,
   "type": "benchmark",
   "bib_only": true,
@@ -4595,12 +4595,12 @@
    "chem"
   ],
   "paper_link": "https://doi.org/10.1021/acscentsci.3c01629",
-  "note": "ODAC23 — 8,400+ MOFs × 38M DFT for DAC sorbent discovery; OC20-style S2EF/IS2RE/IS2RS tasks",
+  "note": "ODAC23, 8,400+ MOFs × 38M DFT for DAC sorbent discovery; OC20-style S2EF/IS2RE/IS2RS tasks",
   "ko_cells": [
    "K3.O3"
   ],
   "ko_primary": "K3.O3",
-  "ko_note": "ODAC23 — 8,400+ MOFs × 38M DFT for DAC sorbent discovery; OC20-style S2EF/IS2RE/IS2RS tasks",
+  "ko_note": "ODAC23, 8,400+ MOFs × 38M DFT for DAC sorbent discovery; OC20-style S2EF/IS2RE/IS2RS tasks",
   "cross_source": false,
   "type": "benchmark",
   "bib_only": true,
@@ -4618,12 +4618,12 @@
    "bio"
   ],
   "paper_link": "https://doi.org/10.1093/nar/gkad1025",
-  "note": "Biology and genomics — manually curated pathway knowledgebase",
+  "note": "Biology and genomics, manually curated pathway knowledgebase",
   "ko_cells": [
    "K2"
   ],
   "ko_primary": "K2",
-  "ko_note": "Biology and genomics — manually curated pathway knowledgebase",
+  "ko_note": "Biology and genomics, manually curated pathway knowledgebase",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -4775,12 +4775,12 @@
    "chem"
   ],
   "paper_link": "https://doi.org/10.1038/s41524-023-01121-5",
-  "note": "AdsorbML — Simulation-verified Materials Discovery benchmark",
+  "note": "AdsorbML, Simulation-verified Materials Discovery benchmark",
   "ko_cells": [
    "K3.O3"
   ],
   "ko_primary": "K3.O3",
-  "ko_note": "AdsorbML — Simulation-verified Materials Discovery benchmark",
+  "ko_note": "AdsorbML, Simulation-verified Materials Discovery benchmark",
   "cross_source": false,
   "type": "benchmark",
   "bib_only": true,
@@ -4798,12 +4798,12 @@
    "medical"
   ],
   "paper_link": "https://doi.org/10.48550/arXiv.2303.01229",
-  "note": "Medicine and clinical knowledge — Almanac: Knowledge-Grounded Language Models for Clinical Medicine (Zakka et al. 2023). Retrieval from PubMed, UpToDate, and BMJ Best Practices.",
+  "note": "Medicine and clinical knowledge, Almanac: Knowledge-Grounded Language Models for Clinical Medicine (Zakka et al. 2023). Retrieval from PubMed, UpToDate, and BMJ Best Practices.",
   "ko_cells": [
    "K2"
   ],
   "ko_primary": "K2",
-  "ko_note": "Medicine and clinical knowledge — Almanac: Knowledge-Grounded Language Models for Clinical Medicine (Zakka et al. 2023). Retrieval from PubMed, UpToDate, and BMJ Best Practices.",
+  "ko_note": "Medicine and clinical knowledge, Almanac: Knowledge-Grounded Language Models for Clinical Medicine (Zakka et al. 2023). Retrieval from PubMed, UpToDate, and BMJ Best Practices.",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -4916,12 +4916,12 @@
    "bio"
   ],
   "paper_link": "https://doi.org/10.1093/nar/gkac1032",
-  "note": "Biology and genomics — NCBI comprehensive database resources (Gene, Genome, Protein) 2023",
+  "note": "Biology and genomics, NCBI comprehensive database resources (Gene, Genome, Protein) 2023",
   "ko_cells": [
    "K2"
   ],
   "ko_primary": "K2",
-  "ko_note": "Biology and genomics — NCBI comprehensive database resources (Gene, Genome, Protein) 2023",
+  "ko_note": "Biology and genomics, NCBI comprehensive database resources (Gene, Genome, Protein) 2023",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -5122,12 +5122,12 @@
    "medical"
   ],
   "paper_link": "https://doi.org/10.1038/s41597-022-01899-x",
-  "note": "Contemporary EHR dataset — BIDMC 2008-2019; 431,231 hospital admissions; 180,733 unique patients; successor to MIMIC-III",
+  "note": "Contemporary EHR dataset, BIDMC 2008-2019; 431,231 hospital admissions; 180,733 unique patients; successor to MIMIC-III",
   "ko_cells": [
    "K4"
   ],
   "ko_primary": "K4",
-  "ko_note": "Contemporary EHR dataset — BIDMC 2008-2019; 431,231 hospital admissions; 180,733 unique patients; successor to MIMIC-III",
+  "ko_note": "Contemporary EHR dataset, BIDMC 2008-2019; 431,231 hospital admissions; 180,733 unique patients; successor to MIMIC-III",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -5265,12 +5265,12 @@
    "medical"
   ],
   "paper_link": "https://doi.org/10.48550/arXiv.2304.14454",
-  "note": "Medicine and clinical knowledge — PMC-LLaMA: MedC-K medical corpus (4.8M papers + 30K textbooks)",
+  "note": "Medicine and clinical knowledge, PMC-LLaMA: MedC-K medical corpus (4.8M papers + 30K textbooks)",
   "ko_cells": [
    "K2"
   ],
   "ko_primary": "K2",
-  "ko_note": "Medicine and clinical knowledge — PMC-LLaMA: MedC-K medical corpus (4.8M papers + 30K textbooks)",
+  "ko_note": "Medicine and clinical knowledge, PMC-LLaMA: MedC-K medical corpus (4.8M papers + 30K textbooks)",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -5566,12 +5566,12 @@
    "bio"
   ],
   "paper_link": "https://doi.org/10.1093/genetics/iyad031",
-  "note": "Biology and genomics — gene function ontology (2023 update)",
+  "note": "Biology and genomics, gene function ontology (2023 update)",
   "ko_cells": [
    "K2"
   ],
   "ko_primary": "K2",
-  "ko_note": "Biology and genomics — gene function ontology (2023 update)",
+  "ko_note": "Biology and genomics, gene function ontology (2023 update)",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -5623,12 +5623,12 @@
    "bio"
   ],
   "paper_link": "https://doi.org/10.1093/nar/gkac1052",
-  "note": "Biology and genomics — protein sequence and function knowledgebase",
+  "note": "Biology and genomics, protein sequence and function knowledgebase",
   "ko_cells": [
    "K2"
   ],
   "ko_primary": "K2",
-  "ko_note": "Biology and genomics — protein sequence and function knowledgebase",
+  "ko_note": "Biology and genomics, protein sequence and function knowledgebase",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -5688,12 +5688,12 @@
    "physics"
   ],
   "paper_link": "https://arxiv.org/abs/2110.06197",
-  "note": "CDVAE — 3-dataset crystal generation benchmark (Perov-5 / Carbon-24 / MP-20) with Validity / Coverage / Property statistics",
+  "note": "CDVAE, 3-dataset crystal generation benchmark (Perov-5 / Carbon-24 / MP-20) with Validity / Coverage / Property statistics",
   "ko_cells": [
    "K3.O3"
   ],
   "ko_primary": "K3.O3",
-  "ko_note": "CDVAE — 3-dataset crystal generation benchmark (Perov-5 / Carbon-24 / MP-20) with Validity / Coverage / Property statistics",
+  "ko_note": "CDVAE, 3-dataset crystal generation benchmark (Perov-5 / Carbon-24 / MP-20) with Validity / Coverage / Property statistics",
   "cross_source": false,
   "type": "benchmark",
   "bib_only": true,
@@ -5775,12 +5775,12 @@
    "bio"
   ],
   "paper_link": "https://www.gbif.org",
-  "note": "Biology and genomics — global biodiversity occurrence records",
+  "note": "Biology and genomics, global biodiversity occurrence records",
   "ko_cells": [
    "K2"
   ],
   "ko_primary": "K2",
-  "ko_note": "Biology and genomics — global biodiversity occurrence records",
+  "ko_note": "Biology and genomics, global biodiversity occurrence records",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -5946,12 +5946,12 @@
    "material"
   ],
   "paper_link": "https://doi.org/10.48550/arXiv.2206.08917",
-  "note": "Materials science and physics — 62,331 DFT relaxations for oxide electrocatalysts",
+  "note": "Materials science and physics, 62,331 DFT relaxations for oxide electrocatalysts",
   "ko_cells": [
    "K3"
   ],
   "ko_primary": "K3",
-  "ko_note": "Materials science and physics — 62,331 DFT relaxations for oxide electrocatalysts",
+  "ko_note": "Materials science and physics, 62,331 DFT relaxations for oxide electrocatalysts",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -6131,12 +6131,12 @@
    "chem"
   ],
   "paper_link": "https://arxiv.org/abs/2102.09548",
-  "note": "66 AI-ready datasets × 22 tasks × 29 leaderboards — Database-verified Prediction umbrella benchmark for drug discovery",
+  "note": "66 AI-ready datasets × 22 tasks × 29 leaderboards, Database-verified Prediction umbrella benchmark for drug discovery",
   "ko_cells": [
    "K3.O3"
   ],
   "ko_primary": "K3.O3",
-  "ko_note": "66 AI-ready datasets × 22 tasks × 29 leaderboards — Database-verified Prediction umbrella benchmark for drug discovery",
+  "ko_note": "66 AI-ready datasets × 22 tasks × 29 leaderboards, Database-verified Prediction umbrella benchmark for drug discovery",
   "cross_source": false,
   "type": "benchmark",
   "bib_only": true,
@@ -6186,12 +6186,12 @@
    "bio"
   ],
   "paper_link": "https://doi.org/10.15252/msb.20209886",
-  "note": "Biology and genomics — human protein complex map v2",
+  "note": "Biology and genomics, human protein complex map v2",
   "ko_cells": [
    "K2"
   ],
   "ko_primary": "K2",
-  "ko_note": "Biology and genomics — human protein complex map v2",
+  "ko_note": "Biology and genomics, human protein complex map v2",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -6487,12 +6487,12 @@
    "general"
   ],
   "paper_link": "https://proceedings.neurips.cc/paper/2020/hash/fb60d411a5c5b72b2e7d3527cfc84fd0-Abstract.html",
-  "note": "OGB-biokg — biomedical knowledge graph link prediction with hits@K public leaderboard",
+  "note": "OGB-biokg, biomedical knowledge graph link prediction with hits@K public leaderboard",
   "ko_cells": [
    "K2.O3"
   ],
   "ko_primary": "K2.O3",
-  "ko_note": "OGB-biokg — biomedical knowledge graph link prediction with hits@K public leaderboard",
+  "ko_note": "OGB-biokg, biomedical knowledge graph link prediction with hits@K public leaderboard",
   "cross_source": false,
   "type": "benchmark",
   "bib_only": true,
@@ -6511,12 +6511,12 @@
    "medical"
   ],
   "paper_link": "https://doi.org/10.1093/bioinformatics/btaa274",
-  "note": "OpenBioLink — biomedical link prediction benchmark with leakage-controlled held-out edge recovery",
+  "note": "OpenBioLink, biomedical link prediction benchmark with leakage-controlled held-out edge recovery",
   "ko_cells": [
    "K2.O3"
   ],
   "ko_primary": "K2.O3",
-  "ko_note": "OpenBioLink — biomedical link prediction benchmark with leakage-controlled held-out edge recovery",
+  "ko_note": "OpenBioLink, biomedical link prediction benchmark with leakage-controlled held-out edge recovery",
   "cross_source": false,
   "type": "benchmark",
   "bib_only": true,
@@ -6627,12 +6627,12 @@
    "material"
   ],
   "paper_link": "https://arxiv.org/abs/2010.09990",
-  "note": "Materials science and physics — 1.28M DFT relaxations for catalyst/surface ML",
+  "note": "Materials science and physics, 1.28M DFT relaxations for catalyst/surface ML",
   "ko_cells": [
    "K3"
   ],
   "ko_primary": "K3",
-  "ko_note": "Materials science and physics — 1.28M DFT relaxations for catalyst/surface ML",
+  "ko_note": "Materials science and physics, 1.28M DFT relaxations for catalyst/surface ML",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -6667,7 +6667,7 @@
    "K3.O3"
   ],
   "ko_primary": "K3.O3",
-  "ko_note": "Structural biology — CrossDocked2020: millions of ligand poses across PDB targets for structure-based drug design",
+  "ko_note": "Structural biology, CrossDocked2020: millions of ligand poses across PDB targets for structure-based drug design",
   "cross_source": false,
   "subsection": [
    "Molecular Design"
@@ -6683,12 +6683,12 @@
    "medical"
   ],
   "paper_link": "https://www.uptodate.com",
-  "note": "Medicine and clinical knowledge — subscription-only; defining gap in open RAG",
+  "note": "Medicine and clinical knowledge, subscription-only; defining gap in open RAG",
   "ko_cells": [
    "K2"
   ],
   "ko_primary": "K2",
-  "ko_note": "Medicine and clinical knowledge — subscription-only; defining gap in open RAG",
+  "ko_note": "Medicine and clinical knowledge, subscription-only; defining gap in open RAG",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -6705,12 +6705,12 @@
    "medical"
   ],
   "paper_link": "https://doi.org/10.1186/s13059-019-1835-8",
-  "note": "CAFA3 — Database-verified Prediction benchmark",
+  "note": "CAFA3, Database-verified Prediction benchmark",
   "ko_cells": [
    "K3.O3"
   ],
   "ko_primary": "K3.O3",
-  "ko_note": "CAFA3 — Database-verified Prediction benchmark",
+  "ko_note": "CAFA3, Database-verified Prediction benchmark",
   "cross_source": false,
   "type": "benchmark",
   "bib_only": true,
@@ -6802,12 +6802,12 @@
    "bio"
   ],
   "paper_link": "https://doi.org/10.1126/science.aax4438",
-  "note": "Norman 2019 — 287 dual-CRISPRi gene interaction dataset, foundational substrate for GEARS",
+  "note": "Norman 2019, 287 dual-CRISPRi gene interaction dataset, foundational substrate for GEARS",
   "ko_cells": [
    "K4"
   ],
   "ko_primary": "K4",
-  "ko_note": "Norman 2019 — 287 dual-CRISPRi gene interaction dataset, foundational substrate for GEARS",
+  "ko_note": "Norman 2019, 287 dual-CRISPRi gene interaction dataset, foundational substrate for GEARS",
   "cross_source": false,
   "type": "dataset",
   "bib_only": true,
@@ -7211,12 +7211,12 @@
    "chem"
   ],
   "paper_link": "https://doi.org/10.1038/nm.4306",
-  "note": "Hand-curated library of 4,707 clinical compounds (3,422 marketed/trialed) — Broad Institute resource, used as DTI evaluation source",
+  "note": "Hand-curated library of 4,707 clinical compounds (3,422 marketed/trialed), Broad Institute resource, used as DTI evaluation source",
   "ko_cells": [
    "K3"
   ],
   "ko_primary": "K3",
-  "ko_note": "Hand-curated library of 4,707 clinical compounds (3,422 marketed/trialed) — Broad Institute resource, used as DTI evaluation source",
+  "ko_note": "Hand-curated library of 4,707 clinical compounds (3,422 marketed/trialed), Broad Institute resource, used as DTI evaluation source",
   "cross_source": false,
   "type": "dataset",
   "bib_only": true,
@@ -7275,12 +7275,12 @@
    "bio"
   ],
   "paper_link": "https://doi.org/10.7554/eLife.26726",
-  "note": "Hetionet — Database-verified Prediction benchmark",
+  "note": "Hetionet, Database-verified Prediction benchmark",
   "ko_cells": [
    "K2.O3"
   ],
   "ko_primary": "K2.O3",
-  "ko_note": "Hetionet — Database-verified Prediction benchmark",
+  "ko_note": "Hetionet, Database-verified Prediction benchmark",
   "cross_source": false,
   "type": "benchmark",
   "bib_only": true,
@@ -7298,12 +7298,12 @@
    "bio"
   ],
   "paper_link": "https://doi.org/10.15252/msb.20167490",
-  "note": "Biology and genomics — human protein complex map v1",
+  "note": "Biology and genomics, human protein complex map v1",
   "ko_cells": [
    "K2"
   ],
   "ko_primary": "K2",
-  "ko_note": "Biology and genomics — human protein complex map v1",
+  "ko_note": "Biology and genomics, human protein complex map v1",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -7403,12 +7403,12 @@
    "bio"
   ],
   "paper_link": "https://doi.org/10.3897/BDJ.5.e16949",
-  "note": "Biology and genomics — marine biodiversity occurrence records",
+  "note": "Biology and genomics, marine biodiversity occurrence records",
   "ko_cells": [
    "K2"
   ],
   "ko_primary": "K2",
-  "ko_note": "Biology and genomics — marine biodiversity occurrence records",
+  "ko_note": "Biology and genomics, marine biodiversity occurrence records",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -7507,12 +7507,12 @@
    "medical"
   ],
   "paper_link": "https://doi.org/10.1038/sdata.2016.35",
-  "note": "ICU EHR dataset — Beth Israel Deaconess Medical Center; 53,423 adult ICU admissions 2001-2012; primary clinical RAG retrieval target",
+  "note": "ICU EHR dataset, Beth Israel Deaconess Medical Center; 53,423 adult ICU admissions 2001-2012; primary clinical RAG retrieval target",
   "ko_cells": [
    "K4"
   ],
   "ko_primary": "K4",
-  "ko_note": "ICU EHR dataset — Beth Israel Deaconess Medical Center; 53,423 adult ICU admissions 2001-2012; primary clinical RAG retrieval target",
+  "ko_note": "ICU EHR dataset, Beth Israel Deaconess Medical Center; 53,423 adult ICU admissions 2001-2012; primary clinical RAG retrieval target",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -7729,12 +7729,12 @@
    "material"
   ],
   "paper_link": "https://doi.org/10.1038/npjcompumats.2015.10",
-  "note": "Materials science and physics — OQMD expanded to ~300,000 DFT calculations",
+  "note": "Materials science and physics, OQMD expanded to ~300,000 DFT calculations",
   "ko_cells": [
    "K3"
   ],
   "ko_primary": "K3",
-  "ko_note": "Materials science and physics — OQMD expanded to ~300,000 DFT calculations",
+  "ko_note": "Materials science and physics, OQMD expanded to ~300,000 DFT calculations",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -7815,12 +7815,12 @@
    "medical"
   ],
   "paper_link": "https://doi.org/10.1021/ci400709d",
-  "note": "KIBA — Database-verified Prediction benchmark",
+  "note": "KIBA, Database-verified Prediction benchmark",
   "ko_cells": [
    "K3.O3"
   ],
   "ko_primary": "K3.O3",
-  "ko_note": "KIBA — Database-verified Prediction benchmark",
+  "ko_note": "KIBA, Database-verified Prediction benchmark",
   "cross_source": false,
   "type": "benchmark",
   "bib_only": true,
@@ -7880,12 +7880,12 @@
    "material"
   ],
   "paper_link": "https://doi.org/10.1063/1.4812323",
-  "note": "Materials science and physics — primary curated DB anchor",
+  "note": "Materials science and physics, primary curated DB anchor",
   "ko_cells": [
    "K3"
   ],
   "ko_primary": "K3",
-  "ko_note": "Materials science and physics — primary curated DB anchor",
+  "ko_note": "Materials science and physics, primary curated DB anchor",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -7901,12 +7901,12 @@
    "material"
   ],
   "paper_link": "https://doi.org/10.1007/s11837-013-0755-4",
-  "note": "Materials science and physics — OQMD initial report (200,000+ DFT structures)",
+  "note": "Materials science and physics, OQMD initial report (200,000+ DFT structures)",
   "ko_cells": [
    "K3"
   ],
   "ko_primary": "K3",
-  "ko_note": "Materials science and physics — OQMD initial report (200,000+ DFT structures)",
+  "ko_note": "Materials science and physics, OQMD initial report (200,000+ DFT structures)",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -7986,12 +7986,12 @@
    "material"
   ],
   "paper_link": "https://doi.org/10.1016/j.commatsci.2012.02.005",
-  "note": "Materials science and physics — AFLOW high-throughput framework for alloys and inorganic compounds",
+  "note": "Materials science and physics, AFLOW high-throughput framework for alloys and inorganic compounds",
   "ko_cells": [
    "K3"
   ],
   "ko_primary": "K3",
-  "ko_note": "Materials science and physics — AFLOW high-throughput framework for alloys and inorganic compounds",
+  "ko_note": "Materials science and physics, AFLOW high-throughput framework for alloys and inorganic compounds",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -8007,12 +8007,12 @@
    "bio"
   ],
   "paper_link": "https://doi.org/10.1038/nature11247",
-  "note": "Biology and genomics — regulatory element encyclopedia",
+  "note": "Biology and genomics, regulatory element encyclopedia",
   "ko_cells": [
    "K2"
   ],
   "ko_primary": "K2",
-  "ko_note": "Biology and genomics — regulatory element encyclopedia",
+  "ko_note": "Biology and genomics, regulatory element encyclopedia",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -8194,12 +8194,12 @@
    "bio"
   ],
   "paper_link": "https://doi.org/10.1126/scitranslmed.3003377",
-  "note": "TWOSIDES — Database-verified Prediction benchmark",
+  "note": "TWOSIDES, Database-verified Prediction benchmark",
   "ko_cells": [
    "K2.O3"
   ],
   "ko_primary": "K2.O3",
-  "ko_note": "TWOSIDES — Database-verified Prediction benchmark",
+  "ko_note": "TWOSIDES, Database-verified Prediction benchmark",
   "cross_source": false,
   "type": "benchmark",
   "bib_only": true,
@@ -8273,12 +8273,12 @@
    "medical"
   ],
   "paper_link": "https://doi.org/10.1038/nbt.1990",
-  "note": "Davis Kd Matrix — Database-verified Prediction benchmark",
+  "note": "Davis Kd Matrix, Database-verified Prediction benchmark",
   "ko_cells": [
    "K3.O3"
   ],
   "ko_primary": "K3.O3",
-  "ko_note": "Davis Kd Matrix — Database-verified Prediction benchmark",
+  "ko_note": "Davis Kd Matrix, Database-verified Prediction benchmark",
   "cross_source": false,
   "type": "benchmark",
   "bib_only": true,
@@ -8531,12 +8531,12 @@
    "bio"
   ],
   "paper_link": "https://doi.org/10.1093/nar/30.1.207",
-  "note": "Biology and genomics — gene expression data repository",
+  "note": "Biology and genomics, gene expression data repository",
   "ko_cells": [
    "K2"
   ],
   "ko_primary": "K2",
-  "ko_note": "Biology and genomics — gene expression data repository",
+  "ko_note": "Biology and genomics, gene expression data repository",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -8573,12 +8573,12 @@
    "bio"
   ],
   "paper_link": "https://doi.org/10.1093/nar/29.1.308",
-  "note": "Biology and genomics — genetic variation archive",
+  "note": "Biology and genomics, genetic variation archive",
   "ko_cells": [
    "K2"
   ],
   "ko_primary": "K2",
-  "ko_note": "Biology and genomics — genetic variation archive",
+  "ko_note": "Biology and genomics, genetic variation archive",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -8615,12 +8615,12 @@
    "bio"
   ],
   "paper_link": "https://doi.org/10.1038/75556",
-  "note": "Biology and genomics — gene function ontology (founding paper)",
+  "note": "Biology and genomics, gene function ontology (founding paper)",
   "ko_cells": [
    "K2"
   ],
   "ko_primary": "K2",
-  "ko_note": "Biology and genomics — gene function ontology (founding paper)",
+  "ko_note": "Biology and genomics, gene function ontology (founding paper)",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -8636,12 +8636,12 @@
    "bio"
   ],
   "paper_link": "https://doi.org/10.1093/nar/28.1.27",
-  "note": "Biology and genomics — pathway and genomics knowledgebase",
+  "note": "Biology and genomics, pathway and genomics knowledgebase",
   "ko_cells": [
    "K2"
   ],
   "ko_primary": "K2",
-  "ko_note": "Biology and genomics — pathway and genomics knowledgebase",
+  "ko_note": "Biology and genomics, pathway and genomics knowledgebase",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,
@@ -9139,12 +9139,12 @@
   "method": null,
   "domain": [],
   "paper_link": "",
-  "note": "Expert system for de novo polymer design via QSPR over PEARL (Polymer Expert Analog Repeat-unit Library); weakly-verified hypothesis — QSPR predictions without experimental validation loop; non-obvious candidates discovered",
+  "note": "Expert system for de novo polymer design via QSPR over PEARL (Polymer Expert Analog Repeat-unit Library); weakly-verified hypothesis, QSPR predictions without experimental validation loop; non-obvious candidates discovered",
   "ko_cells": [
    "K2.O3"
   ],
   "ko_primary": "K2.O3",
-  "ko_note": "Expert system for de novo polymer design via QSPR over PEARL (Polymer Expert Analog Repeat-unit Library); weakly-verified hypothesis — QSPR predictions without experimental validation loop; non-obvious candidates discovered",
+  "ko_note": "Expert system for de novo polymer design via QSPR over PEARL (Polymer Expert Analog Repeat-unit Library); weakly-verified hypothesis, QSPR predictions without experimental validation loop; non-obvious candidates discovered",
   "cross_source": false,
   "type": "Method",
   "bib_only": true,

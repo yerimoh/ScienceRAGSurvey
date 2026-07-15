@@ -48,15 +48,15 @@ Axes:
 
 ## Knowledge Source axis — retrieval substrate (K1-K4)
 
-- **K1 Textual** — Prose record of science — papers, abstracts, clinical notes, guidelines. Matched by embedding or lexical search over passages.
-- **K2 Relational** — Curated graphs of scientific relations — UMLS, PrimeKG, DRKG, STRING, KEGG, citation graphs. Reached by entity linking and traversal.
-- **K3 Structured-entity** — The objects of science as data — molecules, 3D structures, and property records (ChEMBL, PubChem, PDB, Materials Project). Reached by structural or property query.
-- **K4 Perceptual** — Raw instrument output — images, spectra, sequencing, time-series (MIMIC-CXR, MassBank, sky surveys). Reachable only through a learned cross-modal encoder.
+- **K1 Textual** — Prose record of science, papers, abstracts, clinical notes, guidelines. Matched by embedding or lexical search over passages.
+- **K2 Relational** — Curated graphs of scientific relations, UMLS, PrimeKG, DRKG, STRING, KEGG, citation graphs. Reached by entity linking and traversal.
+- **K3 Structured-entity** — The objects of science as data, molecules, 3D structures, and property records (ChEMBL, PubChem, PDB, Materials Project). Reached by structural or property query.
+- **K4 Perceptual** — Raw instrument output, images, spectra, sequencing, time-series (MIMIC-CXR, MassBank, sky surveys). Reachable only through a learned cross-modal encoder.
 
 ## Operational Objective axis — objective rung (O1-O3)
 
-- **O1 Grounding** — Answer a question whose gold already lies in the corpus — retrieve, cite, answer. (Question Answering.)
-- **O2 Synthesis** — Integrate evidence no single source states — verify claims and synthesize the literature. (Claim Verification, Literature Synthesis.)
+- **O1 Grounding** — Answer a question whose gold already lies in the corpus, retrieve, cite, answer. (Question Answering.)
+- **O2 Synthesis** — Integrate evidence no single source states, verify claims and synthesize the literature. (Claim Verification, Literature Synthesis.)
 - **O3 Discovery** — Propose an output the corpus does not contain, judged by an external verifier. (Property Prediction, Molecular Design, Materials Discovery, Hypothesis Generation.)
 
 For the full catalog with descriptions, see /llms-full.txt

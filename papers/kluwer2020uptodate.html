@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>UpToDate: evidence-based clinical decision support — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>UpToDate: evidence-based clinical decision support, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -120,114 +120,114 @@
       <h1>UpToDate: evidence-based clinical decision support</h1>
 <p>kluwer2020uptodate | 2020 | Wolters Kluwer | dataset | [medical] | <a href="https://www.wolterskluwer.com/en/solutions/uptodate">paper</a></p>
 <table class="prop-table">
-<tr><td class="prop-key">DB</td><td class="prop-val">UpToDate (Wolters Kluwer 임상 의사 결정 지원 시스템)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">11,000개 이상 임상 토픽; 7,000명 이상 의사/전문가 저자·편집자</td></tr>
-<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Subscription (유료 구독)</td></tr>
+<tr><td class="prop-key">DB</td><td class="prop-val">UpToDate (Wolters Kluwer clinical decision support system)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">11,000+ clinical topics; 7,000+ physician/expert authors and editors</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Subscription (paid subscription)</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">UpToDate 구독 웹 접근 / 병원·기관 라이선스</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">UpToDate subscription web access / hospital and institutional licensing</td></tr>
 </table>
 
 <blockquote>
 <p>Wolters Kluwer | 2020 | dataset | medical</p>
-<h4>📌 한 줄 요약</h4>
-<p>Wolters Kluwer가 운영하는 구독 기반 임상 의사 결정 지원 시스템으로, 7,000명 이상의 전문가 저자·편집자가 작성·검토한 11,000개 이상의 임상 토픽과 근거 기반 권고를 제공하며, 전 세계 180개국 이상의 의사들이 진료 현장에서 사용한다.</p>
+<h4>📌 TL;DR</h4>
+<p>A subscription-based clinical decision support system operated by Wolters Kluwer that provides 11,000+ clinical topics and evidence-based recommendations authored and reviewed by 7,000+ expert authors and editors, and is used at the point of care by physicians in 180+ countries worldwide.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>임상의가 진료 중 특정 질환의 진단·치료 프로토콜을 신속하게 조회할 단일 통합 참조 자원이 없었다</li>
-<li>PubMed 같은 원문 문헌 DB는 임상의가 직접 근거를 합성해야 해 시간이 과도하게 소요됐다</li>
-<li>교과서는 업데이트 주기가 길어 최신 임상 지침을 반영하기 어려웠다</li>
+<li>Clinicians lacked a single integrated reference resource for rapidly looking up diagnostic and treatment protocols for a specific disease during patient care</li>
+<li>Primary literature databases such as PubMed required clinicians to synthesize the evidence themselves, which was excessively time-consuming</li>
+<li>Textbooks had long update cycles, making it difficult to reflect the latest clinical guidelines</li>
 </ul>
-<p><strong>이 시스템이 필요한 이유</strong></p>
+<p><strong>Why this system is needed</strong></p>
 <ul>
-<li>'진료 현장(point of care)' 의사 결정을 위해 개별 문헌이 아닌 전문가가 합성한 근거 기반 권고문이 필요하다</li>
-<li>의학 지식의 폭발적 증가로 개별 임상의가 모든 분야의 최신 증거를 추적하기 어렵다</li>
+<li>'Point of care' decision-making requires expert-synthesized, evidence-based recommendations rather than individual pieces of literature</li>
+<li>The explosive growth of medical knowledge makes it difficult for individual clinicians to keep track of the latest evidence across all fields</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>UpToDate는 주제별 임상 토픽 아티클로 구성된다.</p>
+<h4>🔨 Architecture</h4>
+<p>UpToDate is composed of topic-based clinical topic articles.</p>
 <ul>
-<li><strong>토픽 아티클</strong>: 질환별 '배경', '역학', '진단', '치료', '후속 조치' 섹션으로 구성된 서사형 근거 합성</li>
-<li><strong>권고문(Recommendations)</strong>: 각 토픽 내 GRADE 체계 기반 권고 강도(강함/약함) + 근거 등급(A/B/C)</li>
-<li><strong>Grading system</strong>: UpToDate 자체 근거 수준 그레이딩 사용</li>
-<li><strong>업데이트 주기</strong>: 연속 업데이트 (연간 최소 1회 전체 검토 + 주요 발견 시 즉시 반영)</li>
-<li><strong>참고문헌</strong>: 각 토픽마다 수십~수백 건 1차 문헌 인용</li>
+<li><strong>Topic articles</strong>: Narrative-style evidence syntheses organized by disease into 'background', 'epidemiology', 'diagnosis', 'treatment', and 'follow-up' sections</li>
+<li><strong>Recommendations</strong>: GRADE-system-based recommendation strength (strong/weak) + evidence grade (A/B/C) within each topic</li>
+<li><strong>Grading system</strong>: Uses UpToDate's own evidence-level grading</li>
+<li><strong>Update cycle</strong>: Continuous updates (at least one full annual review + immediate incorporation upon major findings)</li>
+<li><strong>References</strong>: Tens to hundreds of primary literature citations per topic</li>
 </ul>
-<h4>📥 데이터 접근 방법</h4>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>구독 웹 접근</td>
-  <td>uptodate.com — 기관·개인 구독</td>
+  <td>Subscription web access</td>
+  <td>uptodate.com — institutional and individual subscriptions</td>
 </tr>
 <tr>
-  <td>EHR 통합</td>
-  <td>Epic, Cerner 등 주요 EHR 내 UpToDate 위젯</td>
+  <td>EHR integration</td>
+  <td>UpToDate widget within major EHRs such as Epic and Cerner</td>
 </tr>
 <tr>
-  <td>모바일 앱</td>
-  <td>iOS/Android 앱 — 구독자 오프라인 접근</td>
+  <td>Mobile app</td>
+  <td>iOS/Android app — offline access for subscribers</td>
 </tr>
 <tr>
   <td>AlmanacQA</td>
-  <td>라이선스 계약 하에 UpToDate 단편을 포함하는 연구용 QA 벤치마크 (유일한 공개 사례)</td>
+  <td>A research QA benchmark that includes UpToDate excerpts under a licensing agreement (the only public case)</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>임상 토픽 아티클 (서사형 텍스트 + 표·그림)</li>
-<li>권고 요약 및 근거 등급 테이블</li>
-<li>약물 정보 모듈 (별도 Lexicomp 통합)</li>
-<li>의학 계산기 (용량 계산, 위험 점수 등)</li>
+<li>Clinical topic articles (narrative-style text + tables and figures)</li>
+<li>Recommendation summaries and evidence-grade tables</li>
+<li>Drug information module (separate Lexicomp integration)</li>
+<li>Medical calculators (dose calculation, risk scores, etc.)</li>
 </ul>
-<h4>📊 주요 통계 (공식 자료 기준)</h4>
+<h4>📊 Key statistics (based on official materials)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>임상 토픽 수</td>
-  <td><strong>11,000개 이상</strong></td>
+  <td>Number of clinical topics</td>
+  <td><strong>11,000+</strong></td>
 </tr>
 <tr>
-  <td>저자·편집자 수</td>
-  <td><strong>7,000명 이상</strong> 의사·전문가</td>
+  <td>Number of authors and editors</td>
+  <td><strong>7,000+</strong> physicians and experts</td>
 </tr>
 <tr>
-  <td>구독 국가 수</td>
-  <td><strong>180개국 이상</strong></td>
+  <td>Number of subscribing countries</td>
+  <td><strong>180+</strong></td>
 </tr>
 <tr>
-  <td>접근 형태</td>
-  <td>구독 (Subscription)</td>
+  <td>Access type</td>
+  <td>Subscription</td>
 </tr>
 <tr>
-  <td>운영 기관</td>
+  <td>Operating organization</td>
   <td>Wolters Kluwer Health</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li><strong>유료 구독 장벽</strong>: 모든 오픈 Scientific RAG 시스템이 접근할 수 없는 핵심 한계 — 논문에서 &quot;open scientific RAG cannot reach&quot;의 대표 사례</li>
-<li>구독료가 고가여서 저소득 국가 의료 기관의 접근 제한</li>
-<li>AlmanacQA 외에 UpToDate 데이터를 활용한 공개 RAG 벤치마크 사실상 전무</li>
-<li>자체 근거 등급 체계가 외부 GRADE 체계와 완전히 호환되지 않음</li>
+<li><strong>Paid subscription barrier</strong>: A core limitation that no open Scientific RAG system can access — the representative example of &quot;open scientific RAG cannot reach&quot; in the paper</li>
+<li>Subscription fees are expensive, limiting access for healthcare institutions in low-income countries</li>
+<li>Public RAG benchmarks leveraging UpToDate data are virtually nonexistent apart from AlmanacQA</li>
+<li>The proprietary evidence-grading system is not fully compatible with the external GRADE system</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>공식 사이트</strong>: <a href="https://www.wolterskluwer.com/en/solutions/uptodate">UpToDate (Wolters Kluwer)</a></li>
+<li><strong>Official site</strong>: <a href="https://www.wolterskluwer.com/en/solutions/uptodate">UpToDate (Wolters Kluwer)</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (kluwer2020uptodate)</a></p>
@@ -248,14 +248,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

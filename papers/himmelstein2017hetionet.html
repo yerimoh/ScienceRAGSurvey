@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hetionet: Systematic Integration of Biomedical Knowledge for Drug Repurposing — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Hetionet: Systematic Integration of Biomedical Knowledge for Drug Repurposing, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,7 +117,7 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#원문-직접-인용-himmelstein-2017-elife-본문">원문 직접 인용 (Himmelstein 2017 eLife §본문)</a></li><li class="toc-l2"><a href="#project-rephetio-평가-결과">Project Rephetio 평가 결과</a></li><li class="toc-l2"><a href="#주요-활용">주요 활용</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#construction-methodology">Construction Methodology</a></li><li class="toc-l2"><a href="#direct-quotes-from-the-original-himmelstein-2017-elife-body">Direct Quotes from the Original (Himmelstein 2017 eLife §body)</a></li><li class="toc-l2"><a href="#project-rephetio-evaluation-results">Project Rephetio Evaluation Results</a></li><li class="toc-l2"><a href="#main-uses">Main Uses</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>Hetionet v1.0: 47,031 nodes (11 types) × 2,250,197 relationships (24 types)</h1>
@@ -126,17 +126,17 @@
 Daniel S. Himmelstein, Antoine Lizee, Christine Hessler, Leo Brueggeman, Sabrina L. Chen, Dexter Hadley, Ari Green, Pouya Khankhanian, Sergio E. Baranzini — UCSF / UPenn
 DOI: <a href="https://doi.org/10.7554/eLife.26726">10.7554/eLife.26726</a></p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>29개 공개 자원을 통합한 <strong>47,031 노드 (11 type) × 2,250,197 relationship (24 edge type)</strong> 의 hetnet (heterogeneous network). 약물 재활용(drug repurposing) edge prediction 표준 GT로 자리잡았으며, <strong>40명 community 멤버</strong>의 실시간 피드백을 받은 <strong>fully open</strong> 연구.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>A hetnet (heterogeneous network) of <strong>47,031 nodes (11 types) × 2,250,197 relationships (24 edge types)</strong> integrated from 29 public resources. It has become the standard GT for drug repurposing edge prediction, and is a <strong>fully open</strong> study that received realtime feedback from <strong>40 community members</strong>.</p>
 <hr />
-<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
-<pre><code>Step 1 — 데이터 소스 통합 (29 public resources)
+<h2 id="construction-methodology">Construction Methodology</h2>
+<pre><code>Step 1 — Integrating data sources (29 public resources)
   └─ DrugBank, ChEMBL, SIDER, Bgee, GTEx, MSigDB, GO, DO, MeSH,
      GWAS Catalog, LINCS L1000, STRING, BioGRID, PathBank, etc.
 
 Step 2 — Node typing (11 types)
   ┌──────────────────────┬─────────────────────────┐
-  │ Node type            │ 예시                     │
+  │ Node type            │ Example                  │
   ├──────────────────────┼─────────────────────────┤
   │ Compound             │ 1,552 small molecules    │
   │ Disease              │ 137 complex diseases     │
@@ -157,21 +157,21 @@ Step 3 — Edge typing (24 metaedges)
   └─ Disease-Gene (associates / upregulates / downregulates / locates)
   └─ Gene-Gene (interacts / covaries / regulates)
   └─ Anatomy-Gene (expresses / upregulates / downregulates)
-  └─ ... 24 종류 총
+  └─ ... 24 types in total
 
-Step 4 — Drug Repurposing 모델: Project Rephetio
+Step 4 — Drug Repurposing model: Project Rephetio
   └─ Metapath-based feature engineering
   └─ Logistic regression on metapath similarities
   └─ DM (Compound-treats-Disease) edge prediction
-  └─ 새 후보: nicardipine, fluoxetine for Multiple Sclerosis 등
+  └─ New candidates: nicardipine, fluoxetine for Multiple Sclerosis, etc.
 
 Step 5 — Open community development
   └─ GitHub-first manuscript (dhimmel/rephetio-manuscript)
-  └─ 40명 외부 community 멤버 실시간 피드백
-  └─ &quot;entirely open&quot; 연구 모델
+  └─ Realtime feedback from 40 external community members
+  └─ &quot;entirely open&quot; research model
 </code></pre>
 <hr />
-<h2 id="원문-직접-인용-himmelstein-2017-elife-본문">원문 직접 인용 (Himmelstein 2017 eLife §본문)</h2>
+<h2 id="direct-quotes-from-the-original-himmelstein-2017-elife-body">Direct Quotes from the Original (Himmelstein 2017 eLife §body)</h2>
 <blockquote>
 <p>&quot;Hetionet v1.0 consists of <strong>47,031 nodes of 11 types</strong> and <strong>2,250,197 relationships of 24 types</strong>. Data was integrated from <strong>29 public resources</strong> to connect compounds, diseases, genes, anatomies, etc.&quot;</p>
 </blockquote>
@@ -182,12 +182,12 @@ Step 5 — Open community development
 <p>&quot;This study was <strong>entirely open</strong> and received realtime feedback from <strong>40 community members</strong>.&quot;</p>
 </blockquote>
 <hr />
-<h2 id="project-rephetio-평가-결과">Project Rephetio 평가 결과</h2>
+<h2 id="project-rephetio-evaluation-results">Project Rephetio Evaluation Results</h2>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>내용</th>
+  <th>Item</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
@@ -208,23 +208,23 @@ Step 5 — Open community development
   <td>~0.97 (validation)</td>
 </tr>
 <tr>
-  <td>신약 발견 사례</td>
-  <td>nicardipine for MS, fluoxetine reuse 등</td>
+  <td>Drug discovery cases</td>
+  <td>nicardipine for MS, fluoxetine reuse, etc.</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="주요-활용">주요 활용</h2>
+<h2 id="main-uses">Main Uses</h2>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>내용</th>
+  <th>Item</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>Task 정의</td>
+  <td>Task definition</td>
   <td>Drug repurposing edge prediction</td>
 </tr>
 <tr>
@@ -232,37 +232,37 @@ Step 5 — Open community development
   <td>Compound-treats-Disease (DM) edge inference</td>
 </tr>
 <tr>
-  <td>후속 작업</td>
+  <td>Follow-up work</td>
   <td>EdgePrediction, NodeXL community detection</td>
 </tr>
 <tr>
-  <td>KG embedding 모델</td>
+  <td>KG embedding models</td>
   <td>TransE, ComplEx, DistMult on Hetionet</td>
 </tr>
 <tr>
-  <td>차별성</td>
-  <td>DRKG/PrimeKG와 별도로 repurposing edge-prediction 표준</td>
+  <td>Distinctiveness</td>
+  <td>The repurposing edge-prediction standard, separate from DRKG/PrimeKG</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li><strong>2017년 v1.0 cutoff</strong>: 신약/신질환 미반영</li>
-<li><strong>Open Targets / DrugBank 의존성</strong>: 원본 DB 라이선스 변경 시 일부 사용 제한</li>
-<li><strong>Predicted treatment 검증</strong>: edge prediction은 hypothesis 생성, wet-lab 추가 필요</li>
-<li><strong>Heterogeneity bias</strong>: 일부 edge type은 data sparse</li>
-<li><strong>단방향 relationship</strong>: 모든 edge는 unweighted (strength 미반영)</li>
+<li><strong>2017 v1.0 cutoff</strong>: new drugs/diseases not reflected</li>
+<li><strong>Open Targets / DrugBank dependency</strong>: some use may be restricted if the original DB licenses change</li>
+<li><strong>Predicted treatment validation</strong>: edge prediction generates hypotheses; additional wet-lab work is needed</li>
+<li><strong>Heterogeneity bias</strong>: some edge types have sparse data</li>
+<li><strong>Unidirectional relationships</strong>: all edges are unweighted (strength not reflected)</li>
 </ul>
 <hr />
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문 (eLife)</strong>: <a href="https://doi.org/10.7554/eLife.26726">10.7554/eLife.26726</a></li>
-<li><strong>공식 사이트</strong>: <a href="https://het.io">het.io</a> — 인터랙티브 탐색</li>
+<li><strong>Paper (eLife)</strong>: <a href="https://doi.org/10.7554/eLife.26726">10.7554/eLife.26726</a></li>
+<li><strong>Official site</strong>: <a href="https://het.io">het.io</a> — interactive exploration</li>
 <li><strong>GitHub</strong>: <a href="https://github.com/hetio/hetionet">hetio/hetionet</a></li>
-<li><strong>데이터 다운로드</strong>: <a href="https://github.com/hetio/hetionet/tree/master/hetnet">github.com/hetio/hetionet/tree/master/hetnet</a></li>
-<li><strong>Project Rephetio 결과</strong>: <a href="https://het.io/repurpose">het.io/repurpose</a></li>
-<li><strong>이 benchmark를 사용한 주요 작업</strong>: DRKG, PrimeKG (구조적 영감), TxGNN, GraIL 등 biomedical KG embedding/inference 연구</li>
+<li><strong>Data download</strong>: <a href="https://github.com/hetio/hetionet/tree/master/hetnet">github.com/hetio/hetionet/tree/master/hetnet</a></li>
+<li><strong>Project Rephetio results</strong>: <a href="https://het.io/repurpose">het.io/repurpose</a></li>
+<li><strong>Major work using this benchmark</strong>: DRKG, PrimeKG (structural inspiration), TxGNN, GraIL, and other biomedical KG embedding/inference research</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (himmelstein2017hetionet)</a></p>
@@ -283,14 +283,14 @@ Step 5 — Open community development
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

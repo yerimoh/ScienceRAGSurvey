@@ -12,67 +12,67 @@ paper_link: https://doi.org/10.5194/gmd-9-1937-2016
 eyring2016overview | 2016 | Geoscientific Model Development | dataset | [earth, climate] | [paper](https://doi.org/10.5194/gmd-9-1937-2016)
 
 **DB**: CMIP6 — Coupled Model Intercomparison Project Phase 6
-**DB size**: Petabyte-scale; ~20 PB 이상 (전 세계 49개 모델링 그룹, 100여 개 기후 모델; 볼륨은 실제 생산 후 추정치)
-**DB Open/Private**: Open (ESGF 통해 공개 배포)
+**DB size**: Petabyte-scale; ~20 PB or more (49 modeling groups worldwide, 100+ climate models; volume is an estimate after actual production)
+**DB Open/Private**: Open (publicly distributed via ESGF)
 **Modality**: ['NetCDF', 'Simulation output', 'Time series']
-**Retriever**: N/A (지식 소스 인프라)
+**Retriever**: N/A (knowledge source infrastructure)
 **Eval Task**: N/A
 **Eval Metric**: N/A
 **Method Name**: CMIP6 / ESGF (Earth System Grid Federation)
 
 > Geoscientific Model Development | 2016 | dataset | earth, climate
-#### 한 줄 요약
-전 세계 기후 모델링 그룹의 지구 시스템 모델(ESM) 시뮬레이션을 조율·통합하는 CMIP6 설계 및 조직 논문. IPCC 제6차 평가 보고서(AR6)의 과학적 기반이 되는 **페타바이트 규모** 기후 시뮬레이션 데이터를 ESGF를 통해 공개 배포. 과거·현재·미래 기후 시나리오 시뮬레이션의 표준 프로토콜을 정의.
+#### TL;DR
+A paper on the CMIP6 design and organization that coordinates and integrates Earth System Model (ESM) simulations from climate modeling groups worldwide. It publicly distributes **petabyte-scale** climate simulation data—the scientific basis for the IPCC Sixth Assessment Report (AR6)—via ESGF. It defines standard protocols for simulations of past, present, and future climate scenarios.
 
-#### 개발/구축 배경
-**기존 인프라의 한계**
-- CMIP1–5는 개별 실험 설계로 모델 간 비교가 어렵고 커버리지 불균일
-- CMIP5 이후 지구 시스템 모델 복잡성 증가 (탄소 순환, 에어로졸, 해양 생지화학 결합)
-- 단일 모델 앙상블로는 내부 변동성과 모델 불확도 구분 불가
+#### Background
+**Limitations of existing infrastructure**
+- CMIP1–5 used individual experimental designs, making inter-model comparison difficult and coverage uneven
+- Increasing complexity of Earth System Models after CMIP5 (coupling of carbon cycle, aerosols, ocean biogeochemistry)
+- A single-model ensemble cannot distinguish internal variability from model uncertainty
 
-**이 시스템이 필요한 이유**
-- IPCC AR6 과학적 근거 확보를 위한 다중 모델 앙상블 표준 필요
-- 기후 변화 원인 규명(Detection & Attribution), 지역 영향 평가, 탄소 예산 추정 등 정책 관련 질문에 답하기 위한 체계적 실험 설계
-- ScenarioMIP(SSP 경로), HighResMIP, AerChemMIP 등 18개 상호 비교 프로젝트(MIP) 통합 조율
+**Why this system is needed**
+- A multi-model ensemble standard is needed to establish the scientific basis for IPCC AR6
+- Systematic experimental design to answer policy-relevant questions such as detection and attribution of climate change causes, regional impact assessment, and carbon budget estimation
+- Integrated coordination of 18 Model Intercomparison Projects (MIPs) such as ScenarioMIP (SSP pathways), HighResMIP, and AerChemMIP
 
-#### 시스템 구성
-CMIP6는 WCRP(세계기후연구프로그램)가 주관하며 3단계로 구성:
-1. **DECK(Diagnostic, Evaluation and Characterization of Klima)**: 4가지 표준 실험 (piControl, historical, AMIP, abrupt4×CO₂) — 모든 참여 모델 의무
-2. **Historical 시뮬레이션**: 1850–2014 관측 기반 강제력
-3. **선택적 MIPs**: 21개 CMIP6-Endorsed MIP (ScenarioMIP, HighResMIP, PMIP, AerChemMIP 등)
+#### Architecture
+CMIP6 is led by the WCRP (World Climate Research Programme) and consists of three tiers:
+1. **DECK (Diagnostic, Evaluation and Characterization of Klima)**: 4 standard experiments (piControl, historical, AMIP, abrupt4×CO₂) — mandatory for all participating models
+2. **Historical simulations**: observation-based forcings for 1850–2014
+3. **Optional MIPs**: 21 CMIP6-Endorsed MIPs (ScenarioMIP, HighResMIP, PMIP, AerChemMIP, etc.)
 
-데이터 배포: ESGF (Earth System Grid Federation) — 분산 페더레이션 아카이브, 전 세계 노드 운영.
+Data distribution: ESGF (Earth System Grid Federation) — a distributed federated archive operating nodes worldwide.
 
-#### 데이터 접근 방법
-| 방법 | 설명 |
+#### Access
+| Method | Description |
 |---|---|
-| ESGF 포털 | esgf-node.llnl.gov 등 — 웹 탐색·다운로드 |
-| ESMValTool | Python 기반 진단·분석 도구 |
-| Pangeo | 클라우드 기반 Zarr 포맷 접근 (Google Cloud, AWS) |
-| intake-esm | Python 카탈로그 기반 검색 |
+| ESGF portal | esgf-node.llnl.gov, etc. — web browsing and download |
+| ESMValTool | Python-based diagnostic and analysis tool |
+| Pangeo | cloud-based access in Zarr format (Google Cloud, AWS) |
+| intake-esm | Python catalog-based search |
 
-#### 제공 데이터 형식
+#### Data formats
 - NetCDF-4 (CF Conventions)
-- 변수: 대기(300+), 해양, 해빙, 육지, 에어로졸, 탄소 순환
-- 시간 해상도: 서브일~월~연 평균
-- 공간 해상도: 25km~200km (모델별 상이)
+- Variables: atmosphere (300+), ocean, sea ice, land, aerosols, carbon cycle
+- Temporal resolution: sub-daily to monthly to annual averages
+- Spatial resolution: 25km–200km (varies by model)
 
-#### 주요 통계
-| 항목 | 수치 |
+#### Key statistics
+| Item | Value |
 |---|---|
-| 참여 모델링 그룹 | **~49** 개 (전 세계) |
-| 모델 수 | **100+** 개 ESM/GCM |
-| 총 데이터 볼륨 | **~20 PB** 이상 (추산) |
-| MIP 수 | **21** 개 (CMIP6-Endorsed MIPs, 논문 확인) |
-| DECK 실험 | **4** 개 (의무) |
-| 지원 IPCC 보고서 | AR6 (2021) |
+| Participating modeling groups | **~49** (worldwide) |
+| Number of models | **100+** ESM/GCM |
+| Total data volume | **~20 PB** or more (estimated) |
+| Number of MIPs | **21** (CMIP6-Endorsed MIPs, confirmed in the paper) |
+| DECK experiments | **4** (mandatory) |
+| Supported IPCC report | AR6 (2021) |
 
-#### 한계점
-- 모델 해상도 한계: 대부분 100km 수준으로 극단 기상 사건·지역 기후 시뮬레이션 부족 (HighResMIP에서 일부 해결)
-- 데이터 볼륨이 매우 커 일반 연구자의 로컬 다운로드 비현실적 → 클라우드 분석 필요
-- NetCDF/CF 규약에 대한 도메인 지식 없이 RAG 파이프라인에서 직접 활용 어려움
-- 모델 간 변수명·그리드 불균일 → 표준화 처리 필요
+#### Limitations
+- Limited model resolution: mostly around 100km, insufficient for simulating extreme weather events and regional climate (partly addressed in HighResMIP)
+- Data volume is very large, making local download by ordinary researchers impractical → cloud-based analysis needed
+- Difficult to use directly in a RAG pipeline without domain knowledge of the NetCDF/CF conventions
+- Non-uniform variable names and grids across models → standardization processing required
 
-## 관련 정보
-- **논문**: [https://doi.org/10.5194/gmd-9-1937-2016](https://doi.org/10.5194/gmd-9-1937-2016)
-- **ESGF 포털**: [https://esgf-node.llnl.gov/projects/cmip6/](https://esgf-node.llnl.gov/projects/cmip6/)
+## Related links
+- **Paper**: [https://doi.org/10.5194/gmd-9-1937-2016](https://doi.org/10.5194/gmd-9-1937-2016)
+- **ESGF portal**: [https://esgf-node.llnl.gov/projects/cmip6/](https://esgf-node.llnl.gov/projects/cmip6/)

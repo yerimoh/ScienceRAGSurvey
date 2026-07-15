@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Reaxys — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Reaxys, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -121,84 +121,84 @@
 <p>reaxys | 2009 | Elsevier | dataset | [chem] | <a href="https://www.reaxys.com">paper</a></p>
 <table class="prop-table">
 <tr><td class="prop-key">DB</td><td class="prop-val">Reaxys (Elsevier)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">구독 기반 (공개적 수치 미기재)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">Subscription-based (no public figures reported)</td></tr>
 <tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Subscription</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Text, Structured</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">Reaxys 웹 플랫폼</td></tr>
+<tr><td class="prop-key">Method Name</td><td class="prop-val">Reaxys web platform</td></tr>
 </table>
 
 <blockquote>
 <p>Elsevier | 2009 | dataset | chem</p>
-<h4>📌 한 줄 요약</h4>
-<p>Reaxys는 Elsevier가 운영하는 구독 기반 화학 반응·물질·바이오활성 DB로, Beilstein(유기화학)과 Gmelin(무기·금속유기화학) DB를 통합하여 합성 화학자의 반응 검색과 합성 경로 계획을 지원한다.</p>
+<h4>📌 TL;DR</h4>
+<p>Reaxys is a subscription-based chemical reaction, substance, and bioactivity DB operated by Elsevier. It integrates the Beilstein (organic chemistry) and Gmelin (inorganic and organometallic chemistry) DBs to support reaction search and synthetic route planning for synthetic chemists.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 인프라의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing infrastructure</strong></p>
 <ul>
-<li>Beilstein(유기)과 Gmelin(무기) DB가 별도로 운영되어 통합 접근이 불편했음
-<strong>이 시스템이 필요한 이유</strong></li>
-<li>합성 경로 계획(retrosynthesis)을 위한 통합 반응-물질 DB 필요</li>
-<li>SciFinder와 함께 합성 화학자의 양대 상업 인프라 역할</li>
+<li>The Beilstein (organic) and Gmelin (inorganic) DBs were operated separately, making integrated access inconvenient
+<strong>Why this system is needed</strong></li>
+<li>A unified reaction-substance DB is needed for synthetic route planning (retrosynthesis)</li>
+<li>Alongside SciFinder, it serves as one of the two major commercial infrastructures for synthetic chemists</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
-<p>Beilstein Database(유기 화학 반응·물질), Gmelin Database(무기·금속유기 화학), 특허 화학 데이터를 통합한다. 2009년 Reaxys 브랜드로 통합 출시. 구조, 반응, 물리화학적 성질 통합 검색 가능.</p>
-<h4>📥 데이터 접근 방법</h4>
+<h4>🔨 Architecture</h4>
+<p>It integrates the Beilstein Database (organic chemistry reactions and substances), the Gmelin Database (inorganic and organometallic chemistry), and patent chemistry data. Launched in 2009 as the unified Reaxys brand. Enables integrated search across structures, reactions, and physicochemical properties.</p>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>구독 플랫폼</td>
-  <td>reaxys.com (기관 구독 필요)</td>
+  <td>Subscription platform</td>
+  <td>reaxys.com (institutional subscription required)</td>
 </tr>
 <tr>
-  <td>구조 검색</td>
-  <td>화합물·반응 구조 기반 검색</td>
+  <td>Structure search</td>
+  <td>Search based on compound and reaction structures</td>
 </tr>
 <tr>
   <td>API</td>
-  <td>Reaxys API (기관 협약에 따라 제공)</td>
+  <td>Reaxys API (provided under institutional agreements)</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>화합물 레코드 (구조, 물리화학적 성질)</li>
-<li>반응 레코드 (반응물, 생성물, 조건, 수율, 출처)</li>
-<li>바이오활성 데이터</li>
+<li>Compound records (structures, physicochemical properties)</li>
+<li>Reaction records (reactants, products, conditions, yields, sources)</li>
+<li>Bioactivity data</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Figure</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>출시</td>
-  <td>2009년 (Beilstein+Gmelin 통합)</td>
+  <td>Launch</td>
+  <td>2009 (Beilstein+Gmelin integration)</td>
 </tr>
 <tr>
-  <td>데이터 범위</td>
-  <td>구독 기반; Elsevier에서 공개적 수치 미발표</td>
+  <td>Data coverage</td>
+  <td>Subscription-based; no public figures released by Elsevier</td>
 </tr>
 </tbody>
 </table>
-<h4>⚠️ 한계점</h4>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>구독 기반으로 오픈 과학 RAG 시스템이 직접 접근 불가</li>
-<li>SciFinder와 함께 화학 분야 오픈-클로즈드 격차를 대표하는 인프라</li>
-<li>고비용으로 소규모 기관 접근 제한</li>
+<li>Being subscription-based, it is not directly accessible to open-science RAG systems</li>
+<li>Alongside SciFinder, it represents the open-closed gap in the chemistry field</li>
+<li>High cost limits access for small institutions</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>공식 페이지</strong>: <a href="https://www.reaxys.com">Reaxys</a></li>
+<li><strong>Official page</strong>: <a href="https://www.reaxys.com">Reaxys</a></li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (reaxys)</a></p>
@@ -220,14 +220,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

@@ -12,50 +12,50 @@ paper_link: https://doi.org/10.1038/s41597-022-01390-7
 isert2022qmugs | 2022 | Scientific Data | dataset | [chem] | [paper](https://doi.org/10.1038/s41597-022-01390-7)
 
 **DB**: QMugs (Quantum-Mechanical Properties of Drug-like Molecules)
-**DB size**: 665k+ 생물 활성 분자, ~2M 형태(conformers)
+**DB size**: 665k+ bioactive molecules, ~2M conformers
 **DB Open/Private**: Open
 **Modality**: ['Structured']
-**Retriever**: N/A (지식 소스 인프라)
+**Retriever**: N/A (knowledge source infrastructure)
 **Eval Task**: N/A
 **Eval Metric**: N/A
 **Method Name**: QMugs (GFN2-xTB + DFT/ωB97X-D/def2-SVP)
 
 > Scientific Data | 2022 | dataset | chem
-#### 📌 한 줄 요약
-QMugs는 ChEMBL에서 추출한 665k개 이상의 drug-like 분자에 대한 반경험적(GFN2-xTB) 및 DFT(ωB97X-D/def2-SVP) 수준의 양자역학 성질을 제공하는 오픈 액세스 데이터셋이다.
+#### 📌 TL;DR
+QMugs is an open-access dataset providing semi-empirical (GFN2-xTB) and DFT (ωB97X-D/def2-SVP) level quantum-mechanical properties for over 665k drug-like molecules extracted from ChEMBL.
 
-#### 🎯 개발/구축 배경
-**기존 인프라의 한계**
-- QM9 등 기존 QM 데이터셋은 소형 분자(9중원자 이하)에 한정되어 drug-like 분자 커버 미흡
-- 생물 활성 관련 양자역학 성질 데이터를 포함한 대규모 컬렉션 부재
-**이 시스템이 필요한 이유**
-- Drug-like 분자 크기(MW 250-700)에서의 QM 성질 ML 모델 개발에 필요한 훈련 데이터
-- 다중 수준 이론(반경험적+DFT)에서 학습하는 모델 지원
+#### 🎯 Background
+**Limitations of existing infrastructure**
+- Existing QM datasets such as QM9 are limited to small molecules (nine heavy atoms or fewer), providing insufficient coverage of drug-like molecules
+- Absence of a large-scale collection that includes quantum-mechanical property data related to bioactivity
+**Why this system is needed**
+- Training data needed for developing ML models of QM properties for drug-like molecule sizes (MW 250-700)
+- Support for models that learn from multiple levels of theory (semi-empirical + DFT)
 
-#### 🔨 시스템 구성
-ChEMBL DB에서 생물학적·약리학적으로 관련된 분자를 추출한다. GFN2-xTB 반경험적 방법으로 기하 최적화 및 열역학 데이터 계산. DFT(ωB97X-D/def2-SVP) 수준에서 원자·분자 성질 추가 계산. DFT 밀도 행렬 및 오비탈 행렬도 포함.
+#### 🔨 Architecture
+Biologically and pharmacologically relevant molecules are extracted from the ChEMBL DB. Geometry optimization and thermodynamic data are computed using the GFN2-xTB semi-empirical method. Atomic and molecular properties are additionally computed at the DFT (ωB97X-D/def2-SVP) level. DFT density matrices and orbital matrices are also included.
 
-#### 📥 데이터 접근 방법
-| 방법 | 설명 |
+#### 📥 Access
+| Method | Description |
 |---|---|
-| ETH Zurich 데이터 저장소 | DOI:10.3929/ethz-b-000482129 |
+| ETH Zurich data repository | DOI:10.3929/ethz-b-000482129 |
 
-#### 📤 제공 데이터 형식
-- 최적화된 분자 기하 구조 (xyz)
-- 원자 성질 (GFN2-xTB 및 DFT 수준)
-- 분자 성질 (쌍극자 모멘트, 분극률 등)
-- DFT 밀도 및 오비탈 행렬
+#### 📤 Data formats
+- Optimized molecular geometries (xyz)
+- Atomic properties (GFN2-xTB and DFT levels)
+- Molecular properties (dipole moment, polarizability, etc.)
+- DFT density and orbital matrices
 
-#### 📊 주요 통계 (논문 기준)
-| 항목 | 수치 |
+#### 📊 Key statistics (per the paper)
+| Item | Value |
 |---|---|
-| 분자 수 | 665k+ |
-| 형태 수 (conformers) | ~2M |
-| 출처 DB | ChEMBL |
+| Number of molecules | 665k+ |
+| Number of conformers | ~2M |
+| Source DB | ChEMBL |
 
-#### ⚠️ 한계점
-- 계산 비용으로 인해 대형 분자(MW>700)는 포함되지 않음
-- DFT 밀도 행렬 등 일부 데이터는 파일 크기가 매우 커 스토리지 요구사항 높음
+#### ⚠️ Limitations
+- Due to computational cost, large molecules (MW>700) are not included
+- Some data, such as DFT density matrices, have very large file sizes, leading to high storage requirements
 
-## 관련 정보
-- **논문**: [QMugs, quantum mechanical properties of drug-like molecules](https://doi.org/10.1038/s41597-022-01390-7)
+## Related links
+- **Paper**: [QMugs, quantum mechanical properties of drug-like molecules](https://doi.org/10.1038/s41597-022-01390-7)

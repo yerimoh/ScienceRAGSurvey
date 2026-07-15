@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>gPROMS: Advanced process modelling software — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>gPROMS: Advanced process modelling software, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -120,48 +120,48 @@
       <h1>gPROMS</h1>
 <p>gproms | 1990 | PSE/Siemens (Commercial Software) | dataset | [chem] | <a href="https://www.siemens.com/global/en/products/automation/industry-software/gproms.html">website</a></p>
 <table class="prop-table">
-<tr><td class="prop-key">DB</td><td class="prop-val">gPROMS 내장 물성 데이터베이스 (INFOCHEM Multiflash 또는 CAPE-OPEN 기반 열역학 패키지 연동)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">N/A (라이선스 소프트웨어, 공개 수치 없음)</td></tr>
-<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Subscription (상용 라이선스)</td></tr>
+<tr><td class="prop-key">DB</td><td class="prop-val">gPROMS built-in physical-property database (integrates with INFOCHEM Multiflash or CAPE-OPEN-based thermodynamic packages)</td></tr>
+<tr><td class="prop-key">DB size</td><td class="prop-val">N/A (licensed software, no public figures)</td></tr>
+<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Subscription (commercial license)</td></tr>
 <tr><td class="prop-key">Modality</td><td class="prop-val">Tabular</td></tr>
 <tr><td class="prop-key">Method Name</td><td class="prop-val">gPROMS (PSE/Siemens)</td></tr>
 </table>
 
 <blockquote>
 <p>PSE/Siemens | ~1990 | dataset | chem</p>
-<h4>📌 한 줄 요약</h4>
-<p>Process Systems Enterprise(PSE, 현 Siemens 자회사)가 개발한 고급 공정 모델링 플랫폼으로, 미분대수방정식(DAE) 기반 first-principles 모델링을 지원하며 정밀 열역학·전달현상 파라미터를 내장하여 배터리, 제약, 정제 공정 등의 고정밀 시뮬레이션에 활용된다.</p>
+<h4>📌 TL;DR</h4>
+<p>An advanced process modeling platform developed by Process Systems Enterprise (PSE, now a Siemens subsidiary). It supports first-principles modeling based on differential-algebraic equations (DAE) and embeds precise thermodynamic and transport-phenomena parameters, making it useful for high-fidelity simulation of battery, pharmaceutical, and refining processes.</p>
 </blockquote>
-<h4>🎯 개발/구축 배경</h4>
-<p><strong>기존 공정 시뮬레이터의 한계</strong></p>
+<h4>🎯 Background</h4>
+<p><strong>Limitations of existing process simulators</strong></p>
 <ul>
-<li>Aspen Plus, Pro/II 같은 steady-state 시뮬레이터는 단순화된 shortcut 모델 위주로 first-principles 동역학 모델 구현이 제한적</li>
-<li>제약 결정화, 배터리 전극 반응, 막분리(membrane separation) 같은 복잡한 물리화학 현상을 정밀 모델링하려면 DAE 기반 플랫폼이 필요</li>
+<li>Steady-state simulators such as Aspen Plus and Pro/II center on simplified shortcut models, so their implementation of first-principles dynamic models is limited</li>
+<li>Precise modeling of complex physicochemical phenomena such as pharmaceutical crystallization, battery electrode reactions, and membrane separation requires a DAE-based platform</li>
 </ul>
-<p><strong>gPROMS의 위치</strong></p>
+<p><strong>gPROMS's positioning</strong></p>
 <ul>
-<li>&quot;Advanced Process Modeling&quot; 영역: Aspen Plus/Pro/II보다 한 단계 높은 정밀도의 first-principles 모델링을 지원</li>
-<li>배터리 셀 설계(gPROMS FormulatedProducts), 제약 공정(gPROMS Pharmaceutical), LNG 액화 공정에서 industry 표준</li>
+<li>&quot;Advanced Process Modeling&quot; domain: supports first-principles modeling at a level of precision one step above Aspen Plus/Pro/II</li>
+<li>An industry standard in battery cell design (gPROMS FormulatedProducts), pharmaceutical processes (gPROMS Pharmaceutical), and LNG liquefaction processes</li>
 </ul>
-<h4>🔨 시스템 구성</h4>
+<h4>🔨 Architecture</h4>
 <ul>
-<li><strong>모델링 언어</strong>: 독자적 DAE 기반 equation-oriented 모델링 언어 (gML)</li>
-<li><strong>열역학 패키지</strong>: CAPE-OPEN 인터페이스를 통해 Multiflash, Aspen Properties 등 외부 물성 엔진 연동</li>
-<li><strong>최적화 엔진</strong>: 모델 기반 최적화(MBO) 및 파라미터 추정 기능 내장</li>
-<li><strong>물성 데이터베이스</strong>: INFOCHEM Multiflash 기반 상평형 및 전달 파라미터</li>
+<li><strong>Modeling language</strong>: proprietary DAE-based equation-oriented modeling language (gML)</li>
+<li><strong>Thermodynamic package</strong>: integrates external physical-property engines such as Multiflash and Aspen Properties through the CAPE-OPEN interface</li>
+<li><strong>Optimization engine</strong>: built-in model-based optimization (MBO) and parameter estimation capabilities</li>
+<li><strong>Physical-property database</strong>: phase-equilibrium and transport parameters based on INFOCHEM Multiflash</li>
 </ul>
-<h4>📥 데이터 접근 방법</h4>
+<h4>📥 Access</h4>
 <table>
 <thead>
 <tr>
-  <th>방법</th>
-  <th>설명</th>
+  <th>Method</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>gPROMS GUI</td>
-  <td>Process Builder 기반 모델 구성 및 실행</td>
+  <td>Model construction and execution based on Process Builder</td>
 </tr>
 <tr>
   <td>Python API</td>
@@ -169,52 +169,52 @@
 </tr>
 <tr>
   <td>CAPE-OPEN</td>
-  <td>표준 CAPE-OPEN 인터페이스를 통한 타 플랫폼 연동</td>
+  <td>Integration with other platforms through the standard CAPE-OPEN interface</td>
 </tr>
 </tbody>
 </table>
-<h4>📤 제공 데이터 형식</h4>
+<h4>📤 Data formats</h4>
 <ul>
-<li>시뮬레이션 결과: 상태 변수 프로파일 (시간/공간 분포)</li>
-<li>파라미터 추정 결과: 동역학 파라미터, 물성 파라미터</li>
-<li>최적화 보고서: 설계 변수 및 목적함수 값</li>
+<li>Simulation results: state-variable profiles (temporal/spatial distributions)</li>
+<li>Parameter estimation results: kinetic parameters, physical-property parameters</li>
+<li>Optimization reports: design variables and objective-function values</li>
 </ul>
-<h4>📊 주요 통계 (논문 기준)</h4>
+<h4>📊 Key statistics (per the paper)</h4>
 <table>
 <thead>
 <tr>
-  <th>항목</th>
-  <th>수치</th>
+  <th>Item</th>
+  <th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>최초 상업 출시</td>
-  <td>~1990년대 초 (PSE 설립 1991년)</td>
+  <td>First commercial release</td>
+  <td>~early 1990s (PSE founded in 1991)</td>
 </tr>
 <tr>
-  <td>현 소유사</td>
-  <td>Siemens AG (2019년 PSE 인수)</td>
+  <td>Current owner</td>
+  <td>Siemens AG (acquired PSE in 2019)</td>
 </tr>
 <tr>
-  <td>공개 데이터베이스 규모</td>
-  <td>비공개 (상용 라이선스)</td>
+  <td>Public database size</td>
+  <td>Not disclosed (commercial license)</td>
 </tr>
 </tbody>
 </table>
-<p><strong>NOTE</strong>: <code>gproms</code> 항목은 references.bib에 bib 엔트리가 존재하지 않음 (누락된 인용).</p>
-<h4>⚠️ 한계점</h4>
+<p><strong>NOTE</strong>: The <code>gproms</code> entry has no bib entry in references.bib (missing citation).</p>
+<h4>⚠️ Limitations</h4>
 <ul>
-<li>first-principles 모델 구축에 전문적인 화학공학 지식이 필요하여 진입 장벽이 높음</li>
-<li>내장 물성 데이터베이스는 CAPE-OPEN 표준을 통해 간접 접근만 가능하며 RAG 시스템과 직접 통합 불가</li>
-<li>소규모 연구실 환경에서는 라이선스 비용이 부담</li>
+<li>Building first-principles models requires specialized chemical-engineering knowledge, resulting in a high barrier to entry</li>
+<li>The built-in physical-property database can only be accessed indirectly through the CAPE-OPEN standard and cannot be integrated directly with a RAG system</li>
+<li>In small research-lab settings, the license cost is a burden</li>
 </ul>
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>웹사이트</strong>: <a href="https://www.siemens.com/global/en/products/automation/industry-software/gproms.html">Siemens gPROMS</a></li>
-<li><strong>PSE 원본</strong>: <a href="https://www.psenterprise.com/products/gproms">PSE gPROMS</a></li>
-<li><strong>K4 분류</strong>: Embedded in software — 고급 공정 모델링 tacit knowledge(DAE 파라미터, 물성 상관식)가 소프트웨어에 내장됨</li>
-<li><strong>BIB 상태</strong>: references.bib에 bib 엔트리 없음 — 추가 필요</li>
+<li><strong>Website</strong>: <a href="https://www.siemens.com/global/en/products/automation/industry-software/gproms.html">Siemens gPROMS</a></li>
+<li><strong>PSE original</strong>: <a href="https://www.psenterprise.com/products/gproms">PSE gPROMS</a></li>
+<li><strong>K4 classification</strong>: Embedded in software — advanced process modeling tacit knowledge (DAE parameters, physical-property correlations) is embedded in the software</li>
+<li><strong>BIB status</strong>: no bib entry in references.bib — needs to be added</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (gproms)</a></p>
@@ -237,14 +237,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

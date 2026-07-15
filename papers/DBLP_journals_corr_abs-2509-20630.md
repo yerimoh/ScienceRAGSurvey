@@ -13,28 +13,28 @@ paper_link: https://arxiv.org/abs/2509.20630
 > Yuan Chiang, Tobias Kreiman, Christine Zhang, Matthew C. Kuner, Elizabeth Weaver, Ishan Amin, Hyunsoo Park, Yunsung Lim, Jihan Kim, Daryl Chrzan, Aron Walsh, Samuel M. Blau, Mark Asta, Aditi S. Krishnapriyan — UC Berkeley / LBNL / Imperial / KAIST
 > DBLP: `journals/corr/abs-2509-20630` · arXiv: [2509.20630](https://arxiv.org/abs/2509.20630)
 
-## 한 줄 요약
-**Foundation MLIP (machine learning interatomic potential)** 을 **DFT-error metric 기반이 아닌 physics-aware 기반**으로 평가하는 open benchmark platform. **dynamical stability, gas adsorption, phase transition, vacancy migration** 등 downstream 물리 task 중심. Matbench Discovery의 약점 (error metric vulnerable to data leakage) 보완.
+## TL;DR
+An open benchmark platform that evaluates **foundation MLIPs (machine learning interatomic potentials)** on a **physics-aware basis rather than on DFT-error metrics**. It centers on downstream physical tasks such as **dynamical stability, gas adsorption, phase transition, and vacancy migration**. It addresses the weakness of Matbench Discovery (error metrics that are vulnerable to data leakage).
 
 ---
 
-## 어떻게 만들었나 (Construction Methodology)
+## How It Was Built (Construction Methodology)
 
 ```
-Step 1 — 문제 인식: 기존 MLIP benchmark의 약점
+Step 1 — Problem identification: weaknesses of existing MLIP benchmarks
   ┌──────────────────────────────────────────────┐
-  │ 1. Data leakage (Matbench Discovery 등)       │
-  │    → energy 과적합 → force/finite-T 부정확   │
-  │ 2. Static dataset → 새 데이터셋 등장 시 무용 │
+  │ 1. Data leakage (Matbench Discovery, etc.)    │
+  │    → energy overfitting → inaccurate force/finite-T │
+  │ 2. Static dataset → useless when new datasets appear │
   │ 3. Error-based metric ≠ practical utility    │
-  │    → 일부 MLIP는 ground-state error 낮으나   │
-  │       phonon/transport에서 실패              │
+  │    → some MLIPs have low ground-state error   │
+  │       but fail on phonon/transport            │
   └──────────────────────────────────────────────┘
 
-Step 2 — Physics-aware task 설계 (4 카테고리)
+Step 2 — Physics-aware task design (4 categories)
   ┌─────────────────────────────────────┐
   │ A. Asymptotic Behaviors             │
-  │    - 비물리적 force divergence 검출  │
+  │    - Detecting unphysical force divergence │
   │                                      │
   │ B. Stability & Reactivity           │
   │    - Dynamical stability             │
@@ -43,7 +43,7 @@ Step 2 — Physics-aware task 설계 (4 카테고리)
   │    - Gas adsorption                  │
   │                                      │
   │ C. Distribution Shifts              │
-  │    - 학습 데이터 밖 chemistry        │
+  │    - Chemistry outside training data │
   │                                      │
   │ D. Thermodynamic Properties         │
   │    - phonon spectra                  │
@@ -62,17 +62,17 @@ Step 3 — Platform infrastructure
   └──────────────────────────────────────────────┘
 
 Step 4 — Evaluation philosophy
-  · Physics priors 존중 (symmetry, conservation)
-  · Failure-mode 노출 (실패 상황을 명시적 시각화)
+  · Respect physics priors (symmetry, conservation)
+  · Failure-mode exposure (explicitly visualize failure situations)
   · Reproducibility (random seed, hyperparameter)
-  · Multi-DFT reference (PBE/SCAN/HSE 등 비교)
+  · Multi-DFT reference (compare PBE/SCAN/HSE, etc.)
 ```
 
 ---
 
-## 실제 데이터 형식 예시 (논문 §2 + Figure 1 + Table 1)
+## Example of Actual Data Formats (paper §2 + Figure 1 + Table 1)
 
-### 유형 A — Asymptotic Behaviors (EOS + diatomic PEC)
+### Type A — Asymptotic Behaviors (EOS + diatomic PEC)
 
 > **EOS benchmark**: 1,000 WBM crystal structures, V/V₀ scan
 >
@@ -88,10 +88,10 @@ Step 4 — Evaluation philosophy
 > ```
 >
 > **Diatomic PEC**: homonuclear pairs across periodic table
-> - 0.9 × r_cov ~ 3.1 × r_vdw 거리 범위 스캔
-> - Top Matbench Discovery 모델이 종종 실패 → "apparent benchmark success may result from plausible many-body error cancellation"
+> - Distance range scan of 0.9 × r_cov ~ 3.1 × r_vdw
+> - Top Matbench Discovery models often fail → "apparent benchmark success may result from plausible many-body error cancellation"
 
-### 유형 B — Stability & Reactivity (MD on RM24)
+### Type B — Stability & Reactivity (MD on RM24)
 
 > **NVT MD**: 120 random amorphous mixture structures (RM24)
 > ```
@@ -117,7 +117,7 @@ Step 4 — Evaluation philosophy
 > Monitor: # H₂O formed, ΔH, bond breaking/formation
 > ```
 
-### 유형 C — EOS Benchmark Results (Table 1)
+### Type C — EOS Benchmark Results (Table 1)
 
 > 1,000 WBM structures, lower=better (deviation from ideal physics)
 
@@ -133,9 +133,9 @@ Step 4 — Evaluation philosophy
 | ORBv2 | 1.316 | 1.037 | -0.992 | 0.970 | 7 |
 
 >
-> → **Matbench Discovery 상위 모델** ≠ EOS 상위 모델 (force smoothness ≠ energy regression)
+> → **Top Matbench Discovery models** ≠ top EOS models (force smoothness ≠ energy regression)
 
-### 유형 D — 4-category benchmark structure
+### Type D — 4-category benchmark structure
 
 > ```
 > ┌─────────────────────────────────────────────────┐
@@ -166,9 +166,9 @@ Step 4 — Evaluation philosophy
 
 ---
 
-## 평가 framework
+## Evaluation Framework
 
-| Metric category | 내용 |
+| Metric category | Content |
 |---|---|
 | **Physics awareness** | Symmetry preservation, energy conservation, force smoothness |
 | **Chemical reactivity** | Bond breaking, transition state |
@@ -176,39 +176,39 @@ Step 4 — Evaluation philosophy
 | **Thermodynamic predictions** | Phonons, elastic, gas adsorption, free energy |
 | **Distribution shift** | OOD chemistry generalization |
 
-→ DFT energy MAE/MAEF 같은 단순 error metric은 **secondary**.
+→ Simple error metrics such as DFT energy MAE/MAEF are **secondary**.
 
 ---
 
-## 주요 발견 (논문 본문)
+## Key Findings (paper body)
 
-| 관찰 | 의미 |
+| Observation | Meaning |
 |---|---|
-| Top Matbench Discovery model이 phonon에서 실패 | error metric의 한계 |
-| Foundation MLIP들이 OOD chemistry에 transferability 부족 | 학습 데이터 dependence |
-| Symmetry-breaking 발견 | physical prior 위반 |
-| Force smoothness vs energy accuracy trade-off | PES landscape 품질 |
+| Top Matbench Discovery model fails on phonon | limitation of error metrics |
+| Foundation MLIPs lack transferability to OOD chemistry | training-data dependence |
+| Symmetry-breaking discovered | violation of physical priors |
+| Force smoothness vs energy accuracy trade-off | PES landscape quality |
 
-→ **결론**: MLIP foundation model 평가는 **physics-aware task** 기반이어야 함.
-
----
-
-## 한계점
-- **2025년 NeurIPS D&B submission**: 최종 leaderboard 진행 중
-- **Foundation MLIP만 대상**: classical FF, specific-task MLIP 미커버
-- **Task 수 제한**: ~수십 개 카테고리, 더 확장 필요
-- **DFT reference 다양성**: PBE 위주, advanced functional 미충분
-- **계산 비용**: physics-aware test가 단순 error metric보다 훨씬 무거움
-- **CPU/GPU 다양성**: 다양한 hardware에서 정확도 일관성 검증 필요
+→ **Conclusion**: Evaluation of MLIP foundation models must be based on **physics-aware tasks**.
 
 ---
 
-## 관련 정보
+## Limitations
+- **2025 NeurIPS D&B submission**: final leaderboard in progress
+- **Foundation MLIP only**: classical FF and specific-task MLIPs not covered
+- **Limited number of tasks**: ~a few dozen categories, needs further expansion
+- **DFT reference diversity**: mostly PBE, advanced functionals insufficient
+- **Computational cost**: physics-aware tests are much heavier than simple error metrics
+- **CPU/GPU diversity**: accuracy consistency across various hardware needs verification
+
+---
+
+## Related Links
 - **arXiv**: [2509.20630](https://arxiv.org/abs/2509.20630)
 - **DBLP**: [journals/corr/abs-2509-20630](https://dblp.org/rec/journals/corr/abs-2509-20630.html)
 - **GitHub**: [atomind-ai/mlip-arena](https://github.com/atomind-ai/mlip-arena)
 - **Python package**: `pip install mlip-arena`
-- **공식 사이트**: [atomind.ai/mlip-arena](https://atomind.ai/mlip-arena/) (예정)
+- **Official site**: [atomind.ai/mlip-arena](https://atomind.ai/mlip-arena/) (planned)
 - **Venue**: NeurIPS 2025 Datasets & Benchmarks
-- **저자 소속**: UC Berkeley / LBNL / Imperial College London / KAIST
-- **관련 benchmarks**: Matbench Discovery (Riebesell 2025 NMI, beats), JARVIS-Leaderboard (Choudhary 2024 npj CompMat), AdsorbML (Lan 2023 npj CompMat)
+- **Author affiliations**: UC Berkeley / LBNL / Imperial College London / KAIST
+- **Related benchmarks**: Matbench Discovery (Riebesell 2025 NMI, beats), JARVIS-Leaderboard (Choudhary 2024 npj CompMat), AdsorbML (Lan 2023 npj CompMat)

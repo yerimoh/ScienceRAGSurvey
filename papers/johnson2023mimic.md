@@ -12,60 +12,60 @@ paper_link: https://doi.org/10.1038/s41597-022-01899-x
 johnson2023mimic | 2023 | Scientific Data | dataset | [medical] | [paper](https://doi.org/10.1038/s41597-022-01899-x)
 
 **DB**: MIMIC-IV (Medical Information Mart for Intensive Care IV)
-**DB size**: 431,231 병원 입원; 180,733 고유 환자; ICU 입원 73,181건; 기간 2008–2019
+**DB size**: 431,231 hospital admissions; 180,733 unique patients; 73,181 ICU stays; period 2008–2019
 **DB Open/Private**: Open (credentialed access via PhysioNet)
 **Modality**: Text, Structured Table (EHR)
-**Retriever**: N/A (지식 소스 인프라)
+**Retriever**: N/A (knowledge-source infrastructure)
 **Eval Task**: N/A
 **Eval Metric**: N/A
 **Method Name**: PhysioNet / MIMIC-IV portal
 
 > Scientific Data | 2023 | dataset | medical
 
-#### 📌 한 줄 요약
-Beth Israel Deaconess Medical Center의 전자의무기록에서 추출한 2008–2019년 데이터를 기반으로, 환자 측정값·처방·진단·처치·치료·비식별 임상 노트를 포함하는 공개 EHR 데이터베이스.
+#### 📌 TL;DR
+A public EHR database built from electronic health records at Beth Israel Deaconess Medical Center covering 2008–2019, containing patient measurements, prescriptions, diagnoses, procedures, treatments, and de-identified clinical notes.
 
-#### 🎯 개발/구축 배경
-**기존 인프라의 한계**
-- MIMIC-III는 2001–2012년 데이터로 노후화; 현대 임상 관행 반영 불가
-- 기존 공개 데이터셋은 단일 모달리티(임상 관찰)에 한정
-- 연구자 접근성 장벽이 높아 임상 연구 속도 저하
+#### 🎯 Background
+**Limitations of existing infrastructure**
+- MIMIC-III uses 2001–2012 data and is outdated; it cannot reflect modern clinical practice
+- Existing public datasets are limited to a single modality (clinical observations)
+- High barriers to researcher access slow down clinical research
 
-**이 시스템이 필요한 이유**
-- 현대 디지털 의료 환경(2008–2019)을 반영하는 최신 EHR 데이터 필요
-- 전자 의약품 투여 기록 등 새로운 정밀 디지털 정보원 통합
-- 광범위한 연구 및 교육 활용을 위한 개방형 플랫폼 필요
+**Why this system is needed**
+- A need for up-to-date EHR data reflecting the modern digital healthcare environment (2008–2019)
+- Integration of new, precise digital information sources such as electronic medication administration records
+- A need for an open platform for broad research and educational use
 
-#### 🔨 시스템 구성
-BIDMC의 2008–2019년 EHR 데이터를 모듈화 구조로 제공. 병원 입원 431,231건(고유 환자 180,733명), ICU 입원 73,181건(고유 환자 50,920명)을 포함. 환자 측정값, 주문, 진단, 처치, 치료, 비식별 자유형식 임상 노트 제공. 병원 모듈과 ICU 모듈로 분리된 스키마 구조.
+#### 🔨 Architecture
+Provides BIDMC's 2008–2019 EHR data in a modular structure. Includes 431,231 hospital admissions (180,733 unique patients) and 73,181 ICU stays (50,920 unique patients). Provides patient measurements, orders, diagnoses, procedures, treatments, and de-identified free-text clinical notes. A schema structure separated into a hospital module and an ICU module.
 
-#### 📥 데이터 접근 방법
-| 방법 | 설명 |
+#### 📥 Access
+| Method | Description |
 |---|---|
-| PhysioNet 포털 | https://physionet.org/content/mimiciv/ — 자격 증명 후 무료 다운로드 |
+| PhysioNet portal | https://physionet.org/content/mimiciv/ — free download after credentialing |
 | DOI | https://doi.org/10.1038/s41597-022-01899-x |
 
-#### 📤 제공 데이터 형식
-- 정형 테이블 (CSV): 활력징후, 검사 결과, 의약품, 처치 코드
-- 비정형 텍스트: 비식별 임상 노트 (퇴원 요약, 방사선 보고서)
-- ICD-10 진단/시술 코드 (MIMIC-III 대비 업그레이드)
+#### 📤 Data formats
+- Structured tables (CSV): vital signs, lab results, medications, procedure codes
+- Unstructured text: de-identified clinical notes (discharge summaries, radiology reports)
+- ICD-10 diagnosis/procedure codes (an upgrade relative to MIMIC-III)
 
-#### 📊 주요 통계 (논문 기준)
-| 항목 | 수치 |
+#### 📊 Key statistics (per the paper)
+| Item | Value |
 |---|---|
-| 병원 입원 건수 | **431,231** |
-| 고유 환자 수 (병원) | **180,733** |
-| ICU 입원 건수 | **73,181** |
-| 고유 환자 수 (ICU) | **50,920** |
-| 데이터 기간 | **2008–2019** |
-| 평균 연령 (병원) | **58.8세 (SD 19.2)** |
-| 평균 연령 (ICU) | **64.7세 (SD 16.9)** |
-| 여성 비율 (병원) | **52.2%** |
+| Hospital admissions | **431,231** |
+| Unique patients (hospital) | **180,733** |
+| ICU stays | **73,181** |
+| Unique patients (ICU) | **50,920** |
+| Data period | **2008–2019** |
+| Mean age (hospital) | **58.8 years (SD 19.2)** |
+| Mean age (ICU) | **64.7 years (SD 16.9)** |
+| Proportion female (hospital) | **52.2%** |
 
-#### ⚠️ 한계점
-- 단일 기관(BIDMC) 데이터로 일반화 제한
-- 접근에 자격 증명 절차 필요
-- 임상 노트는 비식별화로 일부 정보 손실
+#### ⚠️ Limitations
+- Single-institution (BIDMC) data limits generalizability
+- Access requires a credentialing process
+- De-identification of clinical notes causes some information loss
 
-## 관련 정보
-- **논문**: [MIMIC-IV, a freely accessible electronic health record dataset](https://doi.org/10.1038/s41597-022-01899-x)
+## Related links
+- **Paper**: [MIMIC-IV, a freely accessible electronic health record dataset](https://doi.org/10.1038/s41597-022-01899-x)

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mapping information-rich genotype-phenotype landscapes with genome-scale Perturb-seq — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>Mapping information-rich genotype-phenotype landscapes with genome-scale Perturb-seq, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,86 +117,86 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">📌 한 줄 요약</a></li><li class="toc-l2"><a href="#제작-배경">🎯 제작 배경</a></li><li class="toc-l3"><a href="#기존-벤치마크의-한계">기존 벤치마크의 한계</a></li><li class="toc-l3"><a href="#왜-이-데이터셋이-필요했는지">왜 이 데이터셋이 필요했는지</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">🔨 어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#input-입력">📥 Input (입력)</a></li><li class="toc-l2"><a href="#output-출력-정답-형식">📤 Output (출력 / 정답 형식)</a></li><li class="toc-l2"><a href="#주요-평가-결과-pt-rag-논문-기준">📊 주요 평가 결과 (PT-RAG 논문 기준)</a></li><li class="toc-l2"><a href="#한계점">⚠️ 한계점</a></li><li class="toc-l2"><a href="#관련-정보">🔗 관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">📌 TL;DR</a></li><li class="toc-l2"><a href="#background">🎯 Background</a></li><li class="toc-l3"><a href="#limitations-of-existing-benchmarks">Limitations of existing benchmarks</a></li><li class="toc-l3"><a href="#why-this-dataset-was-needed">Why this dataset was needed</a></li><li class="toc-l2"><a href="#construction-methodology">🔨 Construction Methodology</a></li><li class="toc-l2"><a href="#input">📥 Input</a></li><li class="toc-l2"><a href="#output-answer-format">📤 Output (answer format)</a></li><li class="toc-l2"><a href="#key-evaluation-results-per-the-pt-rag-paper">📊 Key evaluation results (per the PT-RAG paper)</a></li><li class="toc-l2"><a href="#limitations">⚠️ Limitations</a></li><li class="toc-l2"><a href="#related-links">🔗 Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>Mapping information-rich genotype-phenotype landscapes with genome-scale Perturb-seq</h1>
 <ul>
-<li>이전 perturbation 예측 데이터셋들(Norman, Adamson 등)은 수화된 센 단일 세포주와 적은 perturbation 수로 제한됨</li>
-<li>세포 유형 간 일반화(cross-cell-type generalization) 평가가 불가능했던 데이터셋이 없었음</li>
-<li>조합 perturbation만을 다루는 데이터셋(GEARS)vs 다중 세포주 평가 불가</li>
+<li>Previous perturbation prediction datasets (Norman, Adamson, etc.) were limited to a few single cell lines and a small number of perturbations</li>
+<li>There was no dataset that enabled evaluation of cross-cell-type generalization</li>
+<li>Datasets covering only combinatorial perturbations (GEARS) vs. no multi-cell-line evaluation</li>
 </ul>
 <blockquote>
 <p>Cell (2022) + bioRxiv (2024) | benchmark | bio</p>
-<h2 id="한-줄-요약">📌 한 줄 요약</h2>
-<p>CRISPRi 기반 대규모 단일 세포 Perturb-seq 데이터셋. 4개 인간 세포주, 2,023개 유전자 억제 조건, ~0.6M 세포로 구성된 in silico perturbation 예측 벤치마크 데이터셋.</p>
-<h2 id="제작-배경">🎯 제작 배경</h2>
-<h3 id="기존-벤치마크의-한계">기존 벤치마크의 한계</h3>
+<h2 id="tldr">📌 TL;DR</h2>
+<p>A large-scale single-cell Perturb-seq dataset based on CRISPRi. An in silico perturbation prediction benchmark dataset consisting of 4 human cell lines, 2,023 gene-knockdown conditions, and ~0.6M cells.</p>
+<h2 id="background">🎯 Background</h2>
+<h3 id="limitations-of-existing-benchmarks">Limitations of existing benchmarks</h3>
 </blockquote>
-<h3 id="왜-이-데이터셋이-필요했는지">왜 이 데이터셋이 필요했는지</h3>
+<h3 id="why-this-dataset-was-needed">Why this dataset was needed</h3>
 <ul>
-<li>Genome-scale CRISPRi로 <strong>수체의 필수 유전자(essential genes)</strong> 대부분을 커버하는 대규모 시도 가능</li>
-<li><strong>4개 이상의 세포주</strong> 포함으로 cell-type-aware 모델 평가 가능</li>
-<li>통일된 전처리 스킬(HVG 2,000개, CRISPRi)로 일관된 비교 환경 제공</li>
+<li>Genome-scale CRISPRi makes a large-scale attempt possible, covering most of the <strong>essential genes</strong> in the receptor</li>
+<li>Inclusion of <strong>four or more cell lines</strong> enables cell-type-aware model evaluation</li>
+<li>Provides a consistent comparison environment through a unified preprocessing scheme (2,000 HVGs, CRISPRi)</li>
 </ul>
-<h2 id="어떻게-만들었나-construction-methodology">🔨 어떻게 만들었나 (Construction Methodology)</h2>
-<p><strong>Step 1: 데이터 출처 선정</strong></p>
+<h2 id="construction-methodology">🔨 Construction Methodology</h2>
+<p><strong>Step 1: Data source selection</strong></p>
 <ul>
-<li>Replogle et al. (2022, Cell): Genome-scale Perturb-seq 실험. Weissman 연구실(UCSF)에서 CRISPRi를 사용하여 K562 및 RPE1 세포주에서 ~10,000개 필수 유전자 knockdown</li>
-<li>Nadig et al. (2024, bioRxiv): 추가 세포주(Jurkat, HepG2) 포함으로 확장</li>
+<li>Replogle et al. (2022, Cell): Genome-scale Perturb-seq experiment. The Weissman lab (UCSF) used CRISPRi to knock down ~10,000 essential genes in the K562 and RPE1 cell lines</li>
+<li>Nadig et al. (2024, bioRxiv): Extended by including additional cell lines (Jurkat, HepG2)</li>
 </ul>
-<p><strong>Step 2: 구축 파이프라인</strong></p>
+<p><strong>Step 2: Construction pipeline</strong></p>
 <ul>
-<li>CRISPRi 바이러스 라이브러리 설계 → 세포 케집 (pooled CRISPR screen)</li>
-<li>10x Genomics Chromium 플랫폼으로 단일 세포 RNA 시퀀싱</li>
-<li>코드(바코드) 기반 유전자 억제 확인, 세포 할당</li>
-<li>제어 세포(non-targeting)vs 억제 세포 환경 구분</li>
+<li>CRISPRi viral library design → cell capture (pooled CRISPR screen)</li>
+<li>Single-cell RNA sequencing on the 10x Genomics Chromium platform</li>
+<li>Confirmation of gene knockdown based on barcodes, cell assignment</li>
+<li>Distinction between control cells (non-targeting) vs. knockdown cell conditions</li>
 </ul>
-<p><strong>Step 3: 품질 검증</strong></p>
+<p><strong>Step 3: Quality validation</strong></p>
 <ul>
-<li>세포 품질 QC: 미토콘드리얼 유전자 마커, 검주율(doublet) 필터링</li>
-<li>바코드 QC: 액세스 1개만 혹은 활성 2개 이상 필터링</li>
-<li>억제 효율 검증: DE gene 수 및 억제 강도 확인</li>
+<li>Cell quality QC: mitochondrial gene markers, doublet filtering</li>
+<li>Barcode QC: filtering for a single access only or two or more active</li>
+<li>Knockdown efficiency validation: checking the number of DE genes and knockdown strength</li>
 </ul>
-<p><strong>Step 4: 데이터셋 구성 및 공개</strong></p>
+<p><strong>Step 4: Dataset composition and release</strong></p>
 <ul>
-<li>구링 방식: STATE (Adduri et al. 2025) 전처리 방식 준수 — 학습/테스트 분할</li>
-<li>테스트용 perturbation: 1,635개</li>
-<li>CellxGene 등을 통해 공개 배포 (h5ad 포맷)</li>
+<li>Composition scheme: follows the STATE (Adduri et al. 2025) preprocessing scheme — train/test split</li>
+<li>Test perturbations: 1,635</li>
+<li>Publicly distributed via CellxGene and others (h5ad format)</li>
 </ul>
-<h2 id="input-입력">📥 Input (입력)</h2>
-<p>| 항목 | 내용 |
-| 출처 | Replogle et al. 2022 (Cell) + Nadig et al. 2024 (bioRxiv) |
-| 데이터 유형 | single-cell RNA-seq (Perturb-seq) |
-| 알고리즘 | CRISPRi (CRISPR interference, 유전자 발현 억제) |
-| 총 세포 수 | ~0.6M |
-| 커버 유전자 | ~2,023개 (아미노산 tRNA 합성 등 필수 유전자 중심) |
-| 세포주 | K562 (CML), RPE1 (망막 상피), Jurkat (T세포), HepG2 (간암) |
-| 특징 차원 | 2,000 HVGs (Highly Variable Genes) |
-| 형식 | h5ad (AnnData) |</p>
-<h2 id="output-출력-정답-형식">📤 Output (출력 / 정답 형식)</h2>
+<h2 id="input">📥 Input</h2>
+<p>| Item | Content |
+| Source | Replogle et al. 2022 (Cell) + Nadig et al. 2024 (bioRxiv) |
+| Data type | single-cell RNA-seq (Perturb-seq) |
+| Algorithm | CRISPRi (CRISPR interference, gene-expression knockdown) |
+| Total cell count | ~0.6M |
+| Covered genes | ~2,023 (centered on essential genes such as amino-acid tRNA synthesis) |
+| Cell lines | K562 (CML), RPE1 (retinal epithelium), Jurkat (T cell), HepG2 (liver cancer) |
+| Feature dimension | 2,000 HVGs (Highly Variable Genes) |
+| Format | h5ad (AnnData) |</p>
+<h2 id="output-answer-format">📤 Output (answer format)</h2>
 <ul>
-<li><strong>출력 형태</strong>: perturbation 후 세포의 전사체 발현 프로파일 (실수 수치 미덕 [float])</li>
-<li><strong>평가 지표</strong>: W1, W2 (Wasserstein distance), DE-Spearman, Pearson Δ, MSE, MAE, PDS</li>
-<li><strong>특이사항</strong>: 질병(distribution-level) 정확도와 개별 유전자 수준 정확도를 모두 요구; 세포 유형별 일반화 능력 평가 가능</li>
+<li><strong>Output form</strong>: transcriptomic expression profile of cells after perturbation (real-valued numeric [float])</li>
+<li><strong>Evaluation metrics</strong>: W1, W2 (Wasserstein distance), DE-Spearman, Pearson Δ, MSE, MAE, PDS</li>
+<li><strong>Notable point</strong>: requires both distribution-level accuracy and individual gene-level accuracy; enables evaluation of cell-type-specific generalization ability</li>
 </ul>
-<h2 id="주요-평가-결과-pt-rag-논문-기준">📊 주요 평가 결과 (PT-RAG 논문 기준)</h2>
-<p>| 모델 | W2 (↓) | 비고 |
-| PT-RAG (제안) | STATE 대비 개선 | 최우수 |
-| STATE | 646.1 | 이전 SOTA |
-| Vanilla RAG | 1189.5 | 검색이 오히려 해로운 경우 |
-| GEARS | — | GNN 기반 baseline |</p>
-<h2 id="한계점">⚠️ 한계점</h2>
+<h2 id="key-evaluation-results-per-the-pt-rag-paper">📊 Key evaluation results (per the PT-RAG paper)</h2>
+<p>| Model | W2 (↓) | Notes |
+| PT-RAG (proposed) | improvement over STATE | best |
+| STATE | 646.1 | previous SOTA |
+| Vanilla RAG | 1189.5 | case where retrieval is actually harmful |
+| GEARS | — | GNN-based baseline |</p>
+<h2 id="limitations">⚠️ Limitations</h2>
 <ul>
-<li>필수 유전자(essential genes)에 집중됨 — 으시적 으로 높은 폈두리 업전사 내 유전자에만 편향됨</li>
-<li>CRISPRi 억제만 평가됨 (증폭 기반 시도 미포함)</li>
-<li>조합 perturbation 없음</li>
+<li>Focused on essential genes — implicitly biased toward only genes within highly upstream transcription</li>
+<li>Only CRISPRi knockdown is evaluated (amplification-based attempts not included)</li>
+<li>No combinatorial perturbations</li>
 </ul>
-<h2 id="관련-정보">🔗 관련 정보</h2>
+<h2 id="related-links">🔗 Related links</h2>
 <ul>
-<li><strong>원 논문 (Replogle 2022)</strong>: <a href="https://doi.org/10.1016/j.cell.2022.05.013">https://doi.org/10.1016/j.cell.2022.05.013</a></li>
+<li><strong>Original paper (Replogle 2022)</strong>: <a href="https://doi.org/10.1016/j.cell.2022.05.013">https://doi.org/10.1016/j.cell.2022.05.013</a></li>
 <li><strong>Nadig 2024</strong>: <a href="https://doi.org/10.1101/2024.11.22.624843">https://doi.org/10.1101/2024.11.22.624843</a></li>
-<li><strong>이 데이터셋을 사용한 논문</strong>:<ul>
+<li><strong>Papers using this dataset</strong>:<ul>
 <li>PT-RAG (Di Francesco et al., Gen2 @ ICLR 2026)</li>
 <li>STATE (Adduri et al. 2025)</li>
 <li>PerturbDiff (2026)</li>
@@ -227,14 +227,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

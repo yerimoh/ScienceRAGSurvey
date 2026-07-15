@@ -13,26 +13,26 @@ paper_link: https://arxiv.org/abs/2412.00431
 > Laverick·Surrao·Zubeldia·Bolliet·Cranmer·Lewis·Sherwin·Lesgourgues
 > Cambridge / Manchester / Columbia / Sussex / RWTH Aachen
 
-## 한 줄 요약
-**ACT(Atacama Cosmology Telescope) DR6 CMB lensing 우주론 파라미터 추정**을 자동화하는 **multi-agent system** (cmbagent). autogen 프레임워크 위에 cobaya/classy_sz/cosmocnc 등 **community + research software RAG 에이전트**를 결합. 결과: **40분, $1.55, 사람 작성 코드 0줄**로 ACT 공식 contour 재현.
+## TL;DR
+A **multi-agent system** (cmbagent) that automates **ACT (Atacama Cosmology Telescope) DR6 CMB lensing cosmological parameter estimation**. Built on the autogen framework, it combines **community + research software RAG agents** such as cobaya/classy_sz/cosmocnc. Result: reproduced the official ACT contours in **40 minutes, $1.55, and 0 lines of human-written code**.
 
-## 제작 배경
-**기존 방법의 한계**
-- 우주론 분석은 cobaya(MCMC), camb/class(Boltzmann), classy_sz(ML-accel), cosmocnc(cluster count) 등 **복잡한 SW 스택** 요구
-- 각 SW의 방대한 문서·파라미터를 전문가만이 올바르게 구성 가능
-- ACT DR6 등 새 데이터셋 적용 시 파이프라인 재설정에 수 시간~수일
-- 단일 LLM은 cosmology 코드 hallucination 발생 → 신뢰 불가
-- 한 LLM에 모든 도메인 RAG를 시키면 context window 폭발
+## Background
+**Limitations of existing methods**
+- Cosmological analysis requires a **complex SW stack** including cobaya (MCMC), camb/class (Boltzmann), classy_sz (ML-accel), and cosmocnc (cluster count)
+- Only experts can correctly configure each SW's extensive documentation and parameters
+- Applying new datasets such as ACT DR6 takes hours to days to reconfigure the pipeline
+- A single LLM produces cosmology code hallucinations → not trustworthy
+- Making one LLM perform RAG over all domains blows up the context window
 
-**왜 이 시스템이 필요했는지** (저자 본문 인용)
+**Why this system was needed** (quoted from the authors' text)
 - "Can we automate state-of-the-art cosmological data analysis pipelines in a generic way?"
 - "Can a MAS find more optimal pipeline solutions than those made by humans?"
 
-## 어떻게 만들었나 (Construction Methodology)
+## Construction Methodology
 
 ```
 ═══════════════════════════════════════
-[Agent 분류 — 3-tier 구조 (Sec. 2.2)]
+[Agent classification — 3-tier structure (Sec. 2.2)]
 ═══════════════════════════════════════
 (i) RAG agents (OpenAI assistants, file_search)
   ┌─ Experiment agents (yellow)
@@ -47,50 +47,50 @@ paper_link: https://arxiv.org/abs/2412.00431
   Vectorization: locally stored under cmbagent_data on GitHub
 
 (ii) Coder agents (blue)
-  ┌─ engineer : Python 코드 작성 (one code block constraint)
-  │              redundancy 충돌(As vs σ8) 등 사전 학습됨
-  └─ executor : 코드 실행만 (working dir = output/)
+  ┌─ engineer : writes Python code (one code block constraint)
+  │              pre-trained on redundancy conflicts (As vs σ8), etc.
+  └─ executor : only executes code (working dir = output/)
 
 (iii) Manager agents (salmon)
-  ┌─ chat_manager : 다음 speaker 선택 (nested chat 사용)
-  ├─ admin       : 인간 입력 수집 (interactive text box)
-  └─ planner     : main task를 sub-task로 분할
+  ┌─ chat_manager : selects the next speaker (uses nested chat)
+  ├─ admin       : collects human input (interactive text box)
+  └─ planner     : splits the main task into sub-tasks
 
 ═══════════════════════════════════════
-[Workflow 결정성 확보]
+[Ensuring workflow determinism]
 ═══════════════════════════════════════
 LLM: GPT-4o (gpt-4o-2024-05-13)
-  temperature = 1e-6, TopP = 0.1 (stochasticity 최소화)
+  temperature = 1e-6, TopP = 0.1 (minimize stochasticity)
 Allowed transitions:
   admin ↔ {Planner, RAG agents, Engineer, Executor}
-  → admin만 모든 agent와 직접 대화, 나머지는 admin 경유
+  → only admin talks directly with all agents, the rest go through admin
 
 ═══════════════════════════════════════
-[실제 Plan example (Sec. 2.3 본문 직접 인용)]
+[Actual Plan example (Sec. 2.3, quoted directly from the text)]
 ═══════════════════════════════════════
 Main task: Derive cosmological parameter constraints
             from ACT DR6 CMB lensing data
-  Step 1 → act_agent      : ACT DR6 likelihood 셋업 정보
-  Step 2 → classy_sz_agent: classy_sz를 theory code로 사용하는 법
-  Step 3 → cobaya_agent   : likelihood + theory + cobaya 통합
-  Step 4 → engineer       : 전체 setup 검증
-  Step 5 → executor       : 코드 실행 + 파라미터 추정
+  Step 1 → act_agent      : ACT DR6 likelihood setup information
+  Step 2 → classy_sz_agent: how to use classy_sz as the theory code
+  Step 3 → cobaya_agent   : integrating likelihood + theory + cobaya
+  Step 4 → engineer       : verify the entire setup
+  Step 5 → executor       : execute code + parameter estimation
 ```
 
-## Input (입력)
-- ACT DR6 CMB lensing 데이터 (Madhavacheril+2024, Qu+2024)
-- 자연어 task description (e.g., "Derive cosmological parameter constraints from ACT DR6 CMB lensing data")
-- 인간 admin 피드백 (every step)
+## Input
+- ACT DR6 CMB lensing data (Madhavacheril+2024, Qu+2024)
+- Natural-language task description (e.g., "Derive cosmological parameter constraints from ACT DR6 CMB lensing data")
+- Human admin feedback (every step)
 
-## Output (출력)
-- Python script (engineer agent 작성)
-- MCMC 실행 결과: 4 chains × 10 CPU cores, R−1 = 0.01 수렴
-- ACT 공식 chain과 contour 비교 plot
-- JSON 세션 summary (memory agent DB 저장 옵션)
+## Output
+- Python script (written by the engineer agent)
+- MCMC run result: 4 chains × 10 CPU cores, R−1 = 0.01 convergence
+- Contour comparison plot against the official ACT chain
+- JSON session summary (option to store in the memory agent DB)
 
-## 예시 사용 사례 (논문 본문 verbatim)
+## Example use cases (verbatim from the paper text)
 
-### 📘 Plan Example — Main Task (Sec. 2.3 본문 그대로)
+### 📘 Plan Example — Main Task (Sec. 2.3, exactly as in the text)
 > **Main task**: "Derive cosmological parameter constraints from ACT DR6 CMB lensing data."
 >
 > **Plan generated by planner agent**:
@@ -100,60 +100,60 @@ Main task: Derive cosmological parameter constraints
 > - Step 4 — sub-task: "Verify the entire setup, including the ACT DR6 CMB lensing likelihood and classy_sz theory code within cobaya." | agent: `engineer`
 > - Step 5 — sub-task: "Execute the entire setup to ensure it runs correctly and derive cosmological parameter constraints." | agent: `executor`
 
-### 📘 Generalization Test ① (Sec. 3.2 본문)
+### 📘 Generalization Test ① (Sec. 3.2, from the text)
 > "We ask it to compute a cosmological observable for several values of an undocumented parameter fEDE, but implemented in the classy_sz research software. **It does it successfully.**"
-> *(fEDE = early dark energy 모델 파라미터, classy_sz에 미문서화)*
+> *(fEDE = early dark energy model parameter, undocumented in classy_sz)*
 
-### 📘 Generalization Test ② — cosmocnc 적용
+### 📘 Generalization Test ② — applying cosmocnc
 > "We ask it to use the cosmocnc research software to evaluate a likelihood as a function of one of the key model parameters. Again, **it does it successfully**, writing Python code to set appropriate values for the different input parameters of cosmocnc, evaluating the likelihood in an efficient way, and plotting the evaluated likelihood."
-> *(결과: Simons-Observatory-like cluster catalog의 mass bias likelihood 추정, Fig. 3)*
+> *(Result: mass bias likelihood estimation for a Simons-Observatory-like cluster catalog, Fig. 3)*
 
-### 📘 비용·시간 (Sec. 3.1 본문)
+### 📘 Cost and time (Sec. 3.1, from the text)
 > "The whole MCMC analysis took 8 minutes before converging to a Gellman-Rubin convergence diagnostic of R−1 = 0.01. Setting up the plan ... took another 8-10 minutes and the total cost of the session was **$1.55**, for 273843 tokens of which 1803 were completion tokens ... In total **the full analysis took 40 minutes, required no human written code**, and successfully reproduced the results presented in Madhavacheril et al. (2024)."
 
-### 📘 한계 — LLM 환각 위험 (Sec. 4 본문)
+### 📘 Limitation — risk of LLM hallucination (Sec. 4, from the text)
 > "When applied to cosmology, current LLMs frequently produce over-confident, plausible-looking but **physically incorrect** responses which could easily mislead unexperienced researchers. This is why, at this time, such system may only be useful to experienced researchers."
 
-## 주요 평가 결과 (Sec. 3)
+## Key evaluation results (Sec. 3)
 
-**Main Task — ACT DR6 lensing 재현 (Fig. 2)**
+**Main Task — ACT DR6 lensing reproduction (Fig. 2)**
 
-| 항목 | 값 |
+| Item | Value |
 |---|---|
-| **총 소요 시간** | **40분** |
-| MCMC 본 실행 시간 | 8 분 |
-| Plan setup + preliminary | 8–10 분 |
-| **API 비용** | **$1.55** (15 agent calls, 274,483 tokens) |
-| **인간 작성 코드** | **0줄** |
-| MCMC 수렴 (Gelman-Rubin R−1) | 0.01 |
+| **Total elapsed time** | **40 min** |
+| MCMC main run time | 8 min |
+| Plan setup + preliminary | 8–10 min |
+| **API cost** | **$1.55** (15 agent calls, 274,483 tokens) |
+| **Human-written code** | **0 lines** |
+| MCMC convergence (Gelman-Rubin R−1) | 0.01 |
 | HW | MacBook Pro laptop (10 CPU cores, 4 chains) |
-| 결과 일치 | ACT contour와 거의 완전 일치 (Madhavacheril+2024) |
+| Result agreement | Nearly perfect match with ACT contours (Madhavacheril+2024) |
 
-**비교 — 인간 수동 처리 시**
-> 저자 인용: "Without the MAS, reproducing this analysis 'by hand' would have taken several hours to even an expert cosmologist."
+**Comparison — if done manually by a human**
+> Author quote: "Without the MAS, reproducing this analysis 'by hand' would have taken several hours to even an expert cosmologist."
 
 **Generalization (Sec. 3.2)**
-- ✅ classy_sz의 미문서화 fEDE 파라미터 다중 값 계산 (Fig. 4)
-- ✅ cosmocnc로 cluster count likelihood 평가 (Fig. 3)
+- ✅ Computing multiple values of the undocumented fEDE parameter in classy_sz (Fig. 4)
+- ✅ Evaluating cluster count likelihood with cosmocnc (Fig. 3)
 
-**보조 작업 비용**
-- ACT chain 다운로드 + contour plot: 각 < $0.1
+**Auxiliary task cost**
+- ACT chain download + contour plot: each < $0.1
 
-## 한계점 (Sec. 4 저자 명시)
-- **모든 단계에서 인간 피드백 요구** — fully autonomous 아님
-- 패키지/SW 설치는 사용자가 사전 수행해야 함 (OpenHands 통합 future work)
-- **현재 LLM은 cosmology에서 over-confident hallucination** → 경험 있는 연구자에게만 권장
-- 비용·토큰 사용 — main task 1회당 ~$1.55, 향후 model variety + caching 필요
-- **RAG on scientific docs**: 복잡한 table·equation 처리에서 신뢰성 부족 (llamaparse 한계)
-- 현재 GPT-4o 단일 모델 사용 — 향후 agent별 다른 LLM (math·plan·code 특화) 탐구
-- **표준 벤치마크 부재**: cosmology Q&A 벤치마크(astroph.CO_QA_pairs)는 future work
+## Limitations (as stated by the authors, Sec. 4)
+- **Requires human feedback at every step** — not fully autonomous
+- Package/SW installation must be done by the user in advance (OpenHands integration is future work)
+- **Current LLMs produce over-confident hallucinations in cosmology** → recommended only for experienced researchers
+- Cost and token usage — ~$1.55 per main task, will need model variety + caching going forward
+- **RAG on scientific docs**: insufficient reliability for handling complex tables and equations (llamaparse limitation)
+- Currently uses a single GPT-4o model — future work explores different LLMs per agent (math/plan/code specialization)
+- **Absence of a standard benchmark**: a cosmology Q&A benchmark (astroph.CO_QA_pairs) is future work
 
-## 관련 정보
-- **논문**: [arXiv:2412.00431](https://arxiv.org/abs/2412.00431) (v2, 3 Dec 2024)
-- **공식 코드**: [github.com/CMBAgents/cmbagent](https://github.com/CMBAgents/cmbagent)
-- **데이터 (RAG corpus)**: [github.com/CMBAgents/cmbagent_data](https://github.com/CMBAgents/cmbagent_data) (online 벡터화)
-- **저자 소속**: Cambridge / Manchester / Columbia / Sussex / RWTH Aachen
-- **그랜트**: ERC #851274 + STFC Ernest Rutherford + NSF GRFP DGE 2036197
-- **관련 도구**: autogen → ag2 (microsoft → ag2ai), OpenAI text-embedding-3-large, GPT-4o-2024-05-13
-- **사용 SW 패키지**: cobaya, camb, class, classy_sz, cosmocnc, getdist
-- **관련 시스템**: sciagents (Buehler 2024), mephisto (Sun+2024 astronomy MAS), PaperQA2 (Skarlinski+2024)
+## Related links
+- **Paper**: [arXiv:2412.00431](https://arxiv.org/abs/2412.00431) (v2, 3 Dec 2024)
+- **Official code**: [github.com/CMBAgents/cmbagent](https://github.com/CMBAgents/cmbagent)
+- **Data (RAG corpus)**: [github.com/CMBAgents/cmbagent_data](https://github.com/CMBAgents/cmbagent_data) (online vectorization)
+- **Author affiliations**: Cambridge / Manchester / Columbia / Sussex / RWTH Aachen
+- **Grants**: ERC #851274 + STFC Ernest Rutherford + NSF GRFP DGE 2036197
+- **Related tools**: autogen → ag2 (microsoft → ag2ai), OpenAI text-embedding-3-large, GPT-4o-2024-05-13
+- **SW packages used**: cobaya, camb, class, classy_sz, cosmocnc, getdist
+- **Related systems**: sciagents (Buehler 2024), mephisto (Sun+2024 astronomy MAS), PaperQA2 (Skarlinski+2024)

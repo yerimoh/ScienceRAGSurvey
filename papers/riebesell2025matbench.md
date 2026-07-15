@@ -13,22 +13,22 @@ paper_link: https://doi.org/10.1038/s42256-025-01055-1
 > Janosh Riebesell, Rhys E. A. Goodall, Philipp Benner, Yuan Chiang, Bowen Deng, Gerbrand Ceder, Mark Asta, Alpha A. Lee, Anubhav Jain, Kristin A. Persson — Cambridge / LBNL / BAM / UC Berkeley
 > arXiv: [2308.14920](https://arxiv.org/abs/2308.14920) · DOI: [10.1038/s42256-025-01055-1](https://doi.org/10.1038/s42256-025-01055-1)
 
-## 한 줄 요약
-ML energy 모델을 **고처리량 안정 무기 결정 탐색의 pre-filter**로 평가하는 task-based benchmark. **WBM 데이터셋의 257K+ 구조**에 대해 **convex hull distance**의 F$_1$, DAF, precision/recall을 측정하며, **UIP(Universal Interatomic Potential)** 들이 F$_1$ 0.57–0.82, **discovery acceleration factor up to 6×**로 최고 성능.
+## TL;DR
+A task-based benchmark that evaluates ML energy models as a **pre-filter for high-throughput discovery of stable inorganic crystals**. It measures F$_1$, DAF, and precision/recall of the **convex hull distance** over the **257K+ structures of the WBM dataset**, with **UIPs (Universal Interatomic Potentials)** achieving the best performance at F$_1$ 0.57–0.82 and a **discovery acceleration factor up to 6×**.
 
 ---
 
-## 어떻게 만들었나 (Construction Methodology)
+## Construction Methodology
 
 ```
 Step 1 — Test corpus: WBM dataset
   └─ Wang et al. 2021 npj CompMat
-  └─ 257,487 구조 (relaxed + unrelaxed)
-  └─ Materials Project을 합성한 chemistry 확장
+  └─ 257,487 structures (relaxed + unrelaxed)
+  └─ Chemistry expansion synthesized from Materials Project
 
-Step 2 — Task 정의
+Step 2 — Task definition
   ┌──────────────────────────────────────────┐
-  │ Input: 미relaxed candidate crystal       │
+  │ Input: unrelaxed candidate crystal       │
   │ Predict: distance from convex hull       │
   │   (relaxed → E_hull < 0 → stable)        │
   │ Threshold: 0 eV/atom above convex hull   │
@@ -54,11 +54,11 @@ Step 5 — Public leaderboard + Python package
 
 ---
 
-## 실제 데이터 형식 예시 (논문 §2 + Table 1)
+## Example Data Formats (paper §2 + Table 1)
 
-### 유형 A — Test input/output schema (IS2RE-style)
+### Type A — Test input/output schema (IS2RE-style)
 
-> **Input**: WBM 데이터셋의 **unrelaxed** prototype structure (5 batches of elemental substitution, 1–5회 치환)
+> **Input**: **unrelaxed** prototype structure from the WBM dataset (5 batches of elemental substitution, 1–5 substitutions)
 >
 > ```
 > Structure:   periodic unit cell (initial, not DFT-relaxed)
@@ -77,7 +77,7 @@ Step 5 — Public leaderboard + Python package
 > - All relaxation frames, energies/forces/stresses allowed
 > - Auxiliary tasks (charge, magmom) allowed
 
-### 유형 B — Test set scale & cleaning
+### Type B — Test set scale & cleaning
 
 > ```
 > ┌────────────────────────────────────────────────┬──────────┐
@@ -90,7 +90,7 @@ Step 5 — Public leaderboard + Python package
 > └────────────────────────────────────────────────┴──────────┘
 > ```
 
-### 유형 C — Leaderboard model 정렬 (Table 1)
+### Type C — Leaderboard model ranking (Table 1)
 
 | Rank | Model | F$_1$ ↑ | DAF ↑ | Prec ↑ | MAE ↓ | Training | Targets |
 |---|---|---|---|---|---|---|---|
@@ -107,19 +107,19 @@ Step 5 — Public leaderboard + Python package
 | — | Dummy (random) | 0.185 | 1.000 | 0.154 | 0.124 | — | — |
 
 >
-> → UIPs (energy+force+stress) > energy-only one-shot 모델: 명확한 격차
+> → UIPs (energy+force+stress) > energy-only one-shot models: a clear gap
 
-### 유형 D — Regression vs Classification 불일치 예시
+### Type D — Regression vs Classification disagreement example
 
-> "Accurate regressors can yield **high false-positive rates near the decision boundary at 0 eV/atom**" — 작은 MAE라도 hull 근처에서는 stable/unstable 오분류 다수 발생.
+> "Accurate regressors can yield **high false-positive rates near the decision boundary at 0 eV/atom**" — even a small MAE produces many stable/unstable misclassifications near the hull.
 >
-> 예시: CGCNN+P, Wrenformer, BOWSR — regression MAE는 양호하나 F$_1$이 낮음 (task-based 평가 필요성 증명)
+> Examples: CGCNN+P, Wrenformer, BOWSR — regression MAE is good but F$_1$ is low (demonstrating the need for task-based evaluation)
 
 ---
 
-## 평가 metric 상세
+## Evaluation Metric Details
 
-| Metric | 의미 | 우선순위 |
+| Metric | Meaning | Priority |
 |---|---|---|
 | **F$_1$** | binary stable/unstable | Primary |
 | **DAF** | discovery acceleration vs random | Primary |
@@ -127,39 +127,39 @@ Step 5 — Public leaderboard + Python package
 | **Recall** | TP / (TP+FN), avoid missing stable materials | Primary |
 | MAE (E_hull) | regression error | Secondary (misleading) |
 
-→ **task-based 평가**를 강조 (regression metric은 부수적). 작은 MAE라도 decision boundary 근처에서 false positive 많을 수 있음.
+→ Emphasizes **task-based evaluation** (regression metrics are secondary). Even a small MAE can produce many false positives near the decision boundary.
 
 ---
 
-## 주요 평가 결과 (논문 본문)
+## Main Evaluation Results (paper body)
 
 | Model | F$_1$ | DAF |
 |---|---|---|
-| Voronoi RF | (낮음) | – |
-| MEGNet / CGCNN | (중간) | – |
+| Voronoi RF | (low) | – |
+| MEGNet / CGCNN | (medium) | – |
 | M3GNet | 0.57+ | ~3× |
-| CHGNet, MACE, SevenNet, Orb | (높음) | – |
+| CHGNet, MACE, SevenNet, Orb | (high) | – |
 | **EquiformerV2 + DeNS** | **0.82** (top) | **6×** (top, first 10k) |
 
 → Universal Interatomic Potentials (UIP) > task-specific models > one-shot predictors
 
 ---
 
-## 한계점
-- **WBM 데이터셋 한계**: 합성된 구조 → 실험 검증 미반영
-- **Regression vs classification 갈등**: 작은 MAE도 boundary near false positive
-- **DFT functional 의존**: PBE 기반 ground truth, 다른 functional과 격차
-- **Stable ≠ synthesizable**: 열역학적 stability만 평가, 합성 경로/속도론 미반영
-- **Open Catalyst 등 다른 도메인 미포함**: 표면, 분자 미커버
-- **데이터 leakage 위험**: 일부 모델이 WBM 인접 구조로 학습되었을 가능성
+## Limitations
+- **WBM dataset limitation**: synthesized structures → experimental validation not reflected
+- **Regression vs classification conflict**: even a small MAE yields false positives near the boundary
+- **DFT functional dependence**: PBE-based ground truth, a gap with other functionals
+- **Stable ≠ synthesizable**: only thermodynamic stability is evaluated; synthesis pathways/kinetics not reflected
+- **Other domains such as Open Catalyst not included**: surfaces and molecules not covered
+- **Data leakage risk**: some models may have been trained on structures adjacent to WBM
 
 ---
 
-## 관련 정보
-- **논문 (Nature MI)**: [10.1038/s42256-025-01055-1](https://doi.org/10.1038/s42256-025-01055-1)
+## Related links
+- **Paper (Nature MI)**: [10.1038/s42256-025-01055-1](https://doi.org/10.1038/s42256-025-01055-1)
 - **arXiv**: [2308.14920](https://arxiv.org/abs/2308.14920)
-- **공식 사이트**: [matbench-discovery.materialsproject.org](https://matbench-discovery.materialsproject.org/)
+- **Official site**: [matbench-discovery.materialsproject.org](https://matbench-discovery.materialsproject.org/)
 - **Python package**: `pip install matbench-discovery`
 - **GitHub**: [janosh/matbench-discovery](https://github.com/janosh/matbench-discovery)
-- **WBM 데이터셋**: Wang et al. 2021 npj CompMat (Matbench Discovery의 test corpus)
-- **이 benchmark를 사용한 후속 작업**: MLIP Arena (NeurIPS 2025 D&B), foundation MLIP papers
+- **WBM dataset**: Wang et al. 2021 npj CompMat (the test corpus of Matbench Discovery)
+- **Follow-up work using this benchmark**: MLIP Arena (NeurIPS 2025 D&B), foundation MLIP papers

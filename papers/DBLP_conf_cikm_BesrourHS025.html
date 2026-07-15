@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SQuAI: Scientific Question-Answering with Multi-Agent Retrieval-Augmented Generation — Scientific RAG Hub</title>
-<meta name="description" content="Scientific RAG Hub — a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1783921725">
+<title>SQuAI: Scientific Question-Answering with Multi-Agent Retrieval-Augmented Generation, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784077374">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <span class="sb-logo-mark">🔬</span>
     <div class="sb-logo-text">
       <div class="sb-logo-title">Scientific RAG</div>
-      <div class="sb-logo-sub">by Vision Lab · SNU</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
     </div>
   </a>
   <nav class="sb-nav">
@@ -44,7 +44,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source · substrate <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source (substrate) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">131</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">51</span></a>
@@ -55,7 +55,7 @@
     </details>
 
     <details class="sb-group">
-      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective · rung <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective (rung) <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/O1.html" class="sb-sub">Grounding <span class="sb-count">42</span></a>
 <a href="../cell/O2.html" class="sb-sub">Synthesis <span class="sb-count">18</span></a>
@@ -117,7 +117,7 @@
   <div class="wrap paper-layout">
     <nav class="paper-toc" aria-label="On this page">
       <div class="toc-cap">On this page</div>
-      <ul><li class="toc-l2"><a href="#한-줄-요약">한 줄 요약</a></li><li class="toc-l2"><a href="#어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</a></li><li class="toc-l2"><a href="#squai-system-4-agent-architecture-논문github-직접-인용">SQuAI System: 4-Agent Architecture (논문/GitHub 직접 인용)</a></li><li class="toc-l2"><a href="#예시-q-a-e-트리플렛-논문github-발췌">예시 Q-A-E 트리플렛 (논문/GitHub 발췌)</a></li><li class="toc-l2"><a href="#주요-평가-결과-논문-본문-인용">주요 평가 결과 (논문 본문 인용)</a></li><li class="toc-l3"><a href="#unarxive-simpleexpert-combined-score-01">unarXive Simple/Expert (combined score, 0–1)</a></li><li class="toc-l3"><a href="#faithfulness-개선-github-readme-인용">Faithfulness 개선 (GitHub README 인용)</a></li><li class="toc-l2"><a href="#평가-지표-상세-deepeval">평가 지표 상세 (DeepEval)</a></li><li class="toc-l2"><a href="#한계점">한계점</a></li><li class="toc-l2"><a href="#관련-정보">관련 정보</a></li></ul>
+      <ul><li class="toc-l2"><a href="#tldr">TL;DR</a></li><li class="toc-l2"><a href="#construction-methodology">Construction Methodology</a></li><li class="toc-l2"><a href="#squai-system-4-agent-architecture-direct-quotes-from-papergithub">SQuAI System: 4-Agent Architecture (direct quotes from paper/GitHub)</a></li><li class="toc-l2"><a href="#example-q-a-e-triplet-excerpt-from-papergithub">Example Q-A-E triplet (excerpt from paper/GitHub)</a></li><li class="toc-l2"><a href="#key-evaluation-results-quoted-from-paper-body">Key evaluation results (quoted from paper body)</a></li><li class="toc-l3"><a href="#unarxive-simpleexpert-combined-score-01">unarXive Simple/Expert (combined score, 0–1)</a></li><li class="toc-l3"><a href="#faithfulness-improvement-quoted-from-github-readme">Faithfulness improvement (quoted from GitHub README)</a></li><li class="toc-l2"><a href="#evaluation-metrics-detail-deepeval">Evaluation metrics detail (DeepEval)</a></li><li class="toc-l2"><a href="#limitations">Limitations</a></li><li class="toc-l2"><a href="#related-links">Related links</a></li></ul>
     </nav>
     <article class="paper-markdown">
       <h1>SQuAI: 4-Agent Multi-Agent RAG + Q-A-E 1,000-question Benchmark over unarXive</h1>
@@ -126,57 +126,57 @@
 Ines Besrour, Jingbo He, Tobias Schreieder, Michael Färber — TU Dresden (faerber-lab)
 DBLP: <code>conf/cikm/BesrourHS025</code> · DOI: 10.1145/3746252.3761471</p>
 </blockquote>
-<h2 id="한-줄-요약">한 줄 요약</h2>
-<p>unarXive 2024 arXiv 풀텍스트 코퍼스 위에서 작동하는 <strong>4-agent multi-agent RAG 시스템</strong> SQuAI와 함께 제안된 <strong>Q-A-E (Question-Answer-Evidence) 트리플렛 1,000문항</strong> 벤치마크. 복합 질문을 <strong>sub-question decomposition</strong> 으로 풀어 단계적 retrieval+합성을 수행하며, faithfulness가 standard RAG 대비 최대 <strong>12%p</strong> 향상.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>A <strong>Q-A-E (Question-Answer-Evidence) triplet 1,000-question</strong> benchmark proposed together with SQuAI, a <strong>4-agent multi-agent RAG system</strong> operating over the unarXive 2024 arXiv full-text corpus. It solves complex questions via <strong>sub-question decomposition</strong>, performing staged retrieval + synthesis, and improves faithfulness by up to <strong>12%p</strong> compared to standard RAG.</p>
 <hr />
-<h2 id="어떻게-만들었나-construction-methodology">어떻게 만들었나 (Construction Methodology)</h2>
-<pre><code>Step 1 — 데이터 출처: unarXive 2024
-  └─ arXiv 풀텍스트 (1991-2024, 약 230만 편)
-  └─ 분야: CS, 수학, 물리, 생물, 화학 등 전 과학 분야
+<h2 id="construction-methodology">Construction Methodology</h2>
+<pre><code>Step 1 — Data source: unarXive 2024
+  └─ arXiv full text (1991-2024, about 2.3 million papers)
+  └─ Fields: CS, mathematics, physics, biology, chemistry, and all scientific fields
 
-Step 2 — Q-A-E 트리플렛 합성 (DeepEval + LLaMA 3.3 70B Instruct)
+Step 2 — Q-A-E triplet synthesis (DeepEval + LLaMA 3.3 70B Instruct)
   ┌──────────────────────────────────────────────────────────┐
-  │ 각 question에 대해:                                       │
-  │   Q (Question)     ← LLaMA 3.3 70B로 합성                 │
-  │   A (Answer)       ← 인라인 인용 [1][2] 포함 long-form    │
-  │   E (Evidence)     ← Q의 정답 근거가 되는 원논문 인용      │
+  │ For each question:                                        │
+  │   Q (Question)     ← synthesized with LLaMA 3.3 70B       │
+  │   A (Answer)       ← long-form with inline citations [1][2]│
+  │   E (Evidence)     ← original-paper citations grounding Q  │
   └──────────────────────────────────────────────────────────┘
 
-Step 3 — 두 서브셋 구성
+Step 3 — Two subsets
   ┌─────────────────────────┬────────┬──────────────────────┐
-  │ Subset                  │ 문항수 │ 특성                  │
+  │ Subset                  │ #Qs    │ Characteristics       │
   ├─────────────────────────┼────────┼──────────────────────┤
-  │ unarXive Simple         │   500  │ 비전문가용, 광범위    │
-  │ unarXive Expert         │   500  │ 전문가용, 본문 증거   │
+  │ unarXive Simple         │   500  │ non-expert, broad     │
+  │ unarXive Expert         │   500  │ expert, body evidence │
   ├─────────────────────────┼────────┼──────────────────────┤
-  │ 합계                    │ 1,000  │                      │
+  │ Total                   │ 1,000  │                      │
   └─────────────────────────┴────────┴──────────────────────┘
 
-Step 4 — 평가 protocol
-  · 합성 reference answer와 직접 비교 지양
-  · 대신 retrieved evidence ↔ generated answer 관계성 평가
-  · 지표: Answer Relevance / Contextual Relevance / Faithfulness
-    (DeepEval framework, 각 0–1)
+Step 4 — Evaluation protocol
+  · Avoids direct comparison against the synthetic reference answer
+  · Instead evaluates the retrieved evidence ↔ generated answer relationship
+  · Metrics: Answer Relevance / Contextual Relevance / Faithfulness
+    (DeepEval framework, each 0–1)
 </code></pre>
 <hr />
-<h2 id="squai-system-4-agent-architecture-논문github-직접-인용">SQuAI System: 4-Agent Architecture (논문/GitHub 직접 인용)</h2>
-<pre><code>[사용자 복합 질문]
+<h2 id="squai-system-4-agent-architecture-direct-quotes-from-papergithub">SQuAI System: 4-Agent Architecture (direct quotes from paper/GitHub)</h2>
+<pre><code>[User complex question]
        │
        ▼
 ┌──────────────────────────────────────┐
-│ Agent 1 — Decomposer                 │ ← 핵심 차별점
+│ Agent 1 — Decomposer                 │ ← key differentiator
 │   &quot;Decomposes complex user queries   │
 │    into simpler, semantically        │
 │    distinct sub-questions&quot;           │
 └──────────┬───────────────────────────┘
-           │ sub-question 들
+           │ sub-questions
            ▼
 ┌──────────────────────────────────────┐
 │ Agent 2 — Generator                  │
-│   각 sub-question에 대해 retrieve →   │
-│   Q–A–E 트리플렛 생성                 │
+│   retrieve for each sub-question →    │
+│   generate Q–A–E triplets            │
 └──────────┬───────────────────────────┘
-           │ 후보 Q-A-E 다수
+           │ many candidate Q-A-E
            ▼
 ┌──────────────────────────────────────┐
 │ Agent 3 — Judge                      │
@@ -193,23 +193,23 @@ Step 4 — 평가 protocol
 │    triplets&quot; with in-line citations  │
 └──────────┬───────────────────────────┘
            ▼
-   [최종 long-form 답변 + [1][2]... 인용]
+   [Final long-form answer + [1][2]... citations]
 </code></pre>
-<p>→ Aggregative Synthesis의 <strong>&quot;sub-question decomposition&quot;</strong> 메커니즘의 대표 사례.</p>
+<p>→ A representative case of Aggregative Synthesis's <strong>&quot;sub-question decomposition&quot;</strong> mechanism.</p>
 <hr />
-<h2 id="예시-q-a-e-트리플렛-논문github-발췌">예시 Q-A-E 트리플렛 (논문/GitHub 발췌)</h2>
+<h2 id="example-q-a-e-triplet-excerpt-from-papergithub">Example Q-A-E triplet (excerpt from paper/GitHub)</h2>
 <blockquote>
 <p><strong>Q</strong>: &quot;What is quantum computing and how is it used in cryptography?&quot;</p>
 <p><strong>A</strong>: &quot;Quantum computing uses qubits to perform computations based on quantum mechanics [1]. It has potential applications in cryptography, particularly for breaking classical encryption schemes [2].&quot;</p>
 <p><strong>E</strong>:</p>
 <ul>
-<li><code>[1]</code> → 원논문(unarXive 내 quantum computing 도입 paper)의 specific citation context</li>
-<li><code>[2]</code> → Shor's algorithm / post-quantum cryptography 관련 원논문 context</li>
+<li><code>[1]</code> → specific citation context of the original paper (a quantum-computing introductory paper within unarXive)</li>
+<li><code>[2]</code> → original-paper context related to Shor's algorithm / post-quantum cryptography</li>
 </ul>
 </blockquote>
-<p>→ 각 인용 <code>[i]</code>이 원문 <code>cited paragraph</code> 와 1:1 매핑되어, faithfulness 평가 가능.</p>
+<p>→ Each citation <code>[i]</code> maps 1:1 to the original <code>cited paragraph</code>, enabling faithfulness evaluation.</p>
 <hr />
-<h2 id="주요-평가-결과-논문-본문-인용">주요 평가 결과 (논문 본문 인용)</h2>
+<h2 id="key-evaluation-results-quoted-from-paper-body">Key evaluation results (quoted from paper body)</h2>
 <h3 id="unarxive-simpleexpert-combined-score-01">unarXive Simple/Expert (combined score, 0–1)</h3>
 <table>
 <thead>
@@ -237,62 +237,62 @@ Step 4 — 평가 protocol
 </tr>
 </tbody>
 </table>
-<h3 id="faithfulness-개선-github-readme-인용">Faithfulness 개선 (GitHub README 인용)</h3>
+<h3 id="faithfulness-improvement-quoted-from-github-readme">Faithfulness improvement (quoted from GitHub README)</h3>
 <blockquote>
 <p>&quot;SQuAI improves combined scores by up to <strong>12%</strong> in faithfulness compared to a standard RAG baseline.&quot;</p>
 </blockquote>
-<p>핵심 발견:</p>
+<p>Key findings:</p>
 <ul>
-<li><strong>Full-text retrieval &gt; Abstract retrieval</strong> (Expert subset에서 차이 더 큼: +5.2%p)</li>
-<li><strong>Sub-question decomposition</strong> 이 복합 질문에서 단일 query baseline 대비 일관 향상</li>
-<li>Judge agent의 quality filtering이 hallucination 억제에 기여</li>
+<li><strong>Full-text retrieval &gt; Abstract retrieval</strong> (larger gap on the Expert subset: +5.2%p)</li>
+<li><strong>Sub-question decomposition</strong> consistently improves over the single-query baseline on complex questions</li>
+<li>The Judge agent's quality filtering contributes to suppressing hallucination</li>
 </ul>
 <hr />
-<h2 id="평가-지표-상세-deepeval">평가 지표 상세 (DeepEval)</h2>
+<h2 id="evaluation-metrics-detail-deepeval">Evaluation metrics detail (DeepEval)</h2>
 <table>
 <thead>
 <tr>
-  <th>지표</th>
-  <th>정의</th>
-  <th>측정 대상</th>
+  <th>Metric</th>
+  <th>Definition</th>
+  <th>Measured on</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td><strong>Answer Relevance</strong></td>
-  <td>질문 ↔ 생성 답변의 의미적 일치도</td>
+  <td>Semantic match between question ↔ generated answer</td>
   <td>Q → A</td>
 </tr>
 <tr>
   <td><strong>Contextual Relevance</strong></td>
-  <td>제공 증거가 답변에 효과적으로 통합된 정도</td>
+  <td>Degree to which the provided evidence is effectively integrated into the answer</td>
   <td>E → A</td>
 </tr>
 <tr>
   <td><strong>Faithfulness</strong></td>
-  <td>답변이 증거에 의해 지지되는지 (unsupported claim 없음)</td>
+  <td>Whether the answer is supported by the evidence (no unsupported claims)</td>
   <td>A ↔ E</td>
 </tr>
 </tbody>
 </table>
-<p>3개 지표 모두 0–1 범위, LLM-as-judge 방식.</p>
+<p>All three metrics range 0–1, using an LLM-as-judge approach.</p>
 <hr />
-<h2 id="한계점">한계점</h2>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li><strong>합성 질문</strong>: LLaMA 3.3 70B 로 생성 → 실제 인간 연구자의 복잡한 의도/표현 다양성 부분 미반영</li>
-<li><strong>합성 reference answer</strong>: gold answer가 LLM 생성이라 직접 비교 회피 → 평가가 evidence-answer 관계성에 한정</li>
-<li><strong>LitSearch 등 추가 평가 셋도 사용</strong>: 본 1,000 Q-A-E benchmark 외에도 평가에 활용</li>
-<li><strong>CIKM 2025 short/full paper</strong>: arXiv preprint 미확인, ACM DL 게재본만 정식 출처</li>
+<li><strong>Synthetic questions</strong>: generated with LLaMA 3.3 70B → does not fully reflect the complex intent/expression diversity of real human researchers</li>
+<li><strong>Synthetic reference answer</strong>: since the gold answer is LLM-generated, direct comparison is avoided → evaluation is limited to the evidence-answer relationship</li>
+<li><strong>Additional evaluation sets such as LitSearch are also used</strong>: employed in evaluation beyond this 1,000 Q-A-E benchmark</li>
+<li><strong>CIKM 2025 short/full paper</strong>: no arXiv preprint confirmed; only the ACM DL published version is an official source</li>
 </ul>
 <hr />
-<h2 id="관련-정보">관련 정보</h2>
+<h2 id="related-links">Related links</h2>
 <ul>
-<li><strong>논문 (ACM DL)</strong>: <a href="https://doi.org/10.1145/3746252.3761471">doi.org/10.1145/3746252.3761471</a></li>
+<li><strong>Paper (ACM DL)</strong>: <a href="https://doi.org/10.1145/3746252.3761471">doi.org/10.1145/3746252.3761471</a></li>
 <li><strong>GitHub</strong>: <a href="https://github.com/faerber-lab/SQuAI">github.com/faerber-lab/SQuAI</a></li>
-<li><strong>데이터셋 (HuggingFace)</strong>: <a href="https://huggingface.co/datasets/ines-besrour/unarxive_2024">ines-besrour/unarxive_2024</a></li>
+<li><strong>Dataset (HuggingFace)</strong>: <a href="https://huggingface.co/datasets/ines-besrour/unarxive_2024">ines-besrour/unarxive_2024</a></li>
 <li><strong>DBLP</strong>: <a href="https://dblp.org/rec/conf/cikm/BesrourHS025.html">conf/cikm/BesrourHS025</a></li>
-<li><strong>저자 소속</strong>: TU Dresden (faerber-lab)</li>
-<li><strong>이 벤치마크를 사용한 후속 작업</strong>: SQuAI 자체 (CIKM 2025)</li>
+<li><strong>Author affiliation</strong>: TU Dresden (faerber-lab)</li>
+<li><strong>Follow-up work using this benchmark</strong>: SQuAI itself (CIKM 2025)</li>
 </ul>
 
       <p class="paper-cite-jump"><a href="#cite">↓ Cite this (DBLP:conf/cikm/BesrourHS025)</a></p>
@@ -337,14 +337,14 @@ Step 4 — 평가 protocol
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong> — companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey through Knowledge Source and Scientific Mission"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="../llms.txt">llms.txt</a> ·
-      <a href="../llms-full.txt">llms-full.txt</a> ·
-      <a href="../data/catalog.json">catalog.json</a> ·
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
       <a href="../about.html">About</a>
     </p>
   </div>

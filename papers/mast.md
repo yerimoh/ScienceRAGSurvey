@@ -15,64 +15,64 @@ mast | 1997 | Space Telescope Science Institute (system reference) | dataset | [
 **DB size**: Petabyte-scale; hosts Hubble (~200 TB+), JWST (growing rapidly), Kepler/K2, TESS, Pan-STARRS (~1 PB DR2), GALEX, IUE, and others
 **DB Open/Private**: Open (most missions; some proprietary periods)
 **Modality**: ['Image', 'Spectrum', 'Light curve', 'Catalog']
-**Retriever**: N/A (지식 소스 인프라)
+**Retriever**: N/A (knowledge-source infrastructure)
 **Eval Task**: N/A
 **Eval Metric**: N/A
 **Method Name**: MAST Portal / MAST API (astroquery.mast)
 
 > Space Telescope Science Institute (system reference) | 1997 | dataset | astronomy
-#### 한 줄 요약
-미국 우주망원경과학연구소(STScI)가 운영하는 NASA 우주 망원경 통합 아카이브. Hubble, JWST, TESS, Kepler, Pan-STARRS 데이터를 단일 포털에서 제공하는 천문학 K3 관측 데이터의 핵심 인프라. **정식 학술 논문이 아닌 기관 시스템 참고 항목(`@misc`)임에 유의.**
+#### TL;DR
+An integrated NASA space telescope archive operated by the Space Telescope Science Institute (STScI) in the United States. It is a core infrastructure for astronomy K3 observational data, providing Hubble, JWST, TESS, Kepler, and Pan-STARRS data through a single portal. **Note that this is an institutional system reference item (`@misc`), not a formal academic paper.**
 
-#### 개발/구축 배경
-**기존 인프라의 한계**
-- 1980년대~1990년대 NASA 우주 망원경들이 각각 별도 아카이브 운영 → 미션 간 데이터 통합 불가
-- IUE(1978), HST(1990) 등 초기 미션 데이터의 장기 보존과 접근성 확보 필요
+#### Background
+**Limitations of existing infrastructure**
+- In the 1980s–1990s, NASA space telescopes each operated separate archives → cross-mission data integration was impossible
+- Long-term preservation and accessibility of early mission data such as IUE (1978) and HST (1990) needed to be secured
 
-**이 시스템이 필요한 이유**
-- STScI는 HST 과학 운영 기관으로 자연스럽게 UV/광학 아카이브 중심 역할
-- 단일 포털에서 미션 간 교차 탐색 및 동일 천체의 다파장 데이터 결합 가능
-- JWST(2021~) 데이터의 공식 아카이브로 지정되어 현재 천문학의 최첨단 데이터 관리
+**Why this system is needed**
+- As the science operations institution for HST, STScI naturally serves as the hub of the UV/optical archive
+- A single portal enables cross-mission searches and the combination of multi-wavelength data for the same celestial object
+- Designated as the official archive for JWST (2021–) data, it now manages the most cutting-edge data in astronomy
 
-#### 시스템 구성
-MAST Portal (mast.stsci.edu): 웹 기반 검색·시각화·다운로드. astroquery.mast: Python API. CAOM (Common Archive Observation Model): 미션 간 균일 메타데이터 스키마. DOI 기반 데이터셋 인용 지원. AWS S3 클라우드 사본(MAST in the Cloud) 제공.
+#### Architecture
+MAST Portal (mast.stsci.edu): web-based search, visualization, and download. astroquery.mast: Python API. CAOM (Common Archive Observation Model): a uniform cross-mission metadata schema. DOI-based dataset citation support. Provides an AWS S3 cloud copy (MAST in the Cloud).
 
-#### 호스팅 미션 목록
-| 미션 | 파장 범위 | 주요 데이터 유형 |
+#### Hosted mission list
+| Mission | Wavelength range | Main data types |
 |---|---|---|
-| Hubble Space Telescope (HST) | UV–광학–근적외선 | 이미지, 스펙트럼, 시계열 |
-| James Webb Space Telescope (JWST) | 근적외선–중적외선 | 이미지, 스펙트럼 |
-| TESS | 광학 | 광도 곡선, 전광 이미지 |
-| Kepler / K2 | 광학 | 광도 곡선 (외계행성) |
-| Pan-STARRS (PS1) | 광학 | 이미지, 카탈로그 |
-| GALEX | UV | 이미지, 스펙트럼 |
-| IUE (1978–1996) | UV | 스펙트럼 (레거시) |
-| FUSE | 원자외선 | 스펙트럼 |
+| Hubble Space Telescope (HST) | UV–optical–near-infrared | Images, spectra, time series |
+| James Webb Space Telescope (JWST) | Near-infrared–mid-infrared | Images, spectra |
+| TESS | Optical | Light curves, full-frame images |
+| Kepler / K2 | Optical | Light curves (exoplanets) |
+| Pan-STARRS (PS1) | Optical | Images, catalogs |
+| GALEX | UV | Images, spectra |
+| IUE (1978–1996) | UV | Spectra (legacy) |
+| FUSE | Far-ultraviolet | Spectra |
 
-#### 데이터 접근 방법
-| 방법 | 설명 |
+#### Access
+| Method | Description |
 |---|---|
-| MAST Portal | mast.stsci.edu — 웹 GUI 탐색·다운로드 |
-| astroquery.mast | Python 라이브러리, 배치 쿼리 |
-| MAST API (REST) | JSON/VO Table 반환 |
-| AWS S3 | s3://stpubdata/ — 클라우드 직접 접근 |
+| MAST Portal | mast.stsci.edu — web GUI browsing and download |
+| astroquery.mast | Python library, batch queries |
+| MAST API (REST) | Returns JSON/VO Table |
+| AWS S3 | s3://stpubdata/ — direct cloud access |
 
-#### 주요 통계 (model knowledge)
-| 항목 | 수치 |
+#### Key statistics (model knowledge)
+| Item | Value |
 |---|---|
-| 운영 시작 | 1997년 (IUE 아카이브 기반) |
-| 호스팅 미션 | 20개 이상 |
-| HST 축적 데이터 | ~200 TB+ |
+| Operations start | 1997 (based on the IUE archive) |
+| Hosted missions | 20+ |
+| HST accumulated data | ~200 TB+ |
 | Pan-STARRS DR2 | ~1 PB |
-| JWST 연간 데이터 생산 | ~50–100 TB/yr |
-| 접근 | 공개 (독점 기간 경과 후) |
+| JWST annual data production | ~50–100 TB/yr |
+| Access | Public (after proprietary period elapses) |
 
-#### 한계점
-- 전파·X선·감마선 미션은 MAST 미호스팅 (별도 NRAO, Chandra, Fermi 아카이브)
-- 일부 미션 데이터는 독점 기간(12~18개월) 존재
-- 대용량 데이터셋 (TESS 전광 이미지, Pan-STARRS)은 로컬 다운로드 비현실적 — 클라우드 분석 필요
-- 미션 간 데이터 포맷 불균일 (FITS 기반이나 확장 구조 상이)
+#### Limitations
+- Radio, X-ray, and gamma-ray missions are not hosted by MAST (separate NRAO, Chandra, Fermi archives)
+- Some mission data have a proprietary period (12–18 months)
+- Large datasets (TESS full-frame images, Pan-STARRS) are impractical to download locally — cloud analysis is required
+- Data formats are non-uniform across missions (FITS-based but with differing extension structures)
 
-## 관련 정보
-- **포털**: [https://archive.stsci.edu](https://archive.stsci.edu)
+## Related links
+- **Portal**: [https://archive.stsci.edu](https://archive.stsci.edu)
 - **MAST Portal**: [https://mast.stsci.edu](https://mast.stsci.edu)

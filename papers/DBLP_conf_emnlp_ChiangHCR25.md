@@ -12,29 +12,29 @@ paper_link: https://arxiv.org/abs/2401.17244
 > EMNLP 2025 | Method + Benchmark | material
 > Chiang, Chou, Riebesell — UC Berkeley / Cambridge / LBNL · arXiv:2401.17244
 
-## 한 줄 요약
-Materials Project(MP) API를 ReAct 기반 hierarchical multi-agent로 래핑하여 LLM이 DFT 계산값을 직접 조회·검증하도록 하고, **자체 일관성(Self-Consistency of Response, SCoR)** 지표로 응답 변동성을 측정하는 RAG 에이전트 시스템. Bulk modulus MAE를 GPT-4의 41.225에서 **14.574로 65% 감소**시키고, 자기 순서(magnetic ordering) 분류 정확도를 GPT-4의 0.48에서 **0.98로 향상**.
+## TL;DR
+A RAG agent system that wraps the Materials Project (MP) API in a ReAct-based hierarchical multi-agent architecture so that the LLM directly queries and verifies DFT-computed values, and measures response variability with a **Self-Consistency of Response (SCoR)** metric. It reduces the bulk modulus MAE from GPT-4's 41.225 **to 14.574, a 65% reduction**, and improves magnetic ordering classification accuracy from GPT-4's 0.48 **to 0.98**.
 
-## 제작 배경
-- **LLM의 hallucination 문제**: GPT-3.5는 NaCl elastic tensor에서 C₁₁=289.2 GPa을 환각 (DFT 값 76 GPa의 ~4배 오차), C₂₂·C₃₃·C₅₅·C₆₆ 값 누락 (논문 p.7).
-- **수치 데이터의 재현성**: high-stakes 자율 실험실(self-driving labs)에서는 동일 쿼리에 대한 응답이 일관되어야 하나, vanilla LLM은 매 호출마다 다른 수치를 생성.
-- 기존 prompt-based 접근(StructChem, Darwin 등 fine-tuning 방식)은 (a) 특정 edge case에 과적합되어 재현성 부족, (b) 다양한 데이터 소스 결합 어려움.
-- **Materials Project**가 DFT 기반 ~150,000개 무기 화합물 물성을 공개 API로 제공 → 정답을 실시간 fetch 가능.
+## Background
+- **The hallucination problem of LLMs**: GPT-3.5 hallucinates C₁₁=289.2 GPa for the NaCl elastic tensor (~4× the DFT value of 76 GPa), and omits the C₂₂·C₃₃·C₅₅·C₆₆ values (paper p.7).
+- **Reproducibility of numerical data**: in high-stakes self-driving labs, responses to the same query must be consistent, yet a vanilla LLM generates different numbers on every call.
+- Existing prompt-based approaches (fine-tuning methods such as StructChem, Darwin) suffer from (a) overfitting to specific edge cases, leading to poor reproducibility, and (b) difficulty combining diverse data sources.
+- **Materials Project** provides DFT-based properties of ~150,000 inorganic compounds through a public API → ground truth can be fetched in real time.
 
-## 어떻게 만들었나 (Construction Methodology)
+## Construction Methodology
 
 ```
 Step 1 — Materials Project (MP) API
-  ┌─ DFT (PBE-GGA) 기반 ~150,000개 무기 화합물 DB
+  ┌─ DFT (PBE-GGA) based DB of ~150,000 inorganic compounds
   ├─ Bulk/shear modulus, bandgap, formation energy, magnetic ordering,
   │  3D crystal structure, elastic tensor, synthesis recipes, ...
-  └─ MAPI를 langchain Tool로 wrap (MPThermoExpert, MPElasticityExpert, …)
+  └─ MAPI wrapped as langchain Tools (MPThermoExpert, MPElasticityExpert, …)
 
 Step 2 — Hierarchical ReAct Agent (Fig. 1)
   ┌─────────── Supervisor ReAct Agent (GPT-4) ───────────┐
   │  · Action space Â = A ∪ L (action + language)        │
-  │  · 사용자 쿼리 분해 → 적절한 Assistant에 delegate       │
-  │  · 각 assistant 응답을 episodic memory로 통합 추론     │
+  │  · Decompose user query → delegate to appropriate Assistant │
+  │  · Integrate each assistant response as episodic memory for reasoning │
   └───────────────────────────────────────────────────────┘
            ↓                       ↓
   ┌─ MPThermoExpert ──┐    ┌─ MPElasticityExpert ─┐
@@ -46,90 +46,90 @@ Step 2 — Hierarchical ReAct Agent (Fig. 1)
   │  Crystal structure │    │  Magnetic ordering   │
   │  Lattice params    │    │  Magnetization       │
   └────────────────────┘    └──────────────────────┘
-  └─ MPSynthesisExpert ── 실험 synthesis recipes + DOI
+  └─ MPSynthesisExpert ── experimental synthesis recipes + DOI
 
-Step 3 — SCoR 지표 정의 (Sec 4.2)
-  N회 반복 호출에서 n개 valid 응답, ˆσ = 표준편차
-  ┌─ Precision = (1/n) · |median ± ˆσ|     [수치 불확도]
+Step 3 — SCoR metric definition (Sec 4.2)
+  Over N repeated calls, n valid responses, ˆσ = standard deviation
+  ┌─ Precision = (1/n) · |median ± ˆσ|     [numerical uncertainty]
   ├─ Coefficient of Precision (CoP)
   │   = exp(-Precision)  ∈ [0,1]
-  ├─ Confidence = n / N                     [응답 가용성]
+  ├─ Confidence = n / N                     [response availability]
   └─ SCoR = CoP × Confidence  ∈ [0, 1]
             ↑                         ↑
-        SCoR=1: 항상 동일 응답   SCoR=0: 매우 불일관
+        SCoR=1: always the same response   SCoR=0: highly inconsistent
 
-Step 4 — 평가 대상
+Step 4 — Evaluation targets
   ┌──────────────────────┬────────────────────────────┐
   │ Task                │ Sampling                    │
   ├──────────────────────┼────────────────────────────┤
-  │ Bulk Modulus (GPa)  │ 3d 전이금속 10개 (Sc-Zn)     │
+  │ Bulk Modulus (GPa)  │ 10 3d transition metals (Sc-Zn) │
   │ Formation Energy    │ Common compounds (Si, Ge,  │
   │  (eV/atom)         │  InSe, MoS₂, BaTiO₃, CsPbI₃)│
   │ Electronic Bandgap  │ Common semiconductors +     │
   │  (eV)              │  Multi-element (Ba(PdS₂)₂,  │
   │                    │  FePO₄, DyBi₂IO₄, ...)      │
-  │ Magnetic Ordering   │ 800 무작위 unary/binary/    │
-  │  (FM/AFM/FiM/NM)   │  ternary 화합물             │
+  │ Magnetic Ordering   │ 800 random unary/binary/    │
+  │  (FM/AFM/FiM/NM)   │  ternary compounds          │
   └──────────────────────┴────────────────────────────┘
-  각 task당 N=5 반복 → SCoR + MAE 산출
+  N=5 repetitions per task → compute SCoR + MAE
 
-Step 5 — Baseline 비교
+Step 5 — Baseline comparison
   · StructChem (chemistry prompting)
   · Darwin (Materials fine-tuned)
   · GPT-4+Serp (web search augmented)
   · Vanilla GPT-4, Gemini-Pro, Llama 3-8B, GPT-3.5
 ```
 
-## Input (입력)
-- **사용자 쿼리**: 자연어 (예: "What's the stiffest material with the lowest formation energy in Si-O system?")
-- **사용 가능 모달리티**: 단일 화합물, 화학 시스템(예: Si-O), 다중 물성 동시 조회
+## Input
+- **User query**: natural language (e.g., "What's the stiffest material with the lowest formation energy in Si-O system?")
+- **Available modalities**: single compound, chemical system (e.g., Si-O), simultaneous querying of multiple properties
 
-## Output (출력 / 정답 형식)
-- **수치 응답**: 단일 값 또는 dict (예: `{"Sc": {"Voigt": 45.715, "Reuss": 45.34, "VRH": 45.528}}`)
-- **분류 응답**: FM / AFM / FiM / NM (magnetic ordering)
-- **고차 데이터**: 3D 결정 구조, 6×6 elastic tensor matrix
-- **참조 정보**: MP material ID (mp-XXXXX), 실험 합성 논문 DOI
+## Output (Output / Answer Format)
+- **Numerical response**: single value or dict (e.g., `{"Sc": {"Voigt": 45.715, "Reuss": 45.34, "VRH": 45.528}}`)
+- **Classification response**: FM / AFM / FiM / NM (magnetic ordering)
+- **Higher-order data**: 3D crystal structure, 6×6 elastic tensor matrix
+- **Reference information**: MP material ID (mp-XXXXX), DOI of the experimental synthesis paper
 
-## 실제 평가 문항 예시 (논문 본문 + Fig. A.1 / Table B5)
+## Example Evaluation Questions (paper body + Fig. A.1 / Table B5)
 
-### 멀티 도메인 ReAct 쿼리 (Fig. A.1, p.13)
+### Multi-domain ReAct query (Fig. A.1, p.13)
 > **Q:** *"What's the stiffest material with the lowest formation energy in Si-O system?"*
 >
-> **LLaMP supervisor trace (논문 p.13 verbatim):**
+> **LLaMP supervisor trace (paper p.13 verbatim):**
 > > "To answer this question, I need to find materials in the Si-O system with the lowest formation energy and the highest stiffness. I will use the MPThermoExpert tool to search for materials in the Si-O system and sort them by formation energy. After finding candidates, I will need to use the MPElasticityExpert tool to determine the stiffness of these materials."
 >
 > ```json
 > { "action": "MPThermoExpert",
 >   "action_input": { "input": "What are the materials with the lowest formation energy in the Si-O system?" } }
 > ```
-> ↓ (Si₂O₅, SiO₂의 여러 polymorph 후보 회수)
+> ↓ (retrieves several polymorph candidates of Si₂O₅, SiO₂)
 > ```json
 > { "action": "MPElasticityExpert",
 >   "action_input": { "input": "What are the bulk and Young's moduli for Si2O5 (mp-862998), SiO2 (mp-733790), SiO2 (mp-6922), SiO2 (mp-556985), and SiO2 (mp-556994)?" } }
 > ```
-> ↓ 최종: "The material with the highest bulk modulus would be considered the stiffest."
+> ↓ final: "The material with the highest bulk modulus would be considered the stiffest."
 
-### Bulk Modulus 쿼리 (Table 1, 3d 전이금속)
+### Bulk Modulus query (Table 1, 3d transition metals)
 > **Q:** *"What are the bulk moduli of Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn?"*
 >
-> LLaMP는 각 원소에 대해 Voigt / Reuss / VRH 세 값을 모두 반환 (MP DFT 기반).
-> Vanilla GPT-4는 단일 추정값을 환각으로 생성.
+> LLaMP returns all three values Voigt / Reuss / VRH for each element (MP DFT based).
+> Vanilla GPT-4 generates a single estimate as a hallucination.
 
-### Higher-order data — Elastic Tensor (논문 p.7)
+### Higher-order data — Elastic Tensor (paper p.7)
 > **Q:** *"What is the full elastic tensor of NaCl?"*
 >
-> - **DFT 정답**: C₁₁ ≈ 76 GPa, 6×6 full tensor matrix
-> - **GPT-3.5 (vanilla) 응답**: "C₁₁ = 289.2 GPa" (~4× 오차), C₂₂·C₃₃·C₅₅·C₆₆ 값 누락, matrix 형식 무시
-> - **LLaMP**: MP API에서 정확한 6×6 tensor 회수
+> - **DFT ground truth**: C₁₁ ≈ 76 GPa, 6×6 full tensor matrix
+> - **GPT-3.5 (vanilla) response**: "C₁₁ = 289.2 GPa" (~4× error), omits the C₂₂·C₃₃·C₅₅·C₆₆ values, ignores matrix format
+> - **LLaMP**: retrieves the exact 6×6 tensor from the MP API
 
-### 자기 순서 분류 (800 무작위 화합물, Fig. 3)
+### Magnetic ordering classification (800 random compounds, Fig. 3)
 > **Q:** *"What is the magnetic ordering of [compound]?"* → FM / AFM / FiM / NM
 >
-> Confusion matrix (LLaMP w/ GPT-4): FM 클래스 136개 중 거의 모두 정답 → accuracy 0.98.
+> Confusion matrix (LLaMP w/ GPT-4): nearly all of the 136 FM-class compounds are correct → accuracy 0.98.
 
-## 주요 평가 결과
+## Main Evaluation Results
 
-### Table 1 — Bulk Modulus & Formation Energy (5회 평균)
+### Table 1 — Bulk Modulus & Formation Energy (average of 5 runs)
 | Model | **Bulk K (GPa) MAE↓** | SCoR↑ | **ΔH_f (eV) MAE↓** | SCoR↑ |
 |---|---|---|---|---|
 | **LLaMP** | **14.574** | **0.900** | **0.009** | **0.953** |
@@ -140,9 +140,9 @@ Step 5 — Baseline 비교
 | Gemini-Pro | 43.429 | 0.169 | 1.630 | 0.737 |
 | Llama 3 | 41.874 | 0.010 | 4.501 | 0.153 |
 
-→ **LLaMP는 K MAE를 GPT-4 대비 65% 감소(41→15), ΔH_f MAE를 99% 감소(1.68→0.009)** 시키며 SCoR도 가장 높음.
+→ **LLaMP reduces the K MAE by 65% versus GPT-4 (41→15) and the ΔH_f MAE by 99% (1.68→0.009)**, while also achieving the highest SCoR.
 
-### Table 2 — Magnetic Ordering & Magnetization (800 화합물)
+### Table 2 — Magnetic Ordering & Magnetization (800 compounds)
 | Model | Mag. Ordering Acc. | F1 | Magnetization MAE | R² |
 |---|---|---|---|---|
 | **LLaMP (GPT-4)** | **0.98** | **0.89** | **0.045** | **0.992** |
@@ -150,23 +150,23 @@ Step 5 — Baseline 비교
 | LLaMP (GPT-3.5) | 0.96 | 0.88 | 1.896 | 0.407 |
 | GPT-3.5 | 0.23 | 0.18 | 1.988 | -0.024 |
 
-→ **분류 정확도 0.23 → 0.96 (GPT-3.5) / 0.48 → 0.98 (GPT-4)** — RAG가 파라메트릭 환각을 사실상 제거.
+→ **Classification accuracy 0.23 → 0.96 (GPT-3.5) / 0.48 → 0.98 (GPT-4)** — RAG virtually eliminates parametric hallucination.
 
-### 핵심 발견
-- **LLaMP는 magnetic ordering에서 vanilla GPT-4 대비 +50pp 정확도 향상** (도메인 지식 부족이 LLM의 주된 병목임을 확증).
-- SCoR=1에 근접한 응답은 **재현 가능한 과학 워크플로우**에 통합 가능 (autonomous lab integration의 전제조건).
-- Hierarchical multi-agent (supervisor + assistants)가 **flat planning보다 우수** — 단일 agent는 한꺼번에 너무 많은 정보를 보면 API schema 위반 빈번.
+### Key Findings
+- **LLaMP improves magnetic ordering accuracy by +50pp over vanilla GPT-4** (confirming that lack of domain knowledge is the LLM's main bottleneck).
+- Responses close to SCoR=1 can be integrated into **reproducible scientific workflows** (a prerequisite for autonomous lab integration).
+- Hierarchical multi-agent (supervisor + assistants) is **superior to flat planning** — a single agent frequently violates the API schema when it sees too much information at once.
 
-## 한계점
-- **MP DFT의 체계적 오차**: PBE-GGA는 bandgap을 30~50% 과소평가 → 정답 자체가 실험값과 다를 수 있음.
-- **MP 커버리지 한정**: 실험 합성된 화합물 중 일부만 MP에 등재 → MOF, COF, polymer 등 일부 클래스 부재.
-- **Function-calling 의존**: backend LLM의 tool-use 능력에 직접 영향 (GPT-3.5는 일부 schema 위반).
-- **ReAct 루프 실패 시 fallback 없음**: API 응답 파싱 실패하면 환각으로 퇴화.
-- **인터랙티브 latency**: 5회 반복 + multi-agent 호출로 단일 쿼리당 수십 초 소요.
+## Limitations
+- **Systematic error of MP DFT**: PBE-GGA underestimates the bandgap by 30~50% → the ground truth itself may differ from experimental values.
+- **Limited MP coverage**: only some experimentally synthesized compounds are registered in MP → some classes such as MOFs, COFs, and polymers are absent.
+- **Dependence on function-calling**: directly affected by the backend LLM's tool-use ability (GPT-3.5 violates the schema in some cases).
+- **No fallback when the ReAct loop fails**: degrades into hallucination if API response parsing fails.
+- **Interactive latency**: with 5 repetitions plus multi-agent calls, a single query takes tens of seconds.
 
-## 관련 정보
-- **논문**: [arXiv:2401.17244](https://arxiv.org/abs/2401.17244)
+## Related links
+- **Paper**: [arXiv:2401.17244](https://arxiv.org/abs/2401.17244)
 - **EMNLP 2025 Anthology**: [ACL Anthology](https://aclanthology.org/2025.emnlp-main)
 - **Materials Project**: [materialsproject.org](https://materialsproject.org)
 - **DBLP**: [conf/emnlp/ChiangHCR25](https://dblp.org/rec/conf/emnlp/ChiangHCR25)
-- **이 시스템을 비교 대상으로 사용한 논문**: HoneyComb (EMNLP Findings 2024) — MaScQA + LLaMP MP 물성 task에서 동일 프로토콜로 비교
+- **Papers that use this system as a comparison target**: HoneyComb (EMNLP Findings 2024) — compared under the same protocol on MaScQA + LLaMP MP property tasks
