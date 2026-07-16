@@ -14,6 +14,7 @@ import json
 import re
 from pathlib import Path
 from collections import defaultdict, Counter
+from urllib.parse import quote as _q
 
 ROOT = Path('/gallery_millet/yerim.oh/ScienceRAGServey/site')
 papers = json.loads((ROOT / 'data/papers.json').read_text())
@@ -67,6 +68,17 @@ TASK_RUNG = {
     'Materials Discovery': 'O3',
     'Hypothesis Generation': 'O3',
 }
+# The seven §5 tasks in survey order, each with a dedicated page (parallel to the
+# K substrate pages). Grouped by rung for the sidebar.
+TASK_ORDER = [
+    'Question Answering',
+    'Claim Verification', 'Literature Synthesis',
+    'Property Prediction', 'Molecular Design', 'Materials Discovery', 'Hypothesis Generation',
+]
+
+
+def task_slug(name):
+    return name.lower().replace(' ', '-')
 DOMAIN_LABELS = {
     'bio': 'Biology', 'chem': 'Chemistry', 'medical': 'Medicine',
     'material': 'Materials Science', 'physics': 'Physics', 'earth': 'Earth Science',
@@ -618,6 +630,11 @@ def axis_count(axis):
     return len(axis_papers(axis))
 
 
+def task_system_count(task):
+    """Papers tagged with this §5 task family (subsection), matching browse ?sub=."""
+    return sum(1 for p in papers if task in (p.get('subsection') or []))
+
+
 # ---------- At-a-glance systems table (paper Table 3) ----------
 _ms_by_key = {s['bib_key']: s for s in METHOD_SYSTEMS}
 COUPLING_ORDER = ['Open', 'Self-check', 'External-verify', 'Closed-loop']
@@ -909,9 +926,10 @@ def objective_tasks_html(rung, base='../', heading_level='h3'):
     parts = []
     for t in tasks:
         tp = O_PROSE.get(t, {})
+        title = f'<a href="{base}cell/{task_slug(t)}.html">{esc(t)}</a>'
         parts.append(
             f'<div class="res-group">'
-            f'<{heading_level} class="res-group-title">{esc(t)}</{heading_level}>'
+            f'<{heading_level} class="res-group-title">{title}</{heading_level}>'
             + (f'<p class="res-note">{esc(tp.get("summary", ""))}</p>' if tp.get('summary') else '')
             + benchmark_chips_html(tasks=[t], base=base)
             + benchmark_table_html(tasks=[t], base=base, show_group=False)
@@ -958,13 +976,7 @@ def sidebar(base='', current=''):
 
     # Operational Objective — the seven task families of §5, grouped under the three rungs
     # (grounding, synthesis, discovery) in the order the survey presents them. Each rung
-    # header links to its aggregate page; each task links to a filtered Browse view.
-    from urllib.parse import quote as _q
-    task_counts = Counter()
-    for _p in papers:
-        for _s in (_p.get('subsection') or []):
-            if _s:
-                task_counts[_s] += 1
+    # header links to its aggregate page; each task links to its own page.
     RUNGS = [
         ('O1', 'Grounding',  ['Question Answering']),
         ('O2', 'Synthesis',  ['Claim Verification', 'Literature Synthesis']),
@@ -976,8 +988,9 @@ def sidebar(base='', current=''):
         task_items += (f'<a href="{base}cell/{O}.html" class="sb-subhead{cls(f"cell/{O}")}">'
                        f'{rung_name} <span class="sb-count">{n_rung}</span></a>\n')
         for t in tasks:
-            task_items += (f'<a href="{base}browse.html?sub={_q(t)}" class="sb-sub sb-task">'
-                           f'{esc(t)} <span class="sb-count">{task_counts.get(t, 0)}</span></a>\n')
+            slug = task_slug(t)
+            task_items += (f'<a href="{base}cell/{slug}.html" class="sb-sub sb-task{cls(f"cell/{slug}")}">'
+                           f'{esc(t)} <span class="sb-count">{task_system_count(t)}</span></a>\n')
 
     # Domain items
     dom_items = ''
@@ -2105,6 +2118,51 @@ def render_axis_overview():
         page_head('Operational Objective', base='../', current='cell/operational-objective') + obody + page_foot('../'))
 
 
+# ---------- Per-task pages (cell/question-answering.html etc.) ----------
+# One page per §5 task family, structured like a K substrate page: the task explained,
+# its benchmarks as chips + a description table, and a link to the systems that reach it.
+def render_task_pages():
+    for t in TASK_ORDER:
+        slug = task_slug(t)
+        O = TASK_RUNG.get(t, '')
+        on = O_LABELS.get(O, ('',))[0]
+        tp = O_PROSE.get(t, {})
+        n_sys = task_system_count(t)
+        chips = benchmark_chips_html(tasks=[t], base='../')
+        table = benchmark_table_html(tasks=[t], base='../', show_group=False,
+                                     caption='Benchmarks and their ground truth (survey Table 2).')
+        # sibling tasks under the same rung, for lateral nav
+        sib = [x for x in TASK_ORDER if TASK_RUNG.get(x) == O]
+        sib_nav = '\n'.join(
+            f'<a href="{task_slug(x)}.html" class="pill {"current" if x == t else ""}">{esc(x)}</a>'
+            for x in sib)
+        body = f'''
+<section class="cell-hero o-body">
+  <div class="wrap">
+    <p class="eyebrow"><a href="operational-objective.html">← Operational Objective</a> <span class="crumb-sep">/</span> <a href="{O}.html">{esc(on)}</a></p>
+    <h1><span class="cell-id-big axis-id-o">{O}</span> {esc(t)}</h1>
+    <div class="axis-prose">{prose_html(tp.get("text", ""))}</div>
+    <div class="cell-nav">{sib_nav}</div>
+  </div>
+</section>
+
+<section class="axis-body o-body">
+  <div class="wrap">
+    <div class="res-group">
+      <h2 class="res-group-title">Benchmarks</h2>
+      {chips}
+      {table}
+    </div>
+    <div class="axis-systems-link">
+      <a class="axis-systems-cta" href="../browse.html?sub={_q(t)}">Browse the {n_sys} systems evaluated on {esc(t)} →</a>
+    </div>
+  </div>
+</section>
+'''
+        (ROOT / 'cell' / f'{slug}.html').write_text(
+            page_head(esc(t), base='../', current=f'cell/{slug}') + body + page_foot('../'))
+
+
 # ---------- domain/<d>.html ----------
 def render_domain_pages():
     for d, label in DOMAIN_LABELS.items():
@@ -2679,11 +2737,12 @@ if __name__ == '__main__':
     render_insights()
     render_cell_pages()
     render_axis_overview()
+    render_task_pages()
     render_domain_pages()
     render_type_pages()
     write_catalog()
     print('Wrote all HTML pages.')
     print(f'  index.html, about.html, browse.html, insights.html')
-    print(f'  cell/*.html ({len(by_cell)} cells)')
+    print(f'  cell/*.html (12 K×O + K/O axis + overviews + {len(TASK_ORDER)} task pages)')
     print(f'  domain/*.html ({len([d for d in DOMAIN_LABELS if d in by_dom])} domains)')
     print(f'  topics/*.html ({len([t for t in TYPE_LABELS if t in by_type])} types)')

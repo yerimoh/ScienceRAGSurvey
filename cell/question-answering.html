@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Question Answering, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784178972">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group" open>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/knowledge-source.html" class="sb-sub sb-sub-overview">Overview — the data &amp; substrates →</a>
+        <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">22</span></a>
+<a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">8</span></a>
+<a href="../cell/K3.html" class="sb-sub">Structured-entity <span class="sb-count">7</span></a>
+<a href="../cell/K4.html" class="sb-sub">Perceptual <span class="sb-count">9</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group" open>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/operational-objective.html" class="sb-sub sb-sub-overview">Overview — the tasks &amp; rungs →</a>
+        <a href="../cell/O1.html" class="sb-subhead">Grounding <span class="sb-count">24</span></a>
+<a href="../cell/question-answering.html" class="sb-sub sb-task active">Question Answering <span class="sb-count">33</span></a>
+<a href="../cell/O2.html" class="sb-subhead">Synthesis <span class="sb-count">9</span></a>
+<a href="../cell/claim-verification.html" class="sb-sub sb-task">Claim Verification <span class="sb-count">3</span></a>
+<a href="../cell/literature-synthesis.html" class="sb-sub sb-task">Literature Synthesis <span class="sb-count">15</span></a>
+<a href="../cell/O3.html" class="sb-subhead">Discovery <span class="sb-count">13</span></a>
+<a href="../cell/property-prediction.html" class="sb-sub sb-task">Property Prediction <span class="sb-count">13</span></a>
+<a href="../cell/molecular-design.html" class="sb-sub sb-task">Molecular Design <span class="sb-count">8</span></a>
+<a href="../cell/materials-discovery.html" class="sb-sub sb-task">Materials Discovery <span class="sb-count">10</span></a>
+<a href="../cell/hypothesis-generation.html" class="sb-sub sb-task">Hypothesis Generation <span class="sb-count">6</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group" open>
+      <summary class="sb-item"><span class="sb-icon">▦</span> Substrate × Objective <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../browse.html" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Textual × Grounding <span class="sb-count">10</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Textual × Synthesis <span class="sb-count">8</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Textual × Discovery <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Relational × Grounding <span class="sb-count">6</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Relational × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Relational × Discovery <span class="sb-count">1</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Structured-entity × Grounding <span class="sb-count">2</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Structured-entity × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Structured-entity × Discovery <span class="sb-count">5</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Perceptual × Grounding <span class="sb-count">6</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Perceptual × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Perceptual × Discovery <span class="sb-count">3</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">97</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">86</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">147</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">32</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">15</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">16</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">206</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">106</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">17</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGSurvey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="cell-hero o-body">
+  <div class="wrap">
+    <p class="eyebrow"><a href="operational-objective.html">← Operational Objective</a> <span class="crumb-sep">/</span> <a href="O1.html">Grounding</a></p>
+    <h1><span class="cell-id-big axis-id-o">O1</span> Question Answering</h1>
+    <div class="axis-prose"><p>Question answering poses a question with a determinate answer and scores the returned answer against a gold label. Text-only benchmarks cover clinical and biomedical questions in MIRAGE, a suite of five medical QA sets, and PubMedQA, yes/no/maybe questions over abstracts, with LitQA2 requiring answers found only in paper bodies. Broader science is covered by MaScQA for materials-exam problems scored against official answer keys and SciQ for crowd-sourced multiple-choice questions across biology, chemistry, earth science, and physics. Retrieval over a Relational source appears in SciQA, which answers SPARQL queries over the Open Research Knowledge Graph against a gold answer set. Cross-modal question answering pairs a question with non-text evidence over the Perceptual substrate, as in the pathology-image benchmarks PathMMU and Path-VQA. Question answering is the most saturated task in scientific RAG, because its gold labels make scoring automatic, but that same fixed gold cannot separate genuine retrieval from parametric recall, and overlap between corpus and benchmark inflates the reported score.</p></div>
+    <div class="cell-nav"><a href="question-answering.html" class="pill current">Question Answering</a></div>
+  </div>
+</section>
+
+<section class="axis-body o-body">
+  <div class="wrap">
+    <div class="res-group">
+      <h2 class="res-group-title">Benchmarks</h2>
+      <div class="res-chips"><a class="res-chip" href="https://doi.org/10.18653/v1/2024.findings-acl.372" target="_blank" rel="noopener">MIRAGE</a><a class="res-chip" href="https://aclanthology.org/D19-1259/" target="_blank" rel="noopener">PubMedQA</a><a class="res-chip" href="https://doi.org/10.48550/arXiv.2409.13740" target="_blank" rel="noopener">LitQA2</a><a class="res-chip" href="https://pubs.rsc.org/en/content/articlehtml/2024/dd/d3dd00188a" target="_blank" rel="noopener">MaScQA</a><a class="res-chip" href="https://aclanthology.org/W17-4413/" target="_blank" rel="noopener">SciQ</a><a class="res-chip" href="https://huggingface.co/datasets/orkg/SciQA" target="_blank" rel="noopener">SciQA</a><a class="res-chip" href="https://doi.org/10.1007/978-3-031-73033-7_4" target="_blank" rel="noopener">PathMMU</a><a class="res-chip" href="https://arxiv.org/abs/2003.10286" target="_blank" rel="noopener">Path-VQA</a><a class="res-chip" href="https://doi.org/10.13026/4jqj-jw95" target="_blank" rel="noopener">MIMIC-CXR</a></div>
+      
+<figure class="sys-table-wrap">
+  <figcaption class="sys-cap">Benchmarks and their ground truth (survey Table 2).</figcaption>
+  <div class="sys-table-scroll">
+    <table class="sys-table bm-table">
+      <thead><tr>
+        <th>Benchmark</th><th>Domain</th><th>K</th><th>Scale</th><th>Description</th>
+      </tr></thead>
+      <tbody><tr><td class="sys-name"><a href="../papers/DBLP_conf_acl_Xiong0LZ24.html">MIRAGE</a></td><td>Medicine</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">7,663 questions</td><td>Five medical QA sets under one evaluation.</td></tr><tr><td class="sys-name"><a href="../papers/jin-etal-2019-pubmedqa.html">PubMedQA</a></td><td>Medicine</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">1k expert-labeled</td><td>Yes/no/maybe questions over PubMed abstracts.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2409-13740.html">LitQA2</a></td><td>Biology</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">248 MCQ</td><td>Answers found only in full-text papers.</td></tr><tr><td class="sys-name"><a href="../papers/zaki2024mascqa.html">MaScQA</a></td><td>Materials</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">650 questions</td><td>Materials-engineering exam problems.</td></tr><tr><td class="sys-name"><a href="../papers/welbl-etal-2017-crowdsourcing.html">SciQ</a></td><td>Multi</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">13,679 MCQ</td><td>Crowd-sourced school-science questions.</td></tr><tr><td class="sys-name"><a href="../papers/auer2023sciqa.html">SciQA</a></td><td>General</td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td class="ks-scale">2,565 questions</td><td>SPARQL QA over the Open Research Knowledge Graph.</td></tr><tr><td class="sys-name"><a href="https://doi.org/10.1007/978-3-031-73033-7_4" target="_blank" rel="noopener">PathMMU</a></td><td>Pathology</td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td class="ks-scale">9,677 (test)</td><td>Expert-validated pathology-image MCQ.</td></tr><tr><td class="sys-name"><a href="https://arxiv.org/abs/2003.10286" target="_blank" rel="noopener">Path-VQA</a></td><td>Pathology</td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td class="ks-scale">&gt;30K questions</td><td>Visual QA over pathology textbook images.</td></tr><tr><td class="sys-name"><a href="../papers/PhysioNet-mimic-cxr-2.1.0.html">MIMIC-CXR</a></td><td>Radiology</td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td class="ks-scale">377K images</td><td>Chest radiographs paired with free-text reports.</td></tr></tbody>
+    </table>
+  </div>
+</figure>
+    </div>
+    <div class="axis-systems-link">
+      <a class="axis-systems-cta" href="../browse.html?sub=Question%20Answering">Browse the 33 systems evaluated on Question Answering →</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey and Taxonomy"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
+      <a href="../about.html">About</a>
+    </p>
+  </div>
+</footer>
+<script src="../static/footnotes.js?v=1779886412"></script>
+</body>
+</html>
