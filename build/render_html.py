@@ -1473,191 +1473,51 @@ document.getElementById('q')?.addEventListener('keydown', e => {
 
 # ---------- about.html ----------
 def render_about():
+    abstract = esc(AXIS_PROSE.get('abstract', ''))
     body = f'''
 <section class="prose">
   <div class="wrap">
-    <h1>About Scientific RAG Hub</h1>
-    <p class="lede">
-      A curated catalog of <strong>{len(papers)} retrieval-augmented generation</strong> systems,
-      benchmarks, and datasets across the sciences, the companion resource to the upcoming survey
-      <em>"Scientific Retrieval-Augmented Generation: A Survey and Taxonomy."</em>
-    </p>
+    <h1>Scientific Retrieval-Augmented Generation: A Survey and Taxonomy</h1>
+    <p class="about-byline">Oh et al., Vision and Learning Lab, Seoul National University</p>
 
-    <figure class="gs-figure">
-      <img src="static/science-rag-overview.png" alt="The knowledge sources of scientific RAG arranged as a wheel around a central hub, spanning nine scientific domains" loading="lazy">
-      <figcaption>The knowledge sources of scientific RAG, spanning literature, curated databases, structured entities, and raw instrument data across nine domains.</figcaption>
-    </figure>
+    <h2>Abstract</h2>
+    <p class="lede">{abstract}</p>
 
-    <h2>The taxonomy: substrate × objective</h2>
+    <h2>How the survey organizes the field</h2>
     <p>
-      Scientific RAG is not general-purpose RAG applied to technical text. It is a constraint-bound system
-      answerable to physical laws, stoichiometric exactness, and experimental protocols rather than to the
-      approximate semantic proximity on which general RAG depends. Within an embedding space, <em>pH&nbsp;7.2</em>
-      and <em>pH&nbsp;7.4</em>, or <em>10&nbsp;mg</em> and <em>100&nbsp;mg</em>, sit next to each other, yet in
-      physical execution the difference is decisive. Two demands shape such a system: the knowledge it retrieves
-      and the task it must answer.
+      A scientific RAG system is read through the pipeline it runs, along three axes. Each has its
+      own section of this site, mirroring the survey.
     </p>
-    <h3>Knowledge Source (K): the retrieval substrate</h3>
-    <p>A source's native form fixes the retrieval operation it permits. General RAG stays almost entirely on the first substrate; scientific RAG must reach the other three, each costlier to index.</p>
-    <ul>
-      <li><strong>K1 Textual</strong>, the prose record of science: papers, abstracts, clinical notes, guidelines. Matched by embedding or lexical search over passages.</li>
-      <li><strong>K2 Relational</strong>, curated graphs of scientific relations (UMLS, PrimeKG, DRKG, STRING, KEGG, citation graphs). Knowledge lives in the edges, reached by entity linking and traversal.</li>
-      <li><strong>K3 Structured-entity</strong>, the objects of science held as data: molecules, 3D structures, and property records (ChEMBL, PubChem, PDB, Materials Project). Reached by structural or property query, not by words.</li>
-      <li><strong>K4 Perceptual</strong>, raw instrument output: images, spectra, sequencing, time-series (MIMIC-CXR, MassBank, sky surveys). Nothing is retrievable until a cross-modal encoder connects the signal to a text query.</li>
-    </ul>
-    <h3>Operational Objective (O): the rung, ordered by distance from the corpus</h3>
-    <ul>
-      <li><strong>O1 Grounding</strong>, answer a question whose gold already lies in the corpus (Question Answering).</li>
-      <li><strong>O2 Synthesis</strong>, integrate evidence no single source states, verifying claims across documents (Claim Verification, Literature Synthesis).</li>
-      <li><strong>O3 Discovery</strong>, propose an output the corpus does not contain, judged by an external verifier (Property Prediction, Molecular Design, Materials Discovery, Hypothesis Generation).</li>
-    </ul>
-
-    <h2>Why this taxonomy</h2>
-    <p>
-      Existing RAG surveys classify systems by retriever–generator pipeline or by application domain. That view
-      misses the two factors that most constrain scientific inquiry: the fidelity of the grounded evidence and the
-      complexity of the scientific objective. Organized by substrate and objective, the field reveals a consistent
-      shape. Capability accumulates where a substrate admits a mature matching operation and a task admits an
-      automatic score, literature grounding and synthesis over <strong>Textual</strong>, lookup over
-      <strong>Relational</strong> and <strong>Structured-entity</strong>, and thins toward non-textual evidence and
-      externally verified discovery, where the retriever or the verifier does not yet exist.
-    </p>
-
-    <h2 id="pipeline">The scientific RAG pipeline</h2>
-    <p>
-      Connecting substrate to objective is the method: the pipeline a system runs, specialized to science at
-      every stage. A query is turned into a trusted output through five stages, and a verifier can loop the
-      output back for another round.
-    </p>
-    <ul>
-      <li id="construction"><strong>Construction</strong>, build the index. Each substrate is indexed in its own form: passages as embeddings, graphs as nodes and edges, molecules as structural fingerprints, signals through a learned encoder.</li>
-      <li id="retrieval"><strong>Retrieval</strong>, match the query to the substrate. Relevance is a domain judgment, not topical resemblance: the right passage, the right scaffold, the record whose peaks match.</li>
-      <li id="generation"><strong>Generation</strong>, draft an output from the query, the retrieved evidence, and any verifier feedback, in the formats a domain requires.</li>
-      <li id="verification"><strong>Verification</strong>, test the output against a signal from beyond the corpus. Systems differ by how deeply the verifier is coupled, from a single unchecked pass to a closed loop that refines against a docking score or a DFT calculation every round.</li>
-      <li id="evaluation"><strong>Evaluation</strong>, score the result against ground truth: a fixed gold for grounding, a reference for synthesis, and for discovery an external verifier whose ground truth lies outside any corpus.</li>
-    </ul>
-
-    <h2>What makes retrieval scientific</h2>
-    <p>Five demands separate a scientific RAG system from general RAG that ranks by semantic proximity alone:</p>
-    <ol>
-      <li><strong>Traceable attribution</strong>, every claim must trace to a specific source unit, sentence-level, page-level, or as a claim graph.</li>
-      <li><strong>Heterogeneous, multi-substrate retrieval</strong>, the corpus spans literature, curated graphs, structured entities, and raw signals, each with its own format and reliability.</li>
-      <li><strong>Domain-native representation</strong>, SMILES, InChI, FASTA, CIF, DICOM carry meaning no flattening to text preserves; retrieval must recognize identity across surface forms.</li>
-      <li><strong>Protocol-level reproducibility</strong>, an output must carry enough method detail for a domain expert to reproduce it, not merely summarize it.</li>
-      <li><strong>External verifier coupling</strong>, for discovery, a docking simulator or DFT calculation, not the language model, decides whether a proposal survives.</li>
-    </ol>
-
-    <h2>How to use the catalog</h2>
-    <ul>
-      <li><a href="browse.html">Browse</a>, filter the full catalog by substrate × objective cell, task, domain, or type.</li>
-      <li><a href="index.html#domains">Domains</a>, browse by scientific field.</li>
-      <li><a href="browse.html">Browse</a>, full searchable, filterable catalog.</li>
-      <li><a href="llms.txt">/llms.txt</a>, <a href="llms-full.txt">/llms-full.txt</a>, LLM-friendly indices.</li>
-      <li><a href="data/catalog.json">catalog.json</a>, full machine-readable dump, remapped to the substrate × objective taxonomy (raw source stays at <a href="data/papers.json">papers.json</a>).</li>
-    </ul>
-
-    <h2>Survey Construction Pipeline</h2>
-    <p>The following diagram shows how the catalog and companion survey were built end-to-end.</p>
-
-    <div class="pipeline-diagram">
-      <!-- Row 1: Sources -->
-      <div class="pipe-row pipe-row-sources">
-        <div class="pipe-node pipe-node-src">
-          <div class="pipe-icon">📄</div>
-          <div class="pipe-label">Literature<br><span class="pipe-sub">arXiv, PubMed, ACL, NeurIPS…</span></div>
-        </div>
-        <div class="pipe-node pipe-node-src">
-          <div class="pipe-icon">🗂</div>
-          <div class="pipe-label">Notion DB<br><span class="pipe-sub">{len(papers)} papers tracked</span></div>
-        </div>
-        <div class="pipe-node pipe-node-src">
-          <div class="pipe-icon">📚</div>
-          <div class="pipe-label">references.bib<br><span class="pipe-sub">master bibliography</span></div>
-        </div>
-      </div>
-
-      <div class="pipe-arrow-down">▼</div>
-
-      <!-- Row 2: Classification -->
-      <div class="pipe-row pipe-row-classify">
-        <div class="pipe-node pipe-node-classify pipe-wide">
-          <div class="pipe-icon">🔬</div>
-          <div class="pipe-label"><strong>Substrate × Objective Classification</strong></div>
-          <div class="pipe-classify-grid">
-            <div class="pipe-axis pipe-axis-k">
-              <div class="pipe-axis-label">K: Retrieval Substrate</div>
-              <div class="pipe-axis-items">
-                <span class="pipe-pill pipe-k1">K1 Textual</span>
-                <span class="pipe-pill pipe-k2">K2 Relational</span>
-                <span class="pipe-pill pipe-k3">K3 Structured-entity</span>
-                <span class="pipe-pill pipe-k4">K4 Perceptual</span>
-              </div>
-            </div>
-            <div class="pipe-axis-times">×</div>
-            <div class="pipe-axis pipe-axis-o">
-              <div class="pipe-axis-label">O: Operational Objective</div>
-              <div class="pipe-axis-items">
-                <span class="pipe-pill pipe-o1">O1 Grounding</span>
-                <span class="pipe-pill pipe-o2">O2 Synthesis</span>
-                <span class="pipe-pill pipe-o3">O3 Discovery</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="pipe-arrow-down">▼</div>
-
-      <!-- Row 3: 12-cell grid -->
-      <div class="pipe-row pipe-row-grid">
-        <div class="pipe-node pipe-node-grid pipe-wide">
-          <div class="pipe-icon">▦</div>
-          <div class="pipe-label"><strong>12-Cell Landscape</strong></div>
-          <div class="pipe-mini-grid">
-            {"".join(
-              f'<a href="cell/{K}.{O}.html" class="pipe-cell pipe-cell-{"h" if cell_count(f"{K}.{O}")>=10 else "m" if cell_count(f"{K}.{O}")>=3 else "l"}" title="{K}.{O}: {cell_count(f"{K}.{O}")} entries">'
-              f'<span class="pipe-cell-id">{K}.{O}</span>'
-              f'<span class="pipe-cell-n">{cell_count(f"{K}.{O}")}</span>'
-              f'</a>'
-              for K in ["K1","K2","K3","K4"] for O in ["O1","O2","O3"]
-            )}
-          </div>
-          <div class="pipe-grid-legend">
-            <span class="pipe-cell-dot pipe-cell-h"></span> ≥10 &nbsp;
-            <span class="pipe-cell-dot pipe-cell-m"></span> 3–9 &nbsp;
-            <span class="pipe-cell-dot pipe-cell-l"></span> 0–2 (frontier)
-          </div>
-        </div>
-      </div>
-
-      <div class="pipe-arrow-down">▼</div>
-
-      <!-- Row 4: Outputs -->
-      <div class="pipe-row pipe-row-outputs">
-        <div class="pipe-node pipe-node-out">
-          <div class="pipe-icon">🌐</div>
-          <div class="pipe-label">This Site<br><span class="pipe-sub">Browse, Filter, Search</span></div>
-        </div>
-        <div class="pipe-node pipe-node-out">
-          <div class="pipe-icon">📖</div>
-          <div class="pipe-label">Survey<br><span class="pipe-sub">Oh et al. 2026</span></div>
-        </div>
-        <div class="pipe-node pipe-node-out">
-          <div class="pipe-icon">📄</div>
-          <div class="pipe-label">catalog.json<br><span class="pipe-sub">machine-readable</span></div>
-        </div>
-      </div>
+    <div class="about-axes">
+      <a class="about-axis about-axis-k" href="cell/knowledge-source.html">
+        <span class="about-axis-tag">K</span>
+        <h3>Knowledge Source</h3>
+        <p>The retrieval substrate, the native form a source stores its knowledge in, which fixes the matching operation it admits: <strong>Textual</strong>, <strong>Relational</strong>, <strong>Structured-entity</strong>, <strong>Perceptual</strong>.</p>
+      </a>
+      <a class="about-axis about-axis-o" href="cell/operational-objective.html">
+        <span class="about-axis-tag">O</span>
+        <h3>Operational Objective</h3>
+        <p>The task a system serves, ordered by how far its ground truth sits from the corpus: from <strong>grounding</strong> a stored answer, through <strong>synthesis</strong> across sources, to <strong>discovery</strong> an external verifier must judge.</p>
+      </a>
+      <a class="about-axis about-axis-m" href="cell/method.html">
+        <span class="about-axis-tag">M</span>
+        <h3>Method — the pipeline</h3>
+        <p>How evidence is carried to a claim, specialized at every stage — <strong>construction</strong>, <strong>retrieval</strong>, <strong>integration</strong>, <strong>verification</strong> — up to how deeply a verifier couples into generation.</p>
+      </a>
     </div>
-
-    <h2>Methodology</h2>
     <p>
-      Entries are curated by the Vision and Learning Lab and cross-referenced against the survey's master
-      bibliography. Each system is placed by its <em>retrieval substrate</em>, the native form of what it
-      indexes, and by its <em>objective rung</em>. The survey's core systems are pinned to the exact cell they
-      occupy in the assembly figure; the wider catalog is mapped by the modality it retrieves over. A system that
-      commits to a single substrate occupies a single cell, which is the common case: almost every surveyed system
-      retrieves from just one substrate, and cross-substrate retrieval is itself an open frontier (§8).
+      Across the {len(papers)}-paper catalog, a field's maturity tracks whether its knowledge can be
+      made retrievable and its outputs verifiable. Browse the full catalog on the
+      <a href="browse.html">Browse</a> page, or by <a href="index.html#domains">scientific domain</a>.
     </p>
+
+    <h2 id="cite">Cite</h2>
+    <pre class="cite-block">@article{{oh2026scientificrag,
+  title   = {{Scientific Retrieval-Augmented Generation: A Survey and Taxonomy}},
+  author  = {{Oh, Yerim and others}},
+  journal = {{ACM Computing Surveys (under review)}},
+  year    = {{2026}}
+}}</pre>
   </div>
 </section>
 '''
@@ -2183,11 +2043,17 @@ def render_task_pages():
 # The survey's §6 "The Scientific RAG Pipeline": four stages (Construction, Retrieval,
 # Integration, Verification) plus the systems table (Table 3) grouped by verifier coupling.
 def _stage_prose_html(stage, heading='h3'):
-    parts = [f'<div class="axis-prose">{prose_html(stage.get("intro", ""))}</div>']
+    # Keep it short: the stage's one-line summary, then each sub-subsection as
+    # title + its first sentence (not the full §6.x paragraph).
+    parts = []
+    if stage.get('summary'):
+        parts.append(f'<p class="axis-lede">{esc(stage["summary"])}</p>')
     for ss in stage.get('subsubs', []):
+        note = ss.get('summary', '')
         parts.append(
             f'<div class="axis-subsub"><{heading} class="axis-subsub-title">{esc(ss.get("title", ""))}</{heading}>'
-            f'<div class="axis-prose">{prose_html(ss.get("text", ""))}</div></div>'
+            + (f'<p class="res-note">{esc(note)}</p>' if note else '')
+            + '</div>'
         )
     return '\n'.join(parts)
 

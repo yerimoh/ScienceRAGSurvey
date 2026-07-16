@@ -309,10 +309,16 @@ def extract_M(tex):
     return {'intro': clean(head), 'summary': first_sentence(clean(head)), 'stages': stages}
 
 
+def extract_abstract(tex):
+    m = re.search(r'\\begin\{abstract\}(.*?)\\end\{abstract\}', tex, flags=re.S)
+    return clean(m.group(1)) if m else ''
+
+
 def main():
     tex = TEX.read_text()
     bib = load_bib_links()
-    data = {'K': extract_K(tex, bib), 'O': extract_O(tex), 'M': extract_M(tex)}
+    data = {'abstract': extract_abstract(tex),
+            'K': extract_K(tex, bib), 'O': extract_O(tex), 'M': extract_M(tex)}
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2))
     ks = data['K']['substrates']
     print(f'K: {len(ks)} substrates, subsubs = ' + ', '.join(f"{s['code']}:{len(s['subsubs'])}" for s in ks))

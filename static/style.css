@@ -1847,3 +1847,20 @@ sup.footnote-ref a:focus {
 .sys-m { display:inline-block; font-family: var(--font-mono); font-weight:600; font-size:.68rem; padding:.12rem .4rem; border-radius:6px; background: var(--m-bg); color: var(--m-fg); }
 .axis-id-m { background: var(--m-bg); color: var(--m-fg); }
 .axis-subsub-title::before { color: var(--m-fg); }
+
+/* ---------- About page ---------- */
+.about-byline { color: var(--fg-muted); font-family: var(--font-mono); font-size: .9rem; margin: -.4rem 0 1.6rem; }
+.about-axes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.2rem 0 1.6rem; }
+.about-axis { display: block; padding: 1.1rem 1.15rem; border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--bg-elev); text-decoration: none; color: var(--fg); transition: border-color .15s, box-shadow .15s; }
+.about-axis:hover { text-decoration: none; box-shadow: var(--shadow-card); }
+.about-axis h3 { margin: .5rem 0 .4rem; font-size: 1.1rem; }
+.about-axis p { color: var(--fg-muted); font-size: .9rem; line-height: 1.5; margin: 0; }
+.about-axis-tag { display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 8px; font-family: var(--font-mono); font-weight: 700; }
+.about-axis-k { } .about-axis-k:hover { border-color: var(--k-fg); }
+.about-axis-k .about-axis-tag { background: var(--k-bg); color: var(--k-fg); }
+.about-axis-o:hover { border-color: var(--o-fg); }
+.about-axis-o .about-axis-tag { background: var(--o-bg); color: var(--o-fg); }
+.about-axis-m:hover { border-color: var(--m-fg); }
+.about-axis-m .about-axis-tag { background: var(--m-bg); color: var(--m-fg); }
+.cite-block { background: var(--bg-subtle); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem; overflow-x: auto; font-size: .85rem; }
+@media (max-width: 760px) { .about-axes { grid-template-columns: 1fr; } }
