@@ -2066,7 +2066,9 @@ def render_method_pages():
         for s in M_STAGES)
 
     # ----- overview: cell/method.html -----
-    m_intro = prose_html(AXIS_PROSE.get('M', {}).get('intro', ''))
+    # just the one-line summary; the full §6 intro carries equation-heavy prose
+    m_summary = AXIS_PROSE.get('M', {}).get('summary', '')
+    m_intro = f'<p>{esc(m_summary)}</p>' if m_summary else ''
     stage_secs = []
     for s in M_STAGES:
         code = s['code']
