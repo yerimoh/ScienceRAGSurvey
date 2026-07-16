@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verification — Method, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784180918">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group" open>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/knowledge-source.html" class="sb-sub sb-sub-overview">Overview — the data &amp; substrates →</a>
+        <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">22</span></a>
+<a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">8</span></a>
+<a href="../cell/K3.html" class="sb-sub">Structured-entity <span class="sb-count">7</span></a>
+<a href="../cell/K4.html" class="sb-sub">Perceptual <span class="sb-count">9</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group" open>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/operational-objective.html" class="sb-sub sb-sub-overview">Overview — the tasks &amp; rungs →</a>
+        <a href="../cell/O1.html" class="sb-subhead">Grounding <span class="sb-count">24</span></a>
+<a href="../cell/question-answering.html" class="sb-sub sb-task">Question Answering <span class="sb-count">33</span></a>
+<a href="../cell/O2.html" class="sb-subhead">Synthesis <span class="sb-count">9</span></a>
+<a href="../cell/claim-verification.html" class="sb-sub sb-task">Claim Verification <span class="sb-count">3</span></a>
+<a href="../cell/literature-synthesis.html" class="sb-sub sb-task">Literature Synthesis <span class="sb-count">15</span></a>
+<a href="../cell/O3.html" class="sb-subhead">Discovery <span class="sb-count">13</span></a>
+<a href="../cell/property-prediction.html" class="sb-sub sb-task">Property Prediction <span class="sb-count">13</span></a>
+<a href="../cell/molecular-design.html" class="sb-sub sb-task">Molecular Design <span class="sb-count">8</span></a>
+<a href="../cell/materials-discovery.html" class="sb-sub sb-task">Materials Discovery <span class="sb-count">10</span></a>
+<a href="../cell/hypothesis-generation.html" class="sb-sub sb-task">Hypothesis Generation <span class="sb-count">6</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group" open>
+      <summary class="sb-item"><span class="sb-icon">M</span> Method <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/method.html" class="sb-sub sb-sub-overview">Overview — the RAG pipeline →</a>
+        <a href="../cell/method-construction.html" class="sb-sub">Construction</a>
+<a href="../cell/method-retrieval.html" class="sb-sub">Retrieval</a>
+<a href="../cell/method-integration.html" class="sb-sub">Integration</a>
+<a href="../cell/method-verification.html" class="sb-sub active">Verification</a>
+
+      </div>
+    </details>
+
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">▦</span> K×O landscape <span class="sb-count">12</span></a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">97</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">86</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">147</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">32</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">15</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">16</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">106</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">17</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGSurvey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="cell-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="method.html">← Method</a></p>
+    <h1><span class="cell-id-big axis-id-m">M4</span> Verification</h1>
+    <div class="cell-nav"><a href="method-construction.html" class="pill ">Construction</a>
+<a href="method-retrieval.html" class="pill ">Retrieval</a>
+<a href="method-integration.html" class="pill ">Integration</a>
+<a href="method-verification.html" class="pill current">Verification</a></div>
+  </div>
+</section>
+
+<section class="axis-body">
+  <div class="wrap">
+    <div class="axis-prose"><p>Generation produces an output, but in science that output is trusted only to the extent it has been checked against something beyond the retrieved evidence. Verification is the stage that performs this check, and systems differ in how deeply the verifier is coupled to generation. This coupling is the depth at which an external verifier of the pipeline equation enters the generation loop, from a system that adds no external check to one that refines against a verifier at every step. This depth tends to bound the highest objective a system can reach, since an output is trusted to the extent it has been verified. We read it as a ladder of four rungs of increasing coupling. In terms of the pipeline equation, the rungs fix the verifier and the depth: open generation runs once with no verifier, self-check keeps internal to the retrieved evidence, external verification applies an outside once, and closed-loop refinement runs an outside for.</p></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Open generation</h3><div class="axis-prose"><p>The shallowest coupling is no coupling at all, a system that retrieves and generates once and returns the result unchecked. This is enough whenever the answer already lies inside the retrieved evidence, so the generator has only to report it. MEDRAG and HiPerRAG answer a question straight from the passages they retrieve, GeneGPT grounds each answer in the exact value an NCBI web-service call returns, and MADGEN recovers a molecular structure from a mass spectrum in a single spectrum-conditioned pass. Open generation suffices whenever a gold already fixes the answer, whether a Question Answering label or the held-out structure of spectrum-to-molecule Property Prediction, and stops there, because it asserts nothing a gold cannot already check.</p></div></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Self-check</h3><div class="axis-prose"><p>A self-checking system reads its own draft before committing to it, but the only thing it consults is the evidence it already retrieved, never the outside world. Self-BioRAG rates the relevance and support of each passage with reflective tokens, and PaperQA enforces that every statement stays faithful to a cited source. Because the check never leaves the retrieved evidence, this rung supports Question Answering and much of Literature Synthesis, yet it cannot establish a claim the evidence does not already contain.</p></div></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">External verification</h3><div class="axis-prose"><p>An externally verified system sends its finished output to an outside process that scores it once, so the judgment comes from beyond the retrieved evidence. IRDiff scores each generated 3D molecule by docking against the target once, and Rag2Mol screens its generated candidates through docking and drug-likeness filters after generation, neither refining against the result. This outside check is what underwrites docking-scored Molecular Design, where a candidate is confirmed against a target the model was not shown.</p></div></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Closed-loop refinement</h3><div class="axis-prose"><p>The deepest coupling runs the verifier inside the generation loop and revises the output against its verdict round after round. Three drug-design systems close this loop around a docking oracle. f-RAG scores each assembled fragment set by docking and steers its fragment vocabulary toward higher-scoring molecules, RetMol returns each newly generated molecule that improves its AutoDock-GPU score to the retrieval database it draws from, and TaLiRAGen feeds docking scores back into a training-free prompting loop. A high-entropy-catalyst system closes a slower but stronger loop, validating each round of proposed alloys with a density-functional-theory calculation. The loop is not limited to structure-based design, since KGARevion generates candidate triples, reviews each against a knowledge graph, and revises over several rounds before it answers. Placing the verifier in the loop is what makes docking-verified Molecular Design and simulation-verified Materials Discovery reachable, since only a candidate that survives repeated checking is proposed.</p>
+<p>Verifier coupling both enables and caps a system&#x27;s reach beyond the corpus. A system with no external verifier can propose a novel candidate but cannot certify it, so its evaluation measures only resemblance to prior work and never establishes that the candidate is correct.</p>
+<p>*[t]</p>
+<p>[font=6.5pt7.5pt, sub/.style=draw=black!35,fill=black!7,rounded corners=3pt,line width=0.6pt,align=left,anchor=west,inner sep=3pt,text width=1.6cm,minimum height=0.5cm, tsk/.style=draw=black!30,fill=white,rounded corners=3pt,line width=0.5pt,anchor=north west,inner sep=3pt,minimum height=0.74cm, mth/.style=draw=black!20,fill=white,rounded corners=3pt,line width=0.45pt,align=justify,anchor=north west,inner sep=3pt,text=black,text width=9.05cm,minimum height=0.74cm,execute at begin node==10000=10000, mthw/.style=mth,text width=9.05cm, edg/.style=draw=black!45,line width=0.6pt, cc/.style=draw=black!30,line width=0.4pt,densely dotted, hd/.style=font=6.5pt7.5pt,text=black!55,anchor=south] [2][0.48cm][l]!45[c]1.4cm=10000 #2</p>
+<p>0.00.32.22.354.55</p>
+<p>[hd] at (1.2,0.12) DATA; [hd] at (3.4,0.12) TASK; [hd] at (9.18,0.12) METHODS;</p>
+<p>[tsk] (tTa) at (,0):b_qaQuestion Answering; [mthw] (mTa) at (,0) MEDRAG, HiPerRAG, BioReader, MITRA, Self-BioRAG, BioRAG, RAG, PaperQA, Omni-RAG, BioRAGent, HoneyComb; let 1=(tTa.south),2=(mTa.south) in coordinate (rb1) at (0,min(1,2)-0.11cm); [tsk] (tTb) at (,0 |- rb1):b_synthLiterature Synthesis; [mthw] (mTb) at (,0 |- rb1) LitLLM, Pathfinder, AutoSurvey, SQuAI, Clinfo.AI, SurveyForge, PaperQA2, OpenScholar, TrialMind; let 1=(tTb.south),2=(mTb.south) in coordinate (rb2) at (0,min(1,2)-0.11cm); [tsk] (tTc) at (,0 |- rb2):b_hypothesisHypothesis Generation; [mth] (mTc) at (,0 |- rb2) SciMON, ResearchAgent; let 1=(tTc.south),2=(mTc.south) in coordinate (rb3) at (0,min(1,2)-0.11cm);</p>
+<p>[tsk] (tRa) at (,0 |- rb3):b_qaQuestion Answering; [mthw] (mRa) at (,0 |- rb3) KG-RAG, MindMap, KG-Rank, MedGraphRAG, HyKGE, KGARevion; let 1=(tRa.south),2=(mRa.south) in coordinate (rb4) at (0,min(1,2)-0.11cm); [tsk] (tRb) at (,0 |- rb4):b_synthLiterature Synthesis; [mth] (mRb) at (,0 |- rb4) CG-RAG; let 1=(tRb.south),2=(mRb.south) in coordinate (rb5) at (0,min(1,2)-0.11cm); [tsk] (tRc) at (,0 |- rb5):b_hypothesisHypothesis Generation; [mth] (mRc) at (,0 |- rb5) GraPPI; let 1=(tRc.south),2=(mRc.south) in coordinate (rb6) at (0,min(1,2)-0.11cm);</p>
+<p>[tsk] (tSa) at (,0 |- rb6):b_moldesignMolecular Design; [mthw] (mSa) at (,0 |- rb6) f-RAG, Rag2Mol, TaLiRAGen, RetMol; let 1=(tSa.south),2=(mSa.south) in coordinate (rb7) at (0,min(1,2)-0.11cm); [tsk] (tSb) at (,0 |- rb7):b_matdiscMaterials Discovery; [mth] (mSb) at (,0 |- rb7) HEA-catalyst; let 1=(tSb.south),2=(mSb.south) in coordinate (rb8) at (0,min(1,2)-0.11cm); [tsk] (tSc) at (,0 |- rb8):b_qaQuestion Answering; [mth] (mSc) at (,0 |- rb8) GeneGPT, LLaMP; let 1=(tSc.south),2=(mSc.south) in coordinate (rb9) at (0,min(1,2)-0.11cm);</p>
+<p>[tsk] (tPa) at (,0 |- rb9):b_qaQuestion Answering; [mthw] (mPa) at (,0 |- rb9) LaB-RAG, CardioRAG, MMed-RAG, RULE, FactMM-RAG, PathoAgenticRAG; let 1=(tPa.south),2=(mPa.south) in coordinate (rb10) at (0,min(1,2)-0.11cm); [tsk] (tPb) at (,0 |- rb10):b_moldesignMolecular Design; [mth] (mPb) at (,0 |- rb10) IRDiff, READ; let 1=(tPb.south),2=(mPb.south) in coordinate (rb11) at (0,min(1,2)-0.11cm); [tsk] (tPc) at (,0 |- rb11):b_propertyProperty Prediction; [mth] (mPc) at (,0 |- rb11) MADGEN;</p>
+<p>(gT) at; [sub] (sT) at (,0 |- gT) !45the textual substrate Textual; (gR) at; [sub] (sR) at (,0 |- gR) !45the relational substrate Relational; (gS) at; [sub] (sS) at (,0 |- gS) !45the structured-entity substrate Structured; (gP) at; [sub] (sP) at (,0 |- gP) !45the perceptual substrate Perceptual;</p>
+<p>[edg] (sT.west -|,0) – (sP.west -|,0); in sT,sR,sS,sP[edg] (.west) – (.west -|,0);</p>
+<p>/// in sT/tTa/tTb/tTc,sR/tRa/tRb/tRc,sS/tSa/tSb/tSc,sP/tPa/tPb/tPc [edg] (.east) – (.east -|,0); [edg] (.west -|,0) – (.west -|,0); [edg] (.west -|,0) – (.west); [edg] (.west -|,0) – (.west); [edg] (.west -|,0) – (.west);</p>
+<p>/ in tTa/mTa,tTb/mTb,tTc/mTc,tRa/mRa,tRb/mRb,tRc/mRc,tSa/mSa,tSb/mSb,tSc/mSc,tPa/mPa,tPb/mPb,tPc/mPc[cc](.east)–(.west);</p>
+<p>scientific RAG landscape, organized by data substrate and task. Each data substrate branches into the benchmark tasks posed over it, and every leaf lists the surveyed methods that address that data-and-task pair. The tree is lopsided by design, crowded on the textual substrate and thin over non-textual discovery, the imbalance this section&#x27;s open challenges address.</p>
+<p>*</p></div></div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey and Taxonomy"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
+      <a href="../about.html">About</a>
+    </p>
+  </div>
+</footer>
+<script src="../static/footnotes.js?v=1779886412"></script>
+</body>
+</html>

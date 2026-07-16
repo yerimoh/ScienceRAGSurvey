@@ -53,11 +53,29 @@ def strip_comments(s):
     return '\n'.join(out)
 
 
+LABEL_TEXT = {
+    'sec:knowledge_source': 'the Knowledge Source axis',
+    'sec:benchmark': 'the Operational Objective axis',
+    'sec:method': 'the pipeline',
+    'sec:m_construct': 'construction', 'sec:m_retrieve': 'retrieval',
+    'sec:m_integrate': 'integration', 'sec:m_couple': 'verification',
+    'sec:k1_textual': 'the textual substrate', 'sec:k2_relational': 'the relational substrate',
+    'sec:k3_structured': 'the structured-entity substrate', 'sec:k4_perceptual': 'the perceptual substrate',
+    'sec:overview': 'the overview', 'sec:evaluation': 'the evaluation axis',
+    'sec:frontiers': 'the open challenges',
+    'eq:guide': 'the pipeline equation', 'eq:method': 'the pipeline equation',
+    'fig:overview': 'the overview figure', 'tab:method_systems': 'the systems table',
+}
+
+
 def clean(s):
     s = strip_comments(s)
-    # cross-references and citations carry no reader-facing text
-    s = re.sub(r'~?\\S?~?\\ref\{[^}]*\}', '', s)
-    s = re.sub(r'\\eqref\{[^}]*\}', '', s)
+    # cross-references: turn Eq./Figure/section pointers into readable text, drop the rest.
+    s = re.sub(r'(?:Eq\.|Equation)\s*~?\s*\(?\\ref\{[^}]*\}\)?', 'the pipeline equation', s)
+    s = re.sub(r'(?:Figure|Fig\.)\s*~?\s*\\ref\{[^}]*\}', 'the overview figure', s)
+    s = re.sub(r'\(\s*(?:\\S)?\s*~?\s*\\ref\{[^}]*\}\s*\)', '', s)          # parenthetical ref → drop
+    s = re.sub(r'(?:\\S)?\s*~?\s*\\ref\{([^}]*)\}', lambda m: LABEL_TEXT.get(m.group(1), ''), s)
+    s = re.sub(r'\\eqref\{[^}]*\}', 'the pipeline equation', s)
     s = re.sub(r'\\cite[a-z]*\{[^}]*\}', '', s)
     s = re.sub(r'\\label\{[^}]*\}', '', s)
     s = s.replace('\\S', '§')
@@ -262,14 +280,44 @@ def extract_O(tex):
     return {'intro': clean(head), 'summary': first_sentence(clean(head)), 'tasks': tasks}
 
 
+STAGE_CODE = {
+    'Knowledge Construction and Indexing': 'M1',
+    'Retrieval': 'M2',
+    'Integration and Generation': 'M3',
+    'Verification': 'M4',
+}
+
+
+def extract_M(tex):
+    # §6 The Scientific RAG Pipeline, runs until the Evaluation section
+    block = section_span(tex, '\\section{The Scientific RAG Pipeline}', '\\section{\\texorpdfstring')
+    block = strip_comments(block)
+    block = re.sub(r'\\begin\{table\*\}.*?\\end\{table\*\}', '', block, flags=re.S)
+    head, subs = parse_subsections(block)
+    head = re.sub(r'^.*?\\label\{sec:method\}', '', head, flags=re.S)
+    stages = []
+    for title_raw, body in subs:
+        name = clean(title_raw)
+        (intro, _), subsubs = parse_subsubs(body)
+        stages.append({
+            'code': STAGE_CODE.get(name, name),
+            'name': name,
+            'intro': intro,
+            'summary': first_sentence(intro),
+            'subsubs': [{'title': t, 'text': x, 'summary': first_sentence(x)} for t, x, _ in subsubs],
+        })
+    return {'intro': clean(head), 'summary': first_sentence(clean(head)), 'stages': stages}
+
+
 def main():
     tex = TEX.read_text()
     bib = load_bib_links()
-    data = {'K': extract_K(tex, bib), 'O': extract_O(tex)}
+    data = {'K': extract_K(tex, bib), 'O': extract_O(tex), 'M': extract_M(tex)}
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2))
     ks = data['K']['substrates']
     print(f'K: {len(ks)} substrates, subsubs = ' + ', '.join(f"{s['code']}:{len(s['subsubs'])}" for s in ks))
     print(f'O: {len(data["O"]["tasks"])} tasks')
+    print(f'M: {len(data["M"]["stages"])} stages, subsubs = ' + ', '.join(f"{s['code']}:{len(s['subsubs'])}" for s in data['M']['stages']))
 
 
 if __name__ == '__main__':

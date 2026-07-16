@@ -37,6 +37,8 @@ _ap_path = ROOT / 'data/axis_prose.json'
 AXIS_PROSE = json.loads(_ap_path.read_text()) if _ap_path.exists() else {}
 K_PROSE = {s['code']: s for s in AXIS_PROSE.get('K', {}).get('substrates', [])}
 O_PROSE = {t['name']: t for t in AXIS_PROSE.get('O', {}).get('tasks', [])}
+M_STAGES = AXIS_PROSE.get('M', {}).get('stages', [])          # §6 pipeline stages, in order
+M_PROSE = {s['code']: s for s in M_STAGES}
 
 # ---------- Reference tables ----------
 # Taxonomy mirrors the survey (Oh et al.). The K axis is the *retrieval substrate*, the
@@ -79,6 +81,11 @@ TASK_ORDER = [
 
 def task_slug(name):
     return name.lower().replace(' ', '-')
+
+
+# §6 pipeline stages (Method). Short labels for nav; full names come from the prose.
+STAGE_SLUG = {'M1': 'construction', 'M2': 'retrieval', 'M3': 'integration', 'M4': 'verification'}
+STAGE_SHORT = {'M1': 'Construction', 'M2': 'Retrieval', 'M3': 'Integration', 'M4': 'Verification'}
 DOMAIN_LABELS = {
     'bio': 'Biology', 'chem': 'Chemistry', 'medical': 'Medicine',
     'material': 'Materials Science', 'physics': 'Physics', 'earth': 'Earth Science',
@@ -992,6 +999,14 @@ def sidebar(base='', current=''):
             task_items += (f'<a href="{base}cell/{slug}.html" class="sb-sub sb-task{cls(f"cell/{slug}")}">'
                            f'{esc(t)} <span class="sb-count">{task_system_count(t)}</span></a>\n')
 
+    # Method (§6) — the four pipeline stages
+    method_items = ''
+    for s in M_STAGES:
+        code = s['code']
+        slug = STAGE_SLUG.get(code, code)
+        method_items += (f'<a href="{base}cell/method-{slug}.html" class="sb-sub{cls(f"cell/method-{slug}")}">'
+                         f'{esc(STAGE_SHORT.get(code, s["name"]))}</a>\n')
+
     # Domain items
     dom_items = ''
     for d in DOMAIN_LABELS:
@@ -1033,12 +1048,14 @@ def sidebar(base='', current=''):
     </details>
 
     <details class="sb-group"{cell_open}>
-      <summary class="sb-item"><span class="sb-icon">▦</span> Substrate × Objective <span class="sb-caret">▾</span></summary>
+      <summary class="sb-item"><span class="sb-icon">M</span> Method <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
-        <a href="{base}browse.html" class="sb-sub sb-sub-overview">All 12 cells →</a>
-        {cell_items}
+        <a href="{base}cell/method.html" class="sb-sub sb-sub-overview{cls("cell/method")}">Overview — the RAG pipeline →</a>
+        {method_items}
       </div>
     </details>
+
+    <a href="{base}browse.html" class="sb-item{cls("landscape")}"><span class="sb-icon">▦</span> K×O landscape <span class="sb-count">12</span></a>
 
     <details class="sb-group"{dom_open}>
       <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
@@ -1048,7 +1065,6 @@ def sidebar(base='', current=''):
       </div>
     </details>
 
-    <a href="{base}topics/method.html" class="sb-item{cls("topics/method")}"><span class="sb-icon">⚙</span> Methods <span class="sb-count">{len(by_type.get("Method", []))}</span></a>
     <a href="{base}topics/benchmark.html" class="sb-item{cls("topics/benchmark")}"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">{len(by_type.get("benchmark", []))}</span></a>
     <a href="{base}topics/dataset.html" class="sb-item{cls("topics/dataset")}"><span class="sb-icon">○</span> Datasets <span class="sb-count">{len(by_type.get("dataset", []))}</span></a>
     <a href="{base}topics/summary.html" class="sb-item{cls("topics/summary")}"><span class="sb-icon">📖</span> Surveys <span class="sb-count">{len(by_type.get("summary", []))}</span></a>
@@ -2163,6 +2179,90 @@ def render_task_pages():
             page_head(esc(t), base='../', current=f'cell/{slug}') + body + page_foot('../'))
 
 
+# ---------- Method / pipeline pages (cell/method.html + 4 stage pages) ----------
+# The survey's §6 "The Scientific RAG Pipeline": four stages (Construction, Retrieval,
+# Integration, Verification) plus the systems table (Table 3) grouped by verifier coupling.
+def _stage_prose_html(stage, heading='h3'):
+    parts = [f'<div class="axis-prose">{prose_html(stage.get("intro", ""))}</div>']
+    for ss in stage.get('subsubs', []):
+        parts.append(
+            f'<div class="axis-subsub"><{heading} class="axis-subsub-title">{esc(ss.get("title", ""))}</{heading}>'
+            f'<div class="axis-prose">{prose_html(ss.get("text", ""))}</div></div>'
+        )
+    return '\n'.join(parts)
+
+
+def render_method_pages():
+    if not M_STAGES:
+        return
+    stage_nav = '\n'.join(
+        f'<a href="method-{STAGE_SLUG[s["code"]]}.html" class="pill">{esc(STAGE_SHORT.get(s["code"], s["name"]))}</a>'
+        for s in M_STAGES)
+
+    # ----- overview: cell/method.html -----
+    m_intro = prose_html(AXIS_PROSE.get('M', {}).get('intro', ''))
+    stage_secs = []
+    for s in M_STAGES:
+        code = s['code']
+        stage_secs.append(f'''
+<section class="axis-sub" id="{STAGE_SLUG[code].lower()}">
+  <div class="wrap">
+    <div class="axis-sub-head">
+      <span class="sys-k sys-m">{esc(code)}</span>
+      <h2>{esc(s.get("name", ""))}</h2>
+      <a class="axis-sub-link" href="method-{STAGE_SLUG[code]}.html">full detail →</a>
+    </div>
+    {(f'<p class="axis-lede">{esc(s.get("summary", ""))}</p>')}
+  </div>
+</section>''')
+    sys_all = systems_table_html([s['bib_key'] for s in METHOD_SYSTEMS], base='../',
+                                 caption='Representative systems, decomposed by pipeline stage and grouped by verifier coupling (survey Table 3).')
+    body = f'''
+<section class="cell-hero axis-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
+    <h1><span class="cell-id-big axis-id-m">M</span> Method — The Scientific RAG Pipeline</h1>
+    <div class="axis-intro">{m_intro}</div>
+    <div class="cell-nav">{stage_nav}</div>
+  </div>
+</section>
+{''.join(stage_secs)}
+<section class="axis-body">
+  <div class="wrap">
+    <h2 class="res-group-title">Systems</h2>
+    {sys_all}
+  </div>
+</section>
+'''
+    (ROOT / 'cell' / 'method.html').write_text(
+        page_head('Method — The Scientific RAG Pipeline', base='../', current='cell/method') + body + page_foot('../'))
+
+    # ----- one page per stage -----
+    for s in M_STAGES:
+        code = s['code']
+        slug = STAGE_SLUG[code]
+        sib_nav = '\n'.join(
+            f'<a href="method-{STAGE_SLUG[x["code"]]}.html" class="pill {"current" if x["code"] == code else ""}">{esc(STAGE_SHORT.get(x["code"], x["name"]))}</a>'
+            for x in M_STAGES)
+        sbody = f'''
+<section class="cell-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="method.html">← Method</a></p>
+    <h1><span class="cell-id-big axis-id-m">{code}</span> {esc(s.get("name", ""))}</h1>
+    <div class="cell-nav">{sib_nav}</div>
+  </div>
+</section>
+
+<section class="axis-body">
+  <div class="wrap">
+    {_stage_prose_html(s)}
+  </div>
+</section>
+'''
+        (ROOT / 'cell' / f'method-{slug}.html').write_text(
+            page_head(f'{s.get("name","")} — Method', base='../', current=f'cell/method-{slug}') + sbody + page_foot('../'))
+
+
 # ---------- domain/<d>.html ----------
 def render_domain_pages():
     for d, label in DOMAIN_LABELS.items():
@@ -2738,6 +2838,7 @@ if __name__ == '__main__':
     render_cell_pages()
     render_axis_overview()
     render_task_pages()
+    render_method_pages()
     render_domain_pages()
     render_type_pages()
     write_catalog()

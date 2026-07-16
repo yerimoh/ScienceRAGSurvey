@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Method — The Scientific RAG Pipeline, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784180918">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group" open>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/knowledge-source.html" class="sb-sub sb-sub-overview">Overview — the data &amp; substrates →</a>
+        <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">22</span></a>
+<a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">8</span></a>
+<a href="../cell/K3.html" class="sb-sub">Structured-entity <span class="sb-count">7</span></a>
+<a href="../cell/K4.html" class="sb-sub">Perceptual <span class="sb-count">9</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group" open>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/operational-objective.html" class="sb-sub sb-sub-overview">Overview — the tasks &amp; rungs →</a>
+        <a href="../cell/O1.html" class="sb-subhead">Grounding <span class="sb-count">24</span></a>
+<a href="../cell/question-answering.html" class="sb-sub sb-task">Question Answering <span class="sb-count">33</span></a>
+<a href="../cell/O2.html" class="sb-subhead">Synthesis <span class="sb-count">9</span></a>
+<a href="../cell/claim-verification.html" class="sb-sub sb-task">Claim Verification <span class="sb-count">3</span></a>
+<a href="../cell/literature-synthesis.html" class="sb-sub sb-task">Literature Synthesis <span class="sb-count">15</span></a>
+<a href="../cell/O3.html" class="sb-subhead">Discovery <span class="sb-count">13</span></a>
+<a href="../cell/property-prediction.html" class="sb-sub sb-task">Property Prediction <span class="sb-count">13</span></a>
+<a href="../cell/molecular-design.html" class="sb-sub sb-task">Molecular Design <span class="sb-count">8</span></a>
+<a href="../cell/materials-discovery.html" class="sb-sub sb-task">Materials Discovery <span class="sb-count">10</span></a>
+<a href="../cell/hypothesis-generation.html" class="sb-sub sb-task">Hypothesis Generation <span class="sb-count">6</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group" open>
+      <summary class="sb-item"><span class="sb-icon">M</span> Method <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/method.html" class="sb-sub sb-sub-overview active">Overview — the RAG pipeline →</a>
+        <a href="../cell/method-construction.html" class="sb-sub">Construction</a>
+<a href="../cell/method-retrieval.html" class="sb-sub">Retrieval</a>
+<a href="../cell/method-integration.html" class="sb-sub">Integration</a>
+<a href="../cell/method-verification.html" class="sb-sub">Verification</a>
+
+      </div>
+    </details>
+
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">▦</span> K×O landscape <span class="sb-count">12</span></a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">97</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">86</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">147</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">32</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">15</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">16</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">106</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">17</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGSurvey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="cell-hero axis-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
+    <h1><span class="cell-id-big axis-id-m">M</span> Method — The Scientific RAG Pipeline</h1>
+    <div class="axis-intro"><p>A scientific RAG system solves the tasks of the Operational Objective axis by turning a query into an output through the pipeline of the overview figure, and we organize its methods by the stage at which they act. Given a query and a knowledge source already compiled into one of the substrates of the Knowledge Source axis, the pipeline unfolds the retrieval of the pipeline equation into its parts and wraps it in a loop that drafts an output, checks it, and refines it,</p>
+<p>^(t) =_generator!(q, ! (R^(t))_reranker, (^(t-1))_verifier),</p>
+<p>R^(t) =*sel_u; s(((q,^(t-1)))_transformed, encoded query, (u)_indexed key),</p>
+<p>Here rewrites the query, optionally folding in the current draft, encodes the rewritten query into the space of the keys that built at construction, and the substrate-bound score matches the two. reranks what retrieval returns, generates the output from the query, the evidence, and any feedback, and tests that output against a signal from beyond the corpus. The loop runs for from an empty draft, so a system that never checks its output runs a single pass, while one that refines against a verifier repeats. The final is scored by against the benchmark&#x27;s ground truth.</p>
+<p>The four stages follow in turn, each organized by substrate. Construction starts from a knowledge source of the Knowledge Source axis and encodes each of its units with into the searchable index, in the form its substrate dictates. Retrieval matches a query against that index through the transform, the encoding, and the substrate-bound score, returning a set of units. Integration reranks those units with and generates the output with. Verification tests that output with a verifier at depth. Tablethe systems table groups representative systems by the depth of verifier coupling they reach, from open generation to closed-loop refinement.</p></div>
+    <div class="cell-nav"><a href="method-construction.html" class="pill">Construction</a>
+<a href="method-retrieval.html" class="pill">Retrieval</a>
+<a href="method-integration.html" class="pill">Integration</a>
+<a href="method-verification.html" class="pill">Verification</a></div>
+  </div>
+</section>
+
+<section class="axis-sub" id="construction">
+  <div class="wrap">
+    <div class="axis-sub-head">
+      <span class="sys-k sys-m">M1</span>
+      <h2>Knowledge Construction and Indexing</h2>
+      <a class="axis-sub-link" href="method-construction.html">full detail →</a>
+    </div>
+    <p class="axis-lede">Construction is the offline step that builds the index.</p>
+  </div>
+</section>
+<section class="axis-sub" id="retrieval">
+  <div class="wrap">
+    <div class="axis-sub-head">
+      <span class="sys-k sys-m">M2</span>
+      <h2>Retrieval</h2>
+      <a class="axis-sub-link" href="method-retrieval.html">full detail →</a>
+    </div>
+    <p class="axis-lede">Retrieval decides which stored knowledge the system can actually use, since a generator reasons only over what retrieval returns.</p>
+  </div>
+</section>
+<section class="axis-sub" id="integration">
+  <div class="wrap">
+    <div class="axis-sub-head">
+      <span class="sys-k sys-m">M3</span>
+      <h2>Integration and Generation</h2>
+      <a class="axis-sub-link" href="method-integration.html">full detail →</a>
+    </div>
+    <p class="axis-lede">Once evidence is retrieved, integration decides how it enters generation, and this is where the reranker and the generator of the pipeline equation act.</p>
+  </div>
+</section>
+<section class="axis-sub" id="verification">
+  <div class="wrap">
+    <div class="axis-sub-head">
+      <span class="sys-k sys-m">M4</span>
+      <h2>Verification</h2>
+      <a class="axis-sub-link" href="method-verification.html">full detail →</a>
+    </div>
+    <p class="axis-lede">Generation produces an output, but in science that output is trusted only to the extent it has been checked against something beyond the retrieved evidence.</p>
+  </div>
+</section>
+<section class="axis-body">
+  <div class="wrap">
+    <h2 class="res-group-title">Systems</h2>
+    
+<figure class="sys-table-wrap">
+  <figcaption class="sys-cap">Representative systems, decomposed by pipeline stage and grouped by verifier coupling (survey Table 3).</figcaption>
+  <div class="sys-table-scroll">
+    <table class="sys-table">
+      <thead><tr>
+        <th>System</th><th>K</th><th>Construction <span class="sys-sym">φ</span></th>
+        <th>Matching <span class="sys-sym">s</span></th><th>Integration <span class="sys-sym">𝒢</span></th>
+        <th>Verifier <span class="sys-sym">𝒱</span></th><th>O</th>
+      </tr></thead>
+      <tbody><tr class="sys-group"><td colspan="7"><span class="sys-coupling">Open</span><span class="sys-coupling-desc">retrieve and generate once, output returned unchecked</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_acl_Xiong0LZ24.html">MEDRAG</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>dense + BM25</td><td>rank fusion</td><td>concat</td><td>none</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_pasc_GokdemirSBWHHSA25.html">HiPerRAG</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>ColTrast encoder</td><td>dense cosine</td><td>concat</td><td>none</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_emnlp_FrisoniMMV22.html">BioReader</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>kNN datastore</td><td>neighbor lookup</td><td>cross-attention</td><td>none</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_bioinformatics_SomanRMASPVCSRI24.html">KG-RAG</a></td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td>SPOKE linking</td><td>1-hop neighbors</td><td>verbalized triples</td><td>none</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_acl_0006WS24.html">MindMap</a></td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td>symptom graph</td><td>multi-hop paths</td><td>graph-of-thought</td><td>none</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_sigir_HuLD0A0025.html">CG-RAG</a></td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td>citation graph</td><td>lexical subgraph</td><td>subgraph summary</td><td>none</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2411-16523.html">LaB-RAG</a></td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td>image-to-label</td><td>image sim. + labels</td><td>labels in prompt</td><td>none</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2510-01558.html">CardioRAG</a></td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td>VAE latents</td><td>latent + demo.</td><td>cases in prompt</td><td>none</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2603-09800.html">MITRA</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>OCR + DPR</td><td>dense + rerank</td><td>cited prompt</td><td>none</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_naacl_LiCJ25.html">GraPPI</a></td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td>STRING + FAISS</td><td>kNN window</td><td>divide-and-solve</td><td>none</td><td><span class="sys-o sys-o-o3" title="Hypothesis Generation">HG</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2402-01788.html">LitLLM</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>live search</td><td>keyword query</td><td>rerank + plan</td><td>none</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_bioinformatics_JinYCL24.html">GeneGPT</a></td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td>NCBI interface</td><td>decoding call</td><td>API in context</td><td>none</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="https://openreview.net/forum?id=78tc3EiUrN" target="_blank" rel="noopener">MADGEN</a></td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td>spectrum-scaffold</td><td>spectrum rank</td><td>spectrum-cond. gen.</td><td>none</td><td><span class="sys-o sys-o-o3" title="Property Prediction">PP</span></td></tr><tr class="sys-group"><td colspan="7"><span class="sys-coupling">Self-check</span><span class="sys-coupling-desc">critiques its own draft, consulting only the retrieved evidence</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_bioinformatics_JeongSSK24.html">Self-BioRAG</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>MedCPT index</td><td>on-demand</td><td>reflection gate</td><td>reflect tokens</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2408-01107.html">BioRAG</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>PubMedBERT</td><td>dense + MeSH</td><td>iterative reason</td><td>sufficiency gate</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_naacl_SohnPYPHSKK25.html">RAG^2</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>per-corpus dense</td><td>rationale query</td><td>perplexity filter</td><td>utility filter</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2312-07559.html">PaperQA</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>full-text chunks</td><td>agentic search</td><td>summary rerank</td><td>citation check</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/iyer2024pathfinder.html">Pathfinder</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>dense + citation</td><td>HyDE query</td><td>cross-encoder</td><td>consensus</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_bionlp_YangLMZKLCCCML24.html">KG-Rank</a></td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td>UMLS concepts</td><td>1-hop relations</td><td>rerank + MMR</td><td>rank only</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_iclr_0005ZLWSWZ0Y25.html">MMed-RAG</a></td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td>image encoder</td><td>cross-modal cos.</td><td>adaptive top-k</td><td>pref. align</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_nips_WangGYZZ0ZD0W0Z24.html">AutoSurvey</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>dense corpus</td><td>topic retrieval</td><td>outline draft</td><td>self-refine</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr><td class="sys-name"><a href="https://doi.org/10.18653/v1/2024.acl-long.18" target="_blank" rel="noopener">SciMON</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>embed + graph</td><td>inspiration ret.</td><td>prompt cond.</td><td>novelty loop</td><td><span class="sys-o sys-o-o3" title="Hypothesis Generation">HG</span></td></tr><tr><td class="sys-name"><a href="https://doi.org/10.18653/v1/2025.naacl-long.342" target="_blank" rel="noopener">ResearchAgent</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>entity store</td><td>paper + entity</td><td>prompt cond.</td><td>reviewer loop</td><td><span class="sys-o sys-o-o3" title="Hypothesis Generation">HG</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_acl_WuZQCXMJG25.html">MedGraphRAG</a></td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td>3-tier graph</td><td>tag + 16-hop</td><td>U-retrieval</td><td>citation trace</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_acl_Jiang0XQFWTDC0W25.html">HyKGE</a></td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td>fused med-KG</td><td>hypothesis + hops</td><td>fragment rerank</td><td>rank only</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_acl_ChenLJWG0025.html">Omni-RAG</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>per-source index</td><td>source planner</td><td>evidence concat</td><td>plan eval</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_cikm_BesrourHS025.html">SQuAI</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>hybrid index</td><td>sub-question</td><td>per-claim cite</td><td>faithfulness</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_ecir_AteiaK25.html">BioRAGent</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>BM25 index</td><td>query expansion</td><td>snippet rerank</td><td>abstain guard</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_emnlp_XiaZLZLLZY24.html">RULE</a></td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td>CLIP index</td><td>image cosine</td><td>calibrated top-k</td><td>knowledge DPO</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name">HoneyComb</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>MatSciKB</td><td>BM25 + tool</td><td>tool-exec loop</td><td>tool assessor</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2310-16146.html">Clinfo.AI</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>live PubMed</td><td>LLM search</td><td>abstractive synth</td><td>relevance filter</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_acl_YanFYX00Z25.html">SurveyForge</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>arXiv dense</td><td>outline nav</td><td>section draft</td><td>refine/dedup</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_naacl_SunZHX25.html">FactMM-RAG</a></td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td>MARVEL enc</td><td>image cosine</td><td>report in prompt</td><td>fact-trained</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_aaai_ZhangGZZCZZYB26.html">PathoAgenticRAG</a></td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td>ColQwen2 pages</td><td>image + text</td><td>agentic multi-turn</td><td>GRPO reward</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr class="sys-group"><td colspan="7"><span class="sys-coupling">External-verify</span><span class="sys-coupling-desc">an outside process scores the finished output once</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_emnlp_ChiangHCR25.html">LLaMP</a></td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td>Materials Project</td><td>ReAct call</td><td>tool-in-loop</td><td>self-consist.</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="https://proceedings.mlr.press/v235/huang24ab.html" target="_blank" rel="noopener">IRDiff</a></td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td>interaction net</td><td>affinity refs</td><td>3D diffusion</td><td>docking score</td><td><span class="sys-o sys-o-o3" title="Molecular Design">MD</span></td></tr><tr><td class="sys-name"><a href="https://arxiv.org/abs/2506.14488" target="_blank" rel="noopener">READ</a></td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td>pocket graph</td><td>scaffold ret.</td><td>modulate steps</td><td>steric filter</td><td><span class="sys-o sys-o-o3" title="Molecular Design">MD</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_bib_ZhangPHCM25.html">Rag2Mol</a></td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td>pocket library</td><td>two-level match</td><td>atom generator</td><td>docking screen</td><td><span class="sys-o sys-o-o3" title="Molecular Design">MD</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2409-13740.html">PaperQA2</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>full-text chunks</td><td>agentic search</td><td>contextual summary</td><td>ContraCrow check</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr class="sys-group"><td colspan="7"><span class="sys-coupling">Closed-loop</span><span class="sys-coupling-desc">the verifier runs inside the loop and drives refinement</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_nips_LeeKV0RPVN24.html">f-RAG</a></td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td>fragment vocab</td><td>fragment sim.</td><td>generator inject</td><td>docking loop</td><td><span class="sys-o sys-o-o3" title="Molecular Design">MD</span></td></tr><tr><td class="sys-name"><a href="https://openreview.net/forum?id=vDFA1tpuLvk" target="_blank" rel="noopener">RetMol</a></td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td>FAISS mol</td><td>property top-K</td><td>fusion module</td><td>AutoDock-GPU loop</td><td><span class="sys-o sys-o-o3" title="Molecular Design">MD</span></td></tr><tr><td class="sys-name"><a href="../papers/nan2026taliragen.html">TaLiRAGen</a></td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td>ligand contexts</td><td>context ret.</td><td>multi-turn CoT</td><td>docking loop</td><td><span class="sys-o sys-o-o3" title="Molecular Design">MD</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2603-15712.html">HEA-catalyst</a></td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td>materials index</td><td>cosine + rules</td><td>constraint inject</td><td>DFT loop</td><td><span class="sys-o sys-o-o3" title="Materials Discovery">MtD</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_iclr_00010GLGCZ25.html">KGARevion</a></td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td>PrimeKG + TransE</td><td>triple generate</td><td>revise vs graph</td><td>KG verify</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/asai2026synthesizing.html">OpenScholar</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>45M-paper index</td><td>dense retrieval</td><td>cross-encoder</td><td>self-feedback</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr><td class="sys-name">TrialMind</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>trial literature</td><td>PICO Boolean</td><td>screen + extract</td><td>iter. + human</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr></tbody>
+    </table>
+  </div>
+</figure>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey and Taxonomy"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
+      <a href="../about.html">About</a>
+    </p>
+  </div>
+</footer>
+<script src="../static/footnotes.js?v=1779886412"></script>
+</body>
+</html>

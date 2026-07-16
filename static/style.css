@@ -1841,3 +1841,9 @@ sup.footnote-ref a:focus {
   border: 1px solid transparent;
 }
 .axis-systems-cta:hover { border-color: var(--o-fg); text-decoration: none; }
+
+/* ---------- Method (§6 pipeline) accent ---------- */
+:root { --m-bg: #ede7f6; --m-fg: #5e35b1; }
+.sys-m { display:inline-block; font-family: var(--font-mono); font-weight:600; font-size:.68rem; padding:.12rem .4rem; border-radius:6px; background: var(--m-bg); color: var(--m-fg); }
+.axis-id-m { background: var(--m-bg); color: var(--m-fg); }
+.axis-subsub-title::before { color: var(--m-fg); }

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Integration and Generation — Method, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784180918">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group" open>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/knowledge-source.html" class="sb-sub sb-sub-overview">Overview — the data &amp; substrates →</a>
+        <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">22</span></a>
+<a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">8</span></a>
+<a href="../cell/K3.html" class="sb-sub">Structured-entity <span class="sb-count">7</span></a>
+<a href="../cell/K4.html" class="sb-sub">Perceptual <span class="sb-count">9</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group" open>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/operational-objective.html" class="sb-sub sb-sub-overview">Overview — the tasks &amp; rungs →</a>
+        <a href="../cell/O1.html" class="sb-subhead">Grounding <span class="sb-count">24</span></a>
+<a href="../cell/question-answering.html" class="sb-sub sb-task">Question Answering <span class="sb-count">33</span></a>
+<a href="../cell/O2.html" class="sb-subhead">Synthesis <span class="sb-count">9</span></a>
+<a href="../cell/claim-verification.html" class="sb-sub sb-task">Claim Verification <span class="sb-count">3</span></a>
+<a href="../cell/literature-synthesis.html" class="sb-sub sb-task">Literature Synthesis <span class="sb-count">15</span></a>
+<a href="../cell/O3.html" class="sb-subhead">Discovery <span class="sb-count">13</span></a>
+<a href="../cell/property-prediction.html" class="sb-sub sb-task">Property Prediction <span class="sb-count">13</span></a>
+<a href="../cell/molecular-design.html" class="sb-sub sb-task">Molecular Design <span class="sb-count">8</span></a>
+<a href="../cell/materials-discovery.html" class="sb-sub sb-task">Materials Discovery <span class="sb-count">10</span></a>
+<a href="../cell/hypothesis-generation.html" class="sb-sub sb-task">Hypothesis Generation <span class="sb-count">6</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group" open>
+      <summary class="sb-item"><span class="sb-icon">M</span> Method <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/method.html" class="sb-sub sb-sub-overview">Overview — the RAG pipeline →</a>
+        <a href="../cell/method-construction.html" class="sb-sub">Construction</a>
+<a href="../cell/method-retrieval.html" class="sb-sub">Retrieval</a>
+<a href="../cell/method-integration.html" class="sb-sub active">Integration</a>
+<a href="../cell/method-verification.html" class="sb-sub">Verification</a>
+
+      </div>
+    </details>
+
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">▦</span> K×O landscape <span class="sb-count">12</span></a>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">97</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">86</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">147</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">32</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">15</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">16</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">106</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">17</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGSurvey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="cell-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="method.html">← Method</a></p>
+    <h1><span class="cell-id-big axis-id-m">M3</span> Integration and Generation</h1>
+    <div class="cell-nav"><a href="method-construction.html" class="pill ">Construction</a>
+<a href="method-retrieval.html" class="pill ">Retrieval</a>
+<a href="method-integration.html" class="pill current">Integration</a>
+<a href="method-verification.html" class="pill ">Verification</a></div>
+  </div>
+</section>
+
+<section class="axis-body">
+  <div class="wrap">
+    <div class="axis-prose"><p>Once evidence is retrieved, integration decides how it enters generation, and this is where the reranker and the generator of the pipeline equation act. The form of integration sets how tightly the retrieved evidence governs the output, ranging from loosely conditioning to strictly constraining.</p></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Reranking and filtering</h3><div class="axis-prose"><p>Retrieval often returns more than the generator should trust, so the first integration step trims the set for precision, and systems differ in the signal they trim on. Pathfinder reranks its top-ranked passages with a Cohere cross-encoder and discards outliers before answering. KG-Rank first ranks the retrieved UMLS triples by concept similarity with maximal-marginal-relevance for diversity, then reranks the survivors with a MedCPT cross-encoder. RAG trains a small filter that keeps only the snippets predicted to lower the answer&#x27;s perplexity, discarding topically similar distractors. PaperQA2 replaces raw chunks with LLM-written contextual summaries, each scored for relevance so that only the most useful few enter the prompt. RULE instead calibrates the number of retrieved contexts admitted, using a statistical bound that caps the factuality risk from over-reliance on retrieval.</p></div></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Fusion and diffusion conditioning</h3><div class="axis-prose"><p>Some generators do not read the evidence from a prompt at all, but fold it into their own computation. BioReader injects retrieved neighbors into a T5 encoder-decoder by chunked cross-attention while keeping the retriever frozen, and f-RAG and RetMol fuse retrieved fragments and exemplar molecules, respectively, into a frozen molecular generator through a small trained module. Diffusion generators go further and let retrieved structures steer every denoising step, as IRDiff conditions a three-dimensional diffusion model on target-aware reference ligands and READ modulates each step with a retrieved pocket-matched scaffold. Fusion and conditioning carry Structured-entity and Perceptual evidence into Molecular Design.</p></div></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Constraint and tool use in the loop</h3><div class="axis-prose"><p>A plain generator can produce fluent text that violates basic science, so some systems bring in rules or tools while the output is being formed. Two mechanisms appear. The first is constraint injection, where explicit physical rules are supplied to steer the generator away from impossible candidates. A high-entropy-catalyst system feeds stoichiometry and stability rules into the prompt, biasing the model toward physically admissible alloy compositions. The second is in-loop tool use, where the generator pauses to call an external resource and continues from its result. LLaMP drives reasoning agents that query the Materials Project for real property values during generation, and HoneyComb runs a thought-action-observation loop that selects and executes tools from a materials tool hub. In both cases the science actively shapes the output as it forms, rather than sitting passively alongside it as retrieved context.</p></div></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Long-form synthesis</h3><div class="axis-prose"><p>A further class of generators integrates many retrieved sources into one long-form answer, review, or verdict. OpenScholar writes citation-backed answers over a 45-million-paper index and refines them through a self-feedback loop, and Clinfo.AI produces cited clinical answers by abstractive summarization over live literature. AutoSurvey and SurveyForge draft a full survey from a retrieval-guided outline, LitLLM drafts a related-work section from reranked references, and TrialMind searches and screens clinical trials to feed a human-verified meta-analysis. These generators target Literature Synthesis, whose output integrates sources no single one contains.</p>
+<p>Across these mechanisms the integration mode sets how tightly retrieved evidence governs the output. Passage concatenation only conditions generation, whereas constraint injection and in-loop tool execution hold it to a scientific validity the looser modes leave unchecked.</p></div></div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey and Taxonomy"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
+      <a href="../about.html">About</a>
+    </p>
+  </div>
+</footer>
+<script src="../static/footnotes.js?v=1779886412"></script>
+</body>
+</html>
