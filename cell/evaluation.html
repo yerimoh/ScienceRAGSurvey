@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Evaluation, Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1784183008">
+<link rel="stylesheet" href="../static/style.css?v=1784183311">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -111,25 +111,25 @@
 <section class="axis-body">
   <div class="wrap"><div class="eval-grid">
 <div class="eval-card">
-  <h3 class="eval-title">Retrieval quality</h3>
+  <h3 class="eval-title"><span class="eval-ic">🎯</span>Retrieval quality</h3>
   <p class="eval-measures">Relevant units surface near the top of the retrieved list</p>
   <div class="eval-metrics"><span class="eval-lab">Metrics</span><div class="res-chips"><span class="res-chip res-chip-plain">precision@k</span><span class="res-chip res-chip-plain">recall@k</span><span class="res-chip res-chip-plain">nDCG</span><span class="res-chip res-chip-plain">MAP</span><span class="res-chip res-chip-plain">MRR</span></div></div>
   <p class="eval-ceiling"><span class="eval-lab">Cannot establish</span> That the generator used the retrieved evidence</p>
 </div>
 <div class="eval-card">
-  <h3 class="eval-title">Output correctness</h3>
+  <h3 class="eval-title"><span class="eval-ic">✅</span>Output correctness</h3>
   <p class="eval-measures">Match to a single fixed gold answer</p>
   <div class="eval-metrics"><span class="eval-lab">Metrics</span><div class="res-chips"><span class="res-chip res-chip-plain">exact match</span><span class="res-chip res-chip-plain">token F1</span><span class="res-chip res-chip-plain">accuracy</span><span class="res-chip res-chip-plain">macro-F1</span><span class="res-chip res-chip-plain">CheXbert/RadGraph F1</span></div></div>
   <p class="eval-ceiling"><span class="eval-lab">Cannot establish</span> That the answer was unknown before retrieval</p>
 </div>
 <div class="eval-card">
-  <h3 class="eval-title">Generation quality</h3>
+  <h3 class="eval-title"><span class="eval-ic">✍️</span>Generation quality</h3>
   <p class="eval-measures">Integration where no single gold answer exists</p>
   <div class="eval-metrics"><span class="eval-lab">Metrics</span><div class="res-chips"><span class="res-chip res-chip-plain">faithfulness</span><span class="res-chip res-chip-plain">citation precision/recall</span><span class="res-chip res-chip-plain">coverage</span><span class="res-chip res-chip-plain">nugget and key-point recall</span><span class="res-chip res-chip-plain">LLM-judge</span></div></div>
   <p class="eval-ceiling"><span class="eval-lab">Cannot establish</span> That the answer is faithful to its process or complete against the literature</p>
 </div>
 <div class="eval-card">
-  <h3 class="eval-title">Verifier-based scoring</h3>
+  <h3 class="eval-title"><span class="eval-ic">🔬</span>Verifier-based scoring</h3>
   <p class="eval-measures">Survival of a novel output under an external test</p>
   <div class="eval-metrics"><span class="eval-lab">Metrics</span><div class="res-chips"><span class="res-chip res-chip-plain">E_hull and F1 against DFT</span><span class="res-chip res-chip-plain">docking score with pose validity</span><span class="res-chip res-chip-plain">top-k and Tanimoto and Fmax recovery</span><span class="res-chip res-chip-plain">novelty and expert rating</span></div></div>
   <p class="eval-ceiling"><span class="eval-lab">Cannot establish</span> More than the strength of the proxy the verifier applies</p>

@@ -91,6 +91,32 @@ def task_slug(name):
 # §6 pipeline stages (Method). Short labels for nav; full names come from the prose.
 STAGE_SLUG = {'M1': 'construction', 'M2': 'retrieval', 'M3': 'integration', 'M4': 'verification'}
 STAGE_SHORT = {'M1': 'Construction', 'M2': 'Retrieval', 'M3': 'Integration', 'M4': 'Verification'}
+
+# Emoji icons per section, to make the pages livelier (self-contained, no external assets).
+SECTION_ICONS = {
+    # K substrates
+    'Textual': '📄', 'Relational': '🕸️', 'Structured-entity': '🧪', 'Perceptual': '📡',
+    # O rungs + tasks
+    'Grounding': '🎯', 'Synthesis': '🔀', 'Discovery': '💡',
+    'Question Answering': '❓', 'Claim Verification': '⚖️', 'Literature Synthesis': '📚',
+    'Property Prediction': '📈', 'Molecular Design': '🧬', 'Materials Discovery': '💎',
+    'Hypothesis Generation': '💡', 'Cross-modal Grounding': '🖼️',
+    # M stages
+    'Knowledge Construction and Indexing': '🏗️', 'Retrieval': '🔍',
+    'Integration and Generation': '🧩', 'Verification': '✅',
+    # §7 evaluation dimensions
+    'Retrieval quality': '🎯', 'Output correctness': '✅',
+    'Generation quality': '✍️', 'Verifier-based scoring': '🔬',
+    # §8 frontier themes
+    'Adapting Proven General RAG Capabilities': '♻️',
+    'Building Domain-Specific Scientific RAG Components': '🧱',
+    'Overcoming the Realities Beyond Technique': '🚧', 'Future Outlook': '🔮',
+}
+
+
+def sec_icon(name, cls='sec-ic'):
+    ic = SECTION_ICONS.get(name)
+    return f'<span class="{cls}">{ic}</span> ' if ic else ''
 DOMAIN_LABELS = {
     'bio': 'Biology', 'chem': 'Chemistry', 'medical': 'Medicine',
     'material': 'Materials Science', 'physics': 'Physics', 'earth': 'Earth Science',
@@ -938,7 +964,7 @@ def objective_tasks_html(rung, base='../', heading_level='h3'):
     parts = []
     for t in tasks:
         tp = O_PROSE.get(t, {})
-        title = f'<a href="{base}cell/{task_slug(t)}.html">{esc(t)}</a>'
+        title = f'{sec_icon(t)}<a href="{base}cell/{task_slug(t)}.html">{esc(t)}</a>'
         parts.append(
             f'<div class="res-group">'
             f'<{heading_level} class="res-group-title">{title}</{heading_level}>'
@@ -1855,7 +1881,7 @@ def render_cell_pages():
 <section class="cell-hero">
   <div class="wrap">
     <p class="eyebrow"><a href="knowledge-source.html">← Knowledge Source</a></p>
-    <h1><span class="cell-id-big axis-id-k">{K}</span> {esc(kn)}</h1>
+    <h1><span class="cell-id-big axis-id-k">{K}</span> {sec_icon(kn)}{esc(kn)}</h1>
   </div>
 </section>
 
@@ -1885,7 +1911,7 @@ def render_cell_pages():
 <section class="cell-hero">
   <div class="wrap">
     <p class="eyebrow"><a href="operational-objective.html">← Operational Objective</a></p>
-    <h1><span class="cell-id-big axis-id-o">{O}</span> {esc(on)}</h1>
+    <h1><span class="cell-id-big axis-id-o">{O}</span> {sec_icon(on)}{esc(on)}</h1>
     <p class="axis-lede">{esc(od)}</p>
   </div>
 </section>
@@ -1936,7 +1962,7 @@ def render_axis_overview():
   <div class="wrap">
     <div class="axis-sub-head">
       <span class="sys-k sys-k-{K.lower()}">{esc(K_SHORT.get(K, K))}</span>
-      <h2>{esc(kn)}</h2>
+      <h2>{sec_icon(kn)}{esc(kn)}</h2>
       <a class="axis-sub-link" href="{K}.html">details &amp; {n} systems →</a>
     </div>
     {substrate_resources_html(K, base='../')}
@@ -1972,7 +1998,7 @@ def render_axis_overview():
   <div class="wrap">
     <div class="axis-sub-head">
       <span class="sys-o sys-o-{O.lower()}">{esc(O)}</span>
-      <h2>{esc(on)}</h2>
+      <h2>{sec_icon(on)}{esc(on)}</h2>
       <a class="axis-sub-link" href="{O}.html">details &amp; {n} systems →</a>
     </div>
     <p class="axis-lede">{esc(od)}</p>
@@ -2019,7 +2045,7 @@ def render_task_pages():
 <section class="cell-hero o-body">
   <div class="wrap">
     <p class="eyebrow"><a href="operational-objective.html">← Operational Objective</a> <span class="crumb-sep">/</span> <a href="{O}.html">{esc(on)}</a></p>
-    <h1><span class="cell-id-big axis-id-o">{O}</span> {esc(t)}</h1>
+    <h1><span class="cell-id-big axis-id-o">{O}</span> {sec_icon(t)}{esc(t)}</h1>
     <div class="axis-prose">{prose_html(tp.get("text", ""))}</div>
     <div class="cell-nav">{sib_nav}</div>
   </div>
@@ -2080,7 +2106,7 @@ def render_method_pages():
   <div class="wrap">
     <div class="axis-sub-head">
       <span class="sys-k sys-m">{esc(code)}</span>
-      <h2>{esc(s.get("name", ""))}</h2>
+      <h2>{sec_icon(s.get("name", ""))}{esc(s.get("name", ""))}</h2>
       <a class="axis-sub-link" href="method-{STAGE_SLUG[code]}.html">full detail →</a>
     </div>
     {(f'<p class="axis-lede">{esc(s.get("summary", ""))}</p>')}
@@ -2119,7 +2145,7 @@ def render_method_pages():
 <section class="cell-hero">
   <div class="wrap">
     <p class="eyebrow"><a href="method.html">← Method</a></p>
-    <h1><span class="cell-id-big axis-id-m">{code}</span> {esc(s.get("name", ""))}</h1>
+    <h1><span class="cell-id-big axis-id-m">{code}</span> {sec_icon(s.get("name", ""))}{esc(s.get("name", ""))}</h1>
     <div class="cell-nav">{sib_nav}</div>
   </div>
 </section>
@@ -2147,7 +2173,7 @@ def render_body_section_pages():
             ceiling = ev.get('ceiling', '')
             secs.append(f'''
 <div class="eval-card">
-  <h3 class="eval-title">{esc(s["name"])}</h3>
+  <h3 class="eval-title"><span class="eval-ic">{SECTION_ICONS.get(s["name"], "📊")}</span>{esc(s["name"])}</h3>
   {f'<p class="eval-measures">{esc(measures)}</p>' if measures else ''}
   {f'<div class="eval-metrics"><span class="eval-lab">Metrics</span><div class="res-chips">{chips}</div></div>' if chips else ''}
   {f'<p class="eval-ceiling"><span class="eval-lab">Cannot establish</span> {esc(ceiling)}</p>' if ceiling else ''}
@@ -2178,7 +2204,7 @@ def render_body_section_pages():
                 for ss in s.get('subsubs', [])
             )
             secs.append(
-                f'<div class="frontier-theme"><h3 class="res-group-title">{esc(s["name"])}</h3>'
+                f'<div class="frontier-theme"><h3 class="res-group-title">{sec_icon(s["name"], "theme-ic")}{esc(s["name"])}</h3>'
                 + (f'<p class="res-note">{esc(s.get("summary", ""))}</p>' if s.get('summary') else '')
                 + (f'<div class="frontier-items">{items}</div>' if items else '')
                 + '</div>'
