@@ -2087,6 +2087,54 @@ def _stage_prose_html(stage, heading='h3'):
     return '\n'.join(parts)
 
 
+def pipeline_svg(base='../'):
+    """Inline SVG of the §6 pipeline: q → Construction → Retrieval → Integration →
+    Verification → ŷ, with a dashed verifier loop back into Integration. Each stage
+    box links to its page."""
+    stages = [
+        ('🏗️', 'Construction', 'φ', 'method-construction.html'),
+        ('🔍', 'Retrieval', 's', 'method-retrieval.html'),
+        ('🧩', 'Integration', '𝒢', 'method-integration.html'),
+        ('✅', 'Verification', '𝒱', 'method-verification.html'),
+    ]
+    xs = [70, 290, 510, 730]
+    w, y, h = 180, 66, 80
+    mid = y + h / 2
+    boxes = ''
+    for (ic, name, sym), x in zip([(a, b, c) for a, b, c, _ in stages], xs):
+        href = dict((b, hh) for _, b, _, hh in stages)[name]
+        cx = x + w / 2
+        boxes += (
+            f'<a href="{base}cell/{href}" class="pl-link">'
+            f'<rect class="pl-box" x="{x}" y="{y}" width="{w}" height="{h}" rx="12"/>'
+            f'<text class="pl-ic" x="{cx}" y="{y + 34}" text-anchor="middle">{ic}</text>'
+            f'<text class="pl-name" x="{cx}" y="{y + 60}" text-anchor="middle">{name}</text>'
+            f'<text class="pl-sym" x="{x + w - 12}" y="{y + 20}" text-anchor="end">{sym}</text>'
+            f'</a>'
+        )
+    arrows = ''
+    for i in range(3):
+        arrows += f'<line class="pl-arrow" x1="{xs[i] + w}" y1="{mid}" x2="{xs[i + 1] - 7}" y2="{mid}" marker-end="url(#plArrow)"/>'
+    q_in = (f'<text class="pl-io" x="8" y="{mid + 4}">q</text>'
+            f'<line class="pl-arrow" x1="24" y1="{mid}" x2="{xs[0] - 7}" y2="{mid}" marker-end="url(#plArrow)"/>')
+    out = (f'<line class="pl-arrow" x1="{xs[3] + w}" y1="{mid}" x2="942" y2="{mid}" marker-end="url(#plArrow)"/>'
+           f'<text class="pl-io" x="948" y="{mid + 4}">ŷ</text>')
+    v_cx, g_cx = xs[3] + w / 2, xs[2] + w / 2
+    loop = (f'<path class="pl-loop" d="M {v_cx} {y} C {v_cx} 20, {g_cx} 20, {g_cx} {y - 2}" marker-end="url(#plArrowV)"/>'
+            f'<text class="pl-loop-lab" x="{(v_cx + g_cx) / 2}" y="16" text-anchor="middle">verifier loop</text>')
+    return f'''
+<figure class="pipeline-figure">
+  <svg viewBox="0 0 960 158" role="img" aria-label="Scientific RAG pipeline: a query q flows through Construction, Retrieval, Integration and Verification to an output y-hat, with a verifier loop back into Integration">
+    <defs>
+      <marker id="plArrow" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#9aa0a6"/></marker>
+      <marker id="plArrowV" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7e57c2"/></marker>
+    </defs>
+    {q_in}{arrows}{loop}{boxes}{out}
+  </svg>
+  <figcaption>The pipeline, one box per §6 stage — each links to its section. A verifier can loop the draft back into integration for another round.</figcaption>
+</figure>'''
+
+
 def render_method_pages():
     if not M_STAGES:
         return
@@ -2120,6 +2168,7 @@ def render_method_pages():
     <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
     <h1><span class="cell-id-big axis-id-m">M</span> Method — The Scientific RAG Pipeline</h1>
     <div class="axis-intro">{m_intro}</div>
+    {pipeline_svg(base='../')}
     <div class="cell-nav">{stage_nav}</div>
   </div>
 </section>

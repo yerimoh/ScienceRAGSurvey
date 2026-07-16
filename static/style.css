@@ -1900,3 +1900,19 @@ sup.footnote-ref a:focus {
 }
 .eval-title { display: flex; align-items: center; }
 .eval-card { border-top: 3px solid #26a69a; }
+
+/* ---------- Method pipeline SVG diagram ---------- */
+.pipeline-figure { margin: 1.4rem 0 .4rem; }
+.pipeline-figure svg { width: 100%; height: auto; max-width: 940px; display: block; overflow: visible; }
+.pl-box { fill: #f3effa; stroke: #5e35b1; stroke-width: 1.5; transition: fill .15s, stroke-width .15s; }
+.pl-link { cursor: pointer; }
+.pl-link:hover .pl-box { fill: #e7ddf7; stroke-width: 2.2; }
+.pl-ic { font-size: 21px; }
+.pl-name { font-size: 13.5px; fill: #4a2c8f; font-weight: 600; font-family: var(--font-display); }
+.pl-link:hover .pl-name { text-decoration: underline; }
+.pl-sym { font-size: 12px; fill: #7e57c2; font-style: italic; font-family: var(--font-mono); }
+.pl-arrow { stroke: #9aa0a6; stroke-width: 1.7; }
+.pl-loop { fill: none; stroke: #7e57c2; stroke-width: 1.6; stroke-dasharray: 5 3; }
+.pl-loop-lab { font-size: 10.5px; fill: #7e57c2; font-family: var(--font-mono); }
+.pl-io { font-size: 14px; fill: var(--fg-muted); font-style: italic; font-family: var(--font-mono); }
+.pipeline-figure figcaption { font-size: .82rem; color: var(--fg-muted); margin-top: .6rem; font-family: var(--font-mono); line-height: 1.45; }
