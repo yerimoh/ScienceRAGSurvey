@@ -1,0 +1,352 @@
+[
+  {
+    "task": "Question Answering",
+    "O_rung": "O1",
+    "benchmark": "MIRAGE",
+    "bib_key": "DBLP:conf/acl/Xiong0LZ24",
+    "domain": "Medicine",
+    "K": "K1",
+    "scale": "7,663 questions",
+    "description": "Five medical QA sets under one evaluation."
+  },
+  {
+    "task": "Question Answering",
+    "O_rung": "O1",
+    "benchmark": "PubMedQA",
+    "bib_key": "jin-etal-2019-pubmedqa",
+    "domain": "Medicine",
+    "K": "K1",
+    "scale": "1k expert-labeled",
+    "description": "Yes/no/maybe questions over PubMed abstracts."
+  },
+  {
+    "task": "Question Answering",
+    "O_rung": "O1",
+    "benchmark": "LitQA2",
+    "bib_key": "DBLP:journals/corr/abs-2409-13740",
+    "domain": "Biology",
+    "K": "K1",
+    "scale": "248 MCQ",
+    "description": "Answers found only in full-text papers."
+  },
+  {
+    "task": "Question Answering",
+    "O_rung": "O1",
+    "benchmark": "MaScQA",
+    "bib_key": "zaki2024mascqa",
+    "domain": "Materials",
+    "K": "K1",
+    "scale": "650 questions",
+    "description": "Materials-engineering exam problems."
+  },
+  {
+    "task": "Question Answering",
+    "O_rung": "O1",
+    "benchmark": "SciQ",
+    "bib_key": "welbl-etal-2017-crowdsourcing",
+    "domain": "Multi",
+    "K": "K1",
+    "scale": "13,679 MCQ",
+    "description": "Crowd-sourced school-science questions."
+  },
+  {
+    "task": "Question Answering",
+    "O_rung": "O1",
+    "benchmark": "SciQA",
+    "bib_key": "auer2023sciqa",
+    "domain": "General",
+    "K": "K2",
+    "scale": "2,565 questions",
+    "description": "SPARQL QA over the Open Research Knowledge Graph."
+  },
+  {
+    "task": "Question Answering",
+    "O_rung": "O1",
+    "benchmark": "PathMMU",
+    "bib_key": "DBLP:conf/eccv/SunWZZCZZWLZLLLY24",
+    "domain": "Pathology",
+    "K": "K4",
+    "scale": "9,677 (test)",
+    "description": "Expert-validated pathology-image MCQ."
+  },
+  {
+    "task": "Question Answering",
+    "O_rung": "O1",
+    "benchmark": "Path-VQA",
+    "bib_key": "DBLP:journals/corr/abs-2003-10286",
+    "domain": "Pathology",
+    "K": "K4",
+    "scale": ">30K questions",
+    "description": "Visual QA over pathology textbook images."
+  },
+  {
+    "task": "Question Answering",
+    "O_rung": "O1",
+    "benchmark": "MIMIC-CXR",
+    "bib_key": "PhysioNet-mimic-cxr-2.1.0",
+    "domain": "Radiology",
+    "K": "K4",
+    "scale": "377K images",
+    "description": "Chest radiographs paired with free-text reports."
+  },
+  {
+    "task": "Claim Verification",
+    "O_rung": "O2",
+    "benchmark": "SciFact",
+    "bib_key": "DBLP:conf/emnlp/WaddenLLWZCH20",
+    "domain": "Biomedicine",
+    "K": "K1",
+    "scale": "1,409 claims",
+    "description": "Claims verified against 5,183 abstracts."
+  },
+  {
+    "task": "Claim Verification",
+    "O_rung": "O2",
+    "benchmark": "SciFact-Open",
+    "bib_key": "DBLP:conf/emnlp/WaddenLKCBWH22",
+    "domain": "Biomedicine",
+    "K": "K1",
+    "scale": "279 claims, 500K corpus",
+    "description": "Open-domain claim verification."
+  },
+  {
+    "task": "Claim Verification",
+    "O_rung": "O2",
+    "benchmark": "ContraCrow",
+    "bib_key": "DBLP:journals/corr/abs-2409-13740",
+    "domain": "Multi",
+    "K": "K1",
+    "scale": "LitQA2-derived",
+    "description": "Whole-paper contradiction detection."
+  },
+  {
+    "task": "Literature Synthesis",
+    "O_rung": "O2",
+    "benchmark": "ScholarQABench",
+    "bib_key": "asai2026synthesizing",
+    "domain": "Multi",
+    "K": "K1",
+    "scale": "2,967 queries",
+    "description": "Multi-paper long-form scientific answers."
+  },
+  {
+    "task": "Literature Synthesis",
+    "O_rung": "O2",
+    "benchmark": "PubMedRS-200",
+    "bib_key": "DBLP:journals/corr/abs-2310-16146",
+    "domain": "Medicine",
+    "K": "K1",
+    "scale": "200 questions",
+    "description": "Retrieval and abstractive review summarization."
+  },
+  {
+    "task": "Literature Synthesis",
+    "O_rung": "O2",
+    "benchmark": "BioASQ (ideal)",
+    "bib_key": "krithara2023bioasq",
+    "domain": "Biomedicine",
+    "K": "K1",
+    "scale": "4,721 QA pairs",
+    "description": "Expert biomedical QA with ideal-answer summaries."
+  },
+  {
+    "task": "Literature Synthesis",
+    "O_rung": "O2",
+    "benchmark": "SQuAI",
+    "bib_key": "DBLP:conf/cikm/BesrourHS025",
+    "domain": "Multi",
+    "K": "K1",
+    "scale": "unarXive corpus",
+    "description": "Multi-agent RAG for scientific QA."
+  },
+  {
+    "task": "Literature Synthesis",
+    "O_rung": "O2",
+    "benchmark": "Multi-XScience",
+    "bib_key": "DBLP:conf/emnlp/LuDC20",
+    "domain": "Multi",
+    "K": "K2",
+    "scale": "~40K instances",
+    "description": "Related-work generation from cited abstracts."
+  },
+  {
+    "task": "Property Prediction",
+    "O_rung": "O3",
+    "benchmark": "MoleculeNet",
+    "bib_key": "DBLP:journals/corr/WuRFGGPLP17",
+    "domain": "Chem/Med",
+    "K": "K3",
+    "scale": "17 datasets",
+    "description": "Molecular property and toxicity prediction."
+  },
+  {
+    "task": "Property Prediction",
+    "O_rung": "O3",
+    "benchmark": "TDC",
+    "bib_key": "DBLP:conf/nips/HuangFG0RLCXSZ21",
+    "domain": "Med/Bio/Chem",
+    "K": "K3",
+    "scale": "66 datasets",
+    "description": "Therapeutics ML tasks across the pipeline."
+  },
+  {
+    "task": "Property Prediction",
+    "O_rung": "O3",
+    "benchmark": "CAFA",
+    "bib_key": "zhou2019cafa",
+    "domain": "Biology",
+    "K": "K3",
+    "scale": "3,328 proteins",
+    "description": "Protein function (GO) prediction."
+  },
+  {
+    "task": "Property Prediction",
+    "O_rung": "O3",
+    "benchmark": "GEARS",
+    "bib_key": "roohani2024gears",
+    "domain": "Biology",
+    "K": "K3",
+    "scale": "Norman Perturb-seq",
+    "description": "Transcriptional response to multigene perturbation."
+  },
+  {
+    "task": "Property Prediction",
+    "O_rung": "O3",
+    "benchmark": "PerturBench",
+    "bib_key": "DBLP:journals/corr/abs-2408-10609",
+    "domain": "Biology",
+    "K": "K3",
+    "scale": "4 regimes",
+    "description": "Cellular perturbation-response prediction."
+  },
+  {
+    "task": "Property Prediction",
+    "O_rung": "O3",
+    "benchmark": "OpenBioLink",
+    "bib_key": "DBLP:journals/bioinformatics/BreitOAS20",
+    "domain": "Biomedicine",
+    "K": "K2",
+    "scale": "~9.3M edges",
+    "description": "Biomedical knowledge-graph link prediction."
+  },
+  {
+    "task": "Property Prediction",
+    "O_rung": "O3",
+    "benchmark": "OGB-biokg",
+    "bib_key": "DBLP:conf/nips/HuFZDRLCL20",
+    "domain": "Biology",
+    "K": "K2",
+    "scale": "93,773 entities",
+    "description": "Biomedical KG completion."
+  },
+  {
+    "task": "Property Prediction",
+    "O_rung": "O3",
+    "benchmark": "MassSpecGym",
+    "bib_key": "DBLP:conf/nips/BushuievBJYKSHW24",
+    "domain": "Chemistry",
+    "K": "K4",
+    "scale": "231K spectra",
+    "description": "Molecule identification from mass spectra."
+  },
+  {
+    "task": "Molecular Design",
+    "O_rung": "O3",
+    "benchmark": "PMO",
+    "bib_key": "gao2022sample",
+    "domain": "Chemistry",
+    "K": "K3",
+    "scale": "23 tasks",
+    "description": "Sample-efficient molecule optimization."
+  },
+  {
+    "task": "Molecular Design",
+    "O_rung": "O3",
+    "benchmark": "CrossDocked2020",
+    "bib_key": "DBLP:journals/jcisd/FrancoeurMSJISK20",
+    "domain": "Chem/Bio",
+    "K": "K3",
+    "scale": "22.5M poses",
+    "description": "Structure-based drug-design pockets."
+  },
+  {
+    "task": "Materials Discovery",
+    "O_rung": "O3",
+    "benchmark": "Matbench Discovery",
+    "bib_key": "riebesell2025framework",
+    "domain": "Materials",
+    "K": "K3",
+    "scale": "257K structures",
+    "description": "Crystal stability against DFT relaxation."
+  },
+  {
+    "task": "Materials Discovery",
+    "O_rung": "O3",
+    "benchmark": "ADsorbML",
+    "bib_key": "lan2023adsorbml",
+    "domain": "Materials",
+    "K": "K3",
+    "scale": "~1,000 systems",
+    "description": "Adsorption-energy discovery under DFT."
+  },
+  {
+    "task": "Materials Discovery",
+    "O_rung": "O3",
+    "benchmark": "MLIP Arena",
+    "bib_key": "DBLP:journals/corr/abs-2509-20630",
+    "domain": "Mat/Physics",
+    "K": "K3",
+    "scale": "4 dimensions",
+    "description": "Physics-aware MLIP evaluation."
+  },
+  {
+    "task": "Materials Discovery",
+    "O_rung": "O3",
+    "benchmark": "ScienceAgentBench",
+    "bib_key": "DBLP:journals/corr/abs-2410-05080",
+    "domain": "Multi",
+    "K": "K3",
+    "scale": "102 tasks",
+    "description": "Data-driven science code generation."
+  },
+  {
+    "task": "Hypothesis Generation",
+    "O_rung": "O3",
+    "benchmark": "MOOSE-Chem",
+    "bib_key": "DBLP:conf/iclr/0001LGXLOPCZ25",
+    "domain": "Chemistry",
+    "K": "K1",
+    "scale": "51 papers",
+    "description": "Rediscover post-2024 chemistry hypotheses."
+  },
+  {
+    "task": "Hypothesis Generation",
+    "O_rung": "O3",
+    "benchmark": "ResearchBench",
+    "bib_key": "liu2025researchbench",
+    "domain": "Multi",
+    "K": "K1",
+    "scale": "1,386 papers",
+    "description": "Inspiration retrieval, composition, and ranking."
+  },
+  {
+    "task": "Hypothesis Generation",
+    "O_rung": "O3",
+    "benchmark": "HypoBench",
+    "bib_key": "liu2025hypobench",
+    "domain": "Multi",
+    "K": "K1",
+    "scale": "12 tasks, 194 sets",
+    "description": "Systematic hypothesis-generation benchmarking."
+  },
+  {
+    "task": "Hypothesis Generation",
+    "O_rung": "O3",
+    "benchmark": "TruthHypo",
+    "bib_key": "xiong2025truthhypo",
+    "domain": "Biomedicine",
+    "K": "K2",
+    "scale": "KG + corpus",
+    "description": "Truthful hypotheses grounded on a knowledge graph."
+  }
+]

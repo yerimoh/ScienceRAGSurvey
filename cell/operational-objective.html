@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Operational Objective, Scientific RAG Hub</title>
+<meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
+<link rel="stylesheet" href="../static/style.css?v=1784173247">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../index.html" class="sb-logo">
+    <span class="sb-logo-mark">🔬</span>
+    <div class="sb-logo-text">
+      <div class="sb-logo-title">Scientific RAG</div>
+      <div class="sb-logo-sub">Vision and Learning Lab, SNU</div>
+    </div>
+  </a>
+  <nav class="sb-nav">
+    <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
+    <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
+
+    <details class="sb-group" open>
+      <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/knowledge-source.html" class="sb-sub sb-sub-overview">Overview — the data &amp; substrates →</a>
+        <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">22</span></a>
+<a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">8</span></a>
+<a href="../cell/K3.html" class="sb-sub">Structured-entity <span class="sb-count">7</span></a>
+<a href="../cell/K4.html" class="sb-sub">Perceptual <span class="sb-count">9</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group" open>
+      <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../cell/operational-objective.html" class="sb-sub sb-sub-overview active">Overview — the tasks &amp; rungs →</a>
+        <a href="../cell/O1.html" class="sb-subhead">Grounding <span class="sb-count">24</span></a>
+<a href="../browse.html?sub=Question%20Answering" class="sb-sub sb-task">Question Answering <span class="sb-count">33</span></a>
+<a href="../cell/O2.html" class="sb-subhead">Synthesis <span class="sb-count">9</span></a>
+<a href="../browse.html?sub=Claim%20Verification" class="sb-sub sb-task">Claim Verification <span class="sb-count">3</span></a>
+<a href="../browse.html?sub=Literature%20Synthesis" class="sb-sub sb-task">Literature Synthesis <span class="sb-count">15</span></a>
+<a href="../cell/O3.html" class="sb-subhead">Discovery <span class="sb-count">13</span></a>
+<a href="../browse.html?sub=Property%20Prediction" class="sb-sub sb-task">Property Prediction <span class="sb-count">13</span></a>
+<a href="../browse.html?sub=Molecular%20Design" class="sb-sub sb-task">Molecular Design <span class="sb-count">8</span></a>
+<a href="../browse.html?sub=Materials%20Discovery" class="sb-sub sb-task">Materials Discovery <span class="sb-count">10</span></a>
+<a href="../browse.html?sub=Hypothesis%20Generation" class="sb-sub sb-task">Hypothesis Generation <span class="sb-count">6</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group" open>
+      <summary class="sb-item"><span class="sb-icon">▦</span> Substrate × Objective <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../browse.html" class="sb-sub sb-sub-overview">All 12 cells →</a>
+        <a href="../cell/K1.O1.html" class="sb-sub">Textual × Grounding <span class="sb-count">10</span></a>
+<a href="../cell/K1.O2.html" class="sb-sub">Textual × Synthesis <span class="sb-count">8</span></a>
+<a href="../cell/K1.O3.html" class="sb-sub">Textual × Discovery <span class="sb-count">4</span></a>
+<a href="../cell/K2.O1.html" class="sb-sub">Relational × Grounding <span class="sb-count">6</span></a>
+<a href="../cell/K2.O2.html" class="sb-sub">Relational × Synthesis <span class="sb-count">1</span></a>
+<a href="../cell/K2.O3.html" class="sb-sub">Relational × Discovery <span class="sb-count">1</span></a>
+<a href="../cell/K3.O1.html" class="sb-sub">Structured-entity × Grounding <span class="sb-count">2</span></a>
+<a href="../cell/K3.O2.html" class="sb-sub">Structured-entity × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K3.O3.html" class="sb-sub">Structured-entity × Discovery <span class="sb-count">5</span></a>
+<a href="../cell/K4.O1.html" class="sb-sub">Perceptual × Grounding <span class="sb-count">6</span></a>
+<a href="../cell/K4.O2.html" class="sb-sub">Perceptual × Synthesis <span class="sb-count">0</span></a>
+<a href="../cell/K4.O3.html" class="sb-sub">Perceptual × Discovery <span class="sb-count">3</span></a>
+
+      </div>
+    </details>
+
+    <details class="sb-group">
+      <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
+      <div class="sb-subs">
+        <a href="../index.html#domains" class="sb-sub sb-sub-overview">All domains →</a>
+        <a href="../domain/bio.html" class="sb-sub">🧬 Biology <span class="sb-count">97</span></a>
+<a href="../domain/chem.html" class="sb-sub">⚗️ Chemistry <span class="sb-count">86</span></a>
+<a href="../domain/medical.html" class="sb-sub">🩺 Medicine <span class="sb-count">147</span></a>
+<a href="../domain/material.html" class="sb-sub">🪨 Materials Science <span class="sb-count">32</span></a>
+<a href="../domain/physics.html" class="sb-sub">⚛️ Physics <span class="sb-count">42</span></a>
+<a href="../domain/earth.html" class="sb-sub">🌍 Earth Science <span class="sb-count">34</span></a>
+<a href="../domain/astronomy.html" class="sb-sub">🔭 Astronomy <span class="sb-count">15</span></a>
+<a href="../domain/Quantum.html" class="sb-sub">🌀 Quantum <span class="sb-count">2</span></a>
+<a href="../domain/general.html" class="sb-sub">📚 General Science <span class="sb-count">16</span></a>
+
+      </div>
+    </details>
+
+    <a href="../topics/method.html" class="sb-item"><span class="sb-icon">⚙</span> Methods <span class="sb-count">206</span></a>
+    <a href="../topics/benchmark.html" class="sb-item"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">106</span></a>
+    <a href="../topics/dataset.html" class="sb-item"><span class="sb-icon">○</span> Datasets <span class="sb-count">17</span></a>
+    <a href="../topics/summary.html" class="sb-item"><span class="sb-icon">📖</span> Surveys <span class="sb-count">2</span></a>
+
+    <hr class="sb-rule">
+
+    <a href="../insights.html" class="sb-item"><span class="sb-icon">💡</span> Insights</a>
+    <a href="../browse.html" class="sb-item"><span class="sb-icon">🔍</span> Browse all</a>
+
+    <hr class="sb-rule">
+
+    <a href="../llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
+    <a href="https://github.com/yerimoh/ScienceRAGSurvey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
+  </nav>
+</aside>
+
+<div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
+<main class="with-sidebar">
+
+<section class="cell-hero axis-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
+    <h1><span class="cell-id-big axis-id-o">O</span> Operational Objective</h1>
+    <p class="axis-intro">An <strong>operational objective</strong> is the task a system must serve, each operationalized by a benchmark that fixes the query, corpus, and ground truth. What the task demands sets how far its ground truth sits from the corpus: some answers lie ready in the corpus as a stored label, others are proposals it does not contain that only an external verifier can judge. The seven task families rise across three rungs, from grounding through synthesis to discovery.</p>
+    <div class="cell-nav"><a href="#o1" class="pill">O1 · Grounding <span class="pill-n">24</span></a>
+<a href="#o2" class="pill">O2 · Synthesis <span class="pill-n">9</span></a>
+<a href="#o3" class="pill">O3 · Discovery <span class="pill-n">13</span></a></div>
+  </div>
+</section>
+
+<figure class="sys-table-wrap axis-full-table">
+  <figcaption class="sys-cap">All benchmarks, grouped by task family (survey Table 2).</figcaption>
+  <div class="sys-table-scroll">
+    <table class="sys-table bm-table">
+      <thead><tr>
+        <th>Benchmark</th><th>Domain</th><th>K</th><th>Scale</th><th>Description</th>
+      </tr></thead>
+      <tbody><tr class="bm-group"><td colspan="5"><span class="bm-task">Question Answering</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_acl_Xiong0LZ24.html">MIRAGE</a></td><td>Medicine</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">7,663 questions</td><td>Five medical QA sets under one evaluation.</td></tr><tr><td class="sys-name"><a href="../papers/jin-etal-2019-pubmedqa.html">PubMedQA</a></td><td>Medicine</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">1k expert-labeled</td><td>Yes/no/maybe questions over PubMed abstracts.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2409-13740.html">LitQA2</a></td><td>Biology</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">248 MCQ</td><td>Answers found only in full-text papers.</td></tr><tr><td class="sys-name"><a href="../papers/zaki2024mascqa.html">MaScQA</a></td><td>Materials</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">650 questions</td><td>Materials-engineering exam problems.</td></tr><tr><td class="sys-name"><a href="../papers/welbl-etal-2017-crowdsourcing.html">SciQ</a></td><td>Multi</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">13,679 MCQ</td><td>Crowd-sourced school-science questions.</td></tr><tr><td class="sys-name"><a href="../papers/auer2023sciqa.html">SciQA</a></td><td>General</td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td class="ks-scale">2,565 questions</td><td>SPARQL QA over the Open Research Knowledge Graph.</td></tr><tr><td class="sys-name">PathMMU</td><td>Pathology</td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td class="ks-scale">9,677 (test)</td><td>Expert-validated pathology-image MCQ.</td></tr><tr><td class="sys-name">Path-VQA</td><td>Pathology</td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td class="ks-scale">&gt;30K questions</td><td>Visual QA over pathology textbook images.</td></tr><tr><td class="sys-name"><a href="../papers/PhysioNet-mimic-cxr-2.1.0.html">MIMIC-CXR</a></td><td>Radiology</td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td class="ks-scale">377K images</td><td>Chest radiographs paired with free-text reports.</td></tr><tr class="bm-group"><td colspan="5"><span class="bm-task">Claim Verification</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_emnlp_WaddenLLWZCH20.html">SciFact</a></td><td>Biomedicine</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">1,409 claims</td><td>Claims verified against 5,183 abstracts.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_emnlp_WaddenLKCBWH22.html">SciFact-Open</a></td><td>Biomedicine</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">279 claims, 500K corpus</td><td>Open-domain claim verification.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2409-13740.html">ContraCrow</a></td><td>Multi</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">LitQA2-derived</td><td>Whole-paper contradiction detection.</td></tr><tr class="bm-group"><td colspan="5"><span class="bm-task">Literature Synthesis</span></td></tr><tr><td class="sys-name"><a href="../papers/asai2026synthesizing.html">ScholarQABench</a></td><td>Multi</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">2,967 queries</td><td>Multi-paper long-form scientific answers.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2310-16146.html">PubMedRS-200</a></td><td>Medicine</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">200 questions</td><td>Retrieval and abstractive review summarization.</td></tr><tr><td class="sys-name"><a href="../papers/krithara2023bioasq.html">BioASQ (ideal)</a></td><td>Biomedicine</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">4,721 QA pairs</td><td>Expert biomedical QA with ideal-answer summaries.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_cikm_BesrourHS025.html">SQuAI</a></td><td>Multi</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">unarXive corpus</td><td>Multi-agent RAG for scientific QA.</td></tr><tr><td class="sys-name"><a href="https://arxiv.org/abs/2010.14235" target="_blank" rel="noopener">Multi-XScience</a></td><td>Multi</td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td class="ks-scale">~40K instances</td><td>Related-work generation from cited abstracts.</td></tr><tr class="bm-group"><td colspan="5"><span class="bm-task">Property Prediction</span></td></tr><tr><td class="sys-name"><a href="https://doi.org/10.1039/C7SC02664A" target="_blank" rel="noopener">MoleculeNet</a></td><td>Chem/Med</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">17 datasets</td><td>Molecular property and toxicity prediction.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_nips_HuangFG0RLCXSZ21.html">TDC</a></td><td>Med/Bio/Chem</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">66 datasets</td><td>Therapeutics ML tasks across the pipeline.</td></tr><tr><td class="sys-name"><a href="../papers/zhou2019cafa.html">CAFA</a></td><td>Biology</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">3,328 proteins</td><td>Protein function (GO) prediction.</td></tr><tr><td class="sys-name"><a href="../papers/roohani2024gears.html">GEARS</a></td><td>Biology</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">Norman Perturb-seq</td><td>Transcriptional response to multigene perturbation.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2408-10609.html">PerturBench</a></td><td>Biology</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">4 regimes</td><td>Cellular perturbation-response prediction.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_bioinformatics_BreitOAS20.html">OpenBioLink</a></td><td>Biomedicine</td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td class="ks-scale">~9.3M edges</td><td>Biomedical knowledge-graph link prediction.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_nips_HuFZDRLCL20.html">OGB-biokg</a></td><td>Biology</td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td class="ks-scale">93,773 entities</td><td>Biomedical KG completion.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_nips_BushuievBJYKSHW24.html">MassSpecGym</a></td><td>Chemistry</td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td class="ks-scale">231K spectra</td><td>Molecule identification from mass spectra.</td></tr><tr class="bm-group"><td colspan="5"><span class="bm-task">Molecular Design</span></td></tr><tr><td class="sys-name">PMO</td><td>Chemistry</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">23 tasks</td><td>Sample-efficient molecule optimization.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_jcisd_FrancoeurMSJISK20.html">CrossDocked2020</a></td><td>Chem/Bio</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">22.5M poses</td><td>Structure-based drug-design pockets.</td></tr><tr class="bm-group"><td colspan="5"><span class="bm-task">Materials Discovery</span></td></tr><tr><td class="sys-name">Matbench Discovery</td><td>Materials</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">257K structures</td><td>Crystal stability against DFT relaxation.</td></tr><tr><td class="sys-name"><a href="../papers/lan2023adsorbml.html">ADsorbML</a></td><td>Materials</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">~1,000 systems</td><td>Adsorption-energy discovery under DFT.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2509-20630.html">MLIP Arena</a></td><td>Mat/Physics</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">4 dimensions</td><td>Physics-aware MLIP evaluation.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2410-05080.html">ScienceAgentBench</a></td><td>Multi</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">102 tasks</td><td>Data-driven science code generation.</td></tr><tr class="bm-group"><td colspan="5"><span class="bm-task">Hypothesis Generation</span></td></tr><tr><td class="sys-name"><a href="https://openreview.net/forum?id=X9OfMNNepI" target="_blank" rel="noopener">MOOSE-Chem</a></td><td>Chemistry</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">51 papers</td><td>Rediscover post-2024 chemistry hypotheses.</td></tr><tr><td class="sys-name">ResearchBench</td><td>Multi</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">1,386 papers</td><td>Inspiration retrieval, composition, and ranking.</td></tr><tr><td class="sys-name">HypoBench</td><td>Multi</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">12 tasks, 194 sets</td><td>Systematic hypothesis-generation benchmarking.</td></tr><tr><td class="sys-name">TruthHypo</td><td>Biomedicine</td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td class="ks-scale">KG + corpus</td><td>Truthful hypotheses grounded on a knowledge graph.</td></tr></tbody>
+    </table>
+  </div>
+</figure>
+
+<section class="axis-sub" id="o1">
+  <div class="wrap">
+    <div class="axis-sub-head">
+      <span class="sys-o sys-o-o1">O1</span>
+      <h2>Grounding</h2>
+      <a class="axis-sub-link" href="O1.html">24 systems reaching this objective →</a>
+    </div>
+    <p class="axis-sub-desc">Answer a question whose gold already lies in the corpus, retrieve, cite, answer. (Question Answering.)</p>
+    
+<figure class="sys-table-wrap">
+  
+  <div class="sys-table-scroll">
+    <table class="sys-table bm-table">
+      <thead><tr>
+        <th>Benchmark</th><th>Domain</th><th>K</th><th>Scale</th><th>Description</th>
+      </tr></thead>
+      <tbody><tr class="bm-group"><td colspan="5"><span class="bm-task">Question Answering</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_acl_Xiong0LZ24.html">MIRAGE</a></td><td>Medicine</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">7,663 questions</td><td>Five medical QA sets under one evaluation.</td></tr><tr><td class="sys-name"><a href="../papers/jin-etal-2019-pubmedqa.html">PubMedQA</a></td><td>Medicine</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">1k expert-labeled</td><td>Yes/no/maybe questions over PubMed abstracts.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2409-13740.html">LitQA2</a></td><td>Biology</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">248 MCQ</td><td>Answers found only in full-text papers.</td></tr><tr><td class="sys-name"><a href="../papers/zaki2024mascqa.html">MaScQA</a></td><td>Materials</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">650 questions</td><td>Materials-engineering exam problems.</td></tr><tr><td class="sys-name"><a href="../papers/welbl-etal-2017-crowdsourcing.html">SciQ</a></td><td>Multi</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">13,679 MCQ</td><td>Crowd-sourced school-science questions.</td></tr><tr><td class="sys-name"><a href="../papers/auer2023sciqa.html">SciQA</a></td><td>General</td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td class="ks-scale">2,565 questions</td><td>SPARQL QA over the Open Research Knowledge Graph.</td></tr><tr><td class="sys-name">PathMMU</td><td>Pathology</td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td class="ks-scale">9,677 (test)</td><td>Expert-validated pathology-image MCQ.</td></tr><tr><td class="sys-name">Path-VQA</td><td>Pathology</td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td class="ks-scale">&gt;30K questions</td><td>Visual QA over pathology textbook images.</td></tr><tr><td class="sys-name"><a href="../papers/PhysioNet-mimic-cxr-2.1.0.html">MIMIC-CXR</a></td><td>Radiology</td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td class="ks-scale">377K images</td><td>Chest radiographs paired with free-text reports.</td></tr></tbody>
+    </table>
+  </div>
+</figure>
+  </div>
+</section>
+<section class="axis-sub" id="o2">
+  <div class="wrap">
+    <div class="axis-sub-head">
+      <span class="sys-o sys-o-o2">O2</span>
+      <h2>Synthesis</h2>
+      <a class="axis-sub-link" href="O2.html">9 systems reaching this objective →</a>
+    </div>
+    <p class="axis-sub-desc">Integrate evidence no single source states, verify claims and synthesize the literature. (Claim Verification, Literature Synthesis.)</p>
+    
+<figure class="sys-table-wrap">
+  
+  <div class="sys-table-scroll">
+    <table class="sys-table bm-table">
+      <thead><tr>
+        <th>Benchmark</th><th>Domain</th><th>K</th><th>Scale</th><th>Description</th>
+      </tr></thead>
+      <tbody><tr class="bm-group"><td colspan="5"><span class="bm-task">Claim Verification</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_emnlp_WaddenLLWZCH20.html">SciFact</a></td><td>Biomedicine</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">1,409 claims</td><td>Claims verified against 5,183 abstracts.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_emnlp_WaddenLKCBWH22.html">SciFact-Open</a></td><td>Biomedicine</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">279 claims, 500K corpus</td><td>Open-domain claim verification.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2409-13740.html">ContraCrow</a></td><td>Multi</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">LitQA2-derived</td><td>Whole-paper contradiction detection.</td></tr><tr class="bm-group"><td colspan="5"><span class="bm-task">Literature Synthesis</span></td></tr><tr><td class="sys-name"><a href="../papers/asai2026synthesizing.html">ScholarQABench</a></td><td>Multi</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">2,967 queries</td><td>Multi-paper long-form scientific answers.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2310-16146.html">PubMedRS-200</a></td><td>Medicine</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">200 questions</td><td>Retrieval and abstractive review summarization.</td></tr><tr><td class="sys-name"><a href="../papers/krithara2023bioasq.html">BioASQ (ideal)</a></td><td>Biomedicine</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">4,721 QA pairs</td><td>Expert biomedical QA with ideal-answer summaries.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_cikm_BesrourHS025.html">SQuAI</a></td><td>Multi</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">unarXive corpus</td><td>Multi-agent RAG for scientific QA.</td></tr><tr><td class="sys-name"><a href="https://arxiv.org/abs/2010.14235" target="_blank" rel="noopener">Multi-XScience</a></td><td>Multi</td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td class="ks-scale">~40K instances</td><td>Related-work generation from cited abstracts.</td></tr></tbody>
+    </table>
+  </div>
+</figure>
+  </div>
+</section>
+<section class="axis-sub" id="o3">
+  <div class="wrap">
+    <div class="axis-sub-head">
+      <span class="sys-o sys-o-o3">O3</span>
+      <h2>Discovery</h2>
+      <a class="axis-sub-link" href="O3.html">13 systems reaching this objective →</a>
+    </div>
+    <p class="axis-sub-desc">Propose an output the corpus does not contain, judged by an external verifier. (Property Prediction, Molecular Design, Materials Discovery, Hypothesis Generation.)</p>
+    
+<figure class="sys-table-wrap">
+  
+  <div class="sys-table-scroll">
+    <table class="sys-table bm-table">
+      <thead><tr>
+        <th>Benchmark</th><th>Domain</th><th>K</th><th>Scale</th><th>Description</th>
+      </tr></thead>
+      <tbody><tr class="bm-group"><td colspan="5"><span class="bm-task">Property Prediction</span></td></tr><tr><td class="sys-name"><a href="https://doi.org/10.1039/C7SC02664A" target="_blank" rel="noopener">MoleculeNet</a></td><td>Chem/Med</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">17 datasets</td><td>Molecular property and toxicity prediction.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_nips_HuangFG0RLCXSZ21.html">TDC</a></td><td>Med/Bio/Chem</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">66 datasets</td><td>Therapeutics ML tasks across the pipeline.</td></tr><tr><td class="sys-name"><a href="../papers/zhou2019cafa.html">CAFA</a></td><td>Biology</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">3,328 proteins</td><td>Protein function (GO) prediction.</td></tr><tr><td class="sys-name"><a href="../papers/roohani2024gears.html">GEARS</a></td><td>Biology</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">Norman Perturb-seq</td><td>Transcriptional response to multigene perturbation.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2408-10609.html">PerturBench</a></td><td>Biology</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">4 regimes</td><td>Cellular perturbation-response prediction.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_bioinformatics_BreitOAS20.html">OpenBioLink</a></td><td>Biomedicine</td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td class="ks-scale">~9.3M edges</td><td>Biomedical knowledge-graph link prediction.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_nips_HuFZDRLCL20.html">OGB-biokg</a></td><td>Biology</td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td class="ks-scale">93,773 entities</td><td>Biomedical KG completion.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_nips_BushuievBJYKSHW24.html">MassSpecGym</a></td><td>Chemistry</td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td class="ks-scale">231K spectra</td><td>Molecule identification from mass spectra.</td></tr><tr class="bm-group"><td colspan="5"><span class="bm-task">Molecular Design</span></td></tr><tr><td class="sys-name">PMO</td><td>Chemistry</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">23 tasks</td><td>Sample-efficient molecule optimization.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_jcisd_FrancoeurMSJISK20.html">CrossDocked2020</a></td><td>Chem/Bio</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">22.5M poses</td><td>Structure-based drug-design pockets.</td></tr><tr class="bm-group"><td colspan="5"><span class="bm-task">Materials Discovery</span></td></tr><tr><td class="sys-name">Matbench Discovery</td><td>Materials</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">257K structures</td><td>Crystal stability against DFT relaxation.</td></tr><tr><td class="sys-name"><a href="../papers/lan2023adsorbml.html">ADsorbML</a></td><td>Materials</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">~1,000 systems</td><td>Adsorption-energy discovery under DFT.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2509-20630.html">MLIP Arena</a></td><td>Mat/Physics</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">4 dimensions</td><td>Physics-aware MLIP evaluation.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2410-05080.html">ScienceAgentBench</a></td><td>Multi</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">102 tasks</td><td>Data-driven science code generation.</td></tr><tr class="bm-group"><td colspan="5"><span class="bm-task">Hypothesis Generation</span></td></tr><tr><td class="sys-name"><a href="https://openreview.net/forum?id=X9OfMNNepI" target="_blank" rel="noopener">MOOSE-Chem</a></td><td>Chemistry</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">51 papers</td><td>Rediscover post-2024 chemistry hypotheses.</td></tr><tr><td class="sys-name">ResearchBench</td><td>Multi</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">1,386 papers</td><td>Inspiration retrieval, composition, and ranking.</td></tr><tr><td class="sys-name">HypoBench</td><td>Multi</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">12 tasks, 194 sets</td><td>Systematic hypothesis-generation benchmarking.</td></tr><tr><td class="sys-name">TruthHypo</td><td>Biomedicine</td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td class="ks-scale">KG + corpus</td><td>Truthful hypotheses grounded on a knowledge graph.</td></tr></tbody>
+    </table>
+  </div>
+</figure>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
+      <em>"Scientific Retrieval-Augmented Generation: A Survey and Taxonomy"</em>
+      by Oh et al. (Vision and Learning Lab, Seoul National University).
+    </p>
+    <p class="links">
+      <a href="../llms.txt">llms.txt</a>
+      <a href="../llms-full.txt">llms-full.txt</a>
+      <a href="../data/catalog.json">catalog.json</a>
+      <a href="../about.html">About</a>
+    </p>
+  </div>
+</footer>
+<script src="../static/footnotes.js?v=1779886412"></script>
+</body>
+</html>

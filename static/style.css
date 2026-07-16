@@ -78,20 +78,6 @@
   --sb-active-fg: var(--o-700);
 }
 
-html[data-bg="off"] {
-  --bg: #f6f7f9;
-  --bg-elev: #ffffff;
-  --bg-accent: #eef1f4;
-  --bg-subtle: #e9edf1;
-}
-
-html[data-bg="on"] {
-  --bg: #ffffff;
-  --bg-elev: #ffffff;
-  --bg-accent: #f8f9fa;
-  --bg-subtle: #f1f3f4;
-}
-
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; color-scheme: light; }
 body {
@@ -297,23 +283,6 @@ code:not(pre code) {
   cursor: pointer;
   display: none;
 }
-.bg-toggle {
-  position: fixed;
-  top: 12px;
-  left: 60px;
-  width: 40px;
-  height: 40px;
-  font-size: 1rem;
-  background: var(--bg-elev);
-  border: 1px solid var(--line-strong);
-  border-radius: 8px;
-  color: var(--fg);
-  z-index: 200;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 .sb-backdrop {
   display: none;
   position: fixed;
@@ -336,7 +305,6 @@ main.with-sidebar {
   body.sb-open .sidebar { transform: translateX(0); }
   body.sb-open .sb-backdrop { display: block; }
   .sb-toggle { display: block; }
-  .bg-toggle { display: flex; }
   main.with-sidebar { margin-left: 0; padding-top: 60px; }
 }
 
@@ -1763,3 +1731,39 @@ sup.footnote-ref a:focus {
 .sys-k { background: var(--k-bg); color: var(--k-fg); }
 .sys-o { background: var(--o-bg); color: var(--o-fg); }
 @media (max-width: 640px) { .sys-coupling-desc { display: none; } }
+
+/* ---------- Knowledge-source (Table 1) & benchmark (Table 2) variants ---------- */
+.ks-group td, .bm-group td {
+  background: var(--bg-subtle) !important;
+  padding: .4rem .7rem !important; border-bottom: 1px solid var(--line-strong) !important;
+}
+.ks-sub-name { font-weight: 600; color: var(--fg); margin-left: .5rem; }
+.bm-task {
+  font-family: var(--font-mono); font-weight: 600; font-size: .74rem;
+  text-transform: uppercase; letter-spacing: .03em; color: var(--o-700);
+}
+.ks-name { font-weight: 600; white-space: nowrap; }
+.ks-scale { font-family: var(--font-mono); font-size: .78rem; color: var(--fg-muted); white-space: nowrap; }
+.ks-acc {
+  display: inline-block; font-family: var(--font-mono); font-weight: 600;
+  font-size: .68rem; padding: .1rem .4rem; border-radius: 6px; white-space: nowrap;
+}
+.acc-open  { background: #e6f4ea; color: #137333; }
+.acc-comm  { background: #fce8e6; color: #c5221f; }
+.acc-restr { background: #fef7e0; color: #b06000; }
+.acc-mixed { background: var(--bg-subtle); color: var(--fg-muted); }
+
+/* ---------- Axis overview pages ---------- */
+.axis-hero .axis-intro {
+  max-width: 62ch; font-size: 1rem; line-height: 1.6; color: var(--fg-muted);
+  margin: .5rem 0 1.1rem;
+}
+.axis-id-k { background: var(--k-bg); color: var(--k-fg); }
+.axis-id-o { background: var(--o-bg); color: var(--o-fg); }
+.pill-n { font-family: var(--font-mono); font-size: .78em; color: var(--fg-faint); margin-left: .25rem; }
+.axis-full-table { margin: 0 0 2.4rem; }
+.axis-sub { border-top: 1px solid var(--line); padding: 1.6rem 0 .4rem; }
+.axis-sub-head { display: flex; align-items: center; gap: .7rem; flex-wrap: wrap; margin-bottom: .3rem; }
+.axis-sub-head h2 { margin: 0; font-size: 1.35rem; }
+.axis-sub-link { margin-left: auto; font-size: .85rem; font-family: var(--font-mono); white-space: nowrap; }
+.axis-sub-desc { max-width: 68ch; color: var(--fg-muted); margin: 0 0 1rem; line-height: 1.55; }

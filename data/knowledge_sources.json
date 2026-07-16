@@ -1,0 +1,110 @@
+[
+  {
+    "substrate": "K1",
+    "substrate_name": "Textual",
+    "resource_group": "General & domain literature",
+    "scale": "10–250M",
+    "access": "Open",
+    "notes": "Open work indexes",
+    "n_refs": 8
+  },
+  {
+    "substrate": "K1",
+    "substrate_name": "Textual",
+    "resource_group": "Commercial indices",
+    "scale": "~100M",
+    "access": "Comm.",
+    "notes": "Paywalled, rarely used",
+    "n_refs": 4
+  },
+  {
+    "substrate": "K1",
+    "substrate_name": "Textual",
+    "resource_group": "Assembled corpora",
+    "scale": "~30M",
+    "access": "Open",
+    "notes": "Ready-made RAG corpora",
+    "n_refs": 2
+  },
+  {
+    "substrate": "K1",
+    "substrate_name": "Textual",
+    "resource_group": "Institution-private docs",
+    "scale": "varies",
+    "access": "Restr.",
+    "notes": "On-premise only",
+    "n_refs": 2
+  },
+  {
+    "substrate": "K2",
+    "substrate_name": "Relational",
+    "resource_group": "Concept & relation graphs",
+    "scale": "0.1–10M",
+    "access": "Open/Lic.",
+    "notes": "Expert-curated relations",
+    "n_refs": 8
+  },
+  {
+    "substrate": "K2",
+    "substrate_name": "Relational",
+    "resource_group": "Literature citation graphs",
+    "scale": "1B~",
+    "access": "Open",
+    "notes": "Papers as a graph",
+    "n_refs": 2
+  },
+  {
+    "substrate": "K3",
+    "substrate_name": "Structured-entity",
+    "resource_group": "Molecule libraries",
+    "scale": "1–100M",
+    "access": "Open",
+    "notes": "Feed molecule generators",
+    "n_refs": 3
+  },
+  {
+    "substrate": "K3",
+    "substrate_name": "Structured-entity",
+    "resource_group": "3D structure archives",
+    "scale": "0.1–100M",
+    "access": "Open",
+    "notes": "Atomic coordinates",
+    "n_refs": 3
+  },
+  {
+    "substrate": "K3",
+    "substrate_name": "Structured-entity",
+    "resource_group": "Property tables",
+    "scale": "0.1–1M",
+    "access": "Open",
+    "notes": "Computed/measured properties",
+    "n_refs": 4
+  },
+  {
+    "substrate": "K4",
+    "substrate_name": "Perceptual",
+    "resource_group": "Medical imaging",
+    "scale": "1–100K",
+    "access": "Mixed",
+    "notes": "Used in clinical RAG",
+    "n_refs": 3
+  },
+  {
+    "substrate": "K4",
+    "substrate_name": "Perceptual",
+    "resource_group": "Spectral libraries",
+    "scale": "0.1–2M",
+    "access": "Open",
+    "notes": "For structure elucidation",
+    "n_refs": 3
+  },
+  {
+    "substrate": "K4",
+    "substrate_name": "Perceptual",
+    "resource_group": "Instrument archives",
+    "scale": "1B~",
+    "access": "Open",
+    "notes": "Largely unused",
+    "n_refs": 6
+  }
+]

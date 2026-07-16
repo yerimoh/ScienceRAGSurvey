@@ -5,22 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[K1] Textual, Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<script>
-(() => {
-  try {
-    const stored = localStorage.getItem('srag-bg');
-    document.documentElement.dataset.bg = stored === 'off' ? 'off' : 'on';
-  } catch (e) {
-    document.documentElement.dataset.bg = 'on';
-  }
-})();
-</script>
-<link rel="stylesheet" href="../static/style.css?v=1784107305">
+<link rel="stylesheet" href="../static/style.css?v=1784173247">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 <button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
-<button class="bg-toggle" aria-label="Toggle white background" onclick="toggleBackground()">◐</button>
 
 <aside class="sidebar" id="sidebar">
   <a href="../index.html" class="sb-logo">
@@ -37,6 +26,7 @@
     <details class="sb-group" open>
       <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
+        <a href="../cell/knowledge-source.html" class="sb-sub sb-sub-overview">Overview — the data &amp; substrates →</a>
         <a href="../cell/K1.html" class="sb-sub active">Textual <span class="sb-count">22</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">8</span></a>
 <a href="../cell/K3.html" class="sb-sub">Structured-entity <span class="sb-count">7</span></a>
@@ -48,6 +38,7 @@
     <details class="sb-group" open>
       <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
+        <a href="../cell/operational-objective.html" class="sb-sub sb-sub-overview">Overview — the tasks &amp; rungs →</a>
         <a href="../cell/O1.html" class="sb-subhead">Grounding <span class="sb-count">24</span></a>
 <a href="../browse.html?sub=Question%20Answering" class="sb-sub sb-task">Question Answering <span class="sb-count">33</span></a>
 <a href="../cell/O2.html" class="sb-subhead">Synthesis <span class="sb-count">9</span></a>
@@ -138,15 +129,13 @@
   <div class="wrap">
     
 <figure class="sys-table-wrap">
-  <figcaption class="sys-cap">Pipeline at a glance — Textual systems, decomposed by stage (survey Table 3).</figcaption>
+  <figcaption class="sys-cap">Knowledge sources on the Textual substrate — the data itself (survey Table 1).</figcaption>
   <div class="sys-table-scroll">
-    <table class="sys-table">
+    <table class="sys-table ks-table">
       <thead><tr>
-        <th>System</th><th>K</th><th>Construction <span class="sys-sym">φ</span></th>
-        <th>Matching <span class="sys-sym">s</span></th><th>Integration <span class="sys-sym">𝒢</span></th>
-        <th>Verifier <span class="sys-sym">𝒱</span></th><th>O</th>
+        <th>Resource group</th><th>Scale</th><th>Access</th><th>Notes</th>
       </tr></thead>
-      <tbody><tr class="sys-group"><td colspan="7"><span class="sys-coupling">Open</span><span class="sys-coupling-desc">retrieve and generate once, output returned unchecked</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_acl_Xiong0LZ24.html">MEDRAG</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>dense + BM25</td><td>rank fusion</td><td>concat</td><td>none</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_pasc_GokdemirSBWHHSA25.html">HiPerRAG</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>ColTrast encoder</td><td>dense cosine</td><td>concat</td><td>none</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_emnlp_FrisoniMMV22.html">BioReader</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>kNN datastore</td><td>neighbor lookup</td><td>cross-attention</td><td>none</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2603-09800.html">MITRA</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>OCR + DPR</td><td>dense + rerank</td><td>cited prompt</td><td>none</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2402-01788.html">LitLLM</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>live search</td><td>keyword query</td><td>rerank + plan</td><td>none</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr class="sys-group"><td colspan="7"><span class="sys-coupling">Self-check</span><span class="sys-coupling-desc">critiques its own draft, consulting only the retrieved evidence</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_bioinformatics_JeongSSK24.html">Self-BioRAG</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>MedCPT index</td><td>on-demand</td><td>reflection gate</td><td>reflect tokens</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2408-01107.html">BioRAG</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>PubMedBERT</td><td>dense + MeSH</td><td>iterative reason</td><td>sufficiency gate</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_naacl_SohnPYPHSKK25.html">RAG^2</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>per-corpus dense</td><td>rationale query</td><td>perplexity filter</td><td>utility filter</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2312-07559.html">PaperQA</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>full-text chunks</td><td>agentic search</td><td>summary rerank</td><td>citation check</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/iyer2024pathfinder.html">Pathfinder</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>dense + citation</td><td>HyDE query</td><td>cross-encoder</td><td>consensus</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_nips_WangGYZZ0ZD0W0Z24.html">AutoSurvey</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>dense corpus</td><td>topic retrieval</td><td>outline draft</td><td>self-refine</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr><td class="sys-name"><a href="https://doi.org/10.18653/v1/2024.acl-long.18" target="_blank" rel="noopener">SciMON</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>embed + graph</td><td>inspiration ret.</td><td>prompt cond.</td><td>novelty loop</td><td><span class="sys-o sys-o-o3" title="Hypothesis Generation">HG</span></td></tr><tr><td class="sys-name"><a href="https://doi.org/10.18653/v1/2025.naacl-long.342" target="_blank" rel="noopener">ResearchAgent</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>entity store</td><td>paper + entity</td><td>prompt cond.</td><td>reviewer loop</td><td><span class="sys-o sys-o-o3" title="Hypothesis Generation">HG</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_acl_ChenLJWG0025.html">Omni-RAG</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>per-source index</td><td>source planner</td><td>evidence concat</td><td>plan eval</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_cikm_BesrourHS025.html">SQuAI</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>hybrid index</td><td>sub-question</td><td>per-claim cite</td><td>faithfulness</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_ecir_AteiaK25.html">BioRAGent</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>BM25 index</td><td>query expansion</td><td>snippet rerank</td><td>abstain guard</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name">HoneyComb</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>MatSciKB</td><td>BM25 + tool</td><td>tool-exec loop</td><td>tool assessor</td><td><span class="sys-o sys-o-o1" title="Question Answering">QA</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2310-16146.html">Clinfo.AI</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>live PubMed</td><td>LLM search</td><td>abstractive synth</td><td>relevance filter</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_acl_YanFYX00Z25.html">SurveyForge</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>arXiv dense</td><td>outline nav</td><td>section draft</td><td>refine/dedup</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr class="sys-group"><td colspan="7"><span class="sys-coupling">External-verify</span><span class="sys-coupling-desc">an outside process scores the finished output once</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2409-13740.html">PaperQA2</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>full-text chunks</td><td>agentic search</td><td>contextual summary</td><td>ContraCrow check</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr class="sys-group"><td colspan="7"><span class="sys-coupling">Closed-loop</span><span class="sys-coupling-desc">the verifier runs inside the loop and drives refinement</span></td></tr><tr><td class="sys-name"><a href="../papers/asai2026synthesizing.html">OpenScholar</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>45M-paper index</td><td>dense retrieval</td><td>cross-encoder</td><td>self-feedback</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr><tr><td class="sys-name">TrialMind</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>trial literature</td><td>PICO Boolean</td><td>screen + extract</td><td>iter. + human</td><td><span class="sys-o sys-o-o2" title="Literature Synthesis">LS</span></td></tr></tbody>
+      <tbody><tr><td class="ks-name">General &amp; domain literature</td><td class="ks-scale">10–250M</td><td><span class="ks-acc acc-open">Open</span></td><td>Open work indexes</td></tr><tr><td class="ks-name">Commercial indices</td><td class="ks-scale">~100M</td><td><span class="ks-acc acc-comm">Comm.</span></td><td>Paywalled, rarely used</td></tr><tr><td class="ks-name">Assembled corpora</td><td class="ks-scale">~30M</td><td><span class="ks-acc acc-open">Open</span></td><td>Ready-made RAG corpora</td></tr><tr><td class="ks-name">Institution-private docs</td><td class="ks-scale">varies</td><td><span class="ks-acc acc-restr">Restr.</span></td><td>On-premise only</td></tr></tbody>
     </table>
   </div>
 </figure>
@@ -367,31 +356,6 @@
     </p>
   </div>
 </footer>
-<script>
-function toggleBackground() {
-  const root = document.documentElement;
-  const next = root.dataset.bg === 'off' ? 'on' : 'off';
-  root.dataset.bg = next;
-  try {
-    localStorage.setItem('srag-bg', next);
-  } catch (e) {}
-  const button = document.querySelector('.bg-toggle');
-  if (button) {
-    button.setAttribute('aria-pressed', next === 'on' ? 'true' : 'false');
-    button.textContent = next === 'on' ? '◐' : '◑';
-    button.title = next === 'on' ? 'White background on' : 'White background off';
-  }
-}
-(() => {
-  const current = document.documentElement.dataset.bg === 'off' ? 'off' : 'on';
-  const button = document.querySelector('.bg-toggle');
-  if (button) {
-    button.setAttribute('aria-pressed', current === 'on' ? 'true' : 'false');
-    button.textContent = current === 'on' ? '◐' : '◑';
-    button.title = current === 'on' ? 'White background on' : 'White background off';
-  }
-})();
-</script>
 <script src="../static/footnotes.js?v=1779886412"></script>
 </body>
 </html>

@@ -22,6 +22,13 @@ papers = json.loads((ROOT / 'data/papers.json').read_text())
 # just skip the table.
 _ms_path = ROOT / 'data/method_systems.json'
 METHOD_SYSTEMS = json.loads(_ms_path.read_text()) if _ms_path.exists() else []
+# Paper Table 1 (knowledge sources = the K axis: data) and Table 2 (benchmarks = the O axis:
+# tasks), extracted by build/extract_tables.py. Each axis page shows the table matching its
+# own semantics: K pages the data resources, O pages the benchmarks.
+_ks_path = ROOT / 'data/knowledge_sources.json'
+KNOWLEDGE_SOURCES = json.loads(_ks_path.read_text()) if _ks_path.exists() else []
+_bm_path = ROOT / 'data/benchmarks.json'
+BENCHMARKS = json.loads(_bm_path.read_text()) if _bm_path.exists() else []
 
 # ---------- Reference tables ----------
 # Taxonomy mirrors the survey (Oh et al.). The K axis is the *retrieval substrate*, the
@@ -689,6 +696,110 @@ def systems_table_html(bib_keys, base='../', caption=None):
 </figure>'''
 
 
+def _access_class(access):
+    a = (access or '').lower()
+    if a.startswith('open'):
+        return 'acc-open'
+    if a.startswith('comm'):
+        return 'acc-comm'
+    if a.startswith('restr'):
+        return 'acc-restr'
+    return 'acc-mixed'
+
+
+def knowledge_source_table_html(substrate=None, base='../', caption=None):
+    """Paper Table 1 — knowledge sources (the data on the K axis), columns
+    Resource group | Scale | Access | Notes. If `substrate` (K1..K4) is given, show
+    only that substrate's rows; otherwise group all four."""
+    rows = [r for r in KNOWLEDGE_SOURCES if substrate is None or r.get('substrate') == substrate]
+    if not rows:
+        return ''
+    body = []
+    last_sub = None
+    for r in rows:
+        if substrate is None and r.get('substrate') != last_sub:
+            last_sub = r.get('substrate')
+            k = last_sub
+            body.append(
+                f'<tr class="ks-group"><td colspan="4">'
+                f'<span class="sys-k sys-k-{str(k).lower()}">{esc(K_SHORT.get(k, k))}</span>'
+                f'<span class="ks-sub-name">{esc(r.get("substrate_name", ""))}</span></td></tr>'
+            )
+        body.append(
+            '<tr>'
+            f'<td class="ks-name">{esc(r.get("resource_group", ""))}</td>'
+            f'<td class="ks-scale">{esc(r.get("scale", ""))}</td>'
+            f'<td><span class="ks-acc {_access_class(r.get("access"))}">{esc(r.get("access", ""))}</span></td>'
+            f'<td>{esc(r.get("notes", ""))}</td>'
+            '</tr>'
+        )
+    cap = f'<figcaption class="sys-cap">{esc(caption)}</figcaption>' if caption else ''
+    return f'''
+<figure class="sys-table-wrap">
+  {cap}
+  <div class="sys-table-scroll">
+    <table class="sys-table ks-table">
+      <thead><tr>
+        <th>Resource group</th><th>Scale</th><th>Access</th><th>Notes</th>
+      </tr></thead>
+      <tbody>{"".join(body)}</tbody>
+    </table>
+  </div>
+</figure>'''
+
+
+def benchmark_table_html(rung=None, tasks=None, base='../', caption=None):
+    """Paper Table 2 — benchmarks (the tasks on the O axis), columns
+    Benchmark | Domain | K | Scale | Description, grouped by task family. Filter by
+    O rung (O1..O3) or by an explicit list of task names."""
+    rows = [r for r in BENCHMARKS
+            if (rung is None or r.get('O_rung') == rung)
+            and (tasks is None or r.get('task') in tasks)]
+    if not rows:
+        return ''
+    by_task = defaultdict(list)
+    order = []
+    for r in rows:
+        t = r.get('task', '')
+        if t not in by_task:
+            order.append(t)
+        by_task[t].append(r)
+    body = []
+    for t in order:
+        body.append(f'<tr class="bm-group"><td colspan="5"><span class="bm-task">{esc(t)}</span></td></tr>')
+        for r in by_task[t]:
+            k = r.get('K', '')
+            bib = r.get('bib_key', '')
+            fn = bib.replace(':', '_').replace('/', '_') + '.html'
+            name = esc(r.get('benchmark', ''))
+            if (ROOT / 'papers' / fn).exists():
+                name = f'<a href="{base}papers/{fn}">{name}</a>'
+            elif papers_by_key.get(bib) and papers_by_key[bib].get('paper_link'):
+                name = f'<a href="{esc(papers_by_key[bib]["paper_link"])}" target="_blank" rel="noopener">{name}</a>'
+            body.append(
+                '<tr>'
+                f'<td class="sys-name">{name}</td>'
+                f'<td>{esc(r.get("domain", ""))}</td>'
+                f'<td><span class="sys-k sys-k-{str(k).lower()}" title="{esc(K_LABELS.get(k, (k,))[0])}">{esc(K_SHORT.get(k, k))}</span></td>'
+                f'<td class="ks-scale">{esc(r.get("scale", ""))}</td>'
+                f'<td>{esc(r.get("description", ""))}</td>'
+                '</tr>'
+            )
+    cap = f'<figcaption class="sys-cap">{esc(caption)}</figcaption>' if caption else ''
+    return f'''
+<figure class="sys-table-wrap">
+  {cap}
+  <div class="sys-table-scroll">
+    <table class="sys-table bm-table">
+      <thead><tr>
+        <th>Benchmark</th><th>Domain</th><th>K</th><th>Scale</th><th>Description</th>
+      </tr></thead>
+      <tbody>{"".join(body)}</tbody>
+    </table>
+  </div>
+</figure>'''
+
+
 def esc(s):
     if s is None:
         return ''
@@ -775,6 +886,7 @@ def sidebar(base='', current=''):
     <details class="sb-group"{cell_open}>
       <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
+        <a href="{base}cell/knowledge-source.html" class="sb-sub sb-sub-overview{cls("cell/knowledge-source")}">Overview — the data &amp; substrates →</a>
         {k_axis_items}
       </div>
     </details>
@@ -782,6 +894,7 @@ def sidebar(base='', current=''):
     <details class="sb-group"{cell_open}>
       <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
+        <a href="{base}cell/operational-objective.html" class="sb-sub sb-sub-overview{cls("cell/operational-objective")}">Overview — the tasks &amp; rungs →</a>
         {task_items}
       </div>
     </details>
@@ -831,22 +944,11 @@ def page_head(title, base='', desc='Scientific RAG Hub, a curated catalog of ret
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(title)}, Scientific RAG Hub</title>
 <meta name="description" content="{esc(desc)}">
-<script>
-(() => {{
-  try {{
-    const stored = localStorage.getItem('srag-bg');
-    document.documentElement.dataset.bg = stored === 'off' ? 'off' : 'on';
-  }} catch (e) {{
-    document.documentElement.dataset.bg = 'on';
-  }}
-}})();
-</script>
 <link rel="stylesheet" href="{base}static/style.css?v={css_mtime}">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 <button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
-<button class="bg-toggle" aria-label="Toggle white background" onclick="toggleBackground()">◐</button>
 {sidebar(base=base, current=current)}
 <div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
 <main class="with-sidebar">
@@ -871,31 +973,6 @@ def page_foot(base=''):
     </p>
   </div>
 </footer>
-<script>
-function toggleBackground() {{
-  const root = document.documentElement;
-  const next = root.dataset.bg === 'off' ? 'on' : 'off';
-  root.dataset.bg = next;
-  try {{
-    localStorage.setItem('srag-bg', next);
-  }} catch (e) {{}}
-  const button = document.querySelector('.bg-toggle');
-  if (button) {{
-    button.setAttribute('aria-pressed', next === 'on' ? 'true' : 'false');
-    button.textContent = next === 'on' ? '◐' : '◑';
-    button.title = next === 'on' ? 'White background on' : 'White background off';
-  }}
-}}
-(() => {{
-  const current = document.documentElement.dataset.bg === 'off' ? 'off' : 'on';
-  const button = document.querySelector('.bg-toggle');
-  if (button) {{
-    button.setAttribute('aria-pressed', current === 'on' ? 'true' : 'false');
-    button.textContent = current === 'on' ? '◐' : '◑';
-    button.title = current === 'on' ? 'White background on' : 'White background off';
-  }}
-}})();
-</script>
 <script src="{base}static/footnotes.js?v={js_mtime}"></script>
 </body>
 </html>
@@ -1758,8 +1835,8 @@ def render_cell_pages():
         kn, kd = K_LABELS[K]
         cards = '\n'.join(paper_card(p, base='../', axis_scope=K) for p in ps) or '<p class="empty">No entries yet.</p>'
         sf = subsec_filter_html(ps, prefix=f'kaxis{K}', axis_scope=K)
-        sys_table = systems_table_html([s['bib_key'] for s in METHOD_SYSTEMS if s.get('K') == K], base='../',
-                                       caption=f'Pipeline at a glance — {kn} systems, decomposed by stage (survey Table 3).')
+        sys_table = knowledge_source_table_html(substrate=K, base='../',
+                                                caption=f'Knowledge sources on the {kn} substrate — the data itself (survey Table 1).')
         body = f'''
 <section class="cell-hero">
   <div class="wrap">
@@ -1793,8 +1870,8 @@ def render_cell_pages():
         on, od = O_LABELS[O]
         sf = subsec_filter_html(ps, prefix=f'oaxis{O}', axis_scope=O)
         cards = '\n'.join(paper_card(p, base='../', axis_scope=O) for p in ps) or '<p class="empty">No entries yet.</p>'
-        sys_table = systems_table_html([s['bib_key'] for s in METHOD_SYSTEMS if s.get('O_rung') == O], base='../',
-                                       caption=f'Pipeline at a glance — {on} systems, decomposed by stage (survey Table 3).')
+        sys_table = benchmark_table_html(rung=O, base='../',
+                                         caption=f'Benchmarks for the {on} objective — the tasks and their ground truth (survey Table 2).')
         # K-cell breakdown pills
         o_cells_nav = '\n'.join(
             f'<a href="../cell/{K}.{O}.html" class="pill" title="{K}.{O}">{cell_label(K+"."+O)} {cell_count(K+"."+O)}</a>'
@@ -1826,6 +1903,107 @@ def render_cell_pages():
 </section>
 '''
         (ROOT / 'cell' / f'{O}.html').write_text(page_head(f'[{O}] {on}', base='../', current=f'cell/{O}') + body + page_foot('../'))
+
+
+# ---------- Axis overview pages (cell/knowledge-source.html, cell/operational-objective.html) ----------
+# Clicking an axis header in the sidebar lands here: the axis explained as a whole, its own
+# reference table (K = data resources, O = task benchmarks), then one subsection per member.
+K_OVERVIEW_INTRO = (
+    'A <strong>knowledge source</strong> is the data a scientific RAG system retrieves over. '
+    'The form in which a source stores its knowledge, its <em>retrieval substrate</em>, fixes what '
+    'can be reached from it: text can be reached by text, but a molecule, a graph of typed relations, '
+    'or a raw instrument signal shares no words with a query. We organize knowledge sources by that '
+    'native form into four substrates. General-domain RAG stays almost entirely on the textual '
+    'substrate; scientific RAG must reach the other three, each costlier to index.'
+)
+O_OVERVIEW_INTRO = (
+    'An <strong>operational objective</strong> is the task a system must serve, each operationalized '
+    'by a benchmark that fixes the query, corpus, and ground truth. What the task demands sets how far '
+    'its ground truth sits from the corpus: some answers lie ready in the corpus as a stored label, '
+    'others are proposals it does not contain that only an external verifier can judge. The seven task '
+    'families rise across three rungs, from grounding through synthesis to discovery.'
+)
+
+
+def render_axis_overview():
+    # ----- Knowledge Source (K axis) -----
+    subs = []
+    for K in ['K1', 'K2', 'K3', 'K4']:
+        kn, kd = K_LABELS[K]
+        n = axis_count(K)
+        table = knowledge_source_table_html(substrate=K, base='../')
+        subs.append(f'''
+<section class="axis-sub" id="{K.lower()}">
+  <div class="wrap">
+    <div class="axis-sub-head">
+      <span class="sys-k sys-k-{K.lower()}">{esc(K_SHORT.get(K, K))}</span>
+      <h2>{esc(kn)}</h2>
+      <a class="axis-sub-link" href="{K}.html">{n} systems on this substrate →</a>
+    </div>
+    <p class="axis-sub-desc">{esc(kd)}</p>
+    {table}
+  </div>
+</section>''')
+    nav = '\n'.join(
+        f'<a href="#{K.lower()}" class="pill">{esc(K_SHORT.get(K, K))} · {esc(K_LABELS[K][0])} <span class="pill-n">{axis_count(K)}</span></a>'
+        for K in ['K1', 'K2', 'K3', 'K4'])
+    body = f'''
+<section class="cell-hero axis-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
+    <h1><span class="cell-id-big axis-id-k">K</span> Knowledge Source</h1>
+    <p class="axis-intro">{K_OVERVIEW_INTRO}</p>
+    <div class="cell-nav">{nav}</div>
+  </div>
+</section>
+{knowledge_source_table_html(base='../', caption='All knowledge sources, grouped by retrieval substrate (survey Table 1).')
+   .replace('<figure class="sys-table-wrap">', '<figure class="sys-table-wrap axis-full-table">')}
+{''.join(subs)}
+'''
+    (ROOT / 'cell' / 'knowledge-source.html').write_text(
+        page_head('Knowledge Source', base='../', current='cell/knowledge-source') + body + page_foot('../'))
+
+    # ----- Operational Objective (O axis) -----
+    RUNGS = [
+        ('O1', ['Question Answering']),
+        ('O2', ['Claim Verification', 'Literature Synthesis']),
+        ('O3', ['Property Prediction', 'Molecular Design', 'Materials Discovery', 'Hypothesis Generation']),
+    ]
+    osubs = []
+    for O, tasks in RUNGS:
+        on, od = O_LABELS[O]
+        n = axis_count(O)
+        table = benchmark_table_html(rung=O, base='../')
+        osubs.append(f'''
+<section class="axis-sub" id="{O.lower()}">
+  <div class="wrap">
+    <div class="axis-sub-head">
+      <span class="sys-o sys-o-{O.lower()}">{esc(O)}</span>
+      <h2>{esc(on)}</h2>
+      <a class="axis-sub-link" href="{O}.html">{n} systems reaching this objective →</a>
+    </div>
+    <p class="axis-sub-desc">{esc(od)}</p>
+    {table}
+  </div>
+</section>''')
+    onav = '\n'.join(
+        f'<a href="#{O.lower()}" class="pill">{esc(O)} · {esc(O_LABELS[O][0])} <span class="pill-n">{axis_count(O)}</span></a>'
+        for O, _ in RUNGS)
+    obody = f'''
+<section class="cell-hero axis-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
+    <h1><span class="cell-id-big axis-id-o">O</span> Operational Objective</h1>
+    <p class="axis-intro">{O_OVERVIEW_INTRO}</p>
+    <div class="cell-nav">{onav}</div>
+  </div>
+</section>
+{benchmark_table_html(base='../', caption='All benchmarks, grouped by task family (survey Table 2).')
+   .replace('<figure class="sys-table-wrap">', '<figure class="sys-table-wrap axis-full-table">')}
+{''.join(osubs)}
+'''
+    (ROOT / 'cell' / 'operational-objective.html').write_text(
+        page_head('Operational Objective', base='../', current='cell/operational-objective') + obody + page_foot('../'))
 
 
 # ---------- domain/<d>.html ----------
@@ -2401,6 +2579,7 @@ if __name__ == '__main__':
     render_browse()
     render_insights()
     render_cell_pages()
+    render_axis_overview()
     render_domain_pages()
     render_type_pages()
     write_catalog()

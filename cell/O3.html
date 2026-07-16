@@ -5,22 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[O3] Discovery, Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<script>
-(() => {
-  try {
-    const stored = localStorage.getItem('srag-bg');
-    document.documentElement.dataset.bg = stored === 'off' ? 'off' : 'on';
-  } catch (e) {
-    document.documentElement.dataset.bg = 'on';
-  }
-})();
-</script>
-<link rel="stylesheet" href="../static/style.css?v=1784107305">
+<link rel="stylesheet" href="../static/style.css?v=1784173247">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 <button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
-<button class="bg-toggle" aria-label="Toggle white background" onclick="toggleBackground()">◐</button>
 
 <aside class="sidebar" id="sidebar">
   <a href="../index.html" class="sb-logo">
@@ -37,6 +26,7 @@
     <details class="sb-group" open>
       <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
+        <a href="../cell/knowledge-source.html" class="sb-sub sb-sub-overview">Overview — the data &amp; substrates →</a>
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">22</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">8</span></a>
 <a href="../cell/K3.html" class="sb-sub">Structured-entity <span class="sb-count">7</span></a>
@@ -48,6 +38,7 @@
     <details class="sb-group" open>
       <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
+        <a href="../cell/operational-objective.html" class="sb-sub sb-sub-overview">Overview — the tasks &amp; rungs →</a>
         <a href="../cell/O1.html" class="sb-subhead">Grounding <span class="sb-count">24</span></a>
 <a href="../browse.html?sub=Question%20Answering" class="sb-sub sb-task">Question Answering <span class="sb-count">33</span></a>
 <a href="../cell/O2.html" class="sb-subhead">Synthesis <span class="sb-count">9</span></a>
@@ -142,15 +133,13 @@
   <div class="wrap">
     
 <figure class="sys-table-wrap">
-  <figcaption class="sys-cap">Pipeline at a glance — Discovery systems, decomposed by stage (survey Table 3).</figcaption>
+  <figcaption class="sys-cap">Benchmarks for the Discovery objective — the tasks and their ground truth (survey Table 2).</figcaption>
   <div class="sys-table-scroll">
-    <table class="sys-table">
+    <table class="sys-table bm-table">
       <thead><tr>
-        <th>System</th><th>K</th><th>Construction <span class="sys-sym">φ</span></th>
-        <th>Matching <span class="sys-sym">s</span></th><th>Integration <span class="sys-sym">𝒢</span></th>
-        <th>Verifier <span class="sys-sym">𝒱</span></th><th>O</th>
+        <th>Benchmark</th><th>Domain</th><th>K</th><th>Scale</th><th>Description</th>
       </tr></thead>
-      <tbody><tr class="sys-group"><td colspan="7"><span class="sys-coupling">Open</span><span class="sys-coupling-desc">retrieve and generate once, output returned unchecked</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_naacl_LiCJ25.html">GraPPI</a></td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td>STRING + FAISS</td><td>kNN window</td><td>divide-and-solve</td><td>none</td><td><span class="sys-o sys-o-o3" title="Hypothesis Generation">HG</span></td></tr><tr><td class="sys-name"><a href="https://openreview.net/forum?id=78tc3EiUrN" target="_blank" rel="noopener">MADGEN</a></td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td>spectrum-scaffold</td><td>spectrum rank</td><td>spectrum-cond. gen.</td><td>none</td><td><span class="sys-o sys-o-o3" title="Property Prediction">PP</span></td></tr><tr class="sys-group"><td colspan="7"><span class="sys-coupling">Self-check</span><span class="sys-coupling-desc">critiques its own draft, consulting only the retrieved evidence</span></td></tr><tr><td class="sys-name"><a href="https://doi.org/10.18653/v1/2024.acl-long.18" target="_blank" rel="noopener">SciMON</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>embed + graph</td><td>inspiration ret.</td><td>prompt cond.</td><td>novelty loop</td><td><span class="sys-o sys-o-o3" title="Hypothesis Generation">HG</span></td></tr><tr><td class="sys-name"><a href="https://doi.org/10.18653/v1/2025.naacl-long.342" target="_blank" rel="noopener">ResearchAgent</a></td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td>entity store</td><td>paper + entity</td><td>prompt cond.</td><td>reviewer loop</td><td><span class="sys-o sys-o-o3" title="Hypothesis Generation">HG</span></td></tr><tr class="sys-group"><td colspan="7"><span class="sys-coupling">External-verify</span><span class="sys-coupling-desc">an outside process scores the finished output once</span></td></tr><tr><td class="sys-name"><a href="https://proceedings.mlr.press/v235/huang24ab.html" target="_blank" rel="noopener">IRDiff</a></td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td>interaction net</td><td>affinity refs</td><td>3D diffusion</td><td>docking score</td><td><span class="sys-o sys-o-o3" title="Molecular Design">MD</span></td></tr><tr><td class="sys-name"><a href="https://arxiv.org/abs/2506.14488" target="_blank" rel="noopener">READ</a></td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td>pocket graph</td><td>scaffold ret.</td><td>modulate steps</td><td>steric filter</td><td><span class="sys-o sys-o-o3" title="Molecular Design">MD</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_bib_ZhangPHCM25.html">Rag2Mol</a></td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td>pocket library</td><td>two-level match</td><td>atom generator</td><td>docking screen</td><td><span class="sys-o sys-o-o3" title="Molecular Design">MD</span></td></tr><tr class="sys-group"><td colspan="7"><span class="sys-coupling">Closed-loop</span><span class="sys-coupling-desc">the verifier runs inside the loop and drives refinement</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_nips_LeeKV0RPVN24.html">f-RAG</a></td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td>fragment vocab</td><td>fragment sim.</td><td>generator inject</td><td>docking loop</td><td><span class="sys-o sys-o-o3" title="Molecular Design">MD</span></td></tr><tr><td class="sys-name"><a href="https://openreview.net/forum?id=vDFA1tpuLvk" target="_blank" rel="noopener">RetMol</a></td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td>FAISS mol</td><td>property top-K</td><td>fusion module</td><td>AutoDock-GPU loop</td><td><span class="sys-o sys-o-o3" title="Molecular Design">MD</span></td></tr><tr><td class="sys-name"><a href="../papers/nan2026taliragen.html">TaLiRAGen</a></td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td>ligand contexts</td><td>context ret.</td><td>multi-turn CoT</td><td>docking loop</td><td><span class="sys-o sys-o-o3" title="Molecular Design">MD</span></td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2603-15712.html">HEA-catalyst</a></td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td>materials index</td><td>cosine + rules</td><td>constraint inject</td><td>DFT loop</td><td><span class="sys-o sys-o-o3" title="Materials Discovery">MtD</span></td></tr></tbody>
+      <tbody><tr class="bm-group"><td colspan="5"><span class="bm-task">Property Prediction</span></td></tr><tr><td class="sys-name"><a href="https://doi.org/10.1039/C7SC02664A" target="_blank" rel="noopener">MoleculeNet</a></td><td>Chem/Med</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">17 datasets</td><td>Molecular property and toxicity prediction.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_nips_HuangFG0RLCXSZ21.html">TDC</a></td><td>Med/Bio/Chem</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">66 datasets</td><td>Therapeutics ML tasks across the pipeline.</td></tr><tr><td class="sys-name"><a href="../papers/zhou2019cafa.html">CAFA</a></td><td>Biology</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">3,328 proteins</td><td>Protein function (GO) prediction.</td></tr><tr><td class="sys-name"><a href="../papers/roohani2024gears.html">GEARS</a></td><td>Biology</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">Norman Perturb-seq</td><td>Transcriptional response to multigene perturbation.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2408-10609.html">PerturBench</a></td><td>Biology</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">4 regimes</td><td>Cellular perturbation-response prediction.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_bioinformatics_BreitOAS20.html">OpenBioLink</a></td><td>Biomedicine</td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td class="ks-scale">~9.3M edges</td><td>Biomedical knowledge-graph link prediction.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_nips_HuFZDRLCL20.html">OGB-biokg</a></td><td>Biology</td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td class="ks-scale">93,773 entities</td><td>Biomedical KG completion.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_conf_nips_BushuievBJYKSHW24.html">MassSpecGym</a></td><td>Chemistry</td><td><span class="sys-k sys-k-k4" title="Perceptual">Prc</span></td><td class="ks-scale">231K spectra</td><td>Molecule identification from mass spectra.</td></tr><tr class="bm-group"><td colspan="5"><span class="bm-task">Molecular Design</span></td></tr><tr><td class="sys-name">PMO</td><td>Chemistry</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">23 tasks</td><td>Sample-efficient molecule optimization.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_jcisd_FrancoeurMSJISK20.html">CrossDocked2020</a></td><td>Chem/Bio</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">22.5M poses</td><td>Structure-based drug-design pockets.</td></tr><tr class="bm-group"><td colspan="5"><span class="bm-task">Materials Discovery</span></td></tr><tr><td class="sys-name">Matbench Discovery</td><td>Materials</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">257K structures</td><td>Crystal stability against DFT relaxation.</td></tr><tr><td class="sys-name"><a href="../papers/lan2023adsorbml.html">ADsorbML</a></td><td>Materials</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">~1,000 systems</td><td>Adsorption-energy discovery under DFT.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2509-20630.html">MLIP Arena</a></td><td>Mat/Physics</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">4 dimensions</td><td>Physics-aware MLIP evaluation.</td></tr><tr><td class="sys-name"><a href="../papers/DBLP_journals_corr_abs-2410-05080.html">ScienceAgentBench</a></td><td>Multi</td><td><span class="sys-k sys-k-k3" title="Structured-entity">Str</span></td><td class="ks-scale">102 tasks</td><td>Data-driven science code generation.</td></tr><tr class="bm-group"><td colspan="5"><span class="bm-task">Hypothesis Generation</span></td></tr><tr><td class="sys-name"><a href="https://openreview.net/forum?id=X9OfMNNepI" target="_blank" rel="noopener">MOOSE-Chem</a></td><td>Chemistry</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">51 papers</td><td>Rediscover post-2024 chemistry hypotheses.</td></tr><tr><td class="sys-name">ResearchBench</td><td>Multi</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">1,386 papers</td><td>Inspiration retrieval, composition, and ranking.</td></tr><tr><td class="sys-name">HypoBench</td><td>Multi</td><td><span class="sys-k sys-k-k1" title="Textual">Txt</span></td><td class="ks-scale">12 tasks, 194 sets</td><td>Systematic hypothesis-generation benchmarking.</td></tr><tr><td class="sys-name">TruthHypo</td><td>Biomedicine</td><td><span class="sys-k sys-k-k2" title="Relational">Rel</span></td><td class="ks-scale">KG + corpus</td><td>Truthful hypotheses grounded on a knowledge graph.</td></tr></tbody>
     </table>
   </div>
 </figure>
@@ -315,31 +304,6 @@
     </p>
   </div>
 </footer>
-<script>
-function toggleBackground() {
-  const root = document.documentElement;
-  const next = root.dataset.bg === 'off' ? 'on' : 'off';
-  root.dataset.bg = next;
-  try {
-    localStorage.setItem('srag-bg', next);
-  } catch (e) {}
-  const button = document.querySelector('.bg-toggle');
-  if (button) {
-    button.setAttribute('aria-pressed', next === 'on' ? 'true' : 'false');
-    button.textContent = next === 'on' ? '◐' : '◑';
-    button.title = next === 'on' ? 'White background on' : 'White background off';
-  }
-}
-(() => {
-  const current = document.documentElement.dataset.bg === 'off' ? 'off' : 'on';
-  const button = document.querySelector('.bg-toggle');
-  if (button) {
-    button.setAttribute('aria-pressed', current === 'on' ? 'true' : 'false');
-    button.textContent = current === 'on' ? '◐' : '◑';
-    button.title = current === 'on' ? 'White background on' : 'White background off';
-  }
-})();
-</script>
 <script src="../static/footnotes.js?v=1779886412"></script>
 </body>
 </html>

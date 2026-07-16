@@ -5,22 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[K1.O1] Textual × Grounding, Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<script>
-(() => {
-  try {
-    const stored = localStorage.getItem('srag-bg');
-    document.documentElement.dataset.bg = stored === 'off' ? 'off' : 'on';
-  } catch (e) {
-    document.documentElement.dataset.bg = 'on';
-  }
-})();
-</script>
-<link rel="stylesheet" href="../static/style.css?v=1784107305">
+<link rel="stylesheet" href="../static/style.css?v=1784173247">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 <button class="sb-toggle" aria-label="Open navigation" onclick="document.body.classList.toggle('sb-open')">☰</button>
-<button class="bg-toggle" aria-label="Toggle white background" onclick="toggleBackground()">◐</button>
 
 <aside class="sidebar" id="sidebar">
   <a href="../index.html" class="sb-logo">
@@ -37,6 +26,7 @@
     <details class="sb-group" open>
       <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
+        <a href="../cell/knowledge-source.html" class="sb-sub sb-sub-overview">Overview — the data &amp; substrates →</a>
         <a href="../cell/K1.html" class="sb-sub">Textual <span class="sb-count">22</span></a>
 <a href="../cell/K2.html" class="sb-sub">Relational <span class="sb-count">8</span></a>
 <a href="../cell/K3.html" class="sb-sub">Structured-entity <span class="sb-count">7</span></a>
@@ -48,6 +38,7 @@
     <details class="sb-group" open>
       <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
+        <a href="../cell/operational-objective.html" class="sb-sub sb-sub-overview">Overview — the tasks &amp; rungs →</a>
         <a href="../cell/O1.html" class="sb-subhead">Grounding <span class="sb-count">24</span></a>
 <a href="../browse.html?sub=Question%20Answering" class="sb-sub sb-task">Question Answering <span class="sb-count">33</span></a>
 <a href="../cell/O2.html" class="sb-subhead">Synthesis <span class="sb-count">9</span></a>
@@ -300,31 +291,6 @@
     </p>
   </div>
 </footer>
-<script>
-function toggleBackground() {
-  const root = document.documentElement;
-  const next = root.dataset.bg === 'off' ? 'on' : 'off';
-  root.dataset.bg = next;
-  try {
-    localStorage.setItem('srag-bg', next);
-  } catch (e) {}
-  const button = document.querySelector('.bg-toggle');
-  if (button) {
-    button.setAttribute('aria-pressed', next === 'on' ? 'true' : 'false');
-    button.textContent = next === 'on' ? '◐' : '◑';
-    button.title = next === 'on' ? 'White background on' : 'White background off';
-  }
-}
-(() => {
-  const current = document.documentElement.dataset.bg === 'off' ? 'off' : 'on';
-  const button = document.querySelector('.bg-toggle');
-  if (button) {
-    button.setAttribute('aria-pressed', current === 'on' ? 'true' : 'false');
-    button.textContent = current === 'on' ? '◐' : '◑';
-    button.title = current === 'on' ? 'White background on' : 'White background off';
-  }
-})();
-</script>
 <script src="../static/footnotes.js?v=1779886412"></script>
 </body>
 </html>
