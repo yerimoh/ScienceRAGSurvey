@@ -830,5 +830,133 @@
         ]
       }
     ]
+  },
+  "E": {
+    "intro": "How an output can be scored depends on what its answer can be compared against. Formally, an output is scored by the term of the pipeline equation against a ground truth, and where comes from differs across tasks. We therefore organize evaluation by what an output is scored against. Retrieval quality is measured against relevance judgments, independent of the final answer. The other three form a ladder ordered by where the ground truth lives, output correctness against a fixed gold inside the corpus, generation quality against a reference where no single gold exists, and verifier-based scoring against a verifier beyond the corpus. Ordering evaluation this way, rather than by whether a gold answer exists as prior RAG-evaluation surveys do, extends the account to the discovery scientific RAG must reach. One benchmark is scored along several of these dimensions at once. Table pairs each dimension with its metrics and the ceiling it cannot cross.",
+    "summary": "How an output can be scored depends on what its answer can be compared against.",
+    "subsections": [
+      {
+        "code": "E1",
+        "name": "Retrieval quality",
+        "intro": "Retrieval can be scored on its own, before any answer is written, by asking whether the units a system fetched hold the evidence a question needs. What makes a unit relevant depends on the substrate. A textual query needs a passage that states the right finding, a structural query needs a molecule with the right scaffold, and a spectral query needs the record whose peaks match, so relevance here is a domain judgment rather than a topical resemblance. Against a set of such judgments, the same information-retrieval metrics score the ranking across all seven tasks. Precision@ and recall@ count the relevant units among the top, mean average precision and normalized discounted cumulative gain reward ranking relevant units higher, and mean reciprocal rank rewards returning the first relevant unit early. A high retrieval score shows the needed evidence was placed within reach, but not that the generator used it, since a system can rank the supporting record first and still answer from parametric memory.",
+        "summary": "Retrieval can be scored on its own, before any answer is written, by asking whether the units a system fetched hold the evidence a question needs.",
+        "subsubs": []
+      },
+      {
+        "code": "E2",
+        "name": "Output correctness",
+        "intro": "When a scientific question has one established answer, such as a diagnosis, a measured property, or a curated entity, the output is scored by whether it matches that gold. Correctness is judged in the terms of the field rather than by string overlap. This means accuracy and macro-F1 for multiple-choice and yes/no items, agreement with an official answer key for materials-exam problems, and clinical-entity F1 such as CheXbert or RadGraph that checks whether a generated radiology report names the correct findings and their relations. Beyond question answering, it also scores the fixed-label verdict of claim verification. A fixed gold makes scoring automatic and reproducible, yet in science it is a weak test of grounding. The literature a system retrieves over is finite and already absorbed into the model during pretraining, so a correct answer may be one it memorized rather than one it drew from evidence. Only questions whose answers postdate a model's training cutoff separate reasoning over evidence from recall of an established fact.",
+        "summary": "When a scientific question has one established answer, such as a diagnosis, a measured property, or a curated entity, the output is scored by whether it matches that gold.",
+        "subsubs": []
+      },
+      {
+        "code": "E3",
+        "name": "Generation quality",
+        "intro": "When no single paper holds the answer, a system synthesizes one across many studies, and the score turns on the quality of that integration. Because a scientific claim must trace to its evidence, faithfulness and citation precision and recall check whether each statement is backed by the studies it cites, and coverage measures how much of an expert reference the synthesis includes. Where no reference fixes the answer, an LLM-as-judge or an expert supplies the score. These certify that a synthesis is attributable and covers its reference, but not that it reflects how the answer was reached, since a citation can be right while the statement was formed without it, that it is complete against the full literature, or that the LLM judge is free of bias toward its own style.",
+        "summary": "When no single paper holds the answer, a system synthesizes one across many studies, and the score turns on the quality of that integration.",
+        "subsubs": []
+      },
+      {
+        "code": "E4",
+        "name": "Verifier-based scoring",
+        "intro": "A discovery task proposes an output the corpus does not contain, so scoring calls an external verifier rather than a stored answer, and these verifiers form their own `ladder of strength'. A physics simulator gives the strongest check, scoring a proposed material by its formation energy above the convex hull against DFT-relaxed ground truth, though that ground truth is a ground-state calculation and cannot say whether the material is kinetically accessible or synthesizable. A docking program is weaker, scoring a molecule by a binding-affinity proxy filtered for drug-likeness, where a pose can rank well while remaining physically invalid. A withheld measurement is weaker still, scoring a prediction by how well it recovers an unseen value through Tanimoto similarity, distributional distance, or Fmax, yet a strong fit can be interpolation rather than mechanism, since deep models for gene-perturbation response do not beat simple linear baselines and a mode-collapsed model still scores well on these distributional metrics. At the weakest rung, where no verifier is decisive, LLM-judges and expert ratings stand in. Each verifier certifies that a novel output survives a test the corpus cannot administer, but only as far as its own proxy reaches. No score at any rung is captured by a single number, which can hide an inability to reject an unanswerable question or to reconcile conflicting evidence. The maturity of a result must therefore be read together with the rung it was scored on, since the same number means a verified fact at one rung and a plausible proposal at another.",
+        "summary": "A discovery task proposes an output the corpus does not contain, so scoring calls an external verifier rather than a stored answer, and these verifiers form their own `ladder of strength'.",
+        "subsubs": []
+      }
+    ]
+  },
+  "F": {
+    "intro": "The preceding sections developed the three parts of a scientific RAG system in isolation, the knowledge it draws on, the problem it solves and the standard that scores it (Sectionsthe Operational Objective axis andthe evaluation axis), and the method that connects them. the overview figure joins them into one map a reader can navigate end to end. Reading left to right, a choice of data substrate leads to the benchmarks posed over it, then to every surveyed method that addresses them, listed as citations, and finally to the evaluation that scores the result. The map doubles as an index into the survey, letting a reader locate the exact systems that fit a given data type and task, and its shape shows where systems cluster on the textual substrate and thin toward non-textual discovery, the pattern the rest of this section explains.\n\nScientific RAG has built unevenly, and where it has and has not built follows from whether a substrate admits a mature matching operation and a task admits an available verifier. Capability is active where both hold, as in literature grounding and synthesis over the Textual substrate and knowledge-base lookup over the Relational and Structured-entity substrates, all resting on mature retrievers and automatic scoring. It is emerging where a single component lags, as in cross-modal grounding, knowledge-graph synthesis, structure-based discovery under a strong verifier, and private-document retrieval. It is dormant where the verifier, retriever, or substrate does not yet exist, so literature-grounded ideation reports only novelty and expert preference through SciMON, MOOSE-Chem, ResearchAgent, and Chain-of-Ideas, spectrum-to-molecule discovery rests on a single system, and observational and tacit synthesis have no retrievable substrate at all. Capability concentrates on the Textual substrate and thins toward discovery. The gaps behind this thinning fall into three distinct causes that organize this section. Some gaps are already solved in general RAG and only await adaptation to scientific workflows (§). Others have no transferable solution and require components built for scientific demands (§). The rest cannot be closed by better architecture at all, because the knowledge is undocumented or restricted by licensing and law (§). We then close with the broader trajectories toward which these frontiers converge (§). the overview figure arranges the open challenges along these three causes, from the tractable to the structural.",
+    "summary": "The preceding sections developed the three parts of a scientific RAG system in isolation, the knowledge it draws on, the problem it solves and the standard that scores it (Sectionsthe Operational Objective axis andthe evaluation axis), and the method that connects them.",
+    "subsections": [
+      {
+        "code": "F1",
+        "name": "Adapting Proven General RAG Capabilities",
+        "intro": "",
+        "summary": "",
+        "subsubs": [
+          {
+            "title": "Adaptive Retrieval for Scientific RAG",
+            "summary": "Adaptive retrieval, the ability to dynamically decide when to retrieve and what to trust, is a proven capability in general RAG that cannot be directly transplanted to scientific workflows."
+          },
+          {
+            "title": "Reranking for Scientific RAG",
+            "summary": "Reranking is a well-established mechanism in general RAG to improve precision, yet adapting it to science requires fundamentally redefining its core metric: relevance."
+          },
+          {
+            "title": "Benchmark Contamination and Evaluation Protocols",
+            "summary": "Benchmark contamination is a well-studied threat in general language models, yet existing mitigation strategies face fundamental limitations in scientific RAG."
+          },
+          {
+            "title": "Evaluating Discovery Beyond Proxies",
+            "summary": "the evaluation axis showed that discovery-oriented tasks are always scored against a stand-in for the truth, whether a docking score for binding, a density-functional calculation for stability, or a held-out measurement for an unknown value."
+          }
+        ]
+      },
+      {
+        "code": "F2",
+        "name": "Building Domain-Specific Scientific RAG Components",
+        "intro": "",
+        "summary": "",
+        "subsubs": [
+          {
+            "title": "Building Retrievable Substrates",
+            "summary": "Constructing retrievable substrates is a foundational prerequisite for scientific RAG, as the domain relies on complex data structures that general systems rarely encounter."
+          },
+          {
+            "title": "Representing Scientific Identity Across Modalities",
+            "summary": "Effective retrieval requires systems to recognize the underlying scientific identity of an entity regardless of its surface representation, a capability currently lacking in standard models."
+          },
+          {
+            "title": "Verifying and Generating Under Scientific Constraints",
+            "summary": "showed that a system reaches the Discovery objective only when an external verifier is coupled into its loop, yet outside molecular docking such verifiers barely exist."
+          },
+          {
+            "title": "Engineering Executable RAG and Error Recovery",
+            "summary": "Transitioning scientific RAG from passive text synthesis to active hypothesis testing demands architectures explicitly engineered for computational execution and iterative error recovery, which together form the deepest, closed-loop rung of the verifier coupling in verification."
+          },
+          {
+            "title": "Retrieving Across Substrates",
+            "summary": "construction builds each substrate on its own, and nearly every system in this survey commits to just one."
+          },
+          {
+            "title": "Building Verification for Verifier-Free Objectives",
+            "summary": "The verifier-coupling ladder of verification stops short at literature-grounded ideation, where no docking program, simulator, or database can confirm a proposed idea."
+          }
+        ]
+      },
+      {
+        "code": "F3",
+        "name": "Overcoming the Realities Beyond Technique",
+        "intro": "",
+        "summary": "",
+        "subsubs": [
+          {
+            "title": "Tacit Knowledge and the Limits of Digitization",
+            "summary": "The effectiveness of scientific RAG is fundamentally bound by tacit knowledge that is never digitized."
+          },
+          {
+            "title": "Data Access and Licensing Boundaries",
+            "summary": "Even when scientific knowledge is fully digitized, structural accessibility often blocks retrieval."
+          }
+        ]
+      },
+      {
+        "code": "F4",
+        "name": "Future Outlook",
+        "intro": "",
+        "summary": "",
+        "subsubs": [
+          {
+            "title": "Toward Autonomous AI Scientists",
+            "summary": "Evidence grounding is the foundation on which an autonomous AI scientist must stand, and scientific RAG provides it."
+          },
+          {
+            "title": "Toward Industrial and Open-Source Convergence",
+            "summary": "One promising direction is the convergence of scientific RAG with industrial platforms and open-source ecosystems."
+          }
+        ]
+      }
+    ]
   }
 }

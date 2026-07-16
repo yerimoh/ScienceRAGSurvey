@@ -314,16 +314,44 @@ def extract_abstract(tex):
     return clean(m.group(1)) if m else ''
 
 
+def extract_body(tex, start_marker, end_marker, prefix, label_re):
+    """Generic §7/§8-style section: intro + subsections, each with intro + subsub titles.
+    Stores summaries (first sentence) so the pages stay short."""
+    block = section_span(tex, start_marker, end_marker)
+    block = strip_comments(block)
+    block = re.sub(r'\\begin\{(?:table|figure)\*?\}.*?\\end\{(?:table|figure)\*?\}', '', block, flags=re.S)
+    head, subs = parse_subsections(block)
+    head = re.sub(r'^.*?' + label_re, '', head, flags=re.S)
+    out = []
+    for i, (title_raw, body) in enumerate(subs, 1):
+        name = clean(title_raw)
+        (intro, _), subsubs = parse_subsubs(body)
+        out.append({
+            'code': f'{prefix}{i}',
+            'name': name,
+            'intro': intro,
+            'summary': first_sentence(intro),
+            'subsubs': [{'title': t, 'summary': first_sentence(x)} for t, x, _ in subsubs],
+        })
+    return {'intro': clean(head), 'summary': first_sentence(clean(head)), 'subsections': out}
+
+
 def main():
     tex = TEX.read_text()
     bib = load_bib_links()
+    E = extract_body(tex, '\\section{\\texorpdfstring{\\textcolor{Oaxis}{Evaluation}',
+                     '\\section{Open Challenges', 'E', r'\\label\{sec:evaluation\}')
+    F = extract_body(tex, '\\section{Open Challenges and Future Directions}',
+                     '\\section{Conclusion}', 'F', r'\\label\{sec:frontiers\}')
     data = {'abstract': extract_abstract(tex),
-            'K': extract_K(tex, bib), 'O': extract_O(tex), 'M': extract_M(tex)}
+            'K': extract_K(tex, bib), 'O': extract_O(tex), 'M': extract_M(tex),
+            'E': E, 'F': F}
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2))
     ks = data['K']['substrates']
     print(f'K: {len(ks)} substrates, subsubs = ' + ', '.join(f"{s['code']}:{len(s['subsubs'])}" for s in ks))
     print(f'O: {len(data["O"]["tasks"])} tasks')
     print(f'M: {len(data["M"]["stages"])} stages, subsubs = ' + ', '.join(f"{s['code']}:{len(s['subsubs'])}" for s in data['M']['stages']))
+    print(f'E: {len(E["subsections"])} subsections; F: {len(F["subsections"])} subsections, subsubs = ' + ', '.join(f"{s['code']}:{len(s['subsubs'])}" for s in F['subsections']))
 
 
 if __name__ == '__main__':

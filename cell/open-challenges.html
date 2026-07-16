@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Chemical reactions from US patents (1976–Sep2016), Scientific RAG Hub</title>
+<title>Open Challenges &amp; Future Directions, Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
 <link rel="stylesheet" href="../static/style.css?v=1784182596">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
@@ -23,7 +23,7 @@
     <a href="../index.html" class="sb-item"><span class="sb-icon">🏠</span> Home</a>
     <a href="../about.html" class="sb-item"><span class="sb-icon">🚀</span> Getting Started</a>
 
-    <details class="sb-group">
+    <details class="sb-group" open>
       <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/knowledge-source.html" class="sb-sub sb-sub-overview">Overview — the data &amp; substrates →</a>
@@ -35,7 +35,7 @@
       </div>
     </details>
 
-    <details class="sb-group">
+    <details class="sb-group" open>
       <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/operational-objective.html" class="sb-sub sb-sub-overview">Overview — the tasks &amp; rungs →</a>
@@ -53,7 +53,7 @@
       </div>
     </details>
 
-    <details class="sb-group">
+    <details class="sb-group" open>
       <summary class="sb-item"><span class="sb-icon">M</span> Method <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
         <a href="../cell/method.html" class="sb-sub sb-sub-overview">Overview — the RAG pipeline →</a>
@@ -66,7 +66,7 @@
     </details>
 
     <a href="../cell/evaluation.html" class="sb-item"><span class="sb-icon">E</span> Evaluation</a>
-    <a href="../cell/open-challenges.html" class="sb-item"><span class="sb-icon">◇</span> Open Challenges</a>
+    <a href="../cell/open-challenges.html" class="sb-item active"><span class="sb-icon">◇</span> Open Challenges</a>
 
     <hr class="sb-rule">
 
@@ -101,112 +101,15 @@
 <div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
 <main class="with-sidebar">
 
-<section class="paper-hero">
+<section class="cell-hero">
   <div class="wrap">
-    <p class="eyebrow"><a href="../browse.html">← All papers</a></p>
-    <h1>Chemical reactions from US patents (1976–Sep2016)</h1>
-    <div class="paper-hero-meta">
-      <span class="meta-venue">Figshare</span>
-      <span class="meta-year">2017</span>
-    </div>
-    <div class="paper-links"><a href="https://doi.org/10.6084/m9.figshare.5104873" target="_blank" rel="noopener" class="res-link res-paper">📄 Paper ↗</a></div>
-    <div class="paper-tags"><a href="../cell/K3.html" class="tag tag-cell" title="K3">Structured-entity</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
+    <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
+    <h1><span class="cell-id-big axis-id-e">§8</span> Open Challenges &amp; Future Directions</h1>
+    <p class="axis-lede">The preceding sections developed the three parts of a scientific RAG system in isolation, the knowledge it draws on, the problem it solves and the standard that scores it (Sectionsthe Operational Objective axis andthe evaluation axis), and the method that connects them.</p>
   </div>
 </section>
-<section class="paper-body">
-  <div class="wrap paper-layout">
-    
-    <article class="paper-markdown">
-      <h1>Chemical reactions from US patents (1976-Sep2016)</h1>
-<p>lowe2017chemical | 2017 | figshare | dataset | [chem] | <a href="https://figshare.com/articles/dataset/Chemical_reactions_from_US_patents_1976-Sep2016_/5104873">paper</a></p>
-<table class="prop-table">
-<tr><td class="prop-key">DB</td><td class="prop-val">USPTO chemical reaction dataset (Lowe 2017)</td></tr>
-<tr><td class="prop-key">DB size</td><td class="prop-val">Chemical reactions extracted from US patents from 1976 to September 2016 (exact figures listed on figshare)</td></tr>
-<tr><td class="prop-key">DB Open/Private</td><td class="prop-val">Open (CC0)</td></tr>
-<tr><td class="prop-key">Modality</td><td class="prop-val">Structured</td></tr>
-<tr><td class="prop-key">Method Name</td><td class="prop-val">USPTO reaction dataset (text mining / structure extraction)</td></tr>
-</table>
-
-<blockquote>
-<p>figshare | 2017 | dataset | chem</p>
-<h4>📌 TL;DR</h4>
-<p>A chemical reaction dataset extracted by text mining from US patents spanning 1976 to September 2016, widely used as a standard training resource for computer-aided synthesis planning and reaction prediction models.</p>
-</blockquote>
-<h4>🎯 Background</h4>
-<p><strong>Limitations of existing infrastructure</strong></p>
-<ul>
-<li>Chemical reaction data was embedded as unstructured text within full patent documents, making it difficult to use for machine learning</li>
-<li>There was no public dataset available for training large-scale reaction prediction models
-<strong>Why this system is needed</strong></li>
-<li>A large-scale reaction corpus is needed to develop computational chemistry models such as synthesis route prediction (retrosynthesis) and reaction condition prediction</li>
-<li>Patents contain far more synthetic reaction information than journals</li>
-</ul>
-<h4>🔨 Architecture</h4>
-<p>Text mining tools such as ChemDataExtractor and OSCAR4 are used to extract reactant, reagent, and product structures from full-text US patents. Reactions are encoded in SMILES format. The pipeline includes reaction entity recognition and structure parsing.</p>
-<h4>📥 Access</h4>
-<table>
-<thead>
-<tr>
-  <th>Method</th>
-  <th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>figshare download</td>
-  <td>Public download under CC0 license</td>
-</tr>
-</tbody>
-</table>
-<h4>📤 Data formats</h4>
-<ul>
-<li>Reaction SMILES (reactants&gt;reagents&gt;products)</li>
-<li>Reaction data in XML format</li>
-<li>Patent identifier metadata</li>
-</ul>
-<h4>📊 Key statistics (per the paper)</h4>
-<table>
-<thead>
-<tr>
-  <th>Item</th>
-  <th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Coverage period</td>
-  <td>1976 ~ September 2016</td>
-</tr>
-<tr>
-  <td>Data source</td>
-  <td>Full-text US patents</td>
-</tr>
-</tbody>
-</table>
-<h4>⚠️ Limitations</h4>
-<ul>
-<li>Because it is based on patent text mining, it may contain structure extraction errors</li>
-<li>Reactions reported in patents may differ from actual optimal conditions</li>
-<li>Lacks quantitative data such as reaction yield and purity</li>
-</ul>
-<h2 id="related-links">Related links</h2>
-<ul>
-<li><strong>Paper</strong>: <a href="https://figshare.com/articles/dataset/Chemical_reactions_from_US_patents_1976-Sep2016_/5104873">Chemical reactions from US patents (1976-Sep2016)</a></li>
-</ul>
-
-      <p class="paper-cite-jump"><a href="#cite">↓ Cite this (lowe2017chemical)</a></p>
-    </article>
-  </div>
-</section>
-<section class="paper-cite" id="cite">
-  <div class="wrap">
-    <h2>Cite</h2>
-    <pre class="bibtex"><code>@misc{lowe2017chemical,
-  title={Chemical reactions from US patents},
-  author={Lowe, Daniel},
-  year={2017}
-}</code></pre>
-  </div>
+<section class="axis-body">
+  <div class="wrap"><div class="res-group"><h3 class="res-group-title">Adapting Proven General RAG Capabilities</h3><ul class="frontier-list"><li>Adaptive Retrieval for Scientific RAG</li><li>Reranking for Scientific RAG</li><li>Benchmark Contamination and Evaluation Protocols</li><li>Evaluating Discovery Beyond Proxies</li></ul></div><div class="res-group"><h3 class="res-group-title">Building Domain-Specific Scientific RAG Components</h3><ul class="frontier-list"><li>Building Retrievable Substrates</li><li>Representing Scientific Identity Across Modalities</li><li>Verifying and Generating Under Scientific Constraints</li><li>Engineering Executable RAG and Error Recovery</li><li>Retrieving Across Substrates</li><li>Building Verification for Verifier-Free Objectives</li></ul></div><div class="res-group"><h3 class="res-group-title">Overcoming the Realities Beyond Technique</h3><ul class="frontier-list"><li>Tacit Knowledge and the Limits of Digitization</li><li>Data Access and Licensing Boundaries</li></ul></div><div class="res-group"><h3 class="res-group-title">Future Outlook</h3><ul class="frontier-list"><li>Toward Autonomous AI Scientists</li><li>Toward Industrial and Open-Source Convergence</li></ul></div></div>
 </section>
 </main>
 <footer class="site-footer">

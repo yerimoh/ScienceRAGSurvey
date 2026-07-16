@@ -39,6 +39,8 @@ K_PROSE = {s['code']: s for s in AXIS_PROSE.get('K', {}).get('substrates', [])}
 O_PROSE = {t['name']: t for t in AXIS_PROSE.get('O', {}).get('tasks', [])}
 M_STAGES = AXIS_PROSE.get('M', {}).get('stages', [])          # §6 pipeline stages, in order
 M_PROSE = {s['code']: s for s in M_STAGES}
+EVAL_SECTION = AXIS_PROSE.get('E', {})                        # §7 Evaluation
+FRONTIER_SECTION = AXIS_PROSE.get('F', {})                    # §8 Open Challenges & Future Directions
 
 # ---------- Reference tables ----------
 # Taxonomy mirrors the survey (Oh et al.). The K axis is the *retrieval substrate*, the
@@ -1055,7 +1057,10 @@ def sidebar(base='', current=''):
       </div>
     </details>
 
-    <a href="{base}browse.html" class="sb-item{cls("landscape")}"><span class="sb-icon">▦</span> K×O landscape <span class="sb-count">12</span></a>
+    <a href="{base}cell/evaluation.html" class="sb-item{cls("cell/evaluation")}"><span class="sb-icon">E</span> Evaluation</a>
+    <a href="{base}cell/open-challenges.html" class="sb-item{cls("cell/open-challenges")}"><span class="sb-icon">◇</span> Open Challenges</a>
+
+    <hr class="sb-rule">
 
     <details class="sb-group"{dom_open}>
       <summary class="sb-item"><span class="sb-icon">△</span> Domains <span class="sb-caret">▾</span></summary>
@@ -1065,13 +1070,8 @@ def sidebar(base='', current=''):
       </div>
     </details>
 
-    <a href="{base}topics/benchmark.html" class="sb-item{cls("topics/benchmark")}"><span class="sb-icon">📊</span> Benchmarks <span class="sb-count">{len(by_type.get("benchmark", []))}</span></a>
-    <a href="{base}topics/dataset.html" class="sb-item{cls("topics/dataset")}"><span class="sb-icon">○</span> Datasets <span class="sb-count">{len(by_type.get("dataset", []))}</span></a>
-    <a href="{base}topics/summary.html" class="sb-item{cls("topics/summary")}"><span class="sb-icon">📖</span> Surveys <span class="sb-count">{len(by_type.get("summary", []))}</span></a>
-
     <hr class="sb-rule">
 
-    <a href="{base}insights.html" class="sb-item{cls("insights")}"><span class="sb-icon">💡</span> Insights</a>
     <a href="{base}browse.html" class="sb-item{cls("browse")}"><span class="sb-icon">🔍</span> Browse all</a>
 
     <hr class="sb-rule">
@@ -2131,6 +2131,58 @@ def render_method_pages():
             page_head(f'{s.get("name","")} — Method', base='../', current=f'cell/method-{slug}') + sbody + page_foot('../'))
 
 
+# ---------- Evaluation (§7) and Open Challenges (§8) pages ----------
+def render_body_section_pages():
+    # §7 Evaluation — four scoring regimes, each a one-line summary
+    if EVAL_SECTION.get('subsections'):
+        secs = []
+        for s in EVAL_SECTION['subsections']:
+            secs.append(
+                f'<div class="res-group"><h3 class="res-group-title">{esc(s["name"])}</h3>'
+                f'<p class="res-note">{esc(s.get("summary", ""))}</p></div>'
+            )
+        body = f'''
+<section class="cell-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
+    <h1><span class="cell-id-big axis-id-e">§7</span> Evaluation</h1>
+    <p class="axis-lede">{esc(EVAL_SECTION.get("summary", ""))}</p>
+  </div>
+</section>
+<section class="axis-body">
+  <div class="wrap">{''.join(secs)}</div>
+</section>
+'''
+        (ROOT / 'cell' / 'evaluation.html').write_text(
+            page_head('Evaluation', base='../', current='cell/evaluation') + body + page_foot('../'))
+
+    # §8 Open Challenges — four themes, each with its specific open problems listed
+    if FRONTIER_SECTION.get('subsections'):
+        secs = []
+        for s in FRONTIER_SECTION['subsections']:
+            chips = ''.join(f'<li>{esc(ss["title"])}</li>' for ss in s.get('subsubs', []))
+            secs.append(
+                f'<div class="res-group"><h3 class="res-group-title">{esc(s["name"])}</h3>'
+                + (f'<p class="res-note">{esc(s.get("summary", ""))}</p>' if s.get('summary') else '')
+                + (f'<ul class="frontier-list">{chips}</ul>' if chips else '')
+                + '</div>'
+            )
+        body = f'''
+<section class="cell-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
+    <h1><span class="cell-id-big axis-id-e">§8</span> Open Challenges &amp; Future Directions</h1>
+    <p class="axis-lede">{esc(FRONTIER_SECTION.get("summary", ""))}</p>
+  </div>
+</section>
+<section class="axis-body">
+  <div class="wrap">{''.join(secs)}</div>
+</section>
+'''
+        (ROOT / 'cell' / 'open-challenges.html').write_text(
+            page_head('Open Challenges & Future Directions', base='../', current='cell/open-challenges') + body + page_foot('../'))
+
+
 # ---------- domain/<d>.html ----------
 def render_domain_pages():
     for d, label in DOMAIN_LABELS.items():
@@ -2707,6 +2759,7 @@ if __name__ == '__main__':
     render_axis_overview()
     render_task_pages()
     render_method_pages()
+    render_body_section_pages()
     render_domain_pages()
     render_type_pages()
     write_catalog()
