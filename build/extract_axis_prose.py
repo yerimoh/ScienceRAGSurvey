@@ -19,7 +19,11 @@ from pathlib import Path
 
 TEX = Path(__file__).resolve().parents[1].parent / 'ACM' / 'csur_submission' / 'main2.tex'
 BIB = Path(__file__).resolve().parents[1].parent / 'ACM' / 'csur_submission' / 'references.bib'
+META = Path(__file__).resolve().parent / 'resource_meta.json'
 OUT = Path(__file__).resolve().parents[1] / 'data' / 'axis_prose.json'
+
+# curated homepage + one-line description per resource (see resource_meta.json)
+RES_META = {k: v for k, v in json.loads(META.read_text()).items() if not k.startswith('_')} if META.exists() else {}
 
 # Resource names whose §4 mention doesn't parse cleanly from the words before \cite
 # (trailing lowercase words, missing ~). Keyed by the first cite key of the mention.
@@ -197,12 +201,15 @@ def extract_resources(raw_body, bib):
         if norm in seen:
             continue
         seen.add(norm)
-        link = None
+        bib_link = None
         for k in keys:
             if bib.get(k, {}).get('link'):
-                link = bib[k]['link']
+                bib_link = bib[k]['link']
                 break
-        out.append({'name': name, 'keys': keys, 'link': link})
+        meta = RES_META.get(name, {})
+        # prefer the curated dataset homepage; fall back to the paper link in references.bib
+        link = meta.get('url') or bib_link
+        out.append({'name': name, 'keys': keys, 'link': link, 'desc': meta.get('desc', '')})
     return out
 
 

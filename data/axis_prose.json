@@ -19,119 +19,136 @@
                 "keys": [
                   "DBLP:journals/qss/HendricksTLF20"
                 ],
-                "link": "https://doi.org/10.1162/qss_a_00022"
+                "link": "https://www.crossref.org",
+                "desc": "Registry of DOIs and publication metadata."
               },
               {
                 "name": "ORCID",
                 "keys": [
                   "DBLP:journals/lp/HaakFPPR12"
                 ],
-                "link": null
+                "link": "https://orcid.org",
+                "desc": "Registry of researcher identities."
               },
               {
                 "name": "OpenAlex",
                 "keys": [
                   "DBLP:journals/corr/abs-2205-01833"
                 ],
-                "link": "https://doi.org/10.48550/arXiv.2205.01833"
+                "link": "https://openalex.org",
+                "desc": "Open index of works, authors, venues, and concepts."
               },
               {
                 "name": "PubMed",
                 "keys": [
                   "canese2013pubmed"
                 ],
-                "link": null
+                "link": "https://pubmed.ncbi.nlm.nih.gov",
+                "desc": "Biomedical abstracts indexed under MeSH."
               },
               {
                 "name": "S2ORC",
                 "keys": [
                   "DBLP:conf/acl/LoWNKW20"
                 ],
-                "link": "https://doi.org/10.18653/v1/2020.acl-main.447"
+                "link": "https://github.com/allenai/s2orc",
+                "desc": "Parsed full text in a citation-linked space."
               },
               {
                 "name": "Scopus",
                 "keys": [
                   "scopus"
                 ],
-                "link": "https://www.scopus.com"
+                "link": "https://www.scopus.com",
+                "desc": "Abstract-and-citation metadata (commercial)."
               },
               {
                 "name": "Web of Science",
                 "keys": [
                   "webofscience"
                 ],
-                "link": "https://www.webofscience.com"
+                "link": "https://www.webofscience.com",
+                "desc": "Abstract-and-citation metadata (commercial)."
               },
               {
                 "name": "Dimensions",
                 "keys": [
                   "DBLP:journals/qss/HerzogHK20"
                 ],
-                "link": null
+                "link": "https://www.dimensions.ai",
+                "desc": "Abstract-and-citation metadata."
               },
               {
                 "name": "CORE",
                 "keys": [
                   "DBLP:journals/dlib/KnothZ12"
                 ],
-                "link": null
+                "link": "https://core.ac.uk",
+                "desc": "Aggregated open-access full text."
               },
               {
                 "name": "Europe PMC",
                 "keys": [
                   "europepmc2024"
                 ],
-                "link": null
+                "link": "https://europepmc.org",
+                "desc": "Open-access biomedical full text."
               },
               {
                 "name": "Embase",
                 "keys": [
                   "embase"
                 ],
-                "link": "https://www.embase.com"
+                "link": "https://www.embase.com",
+                "desc": "Pharmacology literature (commercial)."
               },
               {
                 "name": "NASA ADS",
                 "keys": [
                   "kurtz2000nasa"
                 ],
-                "link": null
+                "link": "https://ui.adsabs.harvard.edu",
+                "desc": "Astronomy and astrophysics literature."
               },
               {
                 "name": "INSPIRE-HEP",
                 "keys": [
                   "inspirehep"
                 ],
-                "link": null
+                "link": "https://inspirehep.net",
+                "desc": "High-energy physics literature."
               },
               {
                 "name": "GeoRef",
                 "keys": [
                   "georef"
                 ],
-                "link": null
+                "link": "https://www.americangeosciences.org/information/georef",
+                "desc": "Geosciences literature index."
               },
               {
                 "name": "IPCC assessment reports",
                 "keys": [
                   "lee2023climate"
                 ],
-                "link": null
+                "link": "https://www.ipcc.ch/reports/",
+                "desc": "Canonical climate-synthesis corpus."
               },
               {
                 "name": "MedCorp",
                 "keys": [
                   "DBLP:conf/acl/Xiong0LZ24"
                 ],
-                "link": "https://doi.org/10.18653/v1/2024.findings-acl.372"
+                "link": "https://github.com/Teddy-XiongGZ/MedRAG",
+                "desc": "Ready-made medical RAG corpus (PubMed, StatPearls, textbooks, Wikipedia)."
               },
               {
                 "name": "MatSciKB",
                 "keys": [
                   "zhang2024honeycomb"
                 ],
-                "link": null
+                "link": "https://github.com/BangLab-UdeM-Mila/HoneyComb",
+                "desc": "Ready-made materials-science RAG corpus (HoneyComb)."
               }
             ]
           },
@@ -145,35 +162,40 @@
                 "keys": [
                   "sever2019biorxiv"
                 ],
-                "link": null
+                "link": "https://www.biorxiv.org",
+                "desc": "Biology preprints."
               },
               {
                 "name": "medRxiv",
                 "keys": [
                   "medrxiv"
                 ],
-                "link": "https://www.medrxiv.org"
+                "link": "https://www.medrxiv.org",
+                "desc": "Health-sciences preprints."
               },
               {
                 "name": "ChemRxiv",
                 "keys": [
                   "chemrxiv"
                 ],
-                "link": "https://chemrxiv.org"
+                "link": "https://chemrxiv.org",
+                "desc": "Chemistry preprints."
               },
               {
                 "name": "EarthArXiv",
                 "keys": [
                   "eartharxiv"
                 ],
-                "link": "https://eartharxiv.org"
+                "link": "https://eartharxiv.org",
+                "desc": "Earth-science preprints."
               },
               {
                 "name": "OSF Preprints",
                 "keys": [
                   "osfpreprints"
                 ],
-                "link": "https://osf.io/preprints"
+                "link": "https://osf.io/preprints",
+                "desc": "Multidisciplinary preprint aggregator."
               }
             ]
           },
@@ -187,14 +209,16 @@
                 "keys": [
                   "DBLP:journals/corr/abs-2603-09800"
                 ],
-                "link": "https://doi.org/10.48550/arXiv.2603.09800"
+                "link": "https://arxiv.org/abs/2603.09800",
+                "desc": "On-premise RAG over CMS collaboration documentation (system)."
               },
               {
                 "name": "DUNE-GPT",
                 "keys": [
                   "rafique2025large"
                 ],
-                "link": null
+                "link": "https://arxiv.org/abs/2601.05278",
+                "desc": "RAG over Fermilab DUNE internal resources (system)."
               }
             ]
           }
@@ -216,56 +240,64 @@
                 "keys": [
                   "bodenreider2004unified"
                 ],
-                "link": null
+                "link": "https://www.nlm.nih.gov/research/umls/index.html",
+                "desc": "Unified biomedical vocabularies."
               },
               {
                 "name": "SNOMED CT",
                 "keys": [
                   "snomedct"
                 ],
-                "link": "https://www.snomed.org"
+                "link": "https://www.snomed.org",
+                "desc": "Clinical terminology."
               },
               {
                 "name": "ICD-10/11",
                 "keys": [
                   "icd11"
                 ],
-                "link": "https://icd.who.int"
+                "link": "https://icd.who.int",
+                "desc": "WHO diagnostic classification."
               },
               {
                 "name": "PrimeKG",
                 "keys": [
                   "chandak2023building"
                 ],
-                "link": null
+                "link": "https://github.com/mims-harvard/PrimeKG",
+                "desc": "Precision-medicine knowledge graph."
               },
               {
                 "name": "DRKG",
                 "keys": [
                   "ioannidis2020drkg"
                 ],
-                "link": null
+                "link": "https://github.com/gnn4dr/DRKG",
+                "desc": "Drug-repurposing knowledge graph."
               },
               {
                 "name": "STITCH",
                 "keys": [
                   "DBLP:journals/nar/SzklarczykSMJBK16"
                 ],
-                "link": "https://doi.org/10.1093/nar/gkv1277"
+                "link": "http://stitch.embl.de",
+                "desc": "Chemical-protein interactions."
               },
               {
                 "name": "KEGG",
                 "keys": [
                   "kanehisa2000kegg"
                 ],
-                "link": null
+                "link": "https://www.genome.jp/kegg/",
+                "desc": "Pathway and genome database."
               },
               {
                 "name": "Reactome",
                 "keys": [
                   "milacic2024reactome"
                 ],
-                "link": null
+                "link": "https://reactome.org",
+                "desc": "Curated biological pathways."
               },
               {
                 "name": "Gene Ontology",
@@ -273,7 +305,8 @@
                   "ashburner2000gene",
                   "gene2023gene"
                 ],
-                "link": null
+                "link": "https://geneontology.org",
+                "desc": "Gene function annotation."
               },
               {
                 "name": "OMIM",
@@ -281,21 +314,24 @@
                   "hamosh2005online",
                   "amberger2015omim"
                 ],
-                "link": null
+                "link": "https://www.omim.org",
+                "desc": "Mendelian disease-gene catalog."
               },
               {
                 "name": "DisGeNET",
                 "keys": [
                   "DBLP:journals/nar/GonzalezRSRCSF20"
                 ],
-                "link": "https://doi.org/10.1093/nar/gkz1021"
+                "link": "https://www.disgenet.org",
+                "desc": "Disease-gene associations."
               },
               {
                 "name": "ClinVar",
                 "keys": [
                   "DBLP:journals/nar/LandrumLBBCCGHH18"
                 ],
-                "link": "https://doi.org/10.1093/nar/gkx1153"
+                "link": "https://www.ncbi.nlm.nih.gov/clinvar/",
+                "desc": "Variant-phenotype relationships."
               }
             ]
           },
@@ -309,14 +345,16 @@
                 "keys": [
                   "DBLP:journals/corr/abs-2205-01833"
                 ],
-                "link": "https://doi.org/10.48550/arXiv.2205.01833"
+                "link": "https://openalex.org",
+                "desc": "Open index of works, authors, venues, and concepts."
               },
               {
                 "name": "S2ORC",
                 "keys": [
                   "DBLP:conf/acl/LoWNKW20"
                 ],
-                "link": "https://doi.org/10.18653/v1/2020.acl-main.447"
+                "link": "https://github.com/allenai/s2orc",
+                "desc": "Parsed full text in a citation-linked space."
               }
             ]
           }
@@ -339,7 +377,8 @@
                   "DBLP:journals/nar/GaultonBBCDHLMMAO12",
                   "zdrazil2024chembl"
                 ],
-                "link": "https://doi.org/10.1093/nar/gkr777"
+                "link": "https://www.ebi.ac.uk/chembl/",
+                "desc": "Bioactive molecule records."
               },
               {
                 "name": "ZINC",
@@ -347,7 +386,8 @@
                   "irwin2012zinc",
                   "DBLP:journals/jcisd/TingleTCGKDMI23"
                 ],
-                "link": "https://doi.org/10.1021/acs.jcim.2c01253"
+                "link": "https://zinc.docking.org",
+                "desc": "Purchasable compound library."
               },
               {
                 "name": "PubChem",
@@ -355,14 +395,16 @@
                   "DBLP:journals/nar/KimTBCFGHHHSWYZ16",
                   "kim2023pubchem"
                 ],
-                "link": "https://doi.org/10.1093/nar/gkv951"
+                "link": "https://pubchem.ncbi.nlm.nih.gov",
+                "desc": "Chemical compound records."
               },
               {
                 "name": "PDB",
                 "keys": [
                   "DBLP:journals/nar/BermanWFGBWSB00"
                 ],
-                "link": "https://doi.org/10.1093/nar/28.1.235"
+                "link": "https://www.rcsb.org",
+                "desc": "Experimental 3D structures."
               },
               {
                 "name": "AlphaFold DB",
@@ -370,14 +412,16 @@
                   "DBLP:journals/nar/VaradiADNNYYSWL22",
                   "varadi2024alphafold"
                 ],
-                "link": "https://doi.org/10.1093/nar/gkab1061"
+                "link": "https://alphafold.ebi.ac.uk",
+                "desc": "Predicted protein structures."
               },
               {
                 "name": "CrossDocked2020",
                 "keys": [
                   "DBLP:journals/jcisd/FrancoeurMSJISK20"
                 ],
-                "link": "https://doi.org/10.1021/acs.jcim.0c00411"
+                "link": "https://github.com/gnina/models",
+                "desc": "Docked protein-ligand poses."
               }
             ]
           },
@@ -391,7 +435,8 @@
                 "keys": [
                   "jain2013commentary"
                 ],
-                "link": null
+                "link": "https://materialsproject.org",
+                "desc": "DFT-computed materials properties."
               },
               {
                 "name": "OQMD",
@@ -399,14 +444,16 @@
                   "saal2013materials",
                   "kirklin2015open"
                 ],
-                "link": null
+                "link": "https://oqmd.org",
+                "desc": "DFT materials thermodynamics."
               },
               {
                 "name": "AFLOW",
                 "keys": [
                   "curtarolo2012aflow"
                 ],
-                "link": null
+                "link": "http://aflowlib.org",
+                "desc": "Computed materials properties."
               },
               {
                 "name": "Open Catalyst",
@@ -414,21 +461,24 @@
                   "DBLP:journals/corr/abs-2010-09990",
                   "DBLP:journals/corr/abs-2206-08917"
                 ],
-                "link": "https://arxiv.org/abs/2010.09990"
+                "link": "https://opencatalystproject.org",
+                "desc": "Catalysis DFT dataset."
               },
               {
                 "name": "QM9",
                 "keys": [
                   "ramakrishnan2014quantum"
                 ],
-                "link": null
+                "link": "http://quantum-machine.org/datasets/",
+                "desc": "Small-molecule quantum properties."
               },
               {
                 "name": "QMugs",
                 "keys": [
                   "isert2022qmugs"
                 ],
-                "link": null
+                "link": "https://www.research-collection.ethz.ch/handle/20.500.11850/482129",
+                "desc": "Drug-like molecule quantum properties."
               },
               {
                 "name": "BindingDB",
@@ -436,7 +486,8 @@
                   "DBLP:journals/nar/LiuLWJG07",
                   "gilson2016bindingdb"
                 ],
-                "link": "https://doi.org/10.1093/nar/gkl999"
+                "link": "https://www.bindingdb.org",
+                "desc": "Measured binding affinities."
               }
             ]
           }
@@ -458,49 +509,56 @@
                 "keys": [
                   "PhysioNet-mimic-cxr-2.1.0"
                 ],
-                "link": "https://doi.org/10.13026/4jqj-jw95"
+                "link": "https://physionet.org/content/mimic-cxr/",
+                "desc": "Chest radiographs paired with reports."
               },
               {
                 "name": "IU-Xray",
                 "keys": [
                   "demner2016preparing"
                 ],
-                "link": null
+                "link": "https://openi.nlm.nih.gov",
+                "desc": "Chest X-rays with reports (Open-i)."
               },
               {
                 "name": "ADNI",
                 "keys": [
                   "petersen2010alzheimer"
                 ],
-                "link": null
+                "link": "https://adni.loni.usc.edu",
+                "desc": "Alzheimer's neuroimaging cohort."
               },
               {
                 "name": "OASIS",
                 "keys": [
                   "DBLP:journals/jocn/MarcusWPCMB07"
                 ],
-                "link": "https://doi.org/10.1162/jocn.2007.19.9.1498"
+                "link": "https://www.oasis-brains.org",
+                "desc": "Brain MRI cohort."
               },
               {
                 "name": "ABIDE",
                 "keys": [
                   "di2014autism"
                 ],
-                "link": null
+                "link": "https://fcon_1000.projects.nitrc.org/indi/abide/",
+                "desc": "Autism brain-imaging exchange."
               },
               {
                 "name": "TCGA",
                 "keys": [
                   "clark2013cancer"
                 ],
-                "link": null
+                "link": "https://www.cancerimagingarchive.net",
+                "desc": "Cancer imaging archive (histopathology)."
               },
               {
                 "name": "Human Protein Atlas",
                 "keys": [
                   "uhlen2015tissue"
                 ],
-                "link": null
+                "link": "https://www.proteinatlas.org",
+                "desc": "Tissue and pathology imaging atlas."
               }
             ]
           },
@@ -514,21 +572,24 @@
                 "keys": [
                   "massbank2010"
                 ],
-                "link": null
+                "link": "https://massbank.eu",
+                "desc": "Public mass-spectral library."
               },
               {
                 "name": "GNPS",
                 "keys": [
                   "gnps2016"
                 ],
-                "link": null
+                "link": "https://gnps.ucsd.edu",
+                "desc": "Molecular-networking spectral repository."
               },
               {
                 "name": "HMDB",
                 "keys": [
                   "hmdb2022"
                 ],
-                "link": null
+                "link": "https://hmdb.ca",
+                "desc": "Human metabolome database (spectra)."
               }
             ]
           },
@@ -543,56 +604,64 @@
                   "york2000sloan",
                   "abdurro2022seventeenth"
                 ],
-                "link": null
+                "link": "https://www.sdss.org",
+                "desc": "Sloan Digital Sky Survey."
               },
               {
                 "name": "Gaia",
                 "keys": [
                   "vallenari2023gaia"
                 ],
-                "link": null
+                "link": "https://www.cosmos.esa.int/web/gaia",
+                "desc": "ESA stellar-census survey."
               },
               {
                 "name": "MAST",
                 "keys": [
                   "mast"
                 ],
-                "link": null
+                "link": "https://archive.stsci.edu",
+                "desc": "Space-telescope data archive."
               },
               {
                 "name": "NASA EOSDIS",
                 "keys": [
                   "DBLP:conf/mss/KoblerBCH95"
                 ],
-                "link": "https://doi.org/10.1109/MASS.1995.528217"
+                "link": "https://www.earthdata.nasa.gov",
+                "desc": "Earth-observation data system."
               },
               {
                 "name": "CMIP6",
                 "keys": [
                   "eyring2016overview"
                 ],
-                "link": null
+                "link": "https://pcmdi.llnl.gov/CMIP6/",
+                "desc": "Climate-model intercomparison archive."
               },
               {
                 "name": "NOAA NCEI",
                 "keys": [
                   "noaa_ncei"
                 ],
-                "link": null
+                "link": "https://www.ncei.noaa.gov",
+                "desc": "Environmental data archive."
               },
               {
                 "name": "USGS EROS",
                 "keys": [
                   "usgs_eros"
                 ],
-                "link": null
+                "link": "https://www.usgs.gov/centers/eros",
+                "desc": "Satellite earth-imagery archive."
               },
               {
                 "name": "CERN Open Data",
                 "keys": [
                   "cernopendata"
                 ],
-                "link": null
+                "link": "https://opendata.cern.ch",
+                "desc": "Particle-collision records."
               }
             ]
           }

@@ -1814,3 +1814,12 @@ sup.footnote-ref a:focus {
 #o1 .res-chip, #o2 .res-chip, #o3 .res-chip { background: var(--o-bg); color: var(--o-fg); }
 .axis-systems-link { margin-top: 1.8rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
 .axis-systems-label { display: block; font-size: .9rem; color: var(--fg-muted); margin-bottom: .5rem; }
+
+/* ---------- Per-dataset description table (below the chips) ---------- */
+.res-table-scroll { margin-top: .7rem; }
+.res-table { min-width: 420px; }
+.res-table thead th { font-size: .72rem; }
+.res-td-name { font-family: var(--font-mono); font-weight: 600; white-space: nowrap; }
+.res-td-name a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--line-strong); }
+.res-td-name a:hover { color: var(--link); border-color: var(--link); }
+.res-td-desc { color: var(--fg-muted); }

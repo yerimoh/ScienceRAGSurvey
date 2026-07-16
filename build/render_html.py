@@ -710,8 +710,14 @@ def prose_html(text):
     return '\n'.join(f'<p>{esc(p.strip())}</p>' for p in text.split('\n\n') if p.strip())
 
 
+def _res_name_html(r):
+    name = esc(r.get('name', ''))
+    link = r.get('link')
+    return f'<a href="{esc(link)}" target="_blank" rel="noopener">{name}</a>' if link else name
+
+
 def resource_chips_html(resources, base='../'):
-    """The actual data resources as linked chips (external link where the bib has one)."""
+    """The actual data resources as linked chips (each opens the dataset homepage)."""
     if not resources:
         return ''
     items = []
@@ -725,10 +731,25 @@ def resource_chips_html(resources, base='../'):
     return f'<div class="res-chips">{"".join(items)}</div>'
 
 
+def resource_table_html(resources):
+    """A compact per-dataset description table: Dataset (linked) | Description."""
+    rows = [r for r in resources if r.get('desc')]
+    if not rows:
+        return ''
+    body = ''.join(
+        f'<tr><td class="res-td-name">{_res_name_html(r)}</td>'
+        f'<td class="res-td-desc">{esc(r.get("desc", ""))}</td></tr>'
+        for r in resources
+    )
+    return (f'<div class="sys-table-scroll res-table-scroll"><table class="sys-table res-table">'
+            f'<thead><tr><th>Dataset</th><th>Description</th></tr></thead>'
+            f'<tbody>{body}</tbody></table></div>')
+
+
 def substrate_resources_html(K, base='../', heading_level='h3'):
     """Short §4 summary for one substrate + its data resources, grouped by
-    sub-subsection, each as a linked chip. No long prose — just the key line and
-    the datasets themselves."""
+    sub-subsection: linked chips for a quick scan, then a per-dataset description
+    table. No long prose — just the key line and the datasets themselves."""
     s = K_PROSE.get(K)
     if not s:
         return ''
@@ -737,11 +758,13 @@ def substrate_resources_html(K, base='../', heading_level='h3'):
         parts.append(f'<p class="axis-lede">{esc(s["summary"])}</p>')
     for ss in s.get('subsubs', []):
         note = ss.get('summary', '')
+        res = ss.get('resources', [])
         parts.append(
             f'<div class="res-group">'
             f'<{heading_level} class="res-group-title">{esc(ss.get("title", ""))}</{heading_level}>'
             + (f'<p class="res-note">{esc(note)}</p>' if note else '')
-            + resource_chips_html(ss.get('resources', []), base)
+            + resource_chips_html(res, base)
+            + resource_table_html(res)
             + '</div>'
         )
     return '\n'.join(parts)
