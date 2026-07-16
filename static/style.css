@@ -1767,3 +1767,29 @@ sup.footnote-ref a:focus {
 .axis-sub-head h2 { margin: 0; font-size: 1.35rem; }
 .axis-sub-link { margin-left: auto; font-size: .85rem; font-family: var(--font-mono); white-space: nowrap; }
 .axis-sub-desc { max-width: 68ch; color: var(--fg-muted); margin: 0 0 1rem; line-height: 1.55; }
+
+/* ---------- Axis body prose (§4/§5 content) ---------- */
+.axis-body { padding: 1.4rem 0 .4rem; }
+.axis-intro { max-width: 66ch; }
+.axis-intro p { font-size: 1.02rem; line-height: 1.65; color: var(--fg-muted); margin: 0 0 .8rem; }
+.axis-prose { max-width: 72ch; }
+.axis-prose p { line-height: 1.62; margin: 0 0 .85rem; color: var(--fg); }
+.axis-subsub { margin: 1.3rem 0; }
+.axis-subsub-title {
+  font-size: 1.02rem; margin: 0 0 .4rem; color: var(--fg);
+  font-family: var(--font-display);
+}
+.axis-subsub-title::before {
+  content: "▸"; color: var(--k-500); margin-right: .45rem; font-size: .8em;
+}
+.axis-sub .axis-subsub-title::before { color: var(--o-500); }
+#k1 .axis-subsub-title::before, #k2 .axis-subsub-title::before,
+#k3 .axis-subsub-title::before, #k4 .axis-subsub-title::before { color: var(--k-500); }
+.axis-systems-title {
+  font-size: 1.15rem; margin: .5rem 0 1rem; padding-top: 1.3rem;
+  border-top: 1px solid var(--line);
+}
+.axis-systems-n {
+  font-family: var(--font-mono); font-size: .8rem; color: var(--fg-faint);
+  background: var(--bg-subtle); padding: .1rem .45rem; border-radius: 6px; margin-left: .3rem;
+}

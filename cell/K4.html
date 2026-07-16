@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[K4] Perceptual, Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1784173247">
+<link rel="stylesheet" href="../static/style.css?v=1784173808">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -112,24 +112,20 @@
 
 <section class="cell-hero">
   <div class="wrap">
-    <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
-    <h1><span class="cell-id-big">[K4]</span> Perceptual</h1>
-    <p class="lede"><strong>9</strong> systems on the Perceptual substrate, across all objectives.</p>
-    <div class="cell-axis-pair">
-      <div class="axis-card axis-k">
-        <span class="axis-tag">K 4</span>
-        <h3>Perceptual</h3>
-        <p>Raw instrument output, images, spectra, sequencing, time-series (MIMIC-CXR, MassBank, sky surveys). Reachable only through a learned cross-modal encoder.</p>
-      </div>
-    </div>
+    <p class="eyebrow"><a href="knowledge-source.html">← Knowledge Source</a></p>
+    <h1><span class="cell-id-big axis-id-k">K4</span> Perceptual</h1>
   </div>
 </section>
 
-<section class="cell-list">
+<section class="axis-body">
   <div class="wrap">
+    <div class="axis-prose"><p>The perceptual substrate is the raw output of scientific instruments, the images, spectra, and signals recorded straight from measurement. They carry no words at all, so nothing can be retrieved from them until an encoder is learned to connect a signal to a text query.</p></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Medical and biological imaging</h3><div class="axis-prose"><p>Medical imaging dominates this modality. MIMIC-CXR and IU-Xray pair chest X-rays with radiology reports, and pathology and ophthalmology corpora extend the setting. The neuroimaging cohorts ADNI, OASIS, and ABIDE, together with the histopathology atlases TCGA (via the Cancer Imaging Archive) and the Human Protein Atlas, provide further imaging substrates.</p></div></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Spectral libraries</h3><div class="axis-prose"><p>Spectral libraries store the raw signal traces that identify a molecule. Mass-spectral libraries such as MassBank and GNPS, together with the spectral layers of HMDB, are the entry point for de novo structure elucidation from raw spectra.</p></div></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Instrument arrays and time series</h3><div class="axis-prose"><p>Arrays and time series are the numerical readings streamed from instruments, and no standard encoder for them exists yet. Sky-survey archives (SDSS, Gaia, MAST ), earth-observation grids (NASA EOSDIS, CMIP6, NOAA NCEI, USGS EROS ), physiological ECG traces, and the collision records of CERN Open Data are among the largest open archives in science, yet almost none are indexed as a retrieval corpus by any cataloged scientific RAG system.</p></div></div>
     
 <figure class="sys-table-wrap">
-  <figcaption class="sys-cap">Knowledge sources on the Perceptual substrate — the data itself (survey Table 1).</figcaption>
+  <figcaption class="sys-cap">Representative resources (survey Table 1).</figcaption>
   <div class="sys-table-scroll">
     <table class="sys-table ks-table">
       <thead><tr>
@@ -139,6 +135,12 @@
     </table>
   </div>
 </figure>
+  </div>
+</section>
+
+<section class="cell-list">
+  <div class="wrap">
+    <h2 class="axis-systems-title">Systems retrieving over the Perceptual substrate <span class="axis-systems-n">9</span></h2>
     
     <div class="card-grid"><article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2411.16523" target="_blank" rel="noopener">LaB-RAG: Label Boosted Retrieval Augmented Generation for Radiology Report Generation ↗</a></h3>

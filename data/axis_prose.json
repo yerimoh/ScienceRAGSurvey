@@ -1,0 +1,115 @@
+{
+  "K": {
+    "intro": "The form in which a source stores its knowledge determines what can be retrieved from it. Text can be reached by text, but much of science is not text: a molecule, a graph of typed relations, or a raw instrument signal shares no words with a query, so none of them can be searched the way a passage is. Because a source's native form dictates whether a query can reach it at all, we organize knowledge sources by that form into four retrieval substrates, Textual, Relational, Structured-entity, and Perceptual, and describe what each one stores. Table:knowledge_source catalogs representative resources under each substrate.",
+    "substrates": [
+      {
+        "code": "K1",
+        "name": "Textual",
+        "intro": "The textual substrate is the prose record of science, the papers, abstracts, clinical notes, and guideline documents in which findings are written down. It is the largest and most accessible of the scientific data types, and the only one already cast in the natural language a query is posed in.",
+        "subsubs": [
+          {
+            "title": "General-purpose and domain literature",
+            "text": "General-purpose corpora carry no disciplinary boundary, so a single pipeline serves many fields. Crossref is the registry of DOIs and their publication metadata, and ORCID the companion registry of author identities. OpenAlex aggregates these with PubMed and repository records into an open index of works, authors, venues, institutions, and concepts. S2ORC adds parsed full text in a unified citation-linked space, while Scopus, Web of Science, and Dimensions provide abstract-and-citation metadata and CORE aggregates open-access full text, under varying access terms. Domain indices serve one field with richer metadata. PubMed indexes biomedical abstracts under the MeSH vocabulary, Europe PMC adds open full text, and Embase covers the pharmacology literature commercially. NASA ADS covers astronomy, INSPIRE-HEP high-energy physics, and GeoRef the geosciences, while the IPCC assessment reports form a canonical climate-synthesis corpus. These are also repackaged into ready-made retrieval corpora: MedCorp combines PubMed, StatPearls, textbooks, and Wikipedia, MatSciKB does the same for materials science, and PMC Open Access supplies open full text."
+          },
+          {
+            "title": "Preprint literature",
+            "text": "Preprints trade peer review for recency, offering the most current view of active science. arXiv is the multidisciplinary anchor over a public OAI-PMH interface and bulk S3 access, with author-assigned subject categories. Field servers complement it where arXiv's coverage is limited, including bioRxiv, medRxiv, ChemRxiv, EarthArXiv, and OSF Preprints."
+          },
+          {
+            "title": "Institution-private corpora",
+            "text": "Institution-private corpora are collaboration wikis, logbooks, and internal notes that share the same textual substrate but stay behind access restrictions. On-premise systems retrieve over them while keeping the data private, as in MITRA over CMS collaboration documentation and DUNE-GPT over Fermilab's internal resources."
+          }
+        ]
+      },
+      {
+        "code": "K2",
+        "name": "Relational",
+        "intro": "The relational substrate is the curated web of scientific relations, the graphs that record how genes, diseases, drugs, and concepts connect. Its knowledge lives not in any single node but in the edges between them, the asserted links that no one document states in one place.",
+        "subsubs": [
+          {
+            "title": "Curated concept-relation graphs",
+            "text": "These are expert-curated graphs of asserted relations among canonical scientific entities. UMLS unifies biomedical vocabularies, while SNOMED CT and ICD-10/11 supply clinical and diagnostic terms. PrimeKG and DRKG assemble integrated drug, disease, and target relations, while STITCH records chemical-protein interactions. STRING protein-interaction data, KEGG, Reactome, and Gene Ontology map pathways and functional annotation, and the disease-gene resources OMIM, DisGeNET, and ClinVar link variants to phenotypes."
+          },
+          {
+            "title": "Literature-derived graphs",
+            "text": "The same primary literature, once its citations and shared entities are linked, forms a graph rather than a set of passages. OpenCitations and the citation layers of OpenAlex and S2ORC expose reference edges between papers, over which task-specific graphs of papers and their extracted concepts are built."
+          }
+        ]
+      },
+      {
+        "code": "K3",
+        "name": "Structured-entity",
+        "intro": "The structured-entity substrate is the objects of science themselves, the molecules, crystals, and materials held as data rather than described in words. Carrying no text, they can be reached only in their own terms, by matching a structure or a target property.",
+        "subsubs": [
+          {
+            "title": "Molecule and structure libraries",
+            "text": "These are libraries of molecular and 3D structure. The molecule libraries ChEMBL, ZINC, and PubChem hold compound records, and the 3D structure archives PDB, AlphaFold DB, and CrossDocked2020 hold atomic coordinates. A 2D fingerprint cannot capture 3D shape and a SMILES string drops stereochemistry, so the geometry that governs binding survives only in the 3D-coordinate form."
+          },
+          {
+            "title": "Property databases",
+            "text": "These are property tables built from large-scale computation or measurement. Materials Project, OQMD, AFLOW, and Open Catalyst provide DFT-computed materials properties, QM9 and QMugs provide molecular properties, and BindingDB provides measured binding affinities."
+          }
+        ]
+      },
+      {
+        "code": "K4",
+        "name": "Perceptual",
+        "intro": "The perceptual substrate is the raw output of scientific instruments, the images, spectra, and signals recorded straight from measurement. They carry no words at all, so nothing can be retrieved from them until an encoder is learned to connect a signal to a text query.",
+        "subsubs": [
+          {
+            "title": "Medical and biological imaging",
+            "text": "Medical imaging dominates this modality. MIMIC-CXR and IU-Xray pair chest X-rays with radiology reports, and pathology and ophthalmology corpora extend the setting. The neuroimaging cohorts ADNI, OASIS, and ABIDE, together with the histopathology atlases TCGA (via the Cancer Imaging Archive) and the Human Protein Atlas, provide further imaging substrates."
+          },
+          {
+            "title": "Spectral libraries",
+            "text": "Spectral libraries store the raw signal traces that identify a molecule. Mass-spectral libraries such as MassBank and GNPS, together with the spectral layers of HMDB, are the entry point for de novo structure elucidation from raw spectra."
+          },
+          {
+            "title": "Instrument arrays and time series",
+            "text": "Arrays and time series are the numerical readings streamed from instruments, and no standard encoder for them exists yet. Sky-survey archives (SDSS, Gaia, MAST ), earth-observation grids (NASA EOSDIS, CMIP6, NOAA NCEI, USGS EROS ), physiological ECG traces, and the collision records of CERN Open Data are among the largest open archives in science, yet almost none are indexed as a retrieval corpus by any cataloged scientific RAG system."
+          }
+        ]
+      }
+    ]
+  },
+  "O": {
+    "intro": "A system's operational objective is the task it must serve, and each such task is operationalized by a benchmark that fixes the query, corpus, and ground truth of Eq. (:guide). What output the task demands sets all three: some answers lie ready in the corpus as a stored label, others are proposals it does not contain that only an external verifier can judge. We order the seven task families of scientific RAG, from question answering to hypothesis generation, by this distance from the corpus, and Table:benchmarks lists each with its scale and substrate.",
+    "tasks": [
+      {
+        "name": "Question Answering",
+        "rung": "O1",
+        "text": "Question answering poses a question with a determinate answer and scores the returned answer against a gold label. Text-only benchmarks cover clinical and biomedical questions in MIRAGE, a suite of five medical QA sets, and PubMedQA, yes/no/maybe questions over abstracts, with LitQA2 requiring answers found only in paper bodies. Broader science is covered by MaScQA for materials-exam problems scored against official answer keys and SciQ for crowd-sourced multiple-choice questions across biology, chemistry, earth science, and physics. Retrieval over a Relational source appears in SciQA, which answers SPARQL queries over the Open Research Knowledge Graph against a gold answer set. Cross-modal question answering pairs a question with non-text evidence over the Perceptual substrate, as in the pathology-image benchmarks PathMMU and Path-VQA. Question answering is the most saturated task in scientific RAG, because its gold labels make scoring automatic, but that same fixed gold cannot separate genuine retrieval from parametric recall, and overlap between corpus and benchmark inflates the reported score."
+      },
+      {
+        "name": "Claim Verification",
+        "rung": "O2",
+        "text": "Claim verification presents a claim and scores a verdict of supported, refuted, or unverifiable, reconciled across the retrieved evidence over the Textual substrate. SciFact judges claims against abstracts over a small curated corpus, SciFactOpen extends verification to open-domain retrieval over a pool of half a million documents, and ContraCrow scales it to whole-paper contradiction detection validated against expert judgment. These benchmarks certify correct verdicts on a closed claim set, but the sharp performance drop from SciFact to SciFact-Open shows that they do not measure generalization to novel claims outside it."
+      },
+      {
+        "name": "Literature Synthesis",
+        "rung": "O2",
+        "text": "Literature synthesis poses a question whose answer no single source states and scores the integration across many sources. Long-form aggregation is scored for multi-paper coverage and citation support in ScholarQABench, for abstractive review summarization in PubMedRS-200, and for paragraph summaries in the ideal-answer track of BioASQ, with SQuAI judging answers directly against the evidence they cite rather than a reference text. These benchmarks retrieve over the Textual substrate, and synthesis that follows citation links extends to the Relational substrate in Multi-XScience, which generates a related-work paragraph from a paper and the abstracts of its references. Synthesis benchmarks measure whether an answer is citation-supported and covers a reference answer, but coverage is scored against a fixed expert reference rather than the full relevant literature, so completeness is only partially certified."
+      },
+      {
+        "name": "Property Prediction",
+        "rung": "O3",
+        "text": "Property prediction specifies an entity and a target property and scores the prediction against a held-out measurement. Curated-database recovery over the Structured-entity substrate covers molecular property and toxicity in MoleculeNet and the Therapeutics Data Commons, and protein function against time-delayed annotations in CAFA. Measured-response recovery covers gene-perturbation response in GEARS and PerturBench. Link prediction over the Relational substrate scores held-out biomedical edges in OpenBioLink and OGB-biokg, and spectrum-to-molecule elucidation over the Perceptual substrate scores recovered structures in MassSpecGym. A held-out reference contains only what has already been measured, so a correct prediction outside it is scored as wrong, and recovery certifies fit rather than mechanism, since a strong fit can be interpolation."
+      },
+      {
+        "name": "Molecular Design",
+        "rung": "O3",
+        "text": "Molecular design sets a target such as a protein pocket or a property profile and scores a proposed molecule the corpus does not contain. PMO defines a set of property-optimization objectives under a capped oracle-call budget, and CrossDocked2020 provides docking pockets against which a generated ligand and its 3D pose are scored for structural accuracy. These benchmarks retrieve over the Structured-entity substrate for molecular structure and over the Perceptual substrate when a 3D pose conditions generation. Design benchmarks score binding or property proxies computed in silico, so a high score certifies the proxy rather than the wet-lab outcome it stands for."
+      },
+      {
+        "name": "Materials Discovery",
+        "rung": "O3",
+        "text": "Materials discovery sets a design target such as a stable crystal or a catalytic surface and scores it by re-running a physics simulator over the Structured-entity substrate of crystal and surface records. Matbench Discovery scores thermodynamic stability against DFT-relaxed ground truth, ADsorbML re-evaluates each adsorption structure with a DFT single point, MLIP Arena tests dynamical consistency beyond static references, and ScienceAgentBench executes generated code against task success criteria. A simulator confirms candidates far faster than laboratory screening, but it cannot judge the limits of its own functionals, kinetics, or synthesis feasibility, bounding what a passing score establishes."
+      },
+      {
+        "name": "Hypothesis Generation",
+        "rung": "O3",
+        "text": "Hypothesis generation provides a research context and scores a proposed idea, mechanism, or pathway that has no stored answer to match, recovering it against a held-out reference rather than a lexical gold. Rediscovery benchmarks withhold findings published after a model's knowledge cutoff and score how closely a generated hypothesis matches the withheld one, MOOSE-Chem scoring chemistry hypotheses against expert-annotated 2024 papers and ResearchBench decomposing discovery into inspiration retrieval, hypothesis composition, and ranking a gold hypothesis above generated negatives across twelve disciplines. HypoBench measures the recovery rate of ground-truth patterns on synthetic tasks, and TruthHypo scores the groundedness of biomedical hypotheses against a knowledge graph and a domain-specific corpus over the Relational substrate. These benchmarks retrieve inspirations over the Textual substrate of prior literature and, in TruthHypo, over a Relational knowledge graph. Because their verifier is a similarity match to a held-out finding or a groundedness check rather than a physical simulator, hypothesis generation sits at the weakest verification of the seven tasks, though contamination-controlled rediscovery makes its scores more reproducible than open-ended novelty rating."
+      }
+    ]
+  }
+}

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[O1] Grounding, Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1784173247">
+<link rel="stylesheet" href="../static/style.css?v=1784173808">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -112,16 +112,9 @@
 
 <section class="cell-hero">
   <div class="wrap">
-    <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
-    <h1><span class="cell-id-big">[O1]</span> Grounding</h1>
-    <p class="lede"><strong>24</strong> entries with <strong>Grounding</strong> objective (all K sources).</p>
-    <div class="cell-axis-pair">
-      <div class="axis-card axis-o">
-        <span class="axis-tag">O 1</span>
-        <h3>Grounding</h3>
-        <p>Answer a question whose gold already lies in the corpus, retrieve, cite, answer. (Question Answering.)</p>
-      </div>
-    </div>
+    <p class="eyebrow"><a href="operational-objective.html">← Operational Objective</a></p>
+    <h1><span class="cell-id-big axis-id-o">O1</span> Grounding</h1>
+    <p class="axis-sub-desc">Answer a question whose gold already lies in the corpus, retrieve, cite, answer. (Question Answering.)</p>
     <div class="cell-nav"><a href="../cell/K1.O1.html" class="pill" title="K1.O1">Textual × Grounding 10</a>
 <a href="../cell/K2.O1.html" class="pill" title="K2.O1">Relational × Grounding 6</a>
 <a href="../cell/K3.O1.html" class="pill" title="K3.O1">Structured-entity × Grounding 2</a>
@@ -129,11 +122,12 @@
   </div>
 </section>
 
-<section class="cell-list">
+<section class="axis-body">
   <div class="wrap">
+    <div class="axis-subsub"><h3 class="axis-subsub-title">Question Answering</h3><div class="axis-prose"><p>Question answering poses a question with a determinate answer and scores the returned answer against a gold label. Text-only benchmarks cover clinical and biomedical questions in MIRAGE, a suite of five medical QA sets, and PubMedQA, yes/no/maybe questions over abstracts, with LitQA2 requiring answers found only in paper bodies. Broader science is covered by MaScQA for materials-exam problems scored against official answer keys and SciQ for crowd-sourced multiple-choice questions across biology, chemistry, earth science, and physics. Retrieval over a Relational source appears in SciQA, which answers SPARQL queries over the Open Research Knowledge Graph against a gold answer set. Cross-modal question answering pairs a question with non-text evidence over the Perceptual substrate, as in the pathology-image benchmarks PathMMU and Path-VQA. Question answering is the most saturated task in scientific RAG, because its gold labels make scoring automatic, but that same fixed gold cannot separate genuine retrieval from parametric recall, and overlap between corpus and benchmark inflates the reported score.</p></div></div>
     
 <figure class="sys-table-wrap">
-  <figcaption class="sys-cap">Benchmarks for the Grounding objective — the tasks and their ground truth (survey Table 2).</figcaption>
+  <figcaption class="sys-cap">Benchmarks for this objective (survey Table 2).</figcaption>
   <div class="sys-table-scroll">
     <table class="sys-table bm-table">
       <thead><tr>
@@ -143,6 +137,12 @@
     </table>
   </div>
 </figure>
+  </div>
+</section>
+
+<section class="cell-list">
+  <div class="wrap">
+    <h2 class="axis-systems-title">Systems reaching the Grounding objective <span class="axis-systems-n">24</span></h2>
     <div class="subsec-filter" id="oaxisO1subf">
 <button class="subsec-btn active" data-sub="">All <span class="subsec-n">24</span></button>
 <button class="subsec-btn" data-sub="Question Answering">Question Answering <span class="subsec-n">18</span></button>

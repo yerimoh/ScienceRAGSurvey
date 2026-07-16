@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Knowledge Source, Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1784173247">
+<link rel="stylesheet" href="../static/style.css?v=1784173808">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -114,25 +114,13 @@
   <div class="wrap">
     <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
     <h1><span class="cell-id-big axis-id-k">K</span> Knowledge Source</h1>
-    <p class="axis-intro">A <strong>knowledge source</strong> is the data a scientific RAG system retrieves over. The form in which a source stores its knowledge, its <em>retrieval substrate</em>, fixes what can be reached from it: text can be reached by text, but a molecule, a graph of typed relations, or a raw instrument signal shares no words with a query. We organize knowledge sources by that native form into four substrates. General-domain RAG stays almost entirely on the textual substrate; scientific RAG must reach the other three, each costlier to index.</p>
+    <div class="axis-intro"><p>The form in which a source stores its knowledge determines what can be retrieved from it. Text can be reached by text, but much of science is not text: a molecule, a graph of typed relations, or a raw instrument signal shares no words with a query, so none of them can be searched the way a passage is. Because a source&#x27;s native form dictates whether a query can reach it at all, we organize knowledge sources by that form into four retrieval substrates, Textual, Relational, Structured-entity, and Perceptual, and describe what each one stores. Table:knowledge_source catalogs representative resources under each substrate.</p></div>
     <div class="cell-nav"><a href="#k1" class="pill">Txt · Textual <span class="pill-n">22</span></a>
 <a href="#k2" class="pill">Rel · Relational <span class="pill-n">8</span></a>
 <a href="#k3" class="pill">Str · Structured-entity <span class="pill-n">7</span></a>
 <a href="#k4" class="pill">Prc · Perceptual <span class="pill-n">9</span></a></div>
   </div>
 </section>
-
-<figure class="sys-table-wrap axis-full-table">
-  <figcaption class="sys-cap">All knowledge sources, grouped by retrieval substrate (survey Table 1).</figcaption>
-  <div class="sys-table-scroll">
-    <table class="sys-table ks-table">
-      <thead><tr>
-        <th>Resource group</th><th>Scale</th><th>Access</th><th>Notes</th>
-      </tr></thead>
-      <tbody><tr class="ks-group"><td colspan="4"><span class="sys-k sys-k-k1">Txt</span><span class="ks-sub-name">Textual</span></td></tr><tr><td class="ks-name">General &amp; domain literature</td><td class="ks-scale">10–250M</td><td><span class="ks-acc acc-open">Open</span></td><td>Open work indexes</td></tr><tr><td class="ks-name">Commercial indices</td><td class="ks-scale">~100M</td><td><span class="ks-acc acc-comm">Comm.</span></td><td>Paywalled, rarely used</td></tr><tr><td class="ks-name">Assembled corpora</td><td class="ks-scale">~30M</td><td><span class="ks-acc acc-open">Open</span></td><td>Ready-made RAG corpora</td></tr><tr><td class="ks-name">Institution-private docs</td><td class="ks-scale">varies</td><td><span class="ks-acc acc-restr">Restr.</span></td><td>On-premise only</td></tr><tr class="ks-group"><td colspan="4"><span class="sys-k sys-k-k2">Rel</span><span class="ks-sub-name">Relational</span></td></tr><tr><td class="ks-name">Concept &amp; relation graphs</td><td class="ks-scale">0.1–10M</td><td><span class="ks-acc acc-open">Open/Lic.</span></td><td>Expert-curated relations</td></tr><tr><td class="ks-name">Literature citation graphs</td><td class="ks-scale">1B~</td><td><span class="ks-acc acc-open">Open</span></td><td>Papers as a graph</td></tr><tr class="ks-group"><td colspan="4"><span class="sys-k sys-k-k3">Str</span><span class="ks-sub-name">Structured-entity</span></td></tr><tr><td class="ks-name">Molecule libraries</td><td class="ks-scale">1–100M</td><td><span class="ks-acc acc-open">Open</span></td><td>Feed molecule generators</td></tr><tr><td class="ks-name">3D structure archives</td><td class="ks-scale">0.1–100M</td><td><span class="ks-acc acc-open">Open</span></td><td>Atomic coordinates</td></tr><tr><td class="ks-name">Property tables</td><td class="ks-scale">0.1–1M</td><td><span class="ks-acc acc-open">Open</span></td><td>Computed/measured properties</td></tr><tr class="ks-group"><td colspan="4"><span class="sys-k sys-k-k4">Prc</span><span class="ks-sub-name">Perceptual</span></td></tr><tr><td class="ks-name">Medical imaging</td><td class="ks-scale">1–100K</td><td><span class="ks-acc acc-mixed">Mixed</span></td><td>Used in clinical RAG</td></tr><tr><td class="ks-name">Spectral libraries</td><td class="ks-scale">0.1–2M</td><td><span class="ks-acc acc-open">Open</span></td><td>For structure elucidation</td></tr><tr><td class="ks-name">Instrument archives</td><td class="ks-scale">1B~</td><td><span class="ks-acc acc-open">Open</span></td><td>Largely unused</td></tr></tbody>
-    </table>
-  </div>
-</figure>
 
 <section class="axis-sub" id="k1">
   <div class="wrap">
@@ -141,10 +129,13 @@
       <h2>Textual</h2>
       <a class="axis-sub-link" href="K1.html">22 systems on this substrate →</a>
     </div>
-    <p class="axis-sub-desc">Prose record of science, papers, abstracts, clinical notes, guidelines. Matched by embedding or lexical search over passages.</p>
+    <div class="axis-prose"><p>The textual substrate is the prose record of science, the papers, abstracts, clinical notes, and guideline documents in which findings are written down. It is the largest and most accessible of the scientific data types, and the only one already cast in the natural language a query is posed in.</p></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">General-purpose and domain literature</h3><div class="axis-prose"><p>General-purpose corpora carry no disciplinary boundary, so a single pipeline serves many fields. Crossref is the registry of DOIs and their publication metadata, and ORCID the companion registry of author identities. OpenAlex aggregates these with PubMed and repository records into an open index of works, authors, venues, institutions, and concepts. S2ORC adds parsed full text in a unified citation-linked space, while Scopus, Web of Science, and Dimensions provide abstract-and-citation metadata and CORE aggregates open-access full text, under varying access terms. Domain indices serve one field with richer metadata. PubMed indexes biomedical abstracts under the MeSH vocabulary, Europe PMC adds open full text, and Embase covers the pharmacology literature commercially. NASA ADS covers astronomy, INSPIRE-HEP high-energy physics, and GeoRef the geosciences, while the IPCC assessment reports form a canonical climate-synthesis corpus. These are also repackaged into ready-made retrieval corpora: MedCorp combines PubMed, StatPearls, textbooks, and Wikipedia, MatSciKB does the same for materials science, and PMC Open Access supplies open full text.</p></div></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Preprint literature</h3><div class="axis-prose"><p>Preprints trade peer review for recency, offering the most current view of active science. arXiv is the multidisciplinary anchor over a public OAI-PMH interface and bulk S3 access, with author-assigned subject categories. Field servers complement it where arXiv&#x27;s coverage is limited, including bioRxiv, medRxiv, ChemRxiv, EarthArXiv, and OSF Preprints.</p></div></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Institution-private corpora</h3><div class="axis-prose"><p>Institution-private corpora are collaboration wikis, logbooks, and internal notes that share the same textual substrate but stay behind access restrictions. On-premise systems retrieve over them while keeping the data private, as in MITRA over CMS collaboration documentation and DUNE-GPT over Fermilab&#x27;s internal resources.</p></div></div>
     
 <figure class="sys-table-wrap">
-  
+  <figcaption class="sys-cap">Representative resources (survey Table 1).</figcaption>
   <div class="sys-table-scroll">
     <table class="sys-table ks-table">
       <thead><tr>
@@ -163,10 +154,12 @@
       <h2>Relational</h2>
       <a class="axis-sub-link" href="K2.html">8 systems on this substrate →</a>
     </div>
-    <p class="axis-sub-desc">Curated graphs of scientific relations, UMLS, PrimeKG, DRKG, STRING, KEGG, citation graphs. Reached by entity linking and traversal.</p>
+    <div class="axis-prose"><p>The relational substrate is the curated web of scientific relations, the graphs that record how genes, diseases, drugs, and concepts connect. Its knowledge lives not in any single node but in the edges between them, the asserted links that no one document states in one place.</p></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Curated concept-relation graphs</h3><div class="axis-prose"><p>These are expert-curated graphs of asserted relations among canonical scientific entities. UMLS unifies biomedical vocabularies, while SNOMED CT and ICD-10/11 supply clinical and diagnostic terms. PrimeKG and DRKG assemble integrated drug, disease, and target relations, while STITCH records chemical-protein interactions. STRING protein-interaction data, KEGG, Reactome, and Gene Ontology map pathways and functional annotation, and the disease-gene resources OMIM, DisGeNET, and ClinVar link variants to phenotypes.</p></div></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Literature-derived graphs</h3><div class="axis-prose"><p>The same primary literature, once its citations and shared entities are linked, forms a graph rather than a set of passages. OpenCitations and the citation layers of OpenAlex and S2ORC expose reference edges between papers, over which task-specific graphs of papers and their extracted concepts are built.</p></div></div>
     
 <figure class="sys-table-wrap">
-  
+  <figcaption class="sys-cap">Representative resources (survey Table 1).</figcaption>
   <div class="sys-table-scroll">
     <table class="sys-table ks-table">
       <thead><tr>
@@ -185,10 +178,12 @@
       <h2>Structured-entity</h2>
       <a class="axis-sub-link" href="K3.html">7 systems on this substrate →</a>
     </div>
-    <p class="axis-sub-desc">The objects of science as data, molecules, 3D structures, and property records (ChEMBL, PubChem, PDB, Materials Project). Reached by structural or property query.</p>
+    <div class="axis-prose"><p>The structured-entity substrate is the objects of science themselves, the molecules, crystals, and materials held as data rather than described in words. Carrying no text, they can be reached only in their own terms, by matching a structure or a target property.</p></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Molecule and structure libraries</h3><div class="axis-prose"><p>These are libraries of molecular and 3D structure. The molecule libraries ChEMBL, ZINC, and PubChem hold compound records, and the 3D structure archives PDB, AlphaFold DB, and CrossDocked2020 hold atomic coordinates. A 2D fingerprint cannot capture 3D shape and a SMILES string drops stereochemistry, so the geometry that governs binding survives only in the 3D-coordinate form.</p></div></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Property databases</h3><div class="axis-prose"><p>These are property tables built from large-scale computation or measurement. Materials Project, OQMD, AFLOW, and Open Catalyst provide DFT-computed materials properties, QM9 and QMugs provide molecular properties, and BindingDB provides measured binding affinities.</p></div></div>
     
 <figure class="sys-table-wrap">
-  
+  <figcaption class="sys-cap">Representative resources (survey Table 1).</figcaption>
   <div class="sys-table-scroll">
     <table class="sys-table ks-table">
       <thead><tr>
@@ -207,10 +202,13 @@
       <h2>Perceptual</h2>
       <a class="axis-sub-link" href="K4.html">9 systems on this substrate →</a>
     </div>
-    <p class="axis-sub-desc">Raw instrument output, images, spectra, sequencing, time-series (MIMIC-CXR, MassBank, sky surveys). Reachable only through a learned cross-modal encoder.</p>
+    <div class="axis-prose"><p>The perceptual substrate is the raw output of scientific instruments, the images, spectra, and signals recorded straight from measurement. They carry no words at all, so nothing can be retrieved from them until an encoder is learned to connect a signal to a text query.</p></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Medical and biological imaging</h3><div class="axis-prose"><p>Medical imaging dominates this modality. MIMIC-CXR and IU-Xray pair chest X-rays with radiology reports, and pathology and ophthalmology corpora extend the setting. The neuroimaging cohorts ADNI, OASIS, and ABIDE, together with the histopathology atlases TCGA (via the Cancer Imaging Archive) and the Human Protein Atlas, provide further imaging substrates.</p></div></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Spectral libraries</h3><div class="axis-prose"><p>Spectral libraries store the raw signal traces that identify a molecule. Mass-spectral libraries such as MassBank and GNPS, together with the spectral layers of HMDB, are the entry point for de novo structure elucidation from raw spectra.</p></div></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Instrument arrays and time series</h3><div class="axis-prose"><p>Arrays and time series are the numerical readings streamed from instruments, and no standard encoder for them exists yet. Sky-survey archives (SDSS, Gaia, MAST ), earth-observation grids (NASA EOSDIS, CMIP6, NOAA NCEI, USGS EROS ), physiological ECG traces, and the collision records of CERN Open Data are among the largest open archives in science, yet almost none are indexed as a retrieval corpus by any cataloged scientific RAG system.</p></div></div>
     
 <figure class="sys-table-wrap">
-  
+  <figcaption class="sys-cap">Representative resources (survey Table 1).</figcaption>
   <div class="sys-table-scroll">
     <table class="sys-table ks-table">
       <thead><tr>

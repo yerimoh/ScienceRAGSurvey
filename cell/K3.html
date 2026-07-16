@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[K3] Structured-entity, Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1784173247">
+<link rel="stylesheet" href="../static/style.css?v=1784173808">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -112,24 +112,19 @@
 
 <section class="cell-hero">
   <div class="wrap">
-    <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
-    <h1><span class="cell-id-big">[K3]</span> Structured-entity</h1>
-    <p class="lede"><strong>7</strong> systems on the Structured-entity substrate, across all objectives.</p>
-    <div class="cell-axis-pair">
-      <div class="axis-card axis-k">
-        <span class="axis-tag">K 3</span>
-        <h3>Structured-entity</h3>
-        <p>The objects of science as data, molecules, 3D structures, and property records (ChEMBL, PubChem, PDB, Materials Project). Reached by structural or property query.</p>
-      </div>
-    </div>
+    <p class="eyebrow"><a href="knowledge-source.html">← Knowledge Source</a></p>
+    <h1><span class="cell-id-big axis-id-k">K3</span> Structured-entity</h1>
   </div>
 </section>
 
-<section class="cell-list">
+<section class="axis-body">
   <div class="wrap">
+    <div class="axis-prose"><p>The structured-entity substrate is the objects of science themselves, the molecules, crystals, and materials held as data rather than described in words. Carrying no text, they can be reached only in their own terms, by matching a structure or a target property.</p></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Molecule and structure libraries</h3><div class="axis-prose"><p>These are libraries of molecular and 3D structure. The molecule libraries ChEMBL, ZINC, and PubChem hold compound records, and the 3D structure archives PDB, AlphaFold DB, and CrossDocked2020 hold atomic coordinates. A 2D fingerprint cannot capture 3D shape and a SMILES string drops stereochemistry, so the geometry that governs binding survives only in the 3D-coordinate form.</p></div></div>
+<div class="axis-subsub"><h3 class="axis-subsub-title">Property databases</h3><div class="axis-prose"><p>These are property tables built from large-scale computation or measurement. Materials Project, OQMD, AFLOW, and Open Catalyst provide DFT-computed materials properties, QM9 and QMugs provide molecular properties, and BindingDB provides measured binding affinities.</p></div></div>
     
 <figure class="sys-table-wrap">
-  <figcaption class="sys-cap">Knowledge sources on the Structured-entity substrate — the data itself (survey Table 1).</figcaption>
+  <figcaption class="sys-cap">Representative resources (survey Table 1).</figcaption>
   <div class="sys-table-scroll">
     <table class="sys-table ks-table">
       <thead><tr>
@@ -139,6 +134,12 @@
     </table>
   </div>
 </figure>
+  </div>
+</section>
+
+<section class="cell-list">
+  <div class="wrap">
+    <h2 class="axis-systems-title">Systems retrieving over the Structured-entity substrate <span class="axis-systems-n">7</span></h2>
     
     <div class="card-grid"><article class="card" data-sub="">
   <h3 class="card-title"><a href="https://arxiv.org/abs/2304.09667" target="_blank" rel="noopener">GeneGPT: augmenting large language models with domain tools for improved access to biomedical information ↗</a></h3>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[O3] Discovery, Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1784173247">
+<link rel="stylesheet" href="../static/style.css?v=1784173808">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -112,16 +112,9 @@
 
 <section class="cell-hero">
   <div class="wrap">
-    <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
-    <h1><span class="cell-id-big">[O3]</span> Discovery</h1>
-    <p class="lede"><strong>13</strong> entries with <strong>Discovery</strong> objective (all K sources).</p>
-    <div class="cell-axis-pair">
-      <div class="axis-card axis-o">
-        <span class="axis-tag">O 3</span>
-        <h3>Discovery</h3>
-        <p>Propose an output the corpus does not contain, judged by an external verifier. (Property Prediction, Molecular Design, Materials Discovery, Hypothesis Generation.)</p>
-      </div>
-    </div>
+    <p class="eyebrow"><a href="operational-objective.html">← Operational Objective</a></p>
+    <h1><span class="cell-id-big axis-id-o">O3</span> Discovery</h1>
+    <p class="axis-sub-desc">Propose an output the corpus does not contain, judged by an external verifier. (Property Prediction, Molecular Design, Materials Discovery, Hypothesis Generation.)</p>
     <div class="cell-nav"><a href="../cell/K1.O3.html" class="pill" title="K1.O3">Textual × Discovery 4</a>
 <a href="../cell/K2.O3.html" class="pill" title="K2.O3">Relational × Discovery 1</a>
 <a href="../cell/K3.O3.html" class="pill" title="K3.O3">Structured-entity × Discovery 5</a>
@@ -129,11 +122,12 @@
   </div>
 </section>
 
-<section class="cell-list">
+<section class="axis-body">
   <div class="wrap">
+    <div class="axis-subsub"><h3 class="axis-subsub-title">Property Prediction</h3><div class="axis-prose"><p>Property prediction specifies an entity and a target property and scores the prediction against a held-out measurement. Curated-database recovery over the Structured-entity substrate covers molecular property and toxicity in MoleculeNet and the Therapeutics Data Commons, and protein function against time-delayed annotations in CAFA. Measured-response recovery covers gene-perturbation response in GEARS and PerturBench. Link prediction over the Relational substrate scores held-out biomedical edges in OpenBioLink and OGB-biokg, and spectrum-to-molecule elucidation over the Perceptual substrate scores recovered structures in MassSpecGym. A held-out reference contains only what has already been measured, so a correct prediction outside it is scored as wrong, and recovery certifies fit rather than mechanism, since a strong fit can be interpolation.</p></div></div><div class="axis-subsub"><h3 class="axis-subsub-title">Molecular Design</h3><div class="axis-prose"><p>Molecular design sets a target such as a protein pocket or a property profile and scores a proposed molecule the corpus does not contain. PMO defines a set of property-optimization objectives under a capped oracle-call budget, and CrossDocked2020 provides docking pockets against which a generated ligand and its 3D pose are scored for structural accuracy. These benchmarks retrieve over the Structured-entity substrate for molecular structure and over the Perceptual substrate when a 3D pose conditions generation. Design benchmarks score binding or property proxies computed in silico, so a high score certifies the proxy rather than the wet-lab outcome it stands for.</p></div></div><div class="axis-subsub"><h3 class="axis-subsub-title">Materials Discovery</h3><div class="axis-prose"><p>Materials discovery sets a design target such as a stable crystal or a catalytic surface and scores it by re-running a physics simulator over the Structured-entity substrate of crystal and surface records. Matbench Discovery scores thermodynamic stability against DFT-relaxed ground truth, ADsorbML re-evaluates each adsorption structure with a DFT single point, MLIP Arena tests dynamical consistency beyond static references, and ScienceAgentBench executes generated code against task success criteria. A simulator confirms candidates far faster than laboratory screening, but it cannot judge the limits of its own functionals, kinetics, or synthesis feasibility, bounding what a passing score establishes.</p></div></div><div class="axis-subsub"><h3 class="axis-subsub-title">Hypothesis Generation</h3><div class="axis-prose"><p>Hypothesis generation provides a research context and scores a proposed idea, mechanism, or pathway that has no stored answer to match, recovering it against a held-out reference rather than a lexical gold. Rediscovery benchmarks withhold findings published after a model&#x27;s knowledge cutoff and score how closely a generated hypothesis matches the withheld one, MOOSE-Chem scoring chemistry hypotheses against expert-annotated 2024 papers and ResearchBench decomposing discovery into inspiration retrieval, hypothesis composition, and ranking a gold hypothesis above generated negatives across twelve disciplines. HypoBench measures the recovery rate of ground-truth patterns on synthetic tasks, and TruthHypo scores the groundedness of biomedical hypotheses against a knowledge graph and a domain-specific corpus over the Relational substrate. These benchmarks retrieve inspirations over the Textual substrate of prior literature and, in TruthHypo, over a Relational knowledge graph. Because their verifier is a similarity match to a held-out finding or a groundedness check rather than a physical simulator, hypothesis generation sits at the weakest verification of the seven tasks, though contamination-controlled rediscovery makes its scores more reproducible than open-ended novelty rating.</p></div></div>
     
 <figure class="sys-table-wrap">
-  <figcaption class="sys-cap">Benchmarks for the Discovery objective — the tasks and their ground truth (survey Table 2).</figcaption>
+  <figcaption class="sys-cap">Benchmarks for this objective (survey Table 2).</figcaption>
   <div class="sys-table-scroll">
     <table class="sys-table bm-table">
       <thead><tr>
@@ -143,6 +137,12 @@
     </table>
   </div>
 </figure>
+  </div>
+</section>
+
+<section class="cell-list">
+  <div class="wrap">
+    <h2 class="axis-systems-title">Systems reaching the Discovery objective <span class="axis-systems-n">13</span></h2>
     <div class="subsec-filter" id="oaxisO3subf">
 <button class="subsec-btn active" data-sub="">All <span class="subsec-n">13</span></button>
 <button class="subsec-btn" data-sub="Molecular Design">Molecular Design <span class="subsec-n">6</span></button>
