@@ -1682,7 +1682,7 @@ def render_browse():
   </div>
 </section>
 
-<script src="static/search.js"></script>
+<script src="static/search.js?v={int((ROOT / 'static/search.js').stat().st_mtime)}"></script>
 '''
     (ROOT / 'browse.html').write_text(page_head('Browse', base='', current='browse') + body + PAGE_FOOT)
 

@@ -16,6 +16,11 @@
   const TYPE_LABELS = {Method:'Methods', benchmark:'Benchmarks', dataset:'Datasets', summary:'Surveys'};
   const K_LABELS = {'K1':'Textual','K2':'Relational','K3':'Structured-entity','K4':'Perceptual'};
   const O_LABELS = {'O1':'Grounding','O2':'Synthesis','O3':'Discovery'};
+  // subsection may be a string or an array in the catalog; always work with an array.
+  function subsOf(p) {
+    const s = p.subsection;
+    return Array.isArray(s) ? s : (s ? [s] : []);
+  }
   function cellLabel(code) {
     if (code.includes('.')) {
       const [k, o] = code.split('.');
@@ -46,7 +51,7 @@
 
     const tags = [];
     (p.ko_cells || []).forEach(c => tags.push(`<a href="cell/${c}.html" class="tag tag-cell" title="${esc(c)}">${esc(cellLabel(c))}</a>`));
-    if (p.subsection) tags.push(`<span class="tag tag-sub">${esc(p.subsection)}</span>`);
+    subsOf(p).forEach(s => tags.push(`<span class="tag tag-sub">${esc(s)}</span>`));
     (p.domain || []).forEach(d => tags.push(`<a href="domain/${d}.html" class="tag tag-domain">${DOMAIN_EMOJI[d] || ''}${esc(DOMAIN_LABELS[d] || d)}</a>`));
     if (p.type && p.type !== 'unknown') tags.push(`<a href="topics/${p.type.toLowerCase()}.html" class="tag tag-type">${esc(TYPE_LABELS[p.type] || p.type)}</a>`);
     (p.modality || []).forEach(m => { if (m && m !== 'Text') tags.push(`<span class="tag tag-mod">${esc(m)}</span>`); });
@@ -87,7 +92,7 @@
 
     const out = allPapers.filter(p => {
       if (cell && !(p.ko_cells || []).includes(cell)) return false;
-      if (sub  && p.subsection !== sub) return false;
+      if (sub  && !subsOf(p).includes(sub)) return false;
       if (dom && !(p.domain || []).includes(dom)) return false;
       if (typ && p.type !== typ) return false;
       if (yr) {
@@ -101,7 +106,7 @@
       if (query) {
         const hay = [
           p.title, p.method, p.note, p.ko_note, p.venue, p.bib_key,
-          p.db_name, p.retriever, p.generator, p.subsection,
+          p.db_name, p.retriever, p.generator, subsOf(p).join(' '),
           (p.ko_cells || []).map(cellLabel).join(' '),
           (p.domain || []).map(d => DOMAIN_LABELS[d] || d).join(' '),
           (p.modality || []).join(' '),
