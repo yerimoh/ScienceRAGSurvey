@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[K3] Structured-entity, Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1784173808">
+<link rel="stylesheet" href="../static/style.css?v=1784176118">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -119,12 +119,12 @@
 
 <section class="axis-body">
   <div class="wrap">
-    <div class="axis-prose"><p>The structured-entity substrate is the objects of science themselves, the molecules, crystals, and materials held as data rather than described in words. Carrying no text, they can be reached only in their own terms, by matching a structure or a target property.</p></div>
-<div class="axis-subsub"><h3 class="axis-subsub-title">Molecule and structure libraries</h3><div class="axis-prose"><p>These are libraries of molecular and 3D structure. The molecule libraries ChEMBL, ZINC, and PubChem hold compound records, and the 3D structure archives PDB, AlphaFold DB, and CrossDocked2020 hold atomic coordinates. A 2D fingerprint cannot capture 3D shape and a SMILES string drops stereochemistry, so the geometry that governs binding survives only in the 3D-coordinate form.</p></div></div>
-<div class="axis-subsub"><h3 class="axis-subsub-title">Property databases</h3><div class="axis-prose"><p>These are property tables built from large-scale computation or measurement. Materials Project, OQMD, AFLOW, and Open Catalyst provide DFT-computed materials properties, QM9 and QMugs provide molecular properties, and BindingDB provides measured binding affinities.</p></div></div>
+    <p class="axis-lede">The structured-entity substrate is the objects of science themselves, the molecules, crystals, and materials held as data rather than described in words.</p>
+<div class="res-group"><h3 class="res-group-title">Molecule and structure libraries</h3><p class="res-note">These are libraries of molecular and 3D structure.</p><div class="res-chips"><a class="res-chip" href="https://doi.org/10.1093/nar/gkr777" target="_blank" rel="noopener">ChEMBL</a><a class="res-chip" href="https://doi.org/10.1021/acs.jcim.2c01253" target="_blank" rel="noopener">ZINC</a><a class="res-chip" href="https://doi.org/10.1093/nar/gkv951" target="_blank" rel="noopener">PubChem</a><a class="res-chip" href="https://doi.org/10.1093/nar/28.1.235" target="_blank" rel="noopener">PDB</a><a class="res-chip" href="https://doi.org/10.1093/nar/gkab1061" target="_blank" rel="noopener">AlphaFold DB</a><a class="res-chip" href="https://doi.org/10.1021/acs.jcim.0c00411" target="_blank" rel="noopener">CrossDocked2020</a></div></div>
+<div class="res-group"><h3 class="res-group-title">Property databases</h3><p class="res-note">These are property tables built from large-scale computation or measurement.</p><div class="res-chips"><span class="res-chip res-chip-plain">Materials Project</span><span class="res-chip res-chip-plain">OQMD</span><span class="res-chip res-chip-plain">AFLOW</span><a class="res-chip" href="https://arxiv.org/abs/2010.09990" target="_blank" rel="noopener">Open Catalyst</a><span class="res-chip res-chip-plain">QM9</span><span class="res-chip res-chip-plain">QMugs</span><a class="res-chip" href="https://doi.org/10.1093/nar/gkl999" target="_blank" rel="noopener">BindingDB</a></div></div>
     
 <figure class="sys-table-wrap">
-  <figcaption class="sys-cap">Representative resources (survey Table 1).</figcaption>
+  <figcaption class="sys-cap">Scale and access at a glance (survey Table 1).</figcaption>
   <div class="sys-table-scroll">
     <table class="sys-table ks-table">
       <thead><tr>
@@ -134,76 +134,12 @@
     </table>
   </div>
 </figure>
-  </div>
-</section>
-
-<section class="cell-list">
-  <div class="wrap">
-    <h2 class="axis-systems-title">Systems retrieving over the Structured-entity substrate <span class="axis-systems-n">7</span></h2>
-    
-    <div class="card-grid"><article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2304.09667" target="_blank" rel="noopener">GeneGPT: augmenting large language models with domain tools for improved access to biomedical information ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">GeneGPT</span>, <span class="meta-venue">Bioinformatics</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Codex learns to use the NCBI Web APIs (E-utils, BLAST) in context, detecting and executing API calls during decoding and inserting raw results (augmented decoding). It averages 0.83 across 9 GeneTuring tasks, beating New Bing (0.44).</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Structured-entity × Grounding</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_bioinformatics_JinYCL24.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2401.17244" target="_blank" rel="noopener">LLaMP: Large Language Model Made Powerful for High-fidelity Materials Knowledge Retrieval ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">LLaMP MP Property Benchmark</span>, <span class="meta-venue">EMNLP</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">main.tex: K=-; O=O1</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Structured-entity × Grounding</a><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">Structured Table</span><span class="tag tag-mod">3D Structure</span></div>
-  <a href="../papers/DBLP_conf_emnlp_ChiangHCR25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">Molecule Generation with Fragment Retrieval Augmentation</h3>
-  <div class="card-meta"><span class="meta-method">f-RAG</span>, <span class="meta-venue">NeurIPS</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Fragment-based drug discovery with retrieval augmentation; hard/soft fragment retrieval; iterative refinement + genetic fragment modification; evaluated on PMO benchmark 23 tasks; AUC top-10 metric</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_nips_LeeKV0RPVN24.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">Rag2Mol: structure-based drug design based on RAG</h3>
-  <div class="card-meta"><span class="meta-method">Rag2Mol</span>, <span class="meta-venue">Briefings in Bioinformatics</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">★ K2.O3. Cross-KNN graph fusion. PTPN2 undruggable target case validated.</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">3D Structure</span><span class="tag tag-mod">SMILES</span></div>
-  <a href="../papers/DBLP_journals_bib_ZhangPHCM25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">TaLiRAGen: target-aware ligand generation via RAG LLMs</h3>
-  <div class="card-meta"><span class="meta-method">TaLiRAGen</span>, <span class="meta-venue">Molecular Diversity</span>, <span class="meta-year">2026</span></div>
-  <p class="card-note">★ K2.O3 EXEMPLAR. No-training RAG+LLM SBDD. Evidence-theoretic norm metric.</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">SMILES</span><span class="tag tag-mod">3D Structure</span></div>
-  <a href="../papers/nan2026taliragen.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://openreview.net/forum?id=vDFA1tpuLvk" target="_blank" rel="noopener">Retrieval-based Controllable Molecule Generation ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">RetMol</span>, <span class="meta-venue">ICLR</span>, <span class="meta-year">2023</span></div>
-  <p class="card-note">Full-text verified 2026-05-31: retrieves exemplar molecules from ZINC/ChEMBL to steer a frozen generator without fine-tuning; verified by AutoDock on SARS-CoV-2 main protease binding. Curated KB (K2), strong external verifier (docking).</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">DBLP:journals/corr/abs-2603-15712</h3>
-  
-  <p class="card-note">GPT-4 + RAG over 50,000 materials (Materials Project, NOMAD, OC20); 250+ HEA CO2 reduction catalysts; 82% thermodynamic stability; best alloy Fe0.2Co0.2Ni0.2Ir0.1Ru0.3 at 0.285V limiting potential (25% vs IrO2); 200x HTS efficiency</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2603-15712.html" class="card-summary-link">Summary →</a>
-</article>
-</div>
+    <div class="axis-systems-link">
+      <span class="axis-systems-label">Systems retrieving over this substrate, by objective:</span>
+      <div class="cell-nav"><a href="K3.O1.html" class="pill" title="K3.O1">Structured-entity × Grounding <span class="pill-n">2</span></a>
+<a href="K3.O2.html" class="pill" title="K3.O2">Structured-entity × Synthesis <span class="pill-n">0</span></a>
+<a href="K3.O3.html" class="pill" title="K3.O3">Structured-entity × Discovery <span class="pill-n">5</span></a></div>
+    </div>
   </div>
 </section>
 </main>

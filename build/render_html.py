@@ -710,19 +710,39 @@ def prose_html(text):
     return '\n'.join(f'<p>{esc(p.strip())}</p>' for p in text.split('\n\n') if p.strip())
 
 
-def substrate_prose_html(K, base='../', heading_level='h3'):
-    """The §4 body for one substrate: intro paragraph + each sub-subsection
-    (title + prose listing its named resources)."""
+def resource_chips_html(resources, base='../'):
+    """The actual data resources as linked chips (external link where the bib has one)."""
+    if not resources:
+        return ''
+    items = []
+    for r in resources:
+        name = esc(r.get('name', ''))
+        link = r.get('link')
+        if link:
+            items.append(f'<a class="res-chip" href="{esc(link)}" target="_blank" rel="noopener">{name}</a>')
+        else:
+            items.append(f'<span class="res-chip res-chip-plain">{name}</span>')
+    return f'<div class="res-chips">{"".join(items)}</div>'
+
+
+def substrate_resources_html(K, base='../', heading_level='h3'):
+    """Short §4 summary for one substrate + its data resources, grouped by
+    sub-subsection, each as a linked chip. No long prose — just the key line and
+    the datasets themselves."""
     s = K_PROSE.get(K)
     if not s:
         return ''
-    parts = [f'<div class="axis-prose">{prose_html(s.get("intro", ""))}</div>']
+    parts = []
+    if s.get('summary'):
+        parts.append(f'<p class="axis-lede">{esc(s["summary"])}</p>')
     for ss in s.get('subsubs', []):
+        note = ss.get('summary', '')
         parts.append(
-            f'<div class="axis-subsub">'
-            f'<{heading_level} class="axis-subsub-title">{esc(ss.get("title", ""))}</{heading_level}>'
-            f'<div class="axis-prose">{prose_html(ss.get("text", ""))}</div>'
-            f'</div>'
+            f'<div class="res-group">'
+            f'<{heading_level} class="res-group-title">{esc(ss.get("title", ""))}</{heading_level}>'
+            + (f'<p class="res-note">{esc(note)}</p>' if note else '')
+            + resource_chips_html(ss.get('resources', []), base)
+            + '</div>'
         )
     return '\n'.join(parts)
 
@@ -1862,13 +1882,14 @@ def render_cell_pages():
 
     # ---------- K-axis roll-up pages (cell/K1.html etc.) ----------
     for K in ['K1', 'K2', 'K3', 'K4']:
-        ps = axis_papers(K)
         kn, kd = K_LABELS[K]
-        cards = '\n'.join(paper_card(p, base='../', axis_scope=K) for p in ps) or '<p class="empty">No entries yet.</p>'
-        sf = subsec_filter_html(ps, prefix=f'kaxis{K}', axis_scope=K)
-        prose = substrate_prose_html(K, base='../')
+        resources = substrate_resources_html(K, base='../')
         ks_table = knowledge_source_table_html(substrate=K, base='../',
-                                               caption='Representative resources (survey Table 1).')
+                                               caption='Scale and access at a glance (survey Table 1).')
+        # systems live on the K×O cell pages, linked as pills rather than dumped as cards
+        cell_pills = '\n'.join(
+            f'<a href="{K}.{O}.html" class="pill" title="{K}.{O}">{cell_label(K+"."+O)} <span class="pill-n">{cell_count(K+"."+O)}</span></a>'
+            for O in ['O1', 'O2', 'O3'])
         body = f'''
 <section class="cell-hero">
   <div class="wrap">
@@ -1879,16 +1900,12 @@ def render_cell_pages():
 
 <section class="axis-body">
   <div class="wrap">
-    {prose}
+    {resources}
     {ks_table}
-  </div>
-</section>
-
-<section class="cell-list">
-  <div class="wrap">
-    <h2 class="axis-systems-title">Systems retrieving over the {esc(kn)} substrate <span class="axis-systems-n">{len(ps)}</span></h2>
-    {sf}
-    <div class="card-grid">{cards}</div>
+    <div class="axis-systems-link">
+      <span class="axis-systems-label">Systems retrieving over this substrate, by objective:</span>
+      <div class="cell-nav">{cell_pills}</div>
+    </div>
   </div>
 </section>
 '''
@@ -1896,33 +1913,28 @@ def render_cell_pages():
 
     # ---------- O-axis roll-up pages (cell/O1.html etc.) ----------
     for O in ['O1', 'O2', 'O3']:
-        # Curated union of every K×O cell under this objective (main2.tex-aligned).
-        ps = axis_papers(O)
         on, od = O_LABELS[O]
-        sf = subsec_filter_html(ps, prefix=f'oaxis{O}', axis_scope=O)
-        cards = '\n'.join(paper_card(p, base='../', axis_scope=O) for p in ps) or '<p class="empty">No entries yet.</p>'
-        # §5 prose for the task(s) under this rung
+        # §5 task(s) under this rung: short summary each
         task_blocks = []
         for t in [tp['name'] for tp in AXIS_PROSE.get('O', {}).get('tasks', []) if tp.get('rung') == O]:
             tp = O_PROSE.get(t)
             if tp:
                 task_blocks.append(
-                    f'<div class="axis-subsub"><h3 class="axis-subsub-title">{esc(t)}</h3>'
-                    f'<div class="axis-prose">{prose_html(tp.get("text", ""))}</div></div>'
+                    f'<div class="res-group"><h3 class="res-group-title">{esc(t)}</h3>'
+                    f'<p class="res-note">{esc(tp.get("summary", ""))}</p></div>'
                 )
-        bm_table = benchmark_table_html(rung=O, base='../', caption='Benchmarks for this objective (survey Table 2).')
-        # K-cell breakdown pills
-        o_cells_nav = '\n'.join(
-            f'<a href="../cell/{K}.{O}.html" class="pill" title="{K}.{O}">{cell_label(K+"."+O)} {cell_count(K+"."+O)}</a>'
-            for K in ['K1', 'K2', 'K3', 'K4']
+        bm_table = benchmark_table_html(rung=O, base='../', caption='Benchmarks and their ground truth (survey Table 2).')
+        # systems live on the K×O cell pages, linked as pills rather than dumped as cards
+        cell_pills = '\n'.join(
+            f'<a href="{K}.{O}.html" class="pill" title="{K}.{O}">{cell_label(K+"."+O)} <span class="pill-n">{cell_count(K+"."+O)}</span></a>'
+            for K in ['K1', 'K2', 'K3', 'K4'] if cell_count(f'{K}.{O}')
         )
         body = f'''
 <section class="cell-hero">
   <div class="wrap">
     <p class="eyebrow"><a href="operational-objective.html">← Operational Objective</a></p>
     <h1><span class="cell-id-big axis-id-o">{O}</span> {esc(on)}</h1>
-    <p class="axis-sub-desc">{esc(od)}</p>
-    <div class="cell-nav">{o_cells_nav}</div>
+    <p class="axis-lede">{esc(od)}</p>
   </div>
 </section>
 
@@ -1930,14 +1942,10 @@ def render_cell_pages():
   <div class="wrap">
     {''.join(task_blocks)}
     {bm_table}
-  </div>
-</section>
-
-<section class="cell-list">
-  <div class="wrap">
-    <h2 class="axis-systems-title">Systems reaching the {esc(on)} objective <span class="axis-systems-n">{len(ps)}</span></h2>
-    {sf}
-    <div class="card-grid">{cards}</div>
+    <div class="axis-systems-link">
+      <span class="axis-systems-label">Systems reaching this objective, by substrate:</span>
+      <div class="cell-nav">{cell_pills}</div>
+    </div>
   </div>
 </section>
 '''
@@ -1966,7 +1974,8 @@ O_OVERVIEW_INTRO = (
 
 def render_axis_overview():
     # ----- Knowledge Source (K axis), §4 of the survey -----
-    k_intro = prose_html(AXIS_PROSE.get('K', {}).get('intro', '')) or f'<p>{K_OVERVIEW_INTRO}</p>'
+    k_summary = AXIS_PROSE.get('K', {}).get('summary', '') or AXIS_PROSE.get('K', {}).get('intro', '')
+    k_intro = f'<p>{esc(k_summary)}</p>' if k_summary else f'<p>{K_OVERVIEW_INTRO}</p>'
     subs = []
     for K in ['K1', 'K2', 'K3', 'K4']:
         kn = K_LABELS[K][0]
@@ -1977,10 +1986,9 @@ def render_axis_overview():
     <div class="axis-sub-head">
       <span class="sys-k sys-k-{K.lower()}">{esc(K_SHORT.get(K, K))}</span>
       <h2>{esc(kn)}</h2>
-      <a class="axis-sub-link" href="{K}.html">{n} systems on this substrate →</a>
+      <a class="axis-sub-link" href="{K}.html">details &amp; {n} systems →</a>
     </div>
-    {substrate_prose_html(K, base='../')}
-    {knowledge_source_table_html(substrate=K, base='../', caption='Representative resources (survey Table 1).')}
+    {substrate_resources_html(K, base='../')}
   </div>
 </section>''')
     nav = '\n'.join(
@@ -2001,7 +2009,8 @@ def render_axis_overview():
         page_head('Knowledge Source', base='../', current='cell/knowledge-source') + body + page_foot('../'))
 
     # ----- Operational Objective (O axis), §5 of the survey -----
-    o_intro = prose_html(AXIS_PROSE.get('O', {}).get('intro', '')) or f'<p>{O_OVERVIEW_INTRO}</p>'
+    o_summary = AXIS_PROSE.get('O', {}).get('summary', '') or AXIS_PROSE.get('O', {}).get('intro', '')
+    o_intro = f'<p>{esc(o_summary)}</p>' if o_summary else f'<p>{O_OVERVIEW_INTRO}</p>'
     RUNGS = [
         ('O1', ['Question Answering']),
         ('O2', ['Claim Verification', 'Literature Synthesis']),
@@ -2016,8 +2025,8 @@ def render_axis_overview():
             tp = O_PROSE.get(t)
             if tp:
                 task_blocks.append(
-                    f'<div class="axis-subsub"><h3 class="axis-subsub-title">{esc(t)}</h3>'
-                    f'<div class="axis-prose">{prose_html(tp.get("text", ""))}</div></div>'
+                    f'<div class="res-group"><h3 class="res-group-title">{esc(t)}</h3>'
+                    f'<p class="res-note">{esc(tp.get("summary", ""))}</p></div>'
                 )
         osubs.append(f'''
 <section class="axis-sub" id="{O.lower()}">
@@ -2025,9 +2034,9 @@ def render_axis_overview():
     <div class="axis-sub-head">
       <span class="sys-o sys-o-{O.lower()}">{esc(O)}</span>
       <h2>{esc(on)}</h2>
-      <a class="axis-sub-link" href="{O}.html">{n} systems reaching this objective →</a>
+      <a class="axis-sub-link" href="{O}.html">details &amp; {n} systems →</a>
     </div>
-    <p class="axis-sub-desc">{esc(od)}</p>
+    <p class="axis-lede">{esc(od)}</p>
     {''.join(task_blocks)}
     {benchmark_table_html(rung=O, base='../', caption='Benchmarks for this objective (survey Table 2).')}
   </div>

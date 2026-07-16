@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[K4] Perceptual, Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1784173808">
+<link rel="stylesheet" href="../static/style.css?v=1784176118">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -119,13 +119,13 @@
 
 <section class="axis-body">
   <div class="wrap">
-    <div class="axis-prose"><p>The perceptual substrate is the raw output of scientific instruments, the images, spectra, and signals recorded straight from measurement. They carry no words at all, so nothing can be retrieved from them until an encoder is learned to connect a signal to a text query.</p></div>
-<div class="axis-subsub"><h3 class="axis-subsub-title">Medical and biological imaging</h3><div class="axis-prose"><p>Medical imaging dominates this modality. MIMIC-CXR and IU-Xray pair chest X-rays with radiology reports, and pathology and ophthalmology corpora extend the setting. The neuroimaging cohorts ADNI, OASIS, and ABIDE, together with the histopathology atlases TCGA (via the Cancer Imaging Archive) and the Human Protein Atlas, provide further imaging substrates.</p></div></div>
-<div class="axis-subsub"><h3 class="axis-subsub-title">Spectral libraries</h3><div class="axis-prose"><p>Spectral libraries store the raw signal traces that identify a molecule. Mass-spectral libraries such as MassBank and GNPS, together with the spectral layers of HMDB, are the entry point for de novo structure elucidation from raw spectra.</p></div></div>
-<div class="axis-subsub"><h3 class="axis-subsub-title">Instrument arrays and time series</h3><div class="axis-prose"><p>Arrays and time series are the numerical readings streamed from instruments, and no standard encoder for them exists yet. Sky-survey archives (SDSS, Gaia, MAST ), earth-observation grids (NASA EOSDIS, CMIP6, NOAA NCEI, USGS EROS ), physiological ECG traces, and the collision records of CERN Open Data are among the largest open archives in science, yet almost none are indexed as a retrieval corpus by any cataloged scientific RAG system.</p></div></div>
+    <p class="axis-lede">The perceptual substrate is the raw output of scientific instruments, the images, spectra, and signals recorded straight from measurement.</p>
+<div class="res-group"><h3 class="res-group-title">Medical and biological imaging</h3><p class="res-note">Medical imaging dominates this modality.</p><div class="res-chips"><a class="res-chip" href="https://doi.org/10.13026/4jqj-jw95" target="_blank" rel="noopener">MIMIC-CXR</a><span class="res-chip res-chip-plain">IU-Xray</span><span class="res-chip res-chip-plain">ADNI</span><a class="res-chip" href="https://doi.org/10.1162/jocn.2007.19.9.1498" target="_blank" rel="noopener">OASIS</a><span class="res-chip res-chip-plain">ABIDE</span><span class="res-chip res-chip-plain">TCGA</span><span class="res-chip res-chip-plain">Human Protein Atlas</span></div></div>
+<div class="res-group"><h3 class="res-group-title">Spectral libraries</h3><p class="res-note">Spectral libraries store the raw signal traces that identify a molecule.</p><div class="res-chips"><span class="res-chip res-chip-plain">MassBank</span><span class="res-chip res-chip-plain">GNPS</span><span class="res-chip res-chip-plain">HMDB</span></div></div>
+<div class="res-group"><h3 class="res-group-title">Instrument arrays and time series</h3><p class="res-note">Arrays and time series are the numerical readings streamed from instruments, and no standard encoder for them exists yet.</p><div class="res-chips"><span class="res-chip res-chip-plain">SDSS</span><span class="res-chip res-chip-plain">Gaia</span><span class="res-chip res-chip-plain">MAST</span><a class="res-chip" href="https://doi.org/10.1109/MASS.1995.528217" target="_blank" rel="noopener">NASA EOSDIS</a><span class="res-chip res-chip-plain">CMIP6</span><span class="res-chip res-chip-plain">NOAA NCEI</span><span class="res-chip res-chip-plain">USGS EROS</span><span class="res-chip res-chip-plain">CERN Open Data</span></div></div>
     
 <figure class="sys-table-wrap">
-  <figcaption class="sys-cap">Representative resources (survey Table 1).</figcaption>
+  <figcaption class="sys-cap">Scale and access at a glance (survey Table 1).</figcaption>
   <div class="sys-table-scroll">
     <table class="sys-table ks-table">
       <thead><tr>
@@ -135,94 +135,12 @@
     </table>
   </div>
 </figure>
-  </div>
-</section>
-
-<section class="cell-list">
-  <div class="wrap">
-    <h2 class="axis-systems-title">Systems retrieving over the Perceptual substrate <span class="axis-systems-n">9</span></h2>
-    
-    <div class="card-grid"><article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2411.16523" target="_blank" rel="noopener">LaB-RAG: Label Boosted Retrieval Augmented Generation for Radiology Report Generation ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">LaB-RAG</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Training-free RAG + in-context learning: predict labels from the image, retrieve image-label-text from MIMIC-CXR by label filter + image similarity, and a frozen Mistral-7B writes the report.</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">Image</span></div>
-  <a href="../papers/DBLP_journals_corr_abs-2411-16523.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2510.01558" target="_blank" rel="noopener">CardioRAG: A Retrieval-Augmented Generation Framework for Multimodal Chagas Disease Detection ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">CardioRAG</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Retrieves similar cases from a past-ECG database (VAE latent + clinical features + labels) by latent-signal similarity, and a small LLM grounds a Chagas diagnosis. RAG raises recall from 49% to 90%.</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2510-01558.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">MMed-RAG: Versatile Multimodal RAG System for Medical VLMs</h3>
-  <div class="card-meta"><span class="meta-method">MMed-RAG</span>, <span class="meta-venue">ICLR</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">★ K3 multimodal. Domain-aware retriever (radiology/pathology/ophthalmology). DPO-based RAG-PT for cross-modal alignment.</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">Image</span></div>
-  <a href="../papers/DBLP_conf_iclr_0005ZLWSWZ0Y25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2407.05131" target="_blank" rel="noopener">RULE: Reliable Multimodal RAG for Factuality in Medical Vision Language Models ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">RULE</span>, <span class="meta-venue">EMNLP</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Multimodal RAG that retrieves medical image-report pairs, calibrates the number of retrieved contexts with statistical risk control (FRC), and curbs over-reliance with preference tuning (KBPT). On a LLaVA-Med backbone, factual accuracy rises +47.4% on average.</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">Image</span></div>
-  <a href="../papers/DBLP_conf_emnlp_XiaZLZLLZY24.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">Fact-Aware Multimodal Retrieval Augmentation for Accurate Medical Radiology Report Generation</h3>
-  <div class="card-meta"><span class="meta-method">FactMM-RAG</span>, <span class="meta-venue">NAACL</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">RadGraph-based factual-pair mining + LLaVA. +6.5% CheXbert-F1 on MIMIC-CXR.</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">Image</span></div>
-  <a href="../papers/DBLP_conf_naacl_SunZHX25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">Patho-AgenticRAG: Pathology Agentic RAG with Textbook-aligned Multimodal Knowledge</h3>
-  <div class="card-meta"><span class="meta-method">Patho-AgenticRAG</span>, <span class="meta-venue">AAAI</span>, <span class="meta-year">2026</span></div>
-  <p class="card-note">Multimodal agentic RAG for pathology VLMs; retrieves over pathology-specific image patches + text (K3.O1 cross-modal grounding)</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_aaai_ZhangGZZCZZYB26.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://proceedings.mlr.press/v235/huang24ab.html" target="_blank" rel="noopener">Interaction-based Retrieval-augmented Diffusion Models for Protein-specific 3D Molecule Generation ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">IRDiff</span>, <span class="meta-venue">ICML</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Full-text verified 2026-05-31: retrieves high-affinity ligand references via a protein-molecule interaction network to steer a target-aware diffusion model; SOTA binding affinity on CrossDocked2020 (Vina). Curated ligand KB, docking-verified.</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O3.html" class="tag tag-cell" title="K4.O3">Perceptual × Discovery</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2506.14488" target="_blank" rel="noopener">Reimagining Target-Aware Molecular Generation through Retrieval-Enhanced Aligned Diffusion ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">READ</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Full-text verified 2026-05-31: first retrieval-augmented diffusion framework for de novo ligand design; retrieves cognate ligands through a pocket-ligand bipartite graph; validated with AutoDock Vina (Score/Minimize/Dock). Curated KB, docking-verified.</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O3.html" class="tag tag-cell" title="K4.O3">Perceptual × Discovery</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://openreview.net/forum?id=78tc3EiUrN" target="_blank" rel="noopener">MADGEN: Mass-Spec attends to De Novo Molecular generation ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MADGEN</span>, <span class="meta-venue">ICLR</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Full-text verified 2026-06-01: MADGEN (ICLR 2025), the sole genuine retrieval-augmented de novo method for spectrum-to-molecule. Retrieves a molecular scaffold keyed on the MS/MS spectrum (contrastive spectrum-to-scaffold ranking, signal-keyed = K3) then generates the full str…</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O3.html" class="tag tag-cell" title="K4.O3">Perceptual × Discovery</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-</div>
+    <div class="axis-systems-link">
+      <span class="axis-systems-label">Systems retrieving over this substrate, by objective:</span>
+      <div class="cell-nav"><a href="K4.O1.html" class="pill" title="K4.O1">Perceptual × Grounding <span class="pill-n">6</span></a>
+<a href="K4.O2.html" class="pill" title="K4.O2">Perceptual × Synthesis <span class="pill-n">0</span></a>
+<a href="K4.O3.html" class="pill" title="K4.O3">Perceptual × Discovery <span class="pill-n">3</span></a></div>
+    </div>
   </div>
 </section>
 </main>

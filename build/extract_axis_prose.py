@@ -18,7 +18,17 @@ import json
 from pathlib import Path
 
 TEX = Path(__file__).resolve().parents[1].parent / 'ACM' / 'csur_submission' / 'main2.tex'
+BIB = Path(__file__).resolve().parents[1].parent / 'ACM' / 'csur_submission' / 'references.bib'
 OUT = Path(__file__).resolve().parents[1] / 'data' / 'axis_prose.json'
+
+# Resource names whose §4 mention doesn't parse cleanly from the words before \cite
+# (trailing lowercase words, missing ~). Keyed by the first cite key of the mention.
+NAME_OVERRIDE = {
+    'lee2023climate': 'IPCC assessment reports',
+    'DBLP:conf/mss/KoblerBCH95': 'NASA EOSDIS',
+    'clark2013cancer': 'TCGA',
+}
+CONNECTORS = {'of', 'and', 'the', 'for', 'de', '&', 'via'}
 
 SUB_K = {'Textual': 'K1', 'Relational': 'K2', 'Structured-entity': 'K3', 'Perceptual': 'K4'}
 TASK_RUNG = {
@@ -112,10 +122,98 @@ def parse_subsections(block):
 
 def parse_subsubs(block):
     intro, subs = split_on_command(block, 'subsubsection')
-    return clean(intro), [(clean(t), clean(b)) for t, b in subs]
+    # keep raw body too, so resources can be pulled with their \cite keys intact
+    return (clean(intro), intro), [(clean(t), clean(b), b) for t, b in subs]
 
 
-def extract_K(tex):
+def load_bib_links():
+    """key -> {title, link}. link prefers an explicit url/doi field."""
+    if not BIB.exists():
+        return {}
+    text = BIB.read_text(errors='ignore')
+    out = {}
+    for m in re.finditer(r'@\w+\{([^,]+),(.*?)\n\}', text, flags=re.S):
+        key = m.group(1).strip()
+        fields = m.group(2)
+        def field(name):
+            fm = re.search(name + r'\s*=\s*[{"](.+?)[}"]\s*,?\s*\n', fields, flags=re.S | re.I)
+            return fm.group(1).strip() if fm else None
+        url = field('url')
+        doi = field('doi')
+        link = None
+        if url:
+            link = url.replace('\\_', '_').replace('\\&', '&')
+        elif doi:
+            link = 'https://doi.org/' + doi.replace('\\_', '_')
+        elif key.startswith('DBLP:'):
+            link = None
+        out[key] = {'title': field('title'), 'link': link}
+    return out
+
+
+def _namey(tok):
+    t = tok.strip('.,;:()')
+    if not t:
+        return False
+    return bool(re.match(r'^[A-Z0-9]', t)) or '-' in t or '/' in t or any(c.isupper() for c in t[1:])
+
+
+def resource_name_before(left):
+    """The proper-noun phrase immediately preceding a \\cite, read right-to-left."""
+    left = left.rstrip()
+    left = left.rstrip('~')
+    toks = left.split()
+    kept = []
+    for tok in reversed(toks):
+        if '\\cite' in tok or '~' in tok or '{' in tok or '}' in tok:
+            break
+        if kept and re.search(r'[,;]$', tok):   # trailing comma = end of a prior list item
+            break
+        core = tok.strip('.,;:()')
+        if _namey(tok):
+            kept.append(core)
+        elif core.lower() in CONNECTORS and kept:
+            kept.append(core)
+        else:
+            break
+    kept.reverse()
+    # trim leading/trailing connectors
+    while kept and kept[0].lower() in CONNECTORS:
+        kept.pop(0)
+    while kept and kept[-1].lower() in CONNECTORS:
+        kept.pop()
+    return ' '.join(kept).strip()
+
+
+def extract_resources(raw_body, bib):
+    """[{name, keys, link}] for each cited resource in a sub-subsection, de-duplicated."""
+    out, seen = [], set()
+    for m in re.finditer(r'\\cite[a-z]*\{([^}]+)\}', raw_body):
+        keys = [k.strip() for k in m.group(1).split(',')]
+        name = NAME_OVERRIDE.get(keys[0]) or resource_name_before(raw_body[:m.start()])
+        if not name or len(name) < 2:
+            continue
+        norm = name.lower()
+        if norm in seen:
+            continue
+        seen.add(norm)
+        link = None
+        for k in keys:
+            if bib.get(k, {}).get('link'):
+                link = bib[k]['link']
+                break
+        out.append({'name': name, 'keys': keys, 'link': link})
+    return out
+
+
+def first_sentence(text):
+    if not text:
+        return ''
+    m = re.match(r'(.+?[.!?])(\s|$)', text)
+    return (m.group(1) if m else text).strip()
+
+
+def extract_K(tex, bib):
     block = section_span(tex, '\\section{Knowledge Source}', '\\section{Operational Objective}')
     block = strip_comments(block)  # drop commented-out \subsection duplicates first
     # drop the Table 1 float so its LaTeX doesn't bleed into the prose
@@ -125,14 +223,20 @@ def extract_K(tex):
     substrates = []
     for title_raw, body in subs:
         name = clean(title_raw)
-        intro, subsubs = parse_subsubs(body)
+        (intro, _), subsubs = parse_subsubs(body)
         substrates.append({
             'code': SUB_K.get(name, name),
             'name': name,
             'intro': intro,
-            'subsubs': [{'title': t, 'text': x} for t, x in subsubs],
+            'summary': first_sentence(intro),
+            'subsubs': [{
+                'title': t,
+                'text': x,
+                'summary': first_sentence(x),
+                'resources': extract_resources(raw, bib),
+            } for t, x, raw in subsubs],
         })
-    return {'intro': clean(head), 'substrates': substrates}
+    return {'intro': clean(head), 'summary': first_sentence(clean(head)), 'substrates': substrates}
 
 
 def extract_O(tex):
@@ -145,13 +249,16 @@ def extract_O(tex):
     tasks = []
     for title_raw, body in subs:
         name = clean(title_raw)
-        tasks.append({'name': name, 'rung': TASK_RUNG.get(name, ''), 'text': clean(body)})
-    return {'intro': clean(head), 'tasks': tasks}
+        txt = clean(body)
+        tasks.append({'name': name, 'rung': TASK_RUNG.get(name, ''),
+                      'text': txt, 'summary': first_sentence(txt)})
+    return {'intro': clean(head), 'summary': first_sentence(clean(head)), 'tasks': tasks}
 
 
 def main():
     tex = TEX.read_text()
-    data = {'K': extract_K(tex), 'O': extract_O(tex)}
+    bib = load_bib_links()
+    data = {'K': extract_K(tex, bib), 'O': extract_O(tex)}
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2))
     ks = data['K']['substrates']
     print(f'K: {len(ks)} substrates, subsubs = ' + ', '.join(f"{s['code']}:{len(s['subsubs'])}" for s in ks))

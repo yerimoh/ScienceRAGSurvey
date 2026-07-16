@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[O1] Grounding, Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1784173808">
+<link rel="stylesheet" href="../static/style.css?v=1784176118">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -114,20 +114,16 @@
   <div class="wrap">
     <p class="eyebrow"><a href="operational-objective.html">← Operational Objective</a></p>
     <h1><span class="cell-id-big axis-id-o">O1</span> Grounding</h1>
-    <p class="axis-sub-desc">Answer a question whose gold already lies in the corpus, retrieve, cite, answer. (Question Answering.)</p>
-    <div class="cell-nav"><a href="../cell/K1.O1.html" class="pill" title="K1.O1">Textual × Grounding 10</a>
-<a href="../cell/K2.O1.html" class="pill" title="K2.O1">Relational × Grounding 6</a>
-<a href="../cell/K3.O1.html" class="pill" title="K3.O1">Structured-entity × Grounding 2</a>
-<a href="../cell/K4.O1.html" class="pill" title="K4.O1">Perceptual × Grounding 6</a></div>
+    <p class="axis-lede">Answer a question whose gold already lies in the corpus, retrieve, cite, answer. (Question Answering.)</p>
   </div>
 </section>
 
 <section class="axis-body">
   <div class="wrap">
-    <div class="axis-subsub"><h3 class="axis-subsub-title">Question Answering</h3><div class="axis-prose"><p>Question answering poses a question with a determinate answer and scores the returned answer against a gold label. Text-only benchmarks cover clinical and biomedical questions in MIRAGE, a suite of five medical QA sets, and PubMedQA, yes/no/maybe questions over abstracts, with LitQA2 requiring answers found only in paper bodies. Broader science is covered by MaScQA for materials-exam problems scored against official answer keys and SciQ for crowd-sourced multiple-choice questions across biology, chemistry, earth science, and physics. Retrieval over a Relational source appears in SciQA, which answers SPARQL queries over the Open Research Knowledge Graph against a gold answer set. Cross-modal question answering pairs a question with non-text evidence over the Perceptual substrate, as in the pathology-image benchmarks PathMMU and Path-VQA. Question answering is the most saturated task in scientific RAG, because its gold labels make scoring automatic, but that same fixed gold cannot separate genuine retrieval from parametric recall, and overlap between corpus and benchmark inflates the reported score.</p></div></div>
+    <div class="res-group"><h3 class="res-group-title">Question Answering</h3><p class="res-note">Question answering poses a question with a determinate answer and scores the returned answer against a gold label.</p></div>
     
 <figure class="sys-table-wrap">
-  <figcaption class="sys-cap">Benchmarks for this objective (survey Table 2).</figcaption>
+  <figcaption class="sys-cap">Benchmarks and their ground truth (survey Table 2).</figcaption>
   <div class="sys-table-scroll">
     <table class="sys-table bm-table">
       <thead><tr>
@@ -137,252 +133,13 @@
     </table>
   </div>
 </figure>
-  </div>
-</section>
-
-<section class="cell-list">
-  <div class="wrap">
-    <h2 class="axis-systems-title">Systems reaching the Grounding objective <span class="axis-systems-n">24</span></h2>
-    <div class="subsec-filter" id="oaxisO1subf">
-<button class="subsec-btn active" data-sub="">All <span class="subsec-n">24</span></button>
-<button class="subsec-btn" data-sub="Question Answering">Question Answering <span class="subsec-n">18</span></button>
-<button class="subsec-btn" data-sub="Cross-modal Grounding">Cross-modal Grounding <span class="subsec-n">6</span></button>
-</div>
-<script>
-(function(){
-  var bar = document.getElementById('oaxisO1subf');
-  if (!bar) return;
-  bar.querySelectorAll('.subsec-btn').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      bar.querySelectorAll('.subsec-btn').forEach(function(b){b.classList.remove('active');});
-      btn.classList.add('active');
-      var sub = btn.dataset.sub;
-      document.querySelectorAll('.card').forEach(function(card){
-        var cardSub = card.dataset.sub || '';
-        var cardSubs = cardSub.split(' | ');
-        card.style.display = (sub === '' || cardSubs.indexOf(sub) >= 0) ? '' : 'none';
-      });
-    });
-  });
-})();
-</script>
-
-    <div class="card-grid"><article class="card" data-sub="Question Answering">
-  <h3 class="card-title"><a href="https://aclanthology.org/2024.findings-acl.372" target="_blank" rel="noopener">Benchmarking Retrieval-Augmented Generation for Medicine ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MEDRAG</span>, <span class="meta-venue">ACL (Findings)</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">A RAG toolkit and benchmark for medical QA. PubMed + RRF over 4 corpora is optimal; GPT-3.5+MEDRAG approaches CoT GPT-4.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/dataset.html" class="tag tag-type">Datasets</a></div>
-  <a href="../papers/DBLP_conf_acl_Xiong0LZ24.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Question Answering">
-  <h3 class="card-title">DBLP:conf/pasc/GokdemirSBWHHSA25</h3>
-  
-  <p class="card-note">HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 76%; outperforms PubMedGPT and GPT-4; scales to thousands of GPUs</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_pasc_GokdemirSBWHHSA25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Question Answering">
-  <h3 class="card-title"><a href="https://doi.org/10.18653/v1/2022.emnlp-main.390" target="_blank" rel="noopener">BioReader: a Retrieval-Enhanced Text-to-Text Transformer for Biomedical Literature ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">BioReader</span>, <span class="meta-venue">EMNLP</span>, <span class="meta-year">2022</span></div>
-  <p class="card-note">The first retrieval-enhanced biomedical T5. It fetches relevant chunks from a ~60M-token PubMed-centric neural database and injects them via chunked cross-attention, surpassing prior SOTA on several biomedical NLP/QA tasks with 3x fewer parameters.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_emnlp_FrisoniMMV22.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Question Answering">
-  <h3 class="card-title">MITRA: Knowledge Retrieval over Physics Collaborations&#x27; Tacit Memory</h3>
-  <div class="card-meta"><span class="meta-method">MITRA</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2026</span></div>
-  <p class="card-note">RAG over CMS internal documents; DPR + cross-encoder reranker + 4-bit Mistral-7B; P@1 ~5.8x over BM25 on paraphrased queries (Set 2: 0.75 vs 0.13)</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2603-09800.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Question Answering">
-  <h3 class="card-title"><a href="https://doi.org/10.1093/bioinformatics/btae238" target="_blank" rel="noopener">Improving medical reasoning through retrieval and self-reflection with retrieval-augmented large language models ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">Self-BioRAG</span>, <span class="meta-venue">Bioinformatics (ISMB)</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">A self-reflective medical RAG that decides on its own whether to retrieve and rates evidence with self-reflection tokens. It retrieves PubMed abstracts, PMC full text, textbooks, and guidelines with MedCPT, and a 7B model beats comparable baselines on MedQA/MedMCQA/MMLU-Med (M…</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_bioinformatics_JeongSSK24.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Question Answering">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2408.01107" target="_blank" rel="noopener">BioRAG: A RAG-LLM Framework for Biological Question Reasoning ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">BIORAG</span>, <span class="meta-venue">arXiv 2024</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">22M scientific papers + domain-specific knowledge hierarchy; fine-tuned embedding model; iterative retrieval with search engine; evaluated on GeneTuring (7 tasks), MedMCQA, College Biology/Medicine; outperforms BioLLMs, GPT-3.5, NewBing</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2408-01107.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Question Answering">
-  <h3 class="card-title">Rationale-Guided Retrieval Augmented Generation for Medical Question Answering</h3>
-  <div class="card-meta"><span class="meta-method">RAG²</span>, <span class="meta-venue">NAACL</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Trains a small filter model with perplexity-difference auto-labeling + rationale queries + balanced retrieval. SOTA on MedQA.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_naacl_SohnPYPHSKK25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Question Answering">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2312.07559v2" target="_blank" rel="noopener">PaperQA: Retrieval-Augmented Generative Agent for Scientific Research ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">PaperQA</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2023</span></div>
-  <p class="card-note">Map-reduce answers with cited evidence and 0% citation hallucination; introduces the LitQA benchmark.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2312-07559.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Question Answering">
-  <h3 class="card-title"><a href="https://github.com/Jack-ZC8/Omni-RAG-Medical" target="_blank" rel="noopener">Towards Omni-RAG: Comprehensive Retrieval-Augmented Generation for Large Language Models in Medical Applications ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">Source Planning Optimisation (SPO)</span>, <span class="meta-venue">ACL</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Builds MedOmniKB (5 heterogeneous medical KBs) with a Source-Planning-Optimisation method; a small planner beats a 10x larger model.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">KG</span></div>
-  <a href="../papers/DBLP_conf_acl_ChenLJWG0025.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Question Answering">
-  <h3 class="card-title"><a href="https://doi.org/10.1007/978-3-031-88720-8_1" target="_blank" rel="noopener">BioRAGent: A Retrieval-Augmented Generation System for Showcasing Generative Query Expansion and Domain-Specific Search for Scientific Q&amp;A ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">BioRAGent</span>, <span class="meta-venue">ECIR</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">A conversational biomedical RAG demo that searches PubMed abstracts and titles via LLM-based generative query expansion and answers with citations to the retrieved papers. Reports top results on the BioASQ 2024 task.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O1.html" class="tag tag-cell" title="K1.O1">Textual × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_ecir_AteiaK25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Question Answering">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2311.17330" target="_blank" rel="noopener">Biomedical knowledge graph-optimized prompt generation for large language models ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">KG-RAG</span>, <span class="meta-venue">Bioinformatics</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Extracts a disease-centric minimal-schema subgraph from the SPOKE biomedical KG (41 databases, ~42M nodes) and injects only the key triples via embedding pruning. Versus Cypher-RAG: 54% fewer tokens and retrieval accuracy from 75% to 97%.</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_bioinformatics_SomanRMASPVCSRI24.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Question Answering">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2308.09729" target="_blank" rel="noopener">MindMap: Knowledge Graph Prompting Sparks Graph of Thoughts in Large Language Models ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MindMap</span>, <span class="meta-venue">ACL</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Diagnostic QA that retrieves path/neighbor evidence subgraphs from a curated clinical KG (disease-symptom-drug) and integrates them along graph-of-thoughts reasoning paths. With a GPT-3.5 backbone it beats GPT-4 on some baselines.</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_acl_0006WS24.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Question Answering">
-  <h3 class="card-title"><a href="https://aclanthology.org/2024.bionlp-1.13/" target="_blank" rel="noopener">KG-Rank: Enhancing Large Language Models for Medical QA with Knowledge Graphs and Ranking Techniques ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">KG-Rank</span>, <span class="meta-venue">BioNLP@ACL</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Retrieves one-hop UMLS triples for the question&#x27;s entities and narrows them by ranking/re-ranking (similarity, answer expansion, MMR, MedCPT) to synthesize a long-form medical answer. No fine-tuning needed.</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_bionlp_YangLMZKLCCCML24.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Question Answering">
-  <h3 class="card-title">Medical Graph RAG: Towards Safe Medical Large Language Model via Graph Retrieval-Augmented Generation</h3>
-  <div class="card-meta"><span class="meta-method">MedGraphRAG</span>, <span class="meta-venue">ACL</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Medicine and clinical knowledge, UMLS-aligned retrieval substrate</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_acl_WuZQCXMJG25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Question Answering">
-  <h3 class="card-title"><a href="https://aclanthology.org/2025.acl-long.580/" target="_blank" rel="noopener">HyKGE: A Hypothesis Knowledge Graph Enhanced RAG Framework for Accurate and Reliable Medical LLMs Responses ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">HyKGE</span>, <span class="meta-venue">ACL</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Seeds retrieval with an LLM hypothesis (HO) to fetch multi-hop reasoning chains from a fused curated medical KG (CMeKG, CPubMed-KG, Disease-KG; ~1.29M entities), filtering noise by HO-fragment reranking to synthesize a comprehensive answer in 2 LLM calls.</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_acl_Jiang0XQFWTDC0W25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Question Answering">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2410.04660" target="_blank" rel="noopener">KGARevion: An AI Agent for Knowledge-Intensive Biomedical QA ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">KGARevion</span>, <span class="meta-venue">ICLR</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">An agent loop of generating candidate triples, verifying them against a KG (PrimeKG/biokg), revising, and answering. Verifying the LLM&#x27;s latent knowledge against the KG removes factual errors and improves medical-QA reliability.</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_iclr_00010GLGCZ25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Question Answering">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2304.09667" target="_blank" rel="noopener">GeneGPT: augmenting large language models with domain tools for improved access to biomedical information ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">GeneGPT</span>, <span class="meta-venue">Bioinformatics</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Codex learns to use the NCBI Web APIs (E-utils, BLAST) in context, detecting and executing API calls during decoding and inserting raw results (augmented decoding). It averages 0.83 across 9 GeneTuring tasks, beating New Bing (0.44).</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Structured-entity × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_bioinformatics_JinYCL24.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Question Answering">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2401.17244" target="_blank" rel="noopener">LLaMP: Large Language Model Made Powerful for High-fidelity Materials Knowledge Retrieval ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">LLaMP MP Property Benchmark</span>, <span class="meta-venue">EMNLP</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">main.tex: K=-; O=O1</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O1.html" class="tag tag-cell" title="K3.O1">Structured-entity × Grounding</a><span class="tag tag-sub">Question Answering</span><a href="../domain/material.html" class="tag tag-domain">🪨Materials Science</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a><span class="tag tag-mod">Structured Table</span><span class="tag tag-mod">3D Structure</span></div>
-  <a href="../papers/DBLP_conf_emnlp_ChiangHCR25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Cross-modal Grounding">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2411.16523" target="_blank" rel="noopener">LaB-RAG: Label Boosted Retrieval Augmented Generation for Radiology Report Generation ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">LaB-RAG</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Training-free RAG + in-context learning: predict labels from the image, retrieve image-label-text from MIMIC-CXR by label filter + image similarity, and a frozen Mistral-7B writes the report.</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><span class="tag tag-sub">Cross-modal Grounding</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">Image</span></div>
-  <a href="../papers/DBLP_journals_corr_abs-2411-16523.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Cross-modal Grounding">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2510.01558" target="_blank" rel="noopener">CardioRAG: A Retrieval-Augmented Generation Framework for Multimodal Chagas Disease Detection ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">CardioRAG</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Retrieves similar cases from a past-ECG database (VAE latent + clinical features + labels) by latent-signal similarity, and a small LLM grounds a Chagas diagnosis. RAG raises recall from 49% to 90%.</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><span class="tag tag-sub">Cross-modal Grounding</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2510-01558.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Cross-modal Grounding">
-  <h3 class="card-title">MMed-RAG: Versatile Multimodal RAG System for Medical VLMs</h3>
-  <div class="card-meta"><span class="meta-method">MMed-RAG</span>, <span class="meta-venue">ICLR</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">★ K3 multimodal. Domain-aware retriever (radiology/pathology/ophthalmology). DPO-based RAG-PT for cross-modal alignment.</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><span class="tag tag-sub">Cross-modal Grounding</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">Image</span></div>
-  <a href="../papers/DBLP_conf_iclr_0005ZLWSWZ0Y25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Cross-modal Grounding">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2407.05131" target="_blank" rel="noopener">RULE: Reliable Multimodal RAG for Factuality in Medical Vision Language Models ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">RULE</span>, <span class="meta-venue">EMNLP</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Multimodal RAG that retrieves medical image-report pairs, calibrates the number of retrieved contexts with statistical risk control (FRC), and curbs over-reliance with preference tuning (KBPT). On a LLaVA-Med backbone, factual accuracy rises +47.4% on average.</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><span class="tag tag-sub">Cross-modal Grounding</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">Image</span></div>
-  <a href="../papers/DBLP_conf_emnlp_XiaZLZLLZY24.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Cross-modal Grounding">
-  <h3 class="card-title">Fact-Aware Multimodal Retrieval Augmentation for Accurate Medical Radiology Report Generation</h3>
-  <div class="card-meta"><span class="meta-method">FactMM-RAG</span>, <span class="meta-venue">NAACL</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">RadGraph-based factual-pair mining + LLaVA. +6.5% CheXbert-F1 on MIMIC-CXR.</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><span class="tag tag-sub">Cross-modal Grounding</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">Image</span></div>
-  <a href="../papers/DBLP_conf_naacl_SunZHX25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Cross-modal Grounding">
-  <h3 class="card-title">Patho-AgenticRAG: Pathology Agentic RAG with Textbook-aligned Multimodal Knowledge</h3>
-  <div class="card-meta"><span class="meta-method">Patho-AgenticRAG</span>, <span class="meta-venue">AAAI</span>, <span class="meta-year">2026</span></div>
-  <p class="card-note">Multimodal agentic RAG for pathology VLMs; retrieves over pathology-specific image patches + text (K3.O1 cross-modal grounding)</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O1.html" class="tag tag-cell" title="K4.O1">Perceptual × Grounding</a><span class="tag tag-sub">Cross-modal Grounding</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_aaai_ZhangGZZCZZYB26.html" class="card-summary-link">Summary →</a>
-</article>
-</div>
+    <div class="axis-systems-link">
+      <span class="axis-systems-label">Systems reaching this objective, by substrate:</span>
+      <div class="cell-nav"><a href="K1.O1.html" class="pill" title="K1.O1">Textual × Grounding <span class="pill-n">10</span></a>
+<a href="K2.O1.html" class="pill" title="K2.O1">Relational × Grounding <span class="pill-n">6</span></a>
+<a href="K3.O1.html" class="pill" title="K3.O1">Structured-entity × Grounding <span class="pill-n">2</span></a>
+<a href="K4.O1.html" class="pill" title="K4.O1">Perceptual × Grounding <span class="pill-n">6</span></a></div>
+    </div>
   </div>
 </section>
 </main>

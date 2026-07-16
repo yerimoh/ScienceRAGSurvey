@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[O2] Synthesis, Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1784173808">
+<link rel="stylesheet" href="../static/style.css?v=1784176118">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -114,20 +114,16 @@
   <div class="wrap">
     <p class="eyebrow"><a href="operational-objective.html">← Operational Objective</a></p>
     <h1><span class="cell-id-big axis-id-o">O2</span> Synthesis</h1>
-    <p class="axis-sub-desc">Integrate evidence no single source states, verify claims and synthesize the literature. (Claim Verification, Literature Synthesis.)</p>
-    <div class="cell-nav"><a href="../cell/K1.O2.html" class="pill" title="K1.O2">Textual × Synthesis 8</a>
-<a href="../cell/K2.O2.html" class="pill" title="K2.O2">Relational × Synthesis 1</a>
-<a href="../cell/K3.O2.html" class="pill" title="K3.O2">Structured-entity × Synthesis 0</a>
-<a href="../cell/K4.O2.html" class="pill" title="K4.O2">Perceptual × Synthesis 0</a></div>
+    <p class="axis-lede">Integrate evidence no single source states, verify claims and synthesize the literature. (Claim Verification, Literature Synthesis.)</p>
   </div>
 </section>
 
 <section class="axis-body">
   <div class="wrap">
-    <div class="axis-subsub"><h3 class="axis-subsub-title">Claim Verification</h3><div class="axis-prose"><p>Claim verification presents a claim and scores a verdict of supported, refuted, or unverifiable, reconciled across the retrieved evidence over the Textual substrate. SciFact judges claims against abstracts over a small curated corpus, SciFactOpen extends verification to open-domain retrieval over a pool of half a million documents, and ContraCrow scales it to whole-paper contradiction detection validated against expert judgment. These benchmarks certify correct verdicts on a closed claim set, but the sharp performance drop from SciFact to SciFact-Open shows that they do not measure generalization to novel claims outside it.</p></div></div><div class="axis-subsub"><h3 class="axis-subsub-title">Literature Synthesis</h3><div class="axis-prose"><p>Literature synthesis poses a question whose answer no single source states and scores the integration across many sources. Long-form aggregation is scored for multi-paper coverage and citation support in ScholarQABench, for abstractive review summarization in PubMedRS-200, and for paragraph summaries in the ideal-answer track of BioASQ, with SQuAI judging answers directly against the evidence they cite rather than a reference text. These benchmarks retrieve over the Textual substrate, and synthesis that follows citation links extends to the Relational substrate in Multi-XScience, which generates a related-work paragraph from a paper and the abstracts of its references. Synthesis benchmarks measure whether an answer is citation-supported and covers a reference answer, but coverage is scored against a fixed expert reference rather than the full relevant literature, so completeness is only partially certified.</p></div></div>
+    <div class="res-group"><h3 class="res-group-title">Claim Verification</h3><p class="res-note">Claim verification presents a claim and scores a verdict of supported, refuted, or unverifiable, reconciled across the retrieved evidence over the Textual substrate.</p></div><div class="res-group"><h3 class="res-group-title">Literature Synthesis</h3><p class="res-note">Literature synthesis poses a question whose answer no single source states and scores the integration across many sources.</p></div>
     
 <figure class="sys-table-wrap">
-  <figcaption class="sys-cap">Benchmarks for this objective (survey Table 2).</figcaption>
+  <figcaption class="sys-cap">Benchmarks and their ground truth (survey Table 2).</figcaption>
   <div class="sys-table-scroll">
     <table class="sys-table bm-table">
       <thead><tr>
@@ -137,116 +133,11 @@
     </table>
   </div>
 </figure>
-  </div>
-</section>
-
-<section class="cell-list">
-  <div class="wrap">
-    <h2 class="axis-systems-title">Systems reaching the Synthesis objective <span class="axis-systems-n">9</span></h2>
-    <div class="subsec-filter" id="oaxisO2subf">
-<button class="subsec-btn active" data-sub="">All <span class="subsec-n">9</span></button>
-<button class="subsec-btn" data-sub="Literature Synthesis">Literature Synthesis <span class="subsec-n">9</span></button>
-</div>
-<script>
-(function(){
-  var bar = document.getElementById('oaxisO2subf');
-  if (!bar) return;
-  bar.querySelectorAll('.subsec-btn').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      bar.querySelectorAll('.subsec-btn').forEach(function(b){b.classList.remove('active');});
-      btn.classList.add('active');
-      var sub = btn.dataset.sub;
-      document.querySelectorAll('.card').forEach(function(card){
-        var cardSub = card.dataset.sub || '';
-        var cardSubs = cardSub.split(' | ');
-        card.style.display = (sub === '' || cardSubs.indexOf(sub) >= 0) ? '' : 'none';
-      });
-    });
-  });
-})();
-</script>
-
-    <div class="card-grid"><article class="card" data-sub="Literature Synthesis">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2402.01788" target="_blank" rel="noopener">LitLLM: A Toolkit for Scientific Literature Review ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">LitLLM</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">A modular RAG toolkit that searches from the user&#x27;s abstract as a query (Semantic Scholar/OpenAlex), reranks by LLM permutation, and generates a plan-based related-work section with sentence-count and per-line citation control.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2402-01788.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Literature Synthesis">
-  <h3 class="card-title"><a href="https://doi.org/10.3847/1538-4365/ad7c43" target="_blank" rel="noopener">pathfinder: A Semantic Framework for Literature Review and Knowledge Discovery in Astronomy ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">Pathfinder</span>, <span class="meta-venue">ApJS</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">A semantic-search + RAG + ReAct framework over the astronomy literature (~350K ADS/arXiv papers). It gathers relevant papers by meaning and generates long-form cited answers, overcoming the limits of keyword search.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/astronomy.html" class="tag tag-domain">🔭Astronomy</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/iyer2024pathfinder.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Literature Synthesis">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2406.10252" target="_blank" rel="noopener">AutoSurvey: Large Language Models Can Automatically Write Surveys ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">AutoSurvey</span>, <span class="meta-venue">NeurIPS</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Automatically writes a full academic survey by retrieving topic papers, drafting an outline, generating sections in parallel, and integrating and refining with citation awareness. It searches 530K arXiv CS papers and selects among candidates with a multi-LLM judge; citation re…</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_nips_WangGYZZ0ZD0W0Z24.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Literature Synthesis">
-  <h3 class="card-title"><a href="https://doi.org/10.1145/3746252.3761471" target="_blank" rel="noopener">SQuAI: Scientific Question-Answering with Multi-Agent Retrieval-Augmented Generation ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">unarXive (Simple, Expert)</span>, <span class="meta-venue">CIKM</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">main.tex: K=-; O=O2</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/DBLP_conf_cikm_BesrourHS025.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Literature Synthesis">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2310.16146" target="_blank" rel="noopener">CLINFO.AI: AN OPEN-SOURCE RETRIEVAL-AUGMENTED LARGE LANGUAGE MODEL SYSTEM FOR ANSWERING MEDICAL QUESTIONS USING SCIENTIFIC LITERATURE ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">PubMedRS-200</span>, <span class="meta-venue">PSB</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">PubMed systematic-review medical QA benchmark. Clinfo.ai, PSB 2024.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2310-16146.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Literature Synthesis">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2503.04629" target="_blank" rel="noopener">SurveyForge: On the Outline Heuristics, Memory-Driven Generation, and Multi-dimensional Evaluation for Automated Survey Writing ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">SurveyForge</span>, <span class="meta-venue">ACL</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Learns outline heuristics from human surveys and uses a memory-based scholar-navigation retrieval agent (SANA: subquery decomposition, memory retrieval, time-aware reranking) to gather per-section literature and generate surveys. Beats AutoSurvey on SurveyBench.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_acl_YanFYX00Z25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Literature Synthesis">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2409.13740" target="_blank" rel="noopener">Language Agents Achieve Superhuman Synthesis of Scientific Knowledge ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">PaperQA2</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">RAG that surpasses human experts: PaperQA2 85.2% vs humans 73.8%. RCS + citation traversal.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2409-13740.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Literature Synthesis">
-  <h3 class="card-title"><a href="https://doi.org/10.1038/s41586-025-10072-4" target="_blank" rel="noopener">Synthesizing Scientific Literature with Retrieval-Augmented Language Models ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">ScholarQABench</span>, <span class="meta-venue">Nature</span>, <span class="meta-year">2026</span></div>
-  <p class="card-note">OpenScholar&#x27;s multidisciplinary long-form synthesis benchmark.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O2.html" class="tag tag-cell" title="K1.O2">Textual × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/physics.html" class="tag tag-domain">⚛️Physics</a><a href="../topics/benchmark.html" class="tag tag-type">Benchmarks</a></div>
-  <a href="../papers/asai2026synthesizing.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Literature Synthesis">
-  <h3 class="card-title"><a href="https://doi.org/10.1145/3726302.3729920" target="_blank" rel="noopener">CG-RAG: Research Question Answering by Citation Graph Retrieval-Augmented LLMs ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">CG-RAG</span>, <span class="meta-venue">SIGIR</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Proposes LeSeGR, which retrieves over a paper citation graph: it links paper chunks by citation relations to fuse sparse and dense signals, and answers research queries grounded in the retrieved evidence.</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O2.html" class="tag tag-cell" title="K2.O2">Relational × Synthesis</a><span class="tag tag-sub">Literature Synthesis</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_sigir_HuLD0A0025.html" class="card-summary-link">Summary →</a>
-</article>
-</div>
+    <div class="axis-systems-link">
+      <span class="axis-systems-label">Systems reaching this objective, by substrate:</span>
+      <div class="cell-nav"><a href="K1.O2.html" class="pill" title="K1.O2">Textual × Synthesis <span class="pill-n">8</span></a>
+<a href="K2.O2.html" class="pill" title="K2.O2">Relational × Synthesis <span class="pill-n">1</span></a></div>
+    </div>
   </div>
 </section>
 </main>

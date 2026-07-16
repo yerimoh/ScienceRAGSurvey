@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[O3] Discovery, Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1784173808">
+<link rel="stylesheet" href="../static/style.css?v=1784176118">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -114,20 +114,16 @@
   <div class="wrap">
     <p class="eyebrow"><a href="operational-objective.html">← Operational Objective</a></p>
     <h1><span class="cell-id-big axis-id-o">O3</span> Discovery</h1>
-    <p class="axis-sub-desc">Propose an output the corpus does not contain, judged by an external verifier. (Property Prediction, Molecular Design, Materials Discovery, Hypothesis Generation.)</p>
-    <div class="cell-nav"><a href="../cell/K1.O3.html" class="pill" title="K1.O3">Textual × Discovery 4</a>
-<a href="../cell/K2.O3.html" class="pill" title="K2.O3">Relational × Discovery 1</a>
-<a href="../cell/K3.O3.html" class="pill" title="K3.O3">Structured-entity × Discovery 5</a>
-<a href="../cell/K4.O3.html" class="pill" title="K4.O3">Perceptual × Discovery 3</a></div>
+    <p class="axis-lede">Propose an output the corpus does not contain, judged by an external verifier. (Property Prediction, Molecular Design, Materials Discovery, Hypothesis Generation.)</p>
   </div>
 </section>
 
 <section class="axis-body">
   <div class="wrap">
-    <div class="axis-subsub"><h3 class="axis-subsub-title">Property Prediction</h3><div class="axis-prose"><p>Property prediction specifies an entity and a target property and scores the prediction against a held-out measurement. Curated-database recovery over the Structured-entity substrate covers molecular property and toxicity in MoleculeNet and the Therapeutics Data Commons, and protein function against time-delayed annotations in CAFA. Measured-response recovery covers gene-perturbation response in GEARS and PerturBench. Link prediction over the Relational substrate scores held-out biomedical edges in OpenBioLink and OGB-biokg, and spectrum-to-molecule elucidation over the Perceptual substrate scores recovered structures in MassSpecGym. A held-out reference contains only what has already been measured, so a correct prediction outside it is scored as wrong, and recovery certifies fit rather than mechanism, since a strong fit can be interpolation.</p></div></div><div class="axis-subsub"><h3 class="axis-subsub-title">Molecular Design</h3><div class="axis-prose"><p>Molecular design sets a target such as a protein pocket or a property profile and scores a proposed molecule the corpus does not contain. PMO defines a set of property-optimization objectives under a capped oracle-call budget, and CrossDocked2020 provides docking pockets against which a generated ligand and its 3D pose are scored for structural accuracy. These benchmarks retrieve over the Structured-entity substrate for molecular structure and over the Perceptual substrate when a 3D pose conditions generation. Design benchmarks score binding or property proxies computed in silico, so a high score certifies the proxy rather than the wet-lab outcome it stands for.</p></div></div><div class="axis-subsub"><h3 class="axis-subsub-title">Materials Discovery</h3><div class="axis-prose"><p>Materials discovery sets a design target such as a stable crystal or a catalytic surface and scores it by re-running a physics simulator over the Structured-entity substrate of crystal and surface records. Matbench Discovery scores thermodynamic stability against DFT-relaxed ground truth, ADsorbML re-evaluates each adsorption structure with a DFT single point, MLIP Arena tests dynamical consistency beyond static references, and ScienceAgentBench executes generated code against task success criteria. A simulator confirms candidates far faster than laboratory screening, but it cannot judge the limits of its own functionals, kinetics, or synthesis feasibility, bounding what a passing score establishes.</p></div></div><div class="axis-subsub"><h3 class="axis-subsub-title">Hypothesis Generation</h3><div class="axis-prose"><p>Hypothesis generation provides a research context and scores a proposed idea, mechanism, or pathway that has no stored answer to match, recovering it against a held-out reference rather than a lexical gold. Rediscovery benchmarks withhold findings published after a model&#x27;s knowledge cutoff and score how closely a generated hypothesis matches the withheld one, MOOSE-Chem scoring chemistry hypotheses against expert-annotated 2024 papers and ResearchBench decomposing discovery into inspiration retrieval, hypothesis composition, and ranking a gold hypothesis above generated negatives across twelve disciplines. HypoBench measures the recovery rate of ground-truth patterns on synthetic tasks, and TruthHypo scores the groundedness of biomedical hypotheses against a knowledge graph and a domain-specific corpus over the Relational substrate. These benchmarks retrieve inspirations over the Textual substrate of prior literature and, in TruthHypo, over a Relational knowledge graph. Because their verifier is a similarity match to a held-out finding or a groundedness check rather than a physical simulator, hypothesis generation sits at the weakest verification of the seven tasks, though contamination-controlled rediscovery makes its scores more reproducible than open-ended novelty rating.</p></div></div>
+    <div class="res-group"><h3 class="res-group-title">Property Prediction</h3><p class="res-note">Property prediction specifies an entity and a target property and scores the prediction against a held-out measurement.</p></div><div class="res-group"><h3 class="res-group-title">Molecular Design</h3><p class="res-note">Molecular design sets a target such as a protein pocket or a property profile and scores a proposed molecule the corpus does not contain.</p></div><div class="res-group"><h3 class="res-group-title">Materials Discovery</h3><p class="res-note">Materials discovery sets a design target such as a stable crystal or a catalytic surface and scores it by re-running a physics simulator over the Structured-entity substrate of crystal and surface records.</p></div><div class="res-group"><h3 class="res-group-title">Hypothesis Generation</h3><p class="res-note">Hypothesis generation provides a research context and scores a proposed idea, mechanism, or pathway that has no stored answer to match, recovering it against a held-out reference rather than a lexical gold.</p></div>
     
 <figure class="sys-table-wrap">
-  <figcaption class="sys-cap">Benchmarks for this objective (survey Table 2).</figcaption>
+  <figcaption class="sys-cap">Benchmarks and their ground truth (survey Table 2).</figcaption>
   <div class="sys-table-scroll">
     <table class="sys-table bm-table">
       <thead><tr>
@@ -137,155 +133,13 @@
     </table>
   </div>
 </figure>
-  </div>
-</section>
-
-<section class="cell-list">
-  <div class="wrap">
-    <h2 class="axis-systems-title">Systems reaching the Discovery objective <span class="axis-systems-n">13</span></h2>
-    <div class="subsec-filter" id="oaxisO3subf">
-<button class="subsec-btn active" data-sub="">All <span class="subsec-n">13</span></button>
-<button class="subsec-btn" data-sub="Molecular Design">Molecular Design <span class="subsec-n">6</span></button>
-<button class="subsec-btn" data-sub="Hypothesis Generation">Hypothesis Generation <span class="subsec-n">5</span></button>
-<button class="subsec-btn" data-sub="Materials Discovery">Materials Discovery <span class="subsec-n">1</span></button>
-<button class="subsec-btn" data-sub="Property Prediction">Property Prediction <span class="subsec-n">1</span></button>
-</div>
-<script>
-(function(){
-  var bar = document.getElementById('oaxisO3subf');
-  if (!bar) return;
-  bar.querySelectorAll('.subsec-btn').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      bar.querySelectorAll('.subsec-btn').forEach(function(b){b.classList.remove('active');});
-      btn.classList.add('active');
-      var sub = btn.dataset.sub;
-      document.querySelectorAll('.card').forEach(function(card){
-        var cardSub = card.dataset.sub || '';
-        var cardSubs = cardSub.split(' | ');
-        card.style.display = (sub === '' || cardSubs.indexOf(sub) >= 0) ? '' : 'none';
-      });
-    });
-  });
-})();
-</script>
-
-    <div class="card-grid"><article class="card" data-sub="Hypothesis Generation">
-  <h3 class="card-title"><a href="https://doi.org/10.18653/v1/2024.acl-long.18" target="_blank" rel="noopener">SciMON: Scientific Inspiration Machines Optimized for Novelty ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">SciMON</span>, <span class="meta-venue">ACL</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Retrieves inspirations from 67K ACL Anthology papers + citation/KG neighbors built from the corpus; iteratively optimizes generated idea for novelty against prior work.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O3.html" class="tag tag-cell" title="K1.O3">Textual × Discovery</a><span class="tag tag-sub">Hypothesis Generation</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="Hypothesis Generation">
-  <h3 class="card-title"><a href="https://doi.org/10.18653/v1/2025.naacl-long.342" target="_blank" rel="noopener">ResearchAgent: Iterative Research Idea Generation over Scientific Literature with Large Language Models ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">ResearchAgent</span>, <span class="meta-venue">NAACL</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Expands a core paper with academic-graph literature + a paper-mined entity store; proposes problems/methods/experiments, refined by ReviewingAgents.</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O3.html" class="tag tag-cell" title="K1.O3">Textual × Discovery</a><span class="tag tag-sub">Hypothesis Generation</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="Hypothesis Generation">
-  <h3 class="card-title"><a href="https://openreview.net/forum?id=X9OfMNNepI" target="_blank" rel="noopener">MOOSE-Chem: Large Language Models for Rediscovering Unseen Chemistry Scientific Hypotheses ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MOOSE-Chem</span>, <span class="meta-venue">ICLR</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Retrieves inspiration papers from chemistry literature (3000 most-cited Nature papers); composes &amp; ranks novel hypotheses; evaluated by rediscovering held-out high-impact 2024 findings (TOMATO-Chem).</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O3.html" class="tag tag-cell" title="K1.O3">Textual × Discovery</a><span class="tag tag-sub">Hypothesis Generation</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="Hypothesis Generation">
-  <h3 class="card-title"><a href="https://aclanthology.org/2025.findings-emnlp.477/" target="_blank" rel="noopener">Chain of Ideas: Revolutionizing Research Via Novel Idea Development with LLM Agents ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">Chain-of-Ideas</span>, <span class="meta-venue">EMNLP Findings</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Organizes Semantic Scholar citation chains into an evolution chain and extrapolates the next idea; evaluated with Idea Arena (human-preference-aligned).</p>
-  
-  <div class="card-tags"><a href="../cell/K1.O3.html" class="tag tag-cell" title="K1.O3">Textual × Discovery</a><span class="tag tag-sub">Hypothesis Generation</span><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="Hypothesis Generation">
-  <h3 class="card-title"><a href="https://aclanthology.org/2025.findings-naacl.201/" target="_blank" rel="noopener">GraPPI: A Retrieve-Divide-Solve GraphRAG Framework for Large-scale Protein-protein Interaction Exploration ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">GraPPI</span>, <span class="meta-venue">NAACL</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Traverses the curated STRING PPI graph (18,767 nodes / 2.95M edges) with a Retrieve-Divide-Solve scheme, splitting each path into edges, explaining them in parallel, then synthesizing and re-ranking at the path level to generate drug-target signaling-pathway analyses.</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Relational × Discovery</a><span class="tag tag-sub">Hypothesis Generation</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_naacl_LiCJ25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Molecular Design">
-  <h3 class="card-title">Molecule Generation with Fragment Retrieval Augmentation</h3>
-  <div class="card-meta"><span class="meta-method">f-RAG</span>, <span class="meta-venue">NeurIPS</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Fragment-based drug discovery with retrieval augmentation; hard/soft fragment retrieval; iterative refinement + genetic fragment modification; evaluated on PMO benchmark 23 tasks; AUC top-10 metric</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Molecular Design</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_nips_LeeKV0RPVN24.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Molecular Design">
-  <h3 class="card-title">Rag2Mol: structure-based drug design based on RAG</h3>
-  <div class="card-meta"><span class="meta-method">Rag2Mol</span>, <span class="meta-venue">Briefings in Bioinformatics</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">★ K2.O3. Cross-KNN graph fusion. PTPN2 undruggable target case validated.</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Molecular Design</span><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">3D Structure</span><span class="tag tag-mod">SMILES</span></div>
-  <a href="../papers/DBLP_journals_bib_ZhangPHCM25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Molecular Design">
-  <h3 class="card-title">TaLiRAGen: target-aware ligand generation via RAG LLMs</h3>
-  <div class="card-meta"><span class="meta-method">TaLiRAGen</span>, <span class="meta-venue">Molecular Diversity</span>, <span class="meta-year">2026</span></div>
-  <p class="card-note">★ K2.O3 EXEMPLAR. No-training RAG+LLM SBDD. Evidence-theoretic norm metric.</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Molecular Design</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a><span class="tag tag-mod">SMILES</span><span class="tag tag-mod">3D Structure</span></div>
-  <a href="../papers/nan2026taliragen.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Molecular Design">
-  <h3 class="card-title"><a href="https://openreview.net/forum?id=vDFA1tpuLvk" target="_blank" rel="noopener">Retrieval-based Controllable Molecule Generation ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">RetMol</span>, <span class="meta-venue">ICLR</span>, <span class="meta-year">2023</span></div>
-  <p class="card-note">Full-text verified 2026-05-31: retrieves exemplar molecules from ZINC/ChEMBL to steer a frozen generator without fine-tuning; verified by AutoDock on SARS-CoV-2 main protease binding. Curated KB (K2), strong external verifier (docking).</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Molecular Design</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="Materials Discovery">
-  <h3 class="card-title">DBLP:journals/corr/abs-2603-15712</h3>
-  
-  <p class="card-note">GPT-4 + RAG over 50,000 materials (Materials Project, NOMAD, OC20); 250+ HEA CO2 reduction catalysts; 82% thermodynamic stability; best alloy Fe0.2Co0.2Ni0.2Ir0.1Ru0.3 at 0.285V limiting potential (25% vs IrO2); 200x HTS efficiency</p>
-  
-  <div class="card-tags"><a href="../cell/K3.O3.html" class="tag tag-cell" title="K3.O3">Structured-entity × Discovery</a><span class="tag tag-sub">Materials Discovery</span><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_corr_abs-2603-15712.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="Molecular Design">
-  <h3 class="card-title"><a href="https://proceedings.mlr.press/v235/huang24ab.html" target="_blank" rel="noopener">Interaction-based Retrieval-augmented Diffusion Models for Protein-specific 3D Molecule Generation ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">IRDiff</span>, <span class="meta-venue">ICML</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Full-text verified 2026-05-31: retrieves high-affinity ligand references via a protein-molecule interaction network to steer a target-aware diffusion model; SOTA binding affinity on CrossDocked2020 (Vina). Curated ligand KB, docking-verified.</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O3.html" class="tag tag-cell" title="K4.O3">Perceptual × Discovery</a><span class="tag tag-sub">Molecular Design</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="Molecular Design">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2506.14488" target="_blank" rel="noopener">Reimagining Target-Aware Molecular Generation through Retrieval-Enhanced Aligned Diffusion ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">READ</span>, <span class="meta-venue">arXiv</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Full-text verified 2026-05-31: first retrieval-augmented diffusion framework for de novo ligand design; retrieves cognate ligands through a pocket-ligand bipartite graph; validated with AutoDock Vina (Score/Minimize/Dock). Curated KB, docking-verified.</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O3.html" class="tag tag-cell" title="K4.O3">Perceptual × Discovery</a><span class="tag tag-sub">Molecular Design</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-
-<article class="card" data-sub="Property Prediction">
-  <h3 class="card-title"><a href="https://openreview.net/forum?id=78tc3EiUrN" target="_blank" rel="noopener">MADGEN: Mass-Spec attends to De Novo Molecular generation ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MADGEN</span>, <span class="meta-venue">ICLR</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Full-text verified 2026-06-01: MADGEN (ICLR 2025), the sole genuine retrieval-augmented de novo method for spectrum-to-molecule. Retrieves a molecular scaffold keyed on the MS/MS spectrum (contrastive spectrum-to-scaffold ranking, signal-keyed = K3) then generates the full str…</p>
-  
-  <div class="card-tags"><a href="../cell/K4.O3.html" class="tag tag-cell" title="K4.O3">Perceptual × Discovery</a><span class="tag tag-sub">Property Prediction</span><a href="../domain/chem.html" class="tag tag-domain">⚗️Chemistry</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  
-</article>
-</div>
+    <div class="axis-systems-link">
+      <span class="axis-systems-label">Systems reaching this objective, by substrate:</span>
+      <div class="cell-nav"><a href="K1.O3.html" class="pill" title="K1.O3">Textual × Discovery <span class="pill-n">4</span></a>
+<a href="K2.O3.html" class="pill" title="K2.O3">Relational × Discovery <span class="pill-n">1</span></a>
+<a href="K3.O3.html" class="pill" title="K3.O3">Structured-entity × Discovery <span class="pill-n">5</span></a>
+<a href="K4.O3.html" class="pill" title="K4.O3">Perceptual × Discovery <span class="pill-n">3</span></a></div>
+    </div>
   </div>
 </section>
 </main>

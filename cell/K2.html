@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[K2] Relational, Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="../static/style.css?v=1784173808">
+<link rel="stylesheet" href="../static/style.css?v=1784176118">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -119,12 +119,12 @@
 
 <section class="axis-body">
   <div class="wrap">
-    <div class="axis-prose"><p>The relational substrate is the curated web of scientific relations, the graphs that record how genes, diseases, drugs, and concepts connect. Its knowledge lives not in any single node but in the edges between them, the asserted links that no one document states in one place.</p></div>
-<div class="axis-subsub"><h3 class="axis-subsub-title">Curated concept-relation graphs</h3><div class="axis-prose"><p>These are expert-curated graphs of asserted relations among canonical scientific entities. UMLS unifies biomedical vocabularies, while SNOMED CT and ICD-10/11 supply clinical and diagnostic terms. PrimeKG and DRKG assemble integrated drug, disease, and target relations, while STITCH records chemical-protein interactions. STRING protein-interaction data, KEGG, Reactome, and Gene Ontology map pathways and functional annotation, and the disease-gene resources OMIM, DisGeNET, and ClinVar link variants to phenotypes.</p></div></div>
-<div class="axis-subsub"><h3 class="axis-subsub-title">Literature-derived graphs</h3><div class="axis-prose"><p>The same primary literature, once its citations and shared entities are linked, forms a graph rather than a set of passages. OpenCitations and the citation layers of OpenAlex and S2ORC expose reference edges between papers, over which task-specific graphs of papers and their extracted concepts are built.</p></div></div>
+    <p class="axis-lede">The relational substrate is the curated web of scientific relations, the graphs that record how genes, diseases, drugs, and concepts connect.</p>
+<div class="res-group"><h3 class="res-group-title">Curated concept-relation graphs</h3><p class="res-note">These are expert-curated graphs of asserted relations among canonical scientific entities.</p><div class="res-chips"><span class="res-chip res-chip-plain">UMLS</span><a class="res-chip" href="https://www.snomed.org" target="_blank" rel="noopener">SNOMED CT</a><a class="res-chip" href="https://icd.who.int" target="_blank" rel="noopener">ICD-10/11</a><span class="res-chip res-chip-plain">PrimeKG</span><span class="res-chip res-chip-plain">DRKG</span><a class="res-chip" href="https://doi.org/10.1093/nar/gkv1277" target="_blank" rel="noopener">STITCH</a><span class="res-chip res-chip-plain">KEGG</span><span class="res-chip res-chip-plain">Reactome</span><span class="res-chip res-chip-plain">Gene Ontology</span><span class="res-chip res-chip-plain">OMIM</span><a class="res-chip" href="https://doi.org/10.1093/nar/gkz1021" target="_blank" rel="noopener">DisGeNET</a><a class="res-chip" href="https://doi.org/10.1093/nar/gkx1153" target="_blank" rel="noopener">ClinVar</a></div></div>
+<div class="res-group"><h3 class="res-group-title">Literature-derived graphs</h3><p class="res-note">The same primary literature, once its citations and shared entities are linked, forms a graph rather than a set of passages.</p><div class="res-chips"><a class="res-chip" href="https://doi.org/10.48550/arXiv.2205.01833" target="_blank" rel="noopener">OpenAlex</a><a class="res-chip" href="https://doi.org/10.18653/v1/2020.acl-main.447" target="_blank" rel="noopener">S2ORC</a></div></div>
     
 <figure class="sys-table-wrap">
-  <figcaption class="sys-cap">Representative resources (survey Table 1).</figcaption>
+  <figcaption class="sys-cap">Scale and access at a glance (survey Table 1).</figcaption>
   <div class="sys-table-scroll">
     <table class="sys-table ks-table">
       <thead><tr>
@@ -134,85 +134,12 @@
     </table>
   </div>
 </figure>
-  </div>
-</section>
-
-<section class="cell-list">
-  <div class="wrap">
-    <h2 class="axis-systems-title">Systems retrieving over the Relational substrate <span class="axis-systems-n">8</span></h2>
-    
-    <div class="card-grid"><article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2311.17330" target="_blank" rel="noopener">Biomedical knowledge graph-optimized prompt generation for large language models ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">KG-RAG</span>, <span class="meta-venue">Bioinformatics</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Extracts a disease-centric minimal-schema subgraph from the SPOKE biomedical KG (41 databases, ~42M nodes) and injects only the key triples via embedding pruning. Versus Cypher-RAG: 54% fewer tokens and retrieval accuracy from 75% to 97%.</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_journals_bioinformatics_SomanRMASPVCSRI24.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2308.09729" target="_blank" rel="noopener">MindMap: Knowledge Graph Prompting Sparks Graph of Thoughts in Large Language Models ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">MindMap</span>, <span class="meta-venue">ACL</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Diagnostic QA that retrieves path/neighbor evidence subgraphs from a curated clinical KG (disease-symptom-drug) and integrates them along graph-of-thoughts reasoning paths. With a GPT-3.5 backbone it beats GPT-4 on some baselines.</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_acl_0006WS24.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://aclanthology.org/2024.bionlp-1.13/" target="_blank" rel="noopener">KG-Rank: Enhancing Large Language Models for Medical QA with Knowledge Graphs and Ranking Techniques ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">KG-Rank</span>, <span class="meta-venue">BioNLP@ACL</span>, <span class="meta-year">2024</span></div>
-  <p class="card-note">Retrieves one-hop UMLS triples for the question&#x27;s entities and narrows them by ranking/re-ranking (similarity, answer expansion, MMR, MedCPT) to synthesize a long-form medical answer. No fine-tuning needed.</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_bionlp_YangLMZKLCCCML24.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title">Medical Graph RAG: Towards Safe Medical Large Language Model via Graph Retrieval-Augmented Generation</h3>
-  <div class="card-meta"><span class="meta-method">MedGraphRAG</span>, <span class="meta-venue">ACL</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Medicine and clinical knowledge, UMLS-aligned retrieval substrate</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_acl_WuZQCXMJG25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://aclanthology.org/2025.acl-long.580/" target="_blank" rel="noopener">HyKGE: A Hypothesis Knowledge Graph Enhanced RAG Framework for Accurate and Reliable Medical LLMs Responses ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">HyKGE</span>, <span class="meta-venue">ACL</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Seeds retrieval with an LLM hypothesis (HO) to fetch multi-hop reasoning chains from a fused curated medical KG (CMeKG, CPubMed-KG, Disease-KG; ~1.29M entities), filtering noise by HO-fragment reranking to synthesize a comprehensive answer in 2 LLM calls.</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_acl_Jiang0XQFWTDC0W25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://arxiv.org/abs/2410.04660" target="_blank" rel="noopener">KGARevion: An AI Agent for Knowledge-Intensive Biomedical QA ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">KGARevion</span>, <span class="meta-venue">ICLR</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">An agent loop of generating candidate triples, verifying them against a KG (PrimeKG/biokg), revising, and answering. Verifying the LLM&#x27;s latent knowledge against the KG removes factual errors and improves medical-QA reliability.</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O1.html" class="tag tag-cell" title="K2.O1">Relational × Grounding</a><a href="../domain/medical.html" class="tag tag-domain">🩺Medicine</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_iclr_00010GLGCZ25.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://doi.org/10.1145/3726302.3729920" target="_blank" rel="noopener">CG-RAG: Research Question Answering by Citation Graph Retrieval-Augmented LLMs ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">CG-RAG</span>, <span class="meta-venue">SIGIR</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Proposes LeSeGR, which retrieves over a paper citation graph: it links paper chunks by citation relations to fuse sparse and dense signals, and answers research queries grounded in the retrieved evidence.</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O2.html" class="tag tag-cell" title="K2.O2">Relational × Synthesis</a><a href="../domain/general.html" class="tag tag-domain">📚General Science</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_sigir_HuLD0A0025.html" class="card-summary-link">Summary →</a>
-</article>
-
-<article class="card" data-sub="">
-  <h3 class="card-title"><a href="https://aclanthology.org/2025.findings-naacl.201/" target="_blank" rel="noopener">GraPPI: A Retrieve-Divide-Solve GraphRAG Framework for Large-scale Protein-protein Interaction Exploration ↗</a></h3>
-  <div class="card-meta"><span class="meta-method">GraPPI</span>, <span class="meta-venue">NAACL</span>, <span class="meta-year">2025</span></div>
-  <p class="card-note">Traverses the curated STRING PPI graph (18,767 nodes / 2.95M edges) with a Retrieve-Divide-Solve scheme, splitting each path into edges, explaining them in parallel, then synthesizing and re-ranking at the path level to generate drug-target signaling-pathway analyses.</p>
-  
-  <div class="card-tags"><a href="../cell/K2.O3.html" class="tag tag-cell" title="K2.O3">Relational × Discovery</a><a href="../domain/bio.html" class="tag tag-domain">🧬Biology</a><a href="../topics/method.html" class="tag tag-type">Methods</a></div>
-  <a href="../papers/DBLP_conf_naacl_LiCJ25.html" class="card-summary-link">Summary →</a>
-</article>
-</div>
+    <div class="axis-systems-link">
+      <span class="axis-systems-label">Systems retrieving over this substrate, by objective:</span>
+      <div class="cell-nav"><a href="K2.O1.html" class="pill" title="K2.O1">Relational × Grounding <span class="pill-n">6</span></a>
+<a href="K2.O2.html" class="pill" title="K2.O2">Relational × Synthesis <span class="pill-n">1</span></a>
+<a href="K2.O3.html" class="pill" title="K2.O3">Relational × Discovery <span class="pill-n">1</span></a></div>
+    </div>
   </div>
 </section>
 </main>

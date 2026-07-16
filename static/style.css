@@ -1793,3 +1793,24 @@ sup.footnote-ref a:focus {
   font-family: var(--font-mono); font-size: .8rem; color: var(--fg-faint);
   background: var(--bg-subtle); padding: .1rem .45rem; border-radius: 6px; margin-left: .3rem;
 }
+
+/* ---------- Data resource chips (§4 resources on K pages) ---------- */
+.axis-lede { max-width: 70ch; color: var(--fg-muted); font-size: 1.02rem; line-height: 1.6; margin: 0 0 1.3rem; }
+.res-group { margin: 0 0 1.5rem; }
+.res-group-title { font-size: 1.05rem; margin: 0 0 .3rem; font-family: var(--font-display); }
+.res-group-title::before { content: "▸"; color: var(--k-500); margin-right: .45rem; font-size: .8em; }
+.sys-o + * .res-group-title::before, #o1 .res-group-title::before, #o2 .res-group-title::before, #o3 .res-group-title::before { color: var(--o-500); }
+.res-note { max-width: 72ch; color: var(--fg-muted); font-size: .92rem; margin: 0 0 .6rem; line-height: 1.5; }
+.res-chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+.res-chip {
+  display: inline-block; padding: .28rem .6rem; border-radius: 8px;
+  font-size: .85rem; font-family: var(--font-mono);
+  background: var(--k-bg); color: var(--k-fg);
+  border: 1px solid transparent; text-decoration: none; white-space: nowrap;
+}
+.res-chip:hover { border-color: var(--k-fg); text-decoration: none; }
+.res-chip-plain { background: var(--bg-subtle); color: var(--fg-muted); cursor: default; }
+.res-chip-plain:hover { border-color: var(--line-strong); }
+#o1 .res-chip, #o2 .res-chip, #o3 .res-chip { background: var(--o-bg); color: var(--o-fg); }
+.axis-systems-link { margin-top: 1.8rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+.axis-systems-label { display: block; font-size: .9rem; color: var(--fg-muted); margin-bottom: .5rem; }
