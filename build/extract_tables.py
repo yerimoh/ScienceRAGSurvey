@@ -33,7 +33,10 @@ AMP = '\x00'  # sentinel standing in for an escaped literal ampersand during col
 
 
 def clean(s):
+    s = re.sub(r'\s*\(\s*\\S?\s*\\ref\{[^}]*\}\s*\)', '', s)   # drop "(§ref)" pointers
+    s = re.sub(r'\\S?\s*\\ref\{[^}]*\}', '', s)
     s = re.sub(r'\\textcolor\{\w+\}\{', '', s)
+    s = re.sub(r'\\text\{([^}]*)\}', r'\1', s)                 # \text{hull} -> hull
     s = re.sub(r'\\text[a-z]+\{', '', s)
     s = s.replace('\\&', '&').replace(AMP, '&')
     s = s.replace('\\%', '%')
@@ -135,14 +138,41 @@ def extract_benchmarks(tex, bib_links):
     return out
 
 
+def extract_evaluation(tex):
+    """Paper Table 4 (tab:evaluation): the four scoring dimensions of §7."""
+    body = table_body(tex, '\\label{tab:evaluation}')
+    codes = ['E1', 'E2', 'E3', 'E4']
+    out = []
+    for line in body.splitlines():
+        if '&' not in line or '\\midrule' in line or 'textbf' in line or '\\toprule' in line:
+            continue
+        cells = split_cols(line.rstrip('\\ \n'))
+        if len(cells) < 4:
+            continue
+        dim = clean(cells[0])
+        if not dim:
+            continue
+        metrics = [m.strip() for m in re.split(r',\s*', clean(cells[2])) if m.strip()]
+        out.append({
+            'code': codes[len(out)] if len(out) < len(codes) else '',
+            'dimension': dim,
+            'measures': clean(cells[1]),
+            'metrics': metrics,
+            'ceiling': clean(cells[3]),
+        })
+    return out
+
+
 def main():
     tex = TEX.read_text()
     bib_links = load_bib_links()
     ks = extract_knowledge_sources(tex)
     bm = extract_benchmarks(tex, bib_links)
+    ev = extract_evaluation(tex)
     (DATA / 'knowledge_sources.json').write_text(json.dumps(ks, ensure_ascii=False, indent=2))
     (DATA / 'benchmarks.json').write_text(json.dumps(bm, ensure_ascii=False, indent=2))
-    print(f'Wrote {len(ks)} knowledge-source rows and {len(bm)} benchmark rows.')
+    (DATA / 'evaluation_table.json').write_text(json.dumps(ev, ensure_ascii=False, indent=2))
+    print(f'Wrote {len(ks)} knowledge-source rows, {len(bm)} benchmark rows, {len(ev)} evaluation dimensions.')
 
 
 if __name__ == '__main__':

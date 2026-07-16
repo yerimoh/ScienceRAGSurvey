@@ -1,0 +1,53 @@
+[
+  {
+    "code": "E1",
+    "dimension": "Retrieval quality",
+    "measures": "Relevant units surface near the top of the retrieved list",
+    "metrics": [
+      "precision@k",
+      "recall@k",
+      "nDCG",
+      "MAP",
+      "MRR"
+    ],
+    "ceiling": "That the generator used the retrieved evidence"
+  },
+  {
+    "code": "E2",
+    "dimension": "Output correctness",
+    "measures": "Match to a single fixed gold answer",
+    "metrics": [
+      "exact match",
+      "token F1",
+      "accuracy",
+      "macro-F1",
+      "CheXbert/RadGraph F1"
+    ],
+    "ceiling": "That the answer was unknown before retrieval"
+  },
+  {
+    "code": "E3",
+    "dimension": "Generation quality",
+    "measures": "Integration where no single gold answer exists",
+    "metrics": [
+      "faithfulness",
+      "citation precision/recall",
+      "coverage",
+      "nugget and key-point recall",
+      "LLM-judge"
+    ],
+    "ceiling": "That the answer is faithful to its process or complete against the literature"
+  },
+  {
+    "code": "E4",
+    "dimension": "Verifier-based scoring",
+    "measures": "Survival of a novel output under an external test",
+    "metrics": [
+      "E_hull and F1 against DFT",
+      "docking score with pose validity",
+      "top-k and Tanimoto and Fmax recovery",
+      "novelty and expert rating"
+    ],
+    "ceiling": "More than the strength of the proxy the verifier applies"
+  }
+]

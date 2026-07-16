@@ -41,6 +41,9 @@ M_STAGES = AXIS_PROSE.get('M', {}).get('stages', [])          # §6 pipeline sta
 M_PROSE = {s['code']: s for s in M_STAGES}
 EVAL_SECTION = AXIS_PROSE.get('E', {})                        # §7 Evaluation
 FRONTIER_SECTION = AXIS_PROSE.get('F', {})                    # §8 Open Challenges & Future Directions
+_ev_path = ROOT / 'data/evaluation_table.json'                # §7 Table 4 (scoring dimensions)
+EVAL_TABLE = json.loads(_ev_path.read_text()) if _ev_path.exists() else []
+EVAL_TABLE_BY_NAME = {e['dimension']: e for e in EVAL_TABLE}
 
 # ---------- Reference tables ----------
 # Taxonomy mirrors the survey (Oh et al.). The K axis is the *retrieval substrate*, the
@@ -2133,38 +2136,51 @@ def render_method_pages():
 
 # ---------- Evaluation (§7) and Open Challenges (§8) pages ----------
 def render_body_section_pages():
-    # §7 Evaluation — four scoring regimes, each a one-line summary
+    # §7 Evaluation — the four scoring dimensions (survey Table 4): what each measures,
+    # the metrics that score it, and the ceiling it cannot cross.
     if EVAL_SECTION.get('subsections'):
         secs = []
         for s in EVAL_SECTION['subsections']:
-            secs.append(
-                f'<div class="res-group"><h3 class="res-group-title">{esc(s["name"])}</h3>'
-                f'<p class="res-note">{esc(s.get("summary", ""))}</p></div>'
-            )
+            ev = EVAL_TABLE_BY_NAME.get(s['name'], {})
+            chips = ''.join(f'<span class="res-chip res-chip-plain">{esc(m)}</span>' for m in ev.get('metrics', []))
+            measures = ev.get('measures', '')
+            ceiling = ev.get('ceiling', '')
+            secs.append(f'''
+<div class="eval-card">
+  <h3 class="eval-title">{esc(s["name"])}</h3>
+  {f'<p class="eval-measures">{esc(measures)}</p>' if measures else ''}
+  {f'<div class="eval-metrics"><span class="eval-lab">Metrics</span><div class="res-chips">{chips}</div></div>' if chips else ''}
+  {f'<p class="eval-ceiling"><span class="eval-lab">Cannot establish</span> {esc(ceiling)}</p>' if ceiling else ''}
+</div>''')
         body = f'''
 <section class="cell-hero">
   <div class="wrap">
     <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
     <h1><span class="cell-id-big axis-id-e">§7</span> Evaluation</h1>
-    <p class="axis-lede">{esc(EVAL_SECTION.get("summary", ""))}</p>
+    <p class="axis-lede">{esc(EVAL_SECTION.get("summary", ""))} Each dimension is paired with its metrics and the ceiling it cannot cross.</p>
   </div>
 </section>
 <section class="axis-body">
-  <div class="wrap">{''.join(secs)}</div>
+  <div class="wrap"><div class="eval-grid">{''.join(secs)}</div></div>
 </section>
 '''
         (ROOT / 'cell' / 'evaluation.html').write_text(
             page_head('Evaluation', base='../', current='cell/evaluation') + body + page_foot('../'))
 
-    # §8 Open Challenges — four themes, each with its specific open problems listed
+    # §8 Open Challenges — four themes; each specific open problem gets a one-line gloss.
     if FRONTIER_SECTION.get('subsections'):
         secs = []
         for s in FRONTIER_SECTION['subsections']:
-            chips = ''.join(f'<li>{esc(ss["title"])}</li>' for ss in s.get('subsubs', []))
+            items = ''.join(
+                f'<div class="frontier-item"><h4 class="frontier-item-title">{esc(ss["title"])}</h4>'
+                + (f'<p class="frontier-item-desc">{esc(ss.get("summary", ""))}</p>' if ss.get('summary') else '')
+                + '</div>'
+                for ss in s.get('subsubs', [])
+            )
             secs.append(
-                f'<div class="res-group"><h3 class="res-group-title">{esc(s["name"])}</h3>'
+                f'<div class="frontier-theme"><h3 class="res-group-title">{esc(s["name"])}</h3>'
                 + (f'<p class="res-note">{esc(s.get("summary", ""))}</p>' if s.get('summary') else '')
-                + (f'<ul class="frontier-list">{chips}</ul>' if chips else '')
+                + (f'<div class="frontier-items">{items}</div>' if items else '')
                 + '</div>'
             )
         body = f'''

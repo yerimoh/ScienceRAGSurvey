@@ -1869,3 +1869,22 @@ sup.footnote-ref a:focus {
 .axis-id-e { background: #e0f2f1; color: #00695c; }
 .frontier-list { margin: .4rem 0 0; padding-left: 1.1rem; }
 .frontier-list li { color: var(--fg); line-height: 1.5; margin: .15rem 0; }
+
+/* ---------- Evaluation (§7) dimension cards ---------- */
+.eval-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.eval-card { border: 1px solid var(--line-strong); border-radius: var(--radius); padding: 1.1rem 1.15rem; background: var(--bg-elev); }
+.eval-title { margin: 0 0 .35rem; font-size: 1.08rem; }
+.eval-measures { margin: 0 0 .7rem; color: var(--fg); line-height: 1.5; }
+.eval-lab { display: inline-block; font-family: var(--font-mono); font-size: .68rem; text-transform: uppercase; letter-spacing: .04em; color: var(--fg-faint); margin-right: .4rem; }
+.eval-metrics { margin: 0 0 .7rem; }
+.eval-metrics .eval-lab { display: block; margin-bottom: .35rem; }
+.eval-ceiling { margin: 0; font-size: .9rem; color: var(--fg-muted); line-height: 1.5; padding-top: .6rem; border-top: 1px dashed var(--line); }
+@media (max-width: 760px) { .eval-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Open Challenges (§8) themes ---------- */
+.frontier-theme { margin: 0 0 1.8rem; }
+.frontier-items { display: grid; grid-template-columns: repeat(2, 1fr); gap: .7rem; margin-top: .6rem; }
+.frontier-item { border-left: 3px solid var(--line-strong); padding: .1rem 0 .1rem .8rem; }
+.frontier-item-title { margin: 0 0 .2rem; font-size: .95rem; }
+.frontier-item-desc { margin: 0; font-size: .87rem; color: var(--fg-muted); line-height: 1.5; }
+@media (max-width: 760px) { .frontier-items { grid-template-columns: 1fr; } }
