@@ -16,7 +16,10 @@ import json
 from pathlib import Path
 
 TEX = Path(__file__).resolve().parents[1].parent / 'ACM' / 'csur_submission' / 'main2.tex'
+BIB = Path(__file__).resolve().parents[1].parent / 'ACM' / 'csur_submission' / 'references.bib'
 DATA = Path(__file__).resolve().parents[1] / 'data'
+META = Path(__file__).resolve().parent / 'benchmark_meta.json'
+BM_META = {k: v for k, v in json.loads(META.read_text()).items() if not k.startswith('_')} if META.exists() else {}
 
 SUB_K = {'Textual': 'K1', 'Relational': 'K2', 'Structured-entity': 'K3', 'Perceptual': 'K4'}
 SHORT_K = {'Txt': 'K1', 'Rel': 'K2', 'Str': 'K3', 'Prc': 'K4'}
@@ -45,6 +48,30 @@ def clean(s):
 def split_cols(line):
     """Split a LaTeX table row on unescaped & (escaped \\& is a literal ampersand)."""
     return [c.strip() for c in line.replace('\\&', AMP).split('&')]
+
+
+def load_bib_links():
+    """bib key -> best link (url > doi > arXiv eprint)."""
+    if not BIB.exists():
+        return {}
+    text = BIB.read_text(errors='ignore')
+    out = {}
+    for m in re.finditer(r'@\w+\{([^,]+),(.*?)\n\}', text, flags=re.S):
+        key = m.group(1).strip()
+        fields = m.group(2)
+        def field(name):
+            fm = re.search(name + r'\s*=\s*[{"](.+?)[}"]\s*,?\s*\n', fields, flags=re.S | re.I)
+            return fm.group(1).strip() if fm else None
+        url, doi, eprint = field('url'), field('doi'), field('eprint')
+        link = None
+        if url:
+            link = url.replace('\\_', '_').replace('\\&', '&')
+        elif doi:
+            link = 'https://doi.org/' + doi.replace('\\_', '_')
+        elif eprint and re.match(r'^\d{4}\.\d+', eprint):
+            link = 'https://arxiv.org/abs/' + eprint
+        out[key] = link
+    return out
 
 
 def table_body(tex, label):
@@ -78,7 +105,7 @@ def extract_knowledge_sources(tex):
     return out
 
 
-def extract_benchmarks(tex):
+def extract_benchmarks(tex, bib_links):
     body = table_body(tex, '\\label{tab:benchmarks}')
     out, cur = [], None
     for line in body.splitlines():
@@ -92,6 +119,8 @@ def extract_benchmarks(tex):
         bib = re.search(r'\\cite\{([^}]*)\}', line).group(1)
         cells = split_cols(line)
         sub = clean(cells[2])
+        # link: curated benchmark homepage if any, else the paper (from references.bib)
+        link = BM_META.get(name, {}).get('url') or bib_links.get(bib)
         out.append({
             'task': cur,
             'O_rung': TASK_RUNG.get(cur, ''),
@@ -101,14 +130,16 @@ def extract_benchmarks(tex):
             'K': SHORT_K.get(sub, sub),
             'scale': clean(cells[3]),
             'description': clean(cells[4]),
+            'link': link,
         })
     return out
 
 
 def main():
     tex = TEX.read_text()
+    bib_links = load_bib_links()
     ks = extract_knowledge_sources(tex)
-    bm = extract_benchmarks(tex)
+    bm = extract_benchmarks(tex, bib_links)
     (DATA / 'knowledge_sources.json').write_text(json.dumps(ks, ensure_ascii=False, indent=2))
     (DATA / 'benchmarks.json').write_text(json.dumps(bm, ensure_ascii=False, indent=2))
     print(f'Wrote {len(ks)} knowledge-source rows and {len(bm)} benchmark rows.')

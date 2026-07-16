@@ -822,13 +822,47 @@ def knowledge_source_table_html(substrate=None, base='../', caption=None):
 </figure>'''
 
 
-def benchmark_table_html(rung=None, tasks=None, base='../', caption=None):
-    """Paper Table 2 — benchmarks (the tasks on the O axis), columns
-    Benchmark | Domain | K | Scale | Description, grouped by task family. Filter by
-    O rung (O1..O3) or by an explicit list of task names."""
-    rows = [r for r in BENCHMARKS
+def _benchmark_rows(rung=None, tasks=None):
+    return [r for r in BENCHMARKS
             if (rung is None or r.get('O_rung') == rung)
             and (tasks is None or r.get('task') in tasks)]
+
+
+def _benchmark_name_html(r, base):
+    """Benchmark name linked to its on-site summary if present, else its homepage/paper."""
+    bib = r.get('bib_key', '')
+    fn = bib.replace(':', '_').replace('/', '_') + '.html'
+    name = esc(r.get('benchmark', ''))
+    if (ROOT / 'papers' / fn).exists():
+        return f'<a href="{base}papers/{fn}">{name}</a>'
+    link = r.get('link') or (papers_by_key.get(bib) or {}).get('paper_link')
+    if link:
+        return f'<a href="{esc(link)}" target="_blank" rel="noopener">{name}</a>'
+    return name
+
+
+def benchmark_chips_html(rung=None, tasks=None, base='../'):
+    """Benchmarks as linked chips (each opens the benchmark's homepage/paper)."""
+    rows = _benchmark_rows(rung, tasks)
+    if not rows:
+        return ''
+    items = []
+    for r in rows:
+        name = esc(r.get('benchmark', ''))
+        link = r.get('link')
+        if link:
+            items.append(f'<a class="res-chip" href="{esc(link)}" target="_blank" rel="noopener">{name}</a>')
+        else:
+            items.append(f'<span class="res-chip res-chip-plain">{name}</span>')
+    return f'<div class="res-chips">{"".join(items)}</div>'
+
+
+def benchmark_table_html(rung=None, tasks=None, base='../', caption=None, show_group=True):
+    """Paper Table 2 — benchmarks (the tasks on the O axis), columns
+    Benchmark | Domain | K | Scale | Description, grouped by task family. Filter by
+    O rung (O1..O3) or by an explicit list of task names. show_group=False drops the
+    per-task header rows (used when an <h3> already labels the task)."""
+    rows = _benchmark_rows(rung, tasks)
     if not rows:
         return ''
     by_task = defaultdict(list)
@@ -840,19 +874,13 @@ def benchmark_table_html(rung=None, tasks=None, base='../', caption=None):
         by_task[t].append(r)
     body = []
     for t in order:
-        body.append(f'<tr class="bm-group"><td colspan="5"><span class="bm-task">{esc(t)}</span></td></tr>')
+        if show_group:
+            body.append(f'<tr class="bm-group"><td colspan="5"><span class="bm-task">{esc(t)}</span></td></tr>')
         for r in by_task[t]:
             k = r.get('K', '')
-            bib = r.get('bib_key', '')
-            fn = bib.replace(':', '_').replace('/', '_') + '.html'
-            name = esc(r.get('benchmark', ''))
-            if (ROOT / 'papers' / fn).exists():
-                name = f'<a href="{base}papers/{fn}">{name}</a>'
-            elif papers_by_key.get(bib) and papers_by_key[bib].get('paper_link'):
-                name = f'<a href="{esc(papers_by_key[bib]["paper_link"])}" target="_blank" rel="noopener">{name}</a>'
             body.append(
                 '<tr>'
-                f'<td class="sys-name">{name}</td>'
+                f'<td class="sys-name">{_benchmark_name_html(r, base)}</td>'
                 f'<td>{esc(r.get("domain", ""))}</td>'
                 f'<td><span class="sys-k sys-k-{str(k).lower()}" title="{esc(K_LABELS.get(k, (k,))[0])}">{esc(K_SHORT.get(k, k))}</span></td>'
                 f'<td class="ks-scale">{esc(r.get("scale", ""))}</td>'
@@ -872,6 +900,24 @@ def benchmark_table_html(rung=None, tasks=None, base='../', caption=None):
     </table>
   </div>
 </figure>'''
+
+
+def objective_tasks_html(rung, base='../', heading_level='h3'):
+    """Mirror of substrate_resources_html for the O axis: for each task under this
+    rung, a short §5 summary + its benchmarks as chips + a per-benchmark table."""
+    tasks = [t['name'] for t in AXIS_PROSE.get('O', {}).get('tasks', []) if t.get('rung') == rung]
+    parts = []
+    for t in tasks:
+        tp = O_PROSE.get(t, {})
+        parts.append(
+            f'<div class="res-group">'
+            f'<{heading_level} class="res-group-title">{esc(t)}</{heading_level}>'
+            + (f'<p class="res-note">{esc(tp.get("summary", ""))}</p>' if tp.get('summary') else '')
+            + benchmark_chips_html(tasks=[t], base=base)
+            + benchmark_table_html(tasks=[t], base=base, show_group=False)
+            + '</div>'
+        )
+    return '\n'.join(parts)
 
 
 def esc(s):
@@ -1937,16 +1983,7 @@ def render_cell_pages():
     # ---------- O-axis roll-up pages (cell/O1.html etc.) ----------
     for O in ['O1', 'O2', 'O3']:
         on, od = O_LABELS[O]
-        # §5 task(s) under this rung: short summary each
-        task_blocks = []
-        for t in [tp['name'] for tp in AXIS_PROSE.get('O', {}).get('tasks', []) if tp.get('rung') == O]:
-            tp = O_PROSE.get(t)
-            if tp:
-                task_blocks.append(
-                    f'<div class="res-group"><h3 class="res-group-title">{esc(t)}</h3>'
-                    f'<p class="res-note">{esc(tp.get("summary", ""))}</p></div>'
-                )
-        bm_table = benchmark_table_html(rung=O, base='../', caption='Benchmarks and their ground truth (survey Table 2).')
+        tasks_html = objective_tasks_html(O, base='../')
         # systems live on the K×O cell pages, linked as pills rather than dumped as cards
         cell_pills = '\n'.join(
             f'<a href="{K}.{O}.html" class="pill" title="{K}.{O}">{cell_label(K+"."+O)} <span class="pill-n">{cell_count(K+"."+O)}</span></a>'
@@ -1961,10 +1998,9 @@ def render_cell_pages():
   </div>
 </section>
 
-<section class="axis-body">
+<section class="axis-body o-body">
   <div class="wrap">
-    {''.join(task_blocks)}
-    {bm_table}
+    {tasks_html}
     <div class="axis-systems-link">
       <span class="axis-systems-label">Systems reaching this objective, by substrate:</span>
       <div class="cell-nav">{cell_pills}</div>
@@ -2034,25 +2070,13 @@ def render_axis_overview():
     # ----- Operational Objective (O axis), §5 of the survey -----
     o_summary = AXIS_PROSE.get('O', {}).get('summary', '') or AXIS_PROSE.get('O', {}).get('intro', '')
     o_intro = f'<p>{esc(o_summary)}</p>' if o_summary else f'<p>{O_OVERVIEW_INTRO}</p>'
-    RUNGS = [
-        ('O1', ['Question Answering']),
-        ('O2', ['Claim Verification', 'Literature Synthesis']),
-        ('O3', ['Property Prediction', 'Molecular Design', 'Materials Discovery', 'Hypothesis Generation']),
-    ]
+    RUNGS = ['O1', 'O2', 'O3']
     osubs = []
-    for O, tasks in RUNGS:
+    for O in RUNGS:
         on, od = O_LABELS[O]
         n = axis_count(O)
-        task_blocks = []
-        for t in tasks:
-            tp = O_PROSE.get(t)
-            if tp:
-                task_blocks.append(
-                    f'<div class="res-group"><h3 class="res-group-title">{esc(t)}</h3>'
-                    f'<p class="res-note">{esc(tp.get("summary", ""))}</p></div>'
-                )
         osubs.append(f'''
-<section class="axis-sub" id="{O.lower()}">
+<section class="axis-sub o-body" id="{O.lower()}">
   <div class="wrap">
     <div class="axis-sub-head">
       <span class="sys-o sys-o-{O.lower()}">{esc(O)}</span>
@@ -2060,13 +2084,12 @@ def render_axis_overview():
       <a class="axis-sub-link" href="{O}.html">details &amp; {n} systems →</a>
     </div>
     <p class="axis-lede">{esc(od)}</p>
-    {''.join(task_blocks)}
-    {benchmark_table_html(rung=O, base='../', caption='Benchmarks for this objective (survey Table 2).')}
+    {objective_tasks_html(O, base='../')}
   </div>
 </section>''')
     onav = '\n'.join(
         f'<a href="#{O.lower()}" class="pill">{esc(O)} · {esc(O_LABELS[O][0])} <span class="pill-n">{axis_count(O)}</span></a>'
-        for O, _ in RUNGS)
+        for O in RUNGS)
     obody = f'''
 <section class="cell-hero axis-hero">
   <div class="wrap">

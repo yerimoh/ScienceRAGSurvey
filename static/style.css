@@ -1823,3 +1823,9 @@ sup.footnote-ref a:focus {
 .res-td-name a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--line-strong); }
 .res-td-name a:hover { color: var(--link); border-color: var(--link); }
 .res-td-desc { color: var(--fg-muted); }
+
+/* ---------- O-axis pages: blue accent for task groups & benchmark chips ---------- */
+.o-body .res-group-title::before { color: var(--o-500); }
+.o-body .res-chip { background: var(--o-bg); color: var(--o-fg); }
+.o-body .res-chip:hover { border-color: var(--o-fg); }
+.o-body .res-td-name a:hover { color: var(--o-700); border-color: var(--o-700); }

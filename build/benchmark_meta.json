@@ -1,0 +1,11 @@
+{
+  "_comment": "Curated homepage/link for §5 benchmarks whose references.bib entry has no url/doi/eprint (or where an official homepage is clearer than the paper). Keyed by the exact benchmark name from Table 2. url wins over the paper link. Re-run build/extract_tables.py + render_html.py after editing.",
+
+  "SciQA": {"url": "https://huggingface.co/datasets/orkg/SciQA"},
+  "ScholarQABench": {"url": "https://github.com/AkariAsai/ScholarQABench"},
+  "BioASQ (ideal)": {"url": "http://bioasq.org"},
+  "CAFA": {"url": "https://biofunctionprediction.org/cafa/"},
+  "PMO": {"url": "https://github.com/wenhao-gao/mol_opt"},
+  "Matbench Discovery": {"url": "https://matbench-discovery.materialsproject.org"},
+  "ADsorbML": {"url": "https://arxiv.org/abs/2211.16486"}
+}
