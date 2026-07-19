@@ -50,7 +50,7 @@
     if (note.length > 280) note = note.slice(0, 277) + '…';
 
     const tags = [];
-    (p.ko_cells || []).forEach(c => tags.push(`<a href="cell/${c}.html" class="tag tag-cell" title="${esc(c)}">${esc(cellLabel(c))}</a>`));
+    (p.ko_cells || []).forEach(c => tags.push(`<span class="tag tag-cell" title="${esc(c)}">${esc(cellLabel(c))}</span>`));
     subsOf(p).forEach(s => tags.push(`<span class="tag tag-sub">${esc(s)}</span>`));
     (p.domain || []).forEach(d => tags.push(`<a href="domain/${d}.html" class="tag tag-domain">${DOMAIN_EMOJI[d] || ''}${esc(DOMAIN_LABELS[d] || d)}</a>`));
     if (p.type && p.type !== 'unknown') tags.push(`<a href="topics/${p.type.toLowerCase()}.html" class="tag tag-type">${esc(TYPE_LABELS[p.type] || p.type)}</a>`);

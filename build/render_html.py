@@ -999,14 +999,6 @@ def sidebar(base='', current=''):
     def cls(key):
         return ' active' if current == key else ''
 
-    # K×O 12 cells
-    cell_items = ''
-    for K in ['K1', 'K2', 'K3', 'K4']:
-        for O in ['O1', 'O2', 'O3']:
-            c = f'{K}.{O}'
-            n = cell_count(c)
-            cell_items += f'<a href="{base}cell/{c}.html" class="sb-sub{cls(f"cell/{c}")}">{cell_label(c)} <span class="sb-count">{n}</span></a>\n'
-
     # K-axis roll-up pages (K1-K4)
     k_axis_items = ''
     for K in ['K1', 'K2', 'K3', 'K4']:
@@ -1193,7 +1185,8 @@ def paper_card(p, base='', axis_scope=None, factcheck_id=None):
 
     tag_html = []
     for c in cells:
-        tag_html.append(f'<a href="{base}cell/{c}.html" class="tag tag-cell" title="{c}">{cell_label(c)}</a>')
+        # K×O cell label shown as a plain tag (per-cell pages were removed)
+        tag_html.append(f'<span class="tag tag-cell" title="{c}">{cell_label(c)}</span>')
     subsec = p.get('subsection')
     if subsec:
         subs_list = subsec if isinstance(subsec, list) else [subsec]
@@ -1783,8 +1776,11 @@ def render_overview_section(cell_key, papers_by_key, papers_in_cell=None, base='
 
 
 def render_cell_pages():
+    # The 12 K×O cross-cell pages were removed (per-cell paper assignments unverified).
+    # The K-axis and O-axis roll-up loops below still render. `for O in []` skips the
+    # cross-cell generation while leaving the roll-up pages intact.
     for K in ['K1', 'K2', 'K3', 'K4']:
-        for O in ['O1', 'O2', 'O3']:
+        for O in []:
             cell = f'{K}.{O}'
             if cell in CELL_PAPERS:
                 # Restrict to papers actually cited in this cell's main.tex subsubsection,
@@ -1872,10 +1868,6 @@ def render_cell_pages():
         resources = substrate_resources_html(K, base='../')
         ks_table = knowledge_source_table_html(substrate=K, base='../',
                                                caption='Scale and access at a glance (survey Table 1).')
-        # systems live on the K×O cell pages, linked as pills rather than dumped as cards
-        cell_pills = '\n'.join(
-            f'<a href="{K}.{O}.html" class="pill" title="{K}.{O}">{cell_label(K+"."+O)} <span class="pill-n">{cell_count(K+"."+O)}</span></a>'
-            for O in ['O1', 'O2', 'O3'])
         body = f'''
 <section class="cell-hero">
   <div class="wrap">
@@ -1888,10 +1880,6 @@ def render_cell_pages():
   <div class="wrap">
     {resources}
     {ks_table}
-    <div class="axis-systems-link">
-      <span class="axis-systems-label">Systems retrieving over this substrate, by objective:</span>
-      <div class="cell-nav">{cell_pills}</div>
-    </div>
   </div>
 </section>
 '''
@@ -1901,11 +1889,6 @@ def render_cell_pages():
     for O in ['O1', 'O2', 'O3']:
         on, od = O_LABELS[O]
         tasks_html = objective_tasks_html(O, base='../')
-        # systems live on the K×O cell pages, linked as pills rather than dumped as cards
-        cell_pills = '\n'.join(
-            f'<a href="{K}.{O}.html" class="pill" title="{K}.{O}">{cell_label(K+"."+O)} <span class="pill-n">{cell_count(K+"."+O)}</span></a>'
-            for K in ['K1', 'K2', 'K3', 'K4'] if cell_count(f'{K}.{O}')
-        )
         body = f'''
 <section class="cell-hero">
   <div class="wrap">
@@ -1918,10 +1901,6 @@ def render_cell_pages():
 <section class="axis-body o-body">
   <div class="wrap">
     {tasks_html}
-    <div class="axis-systems-link">
-      <span class="axis-systems-label">Systems reaching this objective, by substrate:</span>
-      <div class="cell-nav">{cell_pills}</div>
-    </div>
   </div>
 </section>
 '''
@@ -2285,7 +2264,7 @@ def render_domain_pages():
             for c in p.get('ko_cells', []):
                 dom_cells[c] += 1
         breakdown = ''.join(
-            f'<a href="../cell/{c}.html" class="pill" title="{c}">{cell_label(c)} {dom_cells[c]}</a>'
+            f'<span class="pill" title="{c}">{cell_label(c)} {dom_cells[c]}</span>'
             for c in sorted(dom_cells, key=lambda x: -dom_cells[x])
         )
         cards = '\n'.join(paper_card(p, base='../') for p in ps)
@@ -2422,7 +2401,7 @@ def render_insights():
         <article class="fl-card">
           <div class="fl-head">
             <h3 class="fl-name">{esc(f['name'])}</h3>
-            <a href="cell/{cell}.html" class="tag tag-cell" title="{esc(cell_label(cell))}">{cell}</a>
+            <span class="tag tag-cell" title="{esc(cell_label(cell))}">{cell}</span>
           </div>
           <p class="fl-tagline">{esc(f['tagline'])}</p>
           <div class="fl-stats">{stats_html}</div>
@@ -2781,7 +2760,7 @@ def render_paper_pages():
         links_html = f'<div class="paper-links">{"".join(links)}</div>' if links else ''
 
         cells = matching.get('ko_cells', [])
-        cell_tags = ''.join(f'<a href="../cell/{c}.html" class="tag tag-cell" title="{c}">{cell_label(c)}</a>' for c in cells)
+        cell_tags = ''.join(f'<span class="tag tag-cell" title="{c}">{cell_label(c)}</span>' for c in cells)
         subsec = matching.get('subsection', '')
         if isinstance(subsec, list):
             subsec = ', '.join(x for x in subsec if x)
@@ -2846,7 +2825,7 @@ if __name__ == '__main__':
     render_about()
     render_browse()
     render_insights()
-    render_cell_pages()
+    render_cell_pages()   # now renders only the K-axis / O-axis roll-up pages (K×O cross-cells removed)
     render_axis_overview()
     render_task_pages()
     render_method_pages()
@@ -2856,6 +2835,6 @@ if __name__ == '__main__':
     write_catalog()
     print('Wrote all HTML pages.')
     print(f'  index.html, about.html, browse.html, insights.html')
-    print(f'  cell/*.html (12 K×O + K/O axis + overviews + {len(TASK_ORDER)} task pages)')
+    print(f'  cell/*.html (K/O axis roll-ups + overviews + {len(TASK_ORDER)} task pages)')
     print(f'  domain/*.html ({len([d for d in DOMAIN_LABELS if d in by_dom])} domains)')
     print(f'  topics/*.html ({len([t for t in TYPE_LABELS if t in by_type])} types)')
