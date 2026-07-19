@@ -150,7 +150,7 @@
   "eval_metric": "Recall@1/5/10, Refusal rate, citation coverage",
   "method": "Grounded Multimodal RAG",
   "paper_link": "https://arxiv.org/abs/2603.17765",
-  "note": "Image+text late fusion (a=0.5). Recall@5 0.975.",
+  "note": "Image+text late fusion (a=0.5).",
   "bib_key": "DBLP:journals/corr/abs-2603-17765",
   "bib_ver": "v2",
   "domain": [
@@ -190,7 +190,7 @@
   "eval_metric": "Recall@1/5/20, Alignment Score",
   "method": "IRPAPERS",
   "paper_link": "https://arxiv.org/abs/2602.17687",
-  "note": "Visual-document RAG benchmark over 166 IR papers. Hybrid search Recall@20 95%.",
+  "note": "Visual-document RAG benchmark over 166 IR papers. Hybrid search.",
   "bib_key": "DBLP:journals/corr/abs-2602-17687",
   "bib_ver": "v2",
   "modality": [
@@ -216,7 +216,7 @@
    "physics"
   ],
   "paper_link": "https://doi.org/10.48550/arXiv.2603.09800",
-  "note": "RAG over CMS internal documents; DPR + cross-encoder reranker + 4-bit Mistral-7B; P@1 ~5.8x over BM25 on paraphrased queries (Set 2: 0.75 vs 0.13)",
+  "note": "RAG over CMS internal documents; DPR + cross-encoder reranker + 4-bit Mistral-7B.",
   "ko_cells": [
    "K4.O1"
   ],
@@ -244,7 +244,7 @@
   "eval_task": "pymatgen/atomate2 API call accuracy",
   "eval_metric": "API call accuracy %",
   "method": "MatClaw RAG Benchmark",
-  "note": "Structure-aware chunking 99% accuracy. Code as domain knowledge.",
+  "note": "Structure-aware chunking. Code as domain knowledge.",
   "domain": [
    "material"
   ],
@@ -267,7 +267,7 @@
    "material"
   ],
   "paper_link": "",
-  "note": "Code-first LLM agent; RAG over domain source code (pymatgen, atomate2, jobflow, dpdata, DeePMD-kit); ~99% API-call accuracy; 4-layer memory; 3 end-to-end demonstrations on CuInP2S6 (force field, Curie temp, parameter search)",
+  "note": "Code-first LLM agent; RAG over domain source code (pymatgen, atomate2, jobflow, dpdata, DeePMD-kit); 4-layer memory; 3 end-to-end demonstrations on CuInP2S6 (force field, Curie temp, parameter search)",
   "ko_cells": [
    "K2.O3"
   ],
@@ -342,7 +342,7 @@
   "eval_task": "HEA OER catalyst multi-objective DFT",
   "eval_metric": "ηOER, E_hull, band gap, Pugh ratio, $/kg, d-band",
   "method": "OER-DFT (HEA)",
-  "note": "★ K2.O3 + Materials. LLM+RAG generates catalysts; VASP PBE+U DFT verifies. Top: Fe0.2Co0.2Ni0.2Ir0.1Ru0.3 ηOER=0.285V (25% improvement over IrO2).",
+  "note": "★ K2.O3 + Materials. LLM+RAG generates catalysts; VASP PBE+U DFT verifies. Top: Fe0.2Co0.2Ni0.2Ir0.1Ru0.3 ηOER=0.285V.",
   "domain": [
    "material",
    "chem"
@@ -373,7 +373,7 @@
   "eval_task": "ScholarQABench (Scholar-CS/Bio/Neuro/Multi) + PubMedQA, SciFact, QASA",
   "eval_metric": "Rubric acc, Citation F1, ROUGE-L, Accuracy",
   "method": "OpenScholar",
-  "note": "★★ K1.O2 FLAGSHIP. Iterative self-feedback. 0% hallucination vs GPT-4o 78-90%. Experts prefer OpenScholar-GPT-4o over human 70%. Public demo 30K users.",
+  "note": "★★ K1.O2 FLAGSHIP. Iterative self-feedback. Public demo with 30K users.",
   "bib_key": "asai2024openscholar",
   "bib_ver": "v2",
   "domain": [
@@ -447,7 +447,7 @@
   "eval_task": "PathMMU, Path-VQA, Quilt-VQA, MedXpertQA, OmniMedVQA",
   "eval_metric": "Accuracy (Exact-match)",
   "method": "Patho-AgenticRAG",
-  "note": "GRPO-trained agentic router. 600 textbooks → 200K page-level multimodal KB. +38pp on MedXpertQA over Patho-R1 baseline. Private DB but textbook-derived.",
+  "note": "GRPO-trained agentic router. 600 textbooks → 200K page-level multimodal KB. Private DB but textbook-derived.",
   "domain": [
    "medical",
    "bio"
@@ -512,7 +512,7 @@
   "eval_task": "PHA-related Domain-Expert QA Benchmark (113 expert questions)",
   "eval_metric": "Recall, Accuracy (chemist eval)",
   "method": "Polymer Literature Scholar",
-  "note": "Cross-source K1+K2. Vector vs Graph RAG comparison. GraphRAG=0.938 recall, VectorRAG=0.717. Domain chemist eval.",
+  "note": "Cross-source K1+K2. Vector vs Graph RAG comparison. Domain chemist eval.",
   "domain": [
    "material"
   ],
@@ -784,7 +784,7 @@
   "eval_metric": "Overall Accuracy (OA), Macro-F1",
   "method": "Geo-MMRAG",
   "paper_link": "https://doi.org/10.1016/j.isprsjprs.2025.04.015",
-  "note": "First multimodal RAG for geological remote sensing. GF-2 overall accuracy 79.7% (+23.9pp).",
+  "note": "First multimodal RAG for geological remote sensing, over GF-2 imagery.",
   "bib_key": "chen2025vision",
   "bib_ver": "v2",
   "domain": [
@@ -858,7 +858,7 @@
   "eval_task": "BioASQ, PubMedQA, AlzheimerRAG Clinical Scenarios",
   "eval_metric": "P@10, Recall, MAP, Acc, F1, EM, Hallucination",
   "method": "AlzheimerRAG",
-  "note": "Cross-modal fusion. 84% accuracy in clinical scenarios. 6% hallucination.",
+  "note": "Cross-modal fusion.",
   "domain": [
    "medical"
   ],
@@ -972,7 +972,7 @@
   "eval_task": "ChemRAG-Bench (MMLU-Chem, SciBench-Chem, ChemBench4K, Mol-Instructions)",
   "eval_metric": "Accuracy; EM/Validity/MACCS-FTS/RDKit-FTS/Morgan-FTS/BLEU; ROUGE",
   "method": "ChemRAG (Bench + Toolkit)",
-  "note": "First large-scale chemistry RAG benchmark. 6 corpora × 5 retrievers × 8 LLMs. RAG improves accuracy by +17.4% on average; ChemLLM barely benefits.",
+  "note": "First large-scale chemistry RAG benchmark. 6 corpora × 5 retrievers × 8 LLMs. ChemLLM barely benefits.",
   "bib_key": "DBLP:journals/corr/abs-2505-07671",
   "bib_ver": "v2",
   "domain": [
@@ -1036,7 +1036,7 @@
   "eval_metric": "Micro Precision, Recall, F1; Accuracy; F1 (Link Prediction)",
   "method": "BiomedRAG",
   "paper_link": "https://arxiv.org/abs/2405.00465",
-  "note": "Trains a tailored chunk scorer on LLM perplexity. +22.43pp F1 on GIT.",
+  "note": "Trains a tailored chunk scorer on LLM perplexity.",
   "bib_key": "DBLP:journals/corr/abs-2405-00465",
   "bib_ver": "v2",
   "domain": [
@@ -1224,7 +1224,7 @@
   "eval_metric": "nDCG@10, MAP@10, MRR@10",
   "method": "ChemRxiv Retrieval",
   "paper_link": "https://arxiv.org/abs/2508.01643v1",
-  "note": "ChEmbed_prog 0.911 nDCG@10.",
+  "note": "ChEmbed_prog.",
   "bib_key": "DBLP:journals/corr/abs-2508-01643",
   "bib_ver": "v2",
   "domain": [
@@ -1342,7 +1342,7 @@
    "physics"
   ],
   "paper_link": "",
-  "note": "RAG over DUNE DocDB + Indico + internal wikis; multi-qa-mpnet + FAISS; ~70% retrieval accuracy (preliminary); Fermilab on-premise",
+  "note": "RAG over DUNE DocDB + Indico + internal wikis; multi-qa-mpnet + FAISS; Fermilab on-premise",
   "ko_cells": [
    "K4.O1"
   ],
@@ -1369,7 +1369,7 @@
   "eval_task": "internal queries (detector specs, reconstruction)",
   "eval_metric": "Accuracy ~70%",
   "method": "DUNE-GPT",
-  "note": "★ K4: Private institutional memory. Fermilab/Argonne offline only. ~70% accuracy.",
+  "note": "★ K4: Private institutional memory. Fermilab/Argonne offline only.",
   "domain": [
    "physics"
   ],
@@ -1473,7 +1473,7 @@
   "eval_metric": "Mean Accuracy, Precision@5, Latency, Cost",
   "method": "OCR-free vs Text MM-RAG",
   "paper_link": "https://arxiv.org/abs/2512.16802",
-  "note": "Mid-size models favor text conversion while GPT-5 is best OCR-free; ColFlor (174M) is 5.25x faster.",
+  "note": "Mid-size models favor text conversion while GPT-5 is best OCR-free; ColFlor (174M).",
   "bib_key": "DBLP:conf/bigdataconf/KocbekFLHLS25",
   "bib_ver": "v2",
   "domain": [
@@ -1514,7 +1514,7 @@
   "eval_task": "MIMIC-CXR, CheXpert",
   "eval_metric": "ROUGE-L, BERTScore, F1CheXbert, F1RadGraph",
   "method": "FactMM-RAG",
-  "note": "RadGraph-based factual-pair mining + LLaVA. +6.5% CheXbert-F1 on MIMIC-CXR.",
+  "note": "RadGraph-based factual-pair mining + LLaVA on MIMIC-CXR.",
   "bib_key": "DBLP:conf/naacl/SunZHX25",
   "bib_ver": "v2",
   "domain": [
@@ -1657,7 +1657,7 @@
   "eval_metric": "Accuracy, Precision, Recall, F1 (Closed); RAGAS (Open)",
   "method": "GeoRAG",
   "paper_link": "https://arxiv.org/abs/2504.01458",
-  "note": "Seven-dimensional geography RAG: +28.7% accuracy, -41.9% hallucination.",
+  "note": "Seven-dimensional geography RAG.",
   "bib_key": "DBLP:journals/corr/abs-2504-01458",
   "bib_ver": "v2",
   "domain": [
@@ -1693,7 +1693,7 @@
   "eval_task": "SciQ, PubMedQA, LitQA, ProteinInteractionQA, ProteinFunctionQA, BioSynthQP",
   "eval_metric": "Accuracy, P@10, MRR@10",
   "method": "HiPerRAG",
-  "note": "HPC-scale (Polaris/Sunspot/Frontier). Oreo parser 4.5x faster. ProteinInteractionQA/FunctionQA/BioSynthQP self-made.",
+  "note": "HPC-scale (Polaris/Sunspot/Frontier). Oreo parser. ProteinInteractionQA/FunctionQA/BioSynthQP self-made.",
   "domain": [
    "bio",
    "medical",
@@ -1738,7 +1738,7 @@
   "eval_metric": "Accuracy (%)",
   "method": "i-MedRAG",
   "paper_link": "https://arxiv.org/abs/2408.00727",
-  "note": "Medical RAG that iteratively generates follow-up queries. Zero-shot GPT-3.5 reaches 69.68% (SOTA) on MedQA.",
+  "note": "Medical RAG that iteratively generates follow-up queries. Zero-shot GPT-3.5 on MedQA.",
   "bib_key": "DBLP:journals/corr/abs-2408-00727",
   "bib_ver": "v2",
   "domain": [
@@ -1857,7 +1857,7 @@
   "eval_metric": "Claim Support wrt Reference, wrt KB. LettuceDetect %",
   "method": "ClimateGPT Faithful+",
   "paper_link": "https://aclanthology.org/2025.climatenlp-1.17/",
-  "note": "Instruction-tuning ablation: removing the unfaithful subset raises faithfulness from 30% to 57%.",
+  "note": "Instruction-tuning ablation: removing the unfaithful subset raises faithfulness.",
   "bib_key": "DBLP:journals/corr/abs-2505-15633",
   "bib_ver": "v2",
   "domain": [
@@ -1948,7 +1948,7 @@
   "eval_task": "CMS Analysis Query Set (Set 1 exact / Set 2 paraphrase)",
   "eval_metric": "P@k, R@k, MRR, NDCG@k",
   "method": "MITRA",
-  "note": "★ K4: CMS Private. On-prem GPU. Two-tier DB prevents cross-analysis confusion. Set 2 paraphrase: P@1 0.13→0.75 vs BM25.",
+  "note": "★ K4: CMS Private. On-prem GPU. Two-tier DB prevents cross-analysis confusion.",
   "domain": [
    "physics"
   ],
@@ -2050,7 +2050,7 @@
   "eval_metric": "Accuracy",
   "method": "MOTOR",
   "paper_link": "https://arxiv.org/abs/2506.22900",
-  "note": "Training-free multimodal optimal-transport reranking; +6.45% on average over prior SOTA.",
+  "note": "Training-free multimodal optimal-transport reranking.",
   "bib_key": "DBLP:conf/miccai/ShaabanSPY25",
   "bib_ver": "v2",
   "domain": [
@@ -2114,7 +2114,7 @@
   "eval_metric": "Cosine Similarity, Expert 5-point",
   "method": "MDSK-RAG",
   "paper_link": "https://doi.org/10.1021/acs.jcim.5c01941",
-  "note": "Offline RAG over dual CSV+PDF sources; gemma-2-9b-it+RAG beats GPT-4o without RAG (0.71 vs 0.66).",
+  "note": "Offline RAG over dual CSV+PDF sources; gemma-2-9b-it.",
   "bib_key": "DBLP:journals/jcisd/TakaharaYOKHTTKF25",
   "bib_ver": "v2",
   "domain": [
@@ -2237,7 +2237,7 @@
   "eval_metric": "Exact-match Accuracy",
   "method": "MedXpertQA",
   "paper_link": "https://arxiv.org/abs/2501.18362",
-  "note": "Expert-level multi-step medical reasoning MCQ benchmark; evaluated on a 90-item subset in Patho-AgenticRAG, where RAG adds +38pp accuracy.",
+  "note": "Expert-level multi-step medical reasoning MCQ benchmark; evaluated on a 90-item subset in Patho-AgenticRAG.",
   "bib_key": "DBLP:conf/icml/ZuoQLCZHZ0025",
   "bib_ver": "v2",
   "domain": [
@@ -2298,7 +2298,7 @@
   "eval_metric": "Top-1 accuracy",
   "method": "MARASON",
   "paper_link": "https://proceedings.mlr.press/v267/wang25dg.html",
-  "note": "Molecular RAG: naive RAG hurts performance, so neural graph matching is key. 19% -> 28% (+45% relative).",
+  "note": "Molecular RAG: naive RAG hurts performance, so neural graph matching is key.",
   "bib_key": "DBLP:conf/icml/WangWMC25",
   "bib_ver": "v2",
   "domain": [
@@ -2343,7 +2343,7 @@
   "eval_metric": "DS-1000 Accuracy (pass@1), CosmoPaperQA Accuracy",
   "method": "cmbagent",
   "paper_link": "https://arxiv.org/abs/2507.07257",
-  "note": "~30 LLM agents for planning and control. 1st place at NeurIPS 2025 Fair Universe; 91.4% with OpenAI on CosmoPaperQA.",
+  "note": "~30 LLM agents for planning and control. NeurIPS 2025 Fair Universe; CosmoPaperQA with OpenAI.",
   "bib_key": "DBLP:journals/corr/abs-2507-07257",
   "bib_ver": "v2",
   "domain": [
@@ -2428,7 +2428,7 @@
   "eval_metric": "Accuracy, Precision, Recall, F1, ROC-AUC",
   "method": "Q-FSRU",
   "paper_link": "https://arxiv.org/abs/2508.12036",
-  "note": "FFT frequency domain + quantum fidelity; 91.6% on VQA-RAD. The quantum-inspired mechanism is a classical approximation.",
+  "note": "FFT frequency domain + quantum fidelity; VQA-RAD. The quantum-inspired mechanism is a classical approximation.",
   "bib_key": "DBLP:journals/corr/abs-2508-12036",
   "bib_ver": "v2",
   "domain": [
@@ -2467,7 +2467,7 @@
   "eval_task": "14 de-identified preoperative scenarios",
   "eval_metric": "Accuracy; S.C.O.R.E (Safety/Consensus/Objectivity/Reproducibility/Explainability); IRR; Hallucination rate",
   "method": "LLM-RAG pipeline for preoperative medicine",
-  "note": "GPT-4 RAG accuracy 96.4% > human MD avg 86.6%. K4 partial via local hospital protocols.",
+  "note": "K4 partial via local hospital protocols.",
   "domain": [
    "medical"
   ],
@@ -2732,7 +2732,7 @@
   "eval_task": "AP Lab Protocols QA",
   "eval_metric": "RAGAS (Faithfulness/AnswerRel/CtxRecall) + P/R/F1@k",
   "method": "RAG-AP",
-  "note": "K4 NOVELTY EXAMPLE, internal lab protocols as retrieval source. k=1 best F1=0.50. Hybrid + MedEmbed best on RAGAS.",
+  "note": "K4 NOVELTY EXAMPLE, internal lab protocols as retrieval source. Hybrid + MedEmbed.",
   "bib_key": "DBLP:journals/corr/abs-2602-22216",
   "bib_ver": "v2",
   "domain": [
@@ -2770,7 +2770,7 @@
   "eval_task": "Synthetic ICM Consultation Scenarios",
   "eval_metric": "Ranking, Hallucination Rate, 6-Dim Score",
   "method": "Llama 3.2 11B + RAG",
-  "note": "local-LLM + RAG → hallucination 0% (was 8%); HIPAA/GDPR compliant.",
+  "note": "local-LLM + RAG; HIPAA/GDPR compliant.",
   "bib_key": "DBLP:journals/npjdm/WadaTNYAHHKSSKNA25",
   "bib_ver": "v2",
   "domain": [
@@ -2865,7 +2865,7 @@
   "eval_metric": "Recall@k, MRR@100, Entailment, ROUGE-L",
   "method": "ScIRGen",
   "paper_link": "https://doi.org/10.1145/3711896.3737432",
-  "note": "SePer-Filter at 95% precision; 61k geoscience QA. 10-25% over SOTA on C3-C4.",
+  "note": "SePer-Filter; 61k geoscience QA.",
   "bib_key": "DBLP:conf/kdd/Lin0HSWSWF0025",
   "bib_ver": "v2",
   "domain": [
@@ -2900,7 +2900,7 @@
   "eval_task": "CosmoPaperQA (105 expert-made cosmology QA)",
   "eval_metric": "Accuracy + LLMaaJ + Human",
   "method": "SciRag",
-  "note": "First systematic astronomy RAG eval. 9-config comparison. OpenAI 91.4% best. CMBAgent connection.",
+  "note": "First systematic astronomy RAG eval. 9-config comparison. CMBAgent connection.",
   "domain": [
    "astronomy"
   ],
@@ -3080,7 +3080,7 @@
   "eval_metric": "Accuracy + 인간 평가",
   "method": "Source Planning Optimisation (SPO)",
   "paper_link": "https://github.com/Jack-ZC8/Omni-RAG-Medical",
-  "note": "Builds MedOmniKB (5 heterogeneous medical KBs) with a Source-Planning-Optimisation method; a small planner beats a 10x larger model.",
+  "note": "Builds MedOmniKB (5 heterogeneous medical KBs) with a Source-Planning-Optimisation method.",
   "bib_key": "DBLP:conf/acl/ChenLJWG0025",
   "bib_ver": "v2",
   "domain": [
@@ -3151,7 +3151,7 @@
    "bio"
   ],
   "paper_link": "https://doi.org/10.1093/nar/gkad1011",
-  "note": ">214 million predicted structures; ~500x expansion from initial 2021 release; integrated with PDB, UniProt, Ensembl, InterPro, MobiDB",
+  "note": ">214 million predicted structures; initial 2021 release; integrated with PDB, UniProt, Ensembl, InterPro, MobiDB",
   "ko_cells": [
    "K3"
   ],
@@ -3217,7 +3217,7 @@
   "eval_metric": "Macro F1",
   "method": "BRSET",
   "paper_link": "https://physionet.org/content/brazilian-ophthalmological/1.0.0/",
-  "note": "14 retinal pathologies from Brazil. CLARE F1 0.37.",
+  "note": "14 retinal pathologies from Brazil.",
   "bib_key": "nakayama2024brset",
   "bib_ver": "v2",
   "domain": [
@@ -3562,7 +3562,7 @@
   "generator_train": false,
   "method": "GPQA",
   "paper_link": "https://arxiv.org/abs/2311.12022",
-  "note": "PhD-level physics/chemistry/biology MCQs. Non-experts with Google score 22.1%; experts 81.3%.",
+  "note": "PhD-level physics/chemistry/biology MCQs.",
   "bib_key": "DBLP:journals/corr/abs-2311-12022",
   "bib_ver": "v2",
   "domain": [
@@ -3740,7 +3740,7 @@
   "eval_metric": "Precision, Accuracy, Recall, AUC-ROC 0.842",
   "method": "PaperQA2",
   "paper_link": "https://arxiv.org/abs/2409.13740",
-  "note": "RAG that surpasses human experts: PaperQA2 85.2% vs humans 73.8%. RCS + citation traversal.",
+  "note": "PaperQA2 RAG with RCS + citation traversal.",
   "bib_key": "DBLP:journals/corr/abs-2409-13740",
   "bib_ver": "v2",
   "domain": [
@@ -3852,7 +3852,7 @@
   "eval_metric": "Accuracy",
   "method": "MaScQA",
   "paper_link": "https://pubs.rsc.org/en/content/articlelanding/2024/dd/d3dd00188a",
-  "note": "Used to evaluate HoneyComb; 650 GATE-exam items. GPT-4 ~62%.",
+  "note": "Used to evaluate HoneyComb; 650 GATE-exam items.",
   "bib_key": "zaki2024mascqa",
   "bib_ver": "v2",
   "domain": [
@@ -3976,7 +3976,7 @@
   "eval_task": "OmniMedVQA",
   "eval_metric": "Exact-match Accuracy",
   "method": "OmniMedVQA",
-  "note": "A comprehensive medical-LVLM benchmark; Patho-AgenticRAG 90.11%.",
+  "note": "A comprehensive medical-LVLM benchmark.",
   "bib_key": "DBLP:conf/cvpr/HuLLSHQL24",
   "bib_ver": "v2",
   "domain": [
@@ -4122,7 +4122,7 @@
   "eval_metric": "Overall Accuracy (OA), Macro-F1, Confusion Matrix",
   "method": "Multi-GL9",
   "paper_link": "https://doi.org/10.3390/rs16142548",
-  "note": "Multi-resolution geological classification from GF-2 + Landsat 8. Geo-MMRAG 79.7%.",
+  "note": "Multi-resolution geological classification from GF-2 + Landsat 8.",
   "bib_key": "DBLP:journals/remotesensing/HanWDZLZZ24",
   "bib_ver": "v2",
   "domain": [
@@ -4340,7 +4340,7 @@
   "eval_metric": "CRR, CAR, SCF, HF, RAGAS",
   "method": "RAGS4EIC",
   "paper_link": "https://arxiv.org/abs/2403.15729",
-  "note": "EIC RAG with GPT-3.5. CAR 88.9%, HF 2.0%; weak on LaTeX.",
+  "note": "EIC RAG with GPT-3.5; weak on LaTeX.",
   "domain": [
    "physics"
   ],
@@ -4613,7 +4613,7 @@
   "generator_train": false,
   "method": "Scientific Document Classification & Impact Sorting",
   "paper_link": "https://doi.org/10.1039/d3dd00112a",
-  "note": "Classification accuracy 81-99%; impact ranking correlates with journal impact factor.",
+  "note": "Impact ranking correlates with journal impact factor.",
   "bib_key": "DBLP:journals/corr/abs-2306-10067",
   "bib_ver": "v2",
   "domain": [
@@ -4645,7 +4645,7 @@
   "eval_metric": "Accuracy",
   "method": "EHRXQA",
   "paper_link": "https://papers.neurips.cc/paper/2023/hash/0c007ebef1d11fd48da6ce4f54687db6-Abstract-Datasets_and_Benchmarks.html",
-  "note": "Multimodal QA combining EHR tables and chest X-rays. NeuralSQL; MOTOR 58.04%.",
+  "note": "Multimodal QA combining EHR tables and chest X-rays. NeuralSQL.",
   "bib_key": "DBLP:conf/nips/BaeKRCLKO0CKC23",
   "bib_ver": "v2",
   "domain": [
@@ -4836,7 +4836,7 @@
   "eval_metric": "Accuracy, BLEU, ROUGE-L, CIDEr, METEOR",
   "method": "Medical-Diff-VQA",
   "paper_link": "https://physionet.org/content/medical-diff-vqa/",
-  "note": "Longitudinal chest-X-ray VQA on MIMIC-CXR; 7 categories, 700K QA pairs. MOTOR (arXiv 2025) sets SOTA at 64.52%.",
+  "note": "Longitudinal chest-X-ray VQA on MIMIC-CXR; 7 categories, 700K QA pairs.",
   "bib_key": "hu2023medicaldiff",
   "bib_ver": "v2",
   "domain": [
@@ -4946,7 +4946,7 @@
   "eval_metric": "Accuracy, Precision",
   "method": "PaperQA",
   "paper_link": "https://arxiv.org/abs/2312.07559v2",
-  "note": "Map-reduce answers with cited evidence and 0% citation hallucination; introduces the LitQA benchmark.",
+  "note": "Map-reduce answers with cited evidence; introduces the LitQA benchmark.",
   "bib_key": "DBLP:journals/corr/abs-2312-07559",
   "bib_ver": "v2",
   "domain": [
@@ -4990,7 +4990,7 @@
   "eval_metric": "Triple F1, Relation F1",
   "method": "GIT",
   "paper_link": "https://arxiv.org/abs/2310.18463",
-  "note": "Gene-disease triple extraction. BiomedRAG +22.43pp F1.",
+  "note": "Gene-disease triple extraction with BiomedRAG.",
   "bib_key": "DBLP:journals/corr/abs-2310-18463",
   "bib_ver": "v2",
   "domain": [
@@ -5039,7 +5039,7 @@
   "eval_metric": "분류 Accuracy, Retrieval Recall",
   "method": "Quilt-1M",
   "paper_link": "https://arxiv.org/abs/2306.11207",
-  "note": "1M histopathology image-text pairs from YouTube ASR; 5x+ larger than prior sets.",
+  "note": "1M histopathology image-text pairs from YouTube ASR.",
   "bib_key": "DBLP:conf/nips/IkezogwoSGGMAKS23",
   "bib_ver": "v2",
   "domain": [
@@ -5602,7 +5602,7 @@
   "eval_metric": "Accuracy (Zero-shot 또는 5-shot)",
   "method": "MMLU",
   "paper_link": "https://openreview.net/forum?id=d7KBjmI3GmQ",
-  "note": "Massive multitask language understanding: 57 subjects, 15,908 items; ~6.5% ground-truth errors.",
+  "note": "Massive multitask language understanding: 57 subjects, 15,908 items; contains known ground-truth errors.",
   "bib_key": "DBLP:conf/iclr/HendrycksBBZMSS21",
   "bib_ver": "v2",
   "domain": [
@@ -5807,7 +5807,7 @@
   "generator_train": false,
   "method": "Crossref REST API",
   "paper_link": "https://doi.org/10.1162/qss_a_00022",
-  "note": "K1 infrastructure: DOI registry, 106M records, community-owned scholarly metadata. Growing 11%/yr.",
+  "note": "K1 infrastructure: DOI registry, 106M records, community-owned scholarly metadata.",
   "bib_key": "DBLP:journals/qss/HendricksTLF20",
   "bib_ver": "v2",
   "domain": [
@@ -6111,7 +6111,7 @@
   "eval_task": "Path-VQA",
   "eval_metric": "Exact-match Accuracy",
   "method": "Path-VQA",
-  "note": "VQA from pathology textbooks; 30K+ questions, yes/no + open-ended. Evaluated on the yes/no subset (3,362 items) in Patho-AgenticRAG at 80.34% accuracy.",
+  "note": "VQA from pathology textbooks; 30K+ questions, yes/no + open-ended. Evaluated on the yes/no subset (3,362 items) in Patho-AgenticRAG.",
   "bib_key": "DBLP:journals/corr/abs-2003-10286",
   "bib_ver": "v2",
   "domain": [
@@ -6412,7 +6412,7 @@
   "eval_metric": "Accuracy, Macro-F1 (yes/no/maybe)",
   "method": "PubMedQA",
   "paper_link": "https://aclanthology.org/D19-1259",
-  "note": "First biomedical yes/no/maybe QA dataset. Humans 78.0% vs models 68.1%.",
+  "note": "First biomedical yes/no/maybe QA dataset.",
   "bib_key": "DBLP:conf/emnlp/JinDLCL19",
   "bib_ver": "v2",
   "domain": [
@@ -6882,7 +6882,7 @@
   "eval_metric": "avgScore (0-3), succ@i+, prec@i+",
   "method": "TREC LiveQA Medical",
   "paper_link": "https://trec.nist.gov/pubs/trec26/papers/Overview-QA.pdf",
-  "note": "QA benchmark built from real consumer health questions sent to the NLM; tests handling of unstructured real-world questions. MedBioRAG (2025) reaches ROUGE-1 27.33.",
+  "note": "QA benchmark built from real consumer health questions sent to the NLM; tests handling of unstructured real-world questions.",
   "bib_key": "DBLP:conf/trec/AbachaAPD17",
   "bib_ver": "v2",
   "domain": [
@@ -6957,7 +6957,7 @@
   "generator_train": false,
   "method": "NFCorpus",
   "paper_link": "https://link.springer.com/chapter/10.1007/978-3-319-30671-1_73",
-  "note": "Full-text learning-to-rank benchmark in the medical domain, from NutritionFacts.org. In MedBioRAG (2025), semantic search reaches NDCG@10 37.91% vs BM25.",
+  "note": "Full-text learning-to-rank benchmark in the medical domain, from NutritionFacts.org.",
   "bib_key": "boteva2016full",
   "bib_ver": "v2",
   "domain": [
@@ -7272,7 +7272,7 @@
    "bio"
   ],
   "paper_link": "https://doi.org/10.1126/science.1260419",
-  "note": "Spatial protein expression maps across 32 normal and cancer tissues; >90% of protein-coding genes detected; IHC + transcriptomics integration",
+  "note": "Spatial protein expression maps across 32 normal and cancer tissues; IHC + transcriptomics integration",
   "ko_cells": [
    "K3"
   ],
@@ -7547,7 +7547,7 @@
   "generator_train": false,
   "method": "BioASQ",
   "paper_link": "https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-015-0564-6",
-  "note": "MEDLINE biomedical IR + QA + summarization challenge, expert-annotated. MedBioRAG 98%.",
+  "note": "MEDLINE biomedical IR + QA + summarization challenge, expert-annotated.",
   "bib_key": "DBLP:conf/aaaifs/TsatsaronisSPAAGGAAZN12",
   "bib_ver": "v2",
   "domain": [
@@ -7866,7 +7866,7 @@
   "eval_task": "BC2GM",
   "eval_metric": "Micro Precision, Recall, F1",
   "method": "BC2GM",
-  "note": "BioCreative II Gene Mention; NER over PubMed abstracts. MMRAG Top + Llama-3 F1 0.978.",
+  "note": "BioCreative II Gene Mention; NER over PubMed abstracts.",
   "bib_key": "smith2008overview",
   "bib_ver": "v2",
   "domain": [
@@ -8528,7 +8528,7 @@
   "method": null,
   "domain": [],
   "paper_link": "https://doi.org/10.1145/3732775.3733586",
-  "note": "HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 76%; outperforms PubMedGPT and GPT-4; scales to thousands of GPUs",
+  "note": "HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); scales to thousands of GPUs",
   "ko_cells": [
    "K1.O2"
   ],
@@ -8565,7 +8565,7 @@
   "method": null,
   "domain": [],
   "paper_link": "https://doi.org/10.48550/arXiv.2603.15712",
-  "note": "GPT-4 + RAG over 50,000 materials (Materials Project, NOMAD, OC20); 250+ HEA CO2 reduction catalysts; 82% thermodynamic stability; best alloy Fe0.2Co0.2Ni0.2Ir0.1Ru0.3 at 0.285V limiting potential (25% vs IrO2); 200x HTS efficiency",
+  "note": "GPT-4 + RAG over 50,000 materials (Materials Project, NOMAD, OC20); 250+ HEA CO2 reduction catalysts; best alloy Fe0.2Co0.2Ni0.2Ir0.1Ru0.3 at 0.285V limiting potential.",
   "ko_cells": [
    "K2.O3"
   ],
@@ -8793,7 +8793,7 @@
   "ko_primary": "K1.O1",
   "subsection": "Text-only Closed-form QA",
   "paper_link": "https://doi.org/10.18653/v1/2022.emnlp-main.390",
-  "note": "The first retrieval-enhanced biomedical T5. It fetches relevant chunks from a ~60M-token PubMed-centric neural database and injects them via chunked cross-attention, surpassing prior SOTA on several biomedical NLP/QA tasks with 3x fewer parameters."
+  "note": "The first retrieval-enhanced biomedical T5. It fetches relevant chunks from a ~60M-token PubMed-centric neural database and injects them via chunked cross-attention."
  },
  {
   "bib_key": "DBLP:conf/ecir/AteiaK25",
@@ -8878,7 +8878,7 @@
   "ko_primary": "K1.O2",
   "subsection": "Aggregative Synthesis",
   "paper_link": "https://arxiv.org/abs/2406.10252",
-  "note": "Automatically writes a full academic survey by retrieving topic papers, drafting an outline, generating sections in parallel, and integrating and refining with citation awareness. It searches 530K arXiv CS papers and selects among candidates with a multi-LLM judge; citation recall of 82% approaches humans (86%)."
+  "note": "Automatically writes a full academic survey by retrieving topic papers, drafting an outline, generating sections in parallel, and integrating and refining with citation awareness. It searches 530K arXiv CS papers and selects among candidates with a multi-LLM judge."
  },
  {
   "bib_key": "DBLP:conf/acl/YanFYX00Z25",
@@ -8941,7 +8941,7 @@
   "ko_primary": "K1.O2",
   "subsection": "Aggregative Synthesis",
   "paper_link": "https://doi.org/10.1038/s41746-025-01840-7",
-  "note": "A clinical-evidence synthesis pipeline: PICO-based PubMed search, screening, data extraction, outcome-metric standardization, and a human-verified meta-analysis (forest plot). Human-in-the-loop; retrieval recall 0.78 (GPT-4 0.07) and 1.5x median gain over GPT-4 on result extraction."
+  "note": "A clinical-evidence synthesis pipeline: PICO-based PubMed search, screening, data extraction, outcome-metric standardization, and a human-verified meta-analysis (forest plot). Human-in-the-loop."
  },
  {
   "bib_key": "DBLP:journals/bioinformatics/JinYCL24",
@@ -8985,7 +8985,7 @@
   "ko_primary": "K2.O1",
   "subsection": "Text-only Closed-form QA",
   "paper_link": "https://arxiv.org/abs/2311.17330",
-  "note": "Extracts a disease-centric minimal-schema subgraph from the SPOKE biomedical KG (41 databases, ~42M nodes) and injects only the key triples via embedding pruning. Versus Cypher-RAG: 54% fewer tokens and retrieval accuracy from 75% to 97%."
+  "note": "Extracts a disease-centric minimal-schema subgraph from the SPOKE biomedical KG (41 databases, ~42M nodes) and injects only the key triples via embedding pruning."
  },
  {
   "bib_key": "DBLP:conf/acl/0006WS24",
@@ -9050,7 +9050,7 @@
   "ko_primary": "K3.O1",
   "subsection": "Cross-modal",
   "paper_link": "https://arxiv.org/abs/2407.05131",
-  "note": "Multimodal RAG that retrieves medical image-report pairs, calibrates the number of retrieved contexts with statistical risk control (FRC), and curbs over-reliance with preference tuning (KBPT). On a LLaVA-Med backbone, factual accuracy rises +47.4% on average."
+  "note": "Multimodal RAG that retrieves medical image-report pairs, calibrates the number of retrieved contexts with statistical risk control (FRC), and curbs over-reliance with preference tuning (KBPT). Uses a LLaVA-Med backbone."
  },
  {
   "bib_key": "DBLP:journals/corr/abs-2411-16523",
@@ -9093,7 +9093,7 @@
   "ko_primary": "K3.O1",
   "subsection": "Cross-modal",
   "paper_link": "https://arxiv.org/abs/2510.01558",
-  "note": "Retrieves similar cases from a past-ECG database (VAE latent + clinical features + labels) by latent-signal similarity, and a small LLM grounds a Chagas diagnosis. RAG raises recall from 49% to 90%."
+  "note": "Retrieves similar cases from a past-ECG database (VAE latent + clinical features + labels) by latent-signal similarity, and a small LLM grounds a Chagas diagnosis."
  },
  {
   "bib_key": "DBLP:conf/acl/Jiang0XQFWTDC0W25",
