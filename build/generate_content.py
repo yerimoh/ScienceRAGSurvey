@@ -119,16 +119,7 @@ llms_lines = [
     '  K1 Textual · K2 Relational · K3 Structured-entity · K4 Perceptual   (substrate, §4)',
     '  O1 Grounding · O2 Synthesis · O3 Discovery                          (objective rung, §5)',
     '',
-    '## Browse by substrate × objective cell (12 cells)',
-    '',
 ]
-for K in ['K1', 'K2', 'K3', 'K4']:
-    for O in ['O1', 'O2', 'O3']:
-        cell = f'{K}.{O}'
-        count = len(by_cell.get(cell, []))
-        kn, kd = K_LABELS[K]
-        on, od = O_LABELS[O]
-        llms_lines.append(f'- [/cell/{cell}.md]({cell}.md) — {kn} × {on} ({count} entries)')
 llms_lines += [
     '',
     '## Browse by scientific domain',
@@ -219,9 +210,10 @@ if unassigned:
 print(f'Wrote llms-full.txt ({len(full)} lines)')
 
 
-# --- Per-cell markdown pages: substrate × objective cells ---
+# --- Per-cell markdown pages: substrate × objective cells (REMOVED — cross-cell pages
+# were dropped; `for O in []` skips generation while K-only/O-only pages below remain) ---
 for K in ['K1', 'K2', 'K3', 'K4']:
-    for O in ['O1', 'O2', 'O3']:
+    for O in []:
         cell = f'{K}.{O}'
         kn, kd = K_LABELS[K]
         on, od = O_LABELS[O]
@@ -319,4 +311,4 @@ for t, label in TYPE_LABELS.items():
 
 k_only_count = sum(1 for k in ['K1','K2','K3','K4'] if (ROOT/'cell'/f'{k}.md').exists())
 o_only_count = sum(1 for o in ['O1','O2','O3'] if (ROOT/'cell'/f'{o}.md').exists())
-print(f'Wrote {len(by_cell)} cell entries (12 substrate×objective + {k_only_count} K-only + {o_only_count} O-only), {len(by_dom)} domain/*.md, {len(by_type)} topics/*.md')
+print(f'Wrote cell markdown ({k_only_count} K-only + {o_only_count} O-only; K×O cross-cells removed), {len(by_dom)} domain/*.md, {len(by_type)} topics/*.md')

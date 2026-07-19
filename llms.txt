@@ -12,20 +12,6 @@ Axes:
   K1 Textual · K2 Relational · K3 Structured-entity · K4 Perceptual   (substrate, §4)
   O1 Grounding · O2 Synthesis · O3 Discovery                          (objective rung, §5)
 
-## Browse by substrate × objective cell (12 cells)
-
-- [/cell/K1.O1.md](K1.O1.md) — Textual × Grounding (18 entries)
-- [/cell/K1.O2.md](K1.O2.md) — Textual × Synthesis (14 entries)
-- [/cell/K1.O3.md](K1.O3.md) — Textual × Discovery (4 entries)
-- [/cell/K2.O1.md](K2.O1.md) — Relational × Grounding (7 entries)
-- [/cell/K2.O2.md](K2.O2.md) — Relational × Synthesis (3 entries)
-- [/cell/K2.O3.md](K2.O3.md) — Relational × Discovery (6 entries)
-- [/cell/K3.O1.md](K3.O1.md) — Structured-entity × Grounding (5 entries)
-- [/cell/K3.O2.md](K3.O2.md) — Structured-entity × Synthesis (1 entries)
-- [/cell/K3.O3.md](K3.O3.md) — Structured-entity × Discovery (23 entries)
-- [/cell/K4.O1.md](K4.O1.md) — Perceptual × Grounding (12 entries)
-- [/cell/K4.O2.md](K4.O2.md) — Perceptual × Synthesis (0 entries)
-- [/cell/K4.O3.md](K4.O3.md) — Perceptual × Discovery (4 entries)
 
 ## Browse by scientific domain
 

@@ -16,7 +16,7 @@ site/
 ├── browse.html             # Full client-side filterable catalog
 ├── llms.txt                # Compact overview for LLMs
 ├── llms-full.txt           # Full content listing for LLMs
-├── cell/                   # 12 K×O cell pages (K1.O1.html … K4.O3.html)
+├── cell/                   # K & O axis roll-up pages, task pages, method/eval/challenges
 ├── domain/                 # 8 domain pages (bio, chem, medical, …)
 ├── topics/                 # 4 type pages (method, benchmark, dataset, summary)
 ├── data/
