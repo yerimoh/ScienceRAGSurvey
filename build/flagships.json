@@ -1,1853 +1,1776 @@
 {
-  "flagships": [
-    {
-      "bib_key": "asai2024openscholar",
-      "name": "OpenScholar",
-      "tagline": "0% citation hallucination vs GPT-4o's 78–90%",
-      "subtitle": "45M open-access papers, Contriever retriever, synthetic SFT data",
-      "headline_stats": [
-        [
-          "0%",
-          "citation hallucination"
-        ],
-        [
-          "70%",
-          "expert win rate vs human"
-        ],
-        [
-          "45M",
-          "indexed papers"
-        ]
-      ],
-      "cell": "K1.O2",
-      "domain": "general",
-      "venue": "Nature 2026",
-      "why": "Sets the modern bar for evidence-grounded scientific synthesis. Strongest empirical evidence that retrieval can eliminate hallucinated citations."
-    },
-    {
-      "bib_key": "DBLP:conf/nips/LeeKV0RPVN24",
-      "name": "f-RAG",
-      "tagline": "21/23 PMO benchmarks at SOTA",
-      "subtitle": "Fragment-vocabulary retrieval over ZINC250K, drug-like molecule generation",
-      "headline_stats": [
-        [
-          "21/23",
-          "PMO SOTA"
-        ],
-        [
-          "NeurIPS '24",
-          "venue"
-        ]
-      ],
-      "cell": "K2.O3",
-      "domain": "chem",
-      "venue": "NeurIPS 2024",
-      "why": "Demonstrates the dominant K2.O3 pattern, curated DB feeds generative model with downstream physical verification."
-    },
-    {
-      "bib_key": "DBLP:conf/aaai/LeeBHBPS26",
-      "name": "CLADD",
-      "tagline": "4-agent collaborative drug discovery",
-      "subtitle": "PrimeKG, PubChem, DrugBank, STITCH cross-source, anchor-drug technique",
-      "headline_stats": [
-        [
-          "4",
-          "agent teams"
-        ],
-        [
-          "AAAI '26",
-          "venue"
-        ]
-      ],
-      "cell": "K2.O3",
-      "domain": "chem",
-      "venue": "AAAI 2026",
-      "why": "Canonical example of relational knowledge coupling (Requirement #2), traverses PrimeKG drug-protein-disease links."
-    },
-    {
-      "bib_key": "DBLP:conf/acl/WuZQCXMJG25",
-      "name": "MedGraphRAG",
-      "tagline": "Triple-tier graph: MIMIC IV + MedC-K + UMLS/ICD",
-      "subtitle": "U-Retrieval, evidence-based citations, ★ K1+K2+K4 cross-source",
-      "headline_stats": [
-        [
-          "3",
-          "knowledge tiers"
-        ],
-        [
-          "★",
-          "triple-K cross-source"
-        ]
-      ],
-      "cell": "K1.O2",
-      "domain": "medical",
-      "venue": "ACL 2025",
-      "why": "The clearest demonstration of all four K sources working in concert, primary literature, curated ontology, and tacit private EHR."
-    },
-    {
-      "bib_key": "DBLP:journals/corr/abs-2603-09800",
-      "name": "MITRA",
-      "tagline": "Physics collaboration tacit memory, +6× over BM25",
-      "subtitle": "CMS Analysis Notes, internal wikis, on-prem 4-bit deployment",
-      "headline_stats": [
-        [
-          "6×",
-          "over BM25"
-        ],
-        [
-          "★",
-          "K4 frontier"
-        ]
-      ],
-      "cell": "K4.O1",
-      "domain": "physics",
-      "venue": "arXiv 2026",
-      "why": "Bellwether for K4 tacit knowledge, institutional memory that ChatGPT structurally cannot access."
-    },
-    {
-      "bib_key": "DBLP:conf/aaai/ZhangGZZCZZYB26",
-      "name": "Patho-AgenticRAG",
-      "tagline": "+38pp over baseline on pathology QA",
-      "subtitle": "600 textbook pages, agentic router, GRPO training, multimodal",
-      "headline_stats": [
-        [
-          "+38",
-          "pp gain"
-        ],
-        [
-          "AAAI '26",
-          "venue"
-        ]
-      ],
-      "cell": "K3.O1",
-      "domain": "medical",
-      "venue": "AAAI 2026",
-      "why": "Largest gain reported in a peer-reviewed K3 RAG paper; agentic routing over multimodal textbook."
-    },
-    {
-      "bib_key": "DBLP:conf/acl/Xiong0LZ24",
-      "name": "MEDRAG",
-      "tagline": "Canonical medical RAG, 4-corpus retrieval",
-      "subtitle": "PubMed + StatPearls + Textbooks + Wikipedia, MedCPT retriever, RRF fusion",
-      "headline_stats": [
-        [
-          "4",
-          "corpora"
-        ],
-        [
-          "ACL '24",
-          "venue"
-        ]
-      ],
-      "cell": "K1.O1",
-      "domain": "medical",
-      "venue": "ACL Findings 2024",
-      "why": "Established the source-reliability-tiering benchmark (Requirement #3), different epistemic weight per corpus."
-    },
-    {
-      "bib_key": "DBLP:journals/corr/abs-2312-07559",
-      "name": "PaperQA",
-      "tagline": "Sentence-level claim attribution",
-      "subtitle": "Paper-grounded retrieve-cite-answer, the K1.O1 reference design",
-      "headline_stats": [
-        [
-          "Sentence-",
-          "level citing"
-        ]
-      ],
-      "cell": "K1.O1",
-      "domain": "general",
-      "venue": "arXiv 2023",
-      "why": "Established mandatory claim attribution (Requirement #1) as the baseline expectation for scientific RAG."
-    },
-    {
-      "bib_key": "DBLP:conf/emnlp/ChiangHCR25",
-      "name": "LLaMP",
-      "tagline": "Materials Project KB-grounded science",
-      "subtitle": "Property lookup, simulation tools, K1+K2 cross-source",
-      "headline_stats": [
-        [
-          "EMNLP '25",
-          "venue"
-        ]
-      ],
-      "cell": "K2.O1",
-      "domain": "material",
-      "venue": "EMNLP 2025",
-      "why": "Bridges primary literature and the Materials Project KB, sets the K2 materials science pattern."
-    }
-  ],
-  "bib_only_titles": {
-    "DBLP:conf/iclr/WangCLH25": {
-      "title": "MADGEN: Mass-Spec attends to De Novo Molecular generation",
-      "year": 2025,
-      "venue": "ICLR",
-      "method": "MADGEN",
-      "domain": [
-        "chem"
-      ],
-      "paper_link": "https://openreview.net/forum?id=78tc3EiUrN"
-    },
-    "DBLP:conf/iclr/0001NQXBA23": {
-      "title": "Retrieval-based Controllable Molecule Generation",
-      "year": 2023,
-      "venue": "ICLR",
-      "method": "RetMol",
-      "domain": [
-        "chem"
-      ],
-      "paper_link": "https://openreview.net/forum?id=vDFA1tpuLvk"
-    },
-    "DBLP:conf/icml/Huang0ZQYZZZWY24": {
-      "title": "Interaction-based Retrieval-augmented Diffusion Models for Protein-specific 3D Molecule Generation",
-      "year": 2024,
-      "venue": "ICML",
-      "method": "IRDiff",
-      "domain": [
-        "chem",
-        "bio"
-      ],
-      "paper_link": "https://proceedings.mlr.press/v235/huang24ab.html"
-    },
-    "DBLP:journals/corr/abs-2506-14488": {
-      "title": "Reimagining Target-Aware Molecular Generation through Retrieval-Enhanced Aligned Diffusion",
-      "year": 2025,
-      "venue": "arXiv",
-      "method": "READ",
-      "domain": [
-        "chem"
-      ],
-      "paper_link": "https://arxiv.org/abs/2506.14488"
-    },
-    "DBLP:conf/aaai/LeeBHBPS26": {
-      "title": "CLADD: RAG-Enhanced Collaborative LLM Agents for Drug Discovery",
-      "year": 2026,
-      "venue": "AAAI",
-      "method": "CLADD",
-      "domain": [
-        "chem"
-      ],
-      "paper_link": ""
-    },
-    "DBLP:conf/aaai/ZhangGZZCZZYB26": {
-      "title": "Patho-AgenticRAG: Pathology Agentic RAG with Textbook-aligned Multimodal Knowledge",
-      "year": 2026,
-      "venue": "AAAI",
-      "method": "Patho-AgenticRAG",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": ""
-    },
-    "DBLP:conf/acl/WuZQCXMJG25": {
-      "title": "Medical Graph RAG: Towards Safe Medical Large Language Model via Graph Retrieval-Augmented Generation",
-      "year": 2025,
-      "venue": "ACL",
-      "method": "MedGraphRAG",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": ""
-    },
-    "DBLP:conf/nips/LeeKV0RPVN24": {
-      "title": "Molecule Generation with Fragment Retrieval Augmentation",
-      "year": 2024,
-      "venue": "NeurIPS",
-      "method": "f-RAG",
-      "domain": [
-        "chem"
-      ],
-      "paper_link": ""
-    },
-    "DBLP:journals/corr/abs-2603-09800": {
-      "title": "MITRA: Knowledge Retrieval over Physics Collaborations' Tacit Memory",
-      "year": 2026,
-      "venue": "arXiv",
-      "method": "MITRA",
-      "domain": [
-        "physics"
-      ],
-      "paper_link": ""
-    },
-    "rafique2025large": {
-      "title": "DUNE Knowledge Retrieval: Large-scale Indexing of Fermilab Collaboration Documents",
-      "year": 2025,
-      "venue": "arXiv",
-      "method": "DUNE-GPT",
-      "domain": [
-        "physics"
-      ],
-      "paper_link": ""
-    },
-    "DBLP:journals/corr/abs-2509-09688": {
-      "title": "AI-Powered Long-Term Access to RHIC Knowledge",
-      "year": 2025,
-      "venue": "arXiv",
-      "method": "RHIC DAPP",
-      "domain": [
-        "physics"
-      ],
-      "paper_link": ""
-    },
-    "DBLP:journals/corr/abs-2403-15729": {
-      "title": "Towards a RAG-based Summarization for the Electron-Ion Collider",
-      "year": 2024,
-      "venue": "arXiv",
-      "method": "EIC RAG",
-      "domain": [
-        "physics"
-      ],
-      "paper_link": ""
-    },
-    "mcgreivy2025seeing": {
-      "title": "Seeing the Forest Through the Trees: Knowledge Retrieval for Streamlining Particle Physics Analysis",
-      "year": 2025,
-      "venue": "arXiv",
-      "method": "SciTreeRAG + SciGraphRAG",
-      "domain": [
-        "physics"
-      ],
-      "paper_link": "https://arxiv.org/abs/2509.06855"
-    },
-    "aplabprotocols2025": {
-      "title": "AP Lab Protocols: Anatomic Pathology RAG Benchmark",
-      "year": 2025,
-      "venue": "arXiv",
-      "method": "AP Lab Protocols",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": ""
-    },
-    "asai2026synthesizing": {
-      "title": "Synthesizing Scientific Literature with Retrieval-Augmented Language Models",
-      "year": 2026,
-      "venue": "ICLR",
-      "method": "OpenScholar (synthesis)",
-      "domain": [
-        "general"
-      ],
-      "paper_link": ""
-    },
-    "lewis2020rag": {
-      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
-      "year": 2020,
-      "venue": "NeurIPS",
-      "method": "RAG (original)",
-      "domain": [
-        "general"
-      ],
-      "paper_link": "https://arxiv.org/abs/2005.11401"
-    },
-    "gao2024rag": {
-      "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
-      "year": 2024,
-      "venue": "arXiv",
-      "method": "RAG survey",
-      "domain": [
-        "general"
-      ],
-      "paper_link": "https://arxiv.org/abs/2312.10997"
-    },
-    "kell2025biomedicinerag": {
-      "title": "Biomedicine RAG Survey",
-      "year": 2025,
-      "venue": "arXiv",
-      "method": "BiomedRAG survey",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": ""
-    },
-    "xie2025marsha": {
-      "title": "MARSHA: Multi-hazard Risk Adaptation through RAG",
-      "year": 2025,
-      "venue": "arXiv",
-      "method": "MARSHA",
-      "domain": [
-        "earth"
-      ],
-      "paper_link": ""
-    },
-    "jat2026retrieval": {
-      "title": "RAG-QA over Scientific Literature for the EIC",
-      "year": 2026,
-      "venue": "arXiv",
-      "method": "EIC-RAG-QA",
-      "domain": [
-        "physics"
-      ],
-      "paper_link": ""
-    },
-    "sarkar2024multi": {
-      "title": "Multi-Agent System for Cosmological Parameter Analysis",
-      "year": 2024,
-      "venue": "arXiv",
-      "method": "cmbagent",
-      "domain": [
-        "astronomy"
-      ],
-      "paper_link": "https://arxiv.org/abs/2412.07544"
-    },
-    "meyur2025weqa": {
-      "title": "WeQA: Wind Energy Question Answering",
-      "year": 2025,
-      "venue": "arXiv",
-      "method": "WeQA",
-      "domain": [
-        "earth"
-      ],
-      "paper_link": ""
-    },
-    "taffese2025polymerexpert": {
-      "title": "Polymer Expert: Literature-Derived Polymer Property Prediction with RAG",
-      "year": 2025,
-      "venue": "arXiv",
-      "method": "Polymer Expert",
-      "domain": [
-        "material"
-      ],
-      "paper_link": ""
-    },
-    "nan2026taliragen": {
-      "title": "TaLiRAGen: Target-aware Ligand Generation via Retrieval-Augmented Generation",
-      "year": 2026,
-      "venue": "Mol Div",
-      "method": "TaLiRAGen",
-      "domain": [
-        "chem"
-      ],
-      "paper_link": ""
-    },
-    "krishnan2026biomodelsrag": {
-      "title": "BioModelsRAG: A Biological Modeling Assistant Using Retrieval-Augmented Generation",
-      "year": 2026,
-      "venue": "arXiv",
-      "method": "BioModelsRAG",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": ""
-    },
-    "zaki2024mascqa": {
-      "title": "MaScQA: A Materials Science Question Answering Dataset",
-      "year": 2024,
-      "venue": "arXiv",
-      "method": "MaScQA",
-      "domain": [
-        "material"
-      ],
-      "paper_link": ""
-    },
-    "zhang2026matclaw": {
-      "title": "MatClaw: Autonomous Code-First Agent for Materials Science",
-      "year": 2026,
-      "venue": "arXiv",
-      "method": "MatClaw",
-      "domain": [
-        "material"
-      ],
-      "paper_link": ""
-    },
-    "zhang2025enhancing": {
-      "title": "Enhancing Ultrahigh-Resolution Remote Sensing with ImageRAG",
-      "year": 2025,
-      "venue": "arXiv",
-      "method": "ImageRAG",
-      "domain": [
-        "earth"
-      ],
-      "paper_link": ""
-    },
-    "hou2023geneturing": {
-      "title": "GeneTuring: A Genomics Benchmark for LLMs",
-      "year": 2023,
-      "venue": "arXiv",
-      "method": "GeneTuring",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": ""
-    },
-    "wang2016admet": {
-      "title": "ADMET Evaluation: hERG Channel Blockers",
-      "year": 2016,
-      "venue": ", ",
-      "method": "ADMET hERG",
-      "domain": [
-        "chem"
-      ],
-      "paper_link": ""
-    },
-    "xiao2024repurposing": {
-      "title": "Repurposing Non-pharmacological Interventions for Alzheimer's via Link Prediction",
-      "year": 2024,
-      "venue": "arXiv",
-      "method": "Repurposing-LP",
-      "domain": [
-        "medical",
-        "bio"
-      ],
-      "paper_link": ""
-    },
-    "lau2018dataset": {
-      "title": "VQA-RAD: A Dataset for Visual Question Answering on Radiology Images",
-      "year": 2018,
-      "venue": "Sci Data",
-      "method": "VQA-RAD",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": ""
-    },
-    "boteva2016full": {
-      "title": "A Full-Text Learning to Rank Dataset for Medical Information Retrieval",
-      "year": 2016,
-      "venue": "ECIR",
-      "method": "Boteva NFCorpus",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": ""
-    },
-    "smith2008overview": {
-      "title": "Overview of BioCreative II Gene Mention Recognition",
-      "year": 2008,
-      "venue": "Genome Biology",
-      "method": "BioCreative II",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": ""
-    },
-    "auer2023sciqa": {
-      "title": "SciQA: A Scientific Question Answering Benchmark over Scholarly Knowledge",
-      "year": 2023,
-      "venue": "Nat Sci Reports",
-      "method": "SciQA",
-      "domain": [
-        "general"
-      ],
-      "paper_link": ""
-    },
-    "PhysioNet-mimic-cxr-2.1.0": {
-      "title": "MIMIC-CXR: A De-identified Publicly Available Database of Chest Radiographs",
-      "year": 2019,
-      "venue": "Scientific Data",
-      "method": "MIMIC-CXR",
-      "type": "dataset",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://www.nature.com/articles/s41597-019-0322-0"
-    },
-    "demner2016preparing": {
-      "title": "Preparing a Collection of Radiology Examinations for Distribution and Retrieval (IU-Xray / Open-i)",
-      "year": 2016,
-      "venue": "JAMIA",
-      "method": "IU-Xray",
-      "type": "dataset",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.1093/jamia/ocv080"
-    },
-    "luo2024fairclip": {
-      "title": "FairCLIP: Harnessing Fairness in Vision-Language Learning",
-      "year": 2024,
-      "venue": "CVPR",
-      "method": "FairCLIP / Harvard-FairVLMed",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://arxiv.org/abs/2403.19949"
-    },
-    "nguyen2023medredqa": {
-      "title": "MedRedQA: A Consumer Medical Question Answering Corpus",
-      "year": 2023,
-      "venue": "arXiv",
-      "method": "MedRedQA",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": ""
-    },
-    "chen2025vision": {
-      "title": "Vision-Language Foundation Model for Multimodal Biomedical RAG",
-      "year": 2025,
-      "venue": "arXiv",
-      "method": "VL-MMRAG",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": ""
-    },
-    "mazor2025lvlm": {
-      "title": "LVLM-Aware Multimodal Medical Diagnosis",
-      "year": 2025,
-      "venue": "arXiv",
-      "method": "LVLM-MM",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": ""
-    },
-    "jiangchemistrag": {
-      "title": "ChemisTRAG: Table-based RAG for Chemistry",
-      "year": 2025,
-      "venue": "arXiv",
-      "method": "ChemisTRAG",
-      "domain": [
-        "chem"
-      ],
-      "paper_link": ""
-    },
-    "hu2023medicaldiff": {
-      "title": "MedicalDiff-VQA: A Difference Visual Question Answering Dataset",
-      "year": 2023,
-      "venue": "MedIA",
-      "method": "MedicalDiff-VQA",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": ""
-    },
-    "scopus": {
-      "title": "Scopus",
-      "year": 2004,
-      "venue": "Elsevier",
-      "domain": [
-        "bio",
-        "medical",
-        "chem",
-        "physics",
-        "earth"
-      ],
-      "paper_link": "https://www.scopus.com",
-      "note": "Subscription-based abstract and citation database covering science, technology, medicine, and social sciences."
-    },
-    "webofscience": {
-      "title": "Web of Science",
-      "year": 1997,
-      "venue": "Clarivate",
-      "domain": [
-        "bio",
-        "medical",
-        "chem",
-        "physics",
-        "earth"
-      ],
-      "paper_link": "https://www.webofscience.com",
-      "note": "Subscription-based multidisciplinary citation index spanning natural sciences, social sciences, and arts and humanities."
-    },
-    "DBLP:journals/qss/HerzogHK20": {
-      "title": "Dimensions",
-      "year": 2020,
-      "venue": "Quant. Sci. Stud.",
-      "domain": [
-        "bio",
-        "medical",
-        "chem",
-        "physics",
-        "earth"
-      ],
-      "paper_link": "https://doi.org/10.1162/qss_a_00020"
-    },
-    "DBLP:journals/dlib/KnothZ12": {
-      "title": "CORE",
-      "year": 2012,
-      "venue": "D Lib Mag.",
-      "domain": [
-        "bio",
-        "medical",
-        "chem",
-        "physics",
-        "earth"
-      ],
-      "paper_link": "https://core.ac.uk"
-    },
-    "DBLP:journals/lp/HaakFPPR12": {
-      "title": "ORCID",
-      "year": 2012,
-      "venue": "Learn. Publ.",
-      "domain": [
-        "bio",
-        "medical",
-        "chem",
-        "physics",
-        "earth"
-      ],
-      "paper_link": "https://orcid.org"
-    },
-    "lee2023climate": {
-      "title": "Climate Change 2023: Synthesis Report (IPCC AR6)",
-      "year": 2023,
-      "venue": "IPCC",
-      "domain": [
-        "earth"
-      ],
-      "paper_link": "https://www.ipcc.ch/report/ar6/syr/"
-    },
-    "sever2019biorxiv": {
-      "title": "bioRxiv: the Preprint Server for Biology",
-      "year": 2019,
-      "venue": "Cold Spring Harb. Lab.",
-      "domain": [
-        "bio",
-        "medical"
-      ],
-      "paper_link": "https://www.biorxiv.org"
-    },
-    "DBLP:journals/corr/abs-1108-2700": {
-      "title": "arXiv: It was twenty years ago today (Ginsparg 2011)",
-      "year": 2011,
-      "venue": "CoRR / arXiv",
-      "domain": [
-        "general"
-      ],
-      "paper_link": "https://arxiv.org/abs/1108.2700"
-    },
-    "embase": {
-      "title": "Embase",
-      "year": 1974,
-      "venue": "Elsevier",
-      "domain": [
-        "medical",
-        "bio",
-        "chem"
-      ],
-      "paper_link": "https://www.embase.com"
-    },
-    "medrxiv": {
-      "title": "medRxiv",
-      "year": 2019,
-      "venue": "Cold Spring Harb. Lab. / Yale / BMJ",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://www.medrxiv.org"
-    },
-    "chemrxiv": {
-      "title": "ChemRxiv",
-      "year": 2017,
-      "venue": "ACS / RSC / GDCh / CCS / CSJ",
-      "domain": [
-        "chem"
-      ],
-      "paper_link": "https://chemrxiv.org"
-    },
-    "eartharxiv": {
-      "title": "EarthArXiv",
-      "year": 2017,
-      "venue": "Center for Open Science",
-      "domain": [
-        "earth"
-      ],
-      "paper_link": "https://eartharxiv.org"
-    },
-    "osf_preprints": {
-      "title": "OSF Preprints",
-      "year": 2016,
-      "venue": "Center for Open Science",
-      "domain": [
-        "general"
-      ],
-      "paper_link": "https://osf.io/preprints"
-    },
-    "DBLP:journals/jcisd/SterlingI15": {
-      "title": "ZINC15: Ligand Discovery for Everyone",
-      "year": 2015,
-      "venue": "J. Chem. Inf. Model.",
-      "domain": [
-        "chemistry"
-      ],
-      "paper_link": "https://doi.org/10.1021/acs.jcim.5b00559"
-    },
-    "DBLP:journals/jcisd/TingleTCGKDMI23": {
-      "title": "ZINC-22: A Free Multi-Purpose Database of Novel Purchasable Chemistry",
-      "year": 2023,
-      "venue": "J. Chem. Inf. Model.",
-      "domain": [
-        "chemistry"
-      ],
-      "paper_link": "https://doi.org/10.1021/acs.jcim.2c01253"
-    },
-    "DBLP:journals/nar/GaultonBBCDHLMMAO12": {
-      "title": "ChEMBL: a large-scale bioactivity database for drug discovery",
-      "year": 2012,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "chemistry"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gkr777"
-    },
-    "DBLP:journals/nar/KimTBCFGHHHSWYZ16": {
-      "title": "PubChem Substance and Compound databases",
-      "year": 2016,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "chemistry"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gkv951"
-    },
-    "DBLP:journals/nar/LiuLWJG07": {
-      "title": "BindingDB: a web-accessible database of experimentally determined protein-ligand binding affinities",
-      "year": 2007,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "chemistry"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gkl999"
-    },
-    "DBLP:journals/nar/MendezGBCVFMMMN19": {
-      "title": "ChEMBL: towards direct deposition of bioassay data",
-      "year": 2019,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "chemistry"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gky1075"
-    },
-    "DBLP:journals/nar/SzklarczykSMJBK16": {
-      "title": "STITCH 5: augmenting protein-chemical interaction networks with new formats and technologies",
-      "year": 2016,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "chemistry"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gkv1277"
-    },
-    "chandak2023building": {
-      "title": "Building a knowledge graph to enable precision medicine",
-      "year": 2023,
-      "venue": "Scientific Data",
-      "domain": [
-        "chemistry",
-        "medical"
-      ],
-      "paper_link": "https://www.nature.com/articles/s41597-023-01960-3"
-    },
-    "gilson2016bindingdb": {
-      "title": "BindingDB in 2015: a public database for medicinal chemistry, computational chemistry and systems pharmacology",
-      "year": 2016,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "chemistry"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gkv1072"
-    },
-    "groom2016csd": {
-      "title": "The Cambridge Structural Database",
-      "year": 2016,
-      "venue": "Acta Crystallographica B",
-      "domain": [
-        "chemistry"
-      ],
-      "paper_link": "https://doi.org/10.1107/S2052520616003954"
-    },
-    "icsd": {
-      "title": "Inorganic Crystal Structure Database (ICSD)",
-      "year": 1978,
-      "venue": "FIZ Karlsruhe",
-      "domain": [
-        "chemistry",
-        "material"
-      ],
-      "paper_link": "https://icsd.fiz-karlsruhe.de"
-    },
-    "ioannidis2020drkg": {
-      "title": "DRKG: Drug Repurposing Knowledge Graph for COVID-19",
-      "year": 2020,
-      "venue": "arXiv",
-      "domain": [
-        "chemistry",
-        "medical"
-      ],
-      "paper_link": "https://arxiv.org/abs/2010.09600"
-    },
-    "irwin2012zinc": {
-      "title": "ZINC: a free tool to discover chemistry for biology",
-      "year": 2012,
-      "venue": "J. Chem. Inf. Model.",
-      "domain": [
-        "chemistry"
-      ],
-      "paper_link": "https://doi.org/10.1021/ci3001277"
-    },
-    "isert2022qmugs": {
-      "title": "QMugs: Quantum Mechanical Properties of Drug-like Molecules",
-      "year": 2022,
-      "venue": "Scientific Data",
-      "domain": [
-        "chemistry"
-      ],
-      "paper_link": "https://doi.org/10.1038/s41597-022-01390-7"
-    },
-    "kearnes2021open": {
-      "title": "The Open Reaction Database",
-      "year": 2021,
-      "venue": "J. Am. Chem. Soc.",
-      "domain": [
-        "chemistry"
-      ],
-      "paper_link": "https://doi.org/10.1021/jacs.1c09820"
-    },
-    "kim2023pubchem": {
-      "title": "PubChem 2023 update",
-      "year": 2023,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "chemistry"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gkac956"
-    },
-    "knox2024drugbank": {
-      "title": "DrugBank 6.0: the DrugBank knowledgebase for 2024",
-      "year": 2024,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "chemistry",
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gkad976"
-    },
-    "linstrom2001nist": {
-      "title": "The NIST Chemistry WebBook: A Chemical Data Resource on the Internet",
-      "year": 2001,
-      "venue": "J. Chem. Eng. Data",
-      "domain": [
-        "chemistry"
-      ],
-      "paper_link": "https://webbook.nist.gov"
-    },
-    "liu2025bindingdb": {
-      "title": "BindingDB in 2024: a FAIR knowledgebase of protein-small molecule binding data",
-      "year": 2025,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "chemistry"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gkae1008"
-    },
-    "lowe2017chemical": {
-      "title": "Chemical reactions from US patents (1976–Sep2016)",
-      "year": 2017,
-      "venue": "Figshare",
-      "domain": [
-        "chemistry"
-      ],
-      "paper_link": "https://doi.org/10.6084/m9.figshare.5104873"
-    },
-    "ramakrishnan2014quantum": {
-      "title": "Quantum chemistry structures and properties of 134 kilo molecules",
-      "year": 2014,
-      "venue": "Scientific Data",
-      "domain": [
-        "chemistry"
-      ],
-      "paper_link": "https://doi.org/10.1038/sdata.2014.22"
-    },
-    "reaxys": {
-      "title": "Reaxys",
-      "year": 2009,
-      "venue": "Elsevier",
-      "domain": [
-        "chemistry"
-      ],
-      "paper_link": "https://www.reaxys.com"
-    },
-    "scifinder": {
-      "title": "SciFinder-n",
-      "year": 1995,
-      "venue": "CAS / ACS",
-      "domain": [
-        "chemistry"
-      ],
-      "paper_link": "https://scifinder-n.cas.org"
-    },
-    "zdrazil2024chembl": {
-      "title": "The ChEMBL Database in 2023: a drug discovery platform spanning multiple bioactivity data types and time periods",
-      "year": 2024,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "chemistry"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gkad1004"
-    },
-    "DBLP:journals/nar/SherryWKBPSS01": {
-      "title": "dbSNP: the NCBI database of genetic variation",
-      "year": 2001,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/29.1.308"
-    },
-    "DBLP:journals/nar/EdgarDL03": {
-      "title": "Gene Expression Omnibus: NCBI gene expression and hybridization array data repository",
-      "year": 2002,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/30.1.207"
-    },
-    "DBLP:journals/nar/GonzalezRSRCSF20": {
-      "title": "The DisGeNET knowledge platform for disease genomics: 2019 update",
-      "year": 2020,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gkz1021"
-    },
-    "DBLP:journals/nar/LandrumLBBCCGHH18": {
-      "title": "ClinVar: improving access to variant interpretations and supporting evidence",
-      "year": 2018,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gkx1153"
-    },
-    "DBLP:journals/nar/TateBJSBBBCCDFH19": {
-      "title": "COSMIC: the Catalogue Of Somatic Mutations In Cancer",
-      "year": 2019,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gky1015"
-    },
-    "DBLP:journals/corr/abs-2010-09990": {
-      "title": "The Open Catalyst 2020 (OC20) Dataset and Community Challenges",
-      "year": 2020,
-      "venue": "arXiv",
-      "domain": [
-        "material"
-      ],
-      "paper_link": "https://arxiv.org/abs/2010.09990"
-    },
-    "DBLP:journals/corr/abs-2206-08917": {
-      "title": "The Open Catalyst 2022 (OC22) Dataset and Challenges for Oxide Electrocatalysis",
-      "year": 2022,
-      "venue": "arXiv",
-      "domain": [
-        "material"
-      ],
-      "paper_link": "https://doi.org/10.48550/arXiv.2206.08917"
-    },
-    "DBLP:conf/emnlp/ZhangSHML24": {
-      "title": "HoneyComb: A Flexible LLM-Based Agent System for Materials Science",
-      "year": 2024,
-      "venue": "EMNLP 2024 Findings",
-      "domain": [
-        "material"
-      ],
-      "paper_link": "https://doi.org/10.18653/v1/2024.findings-emnlp.192"
-    },
-    "uniprot2023uniprot": {
-      "title": "UniProt: the Universal Protein Knowledgebase in 2023",
-      "year": 2023,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gkac1052"
-    },
-    "kanehisa2000kegg": {
-      "title": "KEGG: Kyoto Encyclopedia of Genes and Genomes",
-      "year": 2000,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/28.1.27"
-    },
-    "milacic2024reactome": {
-      "title": "The Reactome Pathway Knowledgebase 2024",
-      "year": 2024,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gkad1025"
-    },
-    "ashburner2000gene": {
-      "title": "Gene Ontology: tool for the unification of biology",
-      "year": 2000,
-      "venue": "Nature Genetics",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.1038/75556"
-    },
-    "gene2023gene": {
-      "title": "The Gene Ontology Knowledgebase in 2023",
-      "year": 2023,
-      "venue": "Genetics",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.1093/genetics/iyad031"
-    },
-    "encode2012integrated": {
-      "title": "An integrated encyclopedia of DNA elements in the human genome",
-      "year": 2012,
-      "venue": "Nature",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.1038/nature11247"
-    },
-    "drew2017integration": {
-      "title": "Integration of over 9,000 mass spectrometry experiments builds a global map of human protein complexes",
-      "year": 2017,
-      "venue": "Molecular Systems Biology",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.15252/msb.20167490"
-    },
-    "drew2021hu": {
-      "title": "hu.MAP 2.0: integration of over 15,000 proteomic experiments builds a comprehensive atlas of human protein complexes",
-      "year": 2021,
-      "venue": "Molecular Systems Biology",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.15252/msb.20209886"
-    },
-    "gbif2022gbif": {
-      "title": "GBIF: the Global Biodiversity Information Facility",
-      "year": 2022,
-      "venue": "GBIF Secretariat",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": "https://www.gbif.org"
-    },
-    "de2017toward": {
-      "title": "Toward a new data standard for combined marine biological and environmental datasets",
-      "year": 2017,
-      "venue": "Biodiversity Data Journal",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.3897/BDJ.5.e16949"
-    },
-    "bodenreider2004unified": {
-      "title": "The Unified Medical Language System (UMLS): integrating biomedical terminology",
-      "year": 2004,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gkh061"
-    },
-    "hamosh2005online": {
-      "title": "Online Mendelian Inheritance in Man (OMIM), a knowledgebase of human genes and genetic disorders",
-      "year": 2005,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gki033"
-    },
-    "amberger2015omim": {
-      "title": "OMIM.org: Online Mendelian Inheritance in Man (OMIM), an online catalog of human genes and genetic disorders",
-      "year": 2015,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gku1205"
-    },
-    "griffith2017civic": {
-      "title": "CIViC is a community knowledgebase for expert crowdsourcing the clinical interpretation of variants in cancer",
-      "year": 2017,
-      "venue": "Nature Genetics",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.1038/ng.3774"
-    },
-    "chakravarty2017oncokb": {
-      "title": "OncoKB: a precision oncology knowledge base",
-      "year": 2017,
-      "venue": "JCO Precision Oncology",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.1200/PO.17.00011"
-    },
-    "clinicaltrialsgov": {
-      "title": "ClinicalTrials.gov",
-      "year": 2000,
-      "venue": "U.S. National Library of Medicine",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://clinicaltrials.gov"
-    },
-    "kluwer2020uptodate": {
-      "title": "UpToDate: evidence-based clinical decision support",
-      "year": 2020,
-      "venue": "Wolters Kluwer",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://www.uptodate.com"
-    },
-    "jain2013commentary": {
-      "title": "Commentary: The Materials Project: A materials genome approach to accelerating materials innovation",
-      "year": 2013,
-      "venue": "APL Materials",
-      "domain": [
-        "material"
-      ],
-      "paper_link": "https://doi.org/10.1063/1.4812323"
-    },
-    "saal2013materials": {
-      "title": "Materials Design and Discovery with High-Throughput Density Functional Theory: The Open Quantum Materials Database (OQMD)",
-      "year": 2013,
-      "venue": "JOM",
-      "domain": [
-        "material"
-      ],
-      "paper_link": "https://doi.org/10.1007/s11837-013-0755-4"
-    },
-    "kirklin2015open": {
-      "title": "The Open Quantum Materials Database (OQMD): assessing the accuracy of DFT formation enthalpies",
-      "year": 2015,
-      "venue": "npj Computational Materials",
-      "domain": [
-        "material"
-      ],
-      "paper_link": "https://doi.org/10.1038/npjcompumats.2015.10"
-    },
-    "curtarolo2012aflow": {
-      "title": "AFLOW: An automatic framework for high-throughput materials discovery",
-      "year": 2012,
-      "venue": "Computational Materials Science",
-      "domain": [
-        "material"
-      ],
-      "paper_link": "https://doi.org/10.1016/j.commatsci.2012.02.005"
-    },
-    "navas2024review": {
-      "title": "Review of Particle Physics",
-      "year": 2024,
-      "venue": "Physical Review D",
-      "domain": [
-        "physics"
-      ],
-      "paper_link": "https://doi.org/10.1103/PhysRevD.110.030001"
-    },
-    "DBLP:journals/nar/SayersBBCCCFFFFHKKKKLLLMMMMPPRSTWYT23": {
-      "title": "Database resources of the National Center for Biotechnology Information in 2023",
-      "year": 2023,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gkac1032"
-    },
-    "DBLP:journals/corr/abs-2304-14454": {
-      "title": "PMC-LLaMA: Further Finetuning LLaMA on Medical Papers (MedC-K corpus)",
-      "year": 2023,
-      "venue": "arXiv",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.48550/arXiv.2304.14454"
-    },
-    "DBLP:journals/corr/abs-2303-01229": {
-      "title": "Almanac: Knowledge-Grounded Language Models for Clinical Medicine",
-      "year": 2023,
-      "venue": "arXiv",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.48550/arXiv.2303.01229"
-    },
-    "DBLP:journals/jcisd/FrancoeurMSJISK20": {
-      "title": "Three-Dimensional Convolutional Neural Networks and a Cross-Docked Data Set for Structure-Based Drug Design",
-      "year": 2020,
-      "venue": "J. Chem. Inf. Model.",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.1021/acs.jcim.0c00411"
-    },
-    "johnson2016mimic": {
-      "title": "MIMIC-III, a freely accessible critical care database",
-      "year": 2016,
-      "venue": "Scientific Data",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.1038/sdata.2016.35"
-    },
-    "johnson2023mimic": {
-      "title": "MIMIC-IV, a freely accessible electronic health record dataset",
-      "year": 2023,
-      "venue": "Scientific Data",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.1038/s41597-022-01899-x"
-    },
-    "petersen2010alzheimer": {
-      "title": "Alzheimer's Disease Neuroimaging Initiative (ADNI): Clinical characterization",
-      "year": 2010,
-      "venue": "Neurology",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.1212/WNL.0b013e3181cb3e25"
-    },
-    "DBLP:journals/jocn/MarcusWPCMB07": {
-      "title": "Open Access Series of Imaging Studies (OASIS): Cross-sectional MRI Data in Young, Middle Aged, Nondemented, and Demented Older Adults",
-      "year": 2007,
-      "venue": "J. Cogn. Neurosci.",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.1162/jocn.2007.19.9.1498"
-    },
-    "di2014autism": {
-      "title": "The autism brain imaging data exchange: towards a large-scale evaluation of the intrinsic brain architecture in autism",
-      "year": 2014,
-      "venue": "Molecular Psychiatry",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.1038/mp.2013.78"
-    },
-    "liu2018integrated": {
-      "title": "An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics",
-      "year": 2018,
-      "venue": "Cell",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.1016/j.cell.2018.02.052"
-    },
-    "uhlen2015tissue": {
-      "title": "Tissue-based map of the human proteome",
-      "year": 2015,
-      "venue": "Science",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.1126/science.1260419"
-    },
-    "osanlouy2021sparc": {
-      "title": "The SPARC DRC: Building a Resource for the Autonomic Nervous System Community",
-      "year": 2021,
-      "venue": "Frontiers in Physiology",
-      "domain": [
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.3389/fphys.2021.693735"
-    },
-    "DBLP:journals/nar/BermanWFGBWSB00": {
-      "title": "The Protein Data Bank",
-      "year": 2000,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/28.1.235"
-    },
-    "DBLP:journals/nar/VaradiADNNYYSWL22": {
-      "title": "AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models",
-      "year": 2022,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gkab1061"
-    },
-    "varadi2024alphafold": {
-      "title": "AlphaFold Protein Structure Database in 2024: providing structure coverage for over 214 million protein sequences",
-      "year": 2024,
-      "venue": "Nucleic Acids Res.",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.1093/nar/gkad1011"
-    },
-    "ahdritz2024openfold": {
-      "title": "OpenFold: Retraining AlphaFold2 yields new insights into its learning mechanisms and capacity for generalization",
-      "year": 2024,
-      "venue": "Nature Methods",
-      "domain": [
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.1038/s41592-024-02272-z"
-    },
-    "york2000sloan": {
-      "title": "The Sloan Digital Sky Survey: Technical Summary",
-      "year": 2000,
-      "venue": "The Astronomical Journal",
-      "domain": [
-        "astronomy"
-      ],
-      "paper_link": "https://doi.org/10.1086/301513"
-    },
-    "abdurro2022seventeenth": {
-      "title": "The Seventeenth Data Release of the Sloan Digital Sky Surveys: Complete Release of MaNGA, MaStar, and APOGEE-2 Data",
-      "year": 2022,
-      "venue": "ApJS",
-      "domain": [
-        "astronomy"
-      ],
-      "paper_link": "https://doi.org/10.3847/1538-4365/ac9eff"
-    },
-    "vallenari2023gaia": {
-      "title": "Gaia Data Release 3: Summary of the content and survey properties",
-      "year": 2023,
-      "venue": "Astronomy & Astrophysics",
-      "domain": [
-        "astronomy"
-      ],
-      "paper_link": "https://doi.org/10.1051/0004-6361/202243940"
-    },
-    "mast": {
-      "title": "Mikulski Archive for Space Telescopes (MAST)",
-      "year": 1997,
-      "venue": "STScI",
-      "domain": [
-        "astronomy"
-      ],
-      "paper_link": "https://archive.stsci.edu"
-    },
-    "DBLP:conf/mss/KoblerBCH95": {
-      "title": "Architecture and Design of Storage and Data Management for the NASA EOSDIS",
-      "year": 1995,
-      "venue": "IEEE MSS",
-      "domain": [
-        "earth"
-      ],
-      "paper_link": "https://doi.org/10.1109/MASS.1995.528217"
-    },
-    "noaa_ncei": {
-      "title": "NOAA National Centers for Environmental Information (NCEI)",
-      "year": 2015,
-      "venue": "NOAA",
-      "domain": [
-        "earth"
-      ],
-      "paper_link": "https://www.ncei.noaa.gov"
-    },
-    "eyring2016overview": {
-      "title": "Overview of the Coupled Model Intercomparison Project Phase 6 (CMIP6) experimental design and organization",
-      "year": 2016,
-      "venue": "Geoscientific Model Development",
-      "domain": [
-        "earth"
-      ],
-      "paper_link": "https://doi.org/10.5194/gmd-9-1937-2016"
-    },
-    "usgs_eros": {
-      "title": "USGS Earth Resources Observation and Science (EROS) Center",
-      "year": 1973,
-      "venue": "USGS",
-      "domain": [
-        "earth"
-      ],
-      "paper_link": "https://www.usgs.gov/centers/eros"
-    },
-    "climatepolicyradar": {
-      "title": "Climate Policy Radar: A database of climate change laws and policies",
-      "year": 2024,
-      "venue": "Climate Policy Radar",
-      "domain": [
-        "earth"
-      ],
-      "paper_link": "https://www.climatepolicyradar.org/"
-    },
-    "DBLP:journals/corr/MaguireHW17": {
-      "title": "HEPData: a repository for high energy physics data",
-      "year": 2017,
-      "venue": "arXiv",
-      "domain": [
-        "physics"
-      ],
-      "paper_link": "https://doi.org/10.48550/arXiv.1704.05473"
-    },
-    "cernopendata": {
-      "title": "CERN Open Data Portal",
-      "year": 2014,
-      "venue": "CERN",
-      "domain": [
-        "physics"
-      ],
-      "paper_link": "https://opendata.cern.ch"
-    },
-    "aspenplus": {
-      "title": "Aspen Plus: Process simulation software",
-      "year": 1981,
-      "venue": "Software",
-      "domain": "chemistry",
-      "paper_link": "https://www.aspentech.com"
-    },
-    "proii": {
-      "title": "Pro/II: Process engineering simulation software",
-      "year": 1967,
-      "venue": "Software",
-      "domain": "chemistry",
-      "paper_link": "https://www.aveva.com"
-    },
-    "gproms": {
-      "title": "gPROMS: Advanced process modelling software",
-      "year": 1990,
-      "venue": "Software",
-      "domain": "chemistry",
-      "paper_link": "https://www.siemens.com/gproms"
-    },
-    "ansys": {
-      "title": "ANSYS multiphysics simulation",
-      "year": 1970,
-      "venue": "Software",
-      "domain": "materials",
-      "paper_link": "https://www.ansys.com"
-    },
-    "matlabsimulink": {
-      "title": "MATLAB and Simulink",
-      "year": 1984,
-      "venue": "Software",
-      "domain": "multi",
-      "paper_link": "https://www.mathworks.com"
-    },
-    "hsc": {
-      "title": "HSC Chemistry: Thermodynamic calculation software",
-      "year": 1974,
-      "venue": "Software",
-      "domain": "materials",
-      "paper_link": "https://www.metso.com/hsc"
-    },
-    "factsage": {
-      "title": "FactSage: Thermochemical software and databases",
-      "year": 1976,
-      "venue": "Software",
-      "domain": "materials",
-      "paper_link": "https://www.factsage.com"
-    },
-    "DBLP:journals/jcisd/TakaharaYOKHTTKF25": {
-      "title": "Materials Dual-Source Knowledge RAG for Local LLMs in Photocatalysts",
-      "year": 2025,
-      "venue": "J. Chem. Inf. Model.",
-      "domain": "materials",
-      "paper_link": "https://doi.org/10.1021/acs.jcim.5c01941"
-    },
-    "welbl-etal-2017-crowdsourcing": {
-      "title": "Crowdsourcing Multiple Choice Science Questions (SciQ)",
-      "year": 2017,
-      "venue": "W-NUT @ EMNLP",
-      "method": "SciQ",
-      "domain": [
-        "general"
-      ],
-      "paper_link": "https://aclanthology.org/W17-4413/"
-    },
-    "10.1007/978-3-031-43993-3_51": {
-      "title": "PMC-CLIP: Contrastive Language-Image Pre-training Using Biomedical Documents",
-      "year": 2023,
-      "venue": "MICCAI",
-      "method": "PMC-CLIP / PMC-OA",
-      "type": "dataset",
-      "domain": [
-        "medical",
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.1007/978-3-031-43993-3_51"
-    },
-    "jin-etal-2019-pubmedqa": {
-      "title": "PubMedQA: A Dataset for Biomedical Research Question Answering",
-      "year": 2019,
-      "venue": "EMNLP-IJCNLP",
-      "method": "PubMedQA",
-      "type": "benchmark",
-      "domain": [
-        "medical",
-        "bio"
-      ],
-      "paper_link": "https://aclanthology.org/D19-1259/"
-    },
-    "krithara2023bioasq": {
-      "title": "BioASQ-QA: A manually curated corpus for Biomedical Question Answering",
-      "year": 2023,
-      "venue": "Scientific Data",
-      "method": "BioASQ-QA",
-      "type": "benchmark",
-      "domain": [
-        "medical",
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.1038/s41597-023-02068-4"
-    },
-    "DBLP:conf/nips/HuangFG0RLCXSZ21": {
-      "title": "Therapeutics Data Commons: Machine Learning Datasets and Tasks for Drug Discovery and Development",
-      "year": 2021,
-      "venue": "NeurIPS D&B 2021",
-      "method": "TDC",
-      "type": "benchmark",
-      "domain": [
-        "medical",
-        "bio",
-        "chem"
-      ],
-      "paper_link": "https://arxiv.org/abs/2102.09548"
-    },
-    "tatonetti2012twosides": {
-      "title": "TWOSIDES & OFFSIDES: Data-driven Prediction of Drug Effects and Interactions",
-      "year": 2012,
-      "venue": "Science Translational Medicine",
-      "method": "TWOSIDES",
-      "type": "benchmark",
-      "domain": [
-        "medical",
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.1126/scitranslmed.3003377"
-    },
-    "davis2011kinase": {
-      "title": "Comprehensive Analysis of Kinase Inhibitor Selectivity (Davis Kd Matrix)",
-      "year": 2011,
-      "venue": "Nature Biotechnology",
-      "method": "Davis Kd Matrix",
-      "type": "benchmark",
-      "domain": [
-        "chem",
-        "bio",
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.1038/nbt.1990"
-    },
-    "tang2014kiba": {
-      "title": "KIBA: Integrated Kinase Inhibitor Bioactivity Score",
-      "year": 2014,
-      "venue": "J. Chem. Inf. Model.",
-      "method": "KIBA",
-      "type": "benchmark",
-      "domain": [
-        "chem",
-        "bio",
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.1021/ci400709d"
-    },
-    "himmelstein2017hetionet": {
-      "title": "Hetionet: Systematic Integration of Biomedical Knowledge for Drug Repurposing",
-      "year": 2017,
-      "venue": "eLife",
-      "method": "Hetionet",
-      "type": "benchmark",
-      "domain": [
-        "medical",
-        "bio"
-      ],
-      "paper_link": "https://doi.org/10.7554/eLife.26726"
-    },
-    "zhou2019cafa": {
-      "title": "CAFA3: Critical Assessment of Function Annotation",
-      "year": 2019,
-      "venue": "Genome Biology",
-      "method": "CAFA3",
-      "type": "benchmark",
-      "domain": [
-        "bio",
-        "medical"
-      ],
-      "paper_link": "https://doi.org/10.1186/s13059-019-1835-8"
-    },
-    "corsello2017drhub": {
-      "title": "Drug Repurposing Hub: Hand-curated 4,707-Compound Library",
-      "year": 2017,
-      "venue": "Nature Medicine",
-      "method": "Drug Repurposing Hub",
-      "type": "dataset",
-      "domain": [
-        "medical",
-        "chem"
-      ],
-      "paper_link": "https://doi.org/10.1038/nm.4306"
-    },
-    "riebesell2025matbench": {
-      "title": "Matbench Discovery: ML Crystal Stability Benchmark on 257K WBM Structures",
-      "year": 2025,
-      "venue": "Nature Machine Intelligence",
-      "method": "Matbench Discovery",
-      "type": "benchmark",
-      "domain": [
-        "material",
-        "chem",
-        "physics"
-      ],
-      "paper_link": "https://doi.org/10.1038/s42256-025-01055-1"
-    },
-    "lan2023adsorbml": {
-      "title": "AdsorbML: 1000 Adsorbate-Surface DFT-Success Benchmark",
-      "year": 2023,
-      "venue": "npj Computational Materials",
-      "method": "AdsorbML",
-      "type": "benchmark",
-      "domain": [
-        "material",
-        "chem"
-      ],
-      "paper_link": "https://doi.org/10.1038/s41524-023-01121-5"
-    },
-    "choudhary2024jarvis": {
-      "title": "JARVIS-Leaderboard: ~1500 Tasks × 11 Categories Multi-modal Materials Benchmark",
-      "year": 2024,
-      "venue": "npj Computational Materials",
-      "method": "JARVIS-Leaderboard",
-      "type": "benchmark",
-      "domain": [
-        "material",
-        "chem",
-        "physics"
-      ],
-      "paper_link": "https://doi.org/10.1038/s41524-024-01259-w"
-    },
-    "DBLP:journals/corr/abs-2410-05080": {
-      "title": "ScienceAgentBench: 102 Tasks × 44 Pubs × API+E2E Code Success",
-      "year": 2024,
-      "venue": "ICLR / arXiv",
-      "method": "ScienceAgentBench",
-      "type": "benchmark",
-      "domain": [
-        "bio",
-        "chem",
-        "material",
-        "physics",
-        "general"
-      ],
-      "paper_link": "https://arxiv.org/abs/2410.05080"
-    },
-    "DBLP:journals/corr/abs-2509-20630": {
-      "title": "MLIP Arena: Physics-aware MLIP Benchmark Platform",
-      "year": 2025,
-      "venue": "NeurIPS D&B 2025",
-      "method": "MLIP Arena",
-      "type": "benchmark",
-      "domain": [
-        "material",
-        "chem",
-        "physics"
-      ],
-      "paper_link": "https://arxiv.org/abs/2509.20630"
-    },
-    "DBLP:conf/iclr/XieFGBJ22": {
-      "title": "Crystal Diffusion Variational Autoencoder for Periodic Material Generation",
-      "year": 2022,
-      "venue": "ICLR 2022",
-      "method": "CDVAE",
-      "domain": [
-        "material",
-        "chem",
-        "physics"
-      ],
-      "type": "benchmark",
-      "paper_link": "https://arxiv.org/abs/2110.06197"
-    },
-    "DBLP:journals/corr/abs-2410-12771": {
-      "title": "Open Materials 2024 (OMat24) Inorganic Materials Dataset and Models",
-      "year": 2024,
-      "venue": "arXiv (Meta FAIR)",
-      "method": "OMat24",
-      "domain": [
-        "material",
-        "chem",
-        "physics"
-      ],
-      "type": "benchmark",
-      "paper_link": "https://arxiv.org/abs/2410.12771"
-    },
-    "sriram2024odac23": {
-      "title": "The Open DAC 2023 Dataset and Challenges for Sorbent Discovery in Direct Air Capture",
-      "year": 2024,
-      "venue": "ACS Central Science",
-      "method": "ODAC23",
-      "domain": [
-        "material",
-        "chem"
-      ],
-      "type": "benchmark",
-      "paper_link": "https://doi.org/10.1021/acscentsci.3c01629"
-    },
-    "DBLP:journals/corr/abs-2408-10609": {
-      "title": "PerturBench: Benchmarking Machine Learning Models for Cellular Perturbation Analysis",
-      "year": 2024,
-      "venue": "arXiv",
-      "method": "PerturBench",
-      "domain": [
-        "bio"
-      ],
-      "type": "benchmark",
-      "paper_link": "https://arxiv.org/abs/2408.10609"
-    },
-    "roohani2024gears": {
-      "title": "Predicting transcriptional outcomes of novel multigene perturbations with GEARS",
-      "year": 2024,
-      "venue": "Nature Biotechnology",
-      "method": "GEARS",
-      "domain": [
-        "bio"
-      ],
-      "type": "Method",
-      "paper_link": "https://doi.org/10.1038/s41587-023-01905-6"
-    },
-    "norman2019exploring": {
-      "title": "Exploring genetic interaction manifolds constructed from rich single-cell phenotypes",
-      "year": 2019,
-      "venue": "Science",
-      "method": "Norman 2019",
-      "domain": [
-        "bio"
-      ],
-      "type": "dataset",
-      "paper_link": "https://doi.org/10.1126/science.aax4438"
-    },
-    "DBLP:journals/bioinformatics/BreitOAS20": {
-      "title": "OpenBioLink: a benchmarking framework for large-scale biomedical link prediction",
-      "year": 2020,
-      "venue": "Bioinformatics",
-      "method": "OpenBioLink",
-      "domain": [
-        "bio",
-        "medical"
-      ],
-      "type": "benchmark",
-      "paper_link": "https://doi.org/10.1093/bioinformatics/btaa274"
-    },
-    "DBLP:conf/nips/HuFZDRLCL20": {
-      "title": "Open Graph Benchmark: Datasets for Machine Learning on Graphs",
-      "year": 2020,
-      "venue": "NeurIPS",
-      "method": "OGB / OGB-biokg",
-      "domain": [
-        "bio",
-        "general"
-      ],
-      "type": "benchmark",
-      "paper_link": "https://proceedings.neurips.cc/paper/2020/hash/fb60d411a5c5b72b2e7d3527cfc84fd0-Abstract.html"
-    },
-    "DBLP:journals/corr/abs-2408-01107": {
-      "title": "BioRAG: A RAG-LLM Framework for Biological Question Reasoning",
-      "year": 2024,
-      "venue": "arXiv 2024",
-      "method": "BIORAG",
-      "domain": [
-        "bio",
-        "medical"
-      ],
-      "type": "Method",
-      "paper_link": "https://arxiv.org/abs/2408.01107"
-    }
+ "flagships": [
+  {
+   "bib_key": "asai2024openscholar",
+   "name": "OpenScholar",
+   "tagline": "Eliminates citation hallucination in scientific synthesis",
+   "subtitle": "Open-access paper index, Contriever retriever, synthetic SFT data",
+   "headline_stats": [],
+   "cell": "K1.O2",
+   "domain": "general",
+   "venue": "Nature 2026",
+   "why": "Sets the modern bar for evidence-grounded scientific synthesis. Strongest empirical evidence that retrieval can eliminate hallucinated citations."
+  },
+  {
+   "bib_key": "DBLP:conf/nips/LeeKV0RPVN24",
+   "name": "f-RAG",
+   "tagline": "State-of-the-art on the PMO molecular-optimization benchmark",
+   "subtitle": "Fragment-vocabulary retrieval over ZINC, drug-like molecule generation",
+   "headline_stats": [],
+   "cell": "K2.O3",
+   "domain": "chem",
+   "venue": "NeurIPS 2024",
+   "why": "Demonstrates the dominant K2.O3 pattern, curated DB feeds generative model with downstream physical verification."
+  },
+  {
+   "bib_key": "DBLP:conf/aaai/LeeBHBPS26",
+   "name": "CLADD",
+   "tagline": "Collaborative multi-agent drug discovery",
+   "subtitle": "PrimeKG, PubChem, DrugBank, STITCH cross-source, anchor-drug technique",
+   "headline_stats": [],
+   "cell": "K2.O3",
+   "domain": "chem",
+   "venue": "AAAI 2026",
+   "why": "Canonical example of relational knowledge coupling (Requirement #2), traverses PrimeKG drug-protein-disease links."
+  },
+  {
+   "bib_key": "DBLP:conf/acl/WuZQCXMJG25",
+   "name": "MedGraphRAG",
+   "tagline": "Multi-tier medical graph: MIMIC + MedC-K + UMLS/ICD",
+   "subtitle": "U-Retrieval, evidence-based citations, ★ K1+K2+K4 cross-source",
+   "headline_stats": [],
+   "cell": "K1.O2",
+   "domain": "medical",
+   "venue": "ACL 2025",
+   "why": "The clearest demonstration of all four K sources working in concert, primary literature, curated ontology, and tacit private EHR."
+  },
+  {
+   "bib_key": "DBLP:journals/corr/abs-2603-09800",
+   "name": "MITRA",
+   "tagline": "Physics-collaboration tacit memory, on-premise retrieval",
+   "subtitle": "CMS Analysis Notes, internal wikis, on-premise deployment",
+   "headline_stats": [],
+   "cell": "K4.O1",
+   "domain": "physics",
+   "venue": "arXiv 2026",
+   "why": "Bellwether for K4 tacit knowledge, institutional memory that ChatGPT structurally cannot access."
+  },
+  {
+   "bib_key": "DBLP:conf/aaai/ZhangGZZCZZYB26",
+   "name": "Patho-AgenticRAG",
+   "tagline": "Agentic multimodal retrieval for pathology QA",
+   "subtitle": "Textbook-page retrieval, agentic router, GRPO training, multimodal",
+   "headline_stats": [],
+   "cell": "K3.O1",
+   "domain": "medical",
+   "venue": "AAAI 2026",
+   "why": "Largest gain reported in a peer-reviewed K3 RAG paper; agentic routing over multimodal textbook."
+  },
+  {
+   "bib_key": "DBLP:conf/acl/Xiong0LZ24",
+   "name": "MEDRAG",
+   "tagline": "Canonical medical RAG over multiple corpora",
+   "subtitle": "PubMed + StatPearls + Textbooks + Wikipedia, MedCPT retriever, RRF fusion",
+   "headline_stats": [],
+   "cell": "K1.O1",
+   "domain": "medical",
+   "venue": "ACL Findings 2024",
+   "why": "Established the source-reliability-tiering benchmark (Requirement #3), different epistemic weight per corpus."
+  },
+  {
+   "bib_key": "DBLP:journals/corr/abs-2312-07559",
+   "name": "PaperQA",
+   "tagline": "Sentence-level claim attribution",
+   "subtitle": "Paper-grounded retrieve-cite-answer, the textual-grounding reference design",
+   "headline_stats": [],
+   "cell": "K1.O1",
+   "domain": "general",
+   "venue": "arXiv 2023",
+   "why": "Established mandatory claim attribution (Requirement #1) as the baseline expectation for scientific RAG."
+  },
+  {
+   "bib_key": "DBLP:conf/emnlp/ChiangHCR25",
+   "name": "LLaMP",
+   "tagline": "Materials Project KB-grounded science",
+   "subtitle": "Property lookup, simulation tools, K1+K2 cross-source",
+   "headline_stats": [],
+   "cell": "K2.O1",
+   "domain": "material",
+   "venue": "EMNLP 2025",
+   "why": "Bridges primary literature and the Materials Project KB, sets the K2 materials science pattern."
   }
+ ],
+ "bib_only_titles": {
+  "DBLP:conf/iclr/WangCLH25": {
+   "title": "MADGEN: Mass-Spec attends to De Novo Molecular generation",
+   "year": 2025,
+   "venue": "ICLR",
+   "method": "MADGEN",
+   "domain": [
+    "chem"
+   ],
+   "paper_link": "https://openreview.net/forum?id=78tc3EiUrN"
+  },
+  "DBLP:conf/iclr/0001NQXBA23": {
+   "title": "Retrieval-based Controllable Molecule Generation",
+   "year": 2023,
+   "venue": "ICLR",
+   "method": "RetMol",
+   "domain": [
+    "chem"
+   ],
+   "paper_link": "https://openreview.net/forum?id=vDFA1tpuLvk"
+  },
+  "DBLP:conf/icml/Huang0ZQYZZZWY24": {
+   "title": "Interaction-based Retrieval-augmented Diffusion Models for Protein-specific 3D Molecule Generation",
+   "year": 2024,
+   "venue": "ICML",
+   "method": "IRDiff",
+   "domain": [
+    "chem",
+    "bio"
+   ],
+   "paper_link": "https://proceedings.mlr.press/v235/huang24ab.html"
+  },
+  "DBLP:journals/corr/abs-2506-14488": {
+   "title": "Reimagining Target-Aware Molecular Generation through Retrieval-Enhanced Aligned Diffusion",
+   "year": 2025,
+   "venue": "arXiv",
+   "method": "READ",
+   "domain": [
+    "chem"
+   ],
+   "paper_link": "https://arxiv.org/abs/2506.14488"
+  },
+  "DBLP:conf/aaai/LeeBHBPS26": {
+   "title": "CLADD: RAG-Enhanced Collaborative LLM Agents for Drug Discovery",
+   "year": 2026,
+   "venue": "AAAI",
+   "method": "CLADD",
+   "domain": [
+    "chem"
+   ],
+   "paper_link": ""
+  },
+  "DBLP:conf/aaai/ZhangGZZCZZYB26": {
+   "title": "Patho-AgenticRAG: Pathology Agentic RAG with Textbook-aligned Multimodal Knowledge",
+   "year": 2026,
+   "venue": "AAAI",
+   "method": "Patho-AgenticRAG",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": ""
+  },
+  "DBLP:conf/acl/WuZQCXMJG25": {
+   "title": "Medical Graph RAG: Towards Safe Medical Large Language Model via Graph Retrieval-Augmented Generation",
+   "year": 2025,
+   "venue": "ACL",
+   "method": "MedGraphRAG",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": ""
+  },
+  "DBLP:conf/nips/LeeKV0RPVN24": {
+   "title": "Molecule Generation with Fragment Retrieval Augmentation",
+   "year": 2024,
+   "venue": "NeurIPS",
+   "method": "f-RAG",
+   "domain": [
+    "chem"
+   ],
+   "paper_link": ""
+  },
+  "DBLP:journals/corr/abs-2603-09800": {
+   "title": "MITRA: Knowledge Retrieval over Physics Collaborations' Tacit Memory",
+   "year": 2026,
+   "venue": "arXiv",
+   "method": "MITRA",
+   "domain": [
+    "physics"
+   ],
+   "paper_link": ""
+  },
+  "rafique2025large": {
+   "title": "DUNE Knowledge Retrieval: Large-scale Indexing of Fermilab Collaboration Documents",
+   "year": 2025,
+   "venue": "arXiv",
+   "method": "DUNE-GPT",
+   "domain": [
+    "physics"
+   ],
+   "paper_link": ""
+  },
+  "DBLP:journals/corr/abs-2509-09688": {
+   "title": "AI-Powered Long-Term Access to RHIC Knowledge",
+   "year": 2025,
+   "venue": "arXiv",
+   "method": "RHIC DAPP",
+   "domain": [
+    "physics"
+   ],
+   "paper_link": ""
+  },
+  "DBLP:journals/corr/abs-2403-15729": {
+   "title": "Towards a RAG-based Summarization for the Electron-Ion Collider",
+   "year": 2024,
+   "venue": "arXiv",
+   "method": "EIC RAG",
+   "domain": [
+    "physics"
+   ],
+   "paper_link": ""
+  },
+  "mcgreivy2025seeing": {
+   "title": "Seeing the Forest Through the Trees: Knowledge Retrieval for Streamlining Particle Physics Analysis",
+   "year": 2025,
+   "venue": "arXiv",
+   "method": "SciTreeRAG + SciGraphRAG",
+   "domain": [
+    "physics"
+   ],
+   "paper_link": "https://arxiv.org/abs/2509.06855"
+  },
+  "aplabprotocols2025": {
+   "title": "AP Lab Protocols: Anatomic Pathology RAG Benchmark",
+   "year": 2025,
+   "venue": "arXiv",
+   "method": "AP Lab Protocols",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": ""
+  },
+  "asai2026synthesizing": {
+   "title": "Synthesizing Scientific Literature with Retrieval-Augmented Language Models",
+   "year": 2026,
+   "venue": "ICLR",
+   "method": "OpenScholar (synthesis)",
+   "domain": [
+    "general"
+   ],
+   "paper_link": ""
+  },
+  "lewis2020rag": {
+   "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+   "year": 2020,
+   "venue": "NeurIPS",
+   "method": "RAG (original)",
+   "domain": [
+    "general"
+   ],
+   "paper_link": "https://arxiv.org/abs/2005.11401"
+  },
+  "gao2024rag": {
+   "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+   "year": 2024,
+   "venue": "arXiv",
+   "method": "RAG survey",
+   "domain": [
+    "general"
+   ],
+   "paper_link": "https://arxiv.org/abs/2312.10997"
+  },
+  "kell2025biomedicinerag": {
+   "title": "Biomedicine RAG Survey",
+   "year": 2025,
+   "venue": "arXiv",
+   "method": "BiomedRAG survey",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": ""
+  },
+  "xie2025marsha": {
+   "title": "MARSHA: Multi-hazard Risk Adaptation through RAG",
+   "year": 2025,
+   "venue": "arXiv",
+   "method": "MARSHA",
+   "domain": [
+    "earth"
+   ],
+   "paper_link": ""
+  },
+  "jat2026retrieval": {
+   "title": "RAG-QA over Scientific Literature for the EIC",
+   "year": 2026,
+   "venue": "arXiv",
+   "method": "EIC-RAG-QA",
+   "domain": [
+    "physics"
+   ],
+   "paper_link": ""
+  },
+  "sarkar2024multi": {
+   "title": "Multi-Agent System for Cosmological Parameter Analysis",
+   "year": 2024,
+   "venue": "arXiv",
+   "method": "cmbagent",
+   "domain": [
+    "astronomy"
+   ],
+   "paper_link": "https://arxiv.org/abs/2412.07544"
+  },
+  "meyur2025weqa": {
+   "title": "WeQA: Wind Energy Question Answering",
+   "year": 2025,
+   "venue": "arXiv",
+   "method": "WeQA",
+   "domain": [
+    "earth"
+   ],
+   "paper_link": ""
+  },
+  "taffese2025polymerexpert": {
+   "title": "Polymer Expert: Literature-Derived Polymer Property Prediction with RAG",
+   "year": 2025,
+   "venue": "arXiv",
+   "method": "Polymer Expert",
+   "domain": [
+    "material"
+   ],
+   "paper_link": ""
+  },
+  "nan2026taliragen": {
+   "title": "TaLiRAGen: Target-aware Ligand Generation via Retrieval-Augmented Generation",
+   "year": 2026,
+   "venue": "Mol Div",
+   "method": "TaLiRAGen",
+   "domain": [
+    "chem"
+   ],
+   "paper_link": ""
+  },
+  "krishnan2026biomodelsrag": {
+   "title": "BioModelsRAG: A Biological Modeling Assistant Using Retrieval-Augmented Generation",
+   "year": 2026,
+   "venue": "arXiv",
+   "method": "BioModelsRAG",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": ""
+  },
+  "zaki2024mascqa": {
+   "title": "MaScQA: A Materials Science Question Answering Dataset",
+   "year": 2024,
+   "venue": "arXiv",
+   "method": "MaScQA",
+   "domain": [
+    "material"
+   ],
+   "paper_link": ""
+  },
+  "zhang2026matclaw": {
+   "title": "MatClaw: Autonomous Code-First Agent for Materials Science",
+   "year": 2026,
+   "venue": "arXiv",
+   "method": "MatClaw",
+   "domain": [
+    "material"
+   ],
+   "paper_link": ""
+  },
+  "zhang2025enhancing": {
+   "title": "Enhancing Ultrahigh-Resolution Remote Sensing with ImageRAG",
+   "year": 2025,
+   "venue": "arXiv",
+   "method": "ImageRAG",
+   "domain": [
+    "earth"
+   ],
+   "paper_link": ""
+  },
+  "hou2023geneturing": {
+   "title": "GeneTuring: A Genomics Benchmark for LLMs",
+   "year": 2023,
+   "venue": "arXiv",
+   "method": "GeneTuring",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": ""
+  },
+  "wang2016admet": {
+   "title": "ADMET Evaluation: hERG Channel Blockers",
+   "year": 2016,
+   "venue": ", ",
+   "method": "ADMET hERG",
+   "domain": [
+    "chem"
+   ],
+   "paper_link": ""
+  },
+  "xiao2024repurposing": {
+   "title": "Repurposing Non-pharmacological Interventions for Alzheimer's via Link Prediction",
+   "year": 2024,
+   "venue": "arXiv",
+   "method": "Repurposing-LP",
+   "domain": [
+    "medical",
+    "bio"
+   ],
+   "paper_link": ""
+  },
+  "lau2018dataset": {
+   "title": "VQA-RAD: A Dataset for Visual Question Answering on Radiology Images",
+   "year": 2018,
+   "venue": "Sci Data",
+   "method": "VQA-RAD",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": ""
+  },
+  "boteva2016full": {
+   "title": "A Full-Text Learning to Rank Dataset for Medical Information Retrieval",
+   "year": 2016,
+   "venue": "ECIR",
+   "method": "Boteva NFCorpus",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": ""
+  },
+  "smith2008overview": {
+   "title": "Overview of BioCreative II Gene Mention Recognition",
+   "year": 2008,
+   "venue": "Genome Biology",
+   "method": "BioCreative II",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": ""
+  },
+  "auer2023sciqa": {
+   "title": "SciQA: A Scientific Question Answering Benchmark over Scholarly Knowledge",
+   "year": 2023,
+   "venue": "Nat Sci Reports",
+   "method": "SciQA",
+   "domain": [
+    "general"
+   ],
+   "paper_link": ""
+  },
+  "PhysioNet-mimic-cxr-2.1.0": {
+   "title": "MIMIC-CXR: A De-identified Publicly Available Database of Chest Radiographs",
+   "year": 2019,
+   "venue": "Scientific Data",
+   "method": "MIMIC-CXR",
+   "type": "dataset",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://www.nature.com/articles/s41597-019-0322-0"
+  },
+  "demner2016preparing": {
+   "title": "Preparing a Collection of Radiology Examinations for Distribution and Retrieval (IU-Xray / Open-i)",
+   "year": 2016,
+   "venue": "JAMIA",
+   "method": "IU-Xray",
+   "type": "dataset",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.1093/jamia/ocv080"
+  },
+  "luo2024fairclip": {
+   "title": "FairCLIP: Harnessing Fairness in Vision-Language Learning",
+   "year": 2024,
+   "venue": "CVPR",
+   "method": "FairCLIP / Harvard-FairVLMed",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://arxiv.org/abs/2403.19949"
+  },
+  "nguyen2023medredqa": {
+   "title": "MedRedQA: A Consumer Medical Question Answering Corpus",
+   "year": 2023,
+   "venue": "arXiv",
+   "method": "MedRedQA",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": ""
+  },
+  "chen2025vision": {
+   "title": "Vision-Language Foundation Model for Multimodal Biomedical RAG",
+   "year": 2025,
+   "venue": "arXiv",
+   "method": "VL-MMRAG",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": ""
+  },
+  "mazor2025lvlm": {
+   "title": "LVLM-Aware Multimodal Medical Diagnosis",
+   "year": 2025,
+   "venue": "arXiv",
+   "method": "LVLM-MM",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": ""
+  },
+  "jiangchemistrag": {
+   "title": "ChemisTRAG: Table-based RAG for Chemistry",
+   "year": 2025,
+   "venue": "arXiv",
+   "method": "ChemisTRAG",
+   "domain": [
+    "chem"
+   ],
+   "paper_link": ""
+  },
+  "hu2023medicaldiff": {
+   "title": "MedicalDiff-VQA: A Difference Visual Question Answering Dataset",
+   "year": 2023,
+   "venue": "MedIA",
+   "method": "MedicalDiff-VQA",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": ""
+  },
+  "scopus": {
+   "title": "Scopus",
+   "year": 2004,
+   "venue": "Elsevier",
+   "domain": [
+    "bio",
+    "medical",
+    "chem",
+    "physics",
+    "earth"
+   ],
+   "paper_link": "https://www.scopus.com",
+   "note": "Subscription-based abstract and citation database covering science, technology, medicine, and social sciences."
+  },
+  "webofscience": {
+   "title": "Web of Science",
+   "year": 1997,
+   "venue": "Clarivate",
+   "domain": [
+    "bio",
+    "medical",
+    "chem",
+    "physics",
+    "earth"
+   ],
+   "paper_link": "https://www.webofscience.com",
+   "note": "Subscription-based multidisciplinary citation index spanning natural sciences, social sciences, and arts and humanities."
+  },
+  "DBLP:journals/qss/HerzogHK20": {
+   "title": "Dimensions",
+   "year": 2020,
+   "venue": "Quant. Sci. Stud.",
+   "domain": [
+    "bio",
+    "medical",
+    "chem",
+    "physics",
+    "earth"
+   ],
+   "paper_link": "https://doi.org/10.1162/qss_a_00020"
+  },
+  "DBLP:journals/dlib/KnothZ12": {
+   "title": "CORE",
+   "year": 2012,
+   "venue": "D Lib Mag.",
+   "domain": [
+    "bio",
+    "medical",
+    "chem",
+    "physics",
+    "earth"
+   ],
+   "paper_link": "https://core.ac.uk"
+  },
+  "DBLP:journals/lp/HaakFPPR12": {
+   "title": "ORCID",
+   "year": 2012,
+   "venue": "Learn. Publ.",
+   "domain": [
+    "bio",
+    "medical",
+    "chem",
+    "physics",
+    "earth"
+   ],
+   "paper_link": "https://orcid.org"
+  },
+  "lee2023climate": {
+   "title": "Climate Change 2023: Synthesis Report (IPCC AR6)",
+   "year": 2023,
+   "venue": "IPCC",
+   "domain": [
+    "earth"
+   ],
+   "paper_link": "https://www.ipcc.ch/report/ar6/syr/"
+  },
+  "sever2019biorxiv": {
+   "title": "bioRxiv: the Preprint Server for Biology",
+   "year": 2019,
+   "venue": "Cold Spring Harb. Lab.",
+   "domain": [
+    "bio",
+    "medical"
+   ],
+   "paper_link": "https://www.biorxiv.org"
+  },
+  "DBLP:journals/corr/abs-1108-2700": {
+   "title": "arXiv: It was twenty years ago today (Ginsparg 2011)",
+   "year": 2011,
+   "venue": "CoRR / arXiv",
+   "domain": [
+    "general"
+   ],
+   "paper_link": "https://arxiv.org/abs/1108.2700"
+  },
+  "embase": {
+   "title": "Embase",
+   "year": 1974,
+   "venue": "Elsevier",
+   "domain": [
+    "medical",
+    "bio",
+    "chem"
+   ],
+   "paper_link": "https://www.embase.com"
+  },
+  "medrxiv": {
+   "title": "medRxiv",
+   "year": 2019,
+   "venue": "Cold Spring Harb. Lab. / Yale / BMJ",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://www.medrxiv.org"
+  },
+  "chemrxiv": {
+   "title": "ChemRxiv",
+   "year": 2017,
+   "venue": "ACS / RSC / GDCh / CCS / CSJ",
+   "domain": [
+    "chem"
+   ],
+   "paper_link": "https://chemrxiv.org"
+  },
+  "eartharxiv": {
+   "title": "EarthArXiv",
+   "year": 2017,
+   "venue": "Center for Open Science",
+   "domain": [
+    "earth"
+   ],
+   "paper_link": "https://eartharxiv.org"
+  },
+  "osf_preprints": {
+   "title": "OSF Preprints",
+   "year": 2016,
+   "venue": "Center for Open Science",
+   "domain": [
+    "general"
+   ],
+   "paper_link": "https://osf.io/preprints"
+  },
+  "DBLP:journals/jcisd/SterlingI15": {
+   "title": "ZINC15: Ligand Discovery for Everyone",
+   "year": 2015,
+   "venue": "J. Chem. Inf. Model.",
+   "domain": [
+    "chemistry"
+   ],
+   "paper_link": "https://doi.org/10.1021/acs.jcim.5b00559"
+  },
+  "DBLP:journals/jcisd/TingleTCGKDMI23": {
+   "title": "ZINC-22: A Free Multi-Purpose Database of Novel Purchasable Chemistry",
+   "year": 2023,
+   "venue": "J. Chem. Inf. Model.",
+   "domain": [
+    "chemistry"
+   ],
+   "paper_link": "https://doi.org/10.1021/acs.jcim.2c01253"
+  },
+  "DBLP:journals/nar/GaultonBBCDHLMMAO12": {
+   "title": "ChEMBL: a large-scale bioactivity database for drug discovery",
+   "year": 2012,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "chemistry"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gkr777"
+  },
+  "DBLP:journals/nar/KimTBCFGHHHSWYZ16": {
+   "title": "PubChem Substance and Compound databases",
+   "year": 2016,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "chemistry"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gkv951"
+  },
+  "DBLP:journals/nar/LiuLWJG07": {
+   "title": "BindingDB: a web-accessible database of experimentally determined protein-ligand binding affinities",
+   "year": 2007,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "chemistry"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gkl999"
+  },
+  "DBLP:journals/nar/MendezGBCVFMMMN19": {
+   "title": "ChEMBL: towards direct deposition of bioassay data",
+   "year": 2019,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "chemistry"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gky1075"
+  },
+  "DBLP:journals/nar/SzklarczykSMJBK16": {
+   "title": "STITCH 5: augmenting protein-chemical interaction networks with new formats and technologies",
+   "year": 2016,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "chemistry"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gkv1277"
+  },
+  "chandak2023building": {
+   "title": "Building a knowledge graph to enable precision medicine",
+   "year": 2023,
+   "venue": "Scientific Data",
+   "domain": [
+    "chemistry",
+    "medical"
+   ],
+   "paper_link": "https://www.nature.com/articles/s41597-023-01960-3"
+  },
+  "gilson2016bindingdb": {
+   "title": "BindingDB in 2015: a public database for medicinal chemistry, computational chemistry and systems pharmacology",
+   "year": 2016,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "chemistry"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gkv1072"
+  },
+  "groom2016csd": {
+   "title": "The Cambridge Structural Database",
+   "year": 2016,
+   "venue": "Acta Crystallographica B",
+   "domain": [
+    "chemistry"
+   ],
+   "paper_link": "https://doi.org/10.1107/S2052520616003954"
+  },
+  "icsd": {
+   "title": "Inorganic Crystal Structure Database (ICSD)",
+   "year": 1978,
+   "venue": "FIZ Karlsruhe",
+   "domain": [
+    "chemistry",
+    "material"
+   ],
+   "paper_link": "https://icsd.fiz-karlsruhe.de"
+  },
+  "ioannidis2020drkg": {
+   "title": "DRKG: Drug Repurposing Knowledge Graph for COVID-19",
+   "year": 2020,
+   "venue": "arXiv",
+   "domain": [
+    "chemistry",
+    "medical"
+   ],
+   "paper_link": "https://arxiv.org/abs/2010.09600"
+  },
+  "irwin2012zinc": {
+   "title": "ZINC: a free tool to discover chemistry for biology",
+   "year": 2012,
+   "venue": "J. Chem. Inf. Model.",
+   "domain": [
+    "chemistry"
+   ],
+   "paper_link": "https://doi.org/10.1021/ci3001277"
+  },
+  "isert2022qmugs": {
+   "title": "QMugs: Quantum Mechanical Properties of Drug-like Molecules",
+   "year": 2022,
+   "venue": "Scientific Data",
+   "domain": [
+    "chemistry"
+   ],
+   "paper_link": "https://doi.org/10.1038/s41597-022-01390-7"
+  },
+  "kearnes2021open": {
+   "title": "The Open Reaction Database",
+   "year": 2021,
+   "venue": "J. Am. Chem. Soc.",
+   "domain": [
+    "chemistry"
+   ],
+   "paper_link": "https://doi.org/10.1021/jacs.1c09820"
+  },
+  "kim2023pubchem": {
+   "title": "PubChem 2023 update",
+   "year": 2023,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "chemistry"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gkac956"
+  },
+  "knox2024drugbank": {
+   "title": "DrugBank 6.0: the DrugBank knowledgebase for 2024",
+   "year": 2024,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "chemistry",
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gkad976"
+  },
+  "linstrom2001nist": {
+   "title": "The NIST Chemistry WebBook: A Chemical Data Resource on the Internet",
+   "year": 2001,
+   "venue": "J. Chem. Eng. Data",
+   "domain": [
+    "chemistry"
+   ],
+   "paper_link": "https://webbook.nist.gov"
+  },
+  "liu2025bindingdb": {
+   "title": "BindingDB in 2024: a FAIR knowledgebase of protein-small molecule binding data",
+   "year": 2025,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "chemistry"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gkae1008"
+  },
+  "lowe2017chemical": {
+   "title": "Chemical reactions from US patents (1976–Sep2016)",
+   "year": 2017,
+   "venue": "Figshare",
+   "domain": [
+    "chemistry"
+   ],
+   "paper_link": "https://doi.org/10.6084/m9.figshare.5104873"
+  },
+  "ramakrishnan2014quantum": {
+   "title": "Quantum chemistry structures and properties of 134 kilo molecules",
+   "year": 2014,
+   "venue": "Scientific Data",
+   "domain": [
+    "chemistry"
+   ],
+   "paper_link": "https://doi.org/10.1038/sdata.2014.22"
+  },
+  "reaxys": {
+   "title": "Reaxys",
+   "year": 2009,
+   "venue": "Elsevier",
+   "domain": [
+    "chemistry"
+   ],
+   "paper_link": "https://www.reaxys.com"
+  },
+  "scifinder": {
+   "title": "SciFinder-n",
+   "year": 1995,
+   "venue": "CAS / ACS",
+   "domain": [
+    "chemistry"
+   ],
+   "paper_link": "https://scifinder-n.cas.org"
+  },
+  "zdrazil2024chembl": {
+   "title": "The ChEMBL Database in 2023: a drug discovery platform spanning multiple bioactivity data types and time periods",
+   "year": 2024,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "chemistry"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gkad1004"
+  },
+  "DBLP:journals/nar/SherryWKBPSS01": {
+   "title": "dbSNP: the NCBI database of genetic variation",
+   "year": 2001,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/29.1.308"
+  },
+  "DBLP:journals/nar/EdgarDL03": {
+   "title": "Gene Expression Omnibus: NCBI gene expression and hybridization array data repository",
+   "year": 2002,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/30.1.207"
+  },
+  "DBLP:journals/nar/GonzalezRSRCSF20": {
+   "title": "The DisGeNET knowledge platform for disease genomics: 2019 update",
+   "year": 2020,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gkz1021"
+  },
+  "DBLP:journals/nar/LandrumLBBCCGHH18": {
+   "title": "ClinVar: improving access to variant interpretations and supporting evidence",
+   "year": 2018,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gkx1153"
+  },
+  "DBLP:journals/nar/TateBJSBBBCCDFH19": {
+   "title": "COSMIC: the Catalogue Of Somatic Mutations In Cancer",
+   "year": 2019,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gky1015"
+  },
+  "DBLP:journals/corr/abs-2010-09990": {
+   "title": "The Open Catalyst 2020 (OC20) Dataset and Community Challenges",
+   "year": 2020,
+   "venue": "arXiv",
+   "domain": [
+    "material"
+   ],
+   "paper_link": "https://arxiv.org/abs/2010.09990"
+  },
+  "DBLP:journals/corr/abs-2206-08917": {
+   "title": "The Open Catalyst 2022 (OC22) Dataset and Challenges for Oxide Electrocatalysis",
+   "year": 2022,
+   "venue": "arXiv",
+   "domain": [
+    "material"
+   ],
+   "paper_link": "https://doi.org/10.48550/arXiv.2206.08917"
+  },
+  "DBLP:conf/emnlp/ZhangSHML24": {
+   "title": "HoneyComb: A Flexible LLM-Based Agent System for Materials Science",
+   "year": 2024,
+   "venue": "EMNLP 2024 Findings",
+   "domain": [
+    "material"
+   ],
+   "paper_link": "https://doi.org/10.18653/v1/2024.findings-emnlp.192"
+  },
+  "uniprot2023uniprot": {
+   "title": "UniProt: the Universal Protein Knowledgebase in 2023",
+   "year": 2023,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gkac1052"
+  },
+  "kanehisa2000kegg": {
+   "title": "KEGG: Kyoto Encyclopedia of Genes and Genomes",
+   "year": 2000,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/28.1.27"
+  },
+  "milacic2024reactome": {
+   "title": "The Reactome Pathway Knowledgebase 2024",
+   "year": 2024,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gkad1025"
+  },
+  "ashburner2000gene": {
+   "title": "Gene Ontology: tool for the unification of biology",
+   "year": 2000,
+   "venue": "Nature Genetics",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.1038/75556"
+  },
+  "gene2023gene": {
+   "title": "The Gene Ontology Knowledgebase in 2023",
+   "year": 2023,
+   "venue": "Genetics",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.1093/genetics/iyad031"
+  },
+  "encode2012integrated": {
+   "title": "An integrated encyclopedia of DNA elements in the human genome",
+   "year": 2012,
+   "venue": "Nature",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.1038/nature11247"
+  },
+  "drew2017integration": {
+   "title": "Integration of over 9,000 mass spectrometry experiments builds a global map of human protein complexes",
+   "year": 2017,
+   "venue": "Molecular Systems Biology",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.15252/msb.20167490"
+  },
+  "drew2021hu": {
+   "title": "hu.MAP 2.0: integration of over 15,000 proteomic experiments builds a comprehensive atlas of human protein complexes",
+   "year": 2021,
+   "venue": "Molecular Systems Biology",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.15252/msb.20209886"
+  },
+  "gbif2022gbif": {
+   "title": "GBIF: the Global Biodiversity Information Facility",
+   "year": 2022,
+   "venue": "GBIF Secretariat",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": "https://www.gbif.org"
+  },
+  "de2017toward": {
+   "title": "Toward a new data standard for combined marine biological and environmental datasets",
+   "year": 2017,
+   "venue": "Biodiversity Data Journal",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.3897/BDJ.5.e16949"
+  },
+  "bodenreider2004unified": {
+   "title": "The Unified Medical Language System (UMLS): integrating biomedical terminology",
+   "year": 2004,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gkh061"
+  },
+  "hamosh2005online": {
+   "title": "Online Mendelian Inheritance in Man (OMIM), a knowledgebase of human genes and genetic disorders",
+   "year": 2005,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gki033"
+  },
+  "amberger2015omim": {
+   "title": "OMIM.org: Online Mendelian Inheritance in Man (OMIM), an online catalog of human genes and genetic disorders",
+   "year": 2015,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gku1205"
+  },
+  "griffith2017civic": {
+   "title": "CIViC is a community knowledgebase for expert crowdsourcing the clinical interpretation of variants in cancer",
+   "year": 2017,
+   "venue": "Nature Genetics",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.1038/ng.3774"
+  },
+  "chakravarty2017oncokb": {
+   "title": "OncoKB: a precision oncology knowledge base",
+   "year": 2017,
+   "venue": "JCO Precision Oncology",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.1200/PO.17.00011"
+  },
+  "clinicaltrialsgov": {
+   "title": "ClinicalTrials.gov",
+   "year": 2000,
+   "venue": "U.S. National Library of Medicine",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://clinicaltrials.gov"
+  },
+  "kluwer2020uptodate": {
+   "title": "UpToDate: evidence-based clinical decision support",
+   "year": 2020,
+   "venue": "Wolters Kluwer",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://www.uptodate.com"
+  },
+  "jain2013commentary": {
+   "title": "Commentary: The Materials Project: A materials genome approach to accelerating materials innovation",
+   "year": 2013,
+   "venue": "APL Materials",
+   "domain": [
+    "material"
+   ],
+   "paper_link": "https://doi.org/10.1063/1.4812323"
+  },
+  "saal2013materials": {
+   "title": "Materials Design and Discovery with High-Throughput Density Functional Theory: The Open Quantum Materials Database (OQMD)",
+   "year": 2013,
+   "venue": "JOM",
+   "domain": [
+    "material"
+   ],
+   "paper_link": "https://doi.org/10.1007/s11837-013-0755-4"
+  },
+  "kirklin2015open": {
+   "title": "The Open Quantum Materials Database (OQMD): assessing the accuracy of DFT formation enthalpies",
+   "year": 2015,
+   "venue": "npj Computational Materials",
+   "domain": [
+    "material"
+   ],
+   "paper_link": "https://doi.org/10.1038/npjcompumats.2015.10"
+  },
+  "curtarolo2012aflow": {
+   "title": "AFLOW: An automatic framework for high-throughput materials discovery",
+   "year": 2012,
+   "venue": "Computational Materials Science",
+   "domain": [
+    "material"
+   ],
+   "paper_link": "https://doi.org/10.1016/j.commatsci.2012.02.005"
+  },
+  "navas2024review": {
+   "title": "Review of Particle Physics",
+   "year": 2024,
+   "venue": "Physical Review D",
+   "domain": [
+    "physics"
+   ],
+   "paper_link": "https://doi.org/10.1103/PhysRevD.110.030001"
+  },
+  "DBLP:journals/nar/SayersBBCCCFFFFHKKKKLLLMMMMPPRSTWYT23": {
+   "title": "Database resources of the National Center for Biotechnology Information in 2023",
+   "year": 2023,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gkac1032"
+  },
+  "DBLP:journals/corr/abs-2304-14454": {
+   "title": "PMC-LLaMA: Further Finetuning LLaMA on Medical Papers (MedC-K corpus)",
+   "year": 2023,
+   "venue": "arXiv",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.48550/arXiv.2304.14454"
+  },
+  "DBLP:journals/corr/abs-2303-01229": {
+   "title": "Almanac: Knowledge-Grounded Language Models for Clinical Medicine",
+   "year": 2023,
+   "venue": "arXiv",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.48550/arXiv.2303.01229"
+  },
+  "DBLP:journals/jcisd/FrancoeurMSJISK20": {
+   "title": "Three-Dimensional Convolutional Neural Networks and a Cross-Docked Data Set for Structure-Based Drug Design",
+   "year": 2020,
+   "venue": "J. Chem. Inf. Model.",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.1021/acs.jcim.0c00411"
+  },
+  "johnson2016mimic": {
+   "title": "MIMIC-III, a freely accessible critical care database",
+   "year": 2016,
+   "venue": "Scientific Data",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.1038/sdata.2016.35"
+  },
+  "johnson2023mimic": {
+   "title": "MIMIC-IV, a freely accessible electronic health record dataset",
+   "year": 2023,
+   "venue": "Scientific Data",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.1038/s41597-022-01899-x"
+  },
+  "petersen2010alzheimer": {
+   "title": "Alzheimer's Disease Neuroimaging Initiative (ADNI): Clinical characterization",
+   "year": 2010,
+   "venue": "Neurology",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.1212/WNL.0b013e3181cb3e25"
+  },
+  "DBLP:journals/jocn/MarcusWPCMB07": {
+   "title": "Open Access Series of Imaging Studies (OASIS): Cross-sectional MRI Data in Young, Middle Aged, Nondemented, and Demented Older Adults",
+   "year": 2007,
+   "venue": "J. Cogn. Neurosci.",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.1162/jocn.2007.19.9.1498"
+  },
+  "di2014autism": {
+   "title": "The autism brain imaging data exchange: towards a large-scale evaluation of the intrinsic brain architecture in autism",
+   "year": 2014,
+   "venue": "Molecular Psychiatry",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.1038/mp.2013.78"
+  },
+  "liu2018integrated": {
+   "title": "An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics",
+   "year": 2018,
+   "venue": "Cell",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.1016/j.cell.2018.02.052"
+  },
+  "uhlen2015tissue": {
+   "title": "Tissue-based map of the human proteome",
+   "year": 2015,
+   "venue": "Science",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.1126/science.1260419"
+  },
+  "osanlouy2021sparc": {
+   "title": "The SPARC DRC: Building a Resource for the Autonomic Nervous System Community",
+   "year": 2021,
+   "venue": "Frontiers in Physiology",
+   "domain": [
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.3389/fphys.2021.693735"
+  },
+  "DBLP:journals/nar/BermanWFGBWSB00": {
+   "title": "The Protein Data Bank",
+   "year": 2000,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/28.1.235"
+  },
+  "DBLP:journals/nar/VaradiADNNYYSWL22": {
+   "title": "AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models",
+   "year": 2022,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gkab1061"
+  },
+  "varadi2024alphafold": {
+   "title": "AlphaFold Protein Structure Database in 2024: providing structure coverage for over 214 million protein sequences",
+   "year": 2024,
+   "venue": "Nucleic Acids Res.",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.1093/nar/gkad1011"
+  },
+  "ahdritz2024openfold": {
+   "title": "OpenFold: Retraining AlphaFold2 yields new insights into its learning mechanisms and capacity for generalization",
+   "year": 2024,
+   "venue": "Nature Methods",
+   "domain": [
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.1038/s41592-024-02272-z"
+  },
+  "york2000sloan": {
+   "title": "The Sloan Digital Sky Survey: Technical Summary",
+   "year": 2000,
+   "venue": "The Astronomical Journal",
+   "domain": [
+    "astronomy"
+   ],
+   "paper_link": "https://doi.org/10.1086/301513"
+  },
+  "abdurro2022seventeenth": {
+   "title": "The Seventeenth Data Release of the Sloan Digital Sky Surveys: Complete Release of MaNGA, MaStar, and APOGEE-2 Data",
+   "year": 2022,
+   "venue": "ApJS",
+   "domain": [
+    "astronomy"
+   ],
+   "paper_link": "https://doi.org/10.3847/1538-4365/ac9eff"
+  },
+  "vallenari2023gaia": {
+   "title": "Gaia Data Release 3: Summary of the content and survey properties",
+   "year": 2023,
+   "venue": "Astronomy & Astrophysics",
+   "domain": [
+    "astronomy"
+   ],
+   "paper_link": "https://doi.org/10.1051/0004-6361/202243940"
+  },
+  "mast": {
+   "title": "Mikulski Archive for Space Telescopes (MAST)",
+   "year": 1997,
+   "venue": "STScI",
+   "domain": [
+    "astronomy"
+   ],
+   "paper_link": "https://archive.stsci.edu"
+  },
+  "DBLP:conf/mss/KoblerBCH95": {
+   "title": "Architecture and Design of Storage and Data Management for the NASA EOSDIS",
+   "year": 1995,
+   "venue": "IEEE MSS",
+   "domain": [
+    "earth"
+   ],
+   "paper_link": "https://doi.org/10.1109/MASS.1995.528217"
+  },
+  "noaa_ncei": {
+   "title": "NOAA National Centers for Environmental Information (NCEI)",
+   "year": 2015,
+   "venue": "NOAA",
+   "domain": [
+    "earth"
+   ],
+   "paper_link": "https://www.ncei.noaa.gov"
+  },
+  "eyring2016overview": {
+   "title": "Overview of the Coupled Model Intercomparison Project Phase 6 (CMIP6) experimental design and organization",
+   "year": 2016,
+   "venue": "Geoscientific Model Development",
+   "domain": [
+    "earth"
+   ],
+   "paper_link": "https://doi.org/10.5194/gmd-9-1937-2016"
+  },
+  "usgs_eros": {
+   "title": "USGS Earth Resources Observation and Science (EROS) Center",
+   "year": 1973,
+   "venue": "USGS",
+   "domain": [
+    "earth"
+   ],
+   "paper_link": "https://www.usgs.gov/centers/eros"
+  },
+  "climatepolicyradar": {
+   "title": "Climate Policy Radar: A database of climate change laws and policies",
+   "year": 2024,
+   "venue": "Climate Policy Radar",
+   "domain": [
+    "earth"
+   ],
+   "paper_link": "https://www.climatepolicyradar.org/"
+  },
+  "DBLP:journals/corr/MaguireHW17": {
+   "title": "HEPData: a repository for high energy physics data",
+   "year": 2017,
+   "venue": "arXiv",
+   "domain": [
+    "physics"
+   ],
+   "paper_link": "https://doi.org/10.48550/arXiv.1704.05473"
+  },
+  "cernopendata": {
+   "title": "CERN Open Data Portal",
+   "year": 2014,
+   "venue": "CERN",
+   "domain": [
+    "physics"
+   ],
+   "paper_link": "https://opendata.cern.ch"
+  },
+  "aspenplus": {
+   "title": "Aspen Plus: Process simulation software",
+   "year": 1981,
+   "venue": "Software",
+   "domain": "chemistry",
+   "paper_link": "https://www.aspentech.com"
+  },
+  "proii": {
+   "title": "Pro/II: Process engineering simulation software",
+   "year": 1967,
+   "venue": "Software",
+   "domain": "chemistry",
+   "paper_link": "https://www.aveva.com"
+  },
+  "gproms": {
+   "title": "gPROMS: Advanced process modelling software",
+   "year": 1990,
+   "venue": "Software",
+   "domain": "chemistry",
+   "paper_link": "https://www.siemens.com/gproms"
+  },
+  "ansys": {
+   "title": "ANSYS multiphysics simulation",
+   "year": 1970,
+   "venue": "Software",
+   "domain": "materials",
+   "paper_link": "https://www.ansys.com"
+  },
+  "matlabsimulink": {
+   "title": "MATLAB and Simulink",
+   "year": 1984,
+   "venue": "Software",
+   "domain": "multi",
+   "paper_link": "https://www.mathworks.com"
+  },
+  "hsc": {
+   "title": "HSC Chemistry: Thermodynamic calculation software",
+   "year": 1974,
+   "venue": "Software",
+   "domain": "materials",
+   "paper_link": "https://www.metso.com/hsc"
+  },
+  "factsage": {
+   "title": "FactSage: Thermochemical software and databases",
+   "year": 1976,
+   "venue": "Software",
+   "domain": "materials",
+   "paper_link": "https://www.factsage.com"
+  },
+  "DBLP:journals/jcisd/TakaharaYOKHTTKF25": {
+   "title": "Materials Dual-Source Knowledge RAG for Local LLMs in Photocatalysts",
+   "year": 2025,
+   "venue": "J. Chem. Inf. Model.",
+   "domain": "materials",
+   "paper_link": "https://doi.org/10.1021/acs.jcim.5c01941"
+  },
+  "welbl-etal-2017-crowdsourcing": {
+   "title": "Crowdsourcing Multiple Choice Science Questions (SciQ)",
+   "year": 2017,
+   "venue": "W-NUT @ EMNLP",
+   "method": "SciQ",
+   "domain": [
+    "general"
+   ],
+   "paper_link": "https://aclanthology.org/W17-4413/"
+  },
+  "10.1007/978-3-031-43993-3_51": {
+   "title": "PMC-CLIP: Contrastive Language-Image Pre-training Using Biomedical Documents",
+   "year": 2023,
+   "venue": "MICCAI",
+   "method": "PMC-CLIP / PMC-OA",
+   "type": "dataset",
+   "domain": [
+    "medical",
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.1007/978-3-031-43993-3_51"
+  },
+  "jin-etal-2019-pubmedqa": {
+   "title": "PubMedQA: A Dataset for Biomedical Research Question Answering",
+   "year": 2019,
+   "venue": "EMNLP-IJCNLP",
+   "method": "PubMedQA",
+   "type": "benchmark",
+   "domain": [
+    "medical",
+    "bio"
+   ],
+   "paper_link": "https://aclanthology.org/D19-1259/"
+  },
+  "krithara2023bioasq": {
+   "title": "BioASQ-QA: A manually curated corpus for Biomedical Question Answering",
+   "year": 2023,
+   "venue": "Scientific Data",
+   "method": "BioASQ-QA",
+   "type": "benchmark",
+   "domain": [
+    "medical",
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.1038/s41597-023-02068-4"
+  },
+  "DBLP:conf/nips/HuangFG0RLCXSZ21": {
+   "title": "Therapeutics Data Commons: Machine Learning Datasets and Tasks for Drug Discovery and Development",
+   "year": 2021,
+   "venue": "NeurIPS D&B 2021",
+   "method": "TDC",
+   "type": "benchmark",
+   "domain": [
+    "medical",
+    "bio",
+    "chem"
+   ],
+   "paper_link": "https://arxiv.org/abs/2102.09548"
+  },
+  "tatonetti2012twosides": {
+   "title": "TWOSIDES & OFFSIDES: Data-driven Prediction of Drug Effects and Interactions",
+   "year": 2012,
+   "venue": "Science Translational Medicine",
+   "method": "TWOSIDES",
+   "type": "benchmark",
+   "domain": [
+    "medical",
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.1126/scitranslmed.3003377"
+  },
+  "davis2011kinase": {
+   "title": "Comprehensive Analysis of Kinase Inhibitor Selectivity (Davis Kd Matrix)",
+   "year": 2011,
+   "venue": "Nature Biotechnology",
+   "method": "Davis Kd Matrix",
+   "type": "benchmark",
+   "domain": [
+    "chem",
+    "bio",
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.1038/nbt.1990"
+  },
+  "tang2014kiba": {
+   "title": "KIBA: Integrated Kinase Inhibitor Bioactivity Score",
+   "year": 2014,
+   "venue": "J. Chem. Inf. Model.",
+   "method": "KIBA",
+   "type": "benchmark",
+   "domain": [
+    "chem",
+    "bio",
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.1021/ci400709d"
+  },
+  "himmelstein2017hetionet": {
+   "title": "Hetionet: Systematic Integration of Biomedical Knowledge for Drug Repurposing",
+   "year": 2017,
+   "venue": "eLife",
+   "method": "Hetionet",
+   "type": "benchmark",
+   "domain": [
+    "medical",
+    "bio"
+   ],
+   "paper_link": "https://doi.org/10.7554/eLife.26726"
+  },
+  "zhou2019cafa": {
+   "title": "CAFA3: Critical Assessment of Function Annotation",
+   "year": 2019,
+   "venue": "Genome Biology",
+   "method": "CAFA3",
+   "type": "benchmark",
+   "domain": [
+    "bio",
+    "medical"
+   ],
+   "paper_link": "https://doi.org/10.1186/s13059-019-1835-8"
+  },
+  "corsello2017drhub": {
+   "title": "Drug Repurposing Hub: Hand-curated 4,707-Compound Library",
+   "year": 2017,
+   "venue": "Nature Medicine",
+   "method": "Drug Repurposing Hub",
+   "type": "dataset",
+   "domain": [
+    "medical",
+    "chem"
+   ],
+   "paper_link": "https://doi.org/10.1038/nm.4306"
+  },
+  "riebesell2025matbench": {
+   "title": "Matbench Discovery: ML Crystal Stability Benchmark on 257K WBM Structures",
+   "year": 2025,
+   "venue": "Nature Machine Intelligence",
+   "method": "Matbench Discovery",
+   "type": "benchmark",
+   "domain": [
+    "material",
+    "chem",
+    "physics"
+   ],
+   "paper_link": "https://doi.org/10.1038/s42256-025-01055-1"
+  },
+  "lan2023adsorbml": {
+   "title": "AdsorbML: 1000 Adsorbate-Surface DFT-Success Benchmark",
+   "year": 2023,
+   "venue": "npj Computational Materials",
+   "method": "AdsorbML",
+   "type": "benchmark",
+   "domain": [
+    "material",
+    "chem"
+   ],
+   "paper_link": "https://doi.org/10.1038/s41524-023-01121-5"
+  },
+  "choudhary2024jarvis": {
+   "title": "JARVIS-Leaderboard: ~1500 Tasks × 11 Categories Multi-modal Materials Benchmark",
+   "year": 2024,
+   "venue": "npj Computational Materials",
+   "method": "JARVIS-Leaderboard",
+   "type": "benchmark",
+   "domain": [
+    "material",
+    "chem",
+    "physics"
+   ],
+   "paper_link": "https://doi.org/10.1038/s41524-024-01259-w"
+  },
+  "DBLP:journals/corr/abs-2410-05080": {
+   "title": "ScienceAgentBench: 102 Tasks × 44 Pubs × API+E2E Code Success",
+   "year": 2024,
+   "venue": "ICLR / arXiv",
+   "method": "ScienceAgentBench",
+   "type": "benchmark",
+   "domain": [
+    "bio",
+    "chem",
+    "material",
+    "physics",
+    "general"
+   ],
+   "paper_link": "https://arxiv.org/abs/2410.05080"
+  },
+  "DBLP:journals/corr/abs-2509-20630": {
+   "title": "MLIP Arena: Physics-aware MLIP Benchmark Platform",
+   "year": 2025,
+   "venue": "NeurIPS D&B 2025",
+   "method": "MLIP Arena",
+   "type": "benchmark",
+   "domain": [
+    "material",
+    "chem",
+    "physics"
+   ],
+   "paper_link": "https://arxiv.org/abs/2509.20630"
+  },
+  "DBLP:conf/iclr/XieFGBJ22": {
+   "title": "Crystal Diffusion Variational Autoencoder for Periodic Material Generation",
+   "year": 2022,
+   "venue": "ICLR 2022",
+   "method": "CDVAE",
+   "domain": [
+    "material",
+    "chem",
+    "physics"
+   ],
+   "type": "benchmark",
+   "paper_link": "https://arxiv.org/abs/2110.06197"
+  },
+  "DBLP:journals/corr/abs-2410-12771": {
+   "title": "Open Materials 2024 (OMat24) Inorganic Materials Dataset and Models",
+   "year": 2024,
+   "venue": "arXiv (Meta FAIR)",
+   "method": "OMat24",
+   "domain": [
+    "material",
+    "chem",
+    "physics"
+   ],
+   "type": "benchmark",
+   "paper_link": "https://arxiv.org/abs/2410.12771"
+  },
+  "sriram2024odac23": {
+   "title": "The Open DAC 2023 Dataset and Challenges for Sorbent Discovery in Direct Air Capture",
+   "year": 2024,
+   "venue": "ACS Central Science",
+   "method": "ODAC23",
+   "domain": [
+    "material",
+    "chem"
+   ],
+   "type": "benchmark",
+   "paper_link": "https://doi.org/10.1021/acscentsci.3c01629"
+  },
+  "DBLP:journals/corr/abs-2408-10609": {
+   "title": "PerturBench: Benchmarking Machine Learning Models for Cellular Perturbation Analysis",
+   "year": 2024,
+   "venue": "arXiv",
+   "method": "PerturBench",
+   "domain": [
+    "bio"
+   ],
+   "type": "benchmark",
+   "paper_link": "https://arxiv.org/abs/2408.10609"
+  },
+  "roohani2024gears": {
+   "title": "Predicting transcriptional outcomes of novel multigene perturbations with GEARS",
+   "year": 2024,
+   "venue": "Nature Biotechnology",
+   "method": "GEARS",
+   "domain": [
+    "bio"
+   ],
+   "type": "Method",
+   "paper_link": "https://doi.org/10.1038/s41587-023-01905-6"
+  },
+  "norman2019exploring": {
+   "title": "Exploring genetic interaction manifolds constructed from rich single-cell phenotypes",
+   "year": 2019,
+   "venue": "Science",
+   "method": "Norman 2019",
+   "domain": [
+    "bio"
+   ],
+   "type": "dataset",
+   "paper_link": "https://doi.org/10.1126/science.aax4438"
+  },
+  "DBLP:journals/bioinformatics/BreitOAS20": {
+   "title": "OpenBioLink: a benchmarking framework for large-scale biomedical link prediction",
+   "year": 2020,
+   "venue": "Bioinformatics",
+   "method": "OpenBioLink",
+   "domain": [
+    "bio",
+    "medical"
+   ],
+   "type": "benchmark",
+   "paper_link": "https://doi.org/10.1093/bioinformatics/btaa274"
+  },
+  "DBLP:conf/nips/HuFZDRLCL20": {
+   "title": "Open Graph Benchmark: Datasets for Machine Learning on Graphs",
+   "year": 2020,
+   "venue": "NeurIPS",
+   "method": "OGB / OGB-biokg",
+   "domain": [
+    "bio",
+    "general"
+   ],
+   "type": "benchmark",
+   "paper_link": "https://proceedings.neurips.cc/paper/2020/hash/fb60d411a5c5b72b2e7d3527cfc84fd0-Abstract.html"
+  },
+  "DBLP:journals/corr/abs-2408-01107": {
+   "title": "BioRAG: A RAG-LLM Framework for Biological Question Reasoning",
+   "year": 2024,
+   "venue": "arXiv 2024",
+   "method": "BIORAG",
+   "domain": [
+    "bio",
+    "medical"
+   ],
+   "type": "Method",
+   "paper_link": "https://arxiv.org/abs/2408.01107"
+  }
+ }
 }

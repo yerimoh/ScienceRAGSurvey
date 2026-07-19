@@ -2394,7 +2394,6 @@ def render_insights():
     for f in flagships:
         p = paper_by_bib.get(f['bib_key'], {})
         url = p.get('paper_link') or ''
-        stats_html = ''.join(f'<div class="fl-stat"><span class="fl-num">{esc(s[0])}</span><span class="fl-label">{esc(s[1])}</span></div>' for s in f['headline_stats'])
         title_link = f'<a href="{esc(url)}" target="_blank" rel="noopener">{esc(p.get("title","") or f["name"])} ↗</a>' if url else esc(p.get('title','') or f['name'])
         cell = p.get('ko_primary') if (p.get('ko_primary') and '.' in p.get('ko_primary')) else f['cell']
         fl_cards.append(f'''
@@ -2404,7 +2403,6 @@ def render_insights():
             <span class="tag tag-cell" title="{esc(cell_label(cell))}">{cell}</span>
           </div>
           <p class="fl-tagline">{esc(f['tagline'])}</p>
-          <div class="fl-stats">{stats_html}</div>
           <p class="fl-subtitle">{esc(f['subtitle'])}</p>
           <p class="fl-why"><strong>Why it matters.</strong> {esc(f['why'])}</p>
           <p class="fl-cite">{title_link}, <span class="muted">{esc(f['venue'])}</span></p>
