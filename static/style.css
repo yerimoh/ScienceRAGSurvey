@@ -1780,7 +1780,7 @@ sup.footnote-ref a:focus {
   font-family: var(--font-display);
 }
 .axis-subsub-title::before {
-  content: "▸"; color: var(--k-500); margin-right: .45rem; font-size: .8em;
+  content: "▸"; color: var(--k-500); margin-right: .4rem; font-size: 1.15em; vertical-align: -0.03em;
 }
 .axis-sub .axis-subsub-title::before { color: var(--o-500); }
 #k1 .axis-subsub-title::before, #k2 .axis-subsub-title::before,
@@ -1798,7 +1798,7 @@ sup.footnote-ref a:focus {
 .axis-lede { max-width: 70ch; color: var(--fg-muted); font-size: 1.02rem; line-height: 1.6; margin: 0 0 1.3rem; }
 .res-group { margin: 0 0 1.5rem; }
 .res-group-title { font-size: 1.05rem; margin: 0 0 .3rem; font-family: var(--font-display); }
-.res-group-title::before { content: "▸"; color: var(--k-500); margin-right: .45rem; font-size: .8em; }
+.res-group-title::before { content: "▸"; color: var(--k-500); margin-right: .4rem; font-size: 1.15em; vertical-align: -0.03em; }
 .sys-o + * .res-group-title::before, #o1 .res-group-title::before, #o2 .res-group-title::before, #o3 .res-group-title::before { color: var(--o-500); }
 .res-note { max-width: 72ch; color: var(--fg-muted); font-size: .92rem; margin: 0 0 .6rem; line-height: 1.5; }
 .res-chips { display: flex; flex-wrap: wrap; gap: .4rem; }
