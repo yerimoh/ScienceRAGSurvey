@@ -1212,8 +1212,9 @@ def paper_card(p, base='', axis_scope=None, factcheck_id=None):
     if p.get('cross_source'):
         tag_html.append('<span class="tag tag-xs">★ cross-source</span>')
 
-    summary_link = (f'<a href="{base}papers/{paper_fn}" class="card-summary-link">Summary →</a>'
-                    if has_summary else '')
+    # Per-paper "Summary" body-tab pages were removed (AI-generated, unverifiable, some
+    # rendered broken). The card title already links to the authoritative external source.
+    summary_link = ''
 
     _subsec_val = p.get("subsection", "") or ""
     if isinstance(_subsec_val, list):
@@ -1707,10 +1708,7 @@ def render_overview_section(cell_key, papers_by_key, papers_in_cell=None, base='
         body += '</p>'
         if ev:
             body += f'<p>{esc(ev)}</p>'
-        summary_path = ROOT / 'papers' / f'{safe_key}.html'
-        if summary_path.exists():
-            body += f'<p><a href="{base}papers/{safe_key}.html">Full summary &rarr;</a></p>'
-        elif p.get('paper_link'):
+        if p.get('paper_link'):
             body += f'<p><a href="{esc(p["paper_link"])}" target="_blank" rel="noopener">Source &uarr;</a></p>'
         fn_items.append(f'<li id="fn-ov{i}">{body}</li>')
         if p:
@@ -2842,7 +2840,8 @@ def write_catalog():
 
 
 if __name__ == '__main__':
-    render_paper_pages()   # First, so paper_card() can detect summary pages
+    # render_paper_pages() intentionally disabled: the per-paper body-tab summaries were
+    # AI-generated and unverifiable. Every paper now links to its external source instead.
     render_index()
     render_about()
     render_browse()

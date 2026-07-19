@@ -4,7 +4,7 @@ _42 entries in the physics domain._
 
 ---
 
-- **MITRA: Knowledge Retrieval over Physics Collaborations' Tacit Memory** — MITRA · arXiv · 2026 — RAG over CMS internal documents; DPR + cross-encoder reranker + 4-bit Mistral-7B; P@1 ~5.8x over BM25 on paraphrased queries (Set 2: 0.75 vs 0.13)  `[K1.O1, Physics, Methods]`
+- **[MITRA: Knowledge Retrieval over Physics Collaborations' Tacit Memory](https://doi.org/10.48550/arXiv.2603.09800)** — MITRA · arXiv · 2026 — RAG over CMS internal documents; DPR + cross-encoder reranker + 4-bit Mistral-7B; P@1 ~5.8x over BM25 on paraphrased queries (Set 2: 0.75 vs 0.13)  `[K1.O1, Physics, Methods]`
 - **OpenScholar: Synthesizing Scientific Literature with RAG LMs** — OpenScholar · Nature · 2026 — ★★ K1.O2 FLAGSHIP. Iterative self-feedback. 0% hallucination vs GPT-4o 78-90%. Experts prefer OpenScholar-GPT-4o over human 70%. Public demo 30K users  `[K1, Biology, Medicine, Physics, Methods]`
 - **[Retrieval-Augmented Question Answering over Scientific Literature for the Electron-Ion Collider](https://arxiv.org/abs/2604.02259)** — EIC RAG Q&A application · arXiv · 2026 — Local RAG for the EIC. Chunk size 180 + cosine is optimal  `[K1.O1, Physics, Methods]`
 - **[Synthesizing Scientific Literature with Retrieval-Augmented Language Models](https://doi.org/10.1038/s41586-025-10072-4)** — ScholarQABench · Nature · 2026 — OpenScholar's multidisciplinary long-form synthesis benchmark  `[K1.O2, Biology, Medicine, Physics, Benchmarks]`
