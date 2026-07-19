@@ -1467,12 +1467,11 @@ def render_index():
       </div>
       <div class="contribute-card">
         <h2 class="section-title">Cite</h2>
-        <pre><code>@article{oh2026sciragsurvey,
-  title   = {Scientific Retrieval-Augmented Generation: A Survey
-             a Survey and Taxonomy},
-  author  = {Oh, Yerim and others},
-  journal = {TBD},
-  year    = {TBD}
+        <pre><code>@article{oh2026scientificrag,
+  title   = {Scientific Retrieval-Augmented Generation: A Survey and Taxonomy},
+  author  = {Oh, Yerim and Ko, Dayoon and Kim, Sohyeon and Lee, Taehyun and Jung, Yeonseok and Kim, Gunhee},
+  journal = {ACM Computing Surveys (under review)},
+  year    = {2026}
 }</code></pre>
       </div>
     </div>
@@ -1538,7 +1537,7 @@ def render_about():
     <h2 id="cite">Cite</h2>
     <pre class="cite-block">@article{{oh2026scientificrag,
   title   = {{Scientific Retrieval-Augmented Generation: A Survey and Taxonomy}},
-  author  = {{Oh, Yerim and others}},
+  author  = {{Oh, Yerim and Ko, Dayoon and Kim, Sohyeon and Lee, Taehyun and Jung, Yeonseok and Kim, Gunhee}},
   journal = {{ACM Computing Surveys (under review)}},
   year    = {{2026}}
 }}</pre>
