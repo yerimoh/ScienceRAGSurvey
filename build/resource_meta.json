@@ -1,79 +1,271 @@
 {
-  "_comment": "Curated official homepage + one-line description for each §4 knowledge-source resource. Keyed by the exact name extracted by extract_axis_prose.py. url = dataset homepage (preferred over the paper DOI in references.bib); desc grounded in §4 wording. Edit here to fix a link/description; then re-run build/extract_axis_prose.py + render_html.py.",
-
-  "Crossref": {"url": "https://www.crossref.org", "desc": "Registry of DOIs and publication metadata."},
-  "ORCID": {"url": "https://orcid.org", "desc": "Registry of researcher identities."},
-  "OpenAlex": {"url": "https://openalex.org", "desc": "Open index of works, authors, venues, and concepts."},
-  "PubMed": {"url": "https://pubmed.ncbi.nlm.nih.gov", "desc": "Biomedical abstracts indexed under MeSH."},
-  "S2ORC": {"url": "https://github.com/allenai/s2orc", "desc": "Parsed full text in a citation-linked space."},
-  "Scopus": {"url": "https://www.scopus.com", "desc": "Abstract-and-citation metadata (commercial)."},
-  "Web of Science": {"url": "https://www.webofscience.com", "desc": "Abstract-and-citation metadata (commercial)."},
-  "Dimensions": {"url": "https://www.dimensions.ai", "desc": "Abstract-and-citation metadata."},
-  "CORE": {"url": "https://core.ac.uk", "desc": "Aggregated open-access full text."},
-  "Europe PMC": {"url": "https://europepmc.org", "desc": "Open-access biomedical full text."},
-  "Embase": {"url": "https://www.embase.com", "desc": "Pharmacology literature (commercial)."},
-  "NASA ADS": {"url": "https://ui.adsabs.harvard.edu", "desc": "Astronomy and astrophysics literature."},
-  "INSPIRE-HEP": {"url": "https://inspirehep.net", "desc": "High-energy physics literature."},
-  "GeoRef": {"url": "https://www.americangeosciences.org/information/georef", "desc": "Geosciences literature index."},
-  "IPCC assessment reports": {"url": "https://www.ipcc.ch/reports/", "desc": "Canonical climate-synthesis corpus."},
-  "MedCorp": {"url": "https://github.com/Teddy-XiongGZ/MedRAG", "desc": "Ready-made medical RAG corpus (PubMed, StatPearls, textbooks, Wikipedia)."},
-  "MatSciKB": {"url": "https://github.com/BangLab-UdeM-Mila/HoneyComb", "desc": "Ready-made materials-science RAG corpus (HoneyComb)."},
-
-  "bioRxiv": {"url": "https://www.biorxiv.org", "desc": "Biology preprints."},
-  "medRxiv": {"url": "https://www.medrxiv.org", "desc": "Health-sciences preprints."},
-  "ChemRxiv": {"url": "https://chemrxiv.org", "desc": "Chemistry preprints."},
-  "EarthArXiv": {"url": "https://eartharxiv.org", "desc": "Earth-science preprints."},
-  "OSF Preprints": {"url": "https://osf.io/preprints", "desc": "Multidisciplinary preprint aggregator."},
-
-  "MITRA": {"url": "https://arxiv.org/abs/2603.09800", "desc": "On-premise RAG over CMS collaboration documentation (system)."},
-  "DUNE-GPT": {"url": "https://arxiv.org/abs/2601.05278", "desc": "RAG over Fermilab DUNE internal resources (system)."},
-
-  "UMLS": {"url": "https://www.nlm.nih.gov/research/umls/index.html", "desc": "Unified biomedical vocabularies."},
-  "SNOMED CT": {"url": "https://www.snomed.org", "desc": "Clinical terminology."},
-  "ICD-10/11": {"url": "https://icd.who.int", "desc": "WHO diagnostic classification."},
-  "PrimeKG": {"url": "https://github.com/mims-harvard/PrimeKG", "desc": "Precision-medicine knowledge graph."},
-  "DRKG": {"url": "https://github.com/gnn4dr/DRKG", "desc": "Drug-repurposing knowledge graph."},
-  "STITCH": {"url": "http://stitch.embl.de", "desc": "Chemical-protein interactions."},
-  "KEGG": {"url": "https://www.genome.jp/kegg/", "desc": "Pathway and genome database."},
-  "Reactome": {"url": "https://reactome.org", "desc": "Curated biological pathways."},
-  "Gene Ontology": {"url": "https://geneontology.org", "desc": "Gene function annotation."},
-  "OMIM": {"url": "https://www.omim.org", "desc": "Mendelian disease-gene catalog."},
-  "DisGeNET": {"url": "https://www.disgenet.org", "desc": "Disease-gene associations."},
-  "ClinVar": {"url": "https://www.ncbi.nlm.nih.gov/clinvar/", "desc": "Variant-phenotype relationships."},
-
-  "ChEMBL": {"url": "https://www.ebi.ac.uk/chembl/", "desc": "Bioactive molecule records."},
-  "ZINC": {"url": "https://zinc.docking.org", "desc": "Purchasable compound library."},
-  "PubChem": {"url": "https://pubchem.ncbi.nlm.nih.gov", "desc": "Chemical compound records."},
-  "PDB": {"url": "https://www.rcsb.org", "desc": "Experimental 3D structures."},
-  "AlphaFold DB": {"url": "https://alphafold.ebi.ac.uk", "desc": "Predicted protein structures."},
-  "CrossDocked2020": {"url": "https://github.com/gnina/models", "desc": "Docked protein-ligand poses."},
-
-  "Materials Project": {"url": "https://materialsproject.org", "desc": "DFT-computed materials properties."},
-  "OQMD": {"url": "https://oqmd.org", "desc": "DFT materials thermodynamics."},
-  "AFLOW": {"url": "http://aflowlib.org", "desc": "Computed materials properties."},
-  "Open Catalyst": {"url": "https://opencatalystproject.org", "desc": "Catalysis DFT dataset."},
-  "QM9": {"url": "http://quantum-machine.org/datasets/", "desc": "Small-molecule quantum properties."},
-  "QMugs": {"url": "https://www.research-collection.ethz.ch/handle/20.500.11850/482129", "desc": "Drug-like molecule quantum properties."},
-  "BindingDB": {"url": "https://www.bindingdb.org", "desc": "Measured binding affinities."},
-
-  "MIMIC-CXR": {"url": "https://physionet.org/content/mimic-cxr/", "desc": "Chest radiographs paired with reports."},
-  "IU-Xray": {"url": "https://openi.nlm.nih.gov", "desc": "Chest X-rays with reports (Open-i)."},
-  "ADNI": {"url": "https://adni.loni.usc.edu", "desc": "Alzheimer's neuroimaging cohort."},
-  "OASIS": {"url": "https://www.oasis-brains.org", "desc": "Brain MRI cohort."},
-  "ABIDE": {"url": "https://fcon_1000.projects.nitrc.org/indi/abide/", "desc": "Autism brain-imaging exchange."},
-  "TCGA": {"url": "https://www.cancerimagingarchive.net", "desc": "Cancer imaging archive (histopathology)."},
-  "Human Protein Atlas": {"url": "https://www.proteinatlas.org", "desc": "Tissue and pathology imaging atlas."},
-
-  "MassBank": {"url": "https://massbank.eu", "desc": "Public mass-spectral library."},
-  "GNPS": {"url": "https://gnps.ucsd.edu", "desc": "Molecular-networking spectral repository."},
-  "HMDB": {"url": "https://hmdb.ca", "desc": "Human metabolome database (spectra)."},
-
-  "SDSS": {"url": "https://www.sdss.org", "desc": "Sloan Digital Sky Survey."},
-  "Gaia": {"url": "https://www.cosmos.esa.int/web/gaia", "desc": "ESA stellar-census survey."},
-  "MAST": {"url": "https://archive.stsci.edu", "desc": "Space-telescope data archive."},
-  "NASA EOSDIS": {"url": "https://www.earthdata.nasa.gov", "desc": "Earth-observation data system."},
-  "CMIP6": {"url": "https://pcmdi.llnl.gov/CMIP6/", "desc": "Climate-model intercomparison archive."},
-  "NOAA NCEI": {"url": "https://www.ncei.noaa.gov", "desc": "Environmental data archive."},
-  "USGS EROS": {"url": "https://www.usgs.gov/centers/eros", "desc": "Satellite earth-imagery archive."},
-  "CERN Open Data": {"url": "https://opendata.cern.ch", "desc": "Particle-collision records."}
+ "_comment": "Curated official homepage + one-line description for each §4 knowledge-source resource. Keyed by the exact name extracted by extract_axis_prose.py. url = dataset homepage (preferred over the paper DOI in references.bib); desc grounded in §4 wording. Edit here to fix a link/description; then re-run build/extract_axis_prose.py + render_html.py.",
+ "Crossref": {
+  "url": "https://www.crossref.org",
+  "desc": "Registry of DOIs and publication metadata."
+ },
+ "ORCID": {
+  "url": "https://orcid.org",
+  "desc": "Registry of researcher identities."
+ },
+ "OpenAlex": {
+  "url": "https://openalex.org",
+  "desc": "Open index of works, authors, venues, and concepts."
+ },
+ "PubMed": {
+  "url": "https://pubmed.ncbi.nlm.nih.gov",
+  "desc": "Biomedical abstracts indexed under MeSH."
+ },
+ "S2ORC": {
+  "url": "https://github.com/allenai/s2orc",
+  "desc": "Parsed full text in a citation-linked space."
+ },
+ "Scopus": {
+  "url": "https://www.scopus.com",
+  "desc": "Abstract-and-citation metadata (commercial)."
+ },
+ "Web of Science": {
+  "url": "https://www.webofscience.com",
+  "desc": "Abstract-and-citation metadata (commercial)."
+ },
+ "Dimensions": {
+  "url": "https://www.dimensions.ai",
+  "desc": "Abstract-and-citation metadata."
+ },
+ "CORE": {
+  "url": "https://core.ac.uk",
+  "desc": "Aggregated open-access full text."
+ },
+ "Europe PMC": {
+  "url": "https://europepmc.org",
+  "desc": "Open-access biomedical full text."
+ },
+ "Embase": {
+  "url": "https://www.embase.com",
+  "desc": "Pharmacology literature (commercial)."
+ },
+ "NASA ADS": {
+  "url": "https://ui.adsabs.harvard.edu",
+  "desc": "Astronomy and astrophysics literature."
+ },
+ "INSPIRE-HEP": {
+  "url": "https://inspirehep.net",
+  "desc": "High-energy physics literature."
+ },
+ "GeoRef": {
+  "url": "https://www.americangeosciences.org/information/georef",
+  "desc": "Geosciences literature index."
+ },
+ "IPCC assessment reports": {
+  "url": "https://www.ipcc.ch/reports/",
+  "desc": "Canonical climate-synthesis corpus."
+ },
+ "MedCorp": {
+  "url": "https://huggingface.co/MedRAG",
+  "desc": "Ready-made medical RAG corpus (PubMed, StatPearls, textbooks, Wikipedia)."
+ },
+ "MatSciKB": {
+  "url": "https://arxiv.org/abs/2409.00135",
+  "desc": "Ready-made materials-science RAG corpus (HoneyComb)."
+ },
+ "bioRxiv": {
+  "url": "https://www.biorxiv.org",
+  "desc": "Biology preprints."
+ },
+ "medRxiv": {
+  "url": "https://www.medrxiv.org",
+  "desc": "Health-sciences preprints."
+ },
+ "ChemRxiv": {
+  "url": "https://chemrxiv.org",
+  "desc": "Chemistry preprints."
+ },
+ "EarthArXiv": {
+  "url": "https://eartharxiv.org",
+  "desc": "Earth-science preprints."
+ },
+ "OSF Preprints": {
+  "url": "https://osf.io/preprints",
+  "desc": "Multidisciplinary preprint aggregator."
+ },
+ "MITRA": {
+  "url": "https://arxiv.org/abs/2603.09800",
+  "desc": "On-premise RAG over CMS collaboration documentation (system)."
+ },
+ "DUNE-GPT": {
+  "url": "https://arxiv.org/abs/2601.05278",
+  "desc": "RAG over Fermilab DUNE internal resources (system)."
+ },
+ "UMLS": {
+  "url": "https://www.nlm.nih.gov/research/umls/index.html",
+  "desc": "Unified biomedical vocabularies."
+ },
+ "SNOMED CT": {
+  "url": "https://www.snomed.org",
+  "desc": "Clinical terminology."
+ },
+ "ICD-10/11": {
+  "url": "https://icd.who.int",
+  "desc": "WHO diagnostic classification."
+ },
+ "PrimeKG": {
+  "url": "https://github.com/mims-harvard/PrimeKG",
+  "desc": "Precision-medicine knowledge graph."
+ },
+ "DRKG": {
+  "url": "https://github.com/gnn4dr/DRKG",
+  "desc": "Drug-repurposing knowledge graph."
+ },
+ "STITCH": {
+  "url": "http://stitch-db.org/",
+  "desc": "Chemical-protein interactions."
+ },
+ "KEGG": {
+  "url": "https://www.genome.jp/kegg/",
+  "desc": "Pathway and genome database."
+ },
+ "Reactome": {
+  "url": "https://reactome.org",
+  "desc": "Curated biological pathways."
+ },
+ "Gene Ontology": {
+  "url": "https://geneontology.org",
+  "desc": "Gene function annotation."
+ },
+ "OMIM": {
+  "url": "https://www.omim.org",
+  "desc": "Mendelian disease-gene catalog."
+ },
+ "DisGeNET": {
+  "url": "https://www.disgenet.org",
+  "desc": "Disease-gene associations."
+ },
+ "ClinVar": {
+  "url": "https://www.ncbi.nlm.nih.gov/clinvar/",
+  "desc": "Variant-phenotype relationships."
+ },
+ "ChEMBL": {
+  "url": "https://www.ebi.ac.uk/chembl/",
+  "desc": "Bioactive molecule records."
+ },
+ "ZINC": {
+  "url": "https://zinc.docking.org",
+  "desc": "Purchasable compound library."
+ },
+ "PubChem": {
+  "url": "https://pubchem.ncbi.nlm.nih.gov",
+  "desc": "Chemical compound records."
+ },
+ "PDB": {
+  "url": "https://www.rcsb.org",
+  "desc": "Experimental 3D structures."
+ },
+ "AlphaFold DB": {
+  "url": "https://alphafold.ebi.ac.uk",
+  "desc": "Predicted protein structures."
+ },
+ "CrossDocked2020": {
+  "url": "https://github.com/gnina/models",
+  "desc": "Docked protein-ligand poses."
+ },
+ "Materials Project": {
+  "url": "https://materialsproject.org",
+  "desc": "DFT-computed materials properties."
+ },
+ "OQMD": {
+  "url": "https://oqmd.org",
+  "desc": "DFT materials thermodynamics."
+ },
+ "AFLOW": {
+  "url": "http://aflowlib.org",
+  "desc": "Computed materials properties."
+ },
+ "Open Catalyst": {
+  "url": "https://opencatalystproject.org",
+  "desc": "Catalysis DFT dataset."
+ },
+ "QM9": {
+  "url": "http://quantum-machine.org/datasets/",
+  "desc": "Small-molecule quantum properties."
+ },
+ "QMugs": {
+  "url": "https://doi.org/10.1038/s41597-022-01390-7",
+  "desc": "Drug-like molecule quantum properties."
+ },
+ "BindingDB": {
+  "url": "https://www.bindingdb.org",
+  "desc": "Measured binding affinities."
+ },
+ "MIMIC-CXR": {
+  "url": "https://physionet.org/content/mimic-cxr/",
+  "desc": "Chest radiographs paired with reports."
+ },
+ "IU-Xray": {
+  "url": "https://openi.nlm.nih.gov",
+  "desc": "Chest X-rays with reports (Open-i)."
+ },
+ "ADNI": {
+  "url": "https://adni.loni.usc.edu",
+  "desc": "Alzheimer's neuroimaging cohort."
+ },
+ "OASIS": {
+  "url": "https://www.oasis-brains.org",
+  "desc": "Brain MRI cohort."
+ },
+ "ABIDE": {
+  "url": "https://fcon_1000.projects.nitrc.org/indi/abide/",
+  "desc": "Autism brain-imaging exchange."
+ },
+ "TCGA": {
+  "url": "https://www.cancerimagingarchive.net",
+  "desc": "Cancer imaging archive (histopathology)."
+ },
+ "Human Protein Atlas": {
+  "url": "https://www.proteinatlas.org",
+  "desc": "Tissue and pathology imaging atlas."
+ },
+ "MassBank": {
+  "url": "https://massbank.eu",
+  "desc": "Public mass-spectral library."
+ },
+ "GNPS": {
+  "url": "https://gnps.ucsd.edu",
+  "desc": "Molecular-networking spectral repository."
+ },
+ "HMDB": {
+  "url": "https://hmdb.ca",
+  "desc": "Human metabolome database (spectra)."
+ },
+ "SDSS": {
+  "url": "https://www.sdss.org",
+  "desc": "Sloan Digital Sky Survey."
+ },
+ "Gaia": {
+  "url": "https://www.cosmos.esa.int/web/gaia",
+  "desc": "ESA stellar-census survey."
+ },
+ "MAST": {
+  "url": "https://archive.stsci.edu",
+  "desc": "Space-telescope data archive."
+ },
+ "NASA EOSDIS": {
+  "url": "https://www.earthdata.nasa.gov",
+  "desc": "Earth-observation data system."
+ },
+ "CMIP6": {
+  "url": "https://pcmdi.llnl.gov/CMIP6/",
+  "desc": "Climate-model intercomparison archive."
+ },
+ "NOAA NCEI": {
+  "url": "https://www.ncei.noaa.gov",
+  "desc": "Environmental data archive."
+ },
+ "USGS EROS": {
+  "url": "https://www.usgs.gov/centers/eros",
+  "desc": "Satellite earth-imagery archive."
+ },
+ "CERN Open Data": {
+  "url": "https://opendata.cern.ch",
+  "desc": "Particle-collision records."
+ }
 }

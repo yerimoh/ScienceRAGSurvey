@@ -232,7 +232,7 @@
   "domain": [
    "physics"
   ],
-  "paper_link": "",
+  "paper_link": "https://doi.org/10.48550/arXiv.2603.09800",
   "note": "RAG over CMS internal documents; DPR + cross-encoder reranker + 4-bit Mistral-7B; P@1 ~5.8x over BM25 on paraphrased queries (Set 2: 0.75 vs 0.13)",
   "ko_cells": [
    "K1.O1"
@@ -521,7 +521,7 @@
   "domain": [
    "medical"
   ],
-  "paper_link": "",
+  "paper_link": "https://doi.org/10.1609/aaai.v40i35.40239",
   "note": "Multimodal agentic RAG for pathology VLMs; retrieves over pathology-specific image patches + text (K3.O1 cross-modal grounding)",
   "ko_cells": [
    "K4.O1"
@@ -816,7 +816,8 @@
   "cross_source": false,
   "subsection": [
    "Molecular Design"
-  ]
+  ],
+  "paper_link": "https://doi.org/10.1007/s11030-026-11483-9"
  },
  {
   "title": "A vision-language foundation model-based multi-modal retrieval-augmented generation framework for remote sensing lithological recognition",
@@ -1649,6 +1650,7 @@
   "ko_primary": "K4.O1",
   "ko_note": "",
   "cross_source": false,
+  "paper_link": "https://doi.org/10.18653/v1/2025.naacl-long.28",
   "subsection": [
    "Cross-modal Grounding"
   ]
@@ -2181,7 +2183,8 @@
   "cross_source": false,
   "subsection": [
    "Cross-modal Grounding"
-  ]
+  ],
+  "paper_link": "https://openreview.net/forum?id=s5epFPdIW6"
  },
  {
   "title": "MOTOR: Multimodal Optimal Transport via Grounded Retrieval in Medical Visual Question Answering",
@@ -2432,7 +2435,7 @@
   "domain": [
    "medical"
   ],
-  "paper_link": "",
+  "paper_link": "https://aclanthology.org/2025.acl-long.1381/",
   "note": "Medicine and clinical knowledge, UMLS-aligned retrieval substrate",
   "ko_cells": [
    "K2.O1"
@@ -2844,7 +2847,8 @@
   "cross_source": false,
   "subsection": [
    "Molecular Design"
-  ]
+  ],
+  "paper_link": "https://doi.org/10.1093/bib/bbaf265"
  },
  {
   "title": "Rationale-Guided Retrieval Augmented Generation for Medical Question Answering",
@@ -2890,7 +2894,8 @@
   "cross_source": false,
   "subsection": [
    "Question Answering"
-  ]
+  ],
+  "paper_link": "https://doi.org/10.18653/v1/2025.naacl-long.635"
  },
  {
   "bib_key": "DBLP:journals/corr/abs-2506-14488",
@@ -4191,7 +4196,7 @@
   "domain": [
    "chem"
   ],
-  "paper_link": "",
+  "paper_link": "http://papers.nips.cc/paper_files/paper/2024/hash/ef107bb91dae96368c856b1064370bd0-Abstract-Conference.html",
   "note": "Fragment-based drug discovery with retrieval augmentation; hard/soft fragment retrieval; iterative refinement + genetic fragment modification; evaluated on PMO benchmark 23 tasks; AUC top-10 metric",
   "ko_cells": [
    "K3.O3"
@@ -9029,7 +9034,7 @@
   "venue": null,
   "method": null,
   "domain": [],
-  "paper_link": "",
+  "paper_link": "https://doi.org/10.1145/3732775.3733586",
   "note": "HPC-powered RAG over 3.6M scientific articles; Oreo (multimodal doc parsing) + ColTrast (query-aware encoder fine-tuning with contrastive+late-interaction); SciQ 90%, PubMedQA 76%; outperforms PubMedGPT and GPT-4; scales to thousands of GPUs",
   "ko_cells": [
    "K1.O1"
@@ -9071,7 +9076,7 @@
   "venue": null,
   "method": null,
   "domain": [],
-  "paper_link": "",
+  "paper_link": "https://doi.org/10.48550/arXiv.2603.15712",
   "note": "GPT-4 + RAG over 50,000 materials (Materials Project, NOMAD, OC20); 250+ HEA CO2 reduction catalysts; 82% thermodynamic stability; best alloy Fe0.2Co0.2Ni0.2Ir0.1Ru0.3 at 0.285V limiting potential (25% vs IrO2); 200x HTS efficiency",
   "ko_cells": [
    "K3.O3"

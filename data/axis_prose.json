@@ -140,7 +140,7 @@
                 "keys": [
                   "DBLP:conf/acl/Xiong0LZ24"
                 ],
-                "link": "https://github.com/Teddy-XiongGZ/MedRAG",
+                "link": "https://huggingface.co/MedRAG",
                 "desc": "Ready-made medical RAG corpus (PubMed, StatPearls, textbooks, Wikipedia)."
               },
               {
@@ -148,7 +148,7 @@
                 "keys": [
                   "zhang2024honeycomb"
                 ],
-                "link": "https://github.com/BangLab-UdeM-Mila/HoneyComb",
+                "link": "https://arxiv.org/abs/2409.00135",
                 "desc": "Ready-made materials-science RAG corpus (HoneyComb)."
               }
             ]
@@ -281,7 +281,7 @@
                 "keys": [
                   "DBLP:journals/nar/SzklarczykSMJBK16"
                 ],
-                "link": "http://stitch.embl.de",
+                "link": "http://stitch-db.org/",
                 "desc": "Chemical-protein interactions."
               },
               {
@@ -478,7 +478,7 @@
                 "keys": [
                   "isert2022qmugs"
                 ],
-                "link": "https://www.research-collection.ethz.ch/handle/20.500.11850/482129",
+                "link": "https://doi.org/10.1038/s41597-022-01390-7",
                 "desc": "Drug-like molecule quantum properties."
               },
               {

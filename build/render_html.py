@@ -691,17 +691,17 @@ O_SHORT = {
 
 
 def _system_name_html(s, base):
-    """System name, linked to its on-site summary page if one exists, else to the
-    external paper, else plain."""
-    bib = s['bib_key']
-    fn = bib.replace(':', '_').replace('/', '_') + '.html'
+    """System name, linked to its authoritative external source (the paper/homepage).
+    Falls back to an on-site summary page only when no external link exists, else plain."""
+    bib = s.get('bib_key', '')
     label = esc(s['name'])
-    if (ROOT / 'papers' / fn).exists():
-        return f'<a href="{base}papers/{fn}">{label}</a>'
     p = papers_by_key.get(bib)
-    link = p.get('paper_link') if p else None
+    link = s.get('link') or (p.get('paper_link') if p else None)
     if link:
         return f'<a href="{esc(link)}" target="_blank" rel="noopener">{label}</a>'
+    fn = bib.replace(':', '_').replace('/', '_') + '.html'
+    if bib and (ROOT / 'papers' / fn).exists():
+        return f'<a href="{base}papers/{fn}">{label}</a>'
     return label
 
 
@@ -884,15 +884,16 @@ def _benchmark_rows(rung=None, tasks=None):
 
 
 def _benchmark_name_html(r, base):
-    """Benchmark name linked to its on-site summary if present, else its homepage/paper."""
+    """Benchmark name linked to its authoritative external source (homepage/paper).
+    Falls back to an on-site summary page only when no external link exists, else plain."""
     bib = r.get('bib_key', '')
-    fn = bib.replace(':', '_').replace('/', '_') + '.html'
     name = esc(r.get('benchmark', ''))
-    if (ROOT / 'papers' / fn).exists():
-        return f'<a href="{base}papers/{fn}">{name}</a>'
     link = r.get('link') or (papers_by_key.get(bib) or {}).get('paper_link')
     if link:
         return f'<a href="{esc(link)}" target="_blank" rel="noopener">{name}</a>'
+    fn = bib.replace(':', '_').replace('/', '_') + '.html'
+    if bib and (ROOT / 'papers' / fn).exists():
+        return f'<a href="{base}papers/{fn}">{name}</a>'
     return name
 
 
