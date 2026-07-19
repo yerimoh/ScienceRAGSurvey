@@ -267,5 +267,21 @@
  "CERN Open Data": {
   "url": "https://opendata.cern.ch",
   "desc": "Particle-collision records."
+ },
+ "arXiv": {
+  "url": "https://arxiv.org",
+  "desc": "Multidisciplinary preprint anchor."
+ },
+ "STRING": {
+  "url": "https://string-db.org",
+  "desc": "Protein-protein interaction network."
+ },
+ "OpenCitations": {
+  "url": "https://opencitations.net",
+  "desc": "Open citation index over the literature."
+ },
+ "PMC Open Access": {
+  "url": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/",
+  "desc": "Open-access full-text subset of PubMed Central."
  }
 }

@@ -150,6 +150,12 @@
                 ],
                 "link": "https://arxiv.org/abs/2409.00135",
                 "desc": "Ready-made materials-science RAG corpus (HoneyComb)."
+              },
+              {
+                "name": "PMC Open Access",
+                "keys": [],
+                "link": "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/",
+                "desc": "Open-access full-text subset of PubMed Central."
               }
             ]
           },
@@ -197,6 +203,12 @@
                 ],
                 "link": "https://osf.io/preprints",
                 "desc": "Multidisciplinary preprint aggregator."
+              },
+              {
+                "name": "arXiv",
+                "keys": [],
+                "link": "https://arxiv.org",
+                "desc": "Multidisciplinary preprint anchor."
               }
             ]
           },
@@ -333,6 +345,12 @@
                 ],
                 "link": "https://www.ncbi.nlm.nih.gov/clinvar/",
                 "desc": "Variant-phenotype relationships."
+              },
+              {
+                "name": "STRING",
+                "keys": [],
+                "link": "https://string-db.org",
+                "desc": "Protein-protein interaction network."
               }
             ]
           },
@@ -356,6 +374,12 @@
                 ],
                 "link": "https://github.com/allenai/s2orc",
                 "desc": "Parsed full text in a citation-linked space."
+              },
+              {
+                "name": "OpenCitations",
+                "keys": [],
+                "link": "https://opencitations.net",
+                "desc": "Open citation index over the literature."
               }
             ]
           }

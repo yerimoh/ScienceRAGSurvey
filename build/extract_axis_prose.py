@@ -34,6 +34,17 @@ NAME_OVERRIDE = {
 }
 CONNECTORS = {'of', 'and', 'the', 'for', 'de', '&', 'via'}
 
+# Resources named in §4 prose without their own \cite (so extract_resources cannot find
+# them), placed under the sub-subsection they belong to. Homepage/desc come from
+# resource_meta.json like any other resource. These are in the paper by name; listing
+# them keeps the site's resource set complete with §4.
+EXTRA_RESOURCES = {
+    'General-purpose and domain literature': ['PMC Open Access'],
+    'Preprint literature': ['arXiv'],
+    'Curated concept-relation graphs': ['STRING'],
+    'Literature-derived graphs': ['OpenCitations'],
+}
+
 SUB_K = {'Textual': 'K1', 'Relational': 'K2', 'Structured-entity': 'K3', 'Perceptual': 'K4'}
 TASK_RUNG = {
     'Question Answering': 'O1', 'Claim Verification': 'O2', 'Literature Synthesis': 'O2',
@@ -207,8 +218,9 @@ def resource_name_before(left):
     return ' '.join(kept).strip()
 
 
-def extract_resources(raw_body, bib):
-    """[{name, keys, link}] for each cited resource in a sub-subsection, de-duplicated."""
+def extract_resources(raw_body, bib, title=None):
+    """[{name, keys, link}] for each cited resource in a sub-subsection, de-duplicated.
+    Also appends any EXTRA_RESOURCES named in §4 without their own \\cite."""
     out, seen = [], set()
     for m in re.finditer(r'\\cite[a-z]*\{([^}]+)\}', raw_body):
         keys = [k.strip() for k in m.group(1).split(',')]
@@ -228,6 +240,12 @@ def extract_resources(raw_body, bib):
         # prefer the curated dataset homepage; fall back to the paper link in references.bib
         link = meta.get('url') or bib_link
         out.append({'name': name, 'keys': keys, 'link': link, 'desc': meta.get('desc', '')})
+    for name in EXTRA_RESOURCES.get(title, []):
+        if name.lower() in seen:
+            continue
+        seen.add(name.lower())
+        meta = RES_META.get(name, {})
+        out.append({'name': name, 'keys': [], 'link': meta.get('url'), 'desc': meta.get('desc', '')})
     return out
 
 
@@ -258,7 +276,7 @@ def extract_K(tex, bib):
                 'title': t,
                 'text': x,
                 'summary': first_sentence(x),
-                'resources': extract_resources(raw, bib),
+                'resources': extract_resources(raw, bib, t),
             } for t, x, raw in subsubs],
         })
     return {'intro': clean(head), 'summary': first_sentence(clean(head)), 'substrates': substrates}
