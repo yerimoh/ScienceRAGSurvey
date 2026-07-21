@@ -1038,8 +1038,16 @@ def sidebar(base='', current=''):
             continue
         dom_items += f'<a href="{base}domain/{d}.html" class="sb-sub{cls(f"domain/{d}")}">{DOMAIN_EMOJI.get(d,"")} {esc(DOMAIN_LABELS[d])} <span class="sb-count">{len(by_dom[d])}</span></a>\n'
 
-    # Determine if K×O / Domains sections should auto-open
-    cell_open = ' open' if current.startswith('cell/') else ''
+    # Determine which nav group should auto-open. Each axis group opens only when the
+    # current page belongs to it — not whenever any cell/ page is shown.
+    K_PAGES = {'cell/knowledge-source', 'cell/K1', 'cell/K2', 'cell/K3', 'cell/K4'}
+    O_PAGES = {'cell/operational-objective', 'cell/O1', 'cell/O2', 'cell/O3',
+               'cell/question-answering', 'cell/claim-verification', 'cell/literature-synthesis',
+               'cell/property-prediction', 'cell/molecular-design', 'cell/materials-discovery',
+               'cell/hypothesis-generation'}
+    k_open = ' open' if current in K_PAGES else ''
+    o_open = ' open' if current in O_PAGES else ''
+    m_open = ' open' if current == 'cell/method' or current.startswith('cell/method-') else ''
     dom_open = ' open' if current.startswith('domain/') else ''
 
     return f'''
@@ -1055,26 +1063,26 @@ def sidebar(base='', current=''):
     <a href="{base}index.html" class="sb-item{cls("home")}"><span class="sb-icon">🏠</span> Home</a>
     <a href="{base}about.html" class="sb-item{cls("about")}"><span class="sb-icon">🚀</span> Getting Started</a>
 
-    <details class="sb-group"{cell_open}>
+    <details class="sb-group"{k_open}>
       <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
-        <a href="{base}cell/knowledge-source.html" class="sb-sub sb-sub-overview{cls("cell/knowledge-source")}">Overview — the data &amp; substrates →</a>
+        <a href="{base}cell/knowledge-source.html" class="sb-sub sb-sub-overview{cls("cell/knowledge-source")}">Overview: the data and substrates →</a>
         {k_axis_items}
       </div>
     </details>
 
-    <details class="sb-group"{cell_open}>
+    <details class="sb-group"{o_open}>
       <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
-        <a href="{base}cell/operational-objective.html" class="sb-sub sb-sub-overview{cls("cell/operational-objective")}">Overview — the tasks &amp; rungs →</a>
+        <a href="{base}cell/operational-objective.html" class="sb-sub sb-sub-overview{cls("cell/operational-objective")}">Overview: the tasks and rungs →</a>
         {task_items}
       </div>
     </details>
 
-    <details class="sb-group"{cell_open}>
+    <details class="sb-group"{m_open}>
       <summary class="sb-item"><span class="sb-icon">M</span> Method <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
-        <a href="{base}cell/method.html" class="sb-sub sb-sub-overview{cls("cell/method")}">Overview — the RAG pipeline →</a>
+        <a href="{base}cell/method.html" class="sb-sub sb-sub-overview{cls("cell/method")}">Overview: the RAG pipeline →</a>
         {method_items}
       </div>
     </details>
@@ -1098,7 +1106,6 @@ def sidebar(base='', current=''):
 
     <hr class="sb-rule">
 
-    <a href="{base}llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
     <a href="https://github.com/yerimoh/ScienceRAGSurvey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
   </nav>
 </aside>
@@ -1132,15 +1139,12 @@ def page_foot(base=''):
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, the companion catalog to the survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey and Taxonomy"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="{base}llms.txt">llms.txt</a>
-      <a href="{base}llms-full.txt">llms-full.txt</a>
-      <a href="{base}data/catalog.json">catalog.json</a>
-      <a href="{base}about.html">About</a>
+      <a href="https://github.com/yerimoh/ScienceRAGSurvey" target="_blank" rel="noopener">GitHub repository ↗</a>
     </p>
   </div>
 </footer>
@@ -1248,7 +1252,6 @@ PIPELINE_HTML = '''
       The survey organizes the field not as a grid of cells but as the <em>pipeline</em> a system runs:
       what knowledge it <strong>retrieves</strong> (the substrate), how it <strong>constructs, retrieves,
       generates, and verifies</strong>, and what <strong>objective</strong> it produces, scored by evaluation.
-      Science specializes every stage.
     </p>
     <div class="flow">
       <div class="flow-card flow-k">
@@ -1280,6 +1283,47 @@ PIPELINE_HTML = '''
       Every stage links to its explanation. Capability concentrates on the <strong>Textual</strong> substrate and
       automatically-checkable tasks, and thins toward non-textual, externally-verified discovery.
     </p>
+  </div>
+</section>
+'''
+
+
+# The four axes the survey uses to read every system, shown on the home page right after the
+# pipeline so a reader sees *how this survey analyzed the field* before browsing the catalog.
+AXES_HTML = '''
+<section id="axes" class="axes-section">
+  <div class="wrap">
+    <h2 class="section-title">How this survey reads a system</h2>
+    <p class="section-sub">
+      Every entry in the catalog is described along four axes. The first three name the parts of the
+      pipeline above; the fourth is how the survey scores it. Each axis has its own section on this site.
+    </p>
+    <div class="home-axes">
+      <a class="home-axis home-axis-k" href="cell/knowledge-source.html">
+        <span class="home-axis-tag">K</span>
+        <h3>Knowledge Source</h3>
+        <p>The retrieval substrate a system draws on: Textual, Relational, Structured-entity, or Perceptual. The form the knowledge is stored in fixes how it can be matched.</p>
+        <span class="home-axis-more">Knowledge sources →</span>
+      </a>
+      <a class="home-axis home-axis-o" href="cell/operational-objective.html">
+        <span class="home-axis-tag">O</span>
+        <h3>Operational Objective</h3>
+        <p>The task a system serves, ordered by how far its ground truth sits from the corpus: grounding a stored answer, synthesis across sources, then discovery an external check must judge.</p>
+        <span class="home-axis-more">Operational objectives →</span>
+      </a>
+      <a class="home-axis home-axis-m" href="cell/method.html">
+        <span class="home-axis-tag">M</span>
+        <h3>Method</h3>
+        <p>The four-stage pipeline that carries evidence to a claim: construction, retrieval, integration, and verification, plus how tightly the verifier couples back into generation.</p>
+        <span class="home-axis-more">The RAG pipeline →</span>
+      </a>
+      <a class="home-axis home-axis-e" href="cell/evaluation.html">
+        <span class="home-axis-tag">E</span>
+        <h3>Evaluation</h3>
+        <p>How each objective is scored: retrieval quality, output correctness, generation quality, and verifier-based scoring, and where automatic metrics stop being able to establish a result.</p>
+        <span class="home-axis-more">Evaluation →</span>
+      </a>
+    </div>
   </div>
 </section>
 '''
@@ -1342,7 +1386,7 @@ def _growth_chart_html():
         lbl = '≤2017' if y == 2017 else str(y)
         s.append(f'<text x="{X(i):.1f}" y="{H-8}" text-anchor="middle" font-size="10" fill="var(--fg-muted)">{lbl}</text>')
     s.append(f'<circle cx="{X(n-1):.1f}" cy="{Y(total_max):.1f}" r="3" fill="var(--fg)"/>')
-    s.append(f'<text x="{X(n-1)-6:.1f}" y="{Y(total_max)-7:.1f}" text-anchor="end" font-size="13" font-weight="700" fill="var(--fg)">{int(total_max)} total</text>')
+    s.append(f'<text x="{X(n-1)-6:.1f}" y="{Y(total_max)-7:.1f}" text-anchor="end" font-size="13" font-weight="700" fill="var(--fg)">{int(total_max)} dated</text>')
     svg = (f'<svg viewBox="0 0 {W} {H}" width="100%" preserveAspectRatio="xMidYMid meet" role="img" '
            f'aria-label="Cumulative growth of scientific RAG systems by year, stacked by resource type">{"".join(s)}</svg>')
     legend = ''.join(f'<span class="lg-chip" style="background:{c};color:#fff">{lbl}</span>' for _, lbl, c in TYPES)
@@ -1361,8 +1405,7 @@ def render_index():
       <strong>{len(papers)}</strong> methods, benchmarks, and datasets across
       <strong>{len(by_dom)}</strong> scientific domains, mapped onto the survey's two axes:
       the <em>retrieval substrate</em> a system draws on (Textual, Relational, Structured-entity, Perceptual)
-      and the <em>operational objective</em> it serves, rising from grounding a known answer to proposing a discovery.
-      Companion catalog to the survey by Oh et al.
+      and the <em>operational objective</em> it serves, from grounding a known answer to proposing a discovery.
     </p>
     <div class="hero-search">
       <input id="q" type="search" placeholder="Search by title, method, dataset, venue, or tag…" autofocus>
@@ -1380,8 +1423,14 @@ def render_index():
     # --- Centerpiece: the paper's pipeline overview (Fig. 1) ---
     parts.append(PIPELINE_HTML)
 
+    # --- The four axes (K, O, M, E) the survey uses to read every system ---
+    parts.append(AXES_HTML)
+
     # --- Cumulative growth chart (stacked area by resource type) ---
     _gsvg, _gleg = _growth_chart_html()
+    _charted = sum(1 for p in papers
+                   if str(p.get('year', '')).isdigit()
+                   and p.get('type') in ('Method', 'benchmark', 'dataset'))
     parts.append(f'''
 <section class="growth-section">
   <div class="wrap">
@@ -1393,7 +1442,7 @@ def render_index():
     </p>
     <div class="chart-frame">{_gsvg}</div>
     <p class="chart-legend">{_gleg}</p>
-    <p class="chart-note">The chart plots entries with a recorded publication year; a handful of undated entries are not shown. See <a href="browse.html">Browse</a> for the full catalog of {len(papers)}.</p>
+    <p class="chart-note">The chart counts the {_charted} methods, benchmarks, and datasets that carry a publication year. The remaining {len(papers) - _charted} of the {len(papers)} catalog entries are survey articles or entries without a dated record. See <a href="browse.html">Browse</a> for the full catalog.</p>
   </div>
 </section>
 ''')
@@ -1437,11 +1486,10 @@ def render_index():
   <div class="wrap">
     <h2 class="section-title">What's next</h2>
     <p class="section-sub">
-      Across the grid, one message stands out. Capability piles up where the substrate is textual and the task
-      can be scored automatically, and it thins toward non-textual evidence and externally verified discovery,
-      the very abilities an autonomous scientific agent leans on most. The work ahead is less a search for better
-      retrievers than making more of science <strong>retrievable</strong> and more of its outputs
-      <strong>verifiable</strong>.
+      Capability concentrates where the substrate is textual and the task can be scored automatically, and it
+      thins toward non-textual evidence and externally verified discovery, the abilities an autonomous scientific
+      agent relies on most. The open work is less about better retrievers than about making more of science
+      <strong>retrievable</strong> and more of its outputs <strong>verifiable</strong>.
     </p>
     <div class="whatsnext-cta">
       <a href="insights.html#directions" class="btn">The road ahead</a>
@@ -1459,19 +1507,17 @@ def render_index():
       <div class="contribute-card">
         <h2 class="section-title">Contributing</h2>
         <p>
-          Missing entries, mis-classifications, or new systems? Open an issue or a pull request on the
+          To suggest a missing entry, a correction, or a new system, open an issue or a pull request on the
           <a href="https://github.com/yerimoh/ScienceRAGSurvey" target="_blank" rel="noopener">GitHub repository</a>.
-          The build is fully deterministic, so editing the data files and re-running the render script rebuilds
-          every page.
+          Every page is generated from the data files, so an accepted change to the data is enough to update the site.
         </p>
       </div>
       <div class="contribute-card">
         <h2 class="section-title">Cite</h2>
         <pre><code>@article{oh2026scientificrag,
-  title   = {Scientific Retrieval-Augmented Generation: A Survey and Taxonomy},
-  author  = {Oh, Yerim and Ko, Dayoon and Kim, Sohyeon and Lee, Taehyun and Jung, Yeonseok and Kim, Gunhee},
-  journal = {ACM Computing Surveys (under review)},
-  year    = {2026}
+  title  = {Scientific Retrieval-Augmented Generation: A Survey and Taxonomy},
+  author = {Oh, Yerim and Ko, Dayoon and Kim, Sohyeon and Lee, Taehyun and Jung, Yeonseok and Kim, Gunhee},
+  year   = {2026}
 }</code></pre>
       </div>
     </div>
@@ -1498,24 +1544,30 @@ document.getElementById('q')?.addEventListener('keydown', e => {
 def render_about():
     abstract = esc(AXIS_PROSE.get('abstract', ''))
     body = f'''
-<section class="prose">
+<section class="prose prose-wide">
   <div class="wrap">
-    <h1>Scientific Retrieval-Augmented Generation: A Survey and Taxonomy</h1>
-    <p class="about-byline">Oh et al., Vision and Learning Lab, Seoul National University</p>
+    <h1>Getting started</h1>
+    <p class="about-byline">Companion catalog to the survey by Oh et al., Vision and Learning Lab, Seoul National University</p>
+
+    <p class="about-intro">
+      This site is the browsable form of our survey of scientific retrieval-augmented generation.
+      It catalogs {len(papers)} methods, benchmarks, and datasets and describes each along the same four
+      axes the survey uses. Start here for what each part of the site holds, then follow any axis into the catalog.
+    </p>
 
     <h2>Abstract</h2>
-    <p class="lede">{abstract}</p>
+    <p class="about-abstract">{abstract}</p>
 
-    <h2>How the survey organizes the field</h2>
+    <h2>The four axes</h2>
     <p>
-      A scientific RAG system is read through the pipeline it runs, along three axes. Each has its
-      own section of this site, mirroring the survey.
+      A scientific RAG system is read through the pipeline it runs. Three axes name the parts of that
+      pipeline; the fourth is how the survey scores it. Each has its own section on this site.
     </p>
-    <div class="about-axes">
+    <div class="about-axes about-axes-4">
       <a class="about-axis about-axis-k" href="cell/knowledge-source.html">
         <span class="about-axis-tag">K</span>
         <h3>Knowledge Source</h3>
-        <p>The retrieval substrate, the native form a source stores its knowledge in, which fixes the matching operation it admits: <strong>Textual</strong>, <strong>Relational</strong>, <strong>Structured-entity</strong>, <strong>Perceptual</strong>.</p>
+        <p>The retrieval substrate, the native form a source stores its knowledge in, which fixes the matching it admits: <strong>Textual</strong>, <strong>Relational</strong>, <strong>Structured-entity</strong>, <strong>Perceptual</strong>.</p>
       </a>
       <a class="about-axis about-axis-o" href="cell/operational-objective.html">
         <span class="about-axis-tag">O</span>
@@ -1524,27 +1576,62 @@ def render_about():
       </a>
       <a class="about-axis about-axis-m" href="cell/method.html">
         <span class="about-axis-tag">M</span>
-        <h3>Method — the pipeline</h3>
-        <p>How evidence is carried to a claim, specialized at every stage — <strong>construction</strong>, <strong>retrieval</strong>, <strong>integration</strong>, <strong>verification</strong> — up to how deeply a verifier couples into generation.</p>
+        <h3>Method</h3>
+        <p>How evidence is carried to a claim, specialized at every stage: <strong>construction</strong>, <strong>retrieval</strong>, <strong>integration</strong>, <strong>verification</strong>, up to how deeply a verifier couples into generation.</p>
+      </a>
+      <a class="about-axis about-axis-e" href="cell/evaluation.html">
+        <span class="about-axis-tag">E</span>
+        <h3>Evaluation</h3>
+        <p>How each objective is scored: <strong>retrieval quality</strong>, <strong>output correctness</strong>, <strong>generation quality</strong>, and <strong>verifier-based scoring</strong>, and where automatic metrics stop.</p>
       </a>
     </div>
-    <p>
-      Across the {len(papers)}-paper catalog, a field's maturity tracks whether its knowledge can be
-      made retrievable and its outputs verifiable. Browse the full catalog on the
-      <a href="browse.html">Browse</a> page, or by <a href="index.html#domains">scientific domain</a>.
-    </p>
+
+    <h2>What you'll find on each page</h2>
+    <dl class="site-guide">
+      <div class="site-guide-row">
+        <dt><a href="index.html">Home</a></dt>
+        <dd>The pipeline diagram, the four axes at a glance, how the field has grown by year, and the catalog split by scientific domain.</dd>
+      </div>
+      <div class="site-guide-row">
+        <dt><a href="cell/knowledge-source.html">Knowledge Source (K)</a></dt>
+        <dd>The four substrates, with the data resources that fall under each and a table of their scale and access.</dd>
+      </div>
+      <div class="site-guide-row">
+        <dt><a href="cell/operational-objective.html">Operational Objective (O)</a></dt>
+        <dd>The seven task families grouped under grounding, synthesis, and discovery, each with its benchmarks.</dd>
+      </div>
+      <div class="site-guide-row">
+        <dt><a href="cell/method.html">Method (M)</a></dt>
+        <dd>The four-stage RAG pipeline and the systems that implement it, grouped by how tightly their verifier couples into generation.</dd>
+      </div>
+      <div class="site-guide-row">
+        <dt><a href="cell/evaluation.html">Evaluation (E)</a></dt>
+        <dd>The four scoring dimensions, the measures and metrics behind each, and where a result cannot yet be established automatically.</dd>
+      </div>
+      <div class="site-guide-row">
+        <dt><a href="cell/open-challenges.html">Open Challenges</a></dt>
+        <dd>The open problems the survey identifies and its outlook on where scientific RAG is headed.</dd>
+      </div>
+      <div class="site-guide-row">
+        <dt><a href="index.html#domains">Domains</a></dt>
+        <dd>The same catalog viewed by scientific field, from medicine and biology to physics and earth science.</dd>
+      </div>
+      <div class="site-guide-row">
+        <dt><a href="browse.html">Browse all</a></dt>
+        <dd>The full catalog with search and filters by axis, task, domain, type, and year.</dd>
+      </div>
+    </dl>
 
     <h2 id="cite">Cite</h2>
     <pre class="cite-block">@article{{oh2026scientificrag,
-  title   = {{Scientific Retrieval-Augmented Generation: A Survey and Taxonomy}},
-  author  = {{Oh, Yerim and Ko, Dayoon and Kim, Sohyeon and Lee, Taehyun and Jung, Yeonseok and Kim, Gunhee}},
-  journal = {{ACM Computing Surveys (under review)}},
-  year    = {{2026}}
+  title  = {{Scientific Retrieval-Augmented Generation: A Survey and Taxonomy}},
+  author = {{Oh, Yerim and Ko, Dayoon and Kim, Sohyeon and Lee, Taehyun and Jung, Yeonseok and Kim, Gunhee}},
+  year   = {{2026}}
 }}</pre>
   </div>
 </section>
 '''
-    (ROOT / 'about.html').write_text(page_head('About', current='about') + body + PAGE_FOOT)
+    (ROOT / 'about.html').write_text(page_head('Getting started', current='about') + body + PAGE_FOOT)
 
 
 # ---------- browse.html (client-side filter) ----------
@@ -1817,7 +1904,7 @@ def render_cell_pages():
                              if fn_items else '')
             sf = subsec_filter_html(ps, prefix=f'cell{cell}', axis_scope=O, cell_key=cell)
             sys_table = systems_table_html(CELL_PAPERS.get(cell, []), base='../',
-                                           caption=f'Pipeline at a glance — [{cell}] systems, decomposed by stage (survey Table 3).')
+                                           caption=f'Pipeline at a glance: [{cell}] systems, decomposed by stage (survey Table 3).')
 
             # Cell-tier badge (Active / Emerging / Frontier) from §4 K×O Cross-Tab Analysis
             tier_info = CELL_TIERS.get(cell)
@@ -2108,7 +2195,7 @@ def pipeline_svg(base='../'):
     </defs>
     {q_in}{arrows}{loop}{boxes}{out}
   </svg>
-  <figcaption>The pipeline, one box per §6 stage — each links to its section. A verifier can loop the draft back into integration for another round.</figcaption>
+  <figcaption>Each box is one stage of §6 and links to its section. The verifier can send a draft back into integration for another round.</figcaption>
 </figure>'''
 
 
@@ -2143,7 +2230,7 @@ def render_method_pages():
 <section class="cell-hero axis-hero">
   <div class="wrap">
     <p class="eyebrow"><a href="../browse.html">← Browse all</a></p>
-    <h1><span class="cell-id-big axis-id-m">M</span> Method — The Scientific RAG Pipeline</h1>
+    <h1><span class="cell-id-big axis-id-m">M</span> Method: The Scientific RAG Pipeline</h1>
     <div class="axis-intro">{m_intro}</div>
     {pipeline_svg(base='../')}
     <div class="cell-nav">{stage_nav}</div>
@@ -2158,7 +2245,7 @@ def render_method_pages():
 </section>
 '''
     (ROOT / 'cell' / 'method.html').write_text(
-        page_head('Method — The Scientific RAG Pipeline', base='../', current='cell/method') + body + page_foot('../'))
+        page_head('Method: The Scientific RAG Pipeline', base='../', current='cell/method') + body + page_foot('../'))
 
     # ----- one page per stage -----
     for s in M_STAGES:
@@ -2183,7 +2270,7 @@ def render_method_pages():
 </section>
 '''
         (ROOT / 'cell' / f'method-{slug}.html').write_text(
-            page_head(f'{s.get("name","")} — Method', base='../', current=f'cell/method-{slug}') + sbody + page_foot('../'))
+            page_head(f'{s.get("name","")}: Method', base='../', current=f'cell/method-{slug}') + sbody + page_foot('../'))
 
 
 # ---------- Evaluation (§7) and Open Challenges (§8) pages ----------
@@ -2815,6 +2902,21 @@ def write_catalog():
     print(f'  data/catalog.json ({len(papers)} entries, remapped)')
 
 
+def strip_em_dashes():
+    """Belt-and-suspenders: no em dash reaches any page, whatever the data source.
+    A spaced em dash becomes a comma (its usual appositive sense); a tight one becomes a
+    hyphen. Runs over every generated .html after render."""
+    import glob
+    changed = 0
+    for path in glob.glob(str(ROOT / '**/*.html'), recursive=True):
+        txt = open(path, encoding='utf-8').read()
+        new = txt.replace(' — ', ', ').replace('—', '-')
+        if new != txt:
+            open(path, 'w', encoding='utf-8').write(new)
+            changed += 1
+    print(f'  em-dash sweep: cleaned {changed} html file(s)')
+
+
 if __name__ == '__main__':
     # render_paper_pages() intentionally disabled: the per-paper body-tab summaries were
     # AI-generated and unverifiable. Every paper now links to its external source instead.
@@ -2830,6 +2932,7 @@ if __name__ == '__main__':
     render_domain_pages()
     render_type_pages()
     write_catalog()
+    strip_em_dashes()
     print('Wrote all HTML pages.')
     print(f'  index.html, about.html, browse.html, insights.html')
     print(f'  cell/*.html (K/O axis roll-ups + overviews + {len(TASK_ORDER)} task pages)')

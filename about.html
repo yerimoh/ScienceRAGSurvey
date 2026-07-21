@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>About, Scientific RAG Hub</title>
+<title>Getting started, Scientific RAG Hub</title>
 <meta name="description" content="Scientific RAG Hub, a curated catalog of retrieval-augmented generation systems for scientific discovery.">
-<link rel="stylesheet" href="static/style.css?v=1784449380">
+<link rel="stylesheet" href="static/style.css?v=1784635175">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%94%AC%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -26,7 +26,7 @@
     <details class="sb-group">
       <summary class="sb-item"><span class="sb-icon">K</span> Knowledge Source <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
-        <a href="cell/knowledge-source.html" class="sb-sub sb-sub-overview">Overview — the data &amp; substrates →</a>
+        <a href="cell/knowledge-source.html" class="sb-sub sb-sub-overview">Overview: the data and substrates →</a>
         <a href="cell/K1.html" class="sb-sub">Textual <span class="sb-count">22</span></a>
 <a href="cell/K2.html" class="sb-sub">Relational <span class="sb-count">8</span></a>
 <a href="cell/K3.html" class="sb-sub">Structured-entity <span class="sb-count">7</span></a>
@@ -38,7 +38,7 @@
     <details class="sb-group">
       <summary class="sb-item"><span class="sb-icon">O</span> Operational Objective <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
-        <a href="cell/operational-objective.html" class="sb-sub sb-sub-overview">Overview — the tasks &amp; rungs →</a>
+        <a href="cell/operational-objective.html" class="sb-sub sb-sub-overview">Overview: the tasks and rungs →</a>
         <a href="cell/O1.html" class="sb-subhead">Grounding <span class="sb-count">24</span></a>
 <a href="cell/question-answering.html" class="sb-sub sb-task">Question Answering <span class="sb-count">33</span></a>
 <a href="cell/O2.html" class="sb-subhead">Synthesis <span class="sb-count">9</span></a>
@@ -56,7 +56,7 @@
     <details class="sb-group">
       <summary class="sb-item"><span class="sb-icon">M</span> Method <span class="sb-caret">▾</span></summary>
       <div class="sb-subs">
-        <a href="cell/method.html" class="sb-sub sb-sub-overview">Overview — the RAG pipeline →</a>
+        <a href="cell/method.html" class="sb-sub sb-sub-overview">Overview: the RAG pipeline →</a>
         <a href="cell/method-construction.html" class="sb-sub">Construction</a>
 <a href="cell/method-retrieval.html" class="sb-sub">Retrieval</a>
 <a href="cell/method-integration.html" class="sb-sub">Integration</a>
@@ -93,7 +93,6 @@
 
     <hr class="sb-rule">
 
-    <a href="llms.txt" class="sb-item sb-quiet" title="LLM-friendly index"><span class="sb-icon">📄</span> llms.txt</a>
     <a href="https://github.com/yerimoh/ScienceRAGSurvey" class="sb-item sb-quiet" target="_blank" rel="noopener"><span class="sb-icon">⌥</span> GitHub ↗</a>
   </nav>
 </aside>
@@ -101,24 +100,30 @@
 <div class="sb-backdrop" onclick="document.body.classList.remove('sb-open')"></div>
 <main class="with-sidebar">
 
-<section class="prose">
+<section class="prose prose-wide">
   <div class="wrap">
-    <h1>Scientific Retrieval-Augmented Generation: A Survey and Taxonomy</h1>
-    <p class="about-byline">Oh et al., Vision and Learning Lab, Seoul National University</p>
+    <h1>Getting started</h1>
+    <p class="about-byline">Companion catalog to the survey by Oh et al., Vision and Learning Lab, Seoul National University</p>
+
+    <p class="about-intro">
+      This site is the browsable form of our survey of scientific retrieval-augmented generation.
+      It catalogs 331 methods, benchmarks, and datasets and describes each along the same four
+      axes the survey uses. Start here for what each part of the site holds, then follow any axis into the catalog.
+    </p>
 
     <h2>Abstract</h2>
-    <p class="lede">Retrieval-augmented generation (RAG) grounds large language models in external knowledge, and scientific RAG has emerged as a distinct research frontier. Yet no survey treats it as a field in its own right. Existing reviews subsume it under general-purpose RAG and organize systems by retriever-generator pipelines, overlooking what sets scientific practice apart: what knowledge a system draws upon and what operation it performs on that knowledge. We present the first comprehensive survey of scientific RAG, using a 331-paper catalog to organize the field around the pipeline a system runs. The knowledge it retrieves is a substrate, namely Textual, Relational, Structured-entity, or Perceptual, whose native form fixes the matching operation it admits. The task it serves fixes the ground truth that scores its output, and rises by how far that truth sits from the corpus, from grounding through synthesis to discovery. The method connecting them specializes each stage, up to how deeply a verifier couples into generation. Across the catalog, a field&#x27;s maturity tracks whether its knowledge can be made retrievable and its outputs verifiable. We close with a research agenda spanning adapting general RAG capabilities, building the components the field still lacks, and confronting the limits set by tacit and access-restricted knowledge.</p>
+    <p class="about-abstract">Retrieval-augmented generation (RAG) grounds large language models in external knowledge, and scientific RAG has emerged as a distinct research frontier. Yet no survey treats it as a field in its own right. Existing reviews subsume it under general-purpose RAG and organize systems by retriever-generator pipelines, overlooking what sets scientific practice apart: what knowledge a system draws upon and what operation it performs on that knowledge. We present the first comprehensive survey of scientific RAG, using a 331-paper catalog to organize the field around the pipeline a system runs. The knowledge it retrieves is a substrate, namely Textual, Relational, Structured-entity, or Perceptual, whose native form fixes the matching operation it admits. The task it serves fixes the ground truth that scores its output, and rises by how far that truth sits from the corpus, from grounding through synthesis to discovery. The method connecting them specializes each stage, up to how deeply a verifier couples into generation. Across the catalog, a field&#x27;s maturity tracks whether its knowledge can be made retrievable and its outputs verifiable. We close with a research agenda spanning adapting general RAG capabilities, building the components the field still lacks, and confronting the limits set by tacit and access-restricted knowledge.</p>
 
-    <h2>How the survey organizes the field</h2>
+    <h2>The four axes</h2>
     <p>
-      A scientific RAG system is read through the pipeline it runs, along three axes. Each has its
-      own section of this site, mirroring the survey.
+      A scientific RAG system is read through the pipeline it runs. Three axes name the parts of that
+      pipeline; the fourth is how the survey scores it. Each has its own section on this site.
     </p>
-    <div class="about-axes">
+    <div class="about-axes about-axes-4">
       <a class="about-axis about-axis-k" href="cell/knowledge-source.html">
         <span class="about-axis-tag">K</span>
         <h3>Knowledge Source</h3>
-        <p>The retrieval substrate, the native form a source stores its knowledge in, which fixes the matching operation it admits: <strong>Textual</strong>, <strong>Relational</strong>, <strong>Structured-entity</strong>, <strong>Perceptual</strong>.</p>
+        <p>The retrieval substrate, the native form a source stores its knowledge in, which fixes the matching it admits: <strong>Textual</strong>, <strong>Relational</strong>, <strong>Structured-entity</strong>, <strong>Perceptual</strong>.</p>
       </a>
       <a class="about-axis about-axis-o" href="cell/operational-objective.html">
         <span class="about-axis-tag">O</span>
@@ -127,22 +132,57 @@
       </a>
       <a class="about-axis about-axis-m" href="cell/method.html">
         <span class="about-axis-tag">M</span>
-        <h3>Method — the pipeline</h3>
-        <p>How evidence is carried to a claim, specialized at every stage — <strong>construction</strong>, <strong>retrieval</strong>, <strong>integration</strong>, <strong>verification</strong> — up to how deeply a verifier couples into generation.</p>
+        <h3>Method</h3>
+        <p>How evidence is carried to a claim, specialized at every stage: <strong>construction</strong>, <strong>retrieval</strong>, <strong>integration</strong>, <strong>verification</strong>, up to how deeply a verifier couples into generation.</p>
+      </a>
+      <a class="about-axis about-axis-e" href="cell/evaluation.html">
+        <span class="about-axis-tag">E</span>
+        <h3>Evaluation</h3>
+        <p>How each objective is scored: <strong>retrieval quality</strong>, <strong>output correctness</strong>, <strong>generation quality</strong>, and <strong>verifier-based scoring</strong>, and where automatic metrics stop.</p>
       </a>
     </div>
-    <p>
-      Across the 331-paper catalog, a field's maturity tracks whether its knowledge can be
-      made retrievable and its outputs verifiable. Browse the full catalog on the
-      <a href="browse.html">Browse</a> page, or by <a href="index.html#domains">scientific domain</a>.
-    </p>
+
+    <h2>What you'll find on each page</h2>
+    <dl class="site-guide">
+      <div class="site-guide-row">
+        <dt><a href="index.html">Home</a></dt>
+        <dd>The pipeline diagram, the four axes at a glance, how the field has grown by year, and the catalog split by scientific domain.</dd>
+      </div>
+      <div class="site-guide-row">
+        <dt><a href="cell/knowledge-source.html">Knowledge Source (K)</a></dt>
+        <dd>The four substrates, with the data resources that fall under each and a table of their scale and access.</dd>
+      </div>
+      <div class="site-guide-row">
+        <dt><a href="cell/operational-objective.html">Operational Objective (O)</a></dt>
+        <dd>The seven task families grouped under grounding, synthesis, and discovery, each with its benchmarks.</dd>
+      </div>
+      <div class="site-guide-row">
+        <dt><a href="cell/method.html">Method (M)</a></dt>
+        <dd>The four-stage RAG pipeline and the systems that implement it, grouped by how tightly their verifier couples into generation.</dd>
+      </div>
+      <div class="site-guide-row">
+        <dt><a href="cell/evaluation.html">Evaluation (E)</a></dt>
+        <dd>The four scoring dimensions, the measures and metrics behind each, and where a result cannot yet be established automatically.</dd>
+      </div>
+      <div class="site-guide-row">
+        <dt><a href="cell/open-challenges.html">Open Challenges</a></dt>
+        <dd>The open problems the survey identifies and its outlook on where scientific RAG is headed.</dd>
+      </div>
+      <div class="site-guide-row">
+        <dt><a href="index.html#domains">Domains</a></dt>
+        <dd>The same catalog viewed by scientific field, from medicine and biology to physics and earth science.</dd>
+      </div>
+      <div class="site-guide-row">
+        <dt><a href="browse.html">Browse all</a></dt>
+        <dd>The full catalog with search and filters by axis, task, domain, type, and year.</dd>
+      </div>
+    </dl>
 
     <h2 id="cite">Cite</h2>
     <pre class="cite-block">@article{oh2026scientificrag,
-  title   = {Scientific Retrieval-Augmented Generation: A Survey and Taxonomy},
-  author  = {Oh, Yerim and Ko, Dayoon and Kim, Sohyeon and Lee, Taehyun and Jung, Yeonseok and Kim, Gunhee},
-  journal = {ACM Computing Surveys (under review)},
-  year    = {2026}
+  title  = {Scientific Retrieval-Augmented Generation: A Survey and Taxonomy},
+  author = {Oh, Yerim and Ko, Dayoon and Kim, Sohyeon and Lee, Taehyun and Jung, Yeonseok and Kim, Gunhee},
+  year   = {2026}
 }</pre>
   </div>
 </section>
@@ -150,15 +190,12 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      <strong>Scientific RAG Hub</strong>, companion catalog to the upcoming survey
+      <strong>Scientific RAG Hub</strong>, the companion catalog to the survey
       <em>"Scientific Retrieval-Augmented Generation: A Survey and Taxonomy"</em>
       by Oh et al. (Vision and Learning Lab, Seoul National University).
     </p>
     <p class="links">
-      <a href="llms.txt">llms.txt</a>
-      <a href="llms-full.txt">llms-full.txt</a>
-      <a href="data/catalog.json">catalog.json</a>
-      <a href="about.html">About</a>
+      <a href="https://github.com/yerimoh/ScienceRAGSurvey" target="_blank" rel="noopener">GitHub repository ↗</a>
     </p>
   </div>
 </footer>

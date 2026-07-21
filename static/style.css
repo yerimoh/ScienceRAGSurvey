@@ -1848,8 +1848,20 @@ sup.footnote-ref a:focus {
 .axis-id-m { background: var(--m-bg); color: var(--m-fg); }
 .axis-subsub-title::before { color: var(--m-fg); }
 
-/* ---------- About page ---------- */
-.about-byline { color: var(--fg-muted); font-family: var(--font-mono); font-size: .9rem; margin: -.4rem 0 1.6rem; }
+/* ---------- About / Getting started page ---------- */
+.prose.prose-wide .wrap { max-width: 1040px; }
+.about-byline { color: var(--fg-muted); font-family: var(--font-mono); font-size: .9rem; margin: -.4rem 0 1.4rem; }
+.about-intro { font-size: 1.02rem; line-height: 1.65; color: var(--fg); max-width: 74ch; }
+.about-abstract { font-size: .95rem; line-height: 1.7; color: var(--fg-muted); }
+.about-axes-4 { grid-template-columns: repeat(4, 1fr); }
+.site-guide { margin: 1rem 0 1.6rem; }
+.site-guide-row { display: grid; grid-template-columns: minmax(160px, 220px) 1fr; gap: 1rem; padding: .7rem 0; border-bottom: 1px solid var(--line); }
+.site-guide-row:last-child { border-bottom: none; }
+.site-guide dt { font-weight: 600; }
+.site-guide dt a { color: var(--link); text-decoration: none; }
+.site-guide dt a:hover { text-decoration: underline; }
+.site-guide dd { margin: 0; color: var(--fg-muted); font-size: .92rem; line-height: 1.55; }
+@media (max-width: 640px) { .site-guide-row { grid-template-columns: 1fr; gap: .2rem; } }
 .about-axes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.2rem 0 1.6rem; }
 .about-axis { display: block; padding: 1.1rem 1.15rem; border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--bg-elev); text-decoration: none; color: var(--fg); transition: border-color .15s, box-shadow .15s; }
 .about-axis:hover { text-decoration: none; box-shadow: var(--shadow-card); }
@@ -1862,8 +1874,28 @@ sup.footnote-ref a:focus {
 .about-axis-o .about-axis-tag { background: var(--o-bg); color: var(--o-fg); }
 .about-axis-m:hover { border-color: var(--m-fg); }
 .about-axis-m .about-axis-tag { background: var(--m-bg); color: var(--m-fg); }
+.about-axis-e:hover { border-color: #00695c; }
+.about-axis-e .about-axis-tag { background: #e0f2f1; color: #00695c; }
 .cite-block { background: var(--bg-subtle); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem; overflow-x: auto; font-size: .85rem; }
+@media (max-width: 900px) { .about-axes-4 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 760px) { .about-axes { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .about-axes-4 { grid-template-columns: 1fr; } }
+
+/* ---------- Home: the four axes (K, O, M, E) ---------- */
+.axes-section { padding: 2.4rem 0; border-top: 1px solid var(--line); }
+.home-axes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.4rem; }
+.home-axis { display: flex; flex-direction: column; padding: 1.1rem 1.15rem; border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--bg-elev); text-decoration: none; color: var(--fg); transition: border-color .15s, box-shadow .15s; }
+.home-axis:hover { text-decoration: none; box-shadow: var(--shadow-card); }
+.home-axis h3 { margin: .55rem 0 .45rem; font-size: 1.05rem; }
+.home-axis p { color: var(--fg-muted); font-size: .86rem; line-height: 1.5; margin: 0 0 .8rem; flex: 1; }
+.home-axis-tag { display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 8px; font-family: var(--font-mono); font-weight: 700; }
+.home-axis-more { font-size: .82rem; font-weight: 600; color: var(--link); }
+.home-axis-k:hover { border-color: var(--k-fg); } .home-axis-k .home-axis-tag { background: var(--k-bg); color: var(--k-fg); }
+.home-axis-o:hover { border-color: var(--o-fg); } .home-axis-o .home-axis-tag { background: var(--o-bg); color: var(--o-fg); }
+.home-axis-m:hover { border-color: var(--m-fg); } .home-axis-m .home-axis-tag { background: var(--m-bg); color: var(--m-fg); }
+.home-axis-e:hover { border-color: #00695c; } .home-axis-e .home-axis-tag { background: #e0f2f1; color: #00695c; }
+@media (max-width: 900px) { .home-axes { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .home-axes { grid-template-columns: 1fr; } }
 
 /* ---------- Evaluation (§7) & Open Challenges (§8) ---------- */
 .axis-id-e { background: #e0f2f1; color: #00695c; }

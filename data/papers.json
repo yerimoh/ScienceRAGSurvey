@@ -326,7 +326,7 @@
   "subsection": "Verificative Synthesis"
  },
  {
-  "title": "OER-DFT (HEA) — LLM-Driven Discovery of High-Entropy Catalysts via RAG",
+  "title": "OER-DFT (HEA): LLM-Driven Discovery of High-Entropy Catalysts via RAG",
   "year": 2026,
   "venue": "arXiv",
   "venue_type": "AI",
@@ -361,7 +361,7 @@
   "year": 2026,
   "venue": "Nature",
   "venue_type": "Science",
-  "db_name": "OpenScholar DataStore (OSDS) — peS2o",
+  "db_name": "OpenScholar DataStore (OSDS): peS2o",
   "db_size": "45M papers, 236M passages",
   "db_open": "Open",
   "chunk": "256-word fixed; title prepended",
@@ -5357,7 +5357,7 @@
   "cross_source": false
  },
  {
-  "title": "DeepDRiD: Diabetic Retinopathy—Grading and Image Quality Estimation Challenge",
+  "title": "DeepDRiD: Diabetic Retinopathy-Grading and Image Quality Estimation Challenge",
   "year": 2022,
   "venue": "Patterns",
   "venue_type": "Science",
