@@ -54,12 +54,10 @@ The site is fully static (no build step required by GitHub) — `.nojekyll` is p
 ## Cite
 
 ```bibtex
-@article{oh2026sciragsurvey,
-  title   = {Scientific Retrieval-Augmented Generation: A Survey through
-             a Survey and Taxonomy},
-  author  = {Oh, Yerim and others},
-  journal = {TBD},
-  year    = {TBD}
+@article{oh2026scientificrag,
+  title  = {Scientific Retrieval-Augmented Generation: A Survey and Taxonomy},
+  author = {Yerim Oh and Dayoon Ko and Sohyeon Kim and Taehyun Lee and Yeonseok Jung and Gunhee Kim},
+  year   = {2026}
 }
 ```
 

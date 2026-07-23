@@ -1516,7 +1516,7 @@ def render_index():
         <h2 class="section-title">Cite</h2>
         <pre><code>@article{oh2026scientificrag,
   title  = {Scientific Retrieval-Augmented Generation: A Survey and Taxonomy},
-  author = {Oh, Yerim and Ko, Dayoon and Kim, Sohyeon and Lee, Taehyun and Jung, Yeonseok and Kim, Gunhee},
+  author = {Yerim Oh and Dayoon Ko and Sohyeon Kim and Taehyun Lee and Yeonseok Jung and Gunhee Kim},
   year   = {2026}
 }</code></pre>
       </div>
@@ -1625,7 +1625,7 @@ def render_about():
     <h2 id="cite">Cite</h2>
     <pre class="cite-block">@article{{oh2026scientificrag,
   title  = {{Scientific Retrieval-Augmented Generation: A Survey and Taxonomy}},
-  author = {{Oh, Yerim and Ko, Dayoon and Kim, Sohyeon and Lee, Taehyun and Jung, Yeonseok and Kim, Gunhee}},
+  author = {{Yerim Oh and Dayoon Ko and Sohyeon Kim and Taehyun Lee and Yeonseok Jung and Gunhee Kim}},
   year   = {{2026}}
 }}</pre>
   </div>
